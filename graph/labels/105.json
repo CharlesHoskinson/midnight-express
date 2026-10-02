@@ -1,0 +1,1 @@
+{"name": "Privacy-Preserving Deterministic Wallets", "summary": "The cluster covers public derivation of wallet keys with privacy protections, using PDPKS and key-insulated signatures to limit key compromise and prevent linking derived keys to their master key."}

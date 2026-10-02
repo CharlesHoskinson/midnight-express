@@ -1,0 +1,1 @@
+{"name": "Trellis Anonymous Broadcast Protocol", "summary": "This cluster concerns Trellis, a cMix-based anonymous broadcast protocol that separates setup from broadcast while retaining linkability between messages from the same user."}

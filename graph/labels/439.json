@@ -1,0 +1,1 @@
+{"name": "MLS Message Key Ratchet", "summary": "This cluster covers TreeDEM, the MLS component that derives per-member message encryption keys from the epoch secret and ratchets them forward after each message."}

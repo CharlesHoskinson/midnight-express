@@ -1,0 +1,1 @@
+{"name": "Sparse-Secret RLWE", "summary": "This cluster concerns sparse-secret Ring Learning With Errors constructions, which reduce clue and clue-key sizes at the cost of requiring larger dimensions for equivalent security."}

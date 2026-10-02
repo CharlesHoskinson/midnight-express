@@ -1,0 +1,1 @@
+{"name": "ZooKeeper-Based Key Coordination", "summary": "The cluster concerns coordinating key distribution and synchronization through ZooKeeper alongside privacy-preserving key updates for publish/subscribe systems."}

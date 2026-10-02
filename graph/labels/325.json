@@ -1,0 +1,1 @@
+{"name": "Memory-Hard Proof-of-Work Algorithms", "summary": "This cluster covers asymmetric, memory-intensive proof-of-work designs such as Equihash and Cuckoo-cycle, including their birthday-problem algorithms, difficulty filters, and time\u2013space tradeoffs."}

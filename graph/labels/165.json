@@ -1,0 +1,1 @@
+{"name": "Pantheon Homomorphic Private Retrieval", "summary": "This cluster covers Pantheon\u2019s single-round private key-value retrieval, which uses BFV homomorphic encryption and Fermat-based equality checks to hide the queried key from the server."}

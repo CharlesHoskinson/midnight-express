@@ -1,0 +1,1 @@
+{"name": "CCA-Secure KEM Transforms", "summary": "This cluster covers Fujisaki\u2013Okamoto-style transforms and security properties used to build and analyze IND-CCA-secure key-encapsulation mechanisms, including post-quantum schemes."}

@@ -1,0 +1,1 @@
+{"name": "Lattice-Based Oblivious Retrieval", "summary": "This cluster covers lattice-based encryption and SIS hardness used to protect clues in oblivious message retrieval, including Gaussian elimination to recover payloads from independent equations."}

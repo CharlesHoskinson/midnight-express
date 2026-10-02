@@ -1,0 +1,1 @@
+{"name": "Messaging Contact Enumeration and Leakage", "summary": "This cluster covers large-scale abuse of messaging contact discovery to enumerate accounts and reverse phone-number hashes, alongside traffic-size leakage in WhatsApp and Viber."}

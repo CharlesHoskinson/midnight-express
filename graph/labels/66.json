@@ -1,0 +1,1 @@
+{"name": "Single-Server Private Information Retrieval", "summary": "The cluster covers single-server PIR protocols and their cryptographic foundations, comparing SimplePIR and DoublePIR performance with Paillier- and LWE-based approaches and noting a key-recovery attack on a SealPIR configuration."}

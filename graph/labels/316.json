@@ -1,0 +1,1 @@
+{"name": "Robust Hybrid KEM Combiners", "summary": "This cluster covers robust ways to combine key encapsulation mechanisms and authenticate hybrid session keys, including XOR-then-MAC and dual-PRF constructions, their security assumptions, and their use in authenticated key exchange."}

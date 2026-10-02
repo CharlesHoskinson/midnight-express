@@ -1,0 +1,1 @@
+{"name": "PRF-Based Key Derivation", "summary": "The cluster concerns pseudorandom functions deriving authentication and permission keys from a group key, alongside one-query chosen-ciphertext security for key encapsulation mechanisms."}

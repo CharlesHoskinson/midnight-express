@@ -1,0 +1,1 @@
+{"name": "Delta-State CRDT Replication", "summary": "This cluster covers delta-state CRDTs, their join-semilattice foundations, causal consistency, and anti-entropy dissemination for converging replicas."}

@@ -1,0 +1,1 @@
+{"name": "Bitmessage Payload Encryption", "summary": "This cluster covers Bitmessage\u2019s encrypted payload format, secp256k1-based signatures and ECIES decryption, with padding used to reduce message-size metadata leakage."}

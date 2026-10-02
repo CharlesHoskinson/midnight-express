@@ -1,0 +1,1 @@
+{"name": "Hybrid Post-Quantum Ratchets", "summary": "Protocols combine the Double Ratchet with sparse post-quantum key agreement to maintain forward secrecy and post-compromise security with lower update bandwidth."}

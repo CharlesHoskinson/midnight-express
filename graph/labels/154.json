@@ -1,0 +1,1 @@
+{"name": "Encrypted Content-Based Routing", "summary": "This cluster covers encrypted subscription and publication matching for confidentiality-preserving content-based publish/subscribe, including broker-side filtering, key management, and trusted-hardware approaches."}

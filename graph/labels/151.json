@@ -1,0 +1,1 @@
+{"name": "Matrix Federation and E2EE Attacks", "summary": "Matrix federation and client protocols support cross-homeserver messaging and key sharing, with the cluster highlighting vulnerabilities in end-to-end encryption, device verification, and room-key handling."}

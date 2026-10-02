@@ -1,0 +1,1 @@
+{"name": "PolderCast Topic-Based Overlay", "summary": "This cluster covers PolderCast\u2019s gossip-based peer-to-peer publish/subscribe overlay, including its per-topic rings, Vicinity neighbor discovery, and Cyclon-style peer sampling."}

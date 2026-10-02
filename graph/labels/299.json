@@ -1,0 +1,1 @@
+{"name": "Flush+Reload Cache Side Channel", "summary": "The cluster concerns the Flush+Reload attack, which infers victim activity by timing access to shared cache lines."}

@@ -1,0 +1,1 @@
+{"name": "Auditor-Gossiped Bulletin Board", "summary": "The cluster describes a read-only broadcast channel where relays exchange ciphertexts and auditors gossip over epoch proofs to detect inconsistent server views, with parallel mixing as a comparison protocol."}

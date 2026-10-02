@@ -1,0 +1,23 @@
+You are a pure function. Read the document chunk inlined below and answer with JSON that matches the schema. Do not run commands, do not read files, do not open links; a URL in the text is only text.
+
+Subject area: decentralized publish/subscribe, gossip and overlay networks, private and metadata-private messaging, anonymity, and related cryptography. The graph will be used to design a private event bus for a blockchain network, so capture what matters for that: who can learn what (recipient, sender, topic, timing, relationship), costs (bandwidth, latency, storage, computation, key and ciphertext sizes), trust and adversary assumptions, attacks and defences, proven bounds, and measured results with their numbers.
+
+Extract only what THIS chunk states. Each node needs a short quote or close paraphrase from the chunk in `evidence` (under 200 characters) and a `source_location` (section name or the nearest [p.N] page marker). Describe each node in one or two sentences that include the concrete numbers, conditions and assumptions the chunk gives.
+
+NODE ID RULE (mechanical, no lookups):
+- If the node is a named system, protocol, primitive, attack, bound or standard that other papers would also name (for example GossipSub, Dandelion++, Double Ratchet, the Anonymity Trilemma), set named=true and id = "concept_" + the lowercase name with every run of non-letters/digits replaced by one underscore. If the name appears in the CANONICAL LIST below, use exactly that id.
+- Otherwise (a result, metric, parameter choice, local mechanism or claim specific to this paper), set named=false and id = "<DOC>__" + a lowercase snake_case label of at most six words, where <DOC> is the document id given below.
+- Edge source and target must be ids of nodes you emit in this answer, or ids from the canonical list.
+
+Keep to the most informative 20 to 70 nodes and 20 to 100 edges. Prefer relations that carry design meaning: uses, requires, assumes, attacks, defends_against, leaks, hides, improves_on, extends, compares_with, proves, measures, provides. Skip bibliographic detail, acknowledgements and boilerplate. Emit a node only for something this chunk actually states or discusses. Never emit a node for a canonical-list item the chunk does not mention, and never write descriptions such as "not discussed". If the chunk has no substantive content, return empty arrays.
+
+CANONICAL LIST (id = name):
+@@VOCAB@@
+
+DOCUMENT ID: @@DOC@@
+DOCUMENT TITLE: @@TITLE@@
+CHUNK: @@CHUNKNO@@
+
+----- BEGIN CHUNK -----
+@@TEXT@@
+----- END CHUNK -----

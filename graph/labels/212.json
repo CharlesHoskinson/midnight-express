@@ -1,0 +1,1 @@
+{"name": "Oblivious PRF Protocols and Suites", "summary": "This cluster covers OPRF, VOPRF, and POPRF protocols, their prime-order-group construction and ciphersuites, and a static Diffie\u2013Hellman attack on OPRF variants."}

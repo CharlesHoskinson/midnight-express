@@ -1,0 +1,1 @@
+{"name": "Oblivious Signaling Protocol", "summary": "This cluster concerns Oblivious Signaling, an asynchronous push protocol that stores fixed-capacity encrypted receiver inboxes and applies homomorphic updates."}

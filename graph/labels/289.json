@@ -1,0 +1,1 @@
+{"name": "Memory-Hard Password Hashing", "summary": "This cluster covers memory-hard password hashing constructions, their hash-function choices, and analyses of parallel, sequential, and cache-timing attacks."}

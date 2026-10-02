@@ -1,0 +1,1 @@
+{"name": "X3DH Deniable Authentication", "summary": "This cluster covers a deniable authentication extension to X3DH using VRF and projective-hash primitives, with security arguments based on DDH, the random-oracle model, and nonce masking."}

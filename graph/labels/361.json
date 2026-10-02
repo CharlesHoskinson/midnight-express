@@ -1,0 +1,1 @@
+{"name": "Lattice KEM Ratcheting and Erasure Coding", "summary": "The cluster covers lattice-based KEM primitives, including Katana and Kyber-768, alongside Reed\u2013Solomon coding for splitting protocol material into recoverable chunks."}

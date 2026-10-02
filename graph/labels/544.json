@@ -1,0 +1,1 @@
+{"name": "Replica Synchronization Strategies", "summary": "The cluster covers state-based, delta-state-based, and operation-based protocols for synchronizing replicas, with different tradeoffs in message count, data volume, and delivery requirements."}

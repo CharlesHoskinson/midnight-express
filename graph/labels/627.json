@@ -1,0 +1,1 @@
+{"name": "Lattice-Based ABE Acceleration", "summary": "This cluster covers lattice-based key-policy attribute-based encryption for publish/subscribe, including proxy re-encryption and GPU-accelerated polynomial arithmetic in PALISADE."}

@@ -1,0 +1,1 @@
+{"name": "Constructive Analysis of Ratcheting", "summary": "The cluster concerns cryptographic analysis of Signal\u2019s Double Ratchet and related CKA+ and UPKE constructions using ideal functionalities, FS-AEAD, and IND-CPA* security."}

@@ -1,0 +1,1 @@
+{"name": "Optimistic Replication and CRDTs", "summary": "The cluster covers conflict-free replicated data types and optimistic replication techniques that let distributed replicas converge despite asynchronous updates and conflicts."}

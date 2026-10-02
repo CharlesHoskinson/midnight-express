@@ -1,0 +1,1 @@
+{"name": "Lattice-Based Split-KEM Security", "summary": "This cluster covers Frodo-inspired split key encapsulation and its hash-based transform, whose security relies on LWE variants and lattice hardness such as SVP."}

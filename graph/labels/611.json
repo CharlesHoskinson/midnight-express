@@ -1,0 +1,1 @@
+{"name": "MQTT Broker Spanning Trees", "summary": "This cluster covers MQTT-ST and related spanning tree protocols used to connect brokers and prevent loops in meshed networks."}

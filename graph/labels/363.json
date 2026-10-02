@@ -1,0 +1,1 @@
+{"name": "Threshold Secret Sharing", "summary": "This cluster covers Shamir secret sharing for splitting encryption keys into shares that can be reconstructed when a threshold of subscribers contributes."}

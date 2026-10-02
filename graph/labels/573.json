@@ -1,0 +1,1 @@
+{"name": "SARSA-Based IoT Pub/Sub", "summary": "This cluster covers a publish/subscribe framework that uses SARSA reinforcement learning to allocate bandwidth and manage QoS for constrained IoT traffic."}

@@ -1,0 +1,1 @@
+{"name": "Signal Key Exchange and Group Security", "summary": "The cluster covers formal security properties and attacks in Signal-style authenticated key exchange, alongside security analysis of Signal\u2019s group messaging and Megolm ratchet."}
