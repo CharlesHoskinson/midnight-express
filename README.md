@@ -42,3 +42,9 @@ documentation. Paywalled papers have metadata-only records. No paywall or bot wa
 The evidence base and knowledge graph are built. The design exercise is in progress: twelve independent
 proposals (Round 1) and cross-reviews (Round 2) are in `design/rounds/`. Requirements in EARS form and a
 Rust prototype on rust-libp2p GossipSub are the next steps.
+
+## License
+
+The original material in this repository (catalog records, notes, design documents, scripts) is licensed
+under the Apache License 2.0; see `LICENSE`. Papers and specifications that the catalog points to remain
+the property of their authors and publishers and are not redistributed here.
