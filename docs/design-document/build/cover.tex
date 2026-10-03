@@ -1,0 +1,19 @@
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \fill[mcBlack] (current page.south west) rectangle (current page.north east);
+  \begin{scope}
+    \clip (current page.south west) rectangle (current page.north east);
+    \node[anchor=center,inner sep=0] at (current page.center) {\includegraphics[width=\paperwidth]{figures/cover.png}};
+  \end{scope}
+  \node[anchor=north west,text width=0.8\paperwidth,inner sep=10pt,fill=mcBlack,fill opacity=0.0,text opacity=1] (ttl) at ($(current page.north west)+(0.8in,-0.85in)$)
+    {\mclabel\fontsize{11}{13}\selectfont\color{mcBlue}\textcolor{mcOrange}{$\blacklozenge$}\ \ DESIGN DOCUMENT\par\vspace{14pt}%
+     \mcdisplay\fontsize{66}{64}\selectfont\color{mcText}MIDNIGHT\par\mcdisplay\fontsize{66}{64}\selectfont\color{mcOrange}EXPRESS\par\vspace{14pt}%
+     \color{mcOrange}\rule{4.2cm}{2.6pt}\par\vspace{12pt}%
+     \fontsize{15}{19}\selectfont\color{mcText}Private events for Midnight\par\vspace{6pt}%
+     \fontsize{10.5}{14}\selectfont\color{mcText}Requirements, options and an experimental design on GossipSub};
+  \node[anchor=south west,inner sep=0] at ($(current page.south west)+(0.9in,0.7in)$)
+    {\mclabel\fontsize{9}{11}\selectfont\color{mcText!80!mcBlack}OCTOBER 2026};
+\end{tikzpicture}
+\end{titlepage}
+\pagenumbering{roman}

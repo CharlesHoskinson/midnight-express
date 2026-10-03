@@ -1,0 +1,19 @@
+[package]
+name = "mpe-sim"
+version.workspace = true
+edition.workspace = true
+[dependencies]
+mpe-core = { path = "../mpe-core" }
+mpe-node = { path = "../mpe-node", features = ["diagnostics"] }
+mpe-client = { path = "../mpe-client", features = ["diagnostics"] }
+anyhow.workspace = true
+async-trait.workspace = true
+libp2p.workspace = true
+tokio.workspace = true
+futures.workspace = true
+rand.workspace = true
+rand_chacha.workspace = true
+ed25519-dalek.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+clap.workspace = true

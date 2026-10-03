@@ -1,0 +1,74 @@
+% Midnight Express design document: Midnight City styling
+\usepackage{etoolbox}
+\usepackage{microtype}
+\usepackage{xcolor}
+\definecolor{mcBlack}{HTML}{000000}
+\definecolor{mcNight}{HTML}{03050D}
+\definecolor{mcPanel}{HTML}{000F1E}
+\definecolor{mcNavy}{HTML}{19344D}
+\definecolor{mcBorder}{HTML}{292F39}
+\definecolor{mcText}{HTML}{E0F0FF}
+\definecolor{mcBlue}{HTML}{6CB7FF}
+\definecolor{mcOrange}{HTML}{E85D2C}
+\definecolor{mcInk}{HTML}{0B1220}
+\definecolor{mcLink}{HTML}{1F5FA8}
+\definecolor{mcMuted}{HTML}{5A6B7F}
+\definecolor{mcRule}{HTML}{C9D3DF}
+\setmainfont{Inter}[Path=fonts/,Extension=.otf,UprightFont=*-Regular,BoldFont=*-SemiBold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]
+\setmonofont{GeistMono}[Path=fonts/,Extension=.otf,UprightFont=*-Regular,BoldFont=*-Medium,Scale=0.86]
+\newfontfamily\mcdisplay{IosevkaCharon}[Path=fonts/,Extension=.ttf,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Regular,LetterSpace=-1.5]
+\newcommand{\mcdsp}{\spaceskip=1.9\fontdimen2\font plus 0.4\fontdimen2\font minus 0.2\fontdimen2\font\relax}
+\newfontfamily\mclabel{IosevkaCharon}[Path=fonts/,Extension=.ttf,UprightFont=*-Medium,BoldFont=*-Bold,ItalicFont=*-Medium,LetterSpace=6]
+\color{mcInk}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{pagecolor}
+\usepackage{afterpage}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{setspace}
+\setstretch{1.1}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em plus 0.1em}
+\setlist{itemsep=0.2em,topsep=0.3em}
+\captionsetup{labelformat=empty,font={small,color=mcMuted},justification=raggedright,singlelinecheck=false,skip=6pt}
+% chapter openers
+\titleformat{\chapter}[display]{\mcdisplay\color{mcInk}}
+  {\mclabel\color{mcBlue}\fontsize{9}{11}\selectfont\MakeUppercase{\chaptertitlename}\ \thechapter}{8pt}
+  {\fontsize{30}{32}\selectfont\mcdsp\MakeUppercase}[\vspace{4pt}{\color{mcOrange}\rule{3.2cm}{2.2pt}}]
+\titleformat{name=\chapter,numberless}[block]{\mcdisplay\color{mcInk}}
+  {}{0pt}{\fontsize{30}{32}\selectfont\mcdsp\MakeUppercase}[\vspace{4pt}{\color{mcOrange}\rule{3.2cm}{2.2pt}}]
+\titlespacing*{\chapter}{0pt}{-12pt}{22pt}
+\titleformat{\section}{\mcdisplay\color{mcInk}\fontsize{16}{18}\selectfont\mcdsp}{\color{mcOrange}\thesection}{0.7em}{\MakeUppercase}
+\titleformat{name=\section,numberless}{\mcdisplay\color{mcInk}\fontsize{16}{18}\selectfont\mcdsp}{}{0pt}{\MakeUppercase}
+\titlespacing*{\section}{0pt}{20pt}{6pt}
+\titleformat{\subsection}{\mcdisplay\color{mcLink}\fontsize{12.5}{14}\selectfont\mcdsp\bfseries}{\thesubsection}{0.6em}{}
+\titleformat{name=\subsection,numberless}{\mcdisplay\color{mcLink}\fontsize{12.5}{14}\selectfont\mcdsp\bfseries}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{14pt}{4pt}
+\titleformat{\subsubsection}{\mclabel\color{mcMuted}\fontsize{9}{11}\selectfont}{}{0pt}{\MakeUppercase}
+\titlespacing*{\subsubsection}{0pt}{10pt}{2pt}
+% running header
+\pagestyle{fancy}\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}\renewcommand{\headrule}{\hbox to\headwidth{\color{mcRule}\leaders\hrule height \headrulewidth\hfill}}
+\fancyhead[L]{\mclabel\fontsize{7.5}{9}\selectfont\color{mcMuted}\textcolor{mcOrange}{$\blacklozenge$}\ MIDNIGHT EXPRESS}
+\fancyhead[R]{\mclabel\fontsize{7.5}{9}\selectfont\color{mcMuted}\nouppercase{\leftmark}\quad\thepage}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}\fancyfoot[C]{\mclabel\fontsize{7.5}{9}\selectfont\color{mcMuted}\thepage}}
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{#1}}{}}
+% tables
+\AtBeginEnvironment{longtable}{\small\renewcommand{\arraystretch}{1.22}}
+\setlength{\LTpre}{8pt}\setlength{\LTpost}{8pt}
+% appendix text size
+\newcommand{\appendixsize}{\small}
+% part dividers
+\newcommand{\partpage}[3]{%
+  \clearpage\thispagestyle{empty}\phantomsection
+  \addcontentsline{toc}{chapter}{\textcolor{mcOrange}{#1}\ \ #2}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[mcBlack] (current page.south west) rectangle (current page.north east);
+    \node[anchor=south,inner sep=0] at (current page.south) {\includegraphics[width=\paperwidth]{#3}};
+    \node[anchor=north west,text width=0.78\paperwidth,inner sep=0] at ($(current page.north west)+(0.95in,-1.25in)$)
+      {\mclabel\fontsize{11}{13}\selectfont\color{mcBlue}\MakeUppercase{#1}\par\vspace{10pt}%
+       \mcdisplay\fontsize{40}{42}\selectfont\mcdsp\color{mcText}\MakeUppercase{#2}\par\vspace{12pt}\color{mcOrange}\rule{3.6cm}{2.4pt}};
+  \end{tikzpicture}\clearpage}

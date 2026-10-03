@@ -86,7 +86,35 @@ For each of D1 to D10, in order: (a) list the positions of the four reviewed pro
 """
 
 
-BUILDERS = {1: prompt_round1, 2: prompt_round2}
+def ears_agents():
+    return json.loads((D / "ears" / "agents.json").read_text())
+
+
+def prompt_ears(role, _):
+    r1 = "\n".join(f"- {r['id']}: /home/charl/privateEvents/design/rounds/r1/{r['id']}.md" for r in ROLES)
+    r2 = "\n".join(f"- {r['id']}: /home/charl/privateEvents/design/rounds/r2/{r['id']}.md" for r in ROLES)
+    return f"""You are one of twelve EARS requirements authors for the Midnight Private Events (MPE) bus. Your area is **{role['area']}: {role['title']}** (requirement IDs MPE-{role['area']}-NNN). Decisions in your area: {', '.join(role['decisions'])}.
+
+Area focus: {role['focus']}
+
+Read /home/charl/privateEvents/design/ears/BRIEF.md first and follow it exactly: it defines the EARS patterns, the glossary, the requirement record format, the quality rules and the output structure.
+
+Inputs (all local, read-only; no web access; do not write or modify any file):
+- Charter: /home/charl/privateEvents/design/CHARTER.md
+- Decision matrix of all twelve proposals: /home/charl/privateEvents/design/rounds/r1_positions.json (start here)
+- Round 1 proposals (read, in full, the sections for your decisions in every one):
+{r1}
+- Round 2 cross-reviews (objections, citation checks and votes; s3-red-team's review is incomplete, so rely on its Round 1 proposal):
+{r2}
+- Midnight code read-out: /home/charl/privateEvents/notes/midnight-network-stack.md (verify what you rely on in /home/charl/midnight/)
+- libp2p source (GossipSub v1.1 behaviour, mesh parameters, validation, scoring): /home/charl/libp2p/rust-libp2p, /home/charl/libp2p/specs, /home/charl/libp2p/go-libp2p-pubsub
+- Evidence: /home/charl/privateEvents/design/evidence/papers.tsv (paper index with text paths), graph-overview.md, graph-digest.md
+
+Write the complete area file now, in the structure the brief requires. Maximum 7,000 words. Your entire final message is the file content (Markdown); do not describe your process.
+"""
+
+
+BUILDERS = {1: prompt_round1, 2: prompt_round2, 5: prompt_ears}
 
 
 def command(role, prompt, outfile):
@@ -154,7 +182,8 @@ def main():
     ap.add_argument("--prompt-dir", default="")
     a = ap.parse_args()
     (D / "rounds" / f"r{a.round}").mkdir(parents=True, exist_ok=True)
-    roles = [r for r in ROLES if not a.only or r["id"] in a.only.split(",")]
+    pool = ears_agents() if a.round == 5 else ROLES
+    roles = [r for r in pool if not a.only or r["id"] in a.only.split(",")]
     jobs = []
     for r in roles:
         if a.prompt_dir:

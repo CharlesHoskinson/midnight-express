@@ -1,0 +1,19 @@
+[package]
+name = "mpe-node"
+version.workspace = true
+edition.workspace = true
+[dependencies]
+mpe-core = { path = "../mpe-core" }
+anyhow.workspace = true
+libp2p.workspace = true
+tokio.workspace = true
+futures.workspace = true
+serde.workspace = true
+ciborium.workspace = true
+async-trait.workspace = true
+clap.workspace = true
+rand.workspace = true
+aho-corasick = "1"
+
+[features]
+diagnostics = []

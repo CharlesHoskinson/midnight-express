@@ -19,3 +19,22 @@ graphify-out/.graphify_labels.json
 *.log
 __pycache__/
 .scratch/
+
+# third-party site captures used only as brand reference
+docs/design-document/brand/
+
+# document production intermediates
+docs/design-document/draft-v1/
+docs/design-document/draft/
+docs/design-document/draft-r*/
+docs/design-document/inkwell-notes/
+docs/design-document/audit/
+docs/design-document/align/
+docs/design-document/PIPELINE_STATE.md
+docs/design-document/build/*.log
+docs/design-document/build/document*.md
+docs/design-document/build/*.json.bak
+prototype
+experiments/target/
+experiments/results/
+design/AFK.md

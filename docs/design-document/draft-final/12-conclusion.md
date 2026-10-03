@@ -1,0 +1,43 @@
+# Conclusion {#ch12}
+
+The problem was to let contracts, agents and wallets tell each other within seconds that something happened. It had to work without showing infrastructure what a Message says or which Messages a Subscriber wants, and without changing the Midnight node. The recommended answer is Option 2. Bus Nodes run GossipSub v1.2 behaviour beside the Midnight node, and a Bus Registry on the ledger holds memberships, the relay list and one Anchor per 60-second window. The ledger lane of Option 1 stays as a labelled last resort that never switches on automatically (`DEC-008`). A Confidential Message draws its authority from a Publisher's signature and an Anchor, never from contract execution. Midnight Express therefore complements the Foundation's private events, carries them only as carried events under the stated conditions, and does not replace MPS-0005 Part 2. Its privacy claim stops at content and interest: it claims nothing against a global passive observer and offers no timing or relationship privacy at launch. The obligations are 625 requirement entries, 510 of them live (445 MUST, 49 SHOULD, 16 MAY), and 171 wait on one of the 28 decisions in the decision register. Throwaway exploratory runs guided the design and the choice of what to build first, but nothing here rests on them. The next step is the proof of concept, a single reference implementation with a deterministic simulator.
+
+## What the evidence supports
+
+What the design can claim today is either derived from its own specification or read from Midnight's and libp2p's code. The format gives each of the four size classes exactly one wire length (776, 1,544, 4,616 and 16,904 B), so the size of an honest MPE Envelope reveals its class and nothing more. Independent Bus Nodes cannot see each other's admission state until they exchange evidence, so a quota holds per Bus Node and never network-wide (`MPE-ECO-022`).
+
+The ledger interface rests on a compile-and-cost study. The Bus Registry, the ledger-lane contract and a consumer contract compile with Compact 0.35.0 against a ledger-9 release candidate. The compiler's circuit model puts every proof at 4,368 B or less. The fees derived from the cost model at genesis prices are 0.246 DUST per registration and 0.195 DUST per Anchor post. At one Anchor per 60 s that is about 280 DUST per day (derived: 1,440 × 0.195 = 280.8). The contracts are exploratory code, and the design does not depend on them being final.
+
+## What the evidence does not reach
+
+Five limits bind every claim above.
+
+First, the Admission Proof is a stand-in whose secrets every Bus Node holds, so every relay can link each MPE Envelope to its membership. Its 4.5 ms verification cost is a synthetic busy-wait, and nothing supports a claim of admission privacy.
+
+Second, nothing in the ledger interface ran on a Midnight network. No proof was generated, no transaction was submitted, and no proving time was measured at k = 18, 20 or 22. Mainnet ran ledger 8.0 as of 4 August 2026, a generation without contract events, and whether it has moved since is unknown.
+
+Third, the fees are derived, and so is lane capacity. For class 2 that capacity lies between about 0.7 and 12.8 Messages per second for the whole chain (Chapter 9). Where it falls depends on which block limit binds and on whether the live `block_usage` value is 200,000 or 1,000,000 B.
+
+Fourth, no overlay behaviour is established. Delivery, latency, amplification, bandwidth, behaviour across a restart or an eclipse, and whether a complete client meets the Selection Game are all hypotheses for the proof of concept. It will test them first in the deterministic simulator, with link latency and loss, and then in a runnable harness (Chapter 9).
+
+Fifth, interoperability is open. The transport profile requires negotiating `/meshsub/1.2.0`. Stock rust-libp2p gossipsub 0.50 accepts only `Version::V1_0` or `Version::V1_1` with a custom protocol identifier.^[libp2p/rust-libp2p, protocols/gossipsub/src/config.rs, method `ConfigBuilder::protocol_id`; master branch, accessed 1 October 2026.] go-libp2p-pubsub rejects D_out = 4 at D = 8 because it requires D_out to be less than D / 2.^[libp2p/go-libp2p-pubsub, gossipsub.go, method `GossipSubParams.validate`; master branch, accessed 1 October 2026.] Whether CVE-2022-47547 is closed in the pinned release has not been established.
+
+Two gaps lie outside these limits. The signature circuit that would give a contract reaction authority has not been written, so Anchor inclusion alone gives none. No private event has been carried.
+
+## Open questions in order of dependence
+
+Each open question is settled either by a measurement or by a text not yet published, and the order follows which result feeds which. Three questions take no input from the others. The admission proof system comes first. Its proof size fixes the Admission Slot width, and with it the class table of `DEC-013` and every wire length, and its verification cost fixes the count ceiling of `DEC-005`. Measurement on a ledger-9 network comes second. The binding block limit, the serialized size of 1-, 4- and 16-part groups and the proving time at k = 18 to 22 decide four things: whether `P-FMT-8` is 16 parts or 4, whether an Anchor proves within its window (`MPE-PRF-043`), the fees that replace the derived figures, and whether a contract maintenance authority can be made to wait (`MPE-OPS-017`). The signature circuit comes third. The choice between Ed25519 and JubJub Schnorr (`DEC-022`) decides whether contract consumption enters the first release.
+
+The overlay questions depend on these. The wide-area gate that the proof of concept must pass is at least 99 percent delivery with p99 at most 6 s at 200 Bus Nodes (Chapter 11). The gate needs the conformant transport profile and a measured verifier, because a run on the stand-in carries the synthetic 4.5 ms into every CPU and latency figure. Opening the relay set (`DEC-006`) waits on three results: that gate, scoring safety across Shards and the CVE-2022-47547 reproduction.
+
+Three matters stand outside this order. Mobile reception (`DEC-021`) waits on a measured OMR or PIR profile. A Subscriber that receives one whole Shard at its byte limit downloads up to about 5.7 GB per day (derived: 65,536 B/s × 86,400 s = 5,662,310,400 B), against a budget of 56 to 60 MB. Carried private events wait on MPS-0005 Part 2. Funding from 8 organizations for 12 months gates Stage 2 (`DEC-001`), whatever the measurements show.
+
+## Conditions that would change the recommendation
+
+Option 2 was chosen on three grounds. It keeps Message bodies off a ledger whose lane carries at most about 12.8 class-2 Messages per second for the whole chain. Its MPE Envelope format and Recognition Tags give the claimed properties against every adversary the claim covers. It leaves the Midnight node unchanged, and that node has no GossipSub. Whether Option 2 meets the latency and throughput targets is the first hypothesis the proof of concept must test.
+
+Five conditions would change the choice. A missed wide-area gate would fail that hypothesis. An Admission Proof that fails the 4,096 B or 10 ms gate would send admission to issuer-signed stamps, and the issuer would learn which customer published which Message (`DEC-007`). A poisoned-eclipse or red-team result showing that a scored mesh cannot be opened safely would leave Midnight Express a federation of listed Bus Operators, closer to Option 5 than to an open overlay. If 8 organizations will not commit for 12 months (`DEC-001`), Option 2 cannot launch, and the ledger lane of Option 1 becomes the only carrier. If MPS-0005 Part 2 gives private events an Indexer filter that hides interest at a cost a product accepts, that product needs only the contract event. Midnight Express would then serve it only as an early, interest-hiding carrier of the same bytes.
+
+The first root question already has a number. The compiled `revoke` circuit checks the RLN relation in Compact, and the toolchain's circuit model puts its proof at 4,368 B, 272 B above the 4,096 B gate. An admission proof built the same way would therefore fail the size gate before anyone measures its verification time.
+
+The next obligation is to select an admission proof system and show four things with a working off-chain verifier (`DEC-007`, `MPE-ECO-048`). The proof fields must fit in 4,096 B. Verification must take at most 10 ms on one core of a 4-vCPU machine. Proving must run on the client's own hardware classes. The hash must be one that Midnight commits to keeping stable. The slot width, the class table and the exit from Stage 0 wait on that result.

@@ -1,0 +1,2 @@
+Inter (SIL Open Font License 1.1), Geist Mono (SIL Open Font License 1.1), Iosevka Charon (SIL Open Font License 1.1).
+Used for typesetting the design document PDF.

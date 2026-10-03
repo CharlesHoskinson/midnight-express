@@ -1,0 +1,443 @@
+// MPE Registry: the ledger interface of the private event bus.
+//
+// Design: design/PROTOTYPE.md sections 7.2 and 9; RECONCILE parameter table
+// and DEC-019, DEC-024; requirements MPE-ECO-004/026/027/028/029/030,
+// MPE-NET-039/040/041/050/053/054/055, MPE-OPS-012/015/018,
+// MPE-STO-001/028/029, MPE-FMT-047.
+//
+// Target: Compact toolchain 0.35.0 (language 0.27.0, ledger 9). `emit`
+// needs toolchain 0.33.0 or later; see RESULTS.md for the 0.31.1 result.
+//
+// Choices made where the requirement text is silent are marked CHOICE.
+
+pragma language_version >= 0.25;
+
+import CompactStandardLibrary;
+
+// ---------------------------------------------------------------------------
+// Protocol constants
+
+// Fixed Misc names (MPE-NET-040, MPE-FMT-047, P-FMT-10).
+pure circuit anchorName(): Bytes<32> { return pad(32, "mpe/anchor/v1"); }
+pure circuit govName(): Bytes<32> { return pad(32, "mpe/gov/v1"); }
+
+// Governance action codes carried in the mpe/gov/v1 payload (MPE-OPS-018).
+// CHOICE: one-byte codes; reason codes are 16-bit and chosen by the steward.
+pure circuit actParams(): Uint<8> { return 1; }
+pure circuit actParamsActive(): Uint<8> { return 2; }
+pure circuit actPause(): Uint<8> { return 3; }
+pure circuit actUnpause(): Uint<8> { return 4; }
+pure circuit actRelayAdd(): Uint<8> { return 5; }
+pure circuit actRelayRemove(): Uint<8> { return 6; }
+pure circuit actRevoke(): Uint<8> { return 7; }
+pure circuit actSteward(): Uint<8> { return 8; }
+
+// Number of live Anchor slots (P-STO-10 = 2,940 records = 49 h of 60 s windows).
+// The slot of window w is w mod 2940, so a new Anchor overwrites the record of
+// the window 2,940 windows earlier: the bound and the age pruning of
+// MPE-STO-028/029 follow from the slot rule.
+pure circuit anchorSlots(): Uint<16> { return 2940; }
+
+// Tolerance between a caller-claimed clock value and the block time.
+// CHOICE: 900 s. Compact can only compare block time with a value, never read
+// it, so every time-stamped write takes the caller's clock value and checks it
+// against the block time inside this tolerance.
+pure circuit clockTolerance(): Uint<16> { return 900; }
+
+// Anchorer waits this long after a window closes (PROTOTYPE.md section 9).
+pure circuit anchorDelay(): Uint<8> { return 20; }
+
+// ---------------------------------------------------------------------------
+// Types
+
+export struct Params {
+  epochLength: Uint<32>;          // P-ECO-1, 60 s
+  membershipPeriod: Uint<32>;     // P-ECO-4, 86,400 s
+  rootWindow: Uint<32>;           // P-ECO-5, 3,600 s
+  quota: Vector<4, Uint<16>>;     // P-ECO-2/3 per-class limits (64, 16, 4, 1), DEC-016
+  anchorWindow: Uint<32>;         // P-NET-17, 60 s
+  anchorHistory: Uint<32>;        // P-STO-9, 176,400 s
+  shardCount: Uint<8>;            // P-PUB-1, 1..8 (MPE-NET-039)
+  activationHeight: Uint<64>;     // MPE-NET-039
+  maxVersion: Uint<8>;            // MPE-NET-039
+  bootstrapHash: Bytes<32>;       // MPE-NET-039
+}
+
+export struct PendingParams {
+  params: Params;
+  effectiveAt: Uint<64>;
+}
+
+// Role flags of a relay list entry (MPE-NET-054).
+// CHOICE: five Booleans; Compact has no bitwise operators on Uint.
+export struct Roles {
+  relay: Boolean;
+  store: Boolean;
+  bootstrapper: Boolean;
+  gateway: Boolean;
+  anchorer: Boolean;
+}
+
+// Relay list entry (MPE-NET-054). The peer identity is the map key:
+// SHA-256 of the libp2p peer id bytes (CHOICE: a libp2p Ed25519 peer id is a
+// 38-byte multihash, larger than the 32-byte key used here).
+// `keyCommitment` is the hash of a secret held by the Operator; it is the
+// "submitter key" of MPE-NET-053, because a Midnight transaction has no signer.
+export struct RelayEntry {
+  operatorId: Bytes<32>;
+  roles: Roles;
+  keyCommitment: Bytes<32>;
+}
+
+// Live Anchor record (MPE-NET-050): window number, root over the per-Shard
+// batch roots, one Envelope count per Shard (8 slots; unused Shards are 0).
+export struct AnchorRecord {
+  window: Uint<64>;
+  root: Bytes<32>;
+  counts: Vector<8, Uint<32>>;
+}
+
+// Preimage of the Anchor-tree leaf that consumers prove against.
+export struct AnchorLeaf {
+  domain: Bytes<32>;
+  window: Uint<64>;
+  root: Bytes<32>;
+}
+
+// Membership leaf preimage: identity commitment and the per-class limits
+// (DEC-016: limits are committed in the leaf).
+export struct MemberLeaf {
+  domain: Bytes<32>;
+  idc: Bytes<32>;
+  quota: Vector<4, Uint<16>>;
+}
+
+// One RLN share, recomputed from the Envelope Identifier (PROTOTYPE.md 6.1).
+export struct Share {
+  eid: Bytes<32>;
+  y: Field;
+}
+
+// Equivocation evidence (MPE-ECO-020): two shares under one nullifier.
+export struct Evidence {
+  a0: Field;                 // recovered admission secret
+  epoch: Uint<64>;
+  sizeClass: Uint<8>;
+  credit: Uint<16>;
+  quota: Vector<4, Uint<16>>; // limits committed in the member's leaf
+  s1: Share;
+  s2: Share;
+}
+
+// ---------------------------------------------------------------------------
+// Ledger state
+
+export sealed ledger networkId: Bytes<32>;       // N, 32 B Network Identifier
+export sealed ledger paramsDelay: Uint<32>;      // P-OPS-6 time-lock (MPE-OPS-012)
+
+export ledger steward: Bytes<32>;                // DEC-019 single maintainer key (commitment)
+export ledger paused: Boolean;                   // bus pause flag
+export ledger params: Params;
+export ledger pending: Maybe<PendingParams>;
+
+// Membership sets, one tree per membership period (MPE-ECO-004, MPE-ECO-026).
+// HistoricMerkleTree keeps every superseded root valid for checkRoot.
+export ledger members: Map<Uint<32>, HistoricMerkleTree<20, Bytes<32>>>;
+export ledger revoked: Set<Bytes<32>>;           // revoked identity commitments
+
+export ledger relays: Map<Bytes<32>, RelayEntry>; // MPE-NET-054
+
+export ledger anchors: Map<Uint<16>, AnchorRecord>;     // slot -> record
+export ledger anchorTree: HistoricMerkleTree<12, Bytes<32>>; // leaf at slot
+
+// ---------------------------------------------------------------------------
+// Witnesses (private inputs)
+
+witness stewardSecret(): Bytes<32>;
+witness relaySecret(): Bytes<32>;
+witness revocationEvidence(): Evidence;
+witness memberPath(): MerkleTreePath<20, Bytes<32>>;
+
+// ---------------------------------------------------------------------------
+// Constructor
+
+constructor(stewardKey: Bytes<32>, n: Bytes<32>, delay: Uint<32>, p: Params) {
+  steward = disclose(stewardKey);
+  networkId = disclose(n);
+  paramsDelay = disclose(delay);
+  params = disclose(p);
+  paused = false;
+  pending = none<PendingParams>();
+}
+
+// ---------------------------------------------------------------------------
+// Helpers
+
+export pure circuit stewardKeyOf(sk: Bytes<32>): Bytes<32> {
+  return persistentHash<Vector<2, Bytes<32>>>([pad(32, "mpe/v1/steward"), sk]);
+}
+
+export pure circuit relayKeyOf(sk: Bytes<32>): Bytes<32> {
+  return persistentHash<Vector<2, Bytes<32>>>([pad(32, "mpe/v1/relaykey"), sk]);
+}
+
+export pure circuit memberLeafOf(idc: Bytes<32>, quota: Vector<4, Uint<16>>): Bytes<32> {
+  return persistentHash<MemberLeaf>(MemberLeaf { domain: pad(32, "mpe/v1/leaf"), idc: idc, quota: quota });
+}
+
+export pure circuit idcOf(a0: Field): Bytes<32> {
+  return persistentHash<Vector<2, Bytes<32>>>([pad(32, "mpe/v1/idc"), a0 as Bytes<32>]);
+}
+
+export pure circuit anchorLeafOf(window: Uint<64>, root: Bytes<32>): Bytes<32> {
+  return persistentHash<AnchorLeaf>(AnchorLeaf { domain: pad(32, "mpe/v1/anchorleaf"), window: window, root: root });
+}
+
+// RLN relation over the native field (PROTOTYPE.md 6.1 with the proof field in
+// place of the stand-in's curve25519 scalars).
+// a1 = H(a0, epoch, class, credit); x = H(EID); y = a0 + a1 * x.
+export pure circuit rlnA1(a0: Field, epoch: Uint<64>, sizeClass: Uint<8>, credit: Uint<16>): Field {
+  return transientHash<Vector<5, Field>>([1 as Field, a0, epoch as Field, sizeClass as Field, credit as Field]);
+}
+
+export pure circuit rlnX(eid: Bytes<32>): Field {
+  return transientHash<Vector<2, Field>>([3 as Field, degradeToTransient(eid)]);
+}
+
+// Leaf index of a Merkle path: bit i is 1 when the node at level i is a right child.
+pure circuit pathBit(acc: Uint<64>, e: MerkleTreePathEntry, w: Uint<64>): Uint<64> {
+  return (e.goes_left ? acc : acc + w) as Uint<64>;
+}
+
+pure circuit pathIndex(path: MerkleTreePath<20, Bytes<32>>): Uint<64> {
+  return fold(pathBit, 0 as Uint<64>, path.path,
+              [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192,
+               16384, 32768, 65536, 131072, 262144, 524288]);
+}
+
+// Big-endian encodings for Misc payloads (Compact casts are little-endian).
+pure circuit be64(x: Uint<64>): Bytes<8> {
+  const b = x as Bytes<8>;
+  return Bytes[b[7], b[6], b[5], b[4], b[3], b[2], b[1], b[0]];
+}
+
+pure circuit be32(x: Uint<32>): Bytes<4> {
+  const b = x as Bytes<4>;
+  return Bytes[b[3], b[2], b[1], b[0]];
+}
+
+pure circuit be16(x: Uint<16>): Bytes<2> {
+  const b = x as Bytes<2>;
+  return Bytes[b[1], b[0]];
+}
+
+// Anchor payload (MPE-NET-050): window u64 BE || window root || 8 x u32 BE
+// counts || zero fill to 256 B. With 8 count slots always present the payload
+// is 72 B of fields; at 1 Shard the trailing 28 B of counts are zero, which a
+// reader cannot tell from fill (equivalent to the 44 B form of PROTOTYPE.md 9).
+pure circuit anchorPayload(window: Uint<64>, root: Bytes<32>, c: Vector<8, Uint<32>>): Bytes<256> {
+  return Bytes[...be64(window), ...root,
+               ...be32(c[0]), ...be32(c[1]), ...be32(c[2]), ...be32(c[3]),
+               ...be32(c[4]), ...be32(c[5]), ...be32(c[6]), ...be32(c[7]),
+               ...default<Bytes<184>>];
+}
+
+// Governance payload: action u8 || reason u16 BE || subject 32 B || zero fill.
+pure circuit govPayload(action: Uint<8>, reason: Uint<16>, subject: Bytes<32>): Bytes<256> {
+  return Bytes[action, ...be16(reason), ...subject, ...default<Bytes<221>>];
+}
+
+circuit emitGov(action: Uint<8>, reason: Uint<16>, subject: Bytes<32>): [] {
+  emit(Misc { name: govName(), payload: disclose(govPayload(action, reason, subject)) });
+}
+
+circuit assertSteward(): [] {
+  assert(steward == stewardKeyOf(stewardSecret()), "not the steward");
+}
+
+// Caller's clock value t must be within [t, t + tolerance) of the block time.
+circuit assertClock(t: Uint<64>): [] {
+  assert(blockTimeGte(t), "clock ahead of block time");
+  assert(blockTimeLt((t + clockTolerance()) as Uint<64>), "clock behind block time");
+}
+
+pure circuit countOk(acc: Boolean, c: Uint<32>, i: Uint<8>, shards: Uint<8>): Boolean {
+  return acc && (i < shards || c == 0);
+}
+
+pure circuit countAny(acc: Boolean, c: Uint<32>): Boolean {
+  return acc || c != 0;
+}
+
+// ---------------------------------------------------------------------------
+// Membership
+
+// MPE-ECO-004. Insert the leaf of identity commitment `idc` into the tree of
+// membership period `period`, which must be the current period.
+// The leaf commits the current per-class limits, computed here so a
+// registrant cannot choose its own quota (DEC-016).
+// CHOICE: no registration price beyond the transaction fee; see RESULTS.md
+// (DUST is not transferable to a contract).
+export circuit register(idc: Bytes<32>, period: Uint<32>): [] {
+  assert(!paused, "bus paused");
+  const p = disclose(period);
+  const len = params.membershipPeriod;
+  assert(blockTimeGte((p * len) as Uint<64>), "period not started");
+  assert(blockTimeLt(((p + 1) * len) as Uint<64>), "period ended");
+  const id = disclose(idc);
+  assert(!revoked.member(id), "commitment revoked");
+  if (!members.member(p)) {
+    members.insert(p, default<HistoricMerkleTree<20, Bytes<32>>>);
+  }
+  assert(!members.lookup(p).isFull(), "membership tree full");
+  members.lookup(p).insert(memberLeafOf(id, params.quota));
+}
+
+// MPE-ECO-028 / MPE-ECO-029 / MPE-OPS-015. Revocation on equivocation evidence.
+// The evidence (two shares under one nullifier and the recovered secret) and
+// the member's Merkle path are private witnesses. The circuit checks that both
+// shares lie on the member's RLN line for one epoch, class and credit index
+// and that the EIDs differ, then removes the leaf. Disclosed: the period, the
+// root the path proves against, the leaf index and the identity commitment.
+export circuit revoke(period: Uint<32>, reason: Uint<16>): [] {
+  const ev = revocationEvidence();
+  const path = memberPath();
+  assert(ev.s1.eid != ev.s2.eid, "evidence needs two Envelope Identifiers");
+  const a1 = rlnA1(ev.a0, ev.epoch, ev.sizeClass, ev.credit);
+  const x1 = rlnX(ev.s1.eid);
+  const x2 = rlnX(ev.s2.eid);
+  assert(ev.s1.y == ev.a0 + a1 * x1, "share 1 not on the member line");
+  assert(ev.s2.y == ev.a0 + a1 * x2, "share 2 not on the member line");
+  assert(ev.sizeClass < 4, "bad size class");
+  const idc = idcOf(ev.a0);
+  assert(path.leaf == memberLeafOf(idc, ev.quota), "path is not for this member");
+  const p = disclose(period);
+  assert(members.member(p), "no such period");
+  assert(members.lookup(p).checkRoot(disclose(merkleTreePathRoot<20, Bytes<32>>(path))), "unknown root");
+  members.lookup(p).insertIndexDefault(disclose(pathIndex(path)));
+  const id = disclose(idc);
+  revoked.insert(id);
+  emitGov(actRevoke(), disclose(reason), id);
+}
+
+// MPE-ECO-026: drop the tree of a period that ended more than one root window
+// ago. Callable by anyone.
+export circuit prunePeriod(period: Uint<32>): [] {
+  const p = disclose(period);
+  assert(members.member(p), "no such period");
+  assert(blockTimeGte(((p + 1) * params.membershipPeriod + params.rootWindow) as Uint<64>), "period still eligible");
+  members.remove(p);
+}
+
+// ---------------------------------------------------------------------------
+// Relay list (steward only, MPE-NET-054, MPE-OPS-018)
+
+export circuit addRelay(peer: Bytes<32>, entry: RelayEntry, reason: Uint<16>): [] {
+  assertSteward();
+  const k = disclose(peer);
+  relays.insert(k, disclose(entry));
+  emitGov(actRelayAdd(), disclose(reason), k);
+}
+
+export circuit removeRelay(peer: Bytes<32>, reason: Uint<16>): [] {
+  assertSteward();
+  const k = disclose(peer);
+  assert(relays.member(k), "no such relay");
+  relays.remove(k);
+  emitGov(actRelayRemove(), disclose(reason), k);
+}
+
+// ---------------------------------------------------------------------------
+// Parameters with time-lock (MPE-OPS-012), pause, steward rotation
+
+export circuit proposeParams(p: Params, now: Uint<64>, reason: Uint<16>): [] {
+  assertSteward();
+  const t = disclose(now);
+  assertClock(t);
+  pending = some<PendingParams>(PendingParams { params: disclose(p), effectiveAt: (t + paramsDelay) as Uint<64> });
+  emitGov(actParams(), disclose(reason), default<Bytes<32>>);
+}
+
+// Anyone may activate a pending change once its time-lock has passed.
+export circuit activateParams(): [] {
+  assert(pending.is_some, "nothing pending");
+  assert(blockTimeGte(pending.value.effectiveAt), "time-lock running");
+  params = pending.value.params;
+  pending = none<PendingParams>();
+  emitGov(actParamsActive(), 0, default<Bytes<32>>);
+}
+
+export circuit pause(reason: Uint<16>): [] {
+  assertSteward();
+  paused = true;
+  emitGov(actPause(), disclose(reason), default<Bytes<32>>);
+}
+
+export circuit unpause(reason: Uint<16>): [] {
+  assertSteward();
+  paused = false;
+  emitGov(actUnpause(), disclose(reason), default<Bytes<32>>);
+}
+
+export circuit setSteward(newKey: Bytes<32>, reason: Uint<16>): [] {
+  assertSteward();
+  const k = disclose(newKey);
+  steward = k;
+  emitGov(actSteward(), disclose(reason), k);
+}
+
+// ---------------------------------------------------------------------------
+// Anchors (MPE-NET-041, MPE-NET-050, MPE-NET-053, MPE-FMT-047, MPE-STO-028/029)
+
+// `slot` and `q` satisfy window = q * 2940 + slot (Compact has no division or
+// modulo, so the caller supplies the quotient and the circuit checks it).
+export circuit postAnchor(peer: Bytes<32>, window: Uint<64>, q: Uint<64>, slot: Uint<16>,
+                          root: Bytes<32>, counts: Vector<8, Uint<32>>): [] {
+  assert(!paused, "bus paused");
+  const k = disclose(peer);
+  assert(relays.member(k), "not a listed relay");
+  const e = relays.lookup(k);
+  assert(e.roles.anchorer, "relay lacks the anchorer role");
+  assert(e.keyCommitment == relayKeyOf(relaySecret()), "not the anchorer key");
+
+  const w = disclose(window);
+  const s = disclose(slot);
+  assert(s < anchorSlots(), "slot out of range");
+  assert(disclose(q) * anchorSlots() + s == w, "slot is not window mod 2940");
+
+  // The window closed at least 20 s ago and is younger than the live history.
+  const closeAt = (w + 1) * params.anchorWindow;
+  assert(blockTimeGte((closeAt + anchorDelay()) as Uint<64>), "window not closed");
+  assert(blockTimeLt((closeAt + params.anchorHistory) as Uint<64>), "window too old");
+
+  const c = disclose(counts);
+  assert(fold(countAny, false, c), "empty window: no Anchor");
+  assert(fold(countOk, true, c, [0, 1, 2, 3, 4, 5, 6, 7], [params.shardCount, params.shardCount,
+         params.shardCount, params.shardCount, params.shardCount, params.shardCount,
+         params.shardCount, params.shardCount]), "count for an inactive Shard");
+
+  // At most one Anchor per window; an older record in the slot is replaced.
+  if (anchors.member(s)) {
+    assert(anchors.lookup(s).window < w, "window already anchored");
+  }
+  const r = disclose(root);
+  anchors.insert(s, AnchorRecord { window: w, root: r, counts: c });
+  anchorTree.insertIndex(anchorLeafOf(w, r), s as Uint<64>);
+  emit(Misc { name: anchorName(), payload: anchorPayload(w, r, c) });
+}
+
+// MPE-STO-029: anyone may remove a record older than P-STO-9.
+export circuit pruneAnchor(slot: Uint<16>): [] {
+  const s = disclose(slot);
+  assert(anchors.member(s), "empty slot");
+  const w = anchors.lookup(s).window;
+  assert(blockTimeGte(((w + 1) * params.anchorWindow + params.anchorHistory) as Uint<64>), "record still live");
+  anchors.remove(s);
+  anchorTree.insertIndexDefault(s as Uint<64>);
+}
+
+// Cross-contract read for consumers (MPE-CON-047, DEC-022 (b)). No witness, so
+// another contract may call it.
+export circuit anchorRootValid(rt: MerkleTreeDigest): Boolean {
+  return anchorTree.checkRoot(disclose(rt));
+}
