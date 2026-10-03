@@ -34,19 +34,20 @@ runs libp2p for consensus but has no publish/subscribe layer for applications.
 
 ## Status
 
-Midnight Express is at the design stage. The requirements have been derived and reconciled, a Rust
-prototype on rust-libp2p has been built and exercised in simulation, and the ledger interface has been
-compiled in Compact and costed against the ledger cost model. It has not run on a Midnight network, and
-the prototype's admission proof is a stand-in, so none of its figures should be read as production
-measurements.
+Midnight Express is at the design stage. There is no proof of concept yet; building one is the next step.
+The design document specifies the system and the experimental design that a proof of concept must run.
+Exploratory runs guided the design, and the design does not rely on them. The ledger interface was written
+in Compact and compiled and costed against the ledger cost model, but nothing has run on a Midnight network.
 
-The design document, the Midnight Improvement Proposal and the accompanying Problem Statement will be
-published here.
+## Contents
 
-## Related work
-
-The research corpus and design workspace behind this project are in
-[privateEvents](https://github.com/CharlesHoskinson/privateEvents).
+| Path | What it holds |
+|---|---|
+| [`docs/design-document/Midnight-Express-Design-Document.pdf`](docs/design-document/Midnight-Express-Design-Document.pdf) | The design document: Midnight and the need for private events, the options and requirements, the experimental design, the problem statement, the improvement proposal, the requirements in EARS form (Appendix A) and an annotated reading list (Appendix B). |
+| `docs/design-document/draft-final/` | The document source in Markdown; `build/` holds the scripts that assemble it and build the PDF. |
+| `design/ears/`, `design/rounds/r5/` | The requirement register. |
+| `experiments/` | Exploratory Rust code and the Compact ledger-interface study (`experiments/registry`). Not a proof of concept; see its README. |
+| `catalog/`, `notes/`, `graph/` | The research corpus catalog, notes and graph tooling. |
 
 ## License
 
