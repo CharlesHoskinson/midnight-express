@@ -1,0 +1,1 @@
+{"name": "SGX-Trusted Tor Relays", "summary": "This cluster covers using Intel SGX enclaves and remote attestation to protect Tor relay operations and detect modified or bandwidth-inflating nodes."}

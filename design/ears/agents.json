@@ -1,0 +1,124 @@
+[
+ {
+  "id": "e01-prv-privacy",
+  "vendor": "codex",
+  "area": "PRV",
+  "title": "Privacy properties and leakage",
+  "decisions": [
+   "D2"
+  ],
+  "focus": "Named privacy properties, adversary classes held against, the leakage table as requirements, explicit non-claims, and how each property is verified. Draw on s1, s3, s4, g4 and the cited bounds (anonymity trilemma, gossip anonymity limits)."
+ },
+ {
+  "id": "e02-cry-crypto",
+  "vendor": "codex",
+  "area": "CRY",
+  "title": "Cryptography and key management",
+  "decisions": [
+   "D1",
+   "D3"
+  ],
+  "focus": "Sealing, tags and recognition, key derivation and rotation, signatures, forward secrecy posture, fuzzy detection for first contact, post-quantum posture and sizes, domain separation, nonce and replay rules. Draw on s2, o1, o3."
+ },
+ {
+  "id": "e03-sec-threats",
+  "vendor": "codex",
+  "area": "SEC",
+  "title": "Threats, abuse resistance and failure handling",
+  "decisions": [
+   "D9"
+  ],
+  "focus": "Eclipse, Sybil, spam and storage exhaustion, replay, censorship, traffic analysis, malformed input, indexer abuse, key compromise, malicious contracts; the defence required for each and the behaviour on attack. Draw on s3, g2, o4."
+ },
+ {
+  "id": "e04-prf-performance",
+  "vendor": "codex",
+  "area": "PRF",
+  "title": "Performance and capacity",
+  "decisions": [
+   "D5"
+  ],
+  "focus": "Throughput, latency percentiles, fan-out, concurrent subscribers, per-node bandwidth and CPU by node class, mesh parameters, and the load profiles the Prototype must be measured under. Show the numbers the proposals give and where they conflict (10/s versus 50/s). Draw on g3, g2, g1."
+ },
+ {
+  "id": "e05-sto-storage",
+  "vendor": "codex",
+  "area": "STO",
+  "title": "Storage and retention",
+  "decisions": [
+   "D6"
+  ],
+  "focus": "Retention windows, per-node-class storage, pruning, back-fill, what lives on the ledger versus off it, availability, and cache and dedup state. Draw on g3, o2, o4, s2, s3."
+ },
+ {
+  "id": "e06-ver-verification",
+  "vendor": "codex",
+  "area": "VER",
+  "title": "Verification and prototype acceptance",
+  "decisions": [
+   "D10"
+  ],
+  "focus": "Phases, simulation and formal-model gates, measurable acceptance criteria, test categories, and the specific acceptance tests the Rust Prototype must pass (multi-node local run, adversarial runs, metrics). Draw on g4, s4, o1, o3, o4 and the D10 sections of all proposals."
+ },
+ {
+  "id": "e07-fmt-format",
+  "vendor": "claude",
+  "area": "FMT",
+  "title": "Event and envelope format",
+  "decisions": [
+   "D1"
+  ],
+  "focus": "Envelope layout, visible versus sealed fields, size classes, padding, identifiers, versioning and extension rules, expiry, encoding, event schemas and the Misc/ledger carrier. Draw on g1, o1, o3, o4, s2."
+ },
+ {
+  "id": "e08-pub-model",
+  "vendor": "claude",
+  "area": "PUB",
+  "title": "Publish and subscribe model and delivery semantics",
+  "decisions": [
+   "D3"
+  ],
+  "focus": "Topics, shards and tags, discovery, subscription without revealing interest, delivery guarantees (ordering, duplicates, replay, back-fill), Publisher and Subscriber behaviour and error cases. Draw on o3, g1, g2, s1, s4."
+ },
+ {
+  "id": "e09-con-consumers",
+  "vendor": "claude",
+  "area": "CON",
+  "title": "Consumers: agents, contracts and wallets",
+  "decisions": [
+   "D3"
+  ],
+  "focus": "The client library and API for agents, smart contracts (reacting through a later transaction with a proof), wallets, and other roles; delivery labels (final or gossip), resume, failure modes, SDK ergonomics. Draw on o3, o1, o4, g1."
+ },
+ {
+  "id": "e10-eco-economics",
+  "vendor": "claude",
+  "area": "ECO",
+  "title": "Admission, economics and spam cost",
+  "decisions": [
+   "D4"
+  ],
+  "focus": "Who pays for what, rate-limit admission (RLN-style membership or tickets), fees and DUST/NIGHT mechanics as the code supports them, deposits and slashing, operator incentives, behaviour at low and high load. Draw on o2, g1, g3, s1, s2."
+ },
+ {
+  "id": "e11-ops-actors",
+  "vendor": "claude",
+  "area": "OPS",
+  "title": "Infrastructure actors, governance and operations",
+  "decisions": [
+   "D7",
+   "D10"
+  ],
+  "focus": "Who runs Bus Nodes, Store Nodes, anchorers and indexers; admission and trust; upgrades, key rotation, monitoring, incident response, abuse handling without breaking privacy, launch phases. Draw on o4, o2, o1, s1, s3."
+ },
+ {
+  "id": "e12-net-overlay",
+  "vendor": "claude",
+  "area": "NET",
+  "title": "GossipSub overlay and Midnight tether",
+  "decisions": [
+   "D8"
+  ],
+  "focus": "The libp2p/GossipSub v1.1 configuration (mesh parameters, scoring, validation, peer discovery, transports), sharding, the Ledger Adapter and Registry/anchor interface, the fallback path, and what changes in Midnight (node, indexer, wallet, Compact) if anything. Draw on g2, o1, g1, g3, notes/midnight-network-stack.md and the libp2p source under /home/charl/libp2p/."
+ }
+]

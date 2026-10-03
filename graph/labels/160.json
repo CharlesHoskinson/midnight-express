@@ -1,0 +1,1 @@
+{"name": "Sparse Keyword Private Information Retrieval", "summary": "This cluster covers keyword PIR for sparse databases, including SparsePIR variants, batching and hashing techniques, stateless retrieval, and related implementation cryptography."}

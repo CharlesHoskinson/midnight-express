@@ -1,0 +1,1 @@
+{"name": "Gossip-Based Broadcast Dissemination", "summary": "This cluster concerns BRISA, a hybrid broadcast mechanism that uses tree or DAG structures over gossip to reduce duplicate message delivery."}

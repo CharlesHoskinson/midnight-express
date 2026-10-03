@@ -1,0 +1,1 @@
+{"circuit": "react", "zkir_json_B": 32490, "bzkir_B": 2331, "prover_B": 38492629, "verifier_B": 2119, "pi": 128, "k": 17, "rows": 77905, "table_rows": 65795, "advice_columns": 8, "lookups": 3, "size": 4368}

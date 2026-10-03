@@ -1,0 +1,1 @@
+{"name": "DHT-Based Publish-Subscribe Overlays", "summary": "The cluster covers peer-to-peer publish-subscribe systems that use structured overlays such as Pastry and Skip Graph for topic routing, multicast, message ordering, and adaptation."}

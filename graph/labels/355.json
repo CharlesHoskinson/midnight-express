@@ -1,0 +1,1 @@
+{"name": "Bi-Policy ABE for Private Pub-Sub", "summary": "This cluster covers bi-policy attribute-based encryption for cloud publish-subscribe, protecting message content and subscriber interests while an untrusted broker matches access and subscription policies."}

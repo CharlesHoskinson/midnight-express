@@ -1,0 +1,1 @@
+{"name": "Causal Message Ordering", "summary": "The cluster covers causal barriers and delivery guarantees that preserve the order of dependent messages in publish/subscribe systems."}

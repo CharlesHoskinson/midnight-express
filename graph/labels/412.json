@@ -1,0 +1,1 @@
+{"name": "Mimblewimble Transaction DoS", "summary": "This cluster concerns denial-of-service attacks against Mimblewimble transaction relay and aggregation, including their evaluation in Beam and Grin."}

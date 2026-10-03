@@ -1,0 +1,1 @@
+{"name": "Proof-of-Work Decentralized Messaging", "summary": "This cluster covers Dpush and Dmail, which use proof of work, reputation, and a Kademlia-based DHT to support spam-resistant unsolicited messaging with encrypted delivery."}

@@ -1,0 +1,1 @@
+{"name": "Swarm PSS Messaging", "summary": "This cluster covers PSS encrypted message relaying over Swarm, including its Whisper-derived design, chunk integrity and routing, synchronization, and RLN rate limiting."}

@@ -1,0 +1,1 @@
+{"name": "Post-Quantum Tor Handshakes", "summary": "The cluster covers Tor\u2019s ntor-based circuit-extension handshake, including NTRUEncrypt hybrid variants, their security analysis, and comparison with legacy TAP."}

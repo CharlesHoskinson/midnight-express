@@ -1,0 +1,1 @@
+{"name": "Traffic-Analysis-Resistant Messaging", "summary": "The cluster covers private messaging and gossip protocols that use cover traffic or differential privacy to limit traffic analysis, alongside work measuring anonymity fingerprints in onion services."}

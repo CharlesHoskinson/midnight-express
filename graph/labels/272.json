@@ -1,0 +1,1 @@
+{"name": "Oblivious Message Retrieval", "summary": "The cluster covers private message retrieval and detection protocols that conceal which messages a recipient seeks, including batch PIR, homomorphic encryption, and secure signaling approaches."}

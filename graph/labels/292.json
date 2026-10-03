@@ -1,0 +1,1 @@
+{"name": "Bitcoin Transaction Relay Reconciliation", "summary": "This cluster covers Bitcoin transaction relay approaches that use set reconciliation sketches to reduce bandwidth compared with flooding-only announcements."}

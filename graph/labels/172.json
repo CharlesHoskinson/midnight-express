@@ -1,0 +1,1 @@
+{"name": "Partisan Erlang Messaging Topologies", "summary": "This cluster covers Partisan\u2019s configurable Erlang distribution and pub-sub backends, their mesh and peer-to-peer topologies, and related gossip protocols, delivery properties, and scalability studies."}

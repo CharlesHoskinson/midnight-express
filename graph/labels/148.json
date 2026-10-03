@@ -1,0 +1,1 @@
+{"name": "DDS-Based Real-Time Pub/Sub", "summary": "The cluster covers DDS and RTPS-based real-time publish/subscribe middleware, its discovery and performance in ROS 2 and mesh settings, and the network transports and routing protocols used to support it."}

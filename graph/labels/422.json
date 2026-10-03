@@ -1,0 +1,1 @@
+{"name": "Redundancy Reduced Gossip Protocol", "summary": "This cluster covers the RRG protocol for real-time N-to-N group communication, which limits repeated push-pulls to reduce redundant gossip."}

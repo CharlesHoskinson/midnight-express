@@ -1,0 +1,2048 @@
+{
+ "params": [
+  {
+   "name": "Size-class Sealed Body lengths (P-FMT-1)",
+   "prototype": "256, 1,024, 4,096, 16,384 B (classes 0-3)",
+   "production": "Same table if the measured Admission Slot A is at most 1,024 B; if A exceeds 1,024 B, classes 1-3 only (1,024, 4,096, 16,384 B)",
+   "reason": "DEC-013. One table serves the overlay and the ledger carrier (1, 4, 16 and 64 Misc parts, MPE-FMT-041). The 256 B class keeps full-feed cost low (o3 R2, g3 R2). DEC-FMT-1's own trigger removes class 0 when admission overhead dominates it. PRF fixtures stated as '4 KiB complete Envelopes' map to class 2 (wire 4,616 B).",
+   "change_ids": [
+    "MPE-PRF-019",
+    "MPE-PRF-025",
+    "MPE-PRF-026",
+    "MPE-STO-034"
+   ]
+  },
+  {
+   "name": "Admission Slot width A (P-FMT-2)",
+   "prototype": "512 B: epoch 8 B, membership root 32 B, nullifier 32 B, share y 32 B, proof 256 B (360 B), then zero fill",
+   "production": "Measured length of the selected proof fields rounded up to a multiple of 64 B, at most 4,096 B (P-ECO-11), fixed per version",
+   "reason": "The Waku RateLimitProof carries a 256 B uncompressed (128 B compressed) proof and 32 B root, shares and nullifier (2021-vac-waku2-rln-relay-spec, RateLimitProof table); share x is recomputed from the Envelope Identifier (MPE-ECO-018), so it is not sent. s2's object-bound stamp is 354 B (2024-rfc9578-privacypass-issuance section 6.3, per P-FMT-2). 512 B fits both and leaves 152 B for a different proof encoding without changing the class table. Unused bytes must be zero (new MPE-FMT-050).",
+   "change_ids": [
+    "MPE-FMT-007",
+    "MPE-FMT-048",
+    "MPE-ECO-048"
+   ]
+  },
+  {
+   "name": "Visible Header and wire length",
+   "prototype": "8 B fixed fields + 512 B Admission Slot = 520 B; wire 776, 1,544, 4,616, 16,904 B",
+   "production": "8 B + A; wire = 8 + A + class body",
+   "reason": "DEC-FMT-2 option (a). g1's 192 B, g2's 211 B and o4's 304 B headers are rejected with their visible tags, clues, member keys and msg_id. CRY's salt, nonce and Tag move to the clear prefix of the Sealed Body (new MPE-FMT-051), so the CRY-004 'pre-seal header' is the Network Identifier, header bytes 0-7 and that prefix.",
+   "change_ids": [
+    "MPE-CRY-004",
+    "MPE-CRY-005",
+    "MPE-CRY-013"
+   ]
+  },
+  {
+   "name": "Payload capacity per class (default cryptographic profile)",
+   "prototype": "86, 854, 3,926, 16,214 B",
+   "production": "Class body minus 170 B for the default profile; recomputed from MPE-CRY-036 for any other profile",
+   "reason": "Sealed Body = 44 B clear prefix (salt 16, nonce 12, Tag 16) + ciphertext. Plaintext = 40 B Sealed Prefix + 70 B authentication block (new MPE-CRY-041: key index 2, creation time 4, Ed25519 signature 64) + payload + zero padding; the AEAD adds 16 B. 256 - 44 - 16 - 40 - 70 = 86 B. DEC-FMT-7's 156 B figure assumed an X25519 key that the symmetric default does not carry and omitted the signature.",
+   "change_ids": [
+    "MPE-FMT-014",
+    "MPE-FMT-049"
+   ]
+  },
+  {
+   "name": "GossipSub maximum transmit size (P-FMT-6, P-NET-8)",
+   "prototype": "65,536 B",
+   "production": "65,536 B",
+   "reason": "Largest wire is 16,904 B in the prototype and 20,488 B at A = 4,096 B. rust-libp2p default (rust-libp2p/protocols/gossipsub/src/protocol.rs:100). NET's allowed range up to 262,144 B serves only g2's 256 KiB class, which no area adopts.",
+   "change_ids": [
+    "MPE-NET-014",
+    "MPE-FMT-010"
+   ]
+  },
+  {
+   "name": "Maximum Envelope lifetime L_max (P-FMT-3)",
+   "prototype": "172,800 s (48 h)",
+   "production": "172,800 s; hard ceiling 1,209,600 s (MPE-FMT-033)",
+   "reason": "DEC-004. g3, s1, s3 and s4 converge on 48 h; the ceiling is global_ttl (midnight-node/res/mainnet/ledger-parameters-config.json:176). PUB's L_max is this parameter.",
+   "change_ids": [
+    "MPE-PUB-003",
+    "MPE-PUB-004",
+    "MPE-PUB-041",
+    "MPE-NET-032"
+   ]
+  },
+  {
+   "name": "Ordinary retention (P-STO-1) and retention deadline",
+   "prototype": "Retention deadline = visible expiry, at most P-FMT-3 + P-FMT-4 after arrival",
+   "production": "Same; optional paid archive up to 604,800 s (P-STO-7)",
+   "reason": "A Store Node sees no creation time: it is signed inside the seal (MPE-CRY-021) and the Visible Header carries only expiry (MPE-FMT-003). STO-003 as written cannot be evaluated by a Store Node.",
+   "change_ids": [
+    "MPE-STO-003",
+    "MPE-STO-004"
+   ]
+  },
+  {
+   "name": "Expiry clock tolerance (P-FMT-4; replaces P-PUB-8 in delivery rules)",
+   "prototype": "60 s",
+   "production": "60 s",
+   "reason": "The same expired-on-arrival check carried 60 s (MPE-FMT-030) and 120 s (MPE-PUB-029). 60 s exceeds normal NTP error; chain-view staleness has its own threshold (P-NET-13). P-PUB-8 is retired.",
+   "change_ids": [
+    "MPE-PUB-003",
+    "MPE-PUB-004",
+    "MPE-PUB-027",
+    "MPE-PUB-029",
+    "MPE-PUB-041"
+   ]
+  },
+  {
+   "name": "Chain-view staleness threshold (P-NET-13; absorbs P-FMT-5 and P-OPS-10)",
+   "prototype": "60 s",
+   "production": "60 s",
+   "reason": "Three definitions existed: clock against latest finalized block above 120 s (FMT-031, NET-019), Registry lag above 60 s (OPS-022) and 'newest root older than P-ECO-5 = 3,600 s' (ECO-024). After DEC-009 a stale view only turns chain-dependent Reject into Ignore and keeps cached-valid forwarding, so an early trigger costs little. 60 s is 10 slots of 6 s (midnight-node/runtime/src/lib.rs:292) and more than three times the 18 s finality (notes/midnight-network-stack.md section 1.7).",
+   "change_ids": [
+    "MPE-FMT-031",
+    "MPE-NET-019",
+    "MPE-OPS-022",
+    "MPE-ECO-024"
+   ]
+  },
+  {
+   "name": "Membership-root acceptance window (P-ECO-5)",
+   "prototype": "3,600 s counted from the root's supersession; the current root is always eligible",
+   "production": "Same",
+   "reason": "ECO-015 counts from publication, so a Registry with no registration for one hour would make every Envelope Ignore. Supersession time is recorded alongside publication time (MPE-ECO-027, new MPE-NET-055).",
+   "change_ids": [
+    "MPE-ECO-015"
+   ]
+  },
+  {
+   "name": "Stale-root bound (P-ECO-4 + P-ECO-5)",
+   "prototype": "25 h",
+   "production": "25 h",
+   "reason": "Bounds forwarding under a cached root while the chain view is stale (DEC-009): a root becomes ineligible P-ECO-5 after the membership period it serves ends (new MPE-ECO-051). 86,400 s + 3,600 s = 90,000 s.",
+   "change_ids": [
+    "MPE-NET-038",
+    "MPE-SEC-035"
+   ]
+  },
+  {
+   "name": "Admission epoch and tolerance (P-ECO-1, P-ECO-6)",
+   "prototype": "60 s; 20 s",
+   "production": "60 s; 20 s",
+   "reason": "DEC-ECO-5 (o1, o2, o4). The publish retry budget P-PUB-5 x P-PUB-6 = 5 s x 3 = 15 s stays inside the 20 s tolerance, so identical retransmissions started in an epoch's last second remain admissible; new MPE-PUB-053 stops retries beyond that.",
+   "change_ids": []
+  },
+  {
+   "name": "Nullifier retention and restart barrier (P-ECO-7)",
+   "prototype": "140 s",
+   "production": "140 s",
+   "reason": "2 x 60 s + 20 s. An allowance is permanently ineligible 80 s after its epoch ends, at most 140 s after acceptance. Refusing live admission for 140 s after each start (DEC-017) restores the replay invariant without a disk write on the forwarding path. SEC-017 and STO-014 state the same bound without a number.",
+   "change_ids": [
+    "MPE-SEC-015",
+    "MPE-SEC-016",
+    "MPE-STO-014",
+    "MPE-STO-015"
+   ]
+  },
+  {
+   "name": "Membership period (P-ECO-4)",
+   "prototype": "86,400 s (mock Registry)",
+   "production": "86,400 s",
+   "reason": "Daily renewal costs about 0.1 DUST/day against 2.4 for hourly renewal (g3). Ceiling: 10% of 1,000,000 blockUsage bytes per block (ledger-parameters-config.json:158) over 14,400 blocks/day is 1.44 GB/day; at the 16 KiB registration gate (P-ECO-13) that is 1,440,000,000 / 16,384 = 87,890 registrations per day before Anchors.",
+   "change_ids": []
+  },
+  {
+   "name": "Lowest-tier publication quota (P-ECO-2, P-ECO-3)",
+   "prototype": "Per-class limits (64, 16, 4, 1) Envelopes per epoch for classes 0-3, committed in the membership leaf; one nullifier per Envelope",
+   "production": "Same vector; an exact 64-credit byte debit (credit = 256 B of body) only if a multi-nullifier circuit passes P-ECO-11 and P-ECO-12",
+   "reason": "DEC-016. P-ECO-2 = 10 credits is below the class-3 weight of 64 (P-ECO-3), so ECO-017 as written forbids class 3 to the lowest tier, and it needs up to 64 nullifier and share pairs per Envelope, which one fixed Admission Slot cannot hold. The vector gives 16,384 B of body per class per epoch (273 B/s): 240 single-class memberships, or 60 using all four classes, saturate one 64 KiB/s Shard.",
+   "change_ids": [
+    "MPE-ECO-016",
+    "MPE-ECO-017",
+    "MPE-ECO-022",
+    "MPE-ECO-050"
+   ]
+  },
+  {
+   "name": "Per-Shard capacity (P-PRF-1, P-PRF-2, P-VER-2)",
+   "prototype": "10 Envelopes/s and 64 KiB/s per Shard, whichever binds first",
+   "production": "Same",
+   "reason": "DEC-005. At 10/s the byte cap binds above a mean wire size of 6,553.6 B; with prototype wire sizes class 3 alone binds at 65,536 / 16,904 = 3.88 Envelopes/s.",
+   "change_ids": [
+    "MPE-PRF-006"
+   ]
+  },
+  {
+   "name": "Comparison and burst loads (P-PRF-28, P-PRF-29, P-VER-4, P-VER-5, P-VER-9, P-VER-10)",
+   "prototype": "50 Envelopes/s for 24 h as a comparison; 100 Envelopes/s per Shard for 60 s as a burst",
+   "production": "Not capacity targets",
+   "reason": "g1's normalized mix (847.7 B mean) at 50/s is 41.39 KiB/s, inside the byte cap and above the count cap; the run decides whether the count ceiling can rise (DEC-005).",
+   "change_ids": []
+  },
+  {
+   "name": "Shard count (P-PUB-1, P-NET-9)",
+   "prototype": "1 operating; 8 in the benchmark topology (P-PRF-3)",
+   "production": "1 at launch; allowed range 1-8",
+   "reason": "DEC-011. Nine Round 2 votes favour one feed (DEC-PUB-1). P-PUB-1 allowed 1-16 and P-NET-9 1-8; no proponent of 16 Shards (o1, o2) remains after Round 2.",
+   "change_ids": [
+    "MPE-PUB-002"
+   ]
+  },
+  {
+   "name": "Mesh tuple D, D_lo, D_hi, D_out (P-NET-1..4, P-PRF-4, P-SEC-1)",
+   "prototype": "(8, 6, 12, 4); (6, 5, 12, 2) as mandatory comparison",
+   "production": "(8, 6, 12, 4)",
+   "reason": "DEC-012. The prototype gates include a 20% cold-start Sybil attack (MPE-PRF-032, MPE-VER-018) and an outbound quota of 4 (MPE-SEC-003); (8, 6, 12, 4) is the profile evaluated under Sybil cold start (2020-vyzovitis-gossipsub). It satisfies D_out < D_lo and D_out <= D/2 (specs/pubsub/gossipsub/gossipsub-v1.1.md:192).",
+   "change_ids": [
+    "MPE-PRF-010",
+    "MPE-SEC-003"
+   ]
+  },
+  {
+   "name": "Heartbeat, gossip factor, prune backoff, flood publishing",
+   "prototype": "1 s, 0.25, 60 s, off",
+   "production": "1 s, 0.25, 60 s, off",
+   "reason": "Consistent across NET, PRF and SEC. Flood publishing off departs from the specification default (specs/pubsub/gossipsub/gossipsub-v1.1.md:549; rust-libp2p/protocols/gossipsub/src/config.rs:548).",
+   "change_ids": []
+  },
+  {
+   "name": "Edge Bus Node bandwidth (P-PRF-12)",
+   "prototype": "At most 6 Mbit/s egress and 6 Mbit/s ingress at one Shard's byte cap",
+   "production": "Same",
+   "reason": "g3's planning model is egress: 1.25 x D x 64 KiB/s (g3 R1 D5: '1.25 x 6 x 64 KiB/s = 480 KiB/s, about 3.9 Mbit/s'). With D = 8: 1.25 x 8 x 65,536 B/s x 8 bit = 5.24 Mbit/s, which breaks the 4 Mbit/s figure. Ingress carries the same duplicates. A per-direction budget settles DEC-PRF-4's direction question.",
+   "change_ids": [
+    "MPE-PRF-013"
+   ]
+  },
+  {
+   "name": "Full Bus Node bandwidth (P-PRF-13)",
+   "prototype": "At most 24 Mbit/s per direction with 4 Shards at their byte caps",
+   "production": "Same",
+   "reason": "4 x 5.24 = 20.97 Mbit/s planning egress plus headroom; g3's 16 Mbit/s was its D = 6 egress model.",
+   "change_ids": [
+    "MPE-PRF-014"
+   ]
+  },
+  {
+   "name": "Bus Node CPU (P-PRF-14, P-PRF-15)",
+   "prototype": "0.30 core edge; 2 cores full",
+   "production": "Same",
+   "reason": "10 Envelopes/s x 4.5 ms Groth16 verification on a 4-vCPU VM (2024-revuelta-waku-latency Table 1) is 0.045 core per Shard; at the P-ECO-12 gate of 10 ms it is 0.10 core, inside 0.30.",
+   "change_ids": []
+  },
+  {
+   "name": "Bus Node memory ceiling (new P-PRF-34)",
+   "prototype": "2 GiB resident",
+   "production": "2 GiB resident",
+   "reason": "MPE-VER-015 cannot pass without a ceiling. Application seen-set at one Shard: 10/s x 172,860 s = 1.73 million identifiers x about 72 B = 124 MB; 4 Shards about 0.5 GB, inside P-STO-4 = 1 GiB; plus 1 GiB for process, GossipSub caches and queues (P-SEC-4 x 16,904 B = 2.2 MB). New MPE-PRF-041.",
+   "change_ids": [
+    "MPE-VER-015"
+   ]
+  },
+  {
+   "name": "Bus Node application seen-set retention (MPE-PUB-027, P-STO-6)",
+   "prototype": "Expiry + P-FMT-4 (60 s)",
+   "production": "Same",
+   "reason": "A Bus Node Ignores anything whose expiry is earlier than its clock minus P-FMT-4 (MPE-FMT-030), so longer retention protects nothing. P-STO-6 (+3,600 s) and P-PUB-8 (+120 s) disagreed; P-STO-6 is retired.",
+   "change_ids": [
+    "MPE-PUB-027",
+    "MPE-STO-013"
+   ]
+  },
+  {
+   "name": "Client deduplication retention (P-CON-2)",
+   "prototype": "Expiry + 3,600 s",
+   "production": "Same",
+   "reason": "Clients receive back-fill pages up to P-STO-2 after expiry and apply no expiry gate before recognition; one hour covers client clock error.",
+   "change_ids": []
+  },
+  {
+   "name": "Recognition key cap (P-CRY-4, P-PUB-4, P-CON-7)",
+   "prototype": "256 keys; allowed range 1-256",
+   "production": "Same",
+   "reason": "Same default in three files; PUB and CON ranges up to 4,096 exceed CRY's bound. Cost at the cap: 256 keys x 10 Envelopes/s = 2,560 HMAC-SHA-256 evaluations per second.",
+   "change_ids": [
+    "MPE-PUB-018",
+    "MPE-CON-009"
+   ]
+  },
+  {
+   "name": "Tag and salt (P-CRY-2, P-CRY-3; withdraws P-CON-5, P-CON-6)",
+   "prototype": "16 B Tag and 16 B salt in the Sealed Body clear prefix",
+   "production": "Same",
+   "reason": "DEC-003. Salted per-Envelope Tags make the expected-Tag lookahead window and the recognition-window gap unnecessary.",
+   "change_ids": [
+    "MPE-CON-007",
+    "MPE-CON-008",
+    "MPE-PUB-005"
+   ]
+  },
+  {
+   "name": "Sequence-gap wait (P-PUB-7; withdraws P-CON-1)",
+   "prototype": "120 s",
+   "production": "120 s",
+   "reason": "A missing Envelope is repaired by reconciliation every 60 s (P-PUB-3) plus delivery within 10 s (P-VER-6): 70 s. CON's 60 s would emit gap items that the next reconciliation fills.",
+   "change_ids": [
+    "MPE-CON-020"
+   ]
+  },
+  {
+   "name": "Reconciliation interval and independent sources (P-PUB-3, P-CON-4, P-CON-3, P-SEC-2)",
+   "prototype": "60 s; 2 sources from distinct mock Operators",
+   "production": "60 s; 2 sources from distinct Operators",
+   "reason": "Inventory at 10/s: 600 identifiers x 32 B = 19,200 B per minute, 27.6 MB/day, 1.6% of a 1.77 GB/day feed (DEC-PUB-4). Priority conflict resolved by DEC-025.",
+   "change_ids": [
+    "MPE-PUB-014",
+    "MPE-CON-036",
+    "MPE-CON-037",
+    "MPE-SEC-021"
+   ]
+  },
+  {
+   "name": "Full-Shard streams per Bus Node (P-PUB-10, P-PRF-17)",
+   "prototype": "4 per Bus Node; 500 per gateway (P-PRF-18)",
+   "production": "Same",
+   "reason": "At the byte cap one stream is 0.524 Mbit/s; 8 streams need 4.19 Mbit/s on top of 5.24 Mbit/s mesh egress. MPE-PRF-036 still refuses streams beyond remaining bandwidth.",
+   "change_ids": [
+    "MPE-PUB-033"
+   ]
+  },
+  {
+   "name": "Per-peer pre-verification rate (P-ECO-10, P-NET-10)",
+   "prototype": "20 Envelopes/s per peer per Shard",
+   "production": "Same",
+   "reason": "A per-peer total starves Full Bus Nodes: a mesh peer on 4 Shards at capacity forwards up to 40 Envelopes/s. 20/s per Shard is twice the Shard cap.",
+   "change_ids": [
+    "MPE-NET-023",
+    "MPE-ECO-023"
+   ]
+  },
+  {
+   "name": "Verification queues (P-SEC-3, P-SEC-4)",
+   "prototype": "8 jobs per peer; 128 total",
+   "production": "Same",
+   "reason": "128 x 16,904 B = 2.2 MB; at 4.5 ms per proof a full queue drains in 0.58 s, below the 3 s p99 target.",
+   "change_ids": []
+  },
+  {
+   "name": "Publisher retry (P-PUB-5, P-PUB-6)",
+   "prototype": "5 s; 3 Bus Nodes",
+   "production": "Same",
+   "reason": "15 s total, inside the 20 s epoch tolerance (P-ECO-6) and above the 3 s propagation p99.",
+   "change_ids": []
+  },
+  {
+   "name": "Latency gates (P-PRF-10, P-PRF-11, P-VER-6, P-VER-7, P-VER-21..23)",
+   "prototype": "Post-admission delivery p99 at most 10 s and at least 99.9% of eligible pairs within 10 s; warm propagation p50 1.5 s and p99 3 s recorded, a miss triggers MPE-PRF-011",
+   "production": "Warm propagation p50 at most 1.5 s and p99 at most 3 s; canary delivery at least 99.9% within 5 s for 30 consecutive days",
+   "reason": "DEC-PRF-3 and DEC-VER-2. The prototype carries unmeasured admission costs, so g3's 3 s target is recorded rather than gated; production adopts it with o4's canary window. MPE-PRF-007 and MPE-PRF-023 receive the 10 s deadline they lacked.",
+   "change_ids": [
+    "MPE-PRF-007",
+    "MPE-PRF-023"
+   ]
+  },
+  {
+   "name": "Attack thresholds (P-PRF-22..24, P-VER-25, P-OPS-5)",
+   "prototype": "20% cold-start Sybil: at least 99% delivery and completed p99 at most 6 s; failure at 200 nodes triggers MPE-PRF-038",
+   "production": "Open-admission red team at 1:1 Sybil identities: canary delivery at least 99.9% (P-OPS-5)",
+   "reason": "MPE-VER-040 used 99% and MPE-OPS-008 used 99.9% for the same gate. Removing a safety restriction takes the stricter value, which equals the canary SLO.",
+   "change_ids": [
+    "MPE-VER-040"
+   ]
+  },
+  {
+   "name": "Adversarial fractions (P-SEC-6, P-PRV-1, P-VER-11, P-VER-12, P-PRF-22)",
+   "prototype": "Placements 1, 3, 5, 20%; first-spy coalitions 1, 3, 5, 10, 20%",
+   "production": "Same sets for the red team",
+   "reason": "Union of the five sets; DEC-NET-6 asks for a 10% spy run.",
+   "change_ids": [
+    "MPE-PRV-033"
+   ]
+  },
+  {
+   "name": "Soak duration (P-PRF-25, P-VER-3)",
+   "prototype": "72 h at 10 Envelopes/s per Shard",
+   "production": "Replaced by the 30-day canary window",
+   "reason": "A Store Node reaches steady-state storage only after one 48 h retention window; 72 h = 48 h fill + 24 h of pruning at steady state. P-PRF-25 said 48 h.",
+   "change_ids": [
+    "MPE-PRF-037"
+   ]
+  },
+  {
+   "name": "Topology sizes (P-VER-1, P-PRF-9, P-VER-8)",
+   "prototype": "32 local Bus Node processes for reference runs (at least 16 for MPE-VER-011); simulations at 50, 200 and 1,000",
+   "production": "Not applicable",
+   "reason": "P-PRF-9 reference conditions use 32 Bus Nodes per Shard; 32 satisfies VER's minimum of 16.",
+   "change_ids": [
+    "MPE-VER-011"
+   ]
+  },
+  {
+   "name": "Store Node allocation (P-STO-3) and Bus Node caches (P-STO-4)",
+   "prototype": "32 GiB per retained Shard; 1 GiB",
+   "production": "Same",
+   "reason": "Byte cap x 48 h = 65,536 x 172,800 = 11,324,620,800 B = 10.55 GiB raw; 21.1 GiB at the assumed 2x database multiplier.",
+   "change_ids": []
+  },
+  {
+   "name": "Distinct Operators for 'stored' (P-STO-5)",
+   "prototype": "3 mock Operators (new MPE-OPS-055)",
+   "production": "3",
+   "reason": "MPE-STO-012 is a POC MUST and cannot execute without Operator diversity in the mock roster.",
+   "change_ids": []
+  },
+  {
+   "name": "Anchor window and granularity (P-NET-17)",
+   "prototype": "60 s; one Anchor per non-empty window covering every Shard",
+   "production": "Same",
+   "reason": "DEC-024. NET-041 (one per Shard per window) and STO's record bound (one per window) differ by the Shard count. A combined payload (8 B window, 32 B root, 4 B count per Shard = 72 B at 8 Shards) fits the 256 B Misc payload (MPE-FMT-047). Cost: 1,440 Anchors/day; at the 8 KiB transaction assumed in DEC-PRF-6, 11.8 MB/day = 0.08% of 14.4 GB/day blockUsage.",
+   "change_ids": [
+    "MPE-NET-041"
+   ]
+  },
+  {
+   "name": "Live Anchor history (P-STO-9, P-STO-10)",
+   "prototype": "176,400 s (49 h); 2,940 records",
+   "production": "Same",
+   "reason": "Consumption rejects expired Events (MPE-CON-046), so no contract needs a root older than L_max; 1 h margin. 49 h x 60 windows per hour = 2,940. o4's 7 days and o2's 14 days assumed 7- to 14-day lifetimes.",
+   "change_ids": [
+    "MPE-STO-028",
+    "MPE-STO-029"
+   ]
+  },
+  {
+   "name": "Unanchored wait (P-CON-8)",
+   "prototype": "300 s",
+   "production": "300 s",
+   "reason": "60 s window + 6 s inclusion + about 18 s finality + indexing, with margin.",
+   "change_ids": []
+  },
+  {
+   "name": "Tombstone deadline (P-SEC-5, P-STO-14, P-OPS-13)",
+   "prototype": "Feature disabled",
+   "production": "24 h",
+   "reason": "DEC-018. With 48 h retention a 48 h deadline never removes a body before ordinary expiry; 24 h is inside all three allowed ranges.",
+   "change_ids": [
+    "MPE-SEC-034",
+    "MPE-STO-036",
+    "MPE-OPS-025",
+    "MPE-OPS-026"
+   ]
+  },
+  {
+   "name": "Version overlap (P-FMT-9, P-OPS-19)",
+   "prototype": "Not applicable (single version)",
+   "production": "2 x 172,800 s + 30 days = 34 days",
+   "reason": "Identical definitions; MPE-OPS-035 becomes see canonical MPE-FMT-024.",
+   "change_ids": [
+    "MPE-OPS-035"
+   ]
+  },
+  {
+   "name": "Bootstrappers (P-OPS-3, P-NET-11, P-SEC-2)",
+   "prototype": "2 local bootstrappers from 2 mock Operators",
+   "production": "4, each run by a distinct Operator",
+   "reason": "NET-025 already requires distinct Operators; this satisfies SEC's minimum of 2.",
+   "change_ids": [
+    "MPE-OPS-003",
+    "MPE-SEC-002"
+   ]
+  },
+  {
+   "name": "Launch relay roster (P-OPS-1, P-OPS-2)",
+   "prototype": "Mock roster of at least 3 organizations",
+   "production": "At least 8 organizations; at most 20% of listed relays each",
+   "reason": "DEC-OPS-6; s1 and o4 R2 back 8 organizations.",
+   "change_ids": []
+  },
+  {
+   "name": "Chain-share budget (P-ECO-8)",
+   "prototype": "Not applicable (mock ledger)",
+   "production": "10% of blockUsage, 24 h mean, enforced by client back-off",
+   "reason": "Anchors at 60 s use 0.08%; the remainder bounds registrations (87,890 per day at 16 KiB).",
+   "change_ids": []
+  },
+  {
+   "name": "Skipped-key retention (P-CRY-7)",
+   "prototype": "Not applicable (no ratchet)",
+   "production": "172,800 s; 604,800 s only where an archive profile is enabled",
+   "reason": "Keys need to outlive only the ciphertext the client can still fetch; shorter retention narrows compromise exposure (2016-signal-double-ratchet-spec section 8.4).",
+   "change_ids": [
+    "MPE-CRY-030"
+   ]
+  },
+  {
+   "name": "Bond and deposit amounts (P-ECO-14..17)",
+   "prototype": "None",
+   "production": "None at launch; if enabled, amount set from the MPE-ECO-050 flood cost, withdrawal delay 7 days, reporter share at most 10%",
+   "reason": "DEC-007: revocation is the launch deterrent; contract-held NIGHT on mainnet is unknown.",
+   "change_ids": [
+    "MPE-OPS-014"
+   ]
+  },
+  {
+   "name": "Admission gates (P-ECO-11, P-ECO-12, P-ECO-13)",
+   "prototype": "Encoded Admission Slot at most 4,096 B (a proof of at most 3,992 B); verification at most 10 ms on one core of a 4-vCPU VM",
+   "production": "Same, plus registration at most 16 KiB and 0.5 DUST",
+   "reason": "Consistent across ECO, FMT and OPS.",
+   "change_ids": []
+  },
+  {
+   "name": "Chaos, race and usability fixtures (P-VER-13/P-CON-10, P-VER-17/P-CON-12, P-VER-18..20/P-CON-13)",
+   "prototype": "1,000,000 Events; 100 reactors; 4 of 5 developers within 4 h",
+   "production": "Same",
+   "reason": "Identical values; the CON copies become see canonical.",
+   "change_ids": [
+    "MPE-CON-034",
+    "MPE-CON-049",
+    "MPE-CON-055"
+   ]
+  }
+ ],
+ "duplicates": [
+  {
+   "canonical": "MPE-FMT-013",
+   "others": [
+    "MPE-PRV-005"
+   ]
+  },
+  {
+   "canonical": "MPE-FMT-016",
+   "others": [
+    "MPE-CRY-003"
+   ]
+  },
+  {
+   "canonical": "MPE-FMT-003",
+   "others": [
+    "MPE-PRV-003",
+    "MPE-PUB-001"
+   ]
+  },
+  {
+   "canonical": "MPE-NET-009",
+   "others": [
+    "MPE-FMT-012"
+   ]
+  },
+  {
+   "canonical": "MPE-NET-010",
+   "others": [
+    "MPE-FMT-019",
+    "MPE-PUB-026"
+   ]
+  },
+  {
+   "canonical": "MPE-NET-014",
+   "others": [
+    "MPE-FMT-010"
+   ]
+  },
+  {
+   "canonical": "MPE-NET-015",
+   "others": [
+    "MPE-PUB-051"
+   ]
+  },
+  {
+   "canonical": "MPE-FMT-009",
+   "others": [
+    "MPE-SEC-006"
+   ]
+  },
+  {
+   "canonical": "MPE-NET-016",
+   "others": [
+    "MPE-SEC-007"
+   ]
+  },
+  {
+   "canonical": "MPE-NET-018",
+   "others": [
+    "MPE-SEC-008",
+    "MPE-ECO-024",
+    "MPE-OPS-022"
+   ]
+  },
+  {
+   "canonical": "MPE-FMT-030",
+   "others": [
+    "MPE-PUB-029"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-028",
+   "others": [
+    "MPE-NET-017",
+    "MPE-ECO-019"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-027",
+   "others": [
+    "MPE-STO-013"
+   ]
+  },
+  {
+   "canonical": "MPE-NET-023",
+   "others": [
+    "MPE-ECO-023"
+   ]
+  },
+  {
+   "canonical": "MPE-STO-009",
+   "others": [
+    "MPE-SEC-012"
+   ]
+  },
+  {
+   "canonical": "MPE-PRF-034",
+   "others": [
+    "MPE-ECO-044"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-010",
+   "others": [
+    "MPE-CON-001",
+    "MPE-CRY-015",
+    "MPE-PRV-008"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-011",
+   "others": [
+    "MPE-CON-002"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-012",
+   "others": [
+    "MPE-PRV-009",
+    "MPE-CON-003",
+    "MPE-SEC-025"
+   ]
+  },
+  {
+   "canonical": "MPE-CON-039",
+   "others": [
+    "MPE-PRV-010"
+   ]
+  },
+  {
+   "canonical": "MPE-STO-017",
+   "others": [
+    "MPE-CON-029"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-031",
+   "others": [
+    "MPE-STO-018"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-014",
+   "others": [
+    "MPE-SEC-021",
+    "MPE-CON-037"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-015",
+   "others": [
+    "MPE-SEC-023"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-016",
+   "others": [
+    "MPE-CON-004"
+   ]
+  },
+  {
+   "canonical": "MPE-PRV-013",
+   "others": [
+    "MPE-SEC-026",
+    "MPE-CON-005",
+    "MPE-PRV-012"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-008",
+   "others": [
+    "MPE-CON-006"
+   ]
+  },
+  {
+   "canonical": "MPE-CRY-008",
+   "others": [
+    "MPE-PUB-006"
+   ]
+  },
+  {
+   "canonical": "MPE-CRY-016",
+   "others": [
+    "MPE-PUB-018",
+    "MPE-CON-009"
+   ]
+  },
+  {
+   "canonical": "MPE-CRY-013",
+   "others": [
+    "MPE-PUB-005"
+   ]
+  },
+  {
+   "canonical": "MPE-FMT-022",
+   "others": [
+    "MPE-PUB-020"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-037",
+   "others": [
+    "MPE-CON-014",
+    "MPE-CRY-024"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-036",
+   "others": [
+    "MPE-CON-013"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-035",
+   "others": [
+    "MPE-CON-012"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-038",
+   "others": [
+    "MPE-CON-022"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-039",
+   "others": [
+    "MPE-CON-020"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-040",
+   "others": [
+    "MPE-CON-021"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-042",
+   "others": [
+    "MPE-CON-024"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-043",
+   "others": [
+    "MPE-CON-027"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-045",
+   "others": [
+    "MPE-CON-032"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-046",
+   "others": [
+    "MPE-CON-031",
+    "MPE-STO-026"
+   ]
+  },
+  {
+   "canonical": "MPE-CON-033",
+   "others": [
+    "MPE-PUB-044"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-049",
+   "others": [
+    "MPE-FMT-026",
+    "MPE-CON-011"
+   ]
+  },
+  {
+   "canonical": "MPE-FMT-027",
+   "others": [
+    "MPE-CON-010"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-047",
+   "others": [
+    "MPE-PRV-011"
+   ]
+  },
+  {
+   "canonical": "MPE-FMT-038",
+   "others": [
+    "MPE-PUB-048",
+    "MPE-CON-041"
+   ]
+  },
+  {
+   "canonical": "MPE-FMT-015",
+   "others": [
+    "MPE-PUB-021"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-023",
+   "others": [
+    "MPE-CRY-012"
+   ]
+  },
+  {
+   "canonical": "MPE-ECO-006",
+   "others": [
+    "MPE-SEC-029"
+   ]
+  },
+  {
+   "canonical": "MPE-ECO-021",
+   "others": [
+    "MPE-SEC-017",
+    "MPE-STO-014"
+   ]
+  },
+  {
+   "canonical": "MPE-STO-015",
+   "others": [
+    "MPE-SEC-016"
+   ]
+  },
+  {
+   "canonical": "MPE-NET-038",
+   "others": [
+    "MPE-SEC-035",
+    "MPE-OPS-021",
+    "MPE-ECO-025"
+   ]
+  },
+  {
+   "canonical": "MPE-CON-050",
+   "others": [
+    "MPE-SEC-036"
+   ]
+  },
+  {
+   "canonical": "MPE-OPS-001",
+   "others": [
+    "MPE-NET-004"
+   ]
+  },
+  {
+   "canonical": "MPE-NET-005",
+   "others": [
+    "MPE-OPS-002"
+   ]
+  },
+  {
+   "canonical": "MPE-NET-025",
+   "others": [
+    "MPE-OPS-003"
+   ]
+  },
+  {
+   "canonical": "MPE-NET-026",
+   "others": [
+    "MPE-SEC-002"
+   ]
+  },
+  {
+   "canonical": "MPE-NET-024",
+   "others": [
+    "MPE-OPS-004"
+   ]
+  },
+  {
+   "canonical": "MPE-NET-011",
+   "others": [
+    "MPE-SEC-003"
+   ]
+  },
+  {
+   "canonical": "MPE-NET-008",
+   "others": [
+    "MPE-SEC-004"
+   ]
+  },
+  {
+   "canonical": "MPE-OPS-007",
+   "others": [
+    "MPE-SEC-001",
+    "MPE-NET-034"
+   ]
+  },
+  {
+   "canonical": "MPE-OPS-008",
+   "others": [
+    "MPE-VER-040"
+   ]
+  },
+  {
+   "canonical": "MPE-VER-026",
+   "others": [
+    "MPE-SEC-040",
+    "MPE-OPS-047"
+   ]
+  },
+  {
+   "canonical": "MPE-FMT-024",
+   "others": [
+    "MPE-OPS-035"
+   ]
+  },
+  {
+   "canonical": "MPE-PUB-003",
+   "others": [
+    "MPE-NET-032"
+   ]
+  },
+  {
+   "canonical": "MPE-STO-036",
+   "others": [
+    "MPE-SEC-034",
+    "MPE-OPS-025"
+   ]
+  },
+  {
+   "canonical": "MPE-SEC-027",
+   "others": [
+    "MPE-OPS-029"
+   ]
+  },
+  {
+   "canonical": "MPE-PRV-001",
+   "others": [
+    "MPE-VER-002"
+   ]
+  },
+  {
+   "canonical": "MPE-VER-028",
+   "others": [
+    "MPE-PRV-031",
+    "MPE-PRV-032"
+   ]
+  },
+  {
+   "canonical": "MPE-VER-027",
+   "others": [
+    "MPE-PRV-033"
+   ]
+  },
+  {
+   "canonical": "MPE-VER-037",
+   "others": [
+    "MPE-CRY-040"
+   ]
+  },
+  {
+   "canonical": "MPE-CRY-036",
+   "others": [
+    "MPE-VER-006"
+   ]
+  },
+  {
+   "canonical": "MPE-ECO-048",
+   "others": [
+    "MPE-FMT-048"
+   ]
+  },
+  {
+   "canonical": "MPE-VER-030",
+   "others": [
+    "MPE-OPS-046"
+   ]
+  },
+  {
+   "canonical": "MPE-NET-035",
+   "others": [
+    "MPE-OPS-045",
+    "MPE-ECO-047"
+   ]
+  },
+  {
+   "canonical": "MPE-NET-002",
+   "others": [
+    "MPE-ECO-003"
+   ]
+  },
+  {
+   "canonical": "MPE-VER-023",
+   "others": [
+    "MPE-CON-034"
+   ]
+  },
+  {
+   "canonical": "MPE-VER-032",
+   "others": [
+    "MPE-CON-049"
+   ]
+  },
+  {
+   "canonical": "MPE-VER-036",
+   "others": [
+    "MPE-CON-055"
+   ]
+  },
+  {
+   "canonical": "MPE-VER-008",
+   "others": [
+    "MPE-CON-035"
+   ]
+  },
+  {
+   "canonical": "MPE-OPS-041",
+   "others": [
+    "MPE-VER-039"
+   ]
+  },
+  {
+   "canonical": "MPE-VER-038",
+   "others": [
+    "MPE-OPS-049"
+   ]
+  },
+  {
+   "canonical": "MPE-CON-043",
+   "others": [
+    "MPE-SEC-037"
+   ]
+  },
+  {
+   "canonical": "MPE-CON-044",
+   "others": [
+    "MPE-SEC-038"
+   ]
+  },
+  {
+   "canonical": "MPE-CRY-025",
+   "others": [
+    "MPE-CON-045"
+   ]
+  },
+  {
+   "canonical": "MPE-CRY-023",
+   "others": [
+    "MPE-SEC-030"
+   ]
+  },
+  {
+   "canonical": "MPE-PRF-021",
+   "others": [
+    "MPE-PUB-052"
+   ]
+  },
+  {
+   "canonical": "MPE-PRF-022",
+   "others": [
+    "MPE-PUB-033"
+   ]
+  },
+  {
+   "canonical": "MPE-FMT-020",
+   "others": [
+    "MPE-CRY-005"
+   ]
+  }
+ ],
+ "decisions": [
+  {
+   "id": "DEC-001",
+   "title": "Who pays relays and other Operators",
+   "options": [
+    "(a) No protocol payment to anyone",
+    "(b) Off-protocol contracts for relays, gateways and issuers",
+    "(c) Registry treasury paying only contract-checkable work (Anchors, passed retention challenges)",
+    "(d) Pool paid on multi-monitor probe scores"
+   ],
+   "proposed_by": {
+    "(a)": "g1, g2, g3, g4, o3; DEC-ECO-3(a), DEC-OPS-3(a)",
+    "(b)": "s1, s2, s3, s4; DEC-ECO-3(b), DEC-OPS-3(b)",
+    "(c)": "o2; DEC-ECO-3(c), DEC-OPS-3(d), DEC-STO-5 (bonded challenges)",
+    "(d)": "o4; DEC-ECO-3(d), DEC-OPS-3(c)"
+   },
+   "prototype_default": "(a): no payment code; MPE-ECO-037 and MPE-ECO-038 hold.",
+   "production_default": "Relays are never paid by the protocol. Launch Operators are funded by written off-protocol commitments covering 12 months (MPE-OPS-051). Option (c) is an optional later feature behind the MPE-ECO-034 invariants. Option (d) is rejected.",
+   "reason": "DUST is shielded and non-transferable and no code path credits fees to anyone (midnight-node/runtime/src/lib.rs:691,695 return (0, None); MPE-ECO-002). Relay quality is not checkable by a contract, and score attacks cut the cost of dominating a paid active set by over 99% (2026-cao-nymreputation, as cited in MPE-ECO-038 and MPE-OPS-034).",
+   "settled_by": "o2's economic simulation showing at least 12 months of treasury runway with no grant draw; written Operator bids (s1 D4); procurement showing 8 organizations will sign (DEC-OPS-6)."
+  },
+  {
+   "id": "DEC-002",
+   "title": "Forward secrecy posture",
+   "options": [
+    "(a) No forward-secrecy claim at launch; symmetric stream secrets",
+    "(b) Per-epoch hash progression of stream keys",
+    "(c) Encrypted-header Double Ratchet sessions with hybrid PQXDH setup"
+   ],
+   "proposed_by": {
+    "(a)": "g1, g2, g3, g4; DEC-PRV-4, DEC-CRY-1 recommended",
+    "(b)": "o3 R1 (s2 R2 objects)",
+    "(c)": "s2, s3; s1 and s4 conditional on a reviewed wrapper; MPE-CRY-028..035"
+   },
+   "prototype_default": "(a): invitation-based symmetric profile (MPE-CRY-001), revocation rekey from fresh entropy (MPE-CRY-019), capability record stating no forward secrecy (MPE-CRY-026, MPE-PRV-026).",
+   "production_default": "(a) for the broadcast bus; (c) as an optional pairwise profile, each claim gated by MPE-CRY-040 and MPE-VER-037. Option (b) is rejected.",
+   "reason": "Static or stream-key encryption has no recipient-compromise forward secrecy (2022-barnes-rfc9180 section 9.1). Hash progression does not revoke a removed holder (MPE-CRY-019) and retained keys over a 48 h retention window defeat its secrecy claim (s2 R2). Ratchet secrecy holds only with erasure (2016-signal-double-ratchet-spec sections 8.1-8.4).",
+   "settled_by": "DEC-CRY-1 check: run both profiles on identical workloads including broadcast fan-out, offline recovery, crash restore and retained-key compromise, and count KEY_GAP outcomes against the 48 h window."
+  },
+  {
+   "id": "DEC-003",
+   "title": "Recognition mechanism",
+   "options": [
+    "(a) Trial decryption of every Envelope, no Tag",
+    "(b) Per-publisher sequence PRF Tags with an expected-Tag lookahead window",
+    "(c) Hourly broadcast Tags",
+    "(d) Salted per-Envelope PRF Tag",
+    "(e) Encrypted-header trial under a capped key set",
+    "(f) Visible recognition Tag or FMD clue in the Visible Header"
+   ],
+   "proposed_by": {
+    "(a)": "g1, g3, g4, o3 R2; DEC-CRY-2, DEC-PUB-2(a), DEC-CON-2(b)",
+    "(b)": "o1, o3 R1, o4 (direct channels); DEC-CON-2(a) recommended",
+    "(c)": "o4 R1",
+    "(d)": "s4; DEC-CRY-2 and DEC-PUB-2 recommended",
+    "(e)": "s2, s3",
+    "(f)": "o1, o2, o4; DEC-FMT-2(b)"
+   },
+   "prototype_default": "(d): 16 B salt and 16 B Tag in the clear prefix of the Sealed Body (new MPE-FMT-051), HMAC-SHA-256 under the recognition key, local test of every Envelope of the Shard, then authentication (MPE-CRY-013, MPE-CRY-014).",
+   "production_default": "(d), kept only if it measurably beats (a) on recognition cost; otherwise (a).",
+   "reason": "(b) loses a publisher after more than W skipped numbers (o3 R2 withdrew it; MPE-CON-008 exists only to report that loss). (c) groups an hour of traffic. (f) gives relays a per-Envelope string and is rejected by DEC-FMT-2. (d) is unlinkable without the key and costs one HMAC per key per Envelope: 256 x 10 = 2,560 evaluations per second.",
+   "settled_by": "DEC-PUB-2 benchmark of (a) against (d) at 256 keys and 10 and 100 Envelopes/s on desktop and phone hardware; the MPE-PRV-004 key-privacy review of the exact construction."
+  },
+  {
+   "id": "DEC-004",
+   "title": "Envelope lifetime and ordinary retention (48 h versus 7 days)",
+   "options": [
+    "(a) 300-3,600 s by class",
+    "(b) 10-minute relay cache, 24 h optional store, 7 days if anchored",
+    "(c) 48 h",
+    "(d) 7-day complete replication (7 d default, 14 d maximum for o1)",
+    "(e) TTL classes 1 h, 24 h, 7 d",
+    "(f) 24 h default, 7 d maximum",
+    "(g) 14-day Indexer retention"
+   ],
+   "proposed_by": {
+    "(a)": "g1",
+    "(b)": "g2",
+    "(c)": "g3, s1, s3, s4; DEC-STO-1, DEC-FMT-5 recommended",
+    "(d)": "s2, o1",
+    "(e)": "o2",
+    "(f)": "o4",
+    "(g)": "g4"
+   },
+   "prototype_default": "(c): L_max = ordinary retention = 172,800 s on per-Shard Store Nodes; archives off.",
+   "production_default": "(c), with an optional paid archive up to 7 days (MPE-STO-021) and the 14-day hard ceiling (MPE-FMT-033).",
+   "reason": "Four proposals converge on 48 h, which covers a wallet offline overnight (o4 R2's objection to 1 h). At the byte cap one replica holds 65,536 x 172,800 = 11.3 GB per Shard; 7 days would hold 39.6 GB per Shard, tripled by the three Operators per Shard (P-STO-5). Offline periods longer than 48 h are reported as retention gaps (MPE-PUB-045), not hidden.",
+   "settled_by": "Pilot measurement of Subscriber offline intervals and the share of resumes that hit a retention gap, compared against a threshold recorded in the course-change register (MPE-OPS-053); Store Node cost bids at 48 h and 7 d."
+  },
+  {
+   "id": "DEC-005",
+   "title": "Operating rate (10 versus 50 per second)",
+   "options": [
+    "(a) 10 Envelopes/s and 64 KiB/s per Shard, whichever binds first",
+    "(b) 50 objects/s per Shard",
+    "(c) 50 Events/s network-wide sustained, 250-500/s peak",
+    "(d) 100 Events/s network-wide at 10/s per Shard",
+    "(e) Ledger-lane rates of 1/s average, 10/s peak, or about 0.67/s"
+   ],
+   "proposed_by": {
+    "(a)": "g3; g2 worked load; s1, s2, s3, s4; DEC-PRF-1 and DEC-VER-2 recommended",
+    "(b)": "g1",
+    "(c)": "o1, o4",
+    "(d)": "o2",
+    "(e)": "o3, g4"
+   },
+   "prototype_default": "(a), with (b) run as the P-PRF-28 comparison for 24 h and 100/s bursts for 60 s.",
+   "production_default": "(a) per Shard; aggregate capacity grows only through the Shard count (DEC-011). The count ceiling rises to 50/s only on the settling evidence below.",
+   "reason": "'10/s' and '50/s' are not comparable without sizes: g1's normalized 50/s mix is 41.39 KiB/s, inside the 64 KiB/s byte cap. The binding unknowns are per-Envelope verification and recognition CPU, which (a) caps.",
+   "settled_by": "MPE-PRF-025 run with the selected admission verifier: adopt 50/s if edge CPU stays within P-PRF-14, propagation p99 within P-PRF-11 and timely delivery at or above 99.9%."
+  },
+  {
+   "id": "DEC-006",
+   "title": "Relay admission: permissioned or permissionless",
+   "options": [
+    "(a) Registry allow-list, removed only after a failed capture red team",
+    "(b) Contracted dedicated Operators plus open relaying",
+    "(c) Open relaying controlled by peer scoring"
+   ],
+   "proposed_by": {
+    "(a)": "g1, o4 (amended), o1 R2, s3 (roster); DEC-OPS-1(a), DEC-NET-7(a), DEC-SEC-1",
+    "(b)": "s1, s2, s4; DEC-OPS-1(b)",
+    "(c)": "g2, g3, o1 R1, o2; DEC-OPS-1(c), DEC-NET-7(b)"
+   },
+   "prototype_default": "Both modes implemented; (a) is the default against the mock Registry relay list (MPE-OPS-007); (c) runs only in red-team experiments.",
+   "production_default": "(a) at launch with at least 8 organizations and at most 20% each (MPE-OPS-009, MPE-OPS-010); removal only after the MPE-OPS-008 red team at 1:1 Sybil identities fails to push canary delivery below 99.9% and the MPE-OPS-048 audit gate passes.",
+   "reason": "Scoring is not a Sybil defence (2020-leastauthority-gossipsub-audit); configurations exist where a withholding peer keeps a positive score (2022-kumar-gossipsub-formal). Paid publication does not constrain relay identities (DEC-SEC-1).",
+   "settled_by": "MPE-OPS-008 red team at 1, 3 and 5% targeted placement and at 1:1 identities under production scoring parameters."
+  },
+  {
+   "id": "DEC-007",
+   "title": "Admission instrument (DUST ticket, RLN membership, NIGHT bond, blind stamps)",
+   "options": [
+    "(a) DUST-paid Registry membership with a per-Envelope anonymous nullifier proof (RLN-style)",
+    "(b) DUST-bought single-use on-chain tickets",
+    "(c) Visible member key with signature and credit counter",
+    "(d) Issuer-signed permits or publicly verifiable blind-RSA stamps",
+    "(e) DUST fee per Event on the ledger",
+    "(f) NIGHT-bonded membership with slashing"
+   ],
+   "proposed_by": {
+    "(a)": "o1, g3, s3, o2, o4; DEC-ECO-1(a) recommended",
+    "(b)": "g1; o4 R2 vote; DEC-ECO-1(b)",
+    "(c)": "g2; DEC-ECO-1(c)",
+    "(d)": "s1, s2, s4; g2 R2 vote; DEC-ECO-1(d) fallback",
+    "(e)": "g4, o3 Lane A; DEC-ECO-1(e)",
+    "(f)": "o2, o4, o3 Lane B; DEC-ECO-2(c)"
+   },
+   "prototype_default": "(a) against the mock Ledger Adapter: simulated registration fee, revocation on equivocation, no bond; 512 B Admission Slot; pluggable verifier.",
+   "production_default": "(a) with DUST registration paid from shielded DUST (MPE-ECO-007) and revocation (MPE-ECO-028); (f) disabled at launch; (d) with a 354 B object-bound stamp if (a) fails MPE-ECO-048.",
+   "reason": "(b) is unlinkable only at one ticket per transaction, about 2 tickets/s at a 10% block share (o1 R2). (c) links every Envelope of a member (MPE-FMT-005). (d) gives the issuer a customer-to-Event map (o4 R2; leakage row L-U). (e) caps the whole chain at about 21 calls/s (MPE-ECO-003). (f): deployed Waku dropped its deposit (2024-revuelta-waku-latency) and contract-held NIGHT on mainnet is unknown.",
+   "settled_by": "MPE-ECO-048 (proof fields at most 4,096 B, verification at most 10 ms on a 4-vCPU core); a demonstrated off-chain verifier for the selected proof (o1 spike); MPE-ECO-049 registration at most 16 KiB and 0.5 DUST."
+  },
+  {
+   "id": "DEC-008",
+   "title": "Ledger-only operation, ledger fallback and bodies on the ledger",
+   "options": [
+    "(a) Overlay from the first phase; ledger for membership and Anchors",
+    "(b) Ledger and Indexer lane first, overlay later",
+    "(c) Ledger and Indexer only",
+    "(d) Fallback by whole-feed gateways in overlay framing",
+    "(e) Fallback by Misc events read through contractEvents",
+    "(f) Fallback by a default-off Substrate notification protocol",
+    "(g) Anchors-only fallback"
+   ],
+   "proposed_by": {
+    "(a)": "g1, g2, g3, o1, o2, o4, s1, s2, s3, s4; DEC-NET-1(a), DEC-OPS-7(b)",
+    "(b)": "o3; o4 R2; DEC-OPS-7(a)",
+    "(c)": "g4; DEC-NET-1(c)",
+    "(d)": "s1, s2, s4, o1 R2; DEC-NET-2(a)",
+    "(e)": "g2, o2, o4, s3; DEC-NET-2(b)",
+    "(f)": "g1, g3; DEC-NET-2(c)",
+    "(g)": "g2; rejected in DEC-VER-2"
+   },
+   "prototype_default": "(a); gateway fallback as the Bus Node stream service (new MPE-NET-048); the ledger carrier (MPE-FMT-040..046) runs only against the mock adapter; no ledger-only mode.",
+   "production_default": "(a); fallback order (d) then (e) as a labelled last resort on ledger 9, never automatic (MPE-PRV-013); (f) and (g) rejected. Sealed Bodies may appear in Misc logs only through (e); Registry contract state never holds a body (MPE-STO-001 rewritten).",
+   "reason": "Public networks run ledger 8 (midnight-docs/docs/concepts/how-midnight-works/building-blocks.mdx:79-83), so (b) and (c) have no public network. The ledger lane shares 1,000,000 blockUsage bytes per 6 s slot (ledger-parameters-config.json:158; runtime/src/lib.rs:292) and carries 256 B Misc payloads (minokawa-compact/compiler/midnight-events.ss:71-74). MPE-STO-001 ('no ledger writes, including the Misc fallback') contradicted MPE-FMT-040..046 and MPE-CON-053; the BRIEF keeps bodies out of ledger state while naming a Misc fallback path.",
+   "settled_by": "The ledger-9 mainnet date against the Phase 1 start; a written product need for latency under one slot or bodies over 205 B (g4 T1); Prototype delivery at least 99% with p99 at most 6 s at 200 nodes (g2)."
+  },
+  {
+   "id": "DEC-009",
+   "title": "Bus Node behaviour under a stale chain view",
+   "options": [
+    "(a) Ignore every Envelope whose admission depends on chain state while the view is stale",
+    "(b) Keep forwarding Envelopes valid under cached eligible Registry state; never Reject on chain-dependent checks"
+   ],
+   "proposed_by": {
+    "(a)": "MPE-NET-018, MPE-FMT-031; g1 D1, o1 R2 D9",
+    "(b)": "MPE-SEC-035, MPE-OPS-021, MPE-NET-038, MPE-ECO-025; g1 D7, g3 D9, o4 R2 D8, s4 D9"
+   },
+   "prototype_default": "(b): Accept Envelopes that validate against a cached root that is current or superseded less than P-ECO-5 ago and whose membership period ended less than P-ECO-5 ago (new MPE-ECO-051); Ignore Envelopes that need state the node lacks; never Reject on a chain- or clock-dependent check while stale.",
+   "production_default": "Same as the Prototype.",
+   "reason": "(a) turns any Ledger Adapter outage into a bus outage: MPE-NET-018's test (freeze the mock adapter, expect Ignore) and MPE-OPS-021's test (freeze the mock adapter, expect delivery) cannot both pass. (b) keeps o1 R2's rule that a lagging chain source must not graylist honest forwarders, and the stale-root bound limits forwarding under old state to 25 h.",
+   "settled_by": "One frozen-adapter test asserting both continued delivery of cached-valid Envelopes and zero P4 changes; a stale-root test at P-ECO-4 + P-ECO-5."
+  },
+  {
+   "id": "DEC-010",
+   "title": "GossipSub message id versus Envelope Identifier",
+   "options": [
+    "(a) Message id = Envelope Identifier, which excludes the Admission Slot",
+    "(b) Message id = hash of every wire byte; Envelope Identifier kept for admission binding, deduplication and Anchors"
+   ],
+   "proposed_by": {
+    "(a)": "MPE-FMT-019, MPE-NET-010; s1, s3, s4, o2 R2; DEC-FMT-3(b)",
+    "(b)": "MPE-PUB-026; g1, o4, o1 R1; DEC-FMT-3(a); g1 R2 objection; MPE-CRY-005 'final wire identifier'"
+   },
+   "prototype_default": "(b): message id = SHA-256 over a domain string and the complete wire bytes; Envelope Identifier (MPE-FMT-018) binds admission, keys application deduplication, inventories and Anchor leaves; the application seen-set records an Envelope Identifier only after Accept (new MPE-SEC-041).",
+   "production_default": "Same as the Prototype.",
+   "reason": "rust-libp2p inserts the message id into its duplicate cache before application validation (rust-libp2p/protocols/gossipsub/src/behaviour.rs:1983), sends IDONTWANT for it before validation (behaviour.rs:1950), and on Reject removes the message only from the message cache (behaviour.rs:991). Under (a) a peer that forwards an honest Sealed Body with a corrupted Admission Slot makes each receiver that sees the corrupted copy first drop the honest copy as a duplicate, and IDONTWANT extends the suppression one hop, for the price of one P4 penalty per receiver. Under (b) the corrupted copy has its own id. Alternative valid admissions of one body still resolve to one delivery through the seen-set (MPE-SEC-014).",
+   "settled_by": "New MPE-SEC-042: inject corrupted-slot copies ahead of the honest copy; the honest Envelope reaches every eligible Subscriber within P-VER-6."
+  },
+  {
+   "id": "DEC-011",
+   "title": "Shard count",
+   "options": [
+    "(a) One feed with the shard field reserved",
+    "(b) Up to 8 Shards",
+    "(c) 16 Shards or buckets"
+   ],
+   "proposed_by": {
+    "(a)": "g1, s1, s2, s3, s4; DEC-PUB-1(a), DEC-NET-4(a)",
+    "(b)": "g2, g3, o4; DEC-NET-4(b)",
+    "(c)": "o1, o2"
+   },
+   "prototype_default": "1 operating Shard; the benchmark topology runs 8 (P-PRF-3).",
+   "production_default": "1 at launch; raised by the Registry (at most 8) after one Shard exceeds the PRF cap for 7 days and the per-Shard anonymity floor holds.",
+   "reason": "Round 2 has nine votes for one feed (DEC-PUB-1). Each split divides the anonymity set and exposes per-Shard volume (o2 R2). Sharding does not reach mobile budgets: at 10 x 2 KiB per second one feed is 1.77 GB/day and one of eight Shards 221 MB/day, against 56-60 MB/day (g4, o3).",
+   "settled_by": "MPE-PRF-021 measured Subscriber bytes at 1 and 8 Shards; PRV's anonymity floor (MPE-OPS-052 counts)."
+  },
+  {
+   "id": "DEC-012",
+   "title": "Mesh profile",
+   "options": [
+    "(a) (D, D_lo, D_hi, D_out) = (6, 5, 12, 2)",
+    "(b) (8, 6, 12, 4)"
+   ],
+   "proposed_by": {
+    "(a)": "g1, g3, o1 R1, s2; rust-libp2p default (config.rs:83-86); DEC-PRF-2 recommended",
+    "(b)": "g2, o1 R2; DEC-NET-3 recommended; DEC-SEC-2"
+   },
+   "prototype_default": "(b), heartbeat 1 s, gossip factor 0.25, prune backoff 60 s, flood publishing off; (a) as the mandatory MPE-PRF-010 comparison.",
+   "production_default": "(b), unless the comparison shows (a) meets P-PRF-23 and P-PRF-24 at 200 nodes under a 20% cold-start Sybil attack; then (a).",
+   "reason": "The Prototype gates include the 20% cold-start attack (MPE-PRF-032, MPE-VER-018) and an outbound quota of 4 (MPE-SEC-003); (b) is the profile evaluated under that attack (2020-vyzovitis-gossipsub). D_out = 4 forces an eclipse to own four dialled slots (2015-heilman-eclipse). The cost is planning egress of 5.24 against 3.93 Mbit/s at the byte cap, absorbed by the revised edge budget.",
+   "settled_by": "MPE-PRF-010 comparison at 50, 200 and 1,000 nodes with identical sizes, churn and 20% Sybil cold start."
+  },
+  {
+   "id": "DEC-013",
+   "title": "Size classes and Admission Slot width",
+   "options": [
+    "(a) Single 4,096 B cell",
+    "(b) Single 2,048 B record",
+    "(c) 1,024 or 4,096 B cells",
+    "(d) Bodies 256 B, 1 KiB, 4 KiB, 16 KiB",
+    "(e) Bodies 1, 4, 16, 64 KiB",
+    "(f) 512 B to 32 KiB",
+    "(g) Wires 1, 4, 32 KiB",
+    "(h) 4 and 64 KiB plus announced 256 KiB",
+    "(i) One 288 B Misc"
+   ],
+   "proposed_by": {
+    "(a)": "s1, s3, g2 R2, g3 R2",
+    "(b)": "s4",
+    "(c)": "s2",
+    "(d)": "g1, o1 R2, o4 R2; DEC-FMT-1 recommended",
+    "(e)": "o1 R1, o2 R1",
+    "(f)": "o4 R1",
+    "(g)": "g3 R1, o2 R2",
+    "(h)": "g2 R1",
+    "(i)": "g4, o3 R2"
+   },
+   "prototype_default": "(d) with A = 512 B: wires 776, 1,544, 4,616 and 16,904 B.",
+   "production_default": "(d) if the measured A is at most 1,024 B; otherwise (d) without the 256 B class.",
+   "reason": "One table serves both carriers (1, 4, 16, 64 Misc parts) and the 256 B class keeps full-feed cost low (o3 R2, g3 R2). If a Midnight-native proof runs to kilobytes (o2 R2 cites 2,912 B and 4,832 B transaction proofs), class 0 becomes mostly admission overhead, which is DEC-FMT-1's own reversal trigger.",
+   "settled_by": "MPE-ECO-048 measured proof length; per-class anonymity-set simulation at the PRF load (DEC-FMT-1); payload-size histograms from pilot applications."
+  },
+  {
+   "id": "DEC-014",
+   "title": "Outcome for conflicting use of one allowance (equivocation)",
+   "options": [
+    "(a) Reject the second Envelope and record evidence",
+    "(b) Ignore the second Envelope, record evidence and emit AdmissionConflict",
+    "(c) Deduplicate without a partition rule"
+   ],
+   "proposed_by": {
+    "(a)": "MPE-ECO-020; o2, o1, o4",
+    "(b)": "MPE-SEC-018, MPE-SEC-019; s3, s4; DEC-SEC-4 recommended",
+    "(c)": "g1, g2"
+   },
+   "prototype_default": "(b); revocation through MPE-ECO-028.",
+   "production_default": "(b); bond slashing only where DEC-007 (f) is enabled.",
+   "reason": "The peer forwarding the second Envelope may be honest: in another partition it accepted that Envelope first. Reject would graylist honest peers when partitions heal. The equivocator is punished by revocation, not by mesh score.",
+   "settled_by": "Partition simulation in MPE-SEC-018: spend one allowance on two bodies in two partitions, heal, and confirm no P4 change and an evidence record."
+  },
+  {
+   "id": "DEC-015",
+   "title": "Unknown or foreign Envelope version",
+   "options": [
+    "(a) Bind version to the topic; mismatch is Reject",
+    "(b) Ignore unknown versions",
+    "(c) Relay unknown versions",
+    "(d) Accept N and N-1 in one mesh"
+   ],
+   "proposed_by": {
+    "(a)": "g1, o1 R2, s2, s3, g3, o2; DEC-FMT-4 recommended; MPE-FMT-023",
+    "(b)": "g2; MPE-NET-017, MPE-SEC-008",
+    "(c)": "o1 R1",
+    "(d)": "o4; MPE-OPS-035"
+   },
+   "prototype_default": "(a); one version.",
+   "production_default": "(a) with both versions' topics relayed for P-FMT-9 = 34 days (MPE-FMT-024); a governance deny-list entry yields Ignore (MPE-OPS-036).",
+   "reason": "Topic names carry the major version (MPE-NET-006), so a v1 topic never legitimately carries v2 bytes; Ignore would let a neighbour inject junk without penalty. Running both topics gives o4's overlap without mixing versions in one mesh.",
+   "settled_by": "MPE-FMT-024 upgrade simulation with no loss of unexpired old-version Envelopes."
+  },
+  {
+   "id": "DEC-016",
+   "title": "Quota accounting inside one Admission Proof",
+   "options": [
+    "(a) Envelope count",
+    "(b) Byte weights: P-ECO-3(c) credit indices per Envelope",
+    "(c) Per-class limits committed in the membership leaf, one nullifier per Envelope"
+   ],
+   "proposed_by": {
+    "(a)": "o1, o4, s3; DEC-ECO-4(a)",
+    "(b)": "g3, g2, o2 R2; DEC-ECO-4(b) recommended; MPE-ECO-017",
+    "(c)": "Reconciliation of MPE-ECO-017 with MPE-FMT-003 and MPE-FMT-007"
+   },
+   "prototype_default": "(c): limits (64, 16, 4, 1) per epoch for classes 0-3; size class bound into the nullifier domain.",
+   "production_default": "(c); (b) only with a reviewed multi-nullifier circuit that fits P-ECO-11.",
+   "reason": "(b) needs up to 64 distinct credit indices for a class-3 Envelope: 64 nullifier and share pairs (at least 4 KiB of public outputs) or 64 proofs, which a single fixed Admission Slot cannot carry; and P-ECO-2 = 10 is below the class-3 weight, so the lowest tier could never send class 3. (c) bounds bytes per member per epoch at 4 x 16 KiB, which exceeds DEC-ECO-4's 2x target by a factor of 2; that excess is accepted for the Prototype.",
+   "settled_by": "DEC-ECO-4 class-mix simulation at the lowest tier; circuit size and verification time of a multi-nullifier variant against P-ECO-11 and P-ECO-12."
+  },
+  {
+   "id": "DEC-017",
+   "title": "Durability of admission replay state",
+   "options": [
+    "(a) Durably commit consumed allowances before forwarding",
+    "(b) In-memory caches with an accepted restart replay window",
+    "(c) Recover protection, or wait until affected authorizations expire, before live admission"
+   ],
+   "proposed_by": {
+    "(a)": "MPE-SEC-015; s3, s2 R2",
+    "(b)": "g3 R1",
+    "(c)": "g3 alternative, s3 R1; MPE-STO-015, MPE-SEC-016; DEC-STO-7"
+   },
+   "prototype_default": "(c) by waiting: in-memory nullifier and seen-set state; after every process start the Bus Node returns Ignore for live admission for P-ECO-7 = 140 s.",
+   "production_default": "Same; (a) remains an optional configuration (MPE-SEC-015 rewritten as optional).",
+   "reason": "Every allowance is permanently ineligible at most 140 s after acceptance (MPE-ECO-021), so waiting restores the invariant without a disk write on the forwarding path and without rollback detection, which SEC lists as unknown. A restarted node already waits 600 s before injecting local publications (MPE-NET-030).",
+   "settled_by": "DEC-STO-7 check: crash and stale-backup restore at epoch boundaries; no consumed allowance accepted twice."
+  },
+  {
+   "id": "DEC-018",
+   "title": "Tombstones",
+   "options": [
+    "(a) Authenticated tombstones with a 48 h deadline",
+    "(b) No takedown path",
+    "(c) Cooperative deletion only"
+   ],
+   "proposed_by": {
+    "(a)": "o4; DEC-OPS-5(a)",
+    "(b)": "g4; silent in g1, g2",
+    "(c)": "s4 R2; DEC-OPS-5(c), DEC-SEC-5, DEC-STO-6"
+   },
+   "prototype_default": "Disabled; MPE-OPS-025 and MPE-OPS-026 move to PROD scope.",
+   "production_default": "Optional, binding only Operators under the Operator Agreement; deletion within 24 h; every tombstone published; replay records untouched.",
+   "reason": "With 48 h retention a 48 h deadline never deletes a body before ordinary expiry. A forged or captured deletion authority is a censorship mechanism, so the feature waits for OPS issuance rules.",
+   "settled_by": "Counsel memos for Phase 1 jurisdictions (MPE-OPS-050); DEC-SEC-5 forgery and replay tests."
+  },
+  {
+   "id": "DEC-019",
+   "title": "Governance authority over the Registry",
+   "options": [
+    "(a) Bus steward set with time-locks and 7-day emergency expiry",
+    "(b) Midnight Root through Council and TC",
+    "(c) Foundation multisig with 7-day timelock",
+    "(d) Immutable contracts"
+   ],
+   "proposed_by": {
+    "(a)": "o4; s4 R2 reduced form; DEC-OPS-2(a)",
+    "(b)": "g1; DEC-OPS-2(b)",
+    "(c)": "o2; DEC-OPS-2(c)",
+    "(d)": "o3 end state, g4; DEC-OPS-2(d)"
+   },
+   "prototype_default": "Mock Registry with a single maintainer key; time-lock and expiry logic exercised in the Quint model only.",
+   "production_default": "(a), handed to Council and TC or removed before the open-admission phase ends (MPE-OPS-020).",
+   "reason": "Federated motions take 5 days (midnight-node/runtime/src/lib.rs:789), too slow to eject a relay injecting malformed objects (o4 R2). (d) has no ejection or emergency path. MPE-ECO-035 limits any maintainer to parameter changes.",
+   "settled_by": "Quint invariants I1-I6 (o4); MPE-OPS-017 result on whether a maintenance authority can be time-locked on ledger 9."
+  },
+  {
+   "id": "DEC-020",
+   "title": "First contact and fuzzy detection",
+   "options": [
+    "(a) Authenticated invitations only",
+    "(b) Inbox to a published key",
+    "(c) Inbox with an FMD clue",
+    "(d) Dedicated intro inbox with a stricter rate tier"
+   ],
+   "proposed_by": {
+    "(a)": "s1, s2, s3, s4, g4; DEC-CRY-3, DEC-PUB-3, DEC-CON-8 recommended",
+    "(b)": "g1, g2, o1, o3 R1",
+    "(c)": "o1; o2 S-FMD; DEC-CRY-5",
+    "(d)": "o4"
+   },
+   "prototype_default": "(a); FMD disabled (MPE-CRY-037).",
+   "production_default": "(a); (d) only as a separately reviewed profile.",
+   "reason": "An open inbox is a harassment vector (o4 R2); FMD detection keys expose candidate subsets to the detector (2021-seres-fmdfalsepositives sections 1, 4-6; listed in catalog/PB3-receiver-privacy.jsonl, absent from papers.tsv).",
+   "settled_by": "A written product requirement for unsolicited contact plus a red-team pass on the intro-tier rate limit."
+  },
+  {
+   "id": "DEC-021",
+   "title": "Light and mobile reception",
+   "options": [
+    "(a) Whole Shard only",
+    "(b) Unicast filter node",
+    "(c) Tag index or queries with decoys",
+    "(d) S-FMD",
+    "(e) Bucket prefixes"
+   ],
+   "proposed_by": {
+    "(a)": "g1, g2, g4, s1, s2, s3, s4, o3 R2; DEC-PUB-5, DEC-CON-1, DEC-PRV-1",
+    "(b)": "g3",
+    "(c)": "o1, o4",
+    "(d)": "o2",
+    "(e)": "o3 R1"
+   },
+   "prototype_default": "(a) only.",
+   "production_default": "(a) by default; (b)-(e) only as labelled opt-in profiles (MPE-PUB-016) with their own claim register (MPE-PRV-037).",
+   "reason": "No selective mode keeps selection privacy at a demonstrated cost (s4 R2); sender-chosen S-FMD rates do not enforce a floor (2022-penumbra-fmd-spec).",
+   "settled_by": "MPE-PRF-021 Subscriber bytes per day against the 56-60 MB/day mobile budgets, then a measured OMR or PIR profile."
+  },
+  {
+   "id": "DEC-022",
+   "title": "Contract consumption path and signature algorithm",
+   "options": [
+    "(a) In-circuit publisher signature with a secret-derived nullifier, no Anchor",
+    "(b) Anchor inclusion through a historic-root check",
+    "(c) note(commitment)",
+    "(d) No contract consumption",
+    "(e) Ed25519 statements",
+    "(f) JubJub Schnorr"
+   ],
+   "proposed_by": {
+    "(a)": "s3, s2, s1, o3 R2, o1 R2, o2 R2; DEC-CON-3(a)",
+    "(b)": "o1 R1, o3 R1, o2, o4, g3; DEC-CON-3(b)",
+    "(c)": "g1",
+    "(d)": "g4",
+    "(e)": "s2, g1; DEC-CRY-6",
+    "(f)": "o1, o3, o4"
+   },
+   "prototype_default": "(a) with (e), exercised against a mock contract with a nullifier set (MPE-VER-032).",
+   "production_default": "(a) with (e) unless (f) proves cheaper in the measured circuit; (b) optional (MPE-CON-047).",
+   "reason": "(a) needs no cross-contract call and puts authority in the circuit (s3 #1, o4 D3). The Compact standard library exposes plain Ed25519 verification (minokawa-compact/doc/api/CompactStandardLibrary/exports.md:993); its circuit cost against JubJub is unknown.",
+   "settled_by": "Compile both authorization fixtures on a ledger-9 devnet; compare circuit size and proving time; zero unauthorized and duplicate effects in the MPE-VER-009 model."
+  },
+  {
+   "id": "DEC-023",
+   "title": "Publish ingress and stem",
+   "options": [
+    "(a) One-hop outbound stem",
+    "(b) Two-hop stem",
+    "(c) Dandelion++",
+    "(d) Mix ingress later",
+    "(e) No anonymity claim from any stem"
+   ],
+   "proposed_by": {
+    "(a)": "g2, g3; DEC-NET-6",
+    "(b)": "g1",
+    "(c)": "o1, o2",
+    "(d)": "s3",
+    "(e)": "s1, s4; MPE-PRV-029; DEC-VER-5"
+   },
+   "prototype_default": "(a) with (e): one Bus Node chosen at random from two dialled (MPE-NET-033).",
+   "production_default": "(a) kept only if the first-spy run shows lower precision than direct publication; no anonymity claim.",
+   "reason": "The Dandelion++ bound assumes a random 4-regular anonymity graph unknown to the adversary (2018-fanti-dandelionpp sections 3.1, 4.1) and does not transfer to GossipSub meshes.",
+   "settled_by": "MPE-VER-027 first-spy precision and recall for (a), (b) and direct publication at coalitions 1-20%."
+  },
+  {
+   "id": "DEC-024",
+   "title": "Anchor granularity and history",
+   "options": [
+    "(a) One Anchor per Shard per window",
+    "(b) One Anchor per window covering all Shards",
+    "(c) 7-day history, 10,080 records",
+    "(d) 14-day, 20,160-slot ring",
+    "(e) History bounded by L_max"
+   ],
+   "proposed_by": {
+    "(a)": "MPE-NET-041; o1, o2",
+    "(b)": "o4 (window_id, shard_bitmap, root, count)",
+    "(c)": "o4; DEC-STO-4 recommended",
+    "(d)": "o2",
+    "(e)": "Derived from MPE-CON-046"
+   },
+   "prototype_default": "(b) with (e): 60 s windows; payload of window number, root over per-Shard batch roots and per-Shard counts (new MPE-NET-050); 49 h, 2,940 records.",
+   "production_default": "Same as the Prototype.",
+   "reason": "(a) multiplies records by the Shard count and breaks the STO record bound at 8 Shards (8 x 10,080). Contracts reject expired Events (MPE-CON-046), so no live root older than L_max serves a consumer; clients verify older Anchors from Misc history, not live state.",
+   "settled_by": "Ledger-9 measurement of reachable Anchor-state bytes (MPE-STO-030) and per-Anchor cost (MPE-VER-030)."
+  },
+  {
+   "id": "DEC-025",
+   "title": "Second-source reconciliation: MUST or SHOULD",
+   "options": [
+    "(a) Reconciliation against an independent second source is mandatory in the Prototype",
+    "(b) Single source with sequence-gap detection; second source optional"
+   ],
+   "proposed_by": {
+    "(a)": "s1, o3 R2, o4 R2; MPE-SEC-021 and MPE-CON-037 (MUST); DEC-PUB-4, DEC-CON-5",
+    "(b)": "g1, g4, o1, o2; MPE-PUB-014 and MPE-PUB-015 (SHOULD), MPE-CON-036 (PROD SHOULD)"
+   },
+   "prototype_default": "(a): MPE-PUB-014 and MPE-PUB-015 become POC MUST.",
+   "production_default": "(a).",
+   "reason": "Sequence gaps cannot reveal suppression of a whole publisher or of first contact (o3 R2 D9); the inventory costs 1.6% of feed bytes (DEC-PUB-4).",
+   "settled_by": "Omission-injection simulation (MPE-PUB-014 verify) with measured overhead below 2% of feed bytes."
+  },
+  {
+   "id": "DEC-026",
+   "title": "Delivery labels and attributes",
+   "options": [
+    "(a) Exactly one label, gossip or final",
+    "(b) A stored label from retention receipts",
+    "(c) A fallback-mode label"
+   ],
+   "proposed_by": {
+    "(a)": "MPE-CON-015; o3",
+    "(b)": "MPE-STO-012; s1, s2, s3",
+    "(c)": "MPE-NET-042; s1 R2, s3"
+   },
+   "prototype_default": "Three orthogonal attributes: finality (gossip or final, MPE-CON-015), carrier (overlay, gateway or ledger, new MPE-CON-057) and storage (stored when MPE-STO-012 holds).",
+   "production_default": "Same as the Prototype.",
+   "reason": "MPE-CON-015 requires exactly one of two labels, which a third 'stored' label or a fallback label would violate; the three properties vary independently.",
+   "settled_by": "API inspection plus a test delivering one Event over each carrier, before and after anchoring, with and without three receipts."
+  },
+  {
+   "id": "DEC-027",
+   "title": "Direction of node bandwidth budgets",
+   "options": [
+    "(a) Aggregate receive plus transmit",
+    "(b) Per direction"
+   ],
+   "proposed_by": {
+    "(a)": "DEC-PRF-4 drafting assumption",
+    "(b)": "g3 R1 D5 planning model (egress); g2 egress budget"
+   },
+   "prototype_default": "(b): 6 Mbit/s per direction per Shard for an Edge Bus Node, 24 Mbit/s per direction for a Full Bus Node.",
+   "production_default": "(b).",
+   "reason": "g3's 4 Mbit/s is its egress model (1.25 x 6 x 64 KiB/s); reading it as aggregate halves the budget. With D = 8 the same model gives 5.24 Mbit/s egress.",
+   "settled_by": "Two-direction packet capture at the byte cap under both mesh profiles (MPE-PRF-005)."
+  },
+  {
+   "id": "DEC-028",
+   "title": "Phase numbering and the Prototype boundary",
+   "options": [
+    "(a) VER: Phase 0 evidence and models, 1 local Prototype and simulations, 2 integration and pilot, 3 production",
+    "(b) OPS: Phase 0 models, simulation and Prototype, 1 permissioned pilot, 2 permissioned production, 3 open admission, 4 handover",
+    "(c) Ledger-first phases"
+   ],
+   "proposed_by": {
+    "(a)": "DEC-VER-1; s4, g1, g2",
+    "(b)": "DEC-OPS-7; o4, o2",
+    "(c)": "o3, g4"
+   },
+   "prototype_default": "(b) numbering: everything in the Prototype is Phase 0.",
+   "production_default": "(b): VER Phases 0 and 1 map to OPS Phase 0, VER Phase 2 to OPS Phase 1, VER Phase 3 to OPS Phase 2.",
+   "reason": "MPE-OPS-017, -041, -043 and -046 already reference OPS numbering, and OPS adds the open-admission and handover phases VER lacks.",
+   "settled_by": "Gate record of each transition (MPE-OPS-042)."
+  }
+ ],
+ "fixes": [
+  {
+   "id": "MPE-FMT-001a",
+   "replaces": "MPE-FMT-001",
+   "text": "### MPE-FMT-001a Fixed-width visible layout\nThe MPE client library shall encode every Envelope field outside the Sealed Body as a fixed-width field at a fixed per-version offset.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D1; g1, s2, s3, s4, o1-R2, o4-R2; `2012-bitmessage-protocol-specification` (varint object header)\n- Rationale: Each Envelope has exactly one legal byte string, so parsing is unambiguous.\n- Verify: test, decode and re-encode every MPE-FMT-049 vector and compare the bytes for equality.\n- Status: settled"
+  },
+  {
+   "id": "MPE-FMT-001b",
+   "replaces": "MPE-FMT-001",
+   "text": "### MPE-FMT-001b No variable encodings outside the Sealed Body\nThe MPE client library shall emit no optional field, extension field, length prefix, variable-length integer or self-describing encoding outside the Sealed Body.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D1; g1, s3, s4; `2020-vac-waku2-message-spec` (protobuf is not canonical)\n- Rationale: A new field requires a new version and topic (register DEC-015).\n- Verify: inspection, review the wire specification; test, every fuzzed Envelope that carries such a construct fails MPE-FMT-006 or MPE-FMT-007.\n- Status: settled"
+  },
+  {
+   "id": "MPE-CRY-008",
+   "replaces": "MPE-CRY-008",
+   "text": "### MPE-CRY-008 Random stream secrets\nWhen a private stream is created, the MPE client library shall obtain its P-CRY-1-byte stream secret from the operating-system cryptographic random-number interface.\n- Pattern: event\n- Scope: POC\n- Priority: MUST\n- Source: D3; g4 R1 D3; s2 R1 D3; o3 R1 D3; `2021-len-partitioningoracle`, section 1\n- Rationale: Human-chosen passphrases face a guessing threat that random capabilities do not.\n- Verify: inspection, stream creation requests exactly P-CRY-1 bytes from the configured interface (getrandom on Linux); test, an injected interface failure produces the MPE-CRY-009 result.\n- Status: settled"
+  },
+  {
+   "id": "MPE-PUB-006",
+   "replaces": "MPE-PUB-006",
+   "text": "### MPE-PUB-006 Random private audience keys\nThe MPE client library shall obtain every private audience key as 32 bytes from the operating-system cryptographic random-number interface.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D3; g4 D3; `2021-len-partitioningoracle` (ChaCha20-Poly1305 is not key-committing); see canonical MPE-CRY-008\n- Rationale: Low-entropy keys allow guessing topics and multi-key openings.\n- Verify: inspection, the API offers no passphrase input for private topics and key generation calls the operating-system interface.\n- Status: settled"
+  },
+  {
+   "id": "MPE-OPS-033a",
+   "replaces": "MPE-OPS-033",
+   "text": "### MPE-OPS-033a Aggregated counter release\nWhere Bus Node counters are published, the Bus Node shall release them only as aggregates computed across at least P-OPS-16 share keepers, none of which receives an individual Bus Node's counter value.\n- Pattern: optional\n- Scope: PROD\n- Priority: SHOULD\n- Source: D7; o4 D7; `2016-jansen-safely-measuring-tor`\n- Rationale: Load can be measured without exposing any single relay's activity.\n- Verify: inspection, review the counter-export path; test, capture share-keeper inputs and confirm each is a blinded share.\n- Status: open (DEC-OPS-4)"
+  },
+  {
+   "id": "MPE-OPS-033b",
+   "replaces": "MPE-OPS-033",
+   "text": "### MPE-OPS-033b Differential-privacy budget for counters\nWhere Bus Node counters are published, the Bus Node shall add noise that gives each published counter a differential-privacy epsilon of at most P-OPS-18.\n- Pattern: optional\n- Scope: PROD\n- Priority: SHOULD\n- Source: D7; o4 D7; `2018-mani-tor-usage-privacy-preserving` txt L505\n- Rationale: Aggregation alone does not bound what a published count reveals about one user.\n- Verify: analysis, compute epsilon from the configured noise distribution and sensitivity; test, the noise sampler matches that distribution (KS test, p > 0.01).\n- Status: open (DEC-OPS-4)"
+  },
+  {
+   "id": "MPE-OPS-043",
+   "replaces": "MPE-OPS-043",
+   "text": "### MPE-OPS-043 Evidence freeze\nWhen the Phase 0 exit review starts, MPE shall record the target network's ledger version, runtime `spec_version` and the pinned revision of every Midnight component the bus depends on.\n- Pattern: event\n- Scope: PROD\n- Priority: MUST\n- Source: D10; s4 D10; o4 R2; o3 R2; `midnight-node/Cargo.lock:7894`\n- Rationale: The tag, the lockfile and the documentation disagree, for example on the 1 KiB log limit.\n- Verify: inspection, compare the claim register against a live RPC `spec_version` query.\n- Status: settled"
+  },
+  {
+   "id": "MPE-OPS-046",
+   "replaces": "MPE-OPS-046",
+   "text": "### MPE-OPS-046 Measured Registry costs\nWhen the Phase 1 exit review starts, MPE shall report the measured serialized bytes and DUST fee of one Registry admission transaction and one Anchor transaction on a ledger-9 network.\n- Pattern: event\n- Scope: PROD\n- Priority: MUST\n- Source: D10; g3 D10; o1, o2, o3, s4 R2; see canonical MPE-VER-030\n- Rationale: Every DUST and anchoring budget in the proposals scales from an unmeasured transaction size.\n- Verify: test, on a devnet with the recorded `ledgerParameters`.\n- Status: settled"
+  },
+  {
+   "id": "MPE-OPS-047",
+   "replaces": "MPE-OPS-047",
+   "text": "### MPE-OPS-047 Scoring-CVE release gate\nWhen a Bus Node release is prepared for a network other than a test network, MPE shall attach a recorded run showing the CVE-2022-47547 score-manipulation attack failing against that release's pinned GossipSub implementation and scoring configuration.\n- Pattern: event\n- Scope: POC\n- Priority: MUST\n- Source: D10, D9; g2 D10; s2 R2; `2023-kumar-gossipsub-acl2s`; see canonical MPE-VER-026\n- Rationale: A changelog does not establish closure of a configuration-dependent scoring attack.\n- Verify: test, run the attack scenario against the release candidate and check that the attacker's score falls below the graylist threshold.\n- Status: open (DEC-SEC-6)"
+  },
+  {
+   "id": "MPE-CON-005a",
+   "replaces": "MPE-CON-005",
+   "text": "### MPE-CON-005a Typed degraded outcome\nIf the active reception mode cannot be sustained, then the MPE client library shall return the typed `Degraded` outcome to the subscription.\n- Pattern: unwanted\n- Scope: POC\n- Priority: MUST\n- Source: D3; s3 D9 block 4; see canonical MPE-PRV-013\n- Rationale: A silent switch to a leakier mode breaks the privacy claim unnoticed.\n- Verify: test, make every source unreachable and assert one `Degraded` outcome.\n- Status: settled"
+  },
+  {
+   "id": "MPE-CON-005b",
+   "replaces": "MPE-CON-005",
+   "text": "### MPE-CON-005b Reception mode unchanged after degradation\nIf the active reception mode cannot be sustained, then the MPE client library shall keep the reception mode unchanged until the application selects another profile.\n- Pattern: unwanted\n- Scope: POC\n- Priority: MUST\n- Source: D3; s3 D9 block 4; see canonical MPE-PRV-013\n- Rationale: Only the application may accept a different leakage contract.\n- Verify: test, after `Degraded`, capture requests and confirm no selector or filtered request precedes an explicit profile selection.\n- Status: settled"
+  },
+  {
+   "id": "MPE-CON-025a",
+   "replaces": "MPE-CON-025",
+   "text": "### MPE-CON-025a Typed source failure\nIf a source connection fails, then the MPE client library shall return the typed `SourceFailed` outcome to the subscription.\n- Pattern: unwanted\n- Scope: POC\n- Priority: MUST\n- Source: D3; o3 D3.4; `midnight-js/packages/types/src/public-data-provider.ts:509-510`\n- Rationale: Applications must distinguish loss of a source from a quiet feed.\n- Verify: test, kill the source mid-stream and assert one `SourceFailed` outcome.\n- Status: settled"
+  },
+  {
+   "id": "MPE-CON-025b",
+   "replaces": "MPE-CON-025",
+   "text": "### MPE-CON-025b No completion on source failure\nIf a source connection fails, then the MPE client library shall keep the subscription open instead of ending it as complete.\n- Pattern: unwanted\n- Scope: POC\n- Priority: MUST\n- Source: D3; o3 D3.4\n- Rationale: A silent completion reads as 'no more Events', which is loss.\n- Verify: test, kill the source mid-stream and assert the subscription never emits completion.\n- Status: settled"
+  },
+  {
+   "id": "MPE-CON-044a",
+   "replaces": "MPE-CON-044",
+   "text": "### MPE-CON-044a Replayed consumption rejected\nIf a reaction's consumption nullifier is already in the target contract's nullifier set, then the MPE client library's consumption circuit shall reject the reaction.\n- Pattern: unwanted\n- Scope: PROD\n- Priority: MUST\n- Source: D3; o3 D3.5 step 4; s3 D3; s2 D3; o1 D3\n- Rationale: Replayed reactions produce no second effect.\n- Verify: test, submit the same reaction twice and assert the second transaction fails.\n- Status: settled"
+  },
+  {
+   "id": "MPE-CON-044b",
+   "replaces": "MPE-CON-044",
+   "text": "### MPE-CON-044b Atomic nullifier insertion\nThe MPE client library's consumption circuit shall insert the consumption nullifier in the same transaction as the contract effect it authorizes.\n- Pattern: ubiquitous\n- Scope: PROD\n- Priority: MUST\n- Source: D3; s3 D9; `minokawa-compact/doc/compact-reference.mdx:3777`\n- Rationale: Effect and replay state must not diverge across failures.\n- Verify: test, inject failure in the fallible segment and confirm neither the effect nor the nullifier is committed.\n- Status: settled"
+  },
+  {
+   "id": "MPE-NET-001a",
+   "replaces": "MPE-NET-001",
+   "text": "### MPE-NET-001a Sidecar process\nThe Bus Node shall run as an operating-system process separate from `midnight-node`.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D8; g1, g2, g3, o1, o2, o4, s1, s2, s3, s4; notes section 8\n- Rationale: The node has no GossipSub and no plugin slot.\n- Verify: inspection, the Prototype is its own binary and runs beside an unmodified node.\n- Status: settled"
+  },
+  {
+   "id": "MPE-NET-001b",
+   "replaces": "MPE-NET-001",
+   "text": "### MPE-NET-001b No MPE code in the node binary\nMPE shall add no code to the `midnight-node` binary.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D8; `midnight-node/Cargo.lock` (no `libp2p-gossipsub`; `sc-network-gossip` at :14548)\n- Rationale: A protocol inside the node would be a fork every relaying operator has to run.\n- Verify: inspection, the `midnight-node` dependency tree is unchanged by the MPE build.\n- Status: settled"
+  },
+  {
+   "id": "MPE-NET-009a",
+   "replaces": "MPE-NET-009",
+   "text": "### MPE-NET-009a StrictNoSign publication\nThe Bus Node shall publish every Envelope under the GossipSub StrictNoSign policy, with the `from`, `seqno`, `signature` and `key` fields absent.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D8, D1; g2 D1; `specs/pubsub/README.md:272-321`; `rust-libp2p/protocols/gossipsub/src/config.rs:46` (`ValidationMode::Anonymous`)\n- Rationale: Removes the peer-id author stamp from the gossip layer.\n- Verify: test, captured RPC frames lack all four fields.\n- Status: settled"
+  },
+  {
+   "id": "MPE-NET-009b",
+   "replaces": "MPE-NET-009",
+   "text": "### MPE-NET-009b Signed-field rejection\nIf a received GossipSub message carries a `from`, `seqno`, `signature` or `key` field, then the Bus Node shall drop it and apply the invalid-message penalty to the sender.\n- Pattern: unwanted\n- Scope: POC\n- Priority: MUST\n- Source: D8; `rust-libp2p/protocols/gossipsub/src/protocol.rs:421-442`; `CHANGELOG.md:1-4`\n- Rationale: Author fields would attach a peer identity to an Envelope.\n- Verify: test, an injected message carrying any one of the four fields is not delivered and the sender's P4 score falls.\n- Status: settled"
+  },
+  {
+   "id": "MPE-NET-043a",
+   "replaces": "MPE-NET-043",
+   "text": "### MPE-NET-043a Complete-stream gateway\nWhere the gateway fallback is enabled, the Bus Node shall serve the complete Envelope stream of a requested Shard in overlay framing.\n- Pattern: optional\n- Scope: PROD\n- Priority: SHOULD\n- Source: D8; s1 D8; s2 D8; s4 D8; o1 R2 D8\n- Rationale: Keeps the whole-feed interest property while concentrating ingress on fewer Operators.\n- Verify: test, the byte streams from the overlay and from the gateway match for one Shard over 1 h.\n- Status: open (DEC-NET-2)"
+  },
+  {
+   "id": "MPE-NET-043b",
+   "replaces": "MPE-NET-043",
+   "text": "### MPE-NET-043b No filter on the gateway\nWhere the gateway fallback is enabled, if a stream request carries a topic, Tag or identifier filter, then the Bus Node shall refuse the request with `Refused`.\n- Pattern: complex\n- Scope: PROD\n- Priority: SHOULD\n- Source: D8; s1 D8; MPE-PUB-030\n- Rationale: A filter would reveal Subscriber interest to the gateway.\n- Verify: test, each filter parameter is refused and no Envelope is sent.\n- Status: open (DEC-NET-2)"
+  },
+  {
+   "id": "MPE-PRF-006",
+   "replaces": "MPE-PRF-006",
+   "text": "### MPE-PRF-006 Sustained Shard capacity\nWhile Reference conditions hold, MPE shall deliver at least P-VER-7 of eligible Envelope-Subscriber pairs within P-VER-6 for an offered load of min(P-PRF-1, P-PRF-2 divided by mean complete Envelope size) Envelopes per second per Shard sustained for P-VER-3.\n- Pattern: state\n- Scope: POC\n- Priority: MUST\n- Source: D5; g3 R1/R2 D5; s4 R1 D10; register DEC-005\n- Rationale: \"Sustain\" had no pass condition; delivery fraction and deadline make it one.\n- Verify: test, run count-bound (class 0) and byte-bound (class 3) workloads and compute the delivery fraction per MPE-VER-014.\n- Status: open (DEC-PRF-1)"
+  },
+  {
+   "id": "MPE-PRF-007",
+   "replaces": "MPE-PRF-007",
+   "text": "### MPE-PRF-007 Normal-load delivery\nWhile Reference conditions hold at the sustained Shard capacity, MPE shall deliver every accepted Envelope to every continuously connected eligible Subscriber within P-VER-6 after admission.\n- Pattern: state\n- Scope: POC\n- Priority: MUST\n- Source: D5; g2 R1 D5, D10; g1 R1 D10\n- Rationale: Replaces a free 'declared observation deadline' with the frozen acceptance deadline.\n- Verify: test, compare accepted identifiers with each Subscriber's received identifiers and timestamps.\n- Status: open (DEC-PRF-3)"
+  },
+  {
+   "id": "MPE-PRF-023",
+   "replaces": "MPE-PRF-023",
+   "text": "### MPE-PRF-023 Gateway Subscriber capacity\nWhile Reference conditions hold on one Shard at its sustained capacity, MPE shall deliver at least P-VER-7 of that Shard's accepted Envelopes within P-VER-6 to each of the P-PRF-18 concurrently connected Subscribers.\n- Pattern: state\n- Scope: POC\n- Priority: SHOULD\n- Source: D5; s3/s4 R1 D5; o4 R1 D5\n- Rationale: A socket count is not a capacity claim without a delivery bound.\n- Verify: demonstration, run the gateway topology and compute per-Subscriber delivery fractions.\n- Status: open (DEC-PRF-5)"
+  },
+  {
+   "id": "MPE-PUB-035",
+   "replaces": "MPE-PUB-035",
+   "text": "### MPE-PUB-035 At-least-once delivery\nWhile an unexpired Envelope is retained by at least one configured source that answers the Subscriber's requests, MPE shall deliver that Envelope to the Subscriber's client library at least once.\n- Pattern: state\n- Scope: POC\n- Priority: MUST\n- Source: D3; all proposals; s4 D3; see MPE-CON-012\n- Rationale: \"Correctly operating\" is not observable; a source that holds and answers is.\n- Verify: simulation, 16 Bus Nodes, 20% churn, 1,000 Envelopes, one answering source per interval; every Envelope reaches every Subscriber.\n- Status: settled"
+  },
+  {
+   "id": "MPE-NET-022",
+   "replaces": "MPE-NET-022",
+   "text": "### MPE-NET-022 Eviction of misbehaving peers\nWhen a mesh peer has delivered only Rejected Envelopes, or no Envelope within the GossipSub mesh-delivery window, for P-NET-16 consecutive heartbeats in each of which the Shard carried an accepted Envelope, the Bus Node shall prune that peer from its mesh.\n- Pattern: event\n- Scope: POC\n- Priority: MUST\n- Source: D8, D9; g2 D9; `2022-kumar-gossipsub-formal` sections 3-5; `2023-kumar-gossipsub-acl2s`\n- Rationale: In an idle Shard no peer delivers anything; the original wording pruned every peer.\n- Verify: simulation, withholding and invalid-only peers at 10 Envelopes/s are pruned within P-NET-16 heartbeats; no peer is pruned in an idle Shard.\n- Status: settled"
+  },
+  {
+   "id": "MPE-OPS-024",
+   "replaces": "MPE-OPS-024",
+   "text": "### MPE-OPS-024 Evidence-only ejection when open\nWhile the relay allow-list is inactive, MPE shall eject a relay only on published evidence that P-OPS-16 independent monitors measured its canary delivery below P-OPS-5 for P-OPS-12, or on a malformed Anchor it signed.\n- Pattern: state\n- Scope: PROD\n- Priority: MUST\n- Source: D7; o4 D7 (72 h evidence, 7-day appeal); `2026-cao-nymreputation` section 1\n- Rationale: \"Probe failure above threshold\" named no threshold; the canary gate supplies one.\n- Verify: inspection, every ejection event references the monitor records and the threshold computation.\n- Status: open (DEC-OPS-2)"
+  },
+  {
+   "id": "MPE-OPS-039",
+   "replaces": "MPE-OPS-039",
+   "text": "### MPE-OPS-039 Sev1 mitigation time\nWhen an incident is classified Sev1, MPE shall publish a signed release or configuration change that removes the classified trigger within P-OPS-21.\n- Pattern: event\n- Scope: PROD\n- Priority: SHOULD\n- Source: D7; o4 D7\n- Rationale: \"Deploy a mitigation\" had no observable end point.\n- Verify: demonstration, timed drills at least twice per year; the drill's trigger no longer reproduces on the published artifact.\n- Status: settled"
+  },
+  {
+   "id": "MPE-OPS-020",
+   "replaces": "MPE-OPS-020",
+   "text": "### MPE-OPS-020 Governance end state\nWhen the open-admission phase exit review starts, MPE shall show that the Registry maintenance authority has been transferred to Midnight federated governance or removed.\n- Pattern: event\n- Scope: PROD\n- Priority: SHOULD\n- Source: D7; o4 D7; g1 D7; o3 D7; `midnight-node/runtime/src/lib.rs:789`\n- Rationale: A bus-specific authority is a launch measure.\n- Verify: inspection, read the Registry's maintenance authority from ledger state.\n- Status: open (DEC-OPS-2)"
+  },
+  {
+   "id": "MPE-SEC-022",
+   "replaces": "MPE-SEC-022",
+   "text": "### MPE-SEC-022 Authenticate Registry read results\nIf an Indexer result is not confirmed by Registry state read from P-NET-14 independent chain sources at a finalized block, then the Indexer adapter shall exclude it from admission and Anchor authorization.\n- Pattern: unwanted\n- Scope: POC\n- Priority: MUST\n- Source: D9; g1 R1 D9; s1 R1 D9; s4 R2 D9; MPE-NET-020; `midnight-indexer/indexer-api/graphql/schema-v4.graphql:552`\n- Rationale: \"Independently verified provenance\" named no procedure; source agreement does.\n- Verify: test, substitute contract addresses, invent Anchors and alter Registry data at one source; no authorization derives from them.\n- Status: settled"
+  },
+  {
+   "id": "MPE-NET-010",
+   "replaces": "MPE-NET-010",
+   "text": "### MPE-NET-010 Wire-byte message id\nThe Bus Node shall set the GossipSub message id to SHA-256 over a fixed MPE domain string and the complete received Envelope bytes.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D8, D1; register DEC-010; `rust-libp2p/protocols/gossipsub/src/behaviour.rs:1950,1983,991`; `config.rs:526-539`\n- Rationale: A corrupted Admission Slot must not share the honest copy's id in the duplicate cache.\n- Verify: test, two Envelopes differing only in the Admission Slot get distinct ids; identical bytes get one id.\n- Status: open (DEC-FMT-3)"
+  },
+  {
+   "id": "MPE-NET-017",
+   "replaces": "MPE-NET-017",
+   "text": "### MPE-NET-017 Ignore outcome\nIf an Envelope is a duplicate of an accepted Envelope Identifier or expired on arrival, then the Bus Node shall return Ignore.\n- Pattern: unwanted\n- Scope: POC\n- Priority: MUST\n- Source: D8; g1 D1; `gossipsub-v1.1.md:536`; register DEC-015\n- Rationale: A version mismatch on a version-bound topic is Reject (MPE-FMT-023).\n- Verify: test, each case is neither forwarded nor penalised.\n- Status: settled"
+  },
+  {
+   "id": "MPE-NET-018",
+   "replaces": "MPE-NET-018",
+   "text": "### MPE-NET-018 Stale chain view never penalises\nWhile the Ledger Adapter view is stale, the Bus Node shall return Ignore instead of Reject for every Envelope whose failed check depends on chain state or the local clock.\n- Pattern: state\n- Scope: POC\n- Priority: MUST\n- Source: D8, D9; o1 R2 D9; g1 D1, D7; register DEC-009\n- Rationale: Cached-valid Envelopes keep flowing (MPE-NET-038); only penalties are suspended.\n- Verify: test, freeze the mock adapter; cached-valid Envelopes still reach Subscribers and no peer's P4 term changes.\n- Status: settled"
+  },
+  {
+   "id": "MPE-FMT-031",
+   "replaces": "MPE-FMT-031",
+   "text": "### MPE-FMT-031 Unsafe clock\nWhile the Ledger Adapter view is stale under MPE-NET-019, the Bus Node shall return Ignore instead of Reject for an Envelope that fails the expiry check of MPE-FMT-029.\n- Pattern: state\n- Scope: POC\n- Priority: MUST\n- Source: D1; g1 D1; register DEC-009\n- Rationale: A skewed clock must not penalise honest peers or stop the bus.\n- Verify: test, shift the mock adapter timestamp by P-NET-13 + 1 s; far-future expiry yields Ignore and valid Envelopes are still accepted.\n- Status: settled"
+  },
+  {
+   "id": "MPE-ECO-015",
+   "replaces": "MPE-ECO-015",
+   "text": "### MPE-ECO-015 Root window from supersession\nIf an Envelope's Admission Proof references a membership root that is neither the current root nor superseded less than P-ECO-5 earlier, then the Bus Node shall return Ignore for that Envelope.\n- Pattern: unwanted\n- Scope: POC\n- Priority: MUST\n- Source: D4; o2, o1; g1 R2; MPE-ECO-027\n- Rationale: Counting from publication made every Envelope Ignore after an hour without registrations.\n- Verify: test, with no root update for 2 h the current root still validates; a root superseded P-ECO-5 + 1 s earlier yields Ignore.\n- Status: settled"
+  },
+  {
+   "id": "MPE-ECO-016",
+   "replaces": "MPE-ECO-016",
+   "text": "### MPE-ECO-016 Committed per-class rate limit\nThe Bus Node shall return Reject for an Envelope of size class c unless its Admission Proof shows a credit index below the class-c per-epoch limit committed in the membership leaf.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D4; `2024-vac-rln-v2-spec` (RLN-Diff); o1, o2, o4; register DEC-016\n- Rationale: One nullifier per Envelope fits one fixed Admission Slot.\n- Verify: test, with class-2 limit 4, credit indices 0-3 are accepted and index 4 is Rejected.\n- Status: open (DEC-ECO-4)"
+  },
+  {
+   "id": "MPE-ECO-017",
+   "replaces": "MPE-ECO-017",
+   "text": "### MPE-ECO-017 Class-bound nullifier\nThe MPE client library shall derive each Admission Proof nullifier from the admission secret, epoch number, size class and credit index under one domain-separated hash.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D4; register DEC-016; `2022-vac-rln-v1-spec`\n- Rationale: Separate index spaces per class prevent one credit index from serving two classes.\n- Verify: test vectors; two Envelopes of different classes with equal index yield different nullifiers.\n- Status: open (DEC-ECO-4)"
+  },
+  {
+   "id": "MPE-ECO-020",
+   "replaces": "MPE-ECO-020",
+   "text": "### MPE-ECO-020 Equivocation recorded without penalty\nIf an Envelope carries a nullifier already accepted with a different Envelope Identifier, then the Bus Node shall return Ignore and record both Envelopes as equivocation evidence.\n- Pattern: unwanted\n- Scope: POC\n- Priority: MUST\n- Source: D4; o2, o1, o4; s3, s4; `2022-taheri-waku-rln-relay` section III; register DEC-014\n- Rationale: The forwarder of the second Envelope may be honest; the equivocator loses its membership through MPE-ECO-028.\n- Verify: test, send two conflicting Envelopes from two peers; no P4 change and the evidence store holds both.\n- Status: open (DEC-SEC-4)"
+  },
+  {
+   "id": "MPE-NET-023",
+   "replaces": "MPE-NET-023",
+   "text": "### MPE-NET-023 Per-peer per-Shard rate limit\nIf a peer sends more than P-NET-10 Envelopes per second on one Shard, then the Bus Node shall drop the excess with Ignore before proof verification.\n- Pattern: unwanted\n- Scope: POC\n- Priority: MUST\n- Source: D8, D9; g2 D4; s3 D9; register parameter table\n- Rationale: A per-peer total would drop honest traffic on multi-Shard Full Bus Nodes.\n- Verify: test, at 5 x P-NET-10 from one peer on one Shard, verifier calls for that peer and Shard stay at or below P-NET-10 per second.\n- Status: settled"
+  },
+  {
+   "id": "MPE-STO-001",
+   "replaces": "MPE-STO-001",
+   "text": "### MPE-STO-001 No bodies in ledger state\nThe Registry shall store no Event body and no Sealed Body in contract state.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D6; BRIEF system definition; g3, s2, s3 R1 D6; register DEC-008\n- Rationale: Sealed Bodies reach the ledger only as Misc logs on the labelled ledger fallback (MPE-FMT-040..046).\n- Verify: inspection, review the Registry's state declarations and captured state writes.\n- Status: settled"
+  },
+  {
+   "id": "MPE-STO-003",
+   "replaces": "MPE-STO-003",
+   "text": "### MPE-STO-003 Reject excessive ordinary retention\nIf a received Envelope's expiry exceeds the Store Node's clock plus P-FMT-3 plus P-FMT-4, then the Store Node shall reject its storage admission.\n- Pattern: unwanted\n- Scope: POC\n- Priority: MUST\n- Source: D6; g3 R1 D6; s3 R1 D6; MPE-FMT-029\n- Rationale: The visible expiry is the retention deadline; creation time is sealed.\n- Verify: test, admission just below, at and above the limit.\n- Status: open (DEC-STO-1)"
+  },
+  {
+   "id": "MPE-STO-012",
+   "replaces": "MPE-STO-012",
+   "text": "### MPE-STO-012 Stored attribute\nThe MPE client library shall mark a delivered Event `stored` only after validating compatible retention receipts from at least P-STO-5 distinct Operators.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D6; s1, s2, s3 R1 D6; register DEC-026\n- Rationale: Storage is an attribute beside the gossip or final label.\n- Verify: test, reject duplicate-Operator receipts and receipts naming different Envelopes or deadlines.\n- Status: open (DEC-STO-5)"
+  },
+  {
+   "id": "MPE-NET-041",
+   "replaces": "MPE-NET-041",
+   "text": "### MPE-NET-041 Anchor cadence\nWhere a Bus Node acts as anchorer, the Bus Node shall submit at most one Anchor per non-empty P-NET-17 window, covering every Shard.\n- Pattern: optional\n- Scope: PROD\n- Priority: SHOULD\n- Source: D8, D6; o4 D4; g3 D4; register DEC-024\n- Rationale: One record per window keeps the Anchor history inside P-STO-10.\n- Verify: test, ten windows with three empty ones produce seven Anchors, each listing all Shards' counts.\n- Status: settled"
+  },
+  {
+   "id": "MPE-PRF-013",
+   "replaces": "MPE-PRF-013",
+   "text": "### MPE-PRF-013 Edge bandwidth budget\nWhile Reference conditions hold at the sustained Shard capacity, the Bus Node operating as an Edge Bus Node shall consume no more than P-PRF-12 of bus bandwidth in each direction.\n- Pattern: state\n- Scope: PROD\n- Priority: MUST\n- Source: D5; g3 R1 D5; register DEC-027\n- Rationale: g3's model is an egress budget; D = 8 needs 5.24 Mbit/s.\n- Verify: test, capture receive and transmit separately over the steady interval.\n- Status: open (DEC-PRF-4)"
+  },
+  {
+   "id": "MPE-PRF-014",
+   "replaces": "MPE-PRF-014",
+   "text": "### MPE-PRF-014 Full bandwidth budget\nWhile Reference conditions hold with P-PRF-16 Shards at their sustained capacity, the Bus Node operating as a Full Bus Node shall consume no more than P-PRF-13 of bus bandwidth in each direction.\n- Pattern: state\n- Scope: PROD\n- Priority: MUST\n- Source: D5; g3 R1 D5; register DEC-027\n- Rationale: Same direction rule as the edge budget.\n- Verify: test, capture receive and transmit separately with all allocated Shards active.\n- Status: open (DEC-PRF-4)"
+  },
+  {
+   "id": "MPE-SEC-015",
+   "replaces": "MPE-SEC-015",
+   "text": "### MPE-SEC-015 Optional durable admission replay state\nWhere durable replay state is configured, the Bus Node shall commit each consumed publication allowance to durable storage before forwarding its Envelope.\n- Pattern: optional\n- Scope: PROD\n- Priority: MAY\n- Source: D9; s3 R1 D9; s2 R2 D9; register DEC-017\n- Rationale: The default restart barrier (MPE-STO-015) already prevents reuse; durability shortens restart unavailability.\n- Verify: test, interrupt at the persistence and forwarding boundaries, restart, and replay the admitted Envelope.\n- Status: settled"
+  },
+  {
+   "id": "MPE-STO-015",
+   "replaces": "MPE-STO-015",
+   "text": "### MPE-STO-015 Restart barrier\nWhile less than P-ECO-7 has elapsed since the Bus Node process started, the Bus Node shall return Ignore for every Envelope requiring live admission.\n- Pattern: state\n- Scope: POC\n- Priority: MUST\n- Source: D6, D9; g3 R1 D9; s3 R1 D6; s2 R2 D9; register DEC-017\n- Rationale: Every allowance accepted before the restart is then permanently ineligible.\n- Verify: test, restart mid-epoch and replay a pre-restart Envelope at 1 s and at P-ECO-7 + 1 s; neither is accepted live.\n- Status: open (DEC-STO-7)"
+  },
+  {
+   "id": "MPE-CRY-004",
+   "replaces": "MPE-CRY-004",
+   "text": "### MPE-CRY-004 Public-context authentication\nThe MPE client library shall authenticate the Network Identifier, Visible Header bytes 0 to 7, and the Sealed Body's salt, nonce and Tag as AEAD associated data.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D1; g1 R1 D1; s2 R1 D1; s1, s4 R2 D1; MPE-FMT-051, MPE-FMT-053\n- Rationale: The cryptographic profile is fixed by `version`; the Admission Slot is excluded to keep construction acyclic.\n- Verify: test, changing each bound byte prevents opening under the original context.\n- Status: settled"
+  },
+  {
+   "id": "MPE-VER-040",
+   "replaces": "MPE-VER-040",
+   "text": "### MPE-VER-040 Open admission gate\nIf the open-admission red team reduces canary delivery below P-OPS-5, then MPE shall fail open-admission acceptance.\n- Pattern: unwanted\n- Scope: PROD\n- Priority: MUST\n- Source: D10; g1 R1; o1 R2; s3 R1; see canonical MPE-OPS-008\n- Rationale: The same gate carried 99% and 99.9%; the stricter value applies.\n- Verify: simulation, attackers hold as many peer identities as the honest set; targeted capture and cold joining.\n- Status: open (DEC-VER-6)"
+  },
+  {
+   "id": "MPE-PUB-014",
+   "replaces": "MPE-PUB-014",
+   "text": "### MPE-PUB-014 Second-source reconciliation\nWhile following a Shard, the MPE client library shall reconcile its received Envelope Identifiers against a second source run by a different Operator every P-PUB-3.\n- Pattern: state\n- Scope: POC\n- Priority: MUST\n- Source: D3; s1 D3; o3 R2 D7, D9; o4 R2; register DEC-025\n- Rationale: Sequence gaps cannot reveal omission of whole publishers or first contacts.\n- Verify: simulation, one source drops 5% of Envelopes; the client obtains every dropped Envelope the second source holds within 2 x P-PUB-3.\n- Status: open (DEC-PUB-4)"
+  },
+  {
+   "id": "MPE-PUB-015",
+   "replaces": "MPE-PUB-015",
+   "text": "### MPE-PUB-015 Repair every difference\nWhen reconciliation finds an Envelope Identifier that the client has not received, the MPE client library shall fetch that Envelope.\n- Pattern: event\n- Scope: POC\n- Priority: MUST\n- Source: D3; s1 D3; register DEC-025\n- Rationale: Repairing only matched Envelopes would reveal which ones matched.\n- Verify: test, every missing identifier is fetched, whatever the key set.\n- Status: open (DEC-PUB-4)"
+  },
+  {
+   "id": "MPE-FMT-024",
+   "replaces": "MPE-FMT-024",
+   "text": "### MPE-FMT-024 Version overlap\nWhere two Envelope versions are active, the Bus Node shall relay the topics of both versions for at least P-FMT-9 after the newer version activates.\n- Pattern: optional\n- Scope: PROD\n- Priority: MUST\n- Source: D1; o4 D1; g1; register DEC-015\n- Rationale: Unexpired Envelopes published before an upgrade stay deliverable.\n- Verify: simulation, upgrade half the nodes; no unexpired old-version Envelope is lost during the window.\n- Status: open (DEC-FMT-4)"
+  },
+  {
+   "id": "MPE-OPS-026",
+   "replaces": "MPE-OPS-026",
+   "text": "### MPE-OPS-026 Tombstoned Envelope not relayed\nWhere tombstones are enabled, when the Bus Node holds a valid tombstone for an Envelope Identifier, the Bus Node shall Ignore that Envelope.\n- Pattern: complex\n- Scope: PROD\n- Priority: SHOULD\n- Source: D7; o4 D7; register DEC-018\n- Rationale: Tombstones are disabled in the Prototype.\n- Verify: test, a replayed tombstoned Envelope is not forwarded and the sender's P4 term is unchanged.\n- Status: open (DEC-OPS-5)"
+  },
+  {
+   "id": "MPE-PUB-027",
+   "replaces": "MPE-PUB-027",
+   "text": "### MPE-PUB-027 Seen-set until expiry\nThe Bus Node shall keep each accepted Envelope Identifier in its application seen-set until that Envelope's expiry plus P-FMT-4.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D3; g1 D1; `rust-libp2p/protocols/gossipsub/src/config.rs:524` (60 s duplicate cache)\n- Rationale: After that time MPE-FMT-030 Ignores the Envelope anyway.\n- Verify: test, replays at 61 s and at expiry - 1 s are not forwarded.\n- Status: settled"
+  },
+  {
+   "id": "MPE-PUB-002",
+   "replaces": "MPE-PUB-002",
+   "text": "### MPE-PUB-002 Shard derivation\nThe MPE client library shall set an Envelope's Shard to a domain-separated SHA-256 hash of the audience key reduced modulo P-PUB-1 as read from the Registry.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D3; g1, g3, o4; g1 R2; register DEC-011\n- Rationale: A secret input stops testing which Shard a guessed label lands on.\n- Verify: test, vectors for 1,000 keys at P-PUB-1 of 1 and 8 match a reference implementation.\n- Status: open (DEC-PUB-1)"
+  },
+  {
+   "id": "MPE-CON-015",
+   "replaces": "MPE-CON-015",
+   "text": "### MPE-CON-015 Finality label on every Event\nThe MPE client library shall label every delivered Event with exactly one finality label, `gossip` or `final`.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D3; o3 D8; register DEC-026\n- Rationale: Carrier and storage are separate attributes (MPE-CON-057, MPE-STO-012).\n- Verify: test, every delivered item has exactly one finality label.\n- Status: settled"
+  }
+ ],
+ "gaps": [
+  {
+   "id": "MPE-FMT-050",
+   "area": "FMT",
+   "text": "### MPE-FMT-050 Admission Slot zero fill\nIf any Admission Slot byte after the selected proof fields is non-zero, then the Bus Node shall return Reject.\n- Pattern: unwanted\n- Scope: POC\n- Priority: MUST\n- Source: D1; MPE-FMT-006 (reserved-byte rule); register parameter A = 512 B\n- Rationale: Unused slot bytes would otherwise be a covert channel and a second encoding of one Envelope.\n- Verify: test, set each filler byte of a valid vector in turn; each result is Reject.\n- Status: settled"
+  },
+  {
+   "id": "MPE-FMT-051",
+   "area": "FMT",
+   "text": "### MPE-FMT-051 Sealed Body clear prefix\nThe MPE client library shall place the P-CRY-3-byte salt, the 12-byte AEAD nonce and the P-CRY-2-byte Tag, in that order, at the start of the Sealed Body before the ciphertext.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D1; MPE-CRY-004, MPE-CRY-013; MPE-FMT-037; DEC-FMT-2 (recognition material inside the body); register DEC-003\n- Rationale: The ledger carrier has no Visible Header, so recognition and nonce inputs must travel inside the body.\n- Verify: test vectors; a body copied from the mock ledger carrier opens exactly as its overlay copy.\n- Status: open (DEC-CRY-2)"
+  },
+  {
+   "id": "MPE-FMT-052",
+   "area": "FMT",
+   "text": "### MPE-FMT-052 Shard field matches topic\nIf a received Envelope's `shard` value differs from the Shard index of the topic it arrived on, then the Bus Node shall return Reject.\n- Pattern: unwanted\n- Scope: POC\n- Priority: MUST\n- Source: D1, D3; MPE-NET-006, MPE-NET-031; MPE-PUB-002\n- Rationale: A mismatched field would let Envelopes cross Shards and distort per-Shard accounting.\n- Verify: test, an Envelope with `shard` = 1 published on the Shard-0 topic is Rejected and lowers the sender's P4 score.\n- Status: settled"
+  },
+  {
+   "id": "MPE-FMT-053",
+   "area": "FMT",
+   "text": "### MPE-FMT-053 One cryptographic profile per version\nThe MPE client library shall bind exactly one cryptographic profile to each Envelope `version` value.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D1; CRY parameter note ('changing them requires a new profile identifier'); MPE-FMT-001b; MPE-CRY-004\n- Rationale: The Visible Header has no profile field; the version selects the profile.\n- Verify: inspection, the version table maps each value to one profile; test, an Envelope opened under another profile fails authentication.\n- Status: settled"
+  },
+  {
+   "id": "MPE-CRY-041",
+   "area": "CRY",
+   "text": "### MPE-CRY-041 Publisher authentication block\nThe MPE client library shall encode the sealed publisher authentication block as a 2-byte authorized-key index, a 4-byte creation time and a 64-byte Ed25519 signature.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D1, D3; DEC-FMT-7 (flags bit 0: 'CRY fixes its width'); MPE-CRY-018, MPE-CRY-020, MPE-CRY-021; `minokawa-compact/doc/api/CompactStandardLibrary/exports.md:106`\n- Rationale: The key index points into the invitation's authorized publisher keys, so no key travels in each Envelope.\n- Verify: test vectors; payload capacity per class equals body minus 170 B.\n- Status: open (DEC-CRY-6)"
+  },
+  {
+   "id": "MPE-ECO-051",
+   "area": "ECO",
+   "text": "### MPE-ECO-051 Stale-root bound\nIf the membership period served by an Admission Proof's referenced root ended more than P-ECO-5 before the Bus Node's clock, then the Bus Node shall return Ignore for that Envelope.\n- Pattern: unwanted\n- Scope: POC\n- Priority: MUST\n- Source: D4, D9; register DEC-009; MPE-ECO-026, MPE-ECO-027\n- Rationale: Bounds forwarding under cached state to P-ECO-4 + P-ECO-5 when the chain view is stale.\n- Verify: test, freeze the mock adapter and confirm Envelopes under the last root are Ignored 25 h after its period began.\n- Status: settled"
+  },
+  {
+   "id": "MPE-ECO-052",
+   "area": "ECO",
+   "text": "### MPE-ECO-052 Admission Slot field layout\nThe MPE client library shall fill the Admission Slot with the 8-byte epoch number, the 32-byte referenced membership root, the 32-byte nullifier, the 32-byte share y-coordinate and the proof, in that order.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D1, D4; `2021-vac-waku2-rln-relay-spec` (RateLimitProof); MPE-ECO-018; ECO dependency row D1\n- Rationale: Fixed offsets let a Bus Node run the cheap checks of MPE-ECO-013 before verification; share x is a hash of the Envelope Identifier.\n- Verify: test vectors; a Bus Node rejects a stale epoch without invoking the verifier.\n- Status: open (DEC-ECO-1)"
+  },
+  {
+   "id": "MPE-ECO-053",
+   "area": "ECO",
+   "text": "### MPE-ECO-053 Epoch number\nThe MPE client library shall compute the admission epoch number as the Unix time in seconds divided by P-ECO-1, rounded down.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D4; o2 D3; MPE-ECO-014\n- Rationale: Bus Nodes and clients must agree on epoch boundaries without coordination.\n- Verify: test vectors at boundary times.\n- Status: settled"
+  },
+  {
+   "id": "MPE-SEC-041",
+   "area": "SEC",
+   "text": "### MPE-SEC-041 Seen-set entry after Accept\nThe Bus Node shall insert an Envelope Identifier into its application seen-set only after its validator returns Accept for an Envelope carrying that identifier.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D9; register DEC-010; `rust-libp2p/protocols/gossipsub/src/behaviour.rs:1983`; MPE-SEC-014\n- Rationale: An invalid copy must not suppress the valid copy of the same Sealed Body.\n- Verify: test, a Rejected corrupted-slot copy followed by the valid copy: the valid copy is accepted.\n- Status: settled"
+  },
+  {
+   "id": "MPE-SEC-042",
+   "area": "SEC",
+   "text": "### MPE-SEC-042 Corrupted-slot front-running test\nThe Prototype shall deliver an honest Envelope to every eligible Subscriber within P-VER-6 when an adversarial peer injects copies of its Sealed Body with corrupted Admission Slots ahead of it.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D9, D10; register DEC-010\n- Rationale: Regression test for the duplicate-cache censorship path.\n- Verify: test, on the 32-node topology with the adversary adjacent to the publisher's ingress Bus Node.\n- Status: settled"
+  },
+  {
+   "id": "MPE-STO-041",
+   "area": "STO",
+   "text": "### MPE-STO-041 Inventory listing\nWhen a client requests an inventory for a Shard and time window, the Store Node shall return every retained Envelope Identifier in that window in pages of at most P-PUB-9 entries.\n- Pattern: event\n- Scope: POC\n- Priority: MUST\n- Source: D6, D3; MPE-PUB-014, MPE-SEC-021, MPE-CON-037 (expected from STO)\n- Rationale: Reconciliation needs an identifier list from an independent source.\n- Verify: test, a seeded store of N identifiers returns exactly N across pages.\n- Status: settled"
+  },
+  {
+   "id": "MPE-STO-042",
+   "area": "STO",
+   "text": "### MPE-STO-042 Retention receipt request\nWhen a client requests a retention receipt for a retained Envelope Identifier, the Store Node shall return a receipt signed with its Operator key naming that identifier, the Shard and the retention deadline.\n- Pattern: event\n- Scope: POC\n- Priority: MUST\n- Source: D6; MPE-STO-011, MPE-STO-012; s2, s3 R1 D6\n- Rationale: The `stored` attribute needs a way to obtain receipts.\n- Verify: test, request receipts from three Store Nodes and validate them under MPE-STO-012.\n- Status: open (DEC-STO-5)"
+  },
+  {
+   "id": "MPE-NET-048",
+   "area": "NET",
+   "text": "### MPE-NET-048 Shard stream service\nThe Bus Node shall provide a stream protocol that sends a connected non-mesh client every Envelope the Bus Node accepts on each Shard the client requests.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D8, D3; CON dependency ('Bus Node interface for a non-mesh client'); MPE-PRF-022, MPE-PUB-033; MPE-OPS-007 (non-listed peers cannot GRAFT)\n- Rationale: Under the allow-list, Subscribers are not mesh members and need a full-Shard feed.\n- Verify: test, a client streaming one Shard receives every accepted identifier over 1 h.\n- Status: settled"
+  },
+  {
+   "id": "MPE-NET-049",
+   "area": "NET",
+   "text": "### MPE-NET-049 Publish acceptance message\nWhen the Bus Node's validator returns Accept for an Envelope submitted by a client, the Bus Node shall send that client an acceptance message carrying the Envelope Identifier.\n- Pattern: event\n- Scope: POC\n- Priority: MUST\n- Source: D8, D3; MPE-PUB-022, MPE-CON-026\n- Rationale: The client reports `accepted` only on this message.\n- Verify: test, a client receives the message for accepted Envelopes and none for Rejected or Ignored ones.\n- Status: settled"
+  },
+  {
+   "id": "MPE-NET-050",
+   "area": "NET",
+   "text": "### MPE-NET-050 Anchor payload\nWhere a Bus Node acts as anchorer, the Bus Node shall encode each Anchor payload as an 8-byte window number, a 32-byte root over the window's per-Shard batch roots and one 4-byte Envelope count per Shard.\n- Pattern: optional\n- Scope: POC\n- Priority: MUST\n- Source: D8, D6; MPE-FMT-047 ('NET defines the payload fields'); o4 D1; register DEC-024\n- Rationale: At 8 Shards the payload is 72 B, inside the 256 B Misc payload.\n- Verify: test vectors; a mock Registry decodes every field.\n- Status: settled"
+  },
+  {
+   "id": "MPE-NET-051",
+   "area": "NET",
+   "text": "### MPE-NET-051 Batch root construction\nWhere a Bus Node acts as anchorer, the Bus Node shall compute each per-Shard batch root as a SHA-256 Merkle root over the window's accepted Envelope Identifiers in ascending byte order.\n- Pattern: optional\n- Scope: POC\n- Priority: MUST\n- Source: D8; MPE-CON-016, MPE-CON-038\n- Rationale: A canonical leaf order lets any holder of the leaf list reproduce the root.\n- Verify: test vectors; an independent implementation reproduces the roots.\n- Status: settled"
+  },
+  {
+   "id": "MPE-NET-052",
+   "area": "NET",
+   "text": "### MPE-NET-052 Inclusion path service\nWhere a Bus Node acts as anchorer, the Bus Node shall return, on request, the Merkle inclusion path of an anchored Envelope Identifier for P-STO-9 after anchoring.\n- Pattern: optional\n- Scope: POC\n- Priority: MUST\n- Source: D8, D6; MPE-CON-016, MPE-CON-047\n- Rationale: Only the anchorer knows each window's exact leaf set.\n- Verify: test, paths verify against the Anchor root; a path for a non-anchored identifier is refused.\n- Status: settled"
+  },
+  {
+   "id": "MPE-NET-053",
+   "area": "NET",
+   "text": "### MPE-NET-053 Anchorer authorization\nThe Registry shall accept an Anchor only from a submitter key listed with the anchorer role in the Registry relay list.\n- Pattern: ubiquitous\n- Scope: PROD\n- Priority: MUST\n- Source: D7, D8; MPE-STO-028 (bounded records); OPS glossary 'Anchorer'\n- Rationale: Unauthenticated Anchors could evict genuine records from the bounded history and forge counts.\n- Verify: test, an Anchor from an unlisted key fails on a devnet and on the mock Registry.\n- Status: open (DEC-OPS-2)"
+  },
+  {
+   "id": "MPE-NET-054",
+   "area": "NET",
+   "text": "### MPE-NET-054 Relay list entries\nThe Registry shall expose a relay list whose entries each carry a peer identity, an Operator organization identifier and role flags for relay, Store Node, bootstrapper, gateway and anchorer.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D7, D8; MPE-OPS-007, MPE-OPS-011, MPE-PUB-014, MPE-PUB-034, MPE-STO-012; MPE-NET-039\n- Rationale: Independence checks and fail-over need the Operator and role of each peer.\n- Verify: inspection of the contract; test, the adapter reads every field.\n- Status: settled"
+  },
+  {
+   "id": "MPE-NET-055",
+   "area": "NET",
+   "text": "### MPE-NET-055 Ledger Adapter read set\nThe Ledger Adapter shall expose finalized reads of membership roots with publication and supersession times, the relay list, Registry parameters, Anchors, the bus pause flag and the current `ledgerParameters`.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D8; MPE-NET-035; MPE-ECO-008, MPE-ECO-015, MPE-CON-016, MPE-CON-050, MPE-SEC-013\n- Rationale: One interface lets the mock and the devnet adapters serve every area.\n- Verify: test, the mock adapter answers each read and the full Prototype suite passes against it.\n- Status: settled"
+  },
+  {
+   "id": "MPE-NET-056",
+   "area": "NET",
+   "text": "### MPE-NET-056 Historic root lookup\nWhen a Store Node validates a back-filled Envelope, the Ledger Adapter shall return the referenced membership root with its period if it was published within the last P-FMT-3 plus P-ECO-5.\n- Pattern: event\n- Scope: POC\n- Priority: MUST\n- Source: D6, D8; MPE-SEC-013, MPE-STO-016 (STO gap: historical context encoding)\n- Rationale: Back-fill validation needs the root in force at publication, not the current one.\n- Verify: test, back-fill after two root rotations validates against the historical root.\n- Status: settled"
+  },
+  {
+   "id": "MPE-PRF-041",
+   "area": "PRF",
+   "text": "### MPE-PRF-041 Bus Node memory ceiling\nWhile Reference conditions hold at the sustained Shard capacity, the Bus Node shall keep its resident memory at or below P-PRF-34.\n- Pattern: state\n- Scope: POC\n- Priority: MUST\n- Source: D5; MPE-VER-015; register parameter P-PRF-34 = 2 GiB (assumption derived from P-STO-4)\n- Rationale: Resource acceptance cannot pass without a memory ceiling.\n- Verify: test, sample resident memory every 10 s through the 72 h soak.\n- Status: settled"
+  },
+  {
+   "id": "MPE-CON-056",
+   "area": "CON",
+   "text": "### MPE-CON-056 Closed outcome set\nThe MPE client library shall report every refusal or failure as one of TooLarge, NotReady, NotAccepted, Busy, Refused, ResourceExhausted, StorageExhausted, KeyLimit, Degraded, SourceFailed, Unresolved, RetentionGap, KeyGap, CorruptRecord, LedgerUnavailable, LedgerPaused, BusPaused, InsufficientDust or SessionUpdateRequired.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D3; MPE-PUB-025; SEC glossary ('CON owns their API encoding'); STO glossary; o3 D3.4\n- Rationale: Areas named the same outcomes differently (StorageExhausted and STORAGE_FULL, ResourceExhausted and RESOURCE_EXHAUSTED).\n- Verify: inspection of the API; fault injection maps each injected fault to exactly one outcome.\n- Status: settled"
+  },
+  {
+   "id": "MPE-CON-057",
+   "area": "CON",
+   "text": "### MPE-CON-057 Carrier attribute\nThe MPE client library shall mark every delivered Event with exactly one carrier attribute: `overlay`, `gateway` or `ledger`.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D3, D8; MPE-NET-042; register DEC-026\n- Rationale: Fallback leakage differs by carrier and must be visible beside the finality label.\n- Verify: test, deliver one Event over each carrier and check its attribute.\n- Status: settled"
+  },
+  {
+   "id": "MPE-PUB-053",
+   "area": "PUB",
+   "text": "### MPE-PUB-053 Retransmission stops at epoch end\nIf an unaccepted Envelope's admission epoch ended more than P-ECO-6 earlier, then the MPE client library shall stop retransmitting it and report `NotAccepted`.\n- Pattern: unwanted\n- Scope: POC\n- Priority: MUST\n- Source: D3, D4; MPE-PUB-023; MPE-ECO-014\n- Rationale: Bus Nodes Ignore such bytes, so further retries only waste bandwidth.\n- Verify: test, with all Bus Nodes blackholed across an epoch boundary, retries stop P-ECO-6 after the epoch ends.\n- Status: settled"
+  },
+  {
+   "id": "MPE-PRV-038",
+   "area": "PRV",
+   "text": "### MPE-PRV-038 Anchor count leakage\nThe MPE shall include the per-Shard Envelope counts published in Anchors in the L-L leakage declaration.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D2; MPE-PRV-020; MPE-NET-050\n- Rationale: Per-window counts reveal per-Shard volume to any chain observer.\n- Verify: inspection, L-L names the count fields and their window granularity.\n- Status: settled"
+  },
+  {
+   "id": "MPE-OPS-055",
+   "area": "OPS",
+   "text": "### MPE-OPS-055 Mock Operator roster\nThe Prototype shall register its local Bus Nodes and Store Nodes in the mock Registry relay list under at least P-STO-5 distinct Operator organization identifiers.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D7, D10; MPE-STO-012, MPE-SEC-021, MPE-PUB-014\n- Rationale: Operator-diversity requirements cannot execute against a single-Operator fixture.\n- Verify: inspection of the fixture; test, the `stored` attribute and reconciliation run on it.\n- Status: settled"
+  },
+  {
+   "id": "MPE-VER-041",
+   "area": "VER",
+   "text": "### MPE-VER-041 End-to-end Prototype scenario\nThe Prototype shall demonstrate, in one scripted run against the mock Ledger Adapter, membership registration, publication, overlay delivery, local recognition, a client crash with back-fill resume, Anchor-based `final` labelling and one mock contract reaction.\n- Pattern: ubiquitous\n- Scope: POC\n- Priority: MUST\n- Source: D10; DEC-VER-1; MPE-VER-011; MPE-CON-042\n- Rationale: Component tests can pass while the end-to-end path is broken.\n- Verify: demonstration, the run log shows each stage with Envelope and logical identifiers and the final contract state.\n- Status: settled"
+  }
+ ]
+}

@@ -1,0 +1,1 @@
+{"name": "Group Messaging Key Establishment", "summary": "The cluster covers cryptographic methods for establishing and updating group keys, including broadcast encryption, non-interactive key agreement, and ratcheting for secure multi-device messaging."}

@@ -1,0 +1,1 @@
+{"name": "Stake-Backed Sybil-Resistant Peer Discovery", "summary": "The cluster covers a peer-discovery protocol that uses stake-weighted gossip, private peer tables, and slashing to resist Sybil and eclipse attacks despite address churn."}

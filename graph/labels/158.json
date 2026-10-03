@@ -1,0 +1,1 @@
+{"name": "Post-Quantum Hybrid KEM Security", "summary": "The cluster covers post-quantum key encapsulation and security properties used to combine KEMs, including ciphertext second-preimage resistance, collision resistance, and dual-PRF behavior."}

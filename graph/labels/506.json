@@ -1,0 +1,1 @@
+{"name": "Strongly Deniable Authenticated Key Exchange", "summary": "This cluster covers strongly deniable authenticated key exchange protocols such as DAKEZ and Spawn, their security assumptions and primitives, and attacks caused by unvalidated Diffie\u2013Hellman contributions."}

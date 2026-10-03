@@ -1,0 +1,51 @@
+[
+ {
+  "writer": "M1",
+  "id": "M1",
+  "vendor": "claude",
+  "file": "M1.md",
+  "task": "Write part M1 of the MIP: the sections `## Abstract` (about 200 words), `## Motivation`, `## Rationale` and `## Backwards Compatibility Assessment`. Motivation: why the existing Midnight capabilities (public Compact events of MIP-0002, the indexer subscription, wallet scanning, the planned on-chain private events of MPS-0005 Part 2) do not cover private, high-volume, low-latency events for agents, contracts and wallets; use the measured limits (256-byte payload, 1 KiB drop, 6 s blocks, fee per event, full transactions). Rationale: the design decisions and the alternatives rejected (the five architecture options of the document, with the evidence), including why a sidecar overlay and why GossipSub 1.2, and the conditions under which the ledger-only lane is used. Backwards compatibility: nothing in the node changes; no hard fork; what is additive; interplay with MIP-0002 and MIP-0019; behaviour for existing dapps."
+ },
+ {
+  "writer": "M2",
+  "id": "M2",
+  "vendor": "codex",
+  "file": "M2.md",
+  "task": "Write part M2 of the MIP: `### Terminology and conventions` and `### Event envelope and sealing` (both under `## Specification`, which you open with the heading `## Specification` and one sentence). Terminology: the glossary terms and the normative-language convention. Envelope and sealing: byte-level layout (fixed header, admission slot, sealed body, size classes 256 B, 1,024 B, 4,096 B, 16,384 B and wire lengths), field semantics, versioning and extension rules, expiry, the Envelope Identifier and the GossipSub message identifier, tags (salted 16-byte tag, derivation, recognition procedure, first-contact clues), the sealing construction (key derivation, AEAD, associated data per the carrier-compatible profile, nonces), signatures, padding, canonical encoding, and the rejection rules for every malformed case. Give offsets in tables and at least two worked byte-level examples (one for class 0, one for class 2) with the arithmetic. Cite the requirements (FMT, CRY, PRV areas of Appendix A) for each normative rule."
+ },
+ {
+  "writer": "M3",
+  "id": "M3",
+  "vendor": "codex",
+  "file": "M3.md",
+  "task": "Write part M3 of the MIP: `### Overlay protocol` (under `## Specification`; do not repeat the `## Specification` heading). Cover: sharding and topic names; the GossipSub profile (protocol identifier /meshsub/1.2.0, mesh parameters D, D_low, D_high, D_out and heartbeat, flood publish, message identifier function, maximum transmit size, IDONTWANT threshold, validation mode, peer scoring parameters and the application eviction rule), the validator order and the full outcome table (Accept, Ignore, Reject, with reason and the score effect), the publish protocol including explicit Busy and Refused replies, admission checks (epoch, root freshness, nullifier, quota per class), the restart barrier, duplicate and replay state, reconciliation by window, Store Node retention, back-fill and the gateway feed, peer discovery and bootstrap, resource limits. Give a table of every request-response protocol with its identifier, request and response. Cite the NET, PUB, STO, SEC requirement identifiers from Appendix A."
+ },
+ {
+  "writer": "M4",
+  "id": "M4",
+  "vendor": "claude",
+  "file": "M4.md",
+  "task": "Write part M4 of the MIP: `### Ledger interface` and `### Consumer interface` (under `## Specification`; do not repeat the `## Specification` heading). Ledger interface: the Registry contract (Compact) with its ledger state and circuits (membership registration and revocation, quota roots, relay list with Operator and role, parameters, pause flag, anchor submission and the Anchor payload, batch-root rule, inclusion paths, authorization of anchorers), how admission proofs bind to the Registry roots, the Ledger Adapter read set and outcome set, finality labels, and the ledger-only fallback (Misc events carrying sealed parts, MIP-0019 multipart framing, reader rules, limits). Consumer interface: the client library API for agents, smart contracts (reacting through a later transaction that proves an event, and what that transaction may and may not reveal), and wallets; subscription without revealing interest, delivery guarantees and labels (gossip, final, stored), resume and back-fill, error cases. Verify every Midnight fact in the code under /home/charl/midnight (and the existing MIPs) and cite the repository, path and symbol. State clearly which changes are needed in the indexer and wallet."
+ },
+ {
+  "writer": "M5",
+  "id": "M5",
+  "vendor": "codex",
+  "file": "M5.md",
+  "task": "Write part M5 of the MIP: `## Security Considerations` and `## Testing`. Security: the threat model (adversary classes and vantage points), the privacy properties claimed and the explicit non-claims, and for each attack (eclipse, Sybil, spam and storage exhaustion, replay, equivocation, censorship by Operators, traffic analysis, key compromise, indexer abuse, malicious contracts, malformed input, dependency risk in the GossipSub library) the defence, the residual risk and the requirement identifiers. State that the network-wide admission bound cannot be enforced by independent validators and what is enforced instead; state the admission stand-in limitation. Testing: conformance tests with named vectors, the ten standard scenarios and their pass criteria, the experimental questions that must be answered before Active, adversarial and fuzz tests, the interoperability test between independent implementations, and the measurements and thresholds required (cite design/prototype/thresholds.json values and LEARNINGS findings as the reference results, without describing who ran them)."
+ },
+ {
+  "writer": "M6",
+  "id": "M6",
+  "vendor": "claude",
+  "file": "M6.md",
+  "task": "Write part M6 of the MIP: `## Path to Active` (with `### Acceptance Criteria` and `### Implementation Plan`), `## Implementation`, `## References`, `## Acknowledgements` and `## Copyright Waiver`. Path to Active: objective milestones (what must be demonstrated on devnet, testnet and mainnet), the phased plan (measure, ledger lane and fallback, overlay and admission, operators and incentives, production) with exit criteria taken from the roadmap in the requirement set. Implementation: the components (Bus Node and Store Node binaries, client library, Registry contract, indexer and wallet changes), which Midnight repositories change and which do not, dependencies (rust-libp2p, MIP-0002, MIP-0019, MPS-0007), upstream changes needed and the fallback if they are not accepted, and open dependencies on a zero-knowledge admission profile. References: the Midnight documents by name and link, the specifications (GossipSub, libp2p) and the works relied on by key. Acknowledgements: contributors of the Midnight ecosystem whose public work the MIP builds on (name projects, not individuals you cannot verify); no mention of how this document was prepared. Copyright Waiver: reproduce the template's text exactly."
+ },
+ {
+  "writer": "S1",
+  "id": "MPS",
+  "vendor": "claude",
+  "file": "04b-mps.md",
+  "task": "Write the formal Midnight Problem Statement (MPS) that closes Chapter 4, \"Defining private events\". Follow the Foundation's MPS template (mps/mps-template.md in the improvement-proposals repository; read it, and read MPS-0005 (events), MPS-0007 (node-side visibility of ledger events) and MPS-0043 (selective disclosure) as models of tone and depth). The MPS states the problem, solution-agnostic, and does not propose the design; the design is the MIP that follows at the end of the document.\n\nOutput format: start with the heading `### Midnight Problem Statement: Private Events` and then a code-free front-matter block rendered as a fenced text block with exactly these lines:\n```\nMPS: \"xxxx\"\nTitle: Private Events for Contracts, Agents and Wallets\nAuthors: Charles Hoskinson CharlesHoskinson\nStatus: Proposed\nCategory: Standards\nCreated: 02-Oct-2026\nRequires: MIP-0002\nReplaces: none\nMIP: Midnight Express (the proposal at the end of this document)\n```\nThen the template's sections as `####` headings, in the template's order: Abstract (about 200 words), Vision, Problem, Use Cases (at least four concrete ones: an autonomous agent with a private wallet reacting to a private offer; a contract that must react to a condition without learning who produced it; a wallet that must learn about incoming payments or messages without scanning everything; an operator or auditor who needs selective disclosure), Goals (measurable where possible, using the privacy properties and the performance and cost figures of the document), Expected Outcomes, Open Questions, Recommended MIPs (the private event bus proposal at the end of this document, and what else the problem implies, for example a node-side event interface in line with MPS-0007 and a proving-system profile for admission), References.\nRelate the problem to MPS-0005, whose Part 2 plans on-chain private events: say what that route covers and what remains uncovered (volume, latency, per-event cost, the 256-byte payload and 1 KiB limits, public chain observation of every event). Use the measured Midnight limits and the leakage findings of Chapter 3 and Chapter 4 (take the facts from FACTS.md and the Midnight read-out). Keep the Problem section factual and evidence-based and solution-agnostic. About 1,800 words. Same voice rules as STYLE.md."
+ }
+]

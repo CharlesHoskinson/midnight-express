@@ -1,0 +1,1 @@
+{"name": "Exponential and Erlang Delay Distributions", "summary": "This cluster covers exponential delays used in stop-and-go timing and Erlang distributions that model accumulated delay across multiple mixnodes."}

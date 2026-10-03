@@ -1,0 +1,1 @@
+{"name": "Distributed MQTT Broker Overlays", "summary": "The cluster covers distributed publish/subscribe broker architectures, including MQTT federation, overlay coordination, and methods for scaling event delivery across edge, cloud, and mobile settings."}

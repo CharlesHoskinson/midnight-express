@@ -1,0 +1,1 @@
+{"name": "Merkle\u00b2 Transparency Logs", "summary": "This cluster covers Merkle\u00b2\u2019s low-latency transparency-log design, its chronological and prefix Merkle trees and consistency proofs, and related Certificate Transparency systems and prior accumulator or SNARK approaches."}

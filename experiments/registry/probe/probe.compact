@@ -1,0 +1,34 @@
+pragma language_version >= 0.25;
+import CompactStandardLibrary;
+export struct Node { tag: Bytes<1>; l: Bytes<32>; r: Bytes<32>; }
+export struct Leaf { tag: Bytes<1>; e: Bytes<32>; }
+witness w(): Vector<4, Bytes<32>>;
+export pure circuit nodeStruct(l: Bytes<32>, r: Bytes<32>): Bytes<32> {
+  return persistentHash<Node>(Node { tag: Bytes[1], l: l, r: r });
+}
+export pure circuit nodeSpread(l: Bytes<32>, r: Bytes<32>): Bytes<32> {
+  return persistentHash<Bytes<65>>(Bytes[1, ...l, ...r]);
+}
+export ledger out: Bytes<32>;
+export circuit chainStruct(): [] {
+  const v = w();
+  const a = persistentHash<Node>(Node { tag: Bytes[1], l: v[0], r: v[1] });
+  const b = persistentHash<Node>(Node { tag: Bytes[1], l: a, r: v[2] });
+  out = disclose(persistentHash<Node>(Node { tag: Bytes[1], l: b, r: v[3] }));
+}
+export circuit chainSpread(): [] {
+  const v = w();
+  const a = persistentHash<Bytes<65>>(Bytes[1, ...v[0], ...v[1]]);
+  const b = persistentHash<Bytes<65>>(Bytes[1, ...a, ...v[2]]);
+  out = disclose(persistentHash<Bytes<65>>(Bytes[1, ...b, ...v[3]]));
+}
+export circuit emitInput(p: Bytes<256>): [] {
+  emit(Misc { name: pad(32, "x"), payload: disclose(p) });
+}
+export circuit emitConst(): [] {
+  emit(Misc { name: pad(32, "x"), payload: default<Bytes<256>> });
+}
+export circuit emitWitnessHash(): [] {
+  const v = w();
+  emit(Misc { name: pad(32, "x"), payload: Bytes[...disclose(v[0]), ...default<Bytes<224>>] });
+}

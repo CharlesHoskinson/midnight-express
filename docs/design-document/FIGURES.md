@@ -1,0 +1,18 @@
+# Figure list
+
+Place a marker `{{fig:N-M}}` on its own line where each figure for your chapters belongs, and refer to it in the text as "Figure N.M". The image and caption are inserted by the build; do not write the caption. Write the surrounding text so that it explains what the figure shows and what to take from it.
+
+- **Figure 2.1** (Chapter 2, diagram): Midnight at a glance. Caption: "Midnight at a glance. A protocol designer touches five layers: wallets and dapps, the indexer, the node and its ledger, the Cardano partner chain, and the network underneath. Contract events leave the ledger in public form; nothing in the stack carries a private event."
+- **Figure 3.1** (Chapter 3, diagram): Public versus private events. Caption: "What an observer learns from a public event and from a sealed event. The public event shows its name, payload, time and the contract that emitted it. The sealed event shows only a fixed-size envelope on a shard at a time."
+- **Figure 4.1** (Chapter 4, diagram): Adversaries and what they observe. Caption: "The adversary classes and their vantage points along the path of one event: a single relay, a colluding minority of relays, the indexer, a chain observer, and a global passive observer."
+- **Figure 5.1** (Chapter 5, diagram): The design space. Caption: "Families of prior art placed by what they hide and what they cost. Flooding and mixing hide the most and cost the most; topic gossip is cheap and hides little; retrieval schemes move the cost to the receiver or the server."
+- **Figure 6.1** (Chapter 6, diagram): Five architecture options. Caption: "The five architecture options for Midnight. Option 2, a GossipSub sidecar overlay anchored on the ledger, is recommended; Option 1, the ledger and indexer alone, is its fallback."
+- **Figure 7.1** (Chapter 7, diagram): From decisions to requirements. Caption: "From ten decision areas to twelve requirement areas, the 572-entry requirement set, and the 137-requirement prototype core."
+- **Figure 8.1** (Chapter 8, diagram): Reference system architecture. Caption: "The reference system. Publishers seal an envelope and send it to a Bus Node; Bus Nodes relay it through sharded GossipSub meshes; Subscribers recognise their events locally; Store Nodes retain envelopes; an anchorer posts batch roots to the Registry; the ledger-only fallback uses the indexer."
+- **Figure 8.2** (Chapter 8, diagram): Envelope layout. Caption: "Envelope layout and size classes. An 8-byte fixed header and a 512-byte admission slot precede the sealed body. The four classes give wire lengths of 776, 1,544, 4,616 and 16,904 bytes."
+- **Figure 8.3** (Chapter 8, diagram): Life of an event. Caption: "The life of one event: seal, admit, gossip, recognise, anchor and react."
+- **Figure 9.1** (Chapter 9, diagram): Experiment harness. Caption: "The experiment harness. A seeded schedule drives real GossipSub swarms; each scenario produces a result file that a checker compares with fixed thresholds."
+- **Figure 10.1** (Chapter 10, chart): Ingress amplification with and without IDONTWANT. Caption: "Median per-node ingress amplification at the baseline load, with and without IDONTWANT."
+- **Figure 10.2** (Chapter 10, chart): Churn recovery by restart policy. Caption: "Delivery and p99 latency under churn for the three restart policies."
+- **Figure 10.3** (Chapter 10, chart): Envelope overhead by class. Caption: "Fixed overhead and payload capacity of the four size classes."
+- **Figure 11.1** (Chapter 11, diagram): Roadmap. Caption: "The phased plan from prototype to production, with the evidence each phase needs."

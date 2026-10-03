@@ -1,0 +1,123 @@
+// MPE contract consumer: react to an anchored Event (PROTOTYPE.md section 9,
+// DEC-022 option (b), MPE-CON-044a/044b/045/046/047, MPE-VER-031).
+//
+// The reacting subscriber proves, with private witnesses only:
+//   1. EID -> per-Shard batch root: RFC 6962 SHA-256 path (MPE-NET-051),
+//   2. batch root -> window root: the same construction over Shard roots,
+//   3. (window, window root) -> leaf of the Registry Anchor tree, and the
+//      Anchor-tree path to a root the Registry accepts (cross-contract
+//      `anchorRootValid`, a historic-root check, so later Anchors do not
+//      invalidate the proof: MPE-VER-031),
+//   4. the Event has not expired, using the anchored window as the creation
+//      minute (PROTOTYPE.md 9: window = floor((expiry - 172,800) / 60)),
+//   5. the consumption nullifier is derived from the private event secret
+//      (MPE-CRY-025, MPE-CON-045) and is new (MPE-CON-044a); it is inserted
+//      in the same transaction as the effect (MPE-CON-044b).
+// Disclosed: the Anchor-tree root, a coarse not-after time chosen by the
+// prover, the nullifier and the action. Not disclosed: EID, window, Shard,
+// paths, event secret, payload.
+//
+// Target: Compact toolchain 0.35.0 (ledger 9; cross-contract calls need 0.33+).
+
+pragma language_version >= 0.25;
+
+import CompactStandardLibrary;
+
+// Interface of the Registry (registry.compact).
+contract Registry {
+  circuit anchorRootValid(rt: MerkleTreeDigest): Boolean;
+}
+
+// One step of an RFC 6962 audit path. `skip` lets a fixed-depth circuit carry
+// the shorter paths of a tree whose leaf count is not a power of two.
+export struct PathStep {
+  sibling: Bytes<32>;
+  siblingLeft: Boolean;
+  skip: Boolean;
+}
+
+export struct EventWitness {
+  eid: Bytes<32>;
+  window: Uint<64>;
+  shardPath: Vector<12, PathStep>;  // CHOICE: <= 4,096 Envelopes per Shard per window
+  windowPath: Vector<3, PathStep>;  // <= 8 Shards
+  anchorPath: MerkleTreePath<12, Bytes<32>>;
+  eventSecret: Bytes<32>;
+}
+
+export struct AnchorLeaf {
+  domain: Bytes<32>;
+  window: Uint<64>;
+  root: Bytes<32>;
+}
+
+export ledger registry: Registry;
+export sealed ledger networkId: Bytes<32>;
+export sealed ledger lifetime: Uint<32>;      // P-FMT-3, 172,800 s
+export sealed ledger windowLength: Uint<32>;  // P-NET-17, 60 s
+export ledger consumed: Map<Bytes<32>, Bytes<32>>;  // nullifier -> action
+export ledger reactions: Counter;
+
+witness eventWitness(): EventWitness;
+
+constructor(r: Registry, n: Bytes<32>) {
+  registry = disclose(r);
+  networkId = disclose(n);
+  lifetime = 172800;
+  windowLength = 60;
+}
+
+// RFC 6962 leaf and node hashes: SHA-256(0x00 || EID) and
+// SHA-256(0x01 || left || right). persistentHash of a struct of Bytes fields
+// hashes the concatenated bytes, which equals the byte-vector form
+// (checked in the simulator), and it avoids the byte-by-byte decomposition
+// that a `Bytes[1, ...l, ...r]` spread costs in the circuit (about 10 times
+// fewer rows; see RESULTS.md).
+export struct RfcLeaf { tag: Bytes<1>; eid: Bytes<32>; }
+export struct RfcNode { tag: Bytes<1>; left: Bytes<32>; right: Bytes<32>; }
+
+export pure circuit rfcLeaf(eid: Bytes<32>): Bytes<32> {
+  return persistentHash<RfcLeaf>(RfcLeaf { tag: Bytes[0], eid: eid });
+}
+
+export pure circuit rfcNode(l: Bytes<32>, r: Bytes<32>): Bytes<32> {
+  return persistentHash<RfcNode>(RfcNode { tag: Bytes[1], left: l, right: r });
+}
+
+pure circuit rfcStep(acc: Bytes<32>, s: PathStep): Bytes<32> {
+  const l = s.siblingLeft ? s.sibling : acc;
+  const r = s.siblingLeft ? acc : s.sibling;
+  return s.skip ? acc : rfcNode(l, r);
+}
+
+export pure circuit anchorLeafOf(window: Uint<64>, root: Bytes<32>): Bytes<32> {
+  return persistentHash<AnchorLeaf>(AnchorLeaf { domain: pad(32, "mpe/v1/anchorleaf"), window: window, root: root });
+}
+
+// React once to an anchored Event. `notAfter` is a public lower bound on the
+// Event's expiry; the prover should round it down (for example to the hour) so
+// that it does not reveal the creation minute.
+export circuit react(notAfter: Uint<64>, action: Bytes<32>): [] {
+  const w = eventWitness();
+
+  // 1-2. EID -> batch root -> window root.
+  const batchRoot = fold(rfcStep, rfcLeaf(w.eid), w.shardPath);
+  const windowRoot = fold(rfcStep, batchRoot, w.windowPath);
+
+  // 3. Anchor-tree membership, checked against the Registry's history.
+  assert(w.anchorPath.leaf == anchorLeafOf(w.window, windowRoot), "path is not for this anchor");
+  const anchorRoot = merkleTreePathRoot<12, Bytes<32>>(w.anchorPath);
+  assert(registry.anchorRootValid(disclose(anchorRoot)), "anchor root not accepted by the Registry");
+
+  // 4. Expiry: earliest possible expiry from the anchored creation minute.
+  const t = disclose(notAfter);
+  assert(w.window * windowLength + lifetime >= t, "notAfter exceeds the Event expiry");
+  assert(blockTimeLt(t), "Event expired");
+
+  // 5. Consumption nullifier: SHA-256("mpe/v1/consume" || N || contract || event secret).
+  const nul = disclose(persistentHash<Vector<4, Bytes<32>>>(
+                [pad(32, "mpe/v1/consume"), networkId, kernel.self().bytes, w.eventSecret]));
+  assert(!consumed.member(nul), "already consumed");
+  consumed.insert(nul, disclose(action));
+  reactions.increment(1);
+}

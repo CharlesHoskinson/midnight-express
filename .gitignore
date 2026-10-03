@@ -1,0 +1,40 @@
+# third-party papers and their derived full text
+pdfs/
+*.pdf
+graph/text/
+graph/chunks/
+graph/chunks_20k/
+graph/chunks.jsonl
+graph/short.txt
+# raw model extractions and large derived graph data (rebuild with graph/*.py)
+graph/out/
+graph/out_test20k/
+graph/extract.json
+graph/extract_test.json
+graph/analysis.json
+graph/label_schema.json
+graphify-out/graph.json
+graphify-out/.graphify_labels.json
+# logs and caches
+*.log
+__pycache__/
+.scratch/
+
+# third-party site captures used only as brand reference
+docs/design-document/brand/
+
+# document production intermediates
+docs/design-document/draft-v1/
+docs/design-document/draft/
+docs/design-document/draft-r*/
+docs/design-document/inkwell-notes/
+docs/design-document/audit/
+docs/design-document/align/
+docs/design-document/PIPELINE_STATE.md
+docs/design-document/build/*.log
+docs/design-document/build/document*.md
+docs/design-document/build/*.json.bak
+prototype
+experiments/target/
+experiments/results/
+design/AFK.md

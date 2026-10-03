@@ -1,0 +1,1 @@
+{"name": "Interest-Based Anonymous Gossip Overlays", "summary": "This cluster covers GOSSPLE, which builds an anonymous-node overlay by exchanging interest profiles through gossip and updating neighbors by similarity."}

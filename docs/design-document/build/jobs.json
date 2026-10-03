@@ -1,0 +1,92 @@
+[
+ {
+  "writer": "W1",
+  "id": "ch1",
+  "file": "01-introduction.md",
+  "task": "Write Chapter 1, Introduction (about 1,200 words): purpose and scope; what the document decides and what it leaves open; conventions (requirement identifiers, EARS syntax with one example, how claims are marked measured, derived or assumed; the glossary terms). Start with `# Introduction {#ch1}`. No figures."
+ },
+ {
+  "writer": "W1",
+  "id": "ch2",
+  "file": "02-midnight.md",
+  "task": "Write Chapter 2, Midnight in brief (about 3,500 words), as the outline describes. Verify every Midnight fact in the code under /home/charl/midnight (midnight-node, midnight-ledger, midnight-indexer, midnight-wallet, midnight-js, compact, midnight-architecture, midnight-docs) and cite the repository, path and symbol in footnotes. Cover the partner-chain architecture and consensus, the node and its libp2p layer, the ledger (shielded and unshielded state, DUST and NIGHT, fees), Compact and the proofs, the indexer, wallet and dapp connector, and what the chain offers for events and what it lacks. Include one table of the limits that bind any event design, with the code generation each fact comes from. Place Figure 2.1. Start with `# Midnight in brief {#ch2}`."
+ },
+ {
+  "writer": "W1",
+  "id": "ch3",
+  "file": "03-need.md",
+  "task": "Write Chapter 3, The need for private events (about 3,000 words): what an event is; who publishes and who consumes (agents, contracts, wallets, applications); what public events leak; three or four concrete scenarios; why existing Midnight mechanisms do not meet the need; what is lost without a private bus. Use the consumer and integration material in the earlier proposals and the cited measurements of public-event leakage (stealth-address and note-scanning studies, messenger metadata studies). Midnight City (an agent-driven world on Midnight, see brand/midnight-city/pages) may serve as one scenario for agents with private wallets; describe it plainly without promotion. Place Figure 3.1. Start with `# The need for private events {#ch3}`."
+ },
+ {
+  "writer": "W1",
+  "id": "ch4",
+  "file": "04-definition.md",
+  "task": "Write Chapter 4, Defining private events (about 4,500 words): terms; the named privacy properties (take the names and meanings from the privacy requirement area, design/rounds/r5/e01-prv-privacy.md, as corrected in design/ears/RECONCILE.md); adversary classes; the leakage table (what a relay, the indexer, a chain observer, a colluding minority and a global observer each learn); explicit non-claims; the limits from the literature that bound the claims (anonymity trilemma, anonymity of gossip, the cost of receiver privacy, forward secrecy and deniability gaps), each with its model and number; end with the precise short definition used by the rest of the document. Place Figure 4.1. Start with `# Defining private events {#ch4}`."
+ },
+ {
+  "writer": "W1",
+  "id": "rl",
+  "file": "B1-reading-W1.md",
+  "task": "Write the annotated reading-list section for the themes below. Output a Markdown file with one `## ` heading per theme and, under each, entries of exactly this form, one per line:\n\n@<slug> :: <annotation of 60 to 110 words>\n\nChoose about 25 works in total that matter most for this design, from the catalog (papers.tsv; use only works with a text_path, so you can read them). For each, open the text and read its abstract, introduction and the sections you cite before annotating. The annotation says what the work is, what it shows (with a number or a mechanism where it has one), how it bears on private events for Midnight, and any caveat (scope, model, age, stand-in assumptions). Prefer decisive and widely cited works, mix foundational and recent, include at least two that argue against the design choices of this document. No entry may repeat another's claim. Themes and hints: Bitmessage and its heirs (Warren, Whisper, Waku, Swarm PSS, Nostr, Zcash-style scanning); definitions, theory, bounds and surveys of anonymous communication and metadata-private messaging. Catalog clusters PB1 and PB7 and the surveys in G; include the Bitmessage whitepaper and protocol specification and the academic analyses of Bitmessage.\nOrder entries inside a theme chronologically. Do not write the bibliographic details (the build adds author, title, venue and year from the slug)."
+ },
+ {
+  "writer": "W2",
+  "id": "ch5",
+  "file": "05-prior-art.md",
+  "task": "Write Chapter 5, Prior art and the design space (about 4,500 words): a taxonomy, not a survey of everything. Families: Bitmessage and what it taught; DC-nets, mixnets and private information retrieval; receiver privacy (fuzzy detection, oblivious retrieval); decentralized publish/subscribe overlays and GossipSub; deployed messengers; ledger-based carriers and stealth addressing. For each: mechanism, what it hides, what it costs (numbers from the works), where it fails, what it implies for Midnight. End with a comparison table of the families. Read the works in the catalog (clusters A to G and PB1 to PB8) before claiming anything. Place Figure 5.1. Start with `# Prior art and the design space {#ch5}`."
+ },
+ {
+  "writer": "W2",
+  "id": "ch6",
+  "file": "06-options.md",
+  "task": "Write Chapter 6, Architecture options for Midnight (about 4,500 words). Evaluate Option 1 Ledger and indexer only, Option 2 Hybrid: GossipSub sidecar overlay with ledger anchoring (recommended), Option 3 In-node protocol, Option 4 Mix network or PIR delivery, Option 5 External pub/sub service, against the same criteria: privacy properties delivered, fit with Midnight today, performance, storage, operator burden and incentives, upgrade path, risk. Use the Midnight code facts (the node has no GossipSub, event limits, fees), the cost figures from the literature, and the arguments on each side in the earlier proposals and reviews (including the case for the ledger-only option). Give the recommendation, the fallback and the conditions that would change the choice. Include one criteria-by-option table. Place Figure 6.1. Start with `# Architecture options for Midnight {#ch6}`."
+ },
+ {
+  "writer": "W2",
+  "id": "ch7",
+  "file": "07-requirements.md",
+  "task": "Write Chapter 7, Analysis of the requirements (about 5,500 words): how the requirements are organized (ten decision areas, twelve requirement areas); the shape of the set (counts by area, scope, priority; use FACTS.md); the decisions that shape everything and how they were resolved (take the 28 decisions DEC-001 to DEC-028 from design/ears/RECONCILE.md, group them, and give for each group the options, the choice and the reason); the parameters and the arithmetic behind the main ones (envelope sizes, load, bandwidth, storage, timing chains); the conflicts found between areas and how they were resolved; the decisions still open and what would settle each. Point to Appendix A for the requirements. Use tables for the decision register (grouped) and the main parameters. Place Figure 7.1. Start with `# Analysis of the requirements {#ch7}`."
+ },
+ {
+  "writer": "W2",
+  "id": "rl",
+  "file": "B2-reading-W2.md",
+  "task": "Write the annotated reading-list section for the themes below. Output a Markdown file with one `## ` heading per theme and, under each, entries of exactly this form, one per line:\n\n@<slug> :: <annotation of 60 to 110 words>\n\nChoose about 28 works in total that matter most for this design, from the catalog (papers.tsv; use only works with a text_path, so you can read them). For each, open the text and read its abstract, introduction and the sections you cite before annotating. The annotation says what the work is, what it shows (with a number or a mechanism where it has one), how it bears on private events for Midnight, and any caveat (scope, model, age, stand-in assumptions). Prefer decisive and widely cited works, mix foundational and recent, include at least two that argue against the design choices of this document. No entry may repeat another's claim. Themes and hints: Design space: decentralized publish/subscribe overlays and content-based routing; blockchain-based pub/sub; deployed messengers and their audits; mixnets, DC-nets and PIR-based messaging systems. Catalog clusters A, B, D, PB2 and PB6.\nOrder entries inside a theme chronologically. Do not write the bibliographic details (the build adds author, title, venue and year from the slug)."
+ },
+ {
+  "writer": "W3",
+  "id": "ch8",
+  "file": "08-reference-system.md",
+  "task": "Write Chapter 8, The reference system (about 4,500 words): the system under test, from design/PROTOTYPE.md and the selected implementation in /home/charl/privateEvents/prototype/ (read its code to check). Components (Bus Node, Store Node, client library, anchoring, mock ledger and indexer); the envelope and sealing scheme with byte layout, tags and recognition; the admission mechanism and its stand-in; the GossipSub v1.2 configuration (topics per shard, mesh parameters, validation, scoring, message identifier, why each); storage and back-fill; anchors and contract consumption; the ledger-only fallback. State plainly what is real and what is mocked. Place Figures 8.1, 8.2 and 8.3. Start with `# The reference system {#ch8}`."
+ },
+ {
+  "writer": "W3",
+  "id": "ch9",
+  "file": "09-experiments.md",
+  "task": "Write Chapter 9, Experimental design (about 5,000 words): the seventeen questions (design/prototype/LEARNING_QUESTIONS.md), each with its hypothesis, the scenario and metric that test it, and the result that would change the design (a table, plus prose for the ones that need reasoning); the ten standard scenarios and the harness (real swarms in one process, seeded schedules, 50 and 200 nodes, parameters); the metrics and how each is measured (design/PROTOTYPE.md section 11, the result schema in design/prototype/BUILD_BRIEF.md); pass criteria (design/prototype/thresholds.json); controls and variant runs; how results are checked (isolated runs, repeated seeds, attribution of delivery to the gossip path versus repair); threats to validity and what the setup cannot show. Write hypotheses as hypotheses with pass conditions, never as predictions. Place Figure 9.1. Start with `# Experimental design {#ch9}`."
+ },
+ {
+  "writer": "W3",
+  "id": "ch11",
+  "file": "11-roadmap.md",
+  "task": "Write Chapter 11, Open questions, roadmap and risks (about 2,500 words): the next experiments in order with the evidence each needs (design/LEARNINGS.md 'Next experiments'); the phased plan from prototype to production (operations area OPS in design/rounds/r5/e11-ops-actors.md and RECONCILE.md); operator and governance questions; the main risks and what would make the team change course. Place Figure 11.1. Start with `# Open questions, roadmap and risks {#ch11}`."
+ },
+ {
+  "writer": "W3",
+  "id": "rl",
+  "file": "B3-reading-W3.md",
+  "task": "Write the annotated reading-list section for the themes below. Output a Markdown file with one `## ` heading per theme and, under each, entries of exactly this form, one per line:\n\n@<slug> :: <annotation of 60 to 110 words>\n\nChoose about 24 works in total that matter most for this design, from the catalog (papers.tsv; use only works with a text_path, so you can read them). For each, open the text and read its abstract, introduction and the sections you cite before annotating. The annotation says what the work is, what it shows (with a number or a mechanism where it has one), how it bears on private events for Midnight, and any caveat (scope, model, age, stand-in assumptions). Prefer decisive and widely cited works, mix foundational and recent, include at least two that argue against the design choices of this document. No entry may repeat another's claim. Themes and hints: GossipSub, libp2p and gossip security; source anonymity, propagation privacy and spam resistance; Midnight and Cardano network research. Catalog clusters C, PB4 and H. Include the GossipSub paper and specifications, Dandelion and Dandelion++ and their analyses, eclipse and Sybil work, rate-limiting nullifiers.\nOrder entries inside a theme chronologically. Do not write the bibliographic details (the build adds author, title, venue and year from the slug)."
+ },
+ {
+  "writer": "W4",
+  "id": "ch10",
+  "file": "10-results.md",
+  "task": "Write Chapter 10, Pilot results and what they change (about 5,000 words): what three independent implementations of the same specification showed, from design/LEARNINGS.md, the three RESULTS.md files, and the experiment result files under /home/charl/privateEvents-build/judge/ (read them; check every number against a result file). Results by question and scenario with measured numbers; where the expected result held and where it did not; the findings that change requirements and parameters (use tables: requirement changes, parameter changes); what stays unknown; honest limits (one machine, in-memory networking, stand-in admission proof, how the implementations differ). Do not mention who built or judged anything; say 'the three implementations' and name them A, B, C when they differ. Place Figures 10.1, 10.2 and 10.3. Start with `# Pilot results and what they change {#ch10}`."
+ },
+ {
+  "writer": "W4",
+  "id": "rl",
+  "file": "B4-reading-W4.md",
+  "task": "Write the annotated reading-list section for the themes below. Output a Markdown file with one `## ` heading per theme and, under each, entries of exactly this form, one per line:\n\n@<slug> :: <annotation of 60 to 110 words>\n\nChoose about 25 works in total that matter most for this design, from the catalog (papers.tsv; use only works with a text_path, so you can read them). For each, open the text and read its abstract, introduction and the sections you cite before annotating. The annotation says what the work is, what it shows (with a number or a mechanism where it has one), how it bears on private events for Midnight, and any caveat (scope, model, age, stand-in assumptions). Prefer decisive and widely cited works, mix foundational and recent, include at least two that argue against the design choices of this document. No entry may repeat another's claim. Themes and hints: Receiver privacy (fuzzy message detection, oblivious message retrieval, private information retrieval, stealth addresses); sessions, groups and post-quantum (Signal, MLS, key transparency, hybrid KEMs, post-quantum mixing); consumers, edge and IoT pub/sub. Catalog clusters PB3, PB5, PB8 and F.\nOrder entries inside a theme chronologically. Do not write the bibliographic details (the build adds author, title, venue and year from the slug)."
+ }
+]

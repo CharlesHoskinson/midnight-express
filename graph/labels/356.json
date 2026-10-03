@@ -1,0 +1,1 @@
+{"name": "False Friends Eclipse on Geth", "summary": "The cluster covers false-friends attacks that exploit churn and manipulated node IDs to poison Geth\u2019s peer discovery and eclipse its connections."}

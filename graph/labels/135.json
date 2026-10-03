@@ -1,0 +1,1 @@
+{"name": "Zswap Privacy Transactions", "summary": "The cluster covers Zswap\u2019s zk-SNARK-based private multi-asset transfers and non-interactive swaps, including one-time accounts, nullifiers, sparse homomorphic commitments, and related designs such as SwapCT and Sapling."}

@@ -1,0 +1,59 @@
+{
+  "manifest-version": "1",
+  "compiler-version": "0.35.0",
+  "compiler-commit": "debb05f9414b9d1e176741c2be289bb32233f0fc",
+  "language-version": "0.27.0",
+  "runtime-version": "0.20.0",
+  "compiler": {
+    "type": "directory",
+    "contract-info.json": {
+      "type": "file",
+      "size": 8365,
+      "hash": "f94f8343e7f333eaa33bf0cef99954dab7df254c9d973ca72dda3ba3b5a25eb8"
+    }
+  },
+  "contract": {
+    "type": "directory",
+    "index.d.ts": {
+      "type": "file",
+      "size": 3679,
+      "hash": "ea33086b678f3603c068c542b92b42b6fd6a49d8901b22f6f33910a3ede4e90d"
+    },
+    "index.js": {
+      "type": "file",
+      "size": 67523,
+      "hash": "099fbd0f502f4cc034028b937a34d1c358a2b2c1c16a0fdea377cb095c464a4b"
+    },
+    "index.js.map": {
+      "type": "file",
+      "size": 2975,
+      "hash": "3e40528c1ef1cad492d9200035c6b0b21d0332cb91e93cd67a21a52b7ffe1c69"
+    }
+  },
+  "zkir": {
+    "type": "directory",
+    "react.bzkir": {
+      "type": "file",
+      "size": 2331,
+      "hash": "1719b23d89bbbd2af7f20033c44d4b2b289e9f569f0811d58b4cbfd0952f8f34"
+    },
+    "react.zkir": {
+      "type": "file",
+      "size": 32490,
+      "hash": "607b2cfe7a3a03f311696254524b4e2add37bee168edfd0f7eaaceb6d5ee3b81"
+    }
+  },
+  "keys": {
+    "type": "directory",
+    "react.prover": {
+      "type": "file",
+      "size": 38492629,
+      "hash": "08d58bafbe1e6f94462e766efb355e0a426738fdaa495d5b93496a1b600ce54e"
+    },
+    "react.verifier": {
+      "type": "file",
+      "size": 2119,
+      "hash": "3ff71a090a0b187ddcada9ff26211880b4590201e7f4c773919ef2079b19242f"
+    }
+  }
+}

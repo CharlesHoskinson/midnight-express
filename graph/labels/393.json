@@ -1,0 +1,1 @@
+{"name": "Tree-Based Consensus Dissemination", "summary": "The cluster covers Duet\u2019s cross-layer consensus and proposal dissemination design, using balanced K-ary trees with gossip fallback for reliable P2P message propagation."}

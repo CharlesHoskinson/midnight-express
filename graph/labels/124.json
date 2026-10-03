@@ -1,0 +1,1 @@
+{"name": "Tor Website Fingerprinting", "summary": "This cluster covers attacks that identify websites or hidden-service circuits from Tor traffic patterns, the machine-learning methods used to classify traces, and factors that affect attack reliability."}

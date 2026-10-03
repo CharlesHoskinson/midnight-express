@@ -1,0 +1,1 @@
+{"name": "Megolm Group Messaging Ratchet", "summary": "This cluster covers Megolm\u2019s AES-based group messaging protocol and its ratchet mechanism for advancing shared secret state across messages."}

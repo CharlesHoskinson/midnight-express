@@ -1,0 +1,13 @@
+{"circuit": "activateParams", "zkir_json_B": 14938, "bzkir_B": 751, "prover_B": 73186, "verifier_B": 1351, "pi": 229, "k": 8, "rows": 77, "table_rows": 23, "advice_columns": 8, "lookups": 1, "size": 2800}
+{"circuit": "addRelay", "zkir_json_B": 19058, "bzkir_B": 1272, "prover_B": 38418022, "verifier_B": 2119, "pi": 65, "k": 17, "rows": 67862, "table_rows": 73987, "advice_columns": 8, "lookups": 3, "size": 4368}
+{"circuit": "anchorRootValid", "zkir_json_B": 1708, "bzkir_B": 143, "prover_B": 22669, "verifier_B": 1351, "pi": 19, "k": 6, "rows": 46, "table_rows": 11, "advice_columns": 8, "lookups": 1, "size": 2800}
+{"circuit": "pause", "zkir_json_B": 8793, "bzkir_B": 563, "prover_B": 9965323, "verifier_B": 2119, "pi": 45, "k": 15, "rows": 26902, "table_rows": 16643, "advice_columns": 8, "lookups": 3, "size": 4368}
+{"circuit": "postAnchor", "zkir_json_B": 77676, "bzkir_B": 4964, "prover_B": 76393028, "verifier_B": 2119, "pi": 585, "k": 18, "rows": 152138, "table_rows": 237827, "advice_columns": 8, "lookups": 3, "size": 4368}
+{"circuit": "proposeParams", "zkir_json_B": 14133, "bzkir_B": 868, "prover_B": 9966760, "verifier_B": 2119, "pi": 113, "k": 15, "rows": 27842, "table_rows": 16643, "advice_columns": 8, "lookups": 3, "size": 4368}
+{"circuit": "pruneAnchor", "zkir_json_B": 15026, "bzkir_B": 820, "prover_B": 2814558, "verifier_B": 2119, "pi": 197, "k": 13, "rows": 2143, "table_rows": 7933, "advice_columns": 8, "lookups": 3, "size": 4368}
+{"circuit": "prunePeriod", "zkir_json_B": 8414, "bzkir_B": 445, "prover_B": 40942, "verifier_B": 1351, "pi": 109, "k": 7, "rows": 94, "table_rows": 18, "advice_columns": 8, "lookups": 1, "size": 2800}
+{"circuit": "register", "zkir_json_B": 18133, "bzkir_B": 1031, "prover_B": 2824152, "verifier_B": 2119, "pi": 225, "k": 13, "rows": 6305, "table_rows": 7933, "advice_columns": 8, "lookups": 3, "size": 4368}
+{"circuit": "removeRelay", "zkir_json_B": 18689, "bzkir_B": 1253, "prover_B": 38417418, "verifier_B": 2119, "pi": 62, "k": 17, "rows": 67236, "table_rows": 73987, "advice_columns": 8, "lookups": 3, "size": 4368}
+{"circuit": "revoke", "zkir_json_B": 36894, "bzkir_B": 2684, "prover_B": 38458495, "verifier_B": 2119, "pi": 134, "k": 17, "rows": 77971, "table_rows": 73987, "advice_columns": 8, "lookups": 3, "size": 4368}
+{"circuit": "setSteward", "zkir_json_B": 17426, "bzkir_B": 1179, "prover_B": 38417267, "verifier_B": 2119, "pi": 46, "k": 17, "rows": 67234, "table_rows": 73987, "advice_columns": 8, "lookups": 3, "size": 4368}
+{"circuit": "unpause", "zkir_json_B": 8794, "bzkir_B": 563, "prover_B": 9965324, "verifier_B": 2119, "pi": 45, "k": 15, "rows": 26902, "table_rows": 16643, "advice_columns": 8, "lookups": 3, "size": 4368}

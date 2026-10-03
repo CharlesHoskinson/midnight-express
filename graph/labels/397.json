@@ -1,0 +1,1 @@
+{"name": "Publish-Subscribe SDN Orchestration", "summary": "This cluster covers brokerless, topic-based publish/subscribe middleware that uses SDN and OpenFlow to construct overlays and orchestrate IoT traffic through high-level policies."}

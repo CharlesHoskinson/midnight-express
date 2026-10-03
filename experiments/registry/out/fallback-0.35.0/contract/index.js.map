@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "file": "index.js",
+  "sourceRoot": "",
+  "sources": ["fallback.compact"],
+  "names": [],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAUA;;;;;;;;;;MAUA,AAAA,WAIC;;;;;cAJ0B,MAAe;cAAE,SAAmB;;;;;;;;;;;;;;;;;;;;;;;;;yCAApC,MAAe,+BAAE,SAAmB;;;;;;;;;mDAApC,MAAe;mDAAE,SAAmB;;;;OAI9D;MAKD,AAAA,aAEC;;;;;cAF4B,MAAgB;;;;;;;;;;;;;;;;;;yCAAhB,MAAgB;;;;;;;;;qDAAhB,MAAgB;;;;OAE5C;MAED,AAAA,aAIC;;;;;cAJ4B,OAA4B;;;;;;;;;;;;;;;;;;yCAA5B,OAA4B;;;;;;;;;qDAA5B,OAA4B;;;;OAIxD;MAED,AAAA,aAIC;;;;;cAJ4B,OAA6B;;;;;;;;;;;;;;;;;;yCAA7B,OAA6B;;;;;;;;;qDAA7B,OAA6B;;;;OAIzD;;;;;;;;;;;;;;GACA;EAlCD;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GAkCC;EA9BD,AAAA,UAAmE;;GAAA;EAMnE,AAAA,oBAIC,4BAJ0B,MAAe,EAAE,SAAmB;UACvD,GAAkB,GAAL,MAAI;0CAChB,GAAC;;QACR,GAAkD;;;;;;;;;uUAAhC,GAAC;;uUAAoB,SAAO;4VAA9C,GAAkD;;4VAAlD,GAAkD;;;;;;;GACnD;EAKD,AAAA,sBAEC,4BAF4B,MAAgB;QAC3C,GAAuD;;;;;;;;;;;uUAAR,MAAI;4VAAnD,GAAuD;;4VAAvD,GAAuD;;;;;;;GACxD;EAED,AAAA,sBAIC,4BAJ4B,OAA4B;;;4DACvD,GAEC,EAFD,GAEC;;gCADC,GAAoD;;;;;;;;;;;+VAAL,GAAC;oXAAhD,GAAoD;;oXAApD,GAAoD;;;;;;mCADtD,GAEC;;;yBAFe,OAAK;;GAGtB;EAED,AAAA,sBAIC,4BAJ4B,OAA6B;;;4DACxD,GAEC,EAFD,GAEC;;gCADC,GAAoD;;;;;;;;;;;+VAAL,GAAC;oXAAhD,GAAoD;;oXAApD,GAAoD;;;;;;mCADtD,GAEC;;;yBAFe,OAAK;;GAGtB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+}

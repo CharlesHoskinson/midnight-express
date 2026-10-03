@@ -1,0 +1,1 @@
+{"name": "Uniform Gossip Protocol", "summary": "This cluster covers an infect-and-die gossip protocol where each node forwards a message once and ignores duplicates."}

@@ -1,0 +1,1 @@
+{"name": "Ring-LWE BFV Encryption", "summary": "This cluster covers the Ring-LWE security assumption underlying BFV homomorphic encryption, which supports ciphertext operations for addition and multiplication."}

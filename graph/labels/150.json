@@ -1,0 +1,1 @@
+{"name": "Keybase Group Messaging Signcryption", "summary": "This cluster covers Keybase\u2019s end-to-end group messaging schemes, combining symmetric signcryption, AEAD encryption, signatures, and hash primitives, alongside a comparison of Bitcoin light-client privacy."}

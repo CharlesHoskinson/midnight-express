@@ -1,0 +1,44 @@
+// MPE ledger-only fallback carrier (PROTOTYPE.md section 10, DEC-008).
+//
+// A class-c Sealed Body travels as 4^c Misc events whose 256-byte payloads,
+// concatenated in emission order, equal the body (MPE-FMT-041), all with the
+// fixed name "mpe/env/v1" (MPE-FMT-040, MPE-NET-040, MPE-NET-044), all in one
+// intent and one phase (MPE-FMT-042, MIP-0019 multipart rule). At most
+// P-FMT-8 = 16 parts (MPE-FMT-044): class 3 has no circuit here.
+//
+// Target: Compact toolchain 0.35.0 (ledger 9).
+
+pragma language_version >= 0.25;
+
+import CompactStandardLibrary;
+
+pure circuit envName(): Bytes<32> { return pad(32, "mpe/env/v1"); }
+
+// One part. CHOICE: the name is a parameter, as MIP-0019 publishers use it,
+// but the contract accepts only the MPE envelope name, so the contract never
+// emits a Misc name that is not an MPE constant (MPE-NET-040). Several calls of
+// this circuit in one intent also form one MIP-0019 package.
+export circuit publishPart(name: Bytes<32>, payload: Bytes<256>): [] {
+  const n = disclose(name);
+  assert(n == envName(), "not the MPE envelope name");
+  emit(Misc { name: n, payload: disclose(payload) });
+}
+
+// One whole Envelope per call, so a single contract call (one proof) carries
+// every part in emission order. Compact sizes are static, so each size class
+// needs its own circuit.
+export circuit publishClass0(body: Bytes<256>): [] {
+  emit(Misc { name: envName(), payload: disclose(body) });
+}
+
+export circuit publishClass1(parts: Vector<4, Bytes<256>>): [] {
+  for (const p of parts) {
+    emit(Misc { name: envName(), payload: disclose(p) });
+  }
+}
+
+export circuit publishClass2(parts: Vector<16, Bytes<256>>): [] {
+  for (const p of parts) {
+    emit(Misc { name: envName(), payload: disclose(p) });
+  }
+}

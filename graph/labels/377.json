@@ -1,0 +1,1 @@
+{"name": "Client Guard Selection Entropy", "summary": "This cluster concerns using Shannon entropy to measure the distribution of clients initiating connections through a given guard."}

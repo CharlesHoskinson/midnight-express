@@ -1,0 +1,363 @@
+{
+  "compiler-version": "0.35.0",
+  "compiler-commit": "debb05f9414b9d1e176741c2be289bb32233f0fc",
+  "language-version": "0.27.0",
+  "runtime-version": "0.20.0",
+  "circuits": [
+    {
+      "name": "rfcLeaf",
+      "pure": true,
+      "proof": false,
+      "arguments": [
+        {
+          "name": "eid",
+          "type": {
+            "type-name": "Bytes",
+            "length": 32
+          }
+        }
+      ],
+      "result-type": {
+        "type-name": "Bytes",
+        "length": 32
+      }
+    },
+    {
+      "name": "rfcNode",
+      "pure": true,
+      "proof": false,
+      "arguments": [
+        {
+          "name": "l",
+          "type": {
+            "type-name": "Bytes",
+            "length": 32
+          }
+        },
+        {
+          "name": "r",
+          "type": {
+            "type-name": "Bytes",
+            "length": 32
+          }
+        }
+      ],
+      "result-type": {
+        "type-name": "Bytes",
+        "length": 32
+      }
+    },
+    {
+      "name": "anchorLeafOf",
+      "pure": true,
+      "proof": false,
+      "arguments": [
+        {
+          "name": "window",
+          "type": {
+            "type-name": "Uint",
+            "maxval": 18446744073709551615
+          }
+        },
+        {
+          "name": "root",
+          "type": {
+            "type-name": "Bytes",
+            "length": 32
+          }
+        }
+      ],
+      "result-type": {
+        "type-name": "Bytes",
+        "length": 32
+      }
+    },
+    {
+      "name": "react",
+      "pure": false,
+      "proof": true,
+      "arguments": [
+        {
+          "name": "notAfter",
+          "type": {
+            "type-name": "Uint",
+            "maxval": 18446744073709551615
+          }
+        },
+        {
+          "name": "action",
+          "type": {
+            "type-name": "Bytes",
+            "length": 32
+          }
+        }
+      ],
+      "result-type": {
+        "type-name": "Tuple",
+        "types": [
+        ]
+      }
+    }
+  ],
+  "witnesses": [
+    {
+      "name": "eventWitness",
+      "arguments": [
+      ],
+      "result type": {
+        "type-name": "Struct",
+        "name": "EventWitness",
+        "elements": [
+          {
+            "name": "eid",
+            "type": {
+              "type-name": "Bytes",
+              "length": 32
+            }
+          },
+          {
+            "name": "window",
+            "type": {
+              "type-name": "Uint",
+              "maxval": 18446744073709551615
+            }
+          },
+          {
+            "name": "shardPath",
+            "type": {
+              "type-name": "Vector",
+              "length": 12,
+              "type": {
+                "type-name": "Struct",
+                "name": "PathStep",
+                "elements": [
+                  {
+                    "name": "sibling",
+                    "type": {
+                      "type-name": "Bytes",
+                      "length": 32
+                    }
+                  },
+                  {
+                    "name": "siblingLeft",
+                    "type": {
+                      "type-name": "Boolean"
+                    }
+                  },
+                  {
+                    "name": "skip",
+                    "type": {
+                      "type-name": "Boolean"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "windowPath",
+            "type": {
+              "type-name": "Vector",
+              "length": 3,
+              "type": {
+                "type-name": "Struct",
+                "name": "PathStep",
+                "elements": [
+                  {
+                    "name": "sibling",
+                    "type": {
+                      "type-name": "Bytes",
+                      "length": 32
+                    }
+                  },
+                  {
+                    "name": "siblingLeft",
+                    "type": {
+                      "type-name": "Boolean"
+                    }
+                  },
+                  {
+                    "name": "skip",
+                    "type": {
+                      "type-name": "Boolean"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "anchorPath",
+            "type": {
+              "type-name": "Struct",
+              "name": "MerkleTreePath",
+              "elements": [
+                {
+                  "name": "leaf",
+                  "type": {
+                    "type-name": "Bytes",
+                    "length": 32
+                  }
+                },
+                {
+                  "name": "path",
+                  "type": {
+                    "type-name": "Vector",
+                    "length": 12,
+                    "type": {
+                      "type-name": "Struct",
+                      "name": "MerkleTreePathEntry",
+                      "elements": [
+                        {
+                          "name": "sibling",
+                          "type": {
+                            "type-name": "Struct",
+                            "name": "MerkleTreeDigest",
+                            "elements": [
+                              {
+                                "name": "field",
+                                "type": {
+                                  "type-name": "Field"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "name": "goes_left",
+                          "type": {
+                            "type-name": "Boolean"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "eventSecret",
+            "type": {
+              "type-name": "Bytes",
+              "length": 32
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "contracts": [
+    {
+      "name": "Registry",
+      "circuits": [
+        {
+          "name": "anchorRootValid",
+          "pure": false,
+          "argument-types": [
+            {
+              "type-name": "Struct",
+              "name": "MerkleTreeDigest",
+              "elements": [
+                {
+                  "name": "field",
+                  "type": {
+                    "type-name": "Field"
+                  }
+                }
+              ]
+            }
+          ],
+          "result-type": {
+            "type-name": "Boolean"
+          }
+        }
+      ]
+    }
+  ],
+  "ledger": [
+    {
+      "name": "registry",
+      "index": 0,
+      "exported": true,
+      "storage": "Cell",
+      "type": {
+        "type-name": "Contract",
+        "name": "Registry",
+        "circuits": [
+          {
+            "name": "anchorRootValid",
+            "pure": false,
+            "argument-types": [
+              {
+                "type-name": "Struct",
+                "name": "MerkleTreeDigest",
+                "elements": [
+                  {
+                    "name": "field",
+                    "type": {
+                      "type-name": "Field"
+                    }
+                  }
+                ]
+              }
+            ],
+            "result-type": {
+              "type-name": "Boolean"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "networkId",
+      "index": 1,
+      "exported": true,
+      "storage": "Cell",
+      "type": {
+        "type-name": "Bytes",
+        "length": 32
+      }
+    },
+    {
+      "name": "lifetime",
+      "index": 2,
+      "exported": true,
+      "storage": "Cell",
+      "type": {
+        "type-name": "Uint",
+        "maxval": 4294967295
+      }
+    },
+    {
+      "name": "windowLength",
+      "index": 3,
+      "exported": true,
+      "storage": "Cell",
+      "type": {
+        "type-name": "Uint",
+        "maxval": 4294967295
+      }
+    },
+    {
+      "name": "consumed",
+      "index": 4,
+      "exported": true,
+      "storage": "Map",
+      "key": {
+        "type-name": "Bytes",
+        "length": 32
+      },
+      "value": {
+        "type-name": "Bytes",
+        "length": 32
+      }
+    },
+    {
+      "name": "reactions",
+      "index": 5,
+      "exported": true,
+      "storage": "Counter"
+    }
+  ]
+}

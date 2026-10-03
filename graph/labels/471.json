@@ -1,0 +1,1 @@
+{"name": "Asynchronous Ratcheting Messaging", "summary": "This cluster covers MARSHAL, a messaging protocol that builds on Signal with asynchronous ratcheting and signatures to improve recovery after compromise."}

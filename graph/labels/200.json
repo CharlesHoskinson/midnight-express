@@ -1,0 +1,1 @@
+{"name": "AEAD Key Commitment Attacks", "summary": "This cluster covers attacks that exploit non-committing authenticated encryption to make ciphertexts decrypt under multiple keys, alongside related encryption schemes, protocols, and defenses."}

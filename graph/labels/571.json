@@ -1,0 +1,1 @@
+{"name": "Degree-Constrained Topic Overlays", "summary": "This cluster covers topic-based publish/subscribe overlay construction under node-degree limits, including MinMaxODA and its submodularity-based approximation analysis."}

@@ -1,0 +1,1 @@
+{"name": "TCP-Friendly Multicast Congestion Control", "summary": "The cluster concerns TFMCC, a single-rate multicast congestion-control protocol that uses receiver RTT and loss-event rates to regulate transmission."}

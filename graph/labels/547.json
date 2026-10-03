@@ -1,0 +1,1 @@
+{"name": "Bandit-Based Peer Selection", "summary": "The cluster covers Perigee\u2019s use of multi-armed bandits and UCB scoring to select fast blockchain peers and reduce broadcast latency."}

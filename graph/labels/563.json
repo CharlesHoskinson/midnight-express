@@ -1,0 +1,1 @@
+{"name": "Orchard Note Commitments and Viewing Keys", "summary": "This cluster covers Orchard\u2019s derived viewing and spending keys, note commitments recorded in an append-only Merkle tree, and the security assumptions behind viewing-key decryption."}

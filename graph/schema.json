@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["nodes", "edges"],
+  "properties": {
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "label", "entity_type", "named", "description", "source_location", "evidence"],
+        "properties": {
+          "id": {"type": "string"},
+          "label": {"type": "string"},
+          "entity_type": {"type": "string", "enum": ["system", "protocol", "mechanism", "primitive", "attack", "defense", "property", "bound", "assumption", "metric", "actor", "artifact", "concept", "result"]},
+          "named": {"type": "boolean"},
+          "description": {"type": "string"},
+          "source_location": {"type": "string"},
+          "evidence": {"type": "string"}
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source", "target", "relation", "evidence"],
+        "properties": {
+          "source": {"type": "string"},
+          "target": {"type": "string"},
+          "relation": {"type": "string", "enum": ["uses", "extends", "improves_on", "compares_with", "attacks", "defends_against", "requires", "provides", "proves", "measures", "instance_of", "part_of", "assumes", "leaks", "hides", "implements", "motivates", "contradicts"]},
+          "evidence": {"type": "string"}
+        }
+      }
+    }
+  }
+}

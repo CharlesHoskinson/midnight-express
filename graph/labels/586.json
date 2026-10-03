@@ -1,0 +1,1 @@
+{"name": "CCA-Secure KEM Combiners", "summary": "This cluster covers constructions that combine ingredient key encapsulation mechanisms for chosen-ciphertext security, including parallel designs, tag-based encryption, blockcipher assumptions, and related-key attacks."}

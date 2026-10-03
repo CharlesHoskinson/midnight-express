@@ -1,0 +1,1 @@
+{"name": "Tor Sniper Memory-Exhaustion Attack", "summary": "This cluster concerns the Sniper attack, which uses unread SENDME-driven cells to exhaust Tor relay memory, disable relays, and potentially enable guard reselection."}

@@ -1,0 +1,1 @@
+{"name": "Threshold Selective-Disclosure Credentials", "summary": "This cluster covers Coconut credentials, including threshold issuance, selective disclosure, unlinkable re-randomized use, and the cryptographic assumptions and primitives that support them."}

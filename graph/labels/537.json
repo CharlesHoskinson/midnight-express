@@ -1,0 +1,1 @@
+{"name": "Fabric\u2013ROS 2 Event-Driven Bridge", "summary": "This cluster covers an event-driven Hyperledger Fabric bridge for forwarding ROS 2 messages across networks, including its privacy channels, confirmation latency, scaling approach, and controller limitations."}

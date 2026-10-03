@@ -1,0 +1,1 @@
+{"name": "Spatial Content-Based Matching", "summary": "This cluster covers content-based publish/subscribe matching for spatial objects, including R-tree indexing, Siena fast forwarding, and topological relations between regions."}

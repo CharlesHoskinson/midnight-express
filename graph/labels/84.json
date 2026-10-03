@@ -1,0 +1,1 @@
+{"name": "Gossip-Based Pub-Sub Protocols", "summary": "The cluster covers peer-to-peer publish/subscribe and gossip protocols, including their routing overlays, formal correctness and resilience analyses, and applications to replicated messaging."}

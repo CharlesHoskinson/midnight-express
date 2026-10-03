@@ -1,0 +1,1082 @@
+{
+ "g1-protocol-architect": [
+  [
+   "Decision",
+   "Choice",
+   "Rejected alternatives",
+   "Evidence",
+   "Confidence",
+   "What would change my mind"
+  ],
+  [
+   "D1 Event format",
+   "One `EVENT`, 192-byte header, four size classes, exact lengths, version only by protocol id",
+   "Bitmessage varint objects and unknown-type relay; Waku protobuf with clear `content_topic`; Whisper 4-byte topic; SCALE or TLV extensions",
+   "`2012-bitmessage-protocol-specification` object header; `2020-vac-waku2-message-spec`; `2017-eip-627-whisper`; `ledger-9.1.0.0-rc.5:base-crypto/src/hash.rs:93-94`; `rust-yamux/yamux/src/lib.rs:45`; `ledger-parameters-config.json:152`",
+   "High on the layout; medium on TTL numbers",
+   "A phase-1 store or CPU measurement that cannot meet D5 inside these classes"
+  ],
+  [
+   "D2 Private",
+   "Confidential payload; topic hidden from relays; no FS; no global-passive claim; known keys are testable",
+   "FMD tags; clear topics; ack objects; a claim of source anonymity",
+   "`2017-das-trilemma`; `2021-beck-fmd`; `2021-seres-fmdfalsepositives`; `2018-fanti-dandelionpp`; `design/evidence/bitmessage-guide.md`; `schema-v4.graphql:552`",
+   "High",
+   "A product requirement for global-passive anonymity, which selects a different system"
+  ],
+  [
+   "D3 Pub/sub",
+   "Shard flood, trial open, `seq` inside the seal, contract consumes by a later `note`",
+   "Per-topic meshes; Waku Filter; indexer `contractEvents` as the private path; chans; MLS as the bus",
+   "`2020-vac-waku2-filter-spec`; `schema-v4.graphql:548-552,1971`; `notes/midnight-network-stack.md` \u00a75.4; `2012-bitmessage-wiki-faq` via the guide; `vm.rs:43` on the ledger-9 tag",
+   "High",
+   "A contract primitive that can read off-chain bytes, which does not exist in the VM"
+  ],
+  [
+   "D4 Sustainable",
+   "DUST-bought single-use tickets; relays unpaid; 10% block budget; PoW not used",
+   "Per-object PoW; RLN slashing; relay fees taken from `v_fee`",
+   "`2015-schaub-bitmessage-antispam`; `2022-taheri-waku-rln-relay`; `dust.rs:1765` on the ledger-9 tag; `ledger-parameters-config.json:158-175`; `runtime/src/lib.rs:292,305-311`",
+   "Medium, because admit tx size is still an assumption",
+   "Measured admit-call size or compute that blows the 10% budget at the needed rate"
+  ],
+  [
+   "D5 Performance",
+   "50 obj/s per shard, Relay-A about 2.2 Mbit/s mesh, p99 \u2264 10 s hot path, `D = 6`, flood-publish off",
+   "Sizing to gossip line-rate; phone clients on the mesh",
+   "Arithmetic above; `2020-gossipsub-v11-spec` parameter table; `ledger-parameters-config.json:124`; chain mint bound from D4",
+   "Medium",
+   "Phase-1 numbers outside 2\u00d7 on bandwidth or outside the latency gate"
+  ],
+  [
+   "D6 Storage",
+   "Keep until expiry; about 100 MB at the operating point; 2 GiB hard cap; bodies off the ledger",
+   "28-day flood retention; putting bodies in contract state",
+   "TTL table; `ledger-parameters-config.json:159-160`; Bitmessage expiry in `2012-bitmessage-protocol-specification`; readout \u00a77.5 on rent",
+   "High on the split; medium on the 100 MB figure",
+   "A size mix much heavier than the 70/25/5/0.1 assumption"
+  ],
+  [
+   "D7 Actors",
+   "Permissioned sidecar relays, not validators; wallets and agents local; no on-chain relay pay",
+   "Validators as the mesh; open membership at launch; `connect(viewingKey)` for private events",
+   "`system-parameters-config.json:6-9`; `service.rs:610-644`; readout \u00a72.2\u20132.3",
+   "High",
+   "A red-team in phase 3 that fails to capture the mesh, which is the condition for opening admission"
+  ],
+  [
+   "D8 Tether",
+   "Sidecar GossipSub plus ledger tickets; node, indexer, and Compact unchanged except one contract",
+   "In-process Substrate gossip; ledger-only bus; mixnet",
+   "No `libp2p-gossipsub` in `midnight-node/Cargo.lock`; `MAX_LOG_EMITTED` on the ledger-9 tag; `Misc` in `midnight-events.ss:71-74`; readout \u00a71.5 and \u00a78",
+   "High",
+   "An operator constraint that forbids a second process, which triggers the non-validator notification-protocol fallback"
+  ],
+  [
+   "D9 Threats",
+   "Tickets, permissioned mesh, stem as an unclaimed heuristic, parser reject rules",
+   "Cover traffic; OMR on the hot path; security claims for the stem",
+   "`2018-fanti-dandelionpp`; `2021-liu-omr` catalog note; CVE narrative in the Bitmessage guide",
+   "Medium",
+   "Phase-1 spy precision inside the D10 gate, which would let the spec claim a measured stem property and nothing stronger"
+  ],
+  [
+   "D10 Build",
+   "Parser and circuit first; 16-node sim with a numeric gate; allow-list removed only after a failed red-team",
+   "Shipping a public mesh before the admit call is measured",
+   "Block limits in `runtime/src/lib.rs` and `ledger-parameters-config.json`; `2023-kumar-gossipsub-acl2s`",
+   "High on the order of work; low on calendar time",
+   "Any phase gate failing in the way its own \"change course\" line describes"
+  ]
+ ],
+ "g2-network-engineer": [
+  [
+   "Decision",
+   "Choice",
+   "Rejected alternatives",
+   "Evidence",
+   "Confidence",
+   "What would change my mind"
+  ],
+  [
+   "D1 Event format",
+   "StrictNoSign envelope: 32-byte shard, Ed25519 admission, nullifier, sealed body. Classes 4 KiB, 64 KiB, and 256 KiB announce-only. Anchors are `Misc` hashes",
+   "Clear sender ids; per-message Midnight proofs; 1 MiB mesh messages; Bitmessage global object header",
+   "`2020-vac-waku2-relay-spec`; `2020-vac-waku2-message-spec`; `2020-gossipsub-v11-spec`; `L9:onchain-vm/src/vm.rs` `MAX_LOG_EMITTED`; Yamux `connection.rs:626`",
+   "Medium",
+   "A measured proof under 200 bytes and 1 ms, or a product need for relay-visible topics inside private shards"
+  ],
+  [
+   "D2 Private",
+   "Content confidentiality against relays. No claim of unobservability, subscriber unlinkability, or global-observer anonymity. No receipts, no forward secrecy in v1",
+   "Waku\u2019s stated unlinkability goals treated as theorems; cover traffic; \u201cBitmessage is untraceable\u201d",
+   "`2017-das-trilemma`; `2023-guerraoui-inherent-anonymity-gossiping` Thm 5; `2010-pfitzmann-terminology`; `2017-fanti-anonymitybitcoin`; `2016-neudecker-timing`",
+   "High on the refusals. Medium on the one-hop stem",
+   "An explicit requirement for strong global anonymity, which forces a different tether and different SLOs"
+  ],
+  [
+   "D3 Pub/sub",
+   "Mesh per shard, \u22648 shards. Open topics in the header; private topics only inside the seal. At-least-once, dedup by `msg_id`. Contracts only via a later transaction",
+   "Per-topic meshes; Bloom push to a peer; on-chain subscription; total order on the overlay",
+   "`2020-vac-waku2-relay-spec` SubOpts; `2014-gervais-bloomfilters`; indexer `contractEvents` requires an address; no contract event-read in the node",
+   "Medium",
+   "Users refuse whole-shard download and accept the filter leak. Then a filter mode can be the default for open shards only"
+  ],
+  [
+   "D4 Sustainable model",
+   "DUST-paid hourly membership, 60 class-S credits, relays unpaid in v1, no slash",
+   "Flat PoW; RLN slash; a new relay fee market",
+   "`2004-laurie-proofofwork`; `2022-taheri-waku-rln-relay`; burned `v_fee` and non-transferable DUST in the network-stack read-out; genesis price inference 0.01 DUST/KB",
+   "Medium",
+   "A seizable stake ships, or live prices make the membership useless. Then adopt RLN-style slashing or retune `K` against measured prices"
+  ],
+  [
+   "D5 Performance",
+   "D=8, D_low=6, D_high=12, D_out=4, gossip factor 0.25, heartbeat 1 s. Relay cap ~104 class-S msg/s at m=7. SLO p99 \u2264 2 s class S at N=1,000. Validators at 0",
+   "Untuned degree; 1 MiB full-message mesh; sizing from chain throughput",
+   "`2020-vyzovitis-gossipsub`; `2020-gossipsub-v11-spec`; `2025-farooq-staggering` formula. Link 100 ms / 50 Mbit/s is that paper\u2019s sim setup, not a Midnight measurement",
+   "Medium",
+   "Phase-0 p99 misses 6 s at N=200, or `D_out`=4 breaks scoring. First knobs: gossip factor 0.4, then D_out=2"
+  ],
+  [
+   "D6 Storage",
+   "10 min relay cache, 24 h optional store, 7 days only if anchored. No bodies in contract state. ~188 MiB hot for the worked load; ~26 GiB per store-day for eight busy shards",
+   "Two-day full replication; payloads in ledger state",
+   "Bitmessage 2-day TTL (`2012-warren-bitmessage-whitepaper`); 50,000 write-byte block budget; node discards events; `MAX_LOG_EMITTED`",
+   "Medium",
+   "Indexer event rows turn out to be short-lived. Anchors then need a durability design before they count as receipts"
+  ],
+  [
+   "D7 Actors",
+   "Validators excluded. New relay and bootstrapper roles. Indexer unchanged. Wallets unchanged unless they opt in. Four bootstrappers, not the chain bootnodes",
+   "Event duty on the committee; one DNS seeder; hiding wallet-provider trust",
+   "Genesis 10 permissioned seats; `service.rs:614-625`; `2024-heimbach-deanon`; no relay payment found",
+   "Medium",
+   "Operators will not run relays without pay, and a payment asset exists. Then phase 3 moves forward and v1\u2019s volunteer assumption is dropped"
+  ],
+  [
+   "D8 Network tether",
+   "Hybrid sidecar: GossipSub v1.1 data plane, ledger for membership and hash anchors. Fallback is `Misc` plus the indexer",
+   "In-process Substrate gossip; ledger-only bus; global flood; mixnet default; a new overlay",
+   "No `libp2p-gossipsub` in `Cargo.lock`; protocols at `service.rs:586-644`; `sc-network-gossip` 0.34.0 only via consensus; eclipse papers on Kademlia; trilemma",
+   "High",
+   "Node ships GossipSub on a separate, authority-off peer set. Or the privacy requirement becomes global-observer anonymity"
+  ],
+  [
+   "D9 Threats",
+   "v1.1 scoring, separate peer table, outbound quota, epoch caps, no receipts, CVE gate",
+   "\u201cScoring is enough\u201d; \u201cencryption hides the graph\u201d; Dandelion++ claimed for a one-hop stem",
+   "`2020-leastauthority-gossipsub-audit`; `2023-kumar-gossipsub-acl2s`; `2015-heilman-eclipse`; `2022-prunster-ipfseclipse`; `2018-fanti-dandelionpp`",
+   "Medium",
+   "The chosen crate has no CVE fix, or a sim shows a minority eclipse that `D_out` does not stop. Then the overlay does not ship"
+  ],
+  [
+   "D10 Build plan",
+   "Sim at 50/200/1,000 before mainnet. Small model of admission only. Sidecar testnet. Anchors on ledger 9. Stop and fall back if delivery or the CVE gate fails",
+   "Proving GossipSub again; building a new mesh after a failed sim; blocking the bus on relay payments",
+   "Evaluation method in `2020-vyzovitis-gossipsub` and `2025-farooq-staggering`; CVE from `2023-kumar-gossipsub-acl2s`",
+   "High",
+   "Phase-0 numbers miss the stop condition in D5. The decision then flips to the anchor fallback rather than to another overlay"
+  ]
+ ],
+ "g3-performance-storage": [
+  [
+   "Decision",
+   "Choice",
+   "Rejected",
+   "Evidence",
+   "Confidence",
+   "What would change my mind"
+  ],
+  [
+   "D1 Format",
+   "Versioned envelope; classes 1 / 4 / 32 KiB; 48 h expiry; sealed sequence and schema; fixed-length admission proof",
+   "Bitmessage variable objects up to 2^18 and 28-day TTL; public `Misc` as the private body; per-event view tag in v1",
+   "`2012-bitmessage-protocol-specification`; Yamux 256 KiB window in the read-out \u00a71.1; Compact `Misc` 256 B in \u00a73.2",
+   "high",
+   "A measured MTU or proof length that does not fit the 32 KiB class"
+  ],
+  [
+   "D2 Privacy",
+   "Content confidentiality; shard-level interest privacy; no global anonymity; one-shot without forward secrecy",
+   "Flood-for-ambiguity; cover traffic; mixnet as the default",
+   "`2017-das-trilemma`; `2018-fanti-dandelionpp`; Bitmessage guide on static ECDH",
+   "medium",
+   "A deployment where shard subscription alone identifies users, and a priced cover design that stays inside the D5 cap"
+  ],
+  [
+   "D3 Pub/sub",
+   "Eight pinned shards; mesh for relays; unicast filter for light clients; at-least-once; contract via a later inclusion transaction",
+   "Random per-event shard; topic Bloom filters; on-chain subscription",
+   "`2024-cornelius-waku-network-dapps`; `2017-eip-627-whisper`; read-out \u00a75.4",
+   "high",
+   "Subscribers who must hear every shard, which collapses the cost model"
+  ],
+  [
+   "D4 Payment",
+   "Daily DUST membership, burned fee, \u226410% of block usage; byte budget; relays unpaid in v1",
+   "Per-event Midnight transactions; proof-of-work; a new fee sink",
+   "`cost_model.rs:392-400` (L8); `ledger-parameters-config.json`; `dust-architecture.mdx:109-116`; `2022-taheri-waku-rln-relay`",
+   "medium",
+   "Devnet registration above 16 KiB or 0.5 DUST, or a decision that relays will not run without protocol payment"
+  ],
+  [
+   "D5 Performance",
+   "Shard SLO 10 events/s and 64 KiB/s; relay \u22644 Mbit/s per shard; batched proofs; light clients off the mesh",
+   "Every node pays `\u0398(total traffic)`; OMR or Pung as the data plane; per-event PLONK",
+   "Waku latency paper Table 1 and \u00a73.3; `2021-liu-omr`; `2016-angel-pung-1`; block usage 10^6 / 6 s",
+   "high on the arithmetic, medium on transferred RLN timings",
+   "Measured verify \u226b 10 ms, or a mean object size \u226b 8 KiB"
+  ],
+  [
+   "D6 Storage",
+   "48 h shard stores; 14-day archive optional; chain holds a root only; nullifiers in relay memory",
+   "28-day flood; payload in contract state; indexer as the bus disk",
+   "`D_node \u2248 \u03bbSR` in the Bitmessage guide; `global_ttl` 1,209,600 s; no rent in read-out \u00a77.5",
+   "high",
+   "A requirement for guaranteed payload retention beyond 48 h without a funded archive role"
+  ],
+  [
+   "D7 Actors",
+   "Sidecar relays and stores; validators excluded; wallet providers own filter fan-out",
+   "Validators as relays; a new paid role in v1",
+   "Read-out \u00a72.1\u20132.3; GossipSub v1.1 scoring",
+   "medium",
+   "Evidence that voluntary stores miss the 48 h SLO at L1"
+  ],
+  [
+   "D8 Tether",
+   "Hybrid: ledger for roots, sidecar GossipSub for bulk. Fallback is a default-off node protocol",
+   "Consensus-swarm gossip; ledger-only; mixnet",
+   "No `libp2p-gossipsub` in `midnight-node/Cargo.lock`; read-out \u00a71.5 and \u00a78",
+   "high",
+   "Operators refuse a second process and also refuse a fork, which leaves only public `contractEvents`"
+  ],
+  [
+   "D9 Threats",
+   "Cap, score, expiry, and an explicit non-claim on global adversaries",
+   "Treating RLN slashing or cover traffic as already deployed",
+   "`2024-revuelta-waku-latency`; `2020-gossipsub-v11-spec`",
+   "medium",
+   "A measured eclipse or nullifier-split attack that scoring does not contain"
+  ],
+  [
+   "D10 Plan",
+   "Phase 0 simulation and a devnet fee measurement gate phase 1; Quint/TLA only for the quota set",
+   "Building the contract before the byte and DUST measurement",
+   "Waku evaluation method as the template, not as our result",
+   "high",
+   "A phase-0 miss on the 16 KiB / 0.5 DUST gate or the 3 s p99 gate"
+  ]
+ ],
+ "g4-skeptic-minimalist": [
+  [
+   "Decision",
+   "Choice",
+   "Rejected",
+   "Evidence",
+   "Confidence",
+   "What would change my mind"
+  ],
+  [
+   "D1 Format",
+   "One `Misc`: constant 32-byte `name`, 256-byte ChaCha20-Poly1305 payload, 205-byte body, 14-day indexer life",
+   "Multipart, size classes, topics in the clear, PoW nonce, acks, protobuf",
+   "`midnight-events.ss:71-74`; `compact-reference.mdx:3497-3507`; `coip-0003.md:107-109`; `2012-warren-bitmessage-whitepaper` \u00a76\u20137; `2018-hopwood-zcashprotocol`",
+   "High",
+   "A measured need for bodies above 205 bytes at a rate the fee market can pay, with MIP-0019 actually shipped"
+  ],
+  [
+   "D2 Privacy",
+   "Confidentiality and topic privacy against relays and the indexer; no signer on chain. No FS, no volume privacy, no global anonymity",
+   "Mixnet, cover traffic, ratchets, MLS, \u201cuntraceable\u201d claims",
+   "`2017-das-trilemma`; `2017-piotrowska-loopix`; `2022-barnes-rfc9180`; `2018-alwen-double-ratchet`; `2023-barnes-rfc9420`; ledger has no tx signer (`midnight-network-stack.md` \u00a73.4)",
+   "Medium",
+   "A consumer requirement for a property D2 lists as out of scope, plus a measured design that buys it cheaper than leaving the chain"
+  ],
+  [
+   "D3 Pub/sub",
+   "One contract, out-of-band 32-byte topic key, full-stream trial decrypt, chain order, no on-chain consumer",
+   "Content-topic filters, DHT, registry, per-topic contracts, subscribe messages, contract wakeup",
+   "`schema-v4.graphql:548-560`; `2020-vac-waku2-filter-spec`; `2024-vac-adversarial-models`; `2020-vyzovitis-gossipsub`; `2021-len-partitioningoracle`; node discards logs at `ledger_9/mod.rs:460-470`",
+   "High",
+   "Indexer API gains a privacy-preserving filter that is cheaper than the full stream at the measured rate"
+  ],
+  [
+   "D4 Cost",
+   "Publisher pays DUST; no new payroll; no PoW; no RLN",
+   "Relay fees, Hashcash, on-chain nullifier quota, decoy events",
+   "`ledger-parameters-config.json:151-176`; `2015-schaub-bitmessage-antispam`; fee-burn is an **inference** in `midnight-network-stack.md` \u00a72.3",
+   "Medium",
+   "A flood that fills the cap without moving the fee, or a measured fee far above the 0.08 DUST inference"
+  ],
+  [
+   "D5 Performance",
+   "Cap `min(4, 5% of blockUsage)`; 60 s p50 gate; 56 MiB/day subscriber assumption",
+   "Sub-slot latency, view tags, gossip fan-out",
+   "`runtime/src/lib.rs:292,312-313`; `subxt_node.rs:83-86,423-429`; Bitmessage guide\u2019s illustrative table; prove time **unknown**",
+   "Low",
+   "Phase 0 measurements. The cap formula is already written to absorb a different transaction size"
+  ],
+  [
+   "D6 Storage",
+   "Ciphertext in the log (churn); indexer keeps 14 days; contract state stays empty",
+   "On-chain mailbox, mailserver, infinite retention",
+   "Churn vs persistent cost in `midnight-network-stack.md` \u00a77.3\u20137.5; row size is an **assumption**",
+   "Medium",
+   "Measured rows above 2 GB/month (T4), which shortens retention and still does not add a store network"
+  ],
+  [
+   "D7 Actors",
+   "Publishers, existing validators, existing indexers, local scanners. No new role",
+   "Dedicated relays, paid indexers, bus-specific admission",
+   "`system-parameters-config.json:6-9`; no indexer fee path in the read-out \u00a72.3",
+   "High",
+   "A legal or operational fact that the public indexer cannot be used and self-running one is infeasible"
+  ],
+  [
+   "D8 Tether",
+   "Ledger plus indexer only. Wait for the `emit` generation. Fallback is a private indexer",
+   "Overlay, hybrid gossip, node fork, temporary side net",
+   "No `libp2p-gossipsub` in `midnight-node/Cargo.lock`; `command.rs:326-327`; `support-matrix.json:14,38,82`",
+   "High",
+   "T1, but only as a new design. Or evidence `emit` will not ship on a schedule the application can wait for"
+  ],
+  [
+   "D9 Threats",
+   "Fee market, full-stream download, second indexer, out-of-band key rotation",
+   "Dandelion fork, inclusion SNARKs, OMR, FMD, peer scoring",
+   "`2018-fanti-dandelionpp`; `1998-chor-pir`; `2016-angel-pung-1`; `2026-fisch-unifomr`; `2021-len-partitioningoracle`",
+   "Medium",
+   "A demonstrated break of a property D2 actually claims (T3), or a measured indexer equivocation"
+  ],
+  [
+   "D10 Plan",
+   "Phase 0 vectors and measurements, Phase 1 two-process soak, Phase 2 scanner, then stop. T1\u2013T4 reopen",
+   "A network model of protocols we are not building; a Phase 3 inside v1",
+   "This proposal\u2019s D1\u2013D9; CoIP-0003\u2019s own decision to defer private events",
+   "High",
+   "Any of T1\u2013T4, or a Phase 0 number that makes the 5% rule or the 60 s gate impossible for the proof-server path"
+  ]
+ ],
+ "o1-midnight-integrator": [
+  [
+   "Decision",
+   "Choice",
+   "Rejected alternatives",
+   "Evidence",
+   "Confidence",
+   "What would change my mind"
+  ],
+  [
+   "D1 Format",
+   "One fixed envelope: visible version, size class (1/4/16/64 KiB), bucket, expiry, 16 B tag, 68 B clue, RLN fields; HPKE- or session-sealed body; 7-day default and 14-day maximum life; on-chain projection as \u2264 288 B `Misc`, multipart per MIP-0019",
+   "Variable sizes (Bitmessage); topics in the clear; >4 classes; on-chain events >1 KiB",
+   "`2021-beck-fmd` p.3; `2022-penumbra-fmd`; `L9:onchain-vm/src/vm.rs:41-43`; `midnight-events.ss:71`; `mip-0019:64-76`",
+   "Medium",
+   "A measured P that makes the 1 KiB class pointless"
+  ],
+  [
+   "D2 Privacy",
+   "P1\u2013P7 as defined; no protection against a GPA or for timing at launch; explicit leakage table",
+   "Claiming \"untraceable\"; relying on FMD for all recipient privacy",
+   "`2017-das-trilemma`; `2021-seres-fmdfalsepositives`; `2018-fanti-dandelionpp`; `notes/midnight-network-stack.md` \u00a73.4",
+   "High",
+   "A cheap cover/mix design that meets the D5 budgets"
+  ],
+  [
+   "D3 Pub/sub",
+   "Keyed PRF tags for topics, FMD clues only for first contact, public tags for public topics; buckets; tag-index plus decoy retrieval; contract consumption by witness + Merkle paths + cross-contract `checkRoot` + consumer nullifier",
+   "Trial decryption of everything; OMR at launch; a `Set` of batch roots; on-chain subscription",
+   "`ledger-adt.mdx:603-615`; `toolchain-0.33.0.md:96-104`; `2021-liu-omr` p.2; `api.ts:70-203`",
+   "Medium",
+   "`checkRoot` transcript instability; PIR becoming cheaper than decoys at mobile scale"
+  ],
+  [
+   "D4 Sustainability",
+   "DUST-priced RLN membership (Compact circuit, proven off chain); revocation on double-signal; Foundation-funded seeds at launch; Privacy Pass-paid services later; operator cover floor",
+   "Bitmessage-style PoW; a new token; per-envelope on-chain fees",
+   "`2022-taheri-waku-rln-relay`; `2024-vac-rln-v2-spec`; `dust-architecture.mdx:91-111`; `2024-frank-anonymous-messaging-altruism`; `2024-rfc9576-privacypass-arch`",
+   "Medium",
+   "A Phase 0 P or verification cost far above plan; DUST prices too low to deter spam"
+  ],
+  [
+   "D5 Performance",
+   "50/s sustained, 250/s burst; relay ~2.1 Mbit/s unique, \u2264 0.3 core; mobile \u2264 13\u201315 MB/day; anchored p50 \u2248 60 s; overlay p99 \u2264 10 s",
+   "Full-flood mobile clients; OMR detection",
+   "Arithmetic in D5; `ledger-parameters-config.json:124-133`; `2020-gossipsub-v11-spec`",
+   "Low\u2013medium (P and the duplication factor are unmeasured)",
+   "Phase 0 measurements"
+  ],
+  [
+   "D6 Storage",
+   "Store nodes keep 7 days by default (14 maximum), stripping proofs after anchoring (~63 GiB); ledger holds only membership, anchors, registry and fallback; indexer load ~0.6 MB/day",
+   "Bodies on the ledger; indefinite relay retention",
+   "`notes/midnight-network-stack.md` \u00a77.5; `mip-0002:508-540`; `ledger-parameters-config.json:176`",
+   "Medium",
+   "Bytes per `HistoricMerkleTree` insert; a demand for long archives"
+  ],
+  [
+   "D7 Actors",
+   "Permissionless relays and aggregators; registry-listed store nodes; client-chosen detection servers; validators and indexers unchanged; Foundation-seeded launch moving to independent operators",
+   "New validator duties; a permissioned relay set as the end state",
+   "`notes/midnight-network-stack.md` \u00a72, \u00a78",
+   "Medium",
+   "Operators unwilling to run store nodes without payment before Phase 3"
+  ],
+  [
+   "D8 Tether",
+   "**Hybrid with a sidecar overlay** (libp2p GossipSub + Dandelion++) plus Midnight ledger anchoring and membership, with the indexer as read path; fallback: ledger + indexer only. Only mandatory upstream item: ledger-9 activation (U0); U1\u2013U7 additive, each with an owner.",
+   "Inside midnight-node (fork, shared peer slots, consensus risk); ledger only (public, costly, capped); overlay only (no Sybil cost, no contract consumption)",
+   "`service.rs:586-644`; `Cargo.lock:14548`; `check_call_filter.rs:40-45`; `schema-v4.graphql:548-576`; `notes/midnight-network-stack.md` \u00a78\u20139",
+   "High",
+   "Midnight shipping a node plugin system with separate peer sets, or MPS-0007 plus pre-finality visibility making a node-native read path cheap"
+  ],
+  [
+   "D9 Threats",
+   "Scoring and diversity against eclipse and Sybil; RLN against spam; Dandelion++ and padding against deanonymization; layered replay defences; fallback and multiple aggregators against censorship; ratchets and MLS against key compromise",
+   "Claiming defence against a GPA; trusting one detection server",
+   "Table in D9 and the cited slugs",
+   "Medium",
+   "Simulation showing first-spy precision far above the bounds"
+  ],
+  [
+   "D10 Plan",
+   "Phase 0 spikes (Compact-RLN, anchor costs, Quint model, 1,000-node simulation, FMD simulation), then MVP, then integration, then hardening; numeric exit criteria and pivot triggers",
+   "Building before measuring P and insert costs",
+   "D10",
+   "High",
+   "\u2014"
+  ]
+ ],
+ "o2-economist-operator": [
+  [
+   "Decision",
+   "Choice",
+   "Rejected",
+   "Evidence",
+   "Confidence",
+   "What would change my mind"
+  ],
+  [
+   "D1",
+   "Fixed binary envelope; 4 size classes; TTL \u2264 14 d; visible: shard, epoch, RLN fields, S-FMD clue; everything else sealed; on-chain class via `Misc`",
+   "variable sizes; visible topic; TTL > `global_ttl`",
+   "`ledger-parameters-config.json:176`; `midnight-events.ss:17-74`; `2022-penumbra-fmd`",
+   "medium",
+   "measured RLN proof size much above 4 KiB"
+  ],
+  [
+   "D2",
+   "P1\u2013P7 as defined; not protected against a global observer; registration fact public",
+   "claiming unlinkability against a global observer",
+   "`2017-das-trilemma`; read-out \u00a73.4",
+   "medium",
+   "a cheap cover-traffic design within the bandwidth budget"
+  ],
+  [
+   "D3",
+   "Shard gossip; S1/S2/S3 subscription; contracts consume via the anchor ring plus a submitted call",
+   "OMR by default; contracts reading events; subscriber-chosen p",
+   "`2021-liu-omr`; `2024-frank-anonymous-messaging-altruism`; `toolchain-0.33.0.md:98-104`",
+   "medium",
+   "OMR cost falls \u2265 100\u00d7"
+  ],
+  [
+   "**D4**",
+   "NIGHT-bonded RLN-Diff memberships with slashing; non-refundable fees + slashes + declining grant into a contract treasury; pay only for checkable anchors and retention; credits for services; DUST only for on-chain use",
+   "proof-of-work; per-event DUST; paying relays for performance; ACT/ARC for publishing",
+   "`dust-architecture.mdx`; `L9:ledger/src/dust.rs:469-474`; `2022-vac-rln-v1-spec`; `2024-vac-rln-v2-spec`; `2004-laurie-proofofwork`; `2026-cao-nymreputation`; `2021-diaz-nym` \u00a76; `2026-draft-act`",
+   "medium",
+   "simulation shows bonded capacity cannot be priced against floods; contract-held NIGHT or the BCT pattern infeasible"
+  ],
+  [
+   "D5",
+   "\u2264 10 events/s per shard; 100 events/s network; p50 \u2264 1 s, p99 \u2264 3 s; proofs precomputed",
+   "per-event on-chain publishing",
+   "`2024-revuelta-waku-latency`; `2020-vyzovitis-gossipsub`; `mps-0004:33`",
+   "medium-low (proof costs unknown)",
+   "phase-0 benchmarks"
+  ],
+  [
+   "D6",
+   "Store node \u2248 28 GB at launch; bounded 20,160-slot anchor ring; proofs dropped after anchoring",
+   "unbounded anchor history in state; protocol archival",
+   "read-out \u00a77.5; `bitmessage-guide.md:420-457`",
+   "medium",
+   "consumers need inclusion proofs older than 14 d"
+  ],
+  [
+   "**D7**",
+   "Paid roles: store nodes, anchorers (bonded, audited, saturation-capped); relays unpaid; foundation launch \u2192 measured gates \u2192 governance",
+   "volunteer-only operation; validators as relays; reputation-scored rewards",
+   "`2021-diaz-nym`; `2024-cornelius-waku-network-dapps` \u00a7III-E; `2026-cao-nymreputation`; read-out \u00a72.2",
+   "medium",
+   "operators cannot cover costs at simulated prices; evidence that bond-key splitting defeats the caps"
+  ],
+  [
+   "D8",
+   "Hybrid sidecar overlay + Registry contract; fallback ledger/indexer `Misc`",
+   "node fork; off-chain workers or inherents; ledger-only",
+   "read-out \u00a71.5, \u00a78, constraint 10",
+   "high",
+   "Midnight adds a generic gossip extension point"
+  ],
+  [
+   "D9",
+   "Threat table above; main residual risks: global observer, phase-L anchorer censorship, bond-key splitting",
+   "\u2014",
+   "as cited",
+   "medium",
+   "red-team results"
+  ],
+  [
+   "D10",
+   "Phase 0 measurement + economic simulation + Quint Registry model, before mainnet",
+   "building before measuring proof costs",
+   "`2024-revuelta-waku-latency` method",
+   "high",
+   "\u2014"
+  ]
+ ],
+ "o3-consumer-experience": [
+  [
+   "Decision",
+   "Choice",
+   "Rejected alternatives",
+   "Evidence",
+   "Confidence",
+   "What would change my mind"
+  ],
+  [
+   "D1 Event format",
+   "`Misc` carrier: 32 B tag plus fixed 256 B parts; S/M/L classes (207 / 975 / 4,047 B usable); public `v`, view tag, `ek`; sealed CBOR with `stream_seq`, schema, binding, signature; portable `eid` and chain-position cursor",
+   "Variable-length emits (silent drop over 1 KiB); indexer `id` as cursor; data in ledger state (about 20\u00d7 cost)",
+   "`midnight-events.ss:71-74`; read-out \u00a73.2 (`L9:vm.rs:41-43`); `mip-0019:64-76`; `re-indexing.md:78-95`; `schema-v4.graphql:1127`",
+   "High",
+   "MIP-0019 rejected, or larger native events shipped (ledger 10)"
+  ],
+  [
+   "D2 Private",
+   "C, T, S (full mode), P, R, FS per epoch, X; explicit leakage table; global observer and post-compromise security out of scope",
+   "Claiming global-observer anonymity; acknowledgements as receipts",
+   "`2017-das-trilemma`; `bitmessage-guide.md:265-267, 328`; `2021-seres-fmdfalsepositives`",
+   "Medium",
+   "Measured anonymity-set data showing the bus set is too small"
+  ],
+  [
+   "D3 Pub/sub (lead)",
+   "Three stream kinds on one PRF-tag mechanism; full-stream default, opt-in bucket(b \u2264 8), self-host; finalised, at least once, chain-ordered, per-stream seq, gap/late/head, portable resume; contracts react through relayed ZK proof of an anchored envelope plus consumed-nullifier",
+   "Bloom filters; server topic filters; FMD; OMR/PIR in Phase 1; reorder buffering in the SDK; on-chain push to contracts",
+   "`2014-gervais-bloomfilters:66-71`; `2020-vac-waku2-filter-spec:298-300`; `2022-penumbra-fmd-spec:78-94`; `2021-liu-omr:28-29`; `contract_event.rs:98-152`; `public-data-provider.ts:507-510`; `nostr-nip-01:153-161`; `toolchain-0.33.0.md:96-104`; `2022-monero-pr8061-viewtags:220`",
+   "Medium-high (contract path: medium)",
+   "Phase-0 circuit/root-check infeasible; full-mode bandwidth over the mobile budget at real load"
+  ],
+  [
+   "D4 Sustainable",
+   "Publisher pays DUST (\u2248 0.06 DUST per S event; \u2248 12 per NIGHT per day); no proof of work; RLN on Lane B; reads free and the read-side incentive open",
+   "Proof of work; per-identity limits on Lane A; inventing indexer payments now",
+   "`ledger-parameters-config.json:156-175`; read-out \u00a77; `2004-laurie-proofofwork`; `2024-vac-rln-v2-spec`",
+   "Medium",
+   "Live prices about 3\u00d7 genesis or worse"
+  ],
+  [
+   "D5 Performance",
+   "Lane A 1/s average, 10/s peak (3.6% / 36% of a block); p50 \u2248 23 s, p99 \u2264 60 s; client \u2264 52 MB/day; indexer 10k subscribers with shared broadcast; Lane B p50 \u2264 1 s",
+   "Sub-second on Lane A; a query per subscriber per block",
+   "`runtime/src/lib.rs:292`; `mps-0028:35-38`; `config.yaml:30, 49-83`; `2024-revuelta-waku-latency:652-654`",
+   "Medium",
+   "Phase-0 benchmarks"
+  ],
+  [
+   "D6 Storage",
+   "No events in ledger state; anchors only when asked; indexer 52 MB/day (19 GB/year), \u2265 30 d hot; back-fill = min(indexer, key retention)",
+   "Storing messages in contract state; unlimited client back-fill promises",
+   "read-out \u00a77.5; `mip-0002:508-540`",
+   "Medium",
+   "Anchor-tree write cost far above estimate"
+  ],
+  [
+   "D7 Actors",
+   "Unchanged validators; permissionless bus indexers; reactors; Lane B relays; wallet key custody (Phase 2)",
+   "A dedicated permissioned relay set; dapps holding all keys",
+   "read-out \u00a72; `api.ts:70-220`",
+   "Medium",
+   "Nobody runs indexers without pay, which moves paid access forward"
+  ],
+  [
+   "D8 Tether",
+   "Hybrid in phases: Phase 1 ledger plus indexer only; Phase 2 GossipSub/RLN sidecar; fallback Lane B with on-chain batch anchors; no node change; indexer changes 1-5",
+   "Node fork with a gossip protocol; off-chain workers; inherents",
+   "read-out \u00a71.5, \u00a78; `support-matrix.json` (read-out \u00a70.3)",
+   "High (Phase 1), medium (Phase 2)",
+   "Ledger-9 activation slipping past Phase 1"
+  ],
+  [
+   "D9 Threats",
+   "Seq-based omission detection, cross-checked indexers, fixed parts, consumed-nullifiers, typed pause errors",
+   "Trusting one indexer silently",
+   "`contract_event.rs`; `check_call_filter.rs:40-45` (read-out)",
+   "Medium",
+   "Evidence that a first-contact omission attack is practical at scale"
+  ],
+  [
+   "D10 Plan",
+   "Phase 0 measurement plus a Quint model of SDK delivery; Phase 1 Lane A; Phase 2 wallet and Lane B; Phase 3 OMR/MLS; afternoon test and a zero-loss chaos test as gates",
+   "Building Lane B first; shipping without a delivery-model check",
+   "\u2014",
+   "High",
+   "Afternoon test failing twice, which means the API is redesigned before any lane is added"
+  ]
+ ],
+ "o4-governance-operations": [
+  [
+   "Decision",
+   "Choice",
+   "Rejected alternatives",
+   "Evidence",
+   "Confidence",
+   "What would change my mind"
+  ],
+  [
+   "D1 Event format",
+   "304-byte fixed header; 4 padded classes (512 B\u201332 KiB); RLN fields; sealed body with franking slot; expiry \u2264 7 d (ceiling 14 d)",
+   "variable sizes; on-chain ciphertext by default; dynamic type dispatch",
+   "`2021-vac-waku2-rln-relay-spec` L327-330; `2017-grubbs-franking`; `2021-issa-hecate` Table 4; `bitmessage-guide.md:352-358`; `ledger-parameters-config.json:176`",
+   "medium",
+   "proof-size or bandwidth benchmarks favor a different RLN system"
+  ],
+  [
+   "D2 Private",
+   "P1\u2013P9 with the leakage table; GPA and post-quantum out of scope at launch; report-only disclosure",
+   "claiming GPA resistance; escrowed disclosure",
+   "`2022-taheri-waku-rln-relay`; `2024-aztec-private-events-note-discovery` L516; `2021-issa-hecate` L327-328",
+   "high",
+   "measured anonymity sets far smaller than modeled"
+  ],
+  [
+   "D3 Pub/sub",
+   "PRF tags (hourly or per-message), 8 shards, local filtering, intro inbox, anchors plus a relayer for contracts, wallet `subscribeEvents`",
+   "global topic directory; per-topic subscriptions at relays; contracts reading events",
+   "`2024-aztec-private-events-note-discovery` L417; `2024-cornelius-waku-network-dapps` L54-61; `notes/midnight-network-stack.md` \u00a75.4, \u00a79.12",
+   "medium",
+   "OMR/FMD costs fall enough for P2 light clients"
+  ],
+  [
+   "D4 Sustainable",
+   "RLN-v2 memberships with deposit, non-refundable fee and tiers; grants \u2192 pool paid on probe scores, capped at 1/k; one rotating anchorer, \u2248 86 DUST/day",
+   "PoW admission; deposit-only; stake-weighted selection with one monitor",
+   "`2004-laurie-proofofwork`; `2022-taheri-waku-rln-relay` L488-503; `2021-diaz-nym` L1685; `2026-cao-nymreputation`; notes \u00a77.3",
+   "medium",
+   "live DUST prices or a shielded-deposit path change the cost or privacy balance"
+  ],
+  [
+   "D5 Performance",
+   "50 ev/s sustained, 500 peak; relays \u2264 2 shards; overlay p99 \u2264 5 s; contract-visible p99 \u2264 90 s",
+   "all-shard relays as the default",
+   "`2020-gossipsub-v11-spec` L553; `2022-taheri-waku-rln-relay` L428-430; `mps-0028` L36-38",
+   "low (loads assumed)",
+   "P2 measurements"
+  ],
+  [
+   "D6 Storage",
+   "store nodes keep \u2264 7 d (72.6 GB all shards at launch); \u2265 3 operators per shard; ledger holds roots only; no protocol archive",
+   "long retention; on-ledger payloads",
+   "`bitmessage-guide.md:431-447`; `ledger-parameters-config.json:159`",
+   "medium",
+   "applications prove a need for longer back-fill"
+  ],
+  [
+   "D7 Actors and governance",
+   "7 stewards with time-locks and 7-day emergency expiry; powers excluded by construction; app-level moderation by franking; tombstones; PrivCount monitoring; handover to Council+TC or ossification",
+   "protocol bans; key escrow; traceable mixnet; single central monitor; node-fork operators",
+   "`runtime/src/lib.rs:758, 789, 907-943`; `2014-winter-spoiledonions` L85-95; `2016-jansen-safely-measuring-tor`; `2026-cinal-viewingkeycompromise`; `2023-agrawal-traceablemixnets` L172-176; `2024-xmtp-xip49-decentralized-backend` L437-457",
+   "medium-high",
+   "counsel requires operator-side capabilities the design cannot give without breaking P7/P8"
+  ],
+  [
+   "D8 Tether",
+   "hybrid: sidecar libp2p GossipSub plus ledger registry and anchors; fallback ledger+indexer; no node change",
+   "node fork with `sc-network-gossip`; inherents or off-chain workers; ledger-only as the end state",
+   "notes \u00a71.5, \u00a78, \u00a79.10; `schema-v4.graphql:558-562`; `api.ts:70-203`",
+   "high",
+   "Midnight ships a supported plugin protocol slot with separate peer budgets"
+  ],
+  [
+   "D9 Threats",
+   "table above; GPA timing and light-client interest leak are the main residuals",
+   "n/a",
+   "`2024-vac-adversarial-models`; `2025-logos-mix-dos-rln` L942; `2026-cao-nymreputation`",
+   "medium",
+   "red-team results in P2"
+  ],
+  [
+   "D10 Plan",
+   "P0\u2013P4 with gates, Quint invariants I1\u2013I6, Tamarin/ProVerif, simulation, legal memos and audit as gates, anonymity claims gated on load",
+   "big-bang launch; claiming privacy before the anonymity set exists",
+   "`2018-mani-tor-usage-privacy-preserving` L383-385, L1808-1815; `bitmessage-guide.md:373`",
+   "high",
+   "the course-change triggers listed in D10"
+  ]
+ ],
+ "s1-privacy-theorist": [
+  [
+   "Decision",
+   "Choice",
+   "Rejected alternatives",
+   "Evidence",
+   "Confidence",
+   "What would change my mind"
+  ],
+  [
+   "D1",
+   "Fixed padded cells; sealed session headers; bounded fragmentation",
+   "Static content keys, public group/topic headers",
+   "`2023-barnes-rfc9420` \u00a7\u00a76.3,16.4; `2022-grubbs-anonrobustpq` \u00a71",
+   "Medium",
+   "Wrapper proof failure or control messages exceeding practical bounds"
+  ],
+  [
+   "D2",
+   "Confidentiality and conditional subscriber-interest privacy; explicit activity leakage",
+   "Unqualified \u201canonymous/private\u201d claims",
+   "`2017-das-trilemma` Thm.2; `2023-guerraoui-inherent-anonymity-gossiping` Thm.5; `2026-fisch-unifomr` Thm.5.1",
+   "High",
+   "A reviewed construction under a materially different model"
+  ],
+  [
+   "D3",
+   "Capability discovery, whole-feed reception, explicit transaction consumption",
+   "Server topic filters, autonomous contract subscriptions, exactly-once transport",
+   "`midnight-wallet/packages/shielded-wallet/src/v1/Sync.ts:243`; `midnight-indexer/indexer-api/graphql/schema-v4.graphql:548`",
+   "Medium",
+   "Verified private discovery/retrieval with adequate costs"
+  ],
+  [
+   "D4",
+   "Paid admission and egress; sponsor-funded idle floor; DUST only for ledger work",
+   "PoW-only funding, DUST relay payments",
+   "`midnight-ledger@ledger-9.1.0.0-rc.5/base-crypto/src/cost_model.rs:408`; `2022-taheri-waku-rln-relay` \u00a7\u00a7II-B,IV",
+   "Medium",
+   "Audited anonymous quotas and sustainable operator bids"
+  ],
+  [
+   "D5",
+   "10-cell/s planning load; 100-cell/s capacity; 1,000 consumers",
+   "Uncosted scale claims, concealed topic sharding",
+   "Explicit arithmetic in D5; trilemma constraints",
+   "Medium",
+   "Measurements violating budgets or demand requiring private thin clients"
+  ],
+  [
+   "D6",
+   "48-hour relay retention; seven-day archive; conditional availability",
+   "Permanent ordinary feed storage, commitment-as-availability claims",
+   "D5 arithmetic; `midnight-ledger@ledger-9.1.0.0-rc.5/onchain-vm/src/vm.rs:41`",
+   "Medium",
+   "Required offline duration or correlated storage failures"
+  ],
+  [
+   "D7",
+   "Dedicated independent operators; open relay service; staged admission decentralization",
+   "Mandatory validator carriage, identity-count anonymity assumptions",
+   "`midnight-node/node/src/service.rs:614`; `midnight-node/res/mainnet/system-parameters-config.json:6`",
+   "Medium",
+   "Operational evidence supporting a stronger decentralized launch"
+  ],
+  [
+   "D8",
+   "Separate overlay plus ledger authorization/commitments; whole-feed-server fallback",
+   "Consensus-network bulk traffic, ledger/indexer-only private bus",
+   "`midnight-node/node/src/service.rs:574`; `minokawa-compact/compiler/midnight-events.ss:71`",
+   "High",
+   "A measured native isolated transport with equal privacy"
+  ],
+  [
+   "D9",
+   "Treat ingress attribution, probing, compromise and censorship as explicit residual risks",
+   "Dandelion-as-global-anonymity, FMD-as-equivalent-reception-privacy",
+   "`2018-fanti-dandelionpp` \u00a73.1; `2021-seres-fmdfalsepositives` Introduction",
+   "High",
+   "Reviewed defenses covering the stronger adversaries"
+  ],
+  [
+   "D10",
+   "Proof gates, simulations, capacity tests, funded pilot; advanced profiles separately",
+   "Benchmark-as-proof, inherited security by component name",
+   "`2019-kuhn-privacynotions` \u00a72; `2017-piotrowska-loopix` \u00a72.2; `2026-fisch-unifomr` \u00a78",
+   "High",
+   "Failed property, capacity, usability or funding gates"
+  ]
+ ],
+ "s2-cryptographer": [
+  [
+   "Decision",
+   "Choice",
+   "Rejected alternatives",
+   "Evidence",
+   "Confidence",
+   "What would change my mind"
+  ],
+  [
+   "D1",
+   "Fixed padded cells; sealed signatures; hybrid setup and encrypted headers",
+   "Static recipient encryption; public session tags; uncosted PQ signatures",
+   "`2016-signal-double-ratchet-spec` \u00a7\u00a74,7; FIPS 203/204 tables",
+   "Medium",
+   "Composition audit fails; measured cell utilization is unacceptable"
+  ],
+  [
+   "D2",
+   "Conditional content/recipient concealment; explicit metadata leakage",
+   "Global anonymity from flooding alone",
+   "`2017-das-trilemma`, abstract; PQXDH \u00a74.1",
+   "High",
+   "Stronger adversary requirements become mandatory"
+  ],
+  [
+   "D3",
+   "Invitations, local header trials, \u226432-device fan-out",
+   "Public first contact; default FMD; shared identities; bare PIR",
+   "DR \u00a74.6; FMD \u00a77; UnifOMR \u00a71; MLS \u00a76.3",
+   "Medium",
+   "Retrieval or group alternatives meet the same privacy at lower measured cost"
+  ],
+  [
+   "D4",
+   "Paid blind stamps; DUST only for ledger operations",
+   "PoW financing; DUST relay payments; per-cell ledger proofs",
+   "RFC 9578 \u00a76; `dust-architecture.mdx:23`; L9 `dust.rs:2158`",
+   "Medium",
+   "Issuer-free admission proves affordable and sustainable"
+  ],
+  [
+   "D5",
+   "10 cells/s normal; 100 stress; explicit mobile boundary",
+   "Unlimited logical event rates or free fan-out",
+   "Proposed workload arithmetic; `runtime/src/lib.rs:292`, `:312`",
+   "Medium",
+   "Benchmarks or product demand invalidate budgets"
+  ],
+  [
+   "D6",
+   "Seven-day complete replication; roots offload no availability duty",
+   "Permanent ledger ciphertext storage; guaranteed archival",
+   "L9 `vm.rs:43`, `:595`; `midnight-events.ss:71`",
+   "High",
+   "Required offline window or operator costs differ materially"
+  ],
+  [
+   "D7",
+   "Independent dedicated relays/gateways/issuers",
+   "Mandatory validator relay service; keys held by providers",
+   "`system-parameters-config.json:6`; wallet `Sync.ts:295`",
+   "Medium",
+   "Funding or independently operated infrastructure cannot be secured"
+  ],
+  [
+   "D8",
+   "Separate overlay; optional ledger anchors; gateway fallback",
+   "Consensus-network modification; ledger-only bulk transport",
+   "`service.rs:574`, `:610`; indexer schema `:1967`",
+   "High",
+   "Midnight ships a suitable isolated application transport"
+  ],
+  [
+   "D9",
+   "Bounded defenses with explicit composition and correlation risks",
+   "Automatic PCS, anonymity, or completeness claims",
+   "`2026-cheval-dr-automated` \u00a7\u00a73,5; DR \u00a78",
+   "High",
+   "New attacks or stronger assurance alter the threat boundary"
+  ],
+  [
+   "D10",
+   "Audit, vectors, simulations, deployment checks, measured gates",
+   "Shipping on literature microbenchmarks alone",
+   "Cited ratchet analysis; inspected Midnight generation differences",
+   "High",
+   "Independent evidence satisfies\u2014or disproves\u2014the gates"
+  ]
+ ],
+ "s3-red-team": [
+  [
+   "Decision",
+   "Choice",
+   "Rejected alternatives",
+   "Evidence",
+   "Confidence",
+   "What would change my mind"
+  ],
+  [
+   "D1",
+   "Fixed 4 KiB cells; sealed metadata; header-encrypted ratchets",
+   "Static recipient keys; visible application topics; arbitrary bulk envelopes",
+   "`2016-signal-double-ratchet-spec` \u00a74; `minokawa-compact/compiler/midnight-events.ss:71`",
+   "Medium",
+   "Audited proof/session formats cannot fit, or recognition costs exceed budget"
+  ],
+  [
+   "D2",
+   "Separate confidentiality, interest privacy and anonymity claims",
+   "Undifferentiated \u201cprivate\u201d; inherited global-observer guarantees",
+   "`2017-das-trilemma` \u00a7\u00a7I\u2013IV; `2023-barnes-rfc9420` \u00a716.4",
+   "High",
+   "A security proof covers the actual composition and traffic policy"
+  ],
+  [
+   "D3",
+   "Local subscriptions; whole-feed backfill; checked transaction consumption",
+   "Remote topic filters; automatic contract subscriptions; unchecked witnesses",
+   "`minokawa-compact/doc/compact-reference.mdx:1153`; `2016-signal-double-ratchet-spec` \u00a78.4",
+   "High",
+   "A verified private retrieval or ledger-receipt mechanism becomes available"
+  ],
+  [
+   "D4",
+   "Paid service leases plus capped anonymous admission; DUST for chain gas",
+   "Flat PoW; DUST relay payments; assumed native slashing",
+   "`2022-taheri-waku-rln-relay` \u00a7\u00a7II\u2013III; `midnight-docs/docs/concepts/dust-architecture.mdx:23`",
+   "Medium",
+   "Reviewed deposits/slashing and operator economics support open enrollment"
+  ],
+  [
+   "D5",
+   "Agent-first 10 cells/s launch; explicit 20 cells/s recovery budget",
+   "Unmeasured throughput claims; mobile full-feed default",
+   "Arithmetic assumptions; `midnight-node/runtime/src/lib.rs:292`",
+   "Medium",
+   "Benchmarks or client economics invalidate the budgets"
+  ],
+  [
+   "D6",
+   "48-hour bounded storage; optional paid archives; small ledger commitments",
+   "Permanent universal retention; bulk ledger storage",
+   "`midnight-ledger@ledger-9.1.0.0-rc.5/onchain-vm/src/vm.rs:268`",
+   "High",
+   "Offline-use requirements justify a funded longer window"
+  ],
+  [
+   "D7",
+   "Dedicated operators with explicit launch trust and measured diversity",
+   "Validator mandate; peer-count decentralization",
+   "`2002-douceur-sybil` \u00a7\u00a71\u20133; `2020-gossipsub-v11-spec`, outbound quotas",
+   "Medium",
+   "Verifiable resource-priced admission supports less discretionary trust"
+  ],
+  [
+   "D8",
+   "Independent overlay plus ledger authorization; ledger fallback",
+   "Consensus-network integration; ledger/indexer-only bulk bus",
+   "`midnight-node/node/src/service.rs:610`; `minokawa-compact/doc/release-notes/toolchain-0.33.0.md:22`",
+   "High",
+   "An isolated native extension demonstrates operational benefit"
+  ],
+  [
+   "D9",
+   "Block unsupported anonymity and authorization claims; test targeted attacks",
+   "Random-fraction reasoning; Dandelion-only global privacy",
+   "`2015-heilman-eclipse` \u00a7\u00a73\u20136; `2018-fanti-dandelionpp` \u00a73.1; `2017-piotrowska-loopix` \u00a72",
+   "High",
+   "Independent analysis and attack experiments cover each claimed adversary"
+  ],
+  [
+   "D10",
+   "Model first; bounded pilot; independent audit; experimental mix; later retrieval/groups",
+   "Combined unaudited production launch",
+   "Proposed gates; `spec-katzenpost-packetreplay` pp.2\u20133; `2023-barnes-rfc9420` \u00a716.9",
+   "High",
+   "Evidence shows a simpler construction meets the same explicit properties"
+  ]
+ ],
+ "s4-evidence-auditor": [
+  [
+   "Decision",
+   "Choice",
+   "Rejected alternatives",
+   "Evidence",
+   "Confidence",
+   "What would change my mind"
+  ],
+  [
+   "D1",
+   "Fixed 2 KiB sealed records; session protocol inside reviewed wrapper",
+   "Bitmessage compatibility; bulk ledger logs",
+   "`2012-warren-bitmessage-whitepaper` \u00a73; `2023-barnes-rfc9420` \u00a716.4; `midnight-ledger@54a4e013/onchain-vm/src/vm.rs:43`",
+   "Medium",
+   "Wrapper analysis or measured control-message sizes require another format"
+  ],
+  [
+   "D2",
+   "Content and subscriber-selection privacy; explicit metadata leakage",
+   "Unqualified anonymity; global-observer promise",
+   "`2018-fanti-dandelionpp` \u00a73.1; `2017-piotrowska-loopix` \u00a72.2",
+   "High",
+   "A reviewed stronger profile supports additional properties"
+  ],
+  [
+   "D3",
+   "Secret invitations, complete-stream retrieval, local dispatch, follow-up contract transaction",
+   "Public topic filters; autonomous contract subscriptions",
+   "`2012-warren-bitmessage-whitepaper` \u00a73; `midnight-indexer/indexer-api/graphql/schema-v4.graphql:552`",
+   "Medium",
+   "Private discovery or retrieval is validated for the workload"
+  ],
+  [
+   "D4",
+   "Reserved service capacity and permits; DUST pays chain execution",
+   "DUST transfers to operators; flat PoW; per-event chain payment",
+   "`midnight-ledger@dc87cc8f/base-crypto/src/cost_model.rs:408`; `2004-laurie-proofofwork` \u00a7\u00a73\u20135",
+   "Medium",
+   "Anonymous admission and sustainable settlement are demonstrated"
+  ],
+  [
+   "D5",
+   "Measured 10/s baseline, 100/s burst, 10,000 consumers",
+   "Imported throughput claims; finality constants as SLOs",
+   "`2017-piotrowska-loopix` \u00a75; `2021-liu-omr` \u00a710; `midnight-node/runtime/src/lib.rs:292`",
+   "Low",
+   "Proposed-system measurements establish attainable limits"
+  ],
+  [
+   "D6",
+   "48-hour relay retention; separately paid archive; bounded ledger commitments",
+   "Ledger payload storage; TTL as deletion guarantee",
+   "`midnight-ledger@54a4e013/onchain-vm/src/vm.rs:595`; stated arithmetic assumptions",
+   "Medium",
+   "Recovery requirements or measured storage costs demand another window"
+  ],
+  [
+   "D7",
+   "Paid independent relays and gateways; progressive admission decentralization",
+   "Mandatory validator service; assumed token incentives",
+   "`midnight-node/node/src/service.rs:614`; operational assumptions",
+   "Low",
+   "Operator participation and service-payment evidence support another model"
+  ],
+  [
+   "D8",
+   "Independent overlay with optional Midnight anchoring",
+   "Node-network extension at launch; ledger/indexer-only bus",
+   "`midnight-node/node/src/service.rs:644`; `minokawa-compact/doc/release-notes/toolchain-0.33.0.md:22`",
+   "High",
+   "A deployed native extension demonstrates isolation and sufficient capacity"
+  ],
+  [
+   "D9",
+   "Configuration-specific defenses and declared residual risk",
+   "GossipSub, FMD or MLS as universal security guarantees",
+   "`2022-kumar-gossipsub-formal` \u00a7\u00a73\u20135; `2021-seres-fmdfalsepositives` \u00a7\u00a73\u20134; `2023-barnes-rfc9420` \u00a716.9",
+   "High",
+   "Combined-protocol analysis supports stronger guarantees"
+  ],
+  [
+   "D10",
+   "Immutable evidence, bounded models, measured gates and separate upgrade trials",
+   "Feature-led release; unchecked benchmark extrapolation",
+   "`midnight-node/Cargo.lock:7894`; `2024-liu-perfomr` \u00a77.1; `2022-henzinger-simplepir` \u00a78",
+   "High",
+   "Reproducible evidence satisfies or overturns a stated gate"
+  ]
+ ]
+}
