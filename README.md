@@ -57,3 +57,7 @@ in Compact and compiled and costed against the ledger cost model, but nothing ha
 Apache License 2.0. See [LICENSE](LICENSE).
 
 Recommended implementation direction and ranked product portfolio: [stack and use cases](docs/product-requirements/recommended-stack-and-use-cases.md).
+
+## Architecture showcase
+
+The [interactive architecture page](website/README.md) presents the recommended stack, event journey and ten product priorities. Its [ten-agent study](reviews/architecture-page/README.md) and GPT visual prompts are preserved for review.

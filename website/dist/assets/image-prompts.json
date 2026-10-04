@@ -1,0 +1,16 @@
+{
+  "mode": "built-in image_gen",
+  "conceptual_metaphors": true,
+  "images": [
+    {
+      "file": "encrypted-event-transport.png",
+      "prompt": "Use case: stylized-concept\nAsset type: wide editorial website illustration for Midnight Express architecture\nPrimary request: a refined 3D architectural physical model that metaphorically suggests encrypted event transport. Elegant luminous translucent sealed capsules move among a sparse network of precise metallic nodes, joined by discreet fine teal pathways.\nScene/backdrop: deep midnight navy studio backdrop, seamless dark ground.\nStyle/medium: premium editorial 3D render, physically plausible dark glass and brushed metal, restrained and sophisticated.\nComposition/framing: wide horizontal landscape composition, 16:9, one coherent sparse sculptural network with ample breathing room.\nLighting/mood: luminous teal light within the sealed capsules and tiny amber accents, soft cinematic studio lighting.\nConstraints: conceptual metaphor only, not a factual architecture diagram. No text, logos, watermark, labels, arrows, or user interface. Opaque midnight navy background.",
+      "transparent_background": false
+    },
+    {
+      "file": "durable-event-recovery.png",
+      "prompt": "Use case: stylized-concept\nAsset type: wide editorial website illustration for Midnight Express architecture\nPrimary request: a refined 3D editorial cutaway that metaphorically suggests durable event recovery. An orderly layered translucent dark glass archive holds cyan sealed data modules and one small amber checkpoint. Show the archive as an abstract architectural physical model, with layered trays and a graceful cutaway revealing orderly storage.\nScene/backdrop: deep midnight navy studio backdrop, seamless dark ground.\nStyle/medium: premium editorial 3D render, physically plausible dark glass, precision architecture model, restrained and sophisticated.\nComposition/framing: wide horizontal landscape composition, 16:9, orderly layers visible in an elevated three-quarter cutaway view, ample breathing room.\nLighting/mood: cyan internal illumination and a single amber checkpoint, soft cinematic studio lighting.\nConstraints: conceptual metaphor only, not a factual architecture diagram. No text, logos, watermark, labels, arrows, or user interface. Opaque midnight navy background.",
+      "transparent_background": false
+    }
+  ]
+}
