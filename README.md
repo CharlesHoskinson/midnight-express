@@ -48,6 +48,9 @@ in Compact and compiled and costed against the ledger cost model, but nothing ha
 | `design/ears/`, `design/rounds/r5/` | The requirement register. |
 | `experiments/` | Exploratory Rust code and the Compact ledger-interface study (`experiments/registry`). Not a proof of concept; see its README. |
 | `catalog/`, `notes/`, `graph/` | The research corpus catalog, notes and graph tooling. |
+| [`reviews/competitive-event-systems/`](reviews/competitive-event-systems/README.md) | Three independent reviews of each of 26 blockchain, enterprise messaging and listener designs, with extraction decisions. |
+| [`catalog/event-systems/`](catalog/event-systems/README.md) | Scrapling primary-source snapshots, retrieval records and hashes for the comparative study. |
+| [`docs/product-requirements/`](docs/product-requirements/README.md) | Ten business use cases, feature considerations and candidate EARS extensions for product scope review. |
 
 ## License
 

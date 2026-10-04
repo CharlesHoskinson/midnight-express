@@ -1,0 +1,707 @@
+{
+  "review_date": "2026-10-03 America/Denver",
+  "baseline_commit": "dd40bbb35c10e7c7db8e2969a40112ab04c6c65c",
+  "purpose": "Three independent studies per system; research coverage, not implementation/security sign-off",
+  "systems": [
+    {
+      "system_id": "asyncapi",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "24. AsyncAPI",
+          "source_urls": [
+            "https://www.asyncapi.com/docs/reference/specification/v3.0.0"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "23. ASYNCAPI",
+          "source_urls": [
+            "https://www.asyncapi.com/docs/reference/specification/v3.0.0"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "24 ASYNCAPI",
+          "source_urls": [
+            "https://www.asyncapi.com/docs/reference/specification/v3.0.0"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "avalanche",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "14. Avalanche ICM",
+          "source_urls": [
+            "https://build.avax.network/docs/cross-chain/avalanche-warp-messaging/overview"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "13. AVALANCHE ICM",
+          "source_urls": [
+            "https://build.avax.network/docs/cross-chain/avalanche-warp-messaging/overview"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "14 AVALANCHE ICM",
+          "source_urls": [
+            "https://build.avax.network/docs/cross-chain/avalanche-warp-messaging/overview"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "aztec",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "16. Aztec note discovery",
+          "source_urls": [
+            "https://docs.aztec.network/developers/docs/foundational-topics/advanced/storage/note_discovery"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "15. AZTEC PRIVATE NOTE DISCOVERY",
+          "source_urls": [
+            "https://docs.aztec.network/developers/docs/foundational-topics/advanced/storage/note_discovery"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "16 AZTEC NOTE DISCOVERY",
+          "source_urls": [
+            "https://docs.aztec.network/developers/docs/foundational-topics/advanced/storage/note_discovery"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "cardano",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "12. Cardano CIP-83",
+          "source_urls": [
+            "https://github.com/cardano-foundation/CIPs/blob/master/CIP-0083/README.md"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "11. CARDANO CIP-83",
+          "source_urls": [
+            "https://github.com/cardano-foundation/CIPs/blob/master/CIP-0083/README.md"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "12 CARDANO CIP-83",
+          "source_urls": [
+            "https://github.com/cardano-foundation/CIPs/blob/master/CIP-0083/README.md"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "cloudevents",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "23. CloudEvents",
+          "source_urls": [
+            "https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "22. CLOUDEVENTS",
+          "source_urls": [
+            "https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "23 CLOUDEVENTS",
+          "source_urls": [
+            "https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "cosmos",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "15. Cosmos IBC",
+          "source_urls": [
+            "https://docs.cosmos.network/ibc/latest/intro",
+            "https://github.com/cosmos/ibc/blob/main/spec/core/ics-004-channel-and-packet-semantics/README.md"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "14. COSMOS IBC",
+          "source_urls": [
+            "https://docs.cosmos.network/ibc/latest/intro"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "15 COSMOS IBC",
+          "source_urls": [
+            "https://docs.cosmos.network/ibc/latest/intro"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "dialect",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "3. Dialect \u2014 application notification/action service",
+          "source_urls": [
+            "https://www.dialect.to/",
+            "https://docs.dialect.to/"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "3. DIALECT",
+          "source_urls": [
+            "https://www.dialect.to/",
+            "https://docs.dialect.to/"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "03 DIALECT",
+          "source_urls": [
+            "https://www.dialect.to/",
+            "https://docs.dialect.to/"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "dom-events",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "26. DOM EventTarget and Node EventEmitter",
+          "source_urls": [
+            "https://dom.spec.whatwg.org/#interface-eventtarget"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "25. DOM EVENTTARGET",
+          "source_urls": [
+            "https://dom.spec.whatwg.org/#interface-eventtarget"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "26 DOM EVENTTARGET",
+          "source_urls": [
+            "https://dom.spec.whatwg.org/#interface-eventtarget"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "ethereum",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "7. Ethereum native Geth subscriptions",
+          "source_urls": [
+            "https://geth.ethereum.org/docs/interacting-with-geth/rpc/pubsub"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "6. ETHEREUM / GETH LOG LISTENERS",
+          "source_urls": [
+            "https://geth.ethereum.org/docs/interacting-with-geth/rpc/pubsub"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "07 ETHEREUM LOG SUBSCRIPTIONS",
+          "source_urls": [
+            "https://geth.ethereum.org/docs/interacting-with-geth/rpc/pubsub"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "eventbridge",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "22. AWS EventBridge",
+          "source_urls": [
+            "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-retry-policy.html",
+            "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-dlq.html"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "21. AWS EVENTBRIDGE",
+          "source_urls": [
+            "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-retry-policy.html",
+            "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-dlq.html"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "22 AWS EVENTBRIDGE",
+          "source_urls": [
+            "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-retry-policy.html"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "hyperliquid",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "4. Hyperliquid WebSockets",
+          "source_urls": [
+            "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/websocket/subscriptions"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "4. HYPERLIQUID WEBSOCKETS",
+          "source_urls": [
+            "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/websocket/subscriptions"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "04 HYPERLIQUID WEBSOCKETS",
+          "source_urls": [
+            "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/websocket/subscriptions"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "kafka",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "19. Apache Kafka",
+          "source_urls": [
+            "https://kafka.apache.org/43/design/design/"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "18. APACHE KAFKA",
+          "source_urls": [
+            "https://kafka.apache.org/41/design/design/",
+            "https://github.com/apache/kafka/blob/trunk/docs/security/security-model.md"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "19 APACHE KAFKA",
+          "source_urls": [
+            "https://kafka.apache.org/41/design/design/"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "lightning",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "11. Lightning onion messages \u2014 Bitcoin ecosystem routed communication",
+          "source_urls": [
+            "https://github.com/lightning/bolts/blob/master/04-onion-routing.md"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "10. BITCOIN / LIGHTNING ONION MESSAGES",
+          "source_urls": [
+            "https://github.com/lightning/bolts/blob/master/04-onion-routing.md"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "11 LIGHTNING ONION MESSAGES",
+          "source_urls": [
+            "https://github.com/lightning/bolts/blob/master/04-onion-routing.md"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "nats",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "20. NATS JetStream",
+          "source_urls": [
+            "https://docs.nats.io/learn/jetstream/pull-consumers"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "19. NATS JETSTREAM",
+          "source_urls": [
+            "https://docs.nats.io/learn/jetstream/pull-consumers",
+            "https://github.com/nats-io/nats.docs/blob/master/using-nats/jetstream/model_deep_dive.md",
+            "https://docs.nats.io/learn/security/encryption"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "20 NATS JETSTREAM",
+          "source_urls": [
+            "https://docs.nats.io/learn/jetstream/pull-consumers"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "near",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "5. NEAR NEP-297",
+          "source_urls": [
+            "https://github.com/near/NEPs/blob/master/neps/nep-0297.md",
+            "https://github.com/near/near-lake"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "5. NEAR EVENTS / LAKE",
+          "source_urls": [
+            "https://github.com/near/NEPs/blob/master/neps/nep-0297.md",
+            "https://github.com/near/near-lake"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "05 NEAR NEP-297",
+          "source_urls": [
+            "https://github.com/near/NEPs/blob/master/neps/nep-0297.md"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "node-events",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "26. DOM EventTarget and Node EventEmitter",
+          "source_urls": [
+            "https://nodejs.org/api/events.html"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "26. NODE EVENTEMITTER",
+          "source_urls": [
+            "https://nodejs.org/api/events.html"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "27 NODE EVENTEMITTER",
+          "source_urls": [
+            "https://nodejs.org/api/events.html"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "push",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "10. Push \u2014 wallet communication service",
+          "source_urls": [
+            "https://comms.push.org/"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "9. PUSH COMMUNICATIONS",
+          "source_urls": [
+            "https://comms.push.org/"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "10 PUSH",
+          "source_urls": [
+            "https://comms.push.org/"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "rabbitmq",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "21. RabbitMQ",
+          "source_urls": [
+            "https://www.rabbitmq.com/docs/confirms"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "20. RABBITMQ",
+          "source_urls": [
+            "https://www.rabbitmq.com/docs/confirms"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "21 RABBITMQ",
+          "source_urls": [
+            "https://www.rabbitmq.com/docs/confirms"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "reactive-streams",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "25. Reactive Streams",
+          "source_urls": [
+            "https://www.reactive-streams.org/"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "24. REACTIVE STREAMS",
+          "source_urls": [
+            "https://www.reactive-streams.org/"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "25 REACTIVE STREAMS",
+          "source_urls": [
+            "https://www.reactive-streams.org/"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "secret",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "18. Secret Network",
+          "source_urls": [
+            "https://docs.scrt.network/secret-network-documentation/development/development-concepts/secret-contract-fundamentals/privacy-essentials"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "17. SECRET NETWORK",
+          "source_urls": [
+            "https://docs.scrt.network/secret-network-documentation/development/development-concepts/secret-contract-fundamentals/privacy-essentials"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "18 SECRET NETWORK",
+          "source_urls": [
+            "https://docs.scrt.network/secret-network-documentation/development/development-concepts/secret-contract-fundamentals/privacy-essentials"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "solana",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "2. Solana native events",
+          "source_urls": [
+            "https://solana.com/docs/rpc/websocket/logssubscribe"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "2. SOLANA EVENTS",
+          "source_urls": [
+            "https://solana.com/docs/rpc/websocket/logssubscribe"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "02 SOLANA NATIVE EVENTS",
+          "source_urls": [
+            "https://solana.com/docs/rpc/websocket/logssubscribe"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "sui",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "1. Sui Stack Messaging \u2014 ecosystem toolkit, not Sui consensus messaging",
+          "source_urls": [
+            "https://github.com/MystenLabs/sui-stack-messaging",
+            "https://github.com/MystenLabs/sui-stack-messaging/blob/main/docs/sui-stack-messaging/Security.md"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "1. SUI STACK MESSAGING",
+          "source_urls": [
+            "https://github.com/MystenLabs/sui-stack-messaging",
+            "https://github.com/MystenLabs/sui-stack-messaging/blob/main/docs/sui-stack-messaging/Security.md"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "01 SUI STACK MESSAGING",
+          "source_urls": [
+            "https://github.com/MystenLabs/sui-stack-messaging",
+            "https://github.com/MystenLabs/sui-stack-messaging/blob/main/docs/sui-stack-messaging/Security.md"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "ton",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "13. TON encrypted comments and internal-message conventions",
+          "source_urls": [
+            "https://docs-next.ton.org/contracts/standard/wallets/interact",
+            "https://github.com/ton-blockchain/ton/blob/master/doc/smc-guidelines.txt"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "12. TON ENCRYPTED COMMENTS",
+          "source_urls": [
+            "https://github.com/ton-blockchain/docs/blob/main/content/contracts/standard/wallets/interact.mdx"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "13 TON ENCRYPTED COMMENTS AND MESSAGE LIFECYCLE",
+          "source_urls": [
+            "https://docs-next.ton.org/contracts/standard/wallets/interact",
+            "https://github.com/ton-blockchain/ton/blob/master/doc/smc-guidelines.txt"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "waku",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "9. Waku \u2014 independent GossipSub messaging network",
+          "source_urls": [
+            "https://docs.waku.org/learn/concepts/protocols",
+            "https://docs.waku.org/learn/concepts/content-topics"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "8. WAKU",
+          "source_urls": [
+            "https://docs.waku.org/learn/concepts/protocols",
+            "https://docs.waku.org/learn/concepts/content-topics"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "09 WAKU",
+          "source_urls": [
+            "https://docs.waku.org/learn/concepts/protocols",
+            "https://docs.waku.org/learn/concepts/content-topics"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "xmtp",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "8. XMTP \u2014 independent messaging protocol",
+          "source_urls": [
+            "https://docs.xmtp.org/protocol/overview",
+            "https://docs.xmtp.org/protocol/security",
+            "https://docs.xmtp.org/protocol/topics"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "7. XMTP",
+          "source_urls": [
+            "https://docs.xmtp.org/protocol/security",
+            "https://docs.xmtp.org/protocol/topics"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "08 XMTP",
+          "source_urls": [
+            "https://docs.xmtp.org/protocol/security",
+            "https://docs.xmtp.org/protocol/topics",
+            "https://docs.xmtp.org/protocol/overview"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "zcash",
+      "reviews": {
+        "architecture": {
+          "report": "../../reviews/competitive-event-systems/architecture.md",
+          "report_heading": "17. Zcash memos",
+          "source_urls": [
+            "https://zips.z.cash/zip-0302"
+          ]
+        },
+        "privacy": {
+          "report": "../../reviews/competitive-event-systems/privacy.md",
+          "report_heading": "16. ZCASH MEMOS",
+          "source_urls": [
+            "https://zips.z.cash/zip-0302"
+          ]
+        },
+        "product": {
+          "report": "../../reviews/competitive-event-systems/product.md",
+          "report_heading": "17 ZCASH MEMOS",
+          "source_urls": [
+            "https://zips.z.cash/zip-0302"
+          ]
+        }
+      }
+    }
+  ]
+}

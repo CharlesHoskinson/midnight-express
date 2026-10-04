@@ -1,0 +1,259 @@
+[
+  {
+    "id": "MPE-PRD-001",
+    "title": "Listener cancellation",
+    "sentence": "When an application cancels a subscription handle, the MPE client library shall stop scheduling callbacks for that handle.",
+    "pattern": "event",
+    "scope": "PROD",
+    "priority": "SHOULD",
+    "status": "candidate",
+    "decision": "DEC-PRD-1",
+    "existing_requirement_ids": [
+      "MPE-CON-055"
+    ],
+    "verify": "Cancel during pending dispatch, drain in-flight work under documented semantics, and assert no newly scheduled callback; repeated registration/cancellation returns resource counts to baseline.",
+    "source_systems": "DOM/Node listeners; Reactive Streams"
+  },
+  {
+    "id": "MPE-PRD-002",
+    "title": "Handler failure isolation",
+    "sentence": "If an application handler fails, then the MPE client library shall isolate that failure from other subscriptions and infrastructure tasks.",
+    "pattern": "unwanted",
+    "scope": "PROD",
+    "priority": "SHOULD",
+    "status": "candidate",
+    "decision": "DEC-PRD-1",
+    "existing_requirement_ids": [
+      "MPE-CON-056"
+    ],
+    "verify": "Throw and reject promises in one handler; another subscriber continues; error does not become false processing success.",
+    "source_systems": "Node events; Reactive Streams"
+  },
+  {
+    "id": "MPE-PRD-003",
+    "title": "Bounded application demand",
+    "sentence": "While an application subscription has zero outstanding demand, the MPE client library shall schedule no new Message callback for that subscription.",
+    "pattern": "state",
+    "scope": "PROD",
+    "priority": "SHOULD",
+    "status": "candidate",
+    "decision": "DEC-PRD-1",
+    "existing_requirement_ids": [
+      "MPE-PRF-034",
+      "MPE-PRV-003"
+    ],
+    "verify": "Slow-handler stress honors declared demand and bounded local queues; packet traces remain recognition-independent; saturation returns an explicit error or disk-spool state.",
+    "source_systems": "NATS; Reactive Streams"
+  },
+  {
+    "id": "MPE-PRD-004",
+    "title": "Encrypted failure quarantine",
+    "sentence": "When an authenticated Message exhausts its configured handler retries, the MPE client library shall persist its failure record in the application's encrypted quarantine.",
+    "pattern": "event",
+    "scope": "PROD",
+    "priority": "SHOULD",
+    "status": "candidate",
+    "decision": "DEC-PRD-1",
+    "existing_requirement_ids": [
+      "MPE-CON-056",
+      "MPE-PUB-049"
+    ],
+    "verify": "Always-failing handler produces one recoverable record with identity, reason and deadline; storage-full is explicit; relay logs reveal no failure-specific business selector.",
+    "source_systems": "EventBridge; RabbitMQ"
+  },
+  {
+    "id": "MPE-PRD-005",
+    "title": "Retry expiry gate",
+    "sentence": "If a quarantined Message has expired, then the MPE client library shall refuse an application request to execute it.",
+    "pattern": "unwanted",
+    "scope": "PROD",
+    "priority": "SHOULD",
+    "status": "candidate",
+    "decision": "DEC-PRD-1",
+    "existing_requirement_ids": [
+      "MPE-CON-046"
+    ],
+    "verify": "Manual replay after expiry cannot authorize an effect; diagnostic inspection may remain available under configured retention. Retry counts and deadlines must be configured before execution.",
+    "source_systems": "EventBridge"
+  },
+  {
+    "id": "MPE-PRD-006",
+    "title": "Confidential standard event mapping",
+    "sentence": "Where CloudEvents interoperability is enabled, the MPE client library shall encode event identity and semantic attributes inside the authenticated Sealed Body.",
+    "pattern": "optional",
+    "scope": "PROD",
+    "priority": "SHOULD",
+    "status": "candidate",
+    "decision": "DEC-PRD-1",
+    "existing_requirement_ids": [
+      "MPE-PRV-003",
+      "MPE-PUB-049",
+      "MPE-FMT-033"
+    ],
+    "verify": "Round-trip identity, source, type, version and registered schema; capture outer packets and verify no semantic attributes appear in routing/header metadata. Unknown authenticated schemas remain undecodable.",
+    "source_systems": "CloudEvents; NEP-297"
+  },
+  {
+    "id": "MPE-PRD-007",
+    "title": "Versioned asynchronous API contract",
+    "sentence": "The MPE client library shall publish a versioned AsyncAPI contract for its product messaging API.",
+    "pattern": "ubiquitous",
+    "scope": "PROD",
+    "priority": "SHOULD",
+    "status": "candidate",
+    "decision": "DEC-PRD-1",
+    "existing_requirement_ids": [
+      "MPE-CON-055"
+    ],
+    "verify": "Generated examples interoperate with reference API; breaking changes are detected by compatibility checks; examples contain no real stream secrets or customer topology.",
+    "source_systems": "AsyncAPI"
+  },
+  {
+    "id": "MPE-PRD-008",
+    "title": "Receipt provenance",
+    "sentence": "Where application processing receipts are enabled, the MPE client library shall verify the receipt issuer against the workflow's authorized processor set.",
+    "pattern": "optional",
+    "scope": "PROD",
+    "priority": "SHOULD",
+    "status": "candidate",
+    "decision": "DEC-PRD-1",
+    "existing_requirement_ids": [
+      "MPE-CON-015",
+      "MPE-STO-039"
+    ],
+    "verify": "Forged, expired, wrong-workflow and replayed receipts cannot advance business status; relay acceptance, retained storage, inclusion/finality and processing remain separate dimensions. Receipts are opt-in encrypted messages. Strongest privacy mode has no automatic recognition-triggered receipt; explicit application responses declare disclosure.",
+    "source_systems": "RabbitMQ; Waku; Cosmos"
+  },
+  {
+    "id": "MPE-PRD-009",
+    "title": "External effect idempotency",
+    "sentence": "Where a workflow adapter invokes an external side-effect API, the MPE client library shall pass the workflow's stable idempotency key to that adapter.",
+    "pattern": "optional",
+    "scope": "PROD",
+    "priority": "SHOULD",
+    "status": "candidate",
+    "decision": "DEC-PRD-1",
+    "existing_requirement_ids": [
+      "MPE-CON-033"
+    ],
+    "verify": "Crash after remote success but before checkpoint; recover without duplicate effect if destination honors key. Unsupported destinations expose uncertain completion and prohibit an exactly-once guarantee.",
+    "source_systems": "Kafka; RabbitMQ"
+  },
+  {
+    "id": "MPE-PRD-010",
+    "title": "Connector trust descriptor",
+    "sentence": "Where a source-chain connector is enabled, the MPE client library shall expose its origin-verification and finality policy in the connector descriptor.",
+    "pattern": "optional",
+    "scope": "PROD",
+    "priority": "SHOULD",
+    "status": "candidate",
+    "decision": "DEC-PRD-1",
+    "existing_requirement_ids": [
+      "MPE-FMT-054",
+      "MPE-CON-062",
+      "MPE-CON-063"
+    ],
+    "verify": "Wrong chain, wrong transaction/event position and forged origin are rejected under selected policy; gateway-attested mode is distinguishable from independently verified mode. No universal finality mapping.",
+    "source_systems": "Avalanche; Cosmos; Solana; Ethereum"
+  },
+  {
+    "id": "MPE-PRD-011",
+    "title": "Private-mode connector queries",
+    "sentence": "While whole-Shard privacy mode is selected, the MPE client library shall issue no source-confirmation query selected by a recognized Message.",
+    "pattern": "state",
+    "scope": "PROD",
+    "priority": "SHOULD",
+    "status": "candidate",
+    "decision": "DEC-PRD-1",
+    "existing_requirement_ids": [
+      "MPE-PRV-013",
+      "MPE-PUB-030"
+    ],
+    "verify": "Swap recognized interests while holding scheduled workload constant; source and relay traces contain no recognition-dependent selectors. Confirmation uses approved independent batching or explicitly selected weaker mode.",
+    "source_systems": "Aztec; Waku; source-chain adapters"
+  },
+  {
+    "id": "MPE-PRD-012",
+    "title": "Group epoch revocation",
+    "sentence": "When an authorized group membership removal commits, the MPE client library shall activate a fresh group-key epoch excluding the removed member before accepting subsequent group publications.",
+    "pattern": "event",
+    "scope": "PROD",
+    "priority": "SHOULD",
+    "status": "candidate",
+    "decision": "DEC-PRD-1",
+    "existing_requirement_ids": [
+      "MPE-CRY-018",
+      "MPE-CRY-029",
+      "MPE-CRY-019"
+    ],
+    "verify": "Removal activates a fresh epoch before accepting subsequent publications; removed member cannot decrypt any message accepted after that boundary. Concurrent sends obey the boundary; past readable history cannot be erased.",
+    "source_systems": "Sui; XMTP"
+  },
+  {
+    "id": "MPE-PRD-013",
+    "title": "Consent-scoped notifications",
+    "sentence": "If a sender lacks a recipient's application notification permission, then the MPE client library shall suppress that sender's user-visible notification.",
+    "pattern": "unwanted",
+    "scope": "PROD",
+    "priority": "SHOULD",
+    "status": "candidate",
+    "decision": "DEC-PRD-1",
+    "existing_requirement_ids": [
+      "MPE-CRY-018",
+      "MPE-PRV-015"
+    ],
+    "verify": "Denied/revoked sender cannot trigger display; receipt and push behavior audited for new interest leakage. Consent does not alone establish instruction authority.",
+    "source_systems": "Push; XMTP; Dialect"
+  },
+  {
+    "id": "MPE-PRD-014",
+    "title": "Private mobile capability gate",
+    "sentence": "If a requested private mobile profile cannot satisfy its declared leakage policy, then the MPE client library shall refuse to enable that profile.",
+    "pattern": "unwanted",
+    "scope": "PROD",
+    "priority": "SHOULD",
+    "status": "candidate",
+    "decision": "DEC-PRD-1",
+    "existing_requirement_ids": [
+      "MPE-PRV-013",
+      "MPE-PRF-021"
+    ],
+    "verify": "Unavailable private retrieval cannot silently fall back to topic filtering. Measure bytes, energy, loss and recovery on named phone/network profiles; budget and supported threat model require product approval.",
+    "source_systems": "Waku; Aztec; Push"
+  },
+  {
+    "id": "MPE-PRD-015",
+    "title": "Actionable notification binding",
+    "sentence": "Where an application displays an executable Message action, the MPE client library shall derive its effect inputs exclusively from the authenticated signed workflow payload.",
+    "pattern": "optional",
+    "scope": "PROD",
+    "priority": "SHOULD",
+    "status": "candidate",
+    "decision": "DEC-PRD-1",
+    "existing_requirement_ids": [
+      "MPE-CON-043",
+      "MPE-CON-044a",
+      "MPE-CON-044b",
+      "MPE-CON-060"
+    ],
+    "verify": "Change amount, recipient, target chain, action or expiry in UI/connector and confirm rejection; duplicate confirmation cannot duplicate business effect.",
+    "source_systems": "Dialect; Sui"
+  },
+  {
+    "id": "MPE-PRD-016",
+    "title": "Recovery security profile",
+    "sentence": "Where encrypted history recovery is enabled, the MPE client library shall document the recovery profile's key-retention consequences for forward secrecy.",
+    "pattern": "optional",
+    "scope": "PROD",
+    "priority": "SHOULD",
+    "status": "candidate",
+    "decision": "DEC-PRD-1",
+    "existing_requirement_ids": [
+      "MPE-CRY-029",
+      "MPE-STO-025",
+      "MPE-PRV-040"
+    ],
+    "verify": "Restore within permitted retention and key scope; missing keys/history return explicit gaps. Test revoked-device and backup compromise assumptions; archives cannot silently restore deliberately erased ratchet secrets.",
+    "source_systems": "Sui/Walrus; XMTP; NATS"
+  }
+]

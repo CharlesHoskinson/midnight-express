@@ -1,0 +1,72 @@
+# Event-system source catalog
+
+Primary-source documents collected with **Scrapling**, 3 October 2026, America/Denver. Original URL, status, extraction/whitespace-normalization method and SHA-256 hashes are recorded in [source-manifest.json](source-manifest.json). Snapshots are research evidence, not vendored dependencies. Third-party source content remains attributable to its original publisher; this repository's license does not relicense third-party source material.
+
+A failed target is recorded rather than silently treated as retrieved. NEAR has a repository replacement, TON has a canonical source repository replacement, and the initial Cosmos path has a corrected source. The live protocol main branches may contain unreleased changes; pin a published release before implementation.
+
+| Original | Status | Local evidence |
+|---|---|---|
+| [https://github.com/MystenLabs/sui-stack-messaging](https://github.com/MystenLabs/sui-stack-messaging) | 200 | [Snapshot](snapshots/cd835e7e0376.txt) |
+| [https://raw.githubusercontent.com/MystenLabs/sui-stack-messaging/main/docs/sui-stack-messaging/Security.md](https://raw.githubusercontent.com/MystenLabs/sui-stack-messaging/main/docs/sui-stack-messaging/Security.md) | 200 | [Snapshot](snapshots/4bc62fe5a52f.txt) |
+| [https://raw.githubusercontent.com/MystenLabs/sui-stack-messaging/main/docs/sui-stack-messaging/Setup.md](https://raw.githubusercontent.com/MystenLabs/sui-stack-messaging/main/docs/sui-stack-messaging/Setup.md) | 200 | [Snapshot](snapshots/1f1a042117c1.txt) |
+| [https://docs.sui.io/develop/accessing-data/](https://docs.sui.io/develop/accessing-data/) | 200 | [Snapshot](snapshots/da12be1b4ae2.txt) |
+| [https://solana.com/docs/rpc/websocket/logssubscribe](https://solana.com/docs/rpc/websocket/logssubscribe) | 200 | [Snapshot](snapshots/ff70887b9e9e.txt) |
+| [https://www.dialect.to/](https://www.dialect.to/) | 200 | [Snapshot](snapshots/a4a1160c9307.txt) |
+| [https://docs.dialect.to/](https://docs.dialect.to/) | 200 | [Snapshot](snapshots/33cf1ea740ed.txt) |
+| [https://registry.npmjs.org/@dialectlabs/sdk](https://registry.npmjs.org/@dialectlabs/sdk) | 200 | [Snapshot](snapshots/d925e3f25c3d.txt) |
+| [https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/websocket/subscriptions](https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/websocket/subscriptions) | 200 | [Snapshot](snapshots/1d26502454e7.txt) |
+| [https://raw.githubusercontent.com/near/NEPs/master/neps/nep-0297.md](https://raw.githubusercontent.com/near/NEPs/master/neps/nep-0297.md) | 200 | [Snapshot](snapshots/5ca85252f733.txt) |
+| [https://docs.near.org/data-infrastructure/tutorials/running-near-lake/run-lake-indexer](https://docs.near.org/data-infrastructure/tutorials/running-near-lake/run-lake-indexer) | 404 | Unavailable |
+| [https://geth.ethereum.org/docs/interacting-with-geth/rpc/pubsub](https://geth.ethereum.org/docs/interacting-with-geth/rpc/pubsub) | 200 | [Snapshot](snapshots/828992835d68.txt) |
+| [https://docs.xmtp.org/protocol/overview](https://docs.xmtp.org/protocol/overview) | 200 | [Snapshot](snapshots/242309bf1750.txt) |
+| [https://docs.xmtp.org/protocol/security](https://docs.xmtp.org/protocol/security) | 200 | [Snapshot](snapshots/138c35fc9483.txt) |
+| [https://docs.xmtp.org/protocol/topics](https://docs.xmtp.org/protocol/topics) | 200 | [Snapshot](snapshots/61593a91933a.txt) |
+| [https://docs.xmtp.org/network/run-a-node](https://docs.xmtp.org/network/run-a-node) | 200 | [Snapshot](snapshots/105ed914550b.txt) |
+| [https://xmtp.org/decentralization](https://xmtp.org/decentralization) | 200 | [Snapshot](snapshots/895d608804ca.txt) |
+| [https://docs.waku.org/learn/concepts/protocols](https://docs.waku.org/learn/concepts/protocols) | 200 | [Snapshot](snapshots/d1c8044010b5.txt) |
+| [https://docs.waku.org/learn/concepts/content-topics](https://docs.waku.org/learn/concepts/content-topics) | 200 | [Snapshot](snapshots/71eac33dd44f.txt) |
+| [https://comms.push.org/](https://comms.push.org/) | 200 | [Snapshot](snapshots/e394a157f2d7.txt) |
+| [https://raw.githubusercontent.com/lightning/bolts/master/04-onion-routing.md](https://raw.githubusercontent.com/lightning/bolts/master/04-onion-routing.md) | 200 | [Snapshot](snapshots/d158d24f2af5.txt) |
+| [https://raw.githubusercontent.com/cardano-foundation/CIPs/master/CIP-0083/README.md](https://raw.githubusercontent.com/cardano-foundation/CIPs/master/CIP-0083/README.md) | 200 | [Snapshot](snapshots/b73a36498daf.txt) |
+| [https://docs-next.ton.org/contracts/standard/wallets/interact](https://docs-next.ton.org/contracts/standard/wallets/interact) | None | Unavailable |
+| [https://build.avax.network/docs/cross-chain/avalanche-warp-messaging/overview](https://build.avax.network/docs/cross-chain/avalanche-warp-messaging/overview) | 200 | [Snapshot](snapshots/7b84619e43f8.txt) |
+| [https://ibc.cosmos.network/main/ibc/apps/packets_acks/](https://ibc.cosmos.network/main/ibc/apps/packets_acks/) | 200 | [Snapshot](snapshots/6698615d3809.txt) |
+| [https://docs.aztec.network/developers/docs/foundational-topics/advanced/storage/note_discovery](https://docs.aztec.network/developers/docs/foundational-topics/advanced/storage/note_discovery) | 200 | [Snapshot](snapshots/e99e5e396e0f.txt) |
+| [https://docs.scrt.network/secret-network-documentation/development/development-concepts/secret-contract-fundamentals/privacy-essentials](https://docs.scrt.network/secret-network-documentation/development/development-concepts/secret-contract-fundamentals/privacy-essentials) | 200 | [Snapshot](snapshots/20a7305116b7.txt) |
+| [https://zips.z.cash/zip-0302](https://zips.z.cash/zip-0302) | 200 | [Snapshot](snapshots/145c921594c4.txt) |
+| [https://zips.z.cash/zip-0231](https://zips.z.cash/zip-0231) | 200 | [Snapshot](snapshots/de47943a20ce.txt) |
+| [https://raw.githubusercontent.com/ton-blockchain/ton/master/doc/smc-guidelines.txt](https://raw.githubusercontent.com/ton-blockchain/ton/master/doc/smc-guidelines.txt) | 200 | [Snapshot](snapshots/ccd035ec677f.txt) |
+| [https://raw.githubusercontent.com/near/near-lake/main/README.md](https://raw.githubusercontent.com/near/near-lake/main/README.md) | 200 | [Snapshot](snapshots/8f40a3b26e78.txt) |
+| [https://raw.githubusercontent.com/ton-blockchain/docs/main/content/contracts/standard/wallets/interact.mdx](https://raw.githubusercontent.com/ton-blockchain/docs/main/content/contracts/standard/wallets/interact.mdx) | 200 | [Snapshot](snapshots/85880244d094.txt) |
+| [https://kafka.apache.org/43/design/design/](https://kafka.apache.org/43/design/design/) | 200 | [Snapshot](snapshots/c61f06541d5d.txt) |
+| [https://docs.nats.io/learn/jetstream/pull-consumers](https://docs.nats.io/learn/jetstream/pull-consumers) | 200 | [Snapshot](snapshots/723602cf5c79.txt) |
+| [https://www.rabbitmq.com/docs/confirms](https://www.rabbitmq.com/docs/confirms) | 200 | [Snapshot](snapshots/aafb8c42feef.txt) |
+| [https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-retry-policy.html](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-retry-policy.html) | 200 | [Snapshot](snapshots/a5a353a6aca6.txt) |
+| [https://raw.githubusercontent.com/cloudevents/spec/main/cloudevents/spec.md](https://raw.githubusercontent.com/cloudevents/spec/main/cloudevents/spec.md) | 200 | [Snapshot](snapshots/773ec8e220cf.txt) |
+| [https://www.asyncapi.com/docs/reference/specification/v3.0.0](https://www.asyncapi.com/docs/reference/specification/v3.0.0) | 200 | [Snapshot](snapshots/1a3a4245fcb8.txt) |
+| [https://www.reactive-streams.org/](https://www.reactive-streams.org/) | 200 | [Snapshot](snapshots/6f2002702d05.txt) |
+| [https://dom.spec.whatwg.org/](https://dom.spec.whatwg.org/) | 200 | [Snapshot](snapshots/a526a274cc5f.txt) |
+| [https://nodejs.org/api/events.html](https://nodejs.org/api/events.html) | 200 | [Snapshot](snapshots/9e0df7e127d1.txt) |
+| [https://raw.githubusercontent.com/cosmos/ibc/main/spec/core/ics-04-channel-and-packet-semantics/README.md](https://raw.githubusercontent.com/cosmos/ibc/main/spec/core/ics-04-channel-and-packet-semantics/README.md) | 404 | Unavailable |
+| [https://raw.githubusercontent.com/cosmos/ibc/main/spec/core/ics-004-channel-and-packet-semantics/README.md](https://raw.githubusercontent.com/cosmos/ibc/main/spec/core/ics-004-channel-and-packet-semantics/README.md) | 200 | [Snapshot](snapshots/617ec3e7f8b6.txt) |
+| [https://signal.org/docs/](https://signal.org/docs/) | 200 | [Snapshot](snapshots/d828d1958f98.txt) |
+| [https://signal.org/docs/specifications/doubleratchet/](https://signal.org/docs/specifications/doubleratchet/) | 200 | [Snapshot](snapshots/e31fc9644f99.txt) |
+| [https://signal.org/docs/specifications/pqxdh/](https://signal.org/docs/specifications/pqxdh/) | 200 | [Snapshot](snapshots/d587c60d0a3e.txt) |
+| [https://signal.org/docs/specifications/sesame/](https://signal.org/docs/specifications/sesame/) | 200 | [Snapshot](snapshots/057f51971771.txt) |
+| [https://raw.githubusercontent.com/signalapp/libsignal/main/README.md](https://raw.githubusercontent.com/signalapp/libsignal/main/README.md) | 200 | [Snapshot](snapshots/ae3388033b15.txt) |
+| [https://raw.githubusercontent.com/signalapp/libsignal/main/LICENSE](https://raw.githubusercontent.com/signalapp/libsignal/main/LICENSE) | 200 | [Snapshot](snapshots/fb79db1e13e5.txt) |
+| [https://raw.githubusercontent.com/libp2p/specs/master/pubsub/gossipsub/gossipsub-v1.2.md](https://raw.githubusercontent.com/libp2p/specs/master/pubsub/gossipsub/gossipsub-v1.2.md) | 200 | [Snapshot](snapshots/d37a3e48429a.txt) |
+| [https://raw.githubusercontent.com/libp2p/specs/master/pubsub/gossipsub/gossipsub-v1.1.md](https://raw.githubusercontent.com/libp2p/specs/master/pubsub/gossipsub/gossipsub-v1.1.md) | 200 | [Snapshot](snapshots/b26c82431bfb.txt) |
+| [https://raw.githubusercontent.com/cloudevents/spec/v1.0.2/cloudevents/spec.md](https://raw.githubusercontent.com/cloudevents/spec/v1.0.2/cloudevents/spec.md) | 200 | [Snapshot](snapshots/9629b14c0b02.txt) |
+| [https://signal.org/blog/sealed-sender/](https://signal.org/blog/sealed-sender/) | 200 | [Snapshot](snapshots/2e0de8940247.txt) |
+| [https://signal.org/blog/spqr/](https://signal.org/blog/spqr/) | 200 | [Snapshot](snapshots/4eb96d2d829c.txt) |
+| [https://raw.githubusercontent.com/signalapp/libsignal/main/rust/protocol/src/sender_keys.rs](https://raw.githubusercontent.com/signalapp/libsignal/main/rust/protocol/src/sender_keys.rs) | 200 | [Snapshot](snapshots/ed4d5aa7099d.txt) |
+| [https://raw.githubusercontent.com/libp2p/specs/master/pubsub/gossipsub/gossipsub-v1.0.md](https://raw.githubusercontent.com/libp2p/specs/master/pubsub/gossipsub/gossipsub-v1.0.md) | 200 | [Snapshot](snapshots/4be9bd7f65be.txt) |
+| [https://raw.githubusercontent.com/signalapp/libsignal/main/rust/protocol/src/group_cipher.rs](https://raw.githubusercontent.com/signalapp/libsignal/main/rust/protocol/src/group_cipher.rs) | 200 | [Snapshot](snapshots/ae46729030a7.txt) |
+| [https://raw.githubusercontent.com/libp2p/rust-libp2p/master/protocols/gossipsub/src/config.rs](https://raw.githubusercontent.com/libp2p/rust-libp2p/master/protocols/gossipsub/src/config.rs) | 200 | [Snapshot](snapshots/e7f38e35f9cb.txt) |
+| [https://raw.githubusercontent.com/libp2p/rust-libp2p/master/protocols/gossipsub/src/protocol.rs](https://raw.githubusercontent.com/libp2p/rust-libp2p/master/protocols/gossipsub/src/protocol.rs) | 200 | [Snapshot](snapshots/854ad21317a8.txt) |
+| [https://raw.githubusercontent.com/signalapp/libsignal/main/rust/protocol/src/lib.rs](https://raw.githubusercontent.com/signalapp/libsignal/main/rust/protocol/src/lib.rs) | 200 | [Snapshot](snapshots/bf359ee2e0b5.txt) |
+| [https://raw.githubusercontent.com/signalapp/libsignal/main/rust/protocol/src/session_cipher.rs](https://raw.githubusercontent.com/signalapp/libsignal/main/rust/protocol/src/session_cipher.rs) | 404 | Unavailable |
+| [https://raw.githubusercontent.com/signalapp/libsignal/main/rust/protocol/src/storage/traits.rs](https://raw.githubusercontent.com/signalapp/libsignal/main/rust/protocol/src/storage/traits.rs) | 200 | [Snapshot](snapshots/c3c55c9cd0fe.txt) |
+| [https://raw.githubusercontent.com/signalapp/libsignal/main/rust/protocol/src/session_management.rs](https://raw.githubusercontent.com/signalapp/libsignal/main/rust/protocol/src/session_management.rs) | 200 | [Snapshot](snapshots/35f7f65c8d8c.txt) |
+| [https://raw.githubusercontent.com/signalapp/libsignal/main/rust/protocol/src/session.rs](https://raw.githubusercontent.com/signalapp/libsignal/main/rust/protocol/src/session.rs) | 200 | [Snapshot](snapshots/362934fbf7a8.txt) |

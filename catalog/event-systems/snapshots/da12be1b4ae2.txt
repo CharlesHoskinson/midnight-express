@@ -1,0 +1,185 @@
+Accessing Data | Sui Documentation
+Skip to main content
+Accessing Data
+On this page
+Accessing Data
+Data access on Sui is the process of reading onchain state, including
+transactions
+,
+checkpoints
+,
+objects
+, and
+events
+. Sui provides multiple interfaces for accessing this data, each optimized for different use cases.
+Choosing a data access method
+​
+Method
+Best for
+Latency
+Historical depth
+GraphQL RPC
+Flexible queries, app backends, explorers
+Low
+Current state and recent history
+gRPC
+High-throughput streaming, real-time pipelines
+Lowest
+Current state and recent history
+Custom indexing
+Application-specific data models, analytics
+Varies
+Full history (you control retention)
+Archival Store
+Historical lookups after full node pruning
+Higher
+Complete history from genesis
+For most applications, start with
+GraphQL RPC
+. If you need real-time streaming or higher throughput, use
+gRPC
+. If you need a custom data model or application-specific indexes, build a
+custom indexing pipeline
+. For historical data beyond what full nodes retain, use the
+Archival Store
+.
+You can also subscribe to onchain activity through
+events
+, which Move modules emit during transaction execution.
+Authenticated events
+ provide cryptographic proof of event origin for cross-system verification.
+For a list of hosted RPC providers, see
+RPC Providers
+.
+Data Access Interfaces
+Overview of the types of data access mechanisms available in Sui.
+→
+RPC and Data Providers
+Third-party providers offering Sui gRPC, GraphQL RPC, and Archival Store and Service endpoints.
+→
+JSON-RPC Migration Guide
+Choose between gRPC and GraphQL RPC when migrating from the deprecated JSON-RPC API. Includes a method mapping, decision criteria, and common migration gotchas.
+→
+gRPC
+In this section
+What is gRPC?
+Querying Data with gRPC
+gRPC Migration Cookbook
+→
+GraphQL
+In this section
+GraphQL for Sui RPC
+Querying Data with GraphQL RPC
+GraphQL Migration Cookbook
+→
+Archival Service
+In this section
+What is Archival Store and Service?
+Querying Historical Data with Archival Service
+→
+Emitting Events
+Learn how to define Move event structs, emit events from smart contracts, and process or query them using gRPC, the TypeScript SDK, or a custom indexer.
+→
+Authenticated Events
+Cryptographically verifiable Move events that can be verified by a light client without trusting any intermediary, suitable for trustless event consumption.
+→
+Custom Indexing Framework
+In this section
+What Are Custom Indexers?
+Indexer Pipeline Architecture
+Build a Custom Indexer
+Integrate a Custom Indexer
+Bring Your Own Store (BYOS)
+Integrate Data Sources
++ 1 more
+→
+Edit this page
+Previous
+Gas Smashing
+Next
+Data Access Interfaces
+Choosing a data access method
+Develop
+Sui Architecture
+Using Objects
+Writing Move Packages
+Deploying and Upgrading Packages
+Managing Packages
+Testing and Debugging
+Building Transactions
+Paying for Transactions
+Accessing Data
+Data Access Interfaces
+RPC and Data Providers
+JSON-RPC Migration Guide
+gRPC
+GraphQL
+Archival Service
+Emitting Events
+Authenticated Events
+Custom Indexing Framework
+Cryptography
+Security
+Production Readiness
+💬
+Join Discord
+→
+Sui Documentation
+Getting Started
+Skills
+Sui MCP Server
+Hello, World!
+Example Apps
+Developer Tools
+Developer Cheat Sheet
+Ethereum -> Sui
+Solana -> Sui
+Develop
+Sui Architecture
+Using Objects
+Writing Move Packages
+Deploying and Upgrading Packages
+Managing Packages
+Testing and Debugging
+Building Transactions
+Paying for Transactions
+Accessing Data
+Cryptography
+Node Operators
+Onchain Finance
+Types of Assets
+Asset Custody
+Fungible Tokens
+Tokenized Assets
+Example Asset Patterns
+Closed Loop Token
+Permissioned Asset Standard
+DeepBook
+Oracles
+Kiosk
+Payment Kit
+Sui Stack
+Onchain Time
+Onchain Randomness
+Sagat
+Walrus
+Seal
+SuiNS
+Enoki
+Nautilus
+zkLogin
+SuiPlay0X1
+References
+Sui RPC
+Sui CLI
+IDE Support
+Sui SDKs
+PTB Commands
+Move Framework
+Object Display V2 Syntax
+Release Notes
+Glossary
+Ask Sui AI
+Search
+© 2026 Sui Foundation | Documentation distributed under
+CC BY 4.0

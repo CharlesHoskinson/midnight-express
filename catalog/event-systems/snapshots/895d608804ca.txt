@@ -1,0 +1,174 @@
+Decentralizing XMTP
+Build
+Join
+the XMTP Switchboard Community
+ ↗
+Decentralizing XMTP
+One year ago, we launched the XMTP testnet, marking the first step toward a decentralized messaging network powered by the
+Messaging Layer Security (MLS)
+ standard. Since then, the network has processed over 150 million messages, proving that secure, private, and high-performance messaging can be built on open protocols.
+We are now preparing for mainnet.
+We are
+stability testing v1.0 of the mainnet node software
+, running performance benchmarks to ensure consumer-grade messaging latency and fine-tuning mainnet-ready SDKs and payment infrastructure.
+After testing is complete, we'll begin a
+60-day migration window
+. Apps using the latest SDKs and payment infrastructure will transition automatically to mainnet and begin paying fees seamlessly.
+At our current pace, we expect the process of transitioning to mainnet to be complete in March 2026. This critical milestone will mark the arrival of Phase 1 of XMTP's decentralization.
+Track our progress toward mainnet
+.
+Below, we discuss our approach in this phase and our plans for Phases 2 and 3.
+Why decentralization matters
+For years, our most important conversations have run through WhatsApp, Telegram, iMessage, and a handful of other platforms we don't control. They can read our messages, censor our content, or shut down without warning. They can change their rules on developers whenever it suits them. They survive on ads that extract value from our conversations or donations that can disappear overnight. And when governments pass regulations that erode privacy, they must comply.
+No person, company, or country should be the single point of failure for the world's freedom to communicate.
+That’s why we're decentralizing XMTP. So the network can be owned by the people who use it. Users control their conversations. Developers build the next generation of messaging apps without a single company being able to cut them off or censor them. The network keeps running no matter what. And the value we create by communicating belongs to us, not to companies who would extract it.
+But not all decentralization is created equal. We believe the right approach is
+a single global network sustained and secured by economic incentives.
+ Economic alignment lets participants coordinate: upgrades ship, innovation compounds, and the network improves together rather than fragmenting. It gives operators skin in the game, so you're not trusting them to behave honestly out of goodwill. And it lets the people who use and sustain the network own the value they create.
+That's why XMTP is one network, one protocol, sustainable from day one and owned by its participants.
+We're getting there in three phases—starting with a trusted operator set and evolving toward a fully permissionless network secured by economics.
+Phase 1
+Phase 2
+Phase 3
+Node eligibility
+Security Council approval
+Security Council approval
+Open to all
+Active node selection
+Security Council
+Stake-weighted election
+Stake-weighted election
+Misbehavior enforcement
+Council ejects nodes
+Council triggers slashing
+Consensus triggers slashing
+Metadata consensus
+L3 appchain
+L3 appchain
+Native BFT
+Economics
+Messaging fees
+Fees + staking rewards + buyback
+Fees + staking rewards + buyback
+Governance
+XMTP Labs
+XMTP Commons (DUNA)
+XMTP Commons (DUNA)
+Security Council role
+Selection, oversight, enforcement
+Eligibility, oversight, enforcement
+Emergency response only
+Phase 1: The XMTP Network
+At its core, the XMTP Network is a temporary store of quantum-resistant encrypted message data used sustained by next-generation messaging apps. Developers power messaging between users, agents, and apps without storing a single message on their own servers. Users can share their most sensitive conversations knowing developers have nothing to hand over. It’s messaging without a backdoor.
+Learn about our approach to quantum-resistant message storage
+.
+Message data availability
+Because messaging demands extremely low latency, the Phase 1 network is permissioned, small, and tightly connected so that updates to one node can be immediately broadcast to all nodes. Fewer hops mean faster delivery, simpler coordination, and higher reliability.
+Every node holds a full quantum-resistant copy of all messages, so if a node goes down, messages remain accessible to users. This is crucial for censorship resistance: if a country changes its stance on encryption and privacy and forces a node to shut down, the network remains accessible to everyone.
+All messages expire from the network after a default 60-day retention period.
+Learn about the XMTP network protocol
+.
+Ordered data availability
+Beyond storing messages, the network handles essential encrypted metadata about groups and identities that ensures only authorized users can send and receive messages. This allows messaging apps to deliver secure chat experiences without storing any of that metadata themselves, but requires strict consensus on the order in which this metadata is processed.
+In Phase 1, XMTP avoids consensus overhead by storing this encrypted metadata on an L3 appchain that settles to Base and inherits Ethereum’s security. Nodes then index this data to ensure high availability for applications that depend on it.
+Learn about XMTP’s L3 appchain
+.
+Sustaining the network
+Developers pay for the network’s reliability, performance, and censorship-resistance in the form of simple, predictable network fees. Paid in USDC and initially priced at approximately $5 per 100,000 messages during Phase 1, these fees cover nodes’ infrastructure costs for storing and replicating messages, as well as the cost of operating the appchain for group and identity metadata. In effect, the network is incentivized by the apps who depend on it.
+Nodes individually record usage and calculate fees on a per-message basis. Fees are only collected once a majority of nodes agree on consumption through lightweight, attestation-based consensus. In Phase 1, 100% of collected fees are distributed between the L3 appchain sequencer and node operators. Phase 2 will introduce token-based staking and emissions that complement fee revenue, with surplus fees used to buy back and burn tokens.
+Learn about network fees
+.
+Using the network
+Apps and agents use
+XMTP's SDKs
+ to connect to the network and send and receive messages on behalf of their users. The SDKs handle all the complexity of quantum-resistant end-to-end encryption, Signal-grade security, key-based identity, and network-level consent, allowing developers to focus on building great user experiences.
+To pay for messaging, developers create a payer wallet for their app and fund it with USDC to cover network fees. The
+XMTP Funding Portal
+ is an open-source frontend for XMTP’s fee payer smart contracts that simplifies this process.
+XMTP’s SDKs route messages through a remote gateway service that signs them using their payer wallet private key, preventing unauthorized use of payer wallet funds. Developers can operate their own gateway service, or trust a third-party provider (similar to how they work with RPC providers to handle blockchain interactions). XMTP’s NodeJS SDK also allows server-based apps like AI agents to directly sign messages with payer wallet keys, eliminating the need for a separate gateway service.
+Learn about network gateways.
+The XMTP Security Council
+In Phase 1, nodes must obtain proof of authority from the XMTP Security Council in order to handle messages and earn fees. The Security Council is initially composed of XMTP Labs leadership, and is currently in the process of vetting and selecting a total of 7 permissioned nodes to run the network. Geographic diversity, physical independence, and operational excellence are prioritized:
+No more than 3 node operators can be headquartered in the same legal jurisdiction
+Nodes will run on a mixture of bare metal hardware and different cloud infrastructure providers
+All node operators are experienced professionals with proven track records running high-quality blockchain validators or sequencers
+Detailed selection criteria are outlined in
+XIP-54
+.
+The Security Council monitors network health and node behavior, with the authority to eject non-compliant nodes as a consequence of detected misbehavior such as failing to deliver messages or tampering with content. This enforcement mechanism ensures network integrity while the operator set remains small and trusted.  As the network matures, economic incentives and Byzantine fault-tolerant consensus will progressively reduce the Council's role.
+Learn about running a permissioned node
+.
+Phase 2: Economic Security
+The Phase 1 network is secure because trusted operators have been carefully selected by the Security Council. But trust alone cannot scale. As XMTP grows, network security must be anchored in economics rather than authority—ensuring that operators have more to lose by misbehaving than they could ever gain.
+Phase 2 introduces staking, slashing, and stake-weighted elections. These mechanisms create a competitive market for network participation where operators are accountable to tokenholders and the Security Council's role gradually narrows.
+Collateral and slashing
+In Phase 2, node operators must post collateral by staking XMTP tokens on Ethereum Mainnet. Each operator maintains a staking pool with a minimum self-stake, and any tokenholder can delegate to that pool to earn staking rewards. The Security Council continues its oversight role from Phase 1, detecting and verifying misbehavior. When violations are confirmed, penalties are applied across both operator and delegator stake, and slashed tokens are permanently burned.
+This design aligns operator incentives with network reliability. Operators who fail to deliver messages or violate protocol rules face escalating penalties that can force them out of the network. Delegators, knowing their stake is at risk, are motivated to choose operators with strong track records and minimal jurisdictional censorship risk.
+Stake-weighted node selection
+Phase 2 replaces manual operator selection with stake-weighted elections. Periodically, the protocol selects a fixed number of top operators by total delegated stake to form the active set. Active operators process messages and earn messaging fee revenue. Operators outside the active set remain on standby, contributing to payer report validation and serving read requests, but must compete for stake to win an active slot in future periods.
+This creates a competitive market for participation. Operators attract delegation by demonstrating reliability, offering competitive commission rates, and maintaining infrastructure quality. Standby operators continue earning staking rewards, but the revenue differential incentivizes them to attract more delegated stake.
+With economic incentives in place, the Security Council's role narrows. Instead of selecting who handles messages and earns fees, the Council focuses on eligibility verification—confirming that prospective operators meet published security and reliability standards before they can create a staking pool. Stake-weighted elections, not Council approval, determine which operators handle traffic.
+Network economics
+In Phase 1, 100% of messaging fees flow to node operators and the L3 appchain sequencer. Phase 2 introduces a token-based economic model that complements fee revenue.
+Staking rewards are minted periodically and distributed to node operators and their delegators. As network usage grows and fee revenue exceeds operator costs, surplus fees are used to purchase and burn XMTP tokens. This returns value to tokenholders rather than extracting it—and over time, burns can exceed emissions, making the token supply deflationary.
+XMTP Commons
+Phase 2 formalizes governance through XMTP Commons, a Wyoming Decentralized Unincorporated Nonprofit Association (DUNA). Tokenholders who stake or participate in governance become members of the DUNA, which administers the protocol treasury, controls smart contract deployments, and manages network parameters. The Security Council moves from XMTP Labs to the Commons, operating under its authority.
+The DUNA structure provides legal existence for decentralized governance while preserving the network's credible neutrality. It can contract with third parties, appear in court, and comply with tax obligations. Members can vote to adjust the Commons' administrative roles over time, including further constraining or sunsetting the Security Council as the network approaches full permissionless operation.
+Phase 3: Permissionless Network
+Phase 2 makes operators economically accountable, but the network remains permissioned at its core. Operators must still pass Security Council verification before creating a staking pool, and the Council retains oversight of misbehavior detection. Phase 3 removes these dependencies by introducing Byzantine fault-tolerant consensus, enabling fully permissionless participation.
+Byzantine fault-tolerant consensus
+In Phase 1 and Phase 2, the L3 appchain handles encrypted group and identity metadata that requires strict ordering. This architecture inherits security from Base and Ethereum but introduces latency and external dependencies. Phase 3 retires the L3 appchain, replacing it with native Byzantine fault-tolerant (BFT) consensus among node operators.
+BFT consensus tolerates up to one-third malicious participants without compromising safety or liveness, enabling the honest majority to enforce protocol rules directly. This is what makes permissionless operation possible. Misbehavior detection shifts from the Security Council to the nodes themselves, and slashing follows automatically. No trusted oversight body required.
+Retiring the L3 also improves performance and sovereignty. The network can finalize state changes instantly rather than waiting for rollup confirmations. No external chain or sequencer can selectively delay or reorder XMTP operations. The network's integrity depends solely on its own operator set: one that is now permissionless, globally distributed, and economically aligned through staking.
+This is not another general purpose blockchain. The BFT consensus protocol will be narrowly focused on message ordering. No execution layer is needed. This lets us push performance beyond what is possible on a general purpose blockchain.
+Open participation
+With BFT consensus securing the network, the Security Council's verification role is eliminated entirely. Any entity can create a staking pool and compete for delegation, no approval required. Stake-weighted elections still determine who enters the active set, and slashing still enforces performance—but eligibility is now open to all. Anyone with the technical capability and economic commitment can compete, increasing geographic diversity, jurisdictional resilience, and overall network robustness.
+The Council's only remaining function is emergency response: coordinating action if a critical vulnerability threatens network liveness. Even this role is designed for sunset as the operator set grows and BFT consensus hardens.
+Governance authority rests fully with XMTP Commons and its tokenholders. Protocol upgrades, parameter changes, and economic policy adjustments flow through onchain governance. The network operates as a self-sustaining system where operators compete to deliver messages, delegators price risk through their staking choices, and censorship resistance emerges from economic incentives rather than trusted oversight.
+Next steps
+We expect XMTP's transition to mainnet to be complete in March 2026, marking the arrival of Phase 1. At that point, the network will be live with a curated set of node operators, messaging fees flowing to cover infrastructure costs.
+Following mainnet launch, we will publish detailed technical specifications for Phase 2 and Phase 3, including:
+Smart contract designs for staking pools, delegation, and slashing on Ethereum Mainnet
+Stake-weighted election and epoch boundary mechanics
+Token litepaper covering emissions schedules, buyback-and-burn, and supply allocation
+BFT consensus protocol specifications and migration path from the L3 appchain
+XMTP Commons governance frameworks and the DUNA's operational procedures
+Economic policy parameters and the governance process for adjusting them
+These specifications will be released as XMTP Improvement Proposals (XIPs) for community review and feedback. We invite node operators, developers, and future tokenholders to participate in shaping the network's evolution through the
+XMTP Improvement Forum
+.
+The road from permissioned reliability to permissionless resilience is long, but the destination is clear: a messaging network where no person, company, or country can be the single point of failure for the world's freedom to communicate.
+Contents
+Why decentralization matters
+Phase 1: The XMTP Network
+Message data availability
+Ordered data availability
+Sustaining the network
+Using the network
+The XMTP Security Council
+Phase 2: Economic Security
+Collateral and slashing
+Stake-weighted node selection
+Network economics
+XMTP Commons
+Phase 3: Permissionless Network
+Byzantine fault-tolerant consensus
+Open participation
+Next steps
+XMTP delivers secure, private messaging at scale — powered by the IETF Messaging Layer Security (MLS) standard and a decentralized architecture that puts people, not platforms, in control of their identity, contacts, and conversations.
+Community
+XMTP Blog ↗
+XMTP Improvement Forum ↗
+XMTP Builder Community events ↗
+Contribute
+Code of conduct
+Resources
+FAQ ↗
+Dev support ↗
+Partnerships with XMTP Labs ↗
+Careers at XMTP Labs ↗
+Brand assets ↗
+© 2025 XMTP. All rights reserved.
+Privacy policy
+Terms of service
+CC BY 4.0 ↗

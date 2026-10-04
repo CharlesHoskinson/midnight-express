@@ -1,0 +1,75 @@
+Dialect
+Blinks
+Alerts
+Blog
+Docs
+The UX Stack
+for Web3
+Onchain transactions and notifications
+native to any digital experience.
+Read Docs
+Start Building
+Integrations are slow.
+Redirects are worse.
+Users want to do more with their crypto in context,
+but integrations take time and links send them away.
+Dialect Changes That.
+Blinks
+Blockchain Links
+Let users take action instantly, wherever they are.
+ No app switching, no friction—just one-click transactions embedded directly into platforms they already use.
+Third party actions embeddable in any environment.
+(1/3)
+Let your users swap, stake, and purchase in a single click.
+(2/3)
+Integratable in a fraction of the time. Ready-to-sign transactions in just minutes.
+(3/3)
+Learn More About Blinks
+More About Blinks
+Alerts
+Actionable,
+ Onchain Notifications
+Deliver real-time updates to your users through multiple channels. Keep them informed and engaged with automated alerts for:
+DeFi position updates
+Liquidations, limit order executions, and key market movements
+Token activity and market trends
+Price changes, trending assets, and major shifts
+Announcements, Governance
+DAO votes, proposals, and targeted updates
+Event detection and monitoring
+Public announcements and custom alerts via the Monitoring SDK
+Learn More About Alerts
+More About Alerts
+Ready for Business
+Used by
+Phantom, Jupiter, Backpack, Tensor
+ & more
+Powering
+600+
+ Blinks
+Trusted by top protocols on
+EVM
+Solana
+Monad
+Solana
+EVM
+Monad
+It's Just Better for Your Users
+1
+One-Click Actions
+Let your users take any onchain action in your app, with no redirects.
+2
+Better Retention
+Give your users more to do, and they will spend more time in your app.
+3
+Fast & Easy Integration
+Add Blinks and Alerts in minutes, with minimal code.
+Integrate Blinks & Alerts with just a few lines of code
+Dialect provides flexible APIs, SDKs, and open-source tooling to make Web3 effortless for your users.
+Read the Docs
+Blinks
+Learn More
+Alerts
+Learn More
+Privacy Policy
+Terms of Service

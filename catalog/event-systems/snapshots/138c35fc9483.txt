@@ -1,0 +1,150 @@
+Messaging security properties with XMTP – Build with XMTP
+Skip to content
+Overview
+Encryption
+Chevron Right
+Security
+Epochs
+Envelope types
+Identity
+Chevron Right
+Inboxes, identities, and installations
+Wallet signatures
+Delivery
+Chevron Right
+Topics
+Cursors
+Intents
+Evolution
+Chevron Right
+XMTP Improvement Proposals
+Vision
+Chevron Right
+Security
+Identity
+Digital money
+Consent
+Decentralization
+GitHub
+Search...
+Build agents
+Build chat apps
+Protocol
+Network
+🚀 Try docs MCP server
+Join XMTP Switchboard Community
+Build agents
+Build chat apps
+Protocol
+Network
+🚀 Try docs MCP server
+Join XMTP Switchboard Community
+Menu
+Chevron Down
+Menu
+Security
+On this page
+Chevron Right
+Messaging security properties with XMTP
+Copy
+Copy page
+OpenAI
+Ask in ChatGPT
+Claude
+Ask in Claude
+XMTP delivers end-to-end encrypted 1:1 and group chat using the following resources:
+Advanced cryptographic techniques
+Secure key management practices
+MLS (
+Messaging Layer Security
+)
+Specifically, XMTP messaging provides the comprehensive security properties covered in the following sections. In these sections,
+group
+ refers to the MLS concept of a group, which includes both 1:1 and group conversations.
+🎥
+walkthrough: XMTP and MLS
+This video provides a walkthrough of XMTP's implementation of MLS.
+To dive deeper into how XMTP implements MLS, see the
+XMTP MLS protocol specification
+.
+A deep dive into messaging security properties
+Message confidentiality
+Ensures that the contents of messages in transit can't be read without the corresponding encryption keys.
+Message confidentiality is achieved through symmetric encryption, ensuring that only intended recipients can read the message content.
+AEAD
+ (Authenticated Encryption with Associated Data) is used to encrypt the message content, providing robust protection against unauthorized access.
+Forward secrecy
+Ensures that even if current session keys are compromised, past messages remain secure.
+MLS achieves this by using the ratcheting mechanism, where the keys used to encrypt application messages are ratcheted forward every time a message is sent. When the old key is deleted, old messages can't be decrypted, even if the newer keys are known. This property is supported by using ephemeral keys during the key encapsulation process.
+Post-compromise security
+Ensures that future messages remain secure even if current encryption keys are compromised.
+XMTP uses regular key rotation achieved through a commit mechanism with a specific update path in MLS, meaning a new group secret is encrypted to all other members. This essentially resets the key and an attacker with the old state can't derive the new secret, as long as the private key from the leaf node in the ratchet tree construction hasn't been compromised. This ensures forward secrecy and protection against future compromises.
+Message authentication
+Validates the identity of the participants in the conversation, preventing impersonation.
+XMTP uses digital signatures to strongly guarantee message authenticity. These signatures ensure that each message is cryptographically signed by the sender, verifying the sender's identity without revealing it to unauthorized parties. This prevents attackers from impersonating conversation participants.
+Message integrity
+Ensures that messages can't be tampered with during transit and that messages are genuine and unaltered.
+XMTP achieves this through the use of MLS. The combination of digital signatures and
+AEAD
+ enables XMTP to detect changes to message content.
+Quantum resistance
+Protects against future quantum computer attacks through post-quantum cryptography.
+XMTP implements quantum-resistant encryption to protect against "Harvest Now, Decrypt Later" (HNDL) attacks, where adversaries store encrypted messages until quantum computers become powerful enough to break current encryption. XMTP uses a hybrid approach that combines post-quantum algorithms with conventional cryptography, ensuring protection against future quantum threats without compromising current security.
+The quantum resistance is implemented by securing Welcome messages (the entry point for all conversations) with post-quantum key encapsulation. Since Welcome messages contain the group secrets needed to decrypt all messages in a conversation, protecting them with quantum-resistant encryption ensures the entire conversation remains secure against quantum attacks. Once inside a group, all messages maintain the same size and performance characteristics as before.
+To learn more about how XMTP achieves quantum resistance, see
+XMTP and the Future of Privacy in a Quantum World
+.
+User anonymity
+Ensures that outsiders can't deduce the participants of a group, users who have interacted with each other, or the sender or recipient of individual messages.
+User anonymity is achieved through a combination of the following functions:
+MLS Welcome messages encrypt the sender metadata and group ID, protecting the social graph.
+XMTP adds a layer of encryption to MLS Welcome messages using
+HPKE
+ (Hybrid Public Key Encryption). This prevents multiple recipients of the same Welcome message from being correlated to the same group.
+XMTP uses MLS
+PrivateMessage
+ framing to hide the sender and content of group messages.
+XMTP's backend doesn't authenticate reads or writes and only implements per-IP rate limits. Aside from Welcome messages, all payloads for a given group are stored under a single group ID, and any client may anonymously query or write to any group ID. Only legitimate members possess the correct encryption keys for a given group.
+It's technically possible for XMTP network node operators to analyze query patterns per IP address. However, clients may choose to obfuscate this information using proxying/onion routing.
+XMTP currently hides the sender of Welcome messages (used to add users to a group) but doesn't hide the Welcome message recipients. This makes it possible to determine how many groups a user was invited to but not whether the user did anything about the invitations.
+Cryptographic tools in use
+XMTP messaging uses the ciphersuite
+MLS_128_HPKEX25519_CHACHA20POLY1305_SHA256_Ed25519
+.
+Here is a summary of individual cryptographic tools used to collectively ensure that XMTP messaging is secure, authenticated, and tamper-proof:
+HPKE
+Used to encrypt Welcome messages, protect the identities of group invitees, and maintain the confidentiality of group membership. We use the ciphersuite HPKEX25519.
+AEAD
+Used to ensure both confidentiality and integrity of messages. In particular, we use the ciphersuite CHACHA20POLY1305.
+SHA3_256 and SHA2_256
+XMTP uses two cryptographic hash functions to ensure data integrity and provide strong cryptographic binding. SHA3_256 is used in the multi-wallet identity structure. SHA2_256 is used in MLS. The ciphersuite is SHA256.
+Ed25519
+Used for digital signatures to provide secure, high-performance signing and verification of messages. The ciphersuite is Ed25519.
+XWING KEM
+Used for quantum-resistant key encapsulation in Welcome messages. XWING is a hybrid post-quantum KEM that combines conventional cryptography with
+ML-KEM
+ (the NIST-standardized post-quantum component), providing protection against future quantum computer attacks while maintaining current security standards.
+FAQ about messaging security
+Can XMTP read user messages?
+No, messages are encrypted end-to-end. Only participants in a conversation have the keys to decrypt the messages in it. Your app cannot decrypt messages either.
+How does XMTP's encryption compare to Signal or WhatsApp?
+XMTP provides the same security properties (forward secrecy and post-compromise security) as Signal and WhatsApp, using the newer, more efficient MLS protocol.
+Can others see who users are messaging with?
+No. Message recipients are encrypted, so even network nodes cannot see who is messaging whom. Nodes can only see timing and size of encrypted messages.
+What happens if a user loses access to their wallet?
+They'll need to start new conversations from their new wallet. Messages sent to their old wallet address can't be decrypted without access to that wallet.
+Are group messages as secure as direct messages?
+Yes, MLS provides the same security properties for both group and direct messages. In fact, MLS is particularly efficient for group messaging.
+What if a user suspects their wallet is compromised?
+Due to forward secrecy, even if someone gains access to their wallet, they can't read their past messages. They should start using a new wallet immediately - this ensures attackers won't be able to read future messages either.
+How does encryption work across different XMTP apps?
+All XMTP apps use the same MLS protocol, ensuring consistent encryption across the ecosystem regardless of which app users choose.
+Edit this page on GitHub
+Building with XMTP and have a question about this documentation? Leave a comment.
+XMTP.org
+XMTP status
+XMTP.chat
+Privacy policy
+Terms of service
+CC BY 4.0
+  Copyright © 2024-present XMTP.
