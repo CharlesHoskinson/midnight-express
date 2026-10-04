@@ -1,0 +1,13 @@
+{
+  "id": "erc721",
+  "url": "https://eips.ethereum.org/EIPS/eip-721",
+  "resolved_url": "https://eips.ethereum.org/EIPS/eip-721",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:49.145051+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "erc721.raw",
+  "text_path": "erc721.txt",
+  "raw_sha256": "bedd672103f3ebb6803ce2bddb33a9ff3d23b08e8e3ae3173b6a5b016f65e2a1",
+  "text_sha256": "27240aeddfc1c93510123d4ee234126501e1e8affd3bd6360b657b9d6980906d",
+  "text_chars": 29979
+}

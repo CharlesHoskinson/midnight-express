@@ -1,0 +1,816 @@
+Frequently asked questions | ISO20022
+
+      Skip to main content
+    
+ISO 20022
+ISO 20022
+Universal financial industry message scheme
+
+              About ISO 20022
+            
+
+      About ISO 20022
+    
+
+      ISO 20022 is a multi part International Standard prepared by ISO Technical Committee TC68 Financial Services
+    
+
+                          Governance
+                        
+
+                          APIs and ISO 20022
+                        
+
+                          Intellectual property rights
+                        
+
+              Catalogue
+            
+
+                          Business Domain Catalogues
+                        
+
+                                  Payments
+                                
+
+                                  Securities
+                                
+
+                                  Trade Finance
+                                
+
+                                  Cards
+                                
+
+                                  FX
+                                
+
+                          API Resources
+                        
+
+                          Additional Content for the Messages
+                        
+
+                                  Business application header (BAH)
+                                
+
+                                  Business file envelope
+                                
+
+                                  Business message envelope
+                                
+
+                                  Data Source Scheme
+                                
+
+                                  External Code Sets
+                                
+
+                                  ISO 20022 Real-Time Payments Group
+                                
+
+                                  Supplementary Data Extension
+                                
+
+                                  Variants
+                                
+
+                          Message archive
+                        
+
+              ISO20022 repository
+            
+
+      ISO 20022 Repository
+    
+
+      The ISO 20022 Repository consists of two major parts:
+
+
+	the Data Dictionary
+	the Business Process Catalogue
+    
+
+                          ISO 20022 Repository Online Search
+                        
+
+                          Download the e-Repository
+                        
+
+                          Business Model
+                        
+
+              Development
+            
+
+                          List of Submissions
+                        
+
+                                  Catalogue of Business Justifications for message development
+                                
+
+                                  Catalogue of Business Justifications for API resource development
+                                
+
+                                  Catalogue of Business Justifications for Supplementary Data Extension development
+                                
+
+                                  Catalogue of Business Justifications for variants development
+                                
+
+              Maintenance
+            
+
+                          Catalogue of Change Requests
+                        
+
+                                  Catalogue of message definitions change requests
+                                
+
+                                  Catalogue of API Resources change requests
+                                
+
+                                  Catalogue of change requests related to external code sets
+                                
+
+                                  Catalogue of change requests related to data sources schemes
+                                
+
+                                  Catalogue of change requests related to Supplementary Data
+                                
+
+                                  Catalogue of change requests related to the business model
+                                
+
+              eRequests
+            
+
+              FAQ & Search
+            
+
+                          FAQ
+                        
+
+                          Search
+                        
+Contact us
+
+              Home
+            
+•
+
+              FAQ & Search
+            
+•
+
+              FAQ
+            
+Frequently asked questions
+FAQ & Search
+ISO 20022 Website - Take the best of it - Tips and demo webinar
+20 minutes guided tour of the ISO 20022 website
+June 2023
+
+            About ISO 20022
+      
+
+            Who should be interested in ISO 20022?
+      
+Show more
+Show less
+Mostly financial institutions that want to streamline their communication infrastructure and associated costs by opting for a single, common "language" for all financial communications, whatever the business domain, the communication network and the counterparty (other financial institutions, clients, suppliers and market infrastructures). ISO 20022 is targeted at these standards initiatives that are generally driven by communities of users looking for more cost-effective communications to support specific financial business processes with a particular view of facilitating interoperability with other existing protocols.
+
+            What is included in the ISO 20022 standard?
+      
+Show more
+Show less
+The standard itself describes the development methodology, the registration process and the organization of the central financial repository that contains the ISO 20022 messages and their components. The ISO 20022 standard consists of eight parts:
+Part 1: Metamodel
+Part 2: UML profile
+Part 3: Modelling
+Part 4: XML schema generation
+Part 5: Reverse engineering
+Part 6: Message transport characteristics
+Part 7: Registration
+Part 8: ASN.1 generation
+Copies of the standard can be purchased from ISO at: 
+http://www.iso.org/
+.
+Note that, although they are often referred to as ISO standards, the ISO 20022 messages are not ISO standards. The ISO standard is the development methodology described in the eight parts described above. The messages are defined using this ISO 20022 development methodology: strictly speaking, they are ISO 20022 "compliant" messages, but we called them ISO 20022 messages.
+
+            Compliance
+      
+Show more
+Show less
+There is no official certification authority for ISO 20022, and the implementation of ISO 20022 message definitions will depend a lot on the specific requirements of the community that is implementing. The ISO 20022 Registration Authority (RA) and Technical Support Group (TSG) have defined an 
+ISO 20022 Compliance Checklist
+ providing guidance to implementers about some key aspects to be considered in order to be as compliant as possible with the standard. The checklist can be used by implementers, adopters (consultants, tool providers, service providers, etc.), and consumers of ISO 20022 messages to tick whether they have considered each of the key aspects related to ISO 20022 compliance.
+
+            What will ISO 20022 accomplish?
+      
+Show more
+Show less
+The ISO 20022 flexible framework will encourage users to build business transactions and message models under an internationally agreed upon approach, and to migrate to the use of a common vocabulary and a common set of syntaxes. In ISO 20022, the models and the derived XML or ASN.1 outputs are stored in a central financial repository serviced by a 
+Registration Authority
+. The ISO 20022 repository offers industry users and developers free access to a Data Dictionary of business and message components and a Business Process Catalogue containing message models and corresponding XML and/or ASN.1 schemas.
+If there are no ISO 20022 messages to cover a specific transaction, standards initiatives can be launched to define new models and messages and submit the new solution for approval by the ISO 20022 registration bodies. If the messages exist in the ISO 20022 repository, but do not address all requirements of a new community, it can be agreed upon to update the existing models and messages and create a new version that will accommodate the needs of all.
+
+            Message Development
+      
+
+            Process
+      
+Show more
+Show less
+You will find information on the development process for ISO 20022 Message Definitions on the 
+Development page
+.
+
+            Who can develop messages ?
+      
+Show more
+Show less
+Any community of users or organization can use the ISO 20022 recipe to develop "candidate ISO 20022 messages". The 
+registration process
+ is described on this website. 
+Any community of users or organization (called the "submitting organization" in the ISO 20022 jargon) that want to develop and use ISO 20022 compliant message definitions to support its financial transactions can submit ISO 20022 registration requests.
+The purpose may be the creation of a new set of message definitions to support a specific transaction or the maintenance of an existing message or message set to accommodate the evolution of the business. The request is expected to reflect global need or usage or to enhance the global relevance of the standard, without excluding large communities of users at a regional or domestic level.
+The registration process for the development of a new set of message definitions is slightly different from the registration process for the maintenance of existing message definitions.
+Besides the development of new message definitions, registration requests may also cover the development of "
+variants
+" of existing message definitions (that is, a restricted version of an existing message definition) or the development of "
+Supplementary Data extensions
+" of existing message definitions.
+The ISO 20022 registration process involves three kinds of registration bodies: the 
+Registration Management Group (RMG)
+, the 
+Registration Authority (RA)
+ and the
+ Standards Evaluation Groups (SEGs)
+ that work together to validate and process the registration requests.
+
+            How to apply ?
+      
+Show more
+Show less
+You will find information on the development and registration process on the 
+Development page
+.
+
+            Who will review the messages?
+      
+Show more
+Show less
+The ISO 20022 approval and registration process involves three kinds of registration bodies: the Registration Management Group (RMG), the Registration Authority (RA) and the Standards Evaluation Groups (SEGs), which work together to validate and process the registration requests from users, according to the 
+ISO 20022 Registration Procedures
+.
+
+            Is there a development tool available?
+      
+Show more
+Show less
+The RA is not resourced to undertake or participate in the development of the candidate ISO 20022 models, but provides the submitting organization (which  Business Justification has been approved by the RMG) with a ready for use EMF-based modeling tool - the Editor - which helps creating the required deliverables and validating their ISO 20022 compliance.
+Editor Modelling Tool
+For Submitting Organisations using the 'Editor' modelling tool provided by SWIFT to develop candidate ISO 20022 messages, a specific version of the e-Repository can be obtained from the ISO 20022 Registration Authority. Please note that you need to have a Business Justification identification number to receive the tool.
+
+            Where can I find the status of a Business Justification?
+      
+Show more
+Show less
+You can find the status of the development and maintenance projects in the 
+status of submissions
+.
+
+            Message Maintenance
+      
+
+            Process
+      
+Show more
+Show less
+You will find information on the ISO 20022 maintenance process on the 
+Maintenance page
+.
+
+            How to request a change? What is the maintenance timeline?
+      
+Show more
+Show less
+You will find information on the ISO 20022 maintenance process on the 
+Maintenance page
+.
+
+            Where can I find the status of a Change Request/Maintenance Change Request?
+      
+Show more
+Show less
+The status of a Change Request can be found in the 
+Catalogue of Change Requests
+The status of a Maintenance Change Request can be found in the Status of Submissions
+
+            What is a MCR?
+      
+Show more
+Show less
+A Maintenance Change Request includes all the change requests approved for further consideration by the SEG and indicates, for each of them, how the submitting organization proposes to implement the change and the resulting impact on the targeted message definitions. The Maintenance Change Request also confirms whether or not the submitting organization can dedicate required resources to the development of the changes in the requested timeframe. If, for any reason, the submitting organization cannot perform all or part of the requested changes, the RA and the SEG will seek an alternative submitting organization ready to maintain the message definitions. Alternatively, the SEG may agree to postpone all or part of the requested changes.
+
+            Who can develop the new message version(s)?
+      
+Show more
+Show less
+The submitting organization, which is the organisation that developed the first version (V01) of the Message Definition, develops the new versions.
+
+            What is the Fast track maintenance process ?
+      
+Show more
+Show less
+You will find information on the fast track maintenance process on 
+this page
+.
+
+            Study/Evaluation Groups
+      
+
+            What is the role/responsibilities of the evaluation groups?
+      
+Show more
+Show less
+The SEGs, composed of industry experts in specific business domains of the financial industry, have a twofold role: (1) to ensure that the proper industry groups are informed of proposed developments to ensure all business requirements will be addressed, and (2) to validate the new messages from a business perspective to ensure that what will be posted in the ISO 20022 repository by the RA really addresses the needs of future communities of users as described in the business justification accepted by the RMG in the first place.
+The RMG has already defined the scope of the following SEGs: 
+Payments
+ and 
+Securities
+ were created in 2005, 
+T
+rade Services
+ and 
+F
+X
+ (Foreign Exchange) were created in 2006, 
+Cards and related retail financial services
+ was created in 2008, a Derivatives SubSEG, which works within and reports to the Securities SEG, was created in 2016. If required, additional SEGs can be created by the RMG to address other areas of the financial industry.
+
+            Who is part of the SEGs?
+      
+Show more
+Show less
+Membership of the ISO 20022 Registration Bodies - that is, the 
+RMG
+, 
+SEGs
+ and 
+TSG
+ - is open to any entity that has an interest to participate so long as that entity fulfils the criteria of membership described in the 
+Membership page
+. Existing 
+RMG Member Entities
+ may nominate new experts to the RMG, SEGs and TSG by informing the ISO 20022 Registration Authority at 
+iso20022ra@iso20022.org
+.
+
+            Can I be part of the EGs?
+      
+Show more
+Show less
+Membership of the ISO 20022 Registration Bodies - that is, the 
+RMG
+, 
+SEGs
+ and 
+TSG
+ - is open to any entity that has an interest to participate so long as that entity fulfils the criteria of membership shown below.
+The outcome of an application for membership is decided by the existing RMG members based on information provided by the applicant entity conforming to the 
+application template
+. A single application can be used by the applicant entity to participate in one or more of the Registration Bodies.
+If the application includes RMG membership, the entity must seek the guidance regarding their application from the RMG leadership (that is, the RMG Convenor, Vice Convenor and the Registration Authority) in the preparation of their application. If the application does not include RMG membership, the entity must seek the guidance from the leadership of the Group(s) they wish to apply for membership (that is, the Convenor, Vice Convenor and Secretary of the SEG or TSG) in the preparation of their application.
+Existing RMG member entities
+ don't need to re-apply to participate in a SEG or TSG. They can just nominate their experts by e-mail to the Registration Authority at 
+iso20022ra@iso20022.org
+ with a copy to the Secretary of the Registration Body.
+The entity wishing to apply must explain in writing how it:
+a) Is structured as a representative organisation/body/community that brings together a community of users, or interested parties with a legitimate interest or track record in standardisation
+b) Is governed to reinforce the representative nature of membership and decision making
+c) Has a membership, or represents a community, that is appropriate to the financial services sector scope of the ISO 20022 standard
+d) Intends to commit to actively participate in and adhere to the 
+governance
+ and 
+procedures
+ of the ISO 20022 RMG and/or other relevant groups
+e) Is constituted, where the preference is given to membership rules that are based on principles with a not for profit orientation
+f) Demonstrates that it has a domestic, regional or global focus relevant to ISO 20022.
+The entity wishing to apply is also strongly encouraged to provide details to explain:
+g) Any relevant track record of engagement in, and/or implementation of, industry standards with particular emphasis on the financial services sector
+h) Whether in applying to become a member of the ISO 20022 Registration Bodies, it has the support and sponsorship of a National Standards Body or national financial community organisation, such as a National Central Bank or banking association. Or whether there are existing affiliations to ISO or other standards bodies, perhaps as a liaison organisation.
+Once completed, the application form must be e-mailed to the ISO 20022 Registration Authority at 
+iso20022ra@iso20022.org
+. A 
+flow chart
+ illustrates the application process, which is similar to the approval process of a Business Justification that is described on the 
+Development page
+.
+
+            ISO 20022 Messages
+      
+
+            Where can I find all the ISO 20022 messages?
+      
+Show more
+Show less
+The latest version of the ISO 20022 Message Definitions are available in the 
+catalogue of messages
+.
+The previous version of the ISO 20022 Message Definitions are available in the 
+message archive
+.
+
+            Where can I find the ISO 20022 Payments/Securities/Cards/FX/Trade messages?
+      
+Show more
+Show less
+The latest version of the ISO 20022 Message Definitions are available in the 
+catalogue of messages
+.
+the previous version of the ISO 20022 Message Definitions are available in the 
+message archive
+.
+You have to select the business domain you are interested in to filter the Message Definitions.
+
+            How can I know if a message is ISO 20022 compliant?
+      
+Show more
+Show less
+There is no official certification authority for ISO 20022, and the implementation of ISO 20022 message definitions will depend a lot on the specific requirements of the community that is implementing, that is, the ‘community of users’.
+The aim of the 
+ISO 20022 implementation compliance checklist
+ is to give guidance to implementers about some key aspects to be considered in order to be as compliant as possible with the standard. As the name indicates, it is a checklist that can be used by implementers, adopters (consultants, tool providers, service providers, etc.), and consumers of ISO 20022 messages to tick whether they have considered each of the key aspects related to ISO 20022 compliance.
+
+            Who develops the ISO 20022 messages?
+      
+Show more
+Show less
+Any community of users or organization can use the ISO 20022 recipe to develop 'candidate ISO 20022 messages'. The 
+registration process
+ is described on this website.
+
+            Where can I find the previous versions of the messages?
+      
+Show more
+Show less
+The previous version of the ISO 20022 Message Definitions are available in the 
+message archive
+.
+
+            Can I use the previous versions of the messages?
+      
+Show more
+Show less
+All communities of ISO 20022 users are invited to consider using always the most recent version of the message definitions to ensure worldwide coherence of the versions in use.
+Although previous versions remain available in the 
+ISO 20022 Message Archive
+.
+
+            What is the Business Application Header?
+      
+Show more
+Show less
+The ISO 20022 Business Application Header (BAH) is maintained by the ISO 20022 Technical Support Group and approved by the Cross SEG Harmonisation Group (CSH).
+
+The Business Application Header is a header that has been defined by the ISO 20022 community, that can form part of an ISO 20022 business message. Specifically, the BAH is an ISO20022 message definition (head.001.001.0x) which can be combined with any other ISO20022 message definition to form a business message.
+
+It gathers together, in one place, data about the message, such as which organisation has sent the business message, which organisation should be receiving it, the identity of the message itself, a
+
+reference for the message and so on.
+
+The purpose of the BAH is to provide a consistent and predictable way for this data to be conveyed with the message, regardless of implementation factors such as the choice of network. This does not prevent such data being conveyed either within the ISO 20022 message definition itself, or as part of a network header.
+You will find additional information on the BAH in 
+this document
+.
+
+            Where can I find information on the Supplementary Data component?
+      
+Show more
+Show less
+You can find information on the Supplementary Data component 
+here
+.
+
+            Where can I find information on the variants?
+      
+Show more
+Show less
+You can find information on the variants 
+here
+.
+
+            How can I request a new variant?
+      
+Show more
+Show less
+The registration process for new variants is described on the 
+variants page
+ in the "Registration of new variants" section.
+
+            How can I request a change to a variant?
+      
+Show more
+Show less
+The maintenace process for new variants is described on the 
+variants page
+ in the "Maintenance of existing variants" section.
+
+            What is the meaning of the message identifier?
+      
+Show more
+Show less
+Let's take an example: 
+auth
+.
+030
+.
+001
+.
+01
+auth:
+ 4 alpha characters - identify the business area of the message definition (list of business areas is available 
+here
+);
+030:
+ 3 digits - identify the message definition;
+001:
+ 3 digits - identify the variant of the message definition (001 is the master message definition; 002-... are the variant versions);
+01:
+ 2 last digits - identify the version of the message definition.
+
+            What character encoding is supported by ISO 20022 XML?
+      
+Show more
+Show less
+The ISO 20022 standard uses XML 1.0. XML 1.0 supports UTF-8, UTF-16 and many more. ISO 20022 has decided to restrict to only UTF-8 based on the fact that it is the most efficient (length-wise) way to transport characters. UTF-16 always requires 2 bytes, UTF-8 uses for the most common characters (such as Basic Latin) only a single byte. Only for exotic characters UTF-8 becomes lengthier, but these characters are rarely required in ISO 20022 messages.
+
+            What is ASN.1?
+      
+Show more
+Show less
+ASN.1 (Abstract Syntax Notation One) is a data specification and encoding technology jointly standardized by ISO, IEC (International Electrotechnical Commission), and ITU (International Telecommunication Union), and widely used across several industries (cellular telephony, signaling, network management, Directory, Public Key Infrastructure, videoconferencing, aeronautics, Intelligent Transportation, and so on).
+ASN.1 is:
+a formal notation for specifying the logical structure of data that is to be exchanged between two endpoints; and
+several standard sets of encoding rules for encoding data whose logical structure is specified in ASN.1 notation.
+The ASN.1 notation is used to create ASN.1 schemas, which are text files containing the definition of one or more message types of arbitrary complexity. An instance of a message type is encoded using one of the standard sets of ASN.1 encoding rules (DER, PER, OER, XER, etc.) for the purpose of transmission.
+The tool that is used by the Registration Authority (
+RA
+) to convert the ISO 20022 message models into ASN.1 schemas has been built by OSS Nokalva, Inc. More information about the use of ASN.1 can be found on the OSS website at 
+www.oss.com/iso20022.html
+.
+
+            What is a Data Source Scheme (DSS)?
+      
+Show more
+Show less
+A Data Source Scheme (DSS) is a mechanism which allows an industry body to specify the use a proprietary code set that is not owned nor managed by ISO 20022, and that replaces a standard code set (either a specific ISO 20022 managed code set or another ISO standard code set, e.g. BICs or ISINs) in specific ISO 20022 Message Components, where the use of such DSS has been approved.
+You will find additional information on the 
+Data Source Scheme page
+.
+
+            How can I request the addition/modification or deactivation of a Data Source Scheme code?
+      
+Show more
+Show less
+Requests for the addition/modification or deactivation of a Data Source Scheme code should be submitted to the Registration Authority using 
+this eRequest form
+.
+
+            Where can I download the list of Data Source Schemes?
+      
+Show more
+Show less
+The list of Data Source Schemes can be downloaded from the 
+Data Source Schemes
+ page.
+
+            How can I request the addition/modification or deactivation of an external code set?
+      
+Show more
+Show less
+Requests for updates to External Code Sets (addition of a new code value, clarification of an existing definition, deactivation of an existing code value) must be submitted to the ISO 20022 RA, using the "
+Change Request for update of an External Code Set" eform
+.
+
+            Where can I download the list of external code sets?
+      
+Show more
+Show less
+The latest release of the external code sets can be found 
+here
+.
+
+            What is a Bank Transaction Code ?
+      
+Show more
+Show less
+The scope of the Bank Transaction Code is to deliver a harmonised set of codes, which should be applied in bank-to-customer cash account reporting information. The bank transaction code information allows the account servicer to correctly report a transaction, which in its turn will help account owners to perform their cash management and reconciliation operations.
+You will find a description of the bank transaction codes 
+here
+. 
+
+            Where can I download the list of Bank Transaction Code combinations?
+      
+Show more
+Show less
+The latest version of the Bank transaction Codes is available 
+here
+.
+
+            ISO 20022 Business Model
+      
+
+            Who can request a change to the ISO 20022 Business Model?
+      
+Show more
+Show less
+Actual or potential users of the ISO 20022 Business Model can submit their requests for changes to the Business Model based on the specific 
+Business Model change request
+ to the 
+Registration Authority (RA)
+.
+
+            How can I request a change to the ISO 20022 Business Model ?
+      
+Show more
+Show less
+Any 
+Business Model change request
+ must be submitted to the 
+Registration Authority (RA)
+. Each Business Model change request must describe the scope of the change, the business concepts to be changed, the proposed name, definition, etc.
+
+            ISO 20022 Repository
+      
+
+            What is included in the ISO 20022 Repository?
+      
+Show more
+Show less
+The items in the Dictionary can be classified in three categories: Business Concepts, Data Types and Message Concepts.
+Business Concepts
+ are Dictionary items with a business semantic meaning.
+The following items are part of this category:
+- Business Associations,
+
+- Business Components,
+
+- Constraints,
+
+- Business Elements,
+
+- Business Roles.
+Data Types
+ are Dictionary items that unambiguously specifies the set of valid values of a Business Element or of a Message Element.
+Message Concepts
+ are Dictionary items used in Message Definitions. The following items are part of this category:
+- Message Components,
+
+- Constraints,
+
+- Message Elements.
+
+            What are the Business Concepts, Data Types and Message Concepts?
+      
+Show more
+Show less
+Business Concepts
+ are Dictionary items with a business semantic meaning.
+The following items are part of this category:
+- Business Associations,
+
+- Business Components,
+
+- Constraints,
+
+- Business Elements,
+
+- Business Roles.
+Data Types
+ are Dictionary items that unambiguously specifies the set of valid values of a Business Element or of a Message Element.
+Message Concepts
+ are Dictionary items used in Message Definitions. The following items are part of this category:
+- Message Components,
+
+- Constraints,
+
+- Message Elements.
+
+            What is a Business Component?
+      
+Show more
+Show less
+A Business Component is a representation of a (part of a) key business notion, characterised by specific Business Elements. Each Business Component may have one or more Associations with other Business Components. A Business Component is uniquely identified in the Dictionary.
+Examples: 
+TradeTransaction, Account, CashEntry .
+
+            What is a Business Element?
+      
+Show more
+Show less
+A Business Element is a business characteristic of a Business Component. A Business Element is uniquely identified in its Business Component, its meaning can only be described unambiguously in combination with its Business Component.
+When a business characteristic of a Business Component may be repeated in an instance of that Component, a multiplicity information is added behind the Business Element name between square brackets; e.g. "[2..n]" - meaning that the characteristic can be repeated two to an indefinite number of times.
+Examples: 
+DealPrice (in TradeTransaction), SettledQuantity (in SecuritiesTransfer), Amount (in CashEntry). 
+
+            What is a Business Association?
+      
+Show more
+Show less
+A Business Association is a semantic relation between two Business Components. The meaning of a Business Association is always defined in combination with these two Business Components. A Business Association is therefore uniquely identified in the scope of two Business Components.
+Business Associations have two Business Associations Ends. These end points connect the Business Association to its Business Components.
+
+            What is a Business Role?
+      
+Show more
+Show less
+A Business Role is a functional role played by a business actor in a particular BusinessProcess or BusinessTransaction. A Business Role is uniquely identified in the Dictionary.
+Examples: 
+FinancialInstitution, CSD .
+
+            What is a Data Type and Data Type Representations?
+      
+Show more
+Show less
+A Data Type is the unambiguous specification of the set of valid values of a Business Element or of a Message Element. The set of valid values may be defined via a format specification or via an exhaustive enumeration of all possible values. A Data Type is uniquely identified in the Dictionary. Each Data Type belongs to a specific category of Data Types called a 
+Data Type Representation. 
+Each Data Type Representation is characterized by a set of technical information required for implementation and processing. The user-defined DataTypes are categorized in a limited number of datatype representations, such as 
+Amount, IdentifierSet, Quantity, CodeSet, Date, Time, Text
+, etc. The full list of DataType representations is defined in the metamodel.
+Examples of Data Types (Representation Types): 
+PercentageRate (Rate), BalanceTypeCode (Code), PaymentDirectionIndicator (Indicator) 
+.
+
+            What is a Message Component?
+      
+Show more
+Show less
+A Message Component is a reusable Dictionary Item that is a building block for assembling Message Definitions. It is normally linked to a Business Component and characterised by specific Message Elements. A Message Component is uniquely identified in the Dictionary. A Message Component may be qualified as a "Choice" component
+meaning that only one of the elements composing this Message Component may be selected in an XML instance of a message containing that Choice Message Component.
+
+            What is a Message Element?
+      
+Show more
+Show less
+A Message Element is a characteristic of a Message Component. A Message Element is uniquely identified in its Message / Choice Component.
+When a Message Element may be repeated in an instance of a Message Component, a multiplicity information is added behind the Message Element name between square brackets; e.g. "[0..n]" - meaning that the Message Element may be repeated 0, 1 or an indefinite number of times.
+
+            What is a constraint?
+      
+Show more
+Show less
+A constraint is attached to a Business or Message Component and defining specific conditions applicable to that Component or to its associated Business Components. A Constraint is uniquely identified in the scope of a Business or Message Component.
+Examples: 
+ExchangeConversionRule (applied on the Business Component CurrencyExchange), AmountsCurrencyRule (applied on the Message Component SubscriptionCashFlow2). 
+Some typical constraints that may appear regularly in the Dictionary are:
+Format or XML Facet: This constraint assigned to a Data Type provides formatting constraints on the value that may be assigned to an element typed by this Data Type. Typical constraints that may be assigned are for instance:
+Total number of digits;
+A pattern with which the value must comply (e.g. 3 alphanumeric characters);
+Maximum value
+
+            What is the difference between a 'message' and a 'message definition'?
+      
+Show more
+Show less
+The message definition is the message format while the message is the instance of the message format which is actually transmitted on the wire. On this website, the term 'message' is often used to designate both the message format and the message instance.
+
+            ISO 20022 and Cryptocurrencies
+      
+
+            Are there any cryptocurrencies that are compliant with ISO 20022?
+      
+Show more
+Show less
+Cryptocurrencies are not inherently ISO 20022 compliant. There is a lot of confusion and misleading information on the web referring to ISO 20022 compliant cryptocurrencies but those statements are not correct. The cryptocurrencies are not managed and not registered by ISO 20022. ISO 20022 is a global standard for financial messaging and provides a common language and structure for exchanging financial information. The ISO standard managing Digital Token Identifiers (DTI) is ISO 24165.
+While the financial institutions and payment systems have adopted or are in the process of adopting ISO 20022 standards for their operations, cryptocurrencies generally operate outside the traditional financial system and do not adhere to the ISO 20022 standard by default. Cryptocurrencies have their own protocols and messaging formats that are specific to each cryptocurrency's blockchain network.
+
+            Can I indicate cryptocurrencies in the ISO 20022 messages?
+      
+Show more
+Show less
+Yes. Cryptocurrencies can be transported as data content in the ISO 20022 messages but are not validated. Today flat currencies (EUR, USD, etc...) are used in the messages and validated against ISO 4217; cryptocurrencies validation will be implemented in future version of the ISO 20022 messages.
+
+            Can a blockchain company be ISO 20022 compliant?
+      
+Show more
+Show less
+Yes. It's worth noting that some cryptocurrency exchanges and payment processors may implement ISO 20022 compliance for their internal processes or interactions with traditional financial systems, such as banks and payment networks, to facilitate interoperability and compatibility with existing financial infrastructure. But at the protocol level, blockchains themselves are not inherently ISO 20022 compliant.
+ISO 20022
+
+                  © Copyright ISO 20022
+              
+
+        Contact
+      
+
+        Privacy statement
+      
+
+        Cookie policy
+      
+
+        Terms of use
+      

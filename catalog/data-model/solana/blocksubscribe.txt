@@ -1,0 +1,525 @@
+blockSubscribe | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+Websocket Methods
+accountSubscribe
+accountUnsubscribe
+blockSubscribe
+blockUnsubscribe
+logsSubscribe
+logsUnsubscribe
+programSubscribe
+programUnsubscribe
+rootSubscribe
+rootUnsubscribe
+signatureSubscribe
+signatureUnsubscribe
+slotSubscribe
+slotsUpdatesSubscribe
+slotsUpdatesUnsubscribe
+slotUnsubscribe
+voteSubscribe
+voteUnsubscribe
+Removed Methods
+Solana RPC Methods
+Websocket Methods
+blockSubscribe
+Copy Markdown
+Open
+Subscribe to receive notifications when a new block reaches 
+confirmed
+ or
+
+finalized
+ commitment.
+Source
+block_subscribe
+Unstable Method
+Agave documents this as an 
+unstable RPC PubSub 
+blockSubscribe
+
+subscription
+.
+It is only available if the validator was started with
+
+--rpc-pubsub-enable-block-subscription
+, which also requires
+
+--enable-rpc-transaction-history
+.
+params
+string | object !required
+optional
+Filter describing which blocks should produce notifications.
+all
+ returns every matching block
+{ "mentionsAccountOrProgram": <pubkey> }
+ returns only blocks that contain a
+transaction mentioning the provided base-58 encoded address
+object
+optional
+Optional configuration object.
+commitment
+string !values confirmed finalized !default finalized
+encoding
+string !values binary base58 base64 json jsonParsed !default base64
+transactionDetails
+string !values full accounts signatures none !default full
+maxSupportedTransactionVersion
+number
+showRewards
+bool !values true false !default false
+result
+integer
+Subscription id. Pass this to
+
+blockUnsubscribe
+.
+cURL
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"blockSubscribe"
+,
+>
+"params"
+: [
+>
+{
+>
+"mentionsAccountOrProgram"
+:
+"LieKvPRE8XeX3Y2xVNHjKlpAScD12lYySBVQ4HqoJ5op"
+>
+},
+>
+{
+>
+"commitment"
+:
+"confirmed"
+,
+>
+"encoding"
+:
+"base64"
+,
+>
+"transactionDetails"
+:
+"full"
+,
+>
+"maxSupportedTransactionVersion"
+:
+0
+,
+>
+"showRewards"
+:
+true
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+:
+0
+,
+"id"
+:
+1
+}
+cURL
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"blockSubscribe"
+,
+>
+"params"
+: [
+>
+{
+>
+"mentionsAccountOrProgram"
+:
+"LieKvPRE8XeX3Y2xVNHjKlpAScD12lYySBVQ4HqoJ5op"
+>
+},
+>
+{
+>
+"commitment"
+:
+"confirmed"
+,
+>
+"encoding"
+:
+"base64"
+,
+>
+"transactionDetails"
+:
+"full"
+,
+>
+"maxSupportedTransactionVersion"
+:
+0
+,
+>
+"showRewards"
+:
+true
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+params
+string | object !required
+optional
+Filter describing which blocks should produce notifications.
+all
+ returns every matching block
+{ "mentionsAccountOrProgram": <pubkey> }
+ returns only blocks that contain a
+transaction mentioning the provided base-58 encoded address
+object
+optional
+Optional configuration object.
+commitment
+string !values confirmed finalized !default finalized
+encoding
+string !values binary base58 base64 json jsonParsed !default base64
+transactionDetails
+string !values full accounts signatures none !default full
+maxSupportedTransactionVersion
+number
+showRewards
+bool !values true false !default false
+result
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+:
+0
+,
+"id"
+:
+1
+}
+integer
+Subscription id. Pass this to
+
+blockUnsubscribe
+.
+Notification format
+Notifications are delivered as 
+blockNotification
+.
+The example below was captured from a subscription with
+
+transactionDetails: "full"
+, 
+showRewards: true
+, and
+
+maxSupportedTransactionVersion: 0
+.
+{
+"jsonrpc"
+:
+"2.0"
+,
+"method"
+:
+"blockNotification"
+,
+"params"
+: {
+"result"
+: {
+"context"
+: {
+"slot"
+:
+3537
+},
+"value"
+: {
+"slot"
+:
+3537
+,
+"block"
+: {
+"previousBlockhash"
+:
+"J48KViVe4DpE5Xgkv5weChwBcsxzqmdZscUBE7eoeoCW"
+,
+"blockhash"
+:
+"51kbSjt8yVnmTWLzXSYyNS6KLuLhbFZuyoLJ36jz3Wpo"
+,
+"parentSlot"
+:
+3536
+,
+"transactions"
+: [
+{
+"transaction"
+: [
+"AZTncP5v/zgbhG9gjGTB7U+lcT9ZqN70DXRGzCeoVqQ7ZOSUMDpfqiyIX2zKlyZefFYLLLkWJZfodF9VH6IgtggBAAEDB7ff3j2h8EhabhQ6/UsQ9Ff0qHRbDoFi8nyq1L7LuCrmza099j6XR/M+lQUi1PxTs6S67zfyGIc61J4Fgbx1gwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/WOyFspSu8OOPcxRVf/2cUIqYc/gtPOkSZH9Wx6m0dsBAgIAAQwCAAAAgJaYAAAAAAA="
+,
+"base64"
+],
+"meta"
+: {
+"err"
+:
+null
+,
+"status"
+: {
+"Ok"
+:
+null
+},
+"fee"
+:
+5000
+,
+"preBalances"
+: [
+9959990000
+,
+40000000
+,
+1
+],
+"postBalances"
+: [
+9949985000
+,
+50000000
+,
+1
+],
+"innerInstructions"
+: [],
+"logMessages"
+: [
+"Program 11111111111111111111111111111111 invoke [1]"
+,
+"Program 11111111111111111111111111111111 success"
+],
+"preTokenBalances"
+: [],
+"postTokenBalances"
+: [],
+"rewards"
+: [],
+"loadedAddresses"
+: {
+"writable"
+: [],
+"readonly"
+: []
+},
+"computeUnitsConsumed"
+:
+150
+,
+"costUnits"
+:
+1481
+},
+"version"
+:
+"legacy"
+}
+],
+"rewards"
+: [
+{
+"pubkey"
+:
+"BpdYYo2Vw1NVbzE2DqJxCX2xEfr42xvMYFU2dKd1CW57"
+,
+"lamports"
+:
+7500
+,
+"postBalance"
+:
+499982330000
+,
+"rewardType"
+:
+"Fee"
+,
+"commission"
+:
+null
+}
+],
+"blockTime"
+:
+1774645307
+,
+"blockHeight"
+:
+3537
+},
+"err"
+:
+null
+}
+},
+"subscription"
+:
+13
+}
+}
+jsonrpc
+string
+Always 
+"2.0"
+.
+method
+string
+Always 
+"blockNotification"
+.
+params
+object
+Notification wrapper with the block update payload and the subscription id.
+result
+object
+subscription
+integer
+Is this page helpful?
+Previous
+accountUnsubscribe
+Next
+blockUnsubscribe
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

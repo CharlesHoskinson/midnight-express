@@ -1,0 +1,13 @@
+{
+  "id": "eip4844",
+  "url": "https://eips.ethereum.org/EIPS/eip-4844",
+  "resolved_url": "https://eips.ethereum.org/EIPS/eip-4844",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:50.949848+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "eip4844.raw",
+  "text_path": "eip4844.txt",
+  "raw_sha256": "d1c1eb7c505919bb326f493d163b9200b72ed0de2416deae37db6d75cc07baa5",
+  "text_sha256": "ab6ba092b23ba501d93bb68487371cf66c1388f0c7d3322d3814b7281cb9ec4e",
+  "text_chars": 24486
+}

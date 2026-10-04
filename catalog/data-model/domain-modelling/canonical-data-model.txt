@@ -1,0 +1,256 @@
+Canonical Data Model - Enterprise Integration Patterns
+Messaging Patterns
+HOME
+PATTERNS
+RAMBLINGS
+ARTICLES
+TALKS
+DOWNLOAD
+BOOKS
+CONTACT
+Messaging Patterns
+Table of Contents
+Preface
+Introduction
+Solving Integration Problems using Patterns
+Integration Styles
+File Transfer
+Shared Database
+Remote Procedure Invocation
+Messaging
+Messaging Systems
+Message Channel
+Message
+Pipes and Filters
+Message Router
+Message Translator
+Message Endpoint
+Messaging Channels
+Point-to-Point Channel
+Publish-Subscribe Channel
+Datatype Channel
+Invalid Message Channel
+Dead Letter Channel
+Guaranteed Delivery
+Channel Adapter
+Messaging Bridge
+Message Bus
+Message Construction
+Command Message
+Document Message
+Event Message
+Request-Reply
+Return Address
+Correlation Identifier
+Message Sequence
+Message Expiration
+Format Indicator
+Interlude: Simple Messaging
+JMS Request/Reply Example
+.NET Request/Reply Example
+JMS Publish/Subscribe Example
+Message Routing
+Content-Based Router
+Message Filter
+Dynamic Router
+Recipient List
+Splitter
+Aggregator
+Resequencer
+Composed Msg. Processor
+Scatter-Gather
+Routing Slip
+Process Manager
+Message Broker
+Message Transformation
+Envelope Wrapper
+Content Enricher
+Content Filter
+Claim Check
+Normalizer
+Canonical Data Model
+Interlude: Composed Messaging
+Synchronous (Web Services)
+Asynchronous (MSMQ)
+Asynchronous (TIBCO)
+Messaging Endpoints
+Messaging Gateway
+Messaging Mapper
+Transactional Client
+Polling Consumer
+Event-Driven Consumer
+Competing Consumers
+Message Dispatcher
+Selective Consumer
+Durable Subscriber
+Idempotent Receiver
+Service Activator
+System Management
+Control Bus
+Detour
+Wire Tap
+Message History
+Message Store
+Smart Proxy
+Test Message
+Channel Purger
+Interlude: Systems Management Example
+Instrumenting Loan Broker
+Integration Patterns in Practice
+Case Study: Bond Trading System
+Concluding Remarks
+Emerging Standards
+Appendices
+Bibliography
+Revision History
+Canonical Data Model
+Messaging Patterns
+ » 
+Message Transformation
+Contents
+⇐ Prev
+Next ⇒
+I am designing several applications to work together through 
+Messaging
+. Each application has its own internal data format.
+How can you minimize dependencies when integrating applications that use different data formats?
+Therefore, design a 
+Canonical Data Model
+ that is independent from any specific application. Require each application to produce and consume messages in this common format.
+The 
+Canonical Data Model
+ provides an additional level of indirection between application's individual data formats. If a new application is added to the integration solution only transformation between the 
+Canonical Data Model
+ has to created, independent from the number of applications that already participate. 
+The use a 
+Canonical Data Model
+ seems complicated if only a small number of applications participate in the integration solution. However, the solution quickly pays off as the number of applications increases. If we assume that each application sends and receives message to and from each other application, a solution consisting of 2 applications would require only 2 
+Message Translator
+s if we translate between the applications' data formats directly whereas the 
+Canonical Data Model
+ requires 4 
+Message Translator
+s. A solution consisting of 3 applications requires 6 
+Message Translator
+s with either approach. However, a solution consisting of 6 applications requires 30(!) 
+Message Translator
+s without a 
+Canonical Data Model
+ and only 12 
+Message Translator
+s when using a 
+Canonical Data Model
+.
+...
+
+Read the entire pattern in the book 
+Enterprise Integration Patterns
+Related patterns: 
+Format Indicator
+, 
+Message Channel
+, 
+Message Router
+, 
+Introduction to Message Routing
+, 
+Message Translator
+, 
+Messaging
+, 
+Messaging Mapper
+, 
+Shared Database
+Integration Pattern Language
+Message Construct.
+Message
+Command Message
+Document Message
+Event Message
+Request-Reply
+Return Address
+Correlation Identifier
+Message Sequence
+Message Expiration
+Format Indicator
+Message Routing
+Pipes-and-Filters
+Message Router
+Content-based Router
+Message Filter
+Dynamic Router
+Recipient List
+Splitter
+Aggregator
+Resequencer
+Composed Msg. Processor
+Scatter-Gather
+Routing Slip
+Process Manager
+Message Broker
+Message
+Transformation
+Message Translator
+Envelope Wrapper
+Content Enricher
+Content Filter
+Claim Check
+Normalizer
+Canonical Data Model
+Messaging Endpoints
+Message Endpoint
+Messaging Gateway
+Messaging Mapper
+Transactional Client
+Polling Consumer
+Event-driven Consumer
+Competing Consumers
+Message Dispatcher
+Selective Consumer
+Durable Subscriber
+Idempotent Receiver
+Service Activator
+Messaging Channels
+Message Channel
+Point-to-Point Channel
+Publish-Subscr. Channel
+Datatype Channel
+Invalid Message Channel
+Dead Letter Channel
+Guaranteed Delivery
+Channel Adapter
+Messaging Bridge
+Message Bus
+Systems Mgmt.
+Control Bus
+Detour
+Wire Tap
+Message History
+Message Store
+Smart Proxy
+Test Message
+Channel Purger
+» 
+Read the latest in My Blog
+» 
+Get more insights from My Articles
+» 
+See me live in my Upcoming Talks
+You can reuse the following elements under the 
+Creative Commons Attribution
+ license: pattern icon, pattern name, problem and solution statements (in bold), and the sketch. Other portions are protected by copyright.
+Enterprise Integration Patterns
+The de-facto language for designing asynchronous, distributed systems. Over 100,000 copies sold.
+The Software Architect Elevator
+
+       Rethink the role of architects as a connecting element across organizational layers. Acquire the technical, communication, and organizational skills to succeed in this new role.
+Cloud Strategy
+
+       Make your cloud migration a success by translating high-level goals into conscious decisions with well-understood trade-offs.
+Platform Strategy
+
+      Platforms can boost innovation through harmonization, but they aren't easy to build. Learn from over a decade of designing and rolling out IT platforms.
+© 2003, 2023 
+ • 
+Bobby Woolf
+ • All rights reserved.

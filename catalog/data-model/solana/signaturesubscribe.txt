@@ -1,0 +1,396 @@
+signatureSubscribe | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+Websocket Methods
+accountSubscribe
+accountUnsubscribe
+blockSubscribe
+blockUnsubscribe
+logsSubscribe
+logsUnsubscribe
+programSubscribe
+programUnsubscribe
+rootSubscribe
+rootUnsubscribe
+signatureSubscribe
+signatureUnsubscribe
+slotSubscribe
+slotsUpdatesSubscribe
+slotsUpdatesUnsubscribe
+slotUnsubscribe
+voteSubscribe
+voteUnsubscribe
+Removed Methods
+Solana RPC Methods
+Websocket Methods
+signatureSubscribe
+Copy Markdown
+Open
+Subscribe to receive status notifications for the transaction with the given
+signature.
+Source
+signature_subscribe
+This subscription ends after the terminal confirmation notification. If
+
+enableReceivedNotification
+ is 
+true
+, the RPC node may send an earlier
+
+receivedSignature
+ notification first and keep the subscription active until
+the signature reaches the requested commitment.
+params
+string !required
+optional
+Transaction signature, as a base-58 encoded string.
+The signature must be the first signature from the transaction.
+object
+optional
+Optional configuration object.
+commitment
+string !values processed confirmed finalized !default finalized
+enableReceivedNotification
+boolean !values true false !default false
+result
+integer
+Subscription id. Pass this to
+
+signatureUnsubscribe
+ if you cancel
+the subscription before it fires.
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"signatureSubscribe"
+,
+>
+"params"
+: [
+>
+"2EBVM6cB8vAAD93Ktr6Vd8p67XPbQzCJX47MpReuiCXJAtcjaxpvWpcg9Ege1Nr5Tk3a2GFrByT7WPBjdsTycY9b"
+,
+>
+{
+>
+"commitment"
+:
+"finalized"
+,
+>
+"enableReceivedNotification"
+:
+false
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+:
+0
+,
+"id"
+:
+1
+}
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"signatureSubscribe"
+,
+>
+"params"
+: [
+>
+"2EBVM6cB8vAAD93Ktr6Vd8p67XPbQzCJX47MpReuiCXJAtcjaxpvWpcg9Ege1Nr5Tk3a2GFrByT7WPBjdsTycY9b"
+,
+>
+{
+>
+"commitment"
+:
+"finalized"
+,
+>
+"enableReceivedNotification"
+:
+false
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+params
+string !required
+optional
+Transaction signature, as a base-58 encoded string.
+The signature must be the first signature from the transaction.
+object
+optional
+Optional configuration object.
+commitment
+string !values processed confirmed finalized !default finalized
+enableReceivedNotification
+boolean !values true false !default false
+result
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+:
+0
+,
+"id"
+:
+1
+}
+integer
+Subscription id. Pass this to
+
+signatureUnsubscribe
+ if you cancel
+the subscription before it fires.
+Notification format
+Notifications are delivered as 
+signatureNotification
+. The payload includes
+
+params.result.context
+ and 
+params.result.value
+, where 
+value
+ is either:
+{ "err": null | <transaction error> }
+ when the signature reaches the
+requested commitment
+"receivedSignature"
+ when 
+enableReceivedNotification
+ is 
+true
+ and the RPC
+first receives the signature
+Terminal confirmation notification:
+{
+"jsonrpc"
+:
+"2.0"
+,
+"method"
+:
+"signatureNotification"
+,
+"params"
+: {
+"result"
+: {
+"context"
+: {
+"slot"
+:
+306
+},
+"value"
+: {
+"err"
+:
+null
+}
+},
+"subscription"
+:
+0
+}
+}
+jsonrpc
+string
+Always 
+"2.0"
+.
+method
+string
+Always 
+"signatureNotification"
+.
+params
+object
+Notification wrapper with the signature status payload and the subscription id.
+result
+object
+subscription
+integer
+This early notification is only emitted when 
+enableReceivedNotification: true
+.
+{
+"jsonrpc"
+:
+"2.0"
+,
+"method"
+:
+"signatureNotification"
+,
+"params"
+: {
+"result"
+: {
+"context"
+: {
+"slot"
+:
+1
+},
+"value"
+:
+"receivedSignature"
+},
+"subscription"
+:
+0
+}
+}
+jsonrpc
+string
+Always 
+"2.0"
+.
+method
+string
+Always 
+"signatureNotification"
+.
+params
+object
+Notification wrapper with the early received-signature payload and the
+subscription id.
+result
+object
+subscription
+integer
+Is this page helpful?
+Previous
+rootUnsubscribe
+Next
+signatureUnsubscribe
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

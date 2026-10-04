@@ -1,0 +1,289 @@
+Metaplex Core | Next-Gen NFT Standard for Solana
+API
+Tokens
+Agents
+NFTs
+Smart Contracts
+Dev Tools
+Solana
+Dev Support
+EN
+Core
+Next-gen NFT standard with a composable plugin system.
+Documentation
+Guides
+API References
+opens in a new tab
+Introduction
+Overview 
+What is an Asset? 
+JSON Schema 
+Token Metadata Differences 
+Ecosystem Support 
+Anchor 
+FAQ 
+SDK
+Javascript SDK 
+Rust SDK 
+Features
+Assets
+Creating Assets
+Fetching Assets
+Updating Assets
+Transferring Assets
+Burning Assets
+Execute Asset Signing
+Helpers
+Deserializing Assets
+Collections
+Overview
+Create Collection
+Fetch Collection
+Update Collection
+Groups 
+Plugins
+Overview 
+Plugin Management
+Autograph Plugin 
+Transfer Delegate Plugin 
+Freeze Delegate Plugin 
+Freeze Execute Plugin 
+Burn Delegate Plugin 
+Royalties Plugin 
+Update Delegate Plugin 
+Attribute Plugin 
+AddBlocker Plugin 
+Bubblegum Plugin 
+Edition Plugin 
+Immutable Metadata Plugin 
+Master Edition Plugin 
+Permanent Transfer Plugin 
+Permanent Freeze Delegate Plugin 
+Permanent Burn Delegate Plugin 
+Verified Creators Plugin 
+External Plugins
+Overview 
+Adding External Plugin Adapters 
+Removing External Plugin Adapters 
+Oracle Plugin 
+AppData Plugin 
+Introduction
+Overview
+Last updated September 3, 2026
+Ask AI
+Skill file available
+Metaplex Core ("Core") is the 
+next-generation NFT standard
+ on Solana. It uses a 
+single-account design
+ that reduces minting costs by 80%+ compared to alternatives, while providing 
+enforced royalties
+, 
+collection-level operations
+, and a 
+flexible plugin system
+ for custom behaviors. 
+What You'll Learn
+This overview covers:
+What Metaplex Core is and why it exists
+Key advantages over Token Metadata and other standards
+Core concepts: Assets, Collections, and Plugins
+How to get started building with Core
+Summary
+Metaplex Core
+ is a Solana NFT standard that replaces Token Metadata for most new projects. It offers the lowest minting costs, enforced royalties, and a plugin architecture for custom functionality.
+Single-account design: ~0.003 SOL per mint (vs 0.022 SOL for Token Metadata)
+Enforced royalties by default with allowlist/denylist controls
+Plugin system for staking, attributes, delegates, and custom behaviors
+Collection-level operations: freeze, update royalties, or modify all assets at once
+Out of Scope
+This overview does not cover: fungible tokens (use SPL Token), Token Metadata migration paths, or detailed plugin implementation. See specific pages for those topics.
+Quick Start
+Jump to:
+Getting Started
+ · 
+Key Advantages
+ · 
+FAQ
+ · 
+Glossary
+Install the SDK: 
+npm install @metaplex-foundation/mpl-core
+Create an Asset: 
+Creating Assets guide
+Add plugins: 
+Plugins overview
+Query with DAS: 
+Fetching Assets
+Getting Started
+Find the language or library of your choice and get started with digital assets on Solana.
+API Reference
+Looking for something specific? Check our API References.
+Differences from Token Metadata
+Coming from Token Metadata? See what's changed and what's new.
+Try Core in a UI
+Mint a Core Asset yourself using our web interface.
+Introduction
+Metaplex Core is the recommended NFT standard for new projects on Solana. Compared to Token Metadata and other standards, Core provides:
+Cost Efficiency
+Standard
+Mint Cost
+Compute Units
+Metaplex Core
+~0.003 SOL
+~17,000 CU
+Token Metadata
+~0.022 SOL
+~205,000 CU
+Token Extensions
+~0.0046 SOL
+~85,000 CU
+Key Advantages
+Single Account Design
+: Core uses one account per asset instead of multiple (mint + metadata + token account). This reduces costs and simplifies development.
+Enforced Royalties
+: The 
+Royalties plugin
+ enforces creator royalties by default with allowlist/denylist controls.
+Collection-Level Operations
+: Update royalties, freeze assets, or modify metadata for an entire collection in a single transaction.
+Plugin Architecture
+: Add custom behaviors to assets via plugins:
+Freeze Delegate
+ - Allow others to freeze/unfreeze
+Burn Delegate
+ - Allow others to burn
+Attributes
+ - On-chain key/value data (auto-indexed by DAS)
+Transfer Delegate
+ - Allow others to transfer
+And many more in the 
+Plugins section
+DAS Indexing
+: All major 
+RPC providers supporting DAS
+ already index Core assets.
+Core Concepts
+Assets
+An 
+Asset
+ is a single on-chain account representing an NFT. Unlike Token Metadata (which uses 3+ accounts), Core Assets contain ownership, metadata URI, and plugin data in one account. See: 
+What is an Asset?
+Collections
+A 
+Collection
+ is a Core account that groups related Assets. Collections can have their own plugins that apply to all member Assets. Collection-level royalties, for example, apply to every Asset in the collection unless overridden.
+Groups
+ (
+GroupV1
+) are a separate taxonomy layer that can organize collections, standalone assets, and nested groups. See 
+Core Groups
+ for when to use groups vs collections. See: 
+Collections
+Plugins
+Plugins
+ are modular extensions that add behavior to Assets or Collections. They hook into lifecycle events (create, transfer, burn) to enforce rules or store data. See: 
+Plugins Overview
+Quick Reference
+Program IDs
+Program
+Address
+MPL Core
+CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d
+MPL Core (Devnet)
+CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d
+SDK Packages
+Language
+Package
+JavaScript/TypeScript
+@metaplex-foundation/mpl-core
+Rust
+mpl-core
+Next Steps
+Choose your SDK
+: Visit 
+Getting Started
+ to install the JavaScript or Rust SDK
+Create your first Asset
+: Follow the 
+Creating Assets
+ guide
+Explore plugins
+: See available behaviors in 
+Plugins
+Migrate from Token Metadata
+: Review 
+Differences from Token Metadata
+Please note that certain Core instructions require protocol fees. Review the 
+Protocol Fees
+ page for current information.
+FAQ
+What is Metaplex Core?
+Metaplex Core is a next-generation NFT standard on Solana that uses a single-account design for lower costs, enforced royalties, and a flexible plugin system. It's the recommended standard for new NFT projects.
+How is Core different from Token Metadata?
+Core uses one account per asset (vs 3+ for Token Metadata), costs ~80% less to mint, has lower compute usage, and includes built-in royalty enforcement. Token Metadata is considered legacy for new projects. See 
+Differences from Token Metadata
+ for a detailed comparison.
+Can I migrate from Token Metadata to Core?
+Core Assets and Token Metadata NFTs are separate standards. There's no automatic migration. New projects should use Core; existing Token Metadata collections continue to work.
+Does Core support royalties?
+Yes. Core has a 
+Royalties plugin
+ that enforces royalties by default. You can set basis points, creator splits, and allowlist/denylist rules for marketplaces.
+What are plugins?
+Plugins are modular extensions that add behavior to Core Assets or Collections. Examples include Freeze Delegate (allow freezing), Attributes (on-chain data), and Royalties (creator payments).
+How much does it cost to mint a Core Asset?
+Approximately 0.003 SOL per base asset, compared to ~0.022 SOL for Token Metadata. This makes Core ~80% cheaper for minting. See 
+Differences from Token Metadata
+ for more details.
+Which RPC providers support Core?
+All major RPC providers supporting DAS (Digital Asset Standard) index Core assets. See 
+RPC Providers
+ for a current list.
+Can I use Core for gaming assets?
+Yes. Core's plugin system makes it ideal for gaming: use Attributes for on-chain stats, Freeze Delegate for locking items, and Transfer Delegate for marketplace integration.
+Glossary
+Term
+Definition
+Asset
+A single Core on-chain account representing an NFT with ownership, metadata, and plugins
+Collection
+A Core account that groups related Assets and can apply collection-wide plugins
+Plugin
+A modular extension that adds behavior to Assets or Collections (royalties, freeze, attributes)
+DAS
+Digital Asset Standard - the API specification for querying indexed NFT data
+Basis Points
+Royalty percentage in hundredths of a percent (500 = 5%)
+Delegate
+An account authorized to perform specific actions on an Asset without owning it
+CPI
+Cross-Program Invocation - calling the Core program from another Solana program
+URI
+The off-chain metadata URL pointing to a JSON file with name, image, and attributes
+Asset Signer PDA
+A separate address derived from an Asset that acts as the Asset's wallet
+Next
+What is an Asset? 
+→
+On this page
+Summary
+Out of Scope
+Quick Start
+Introduction
+Core Concepts
+Quick Reference
+Next Steps
+FAQ
+Glossary
+© 2026 Metaplex Global Ltd.
+All rights reserved.
+Resources
+Official Links
+Security
+Protocol Fees
+Stability Index
+Legal
+Terms of Use
+Privacy Policy
+Connect

@@ -1,0 +1,14 @@
+{
+  "id": "getaccountinfo",
+  "url": "https://solana.com/docs/rpc/http/getaccountinfo",
+  "resolved_url": "https://solana.com/docs/rpc/http/getaccountinfo",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:54.411040+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "getaccountinfo.raw",
+  "text_path": "getaccountinfo.txt",
+  "raw_sha256": "942809435a687595ca2c95bad2bc128b5416f5a9d157793c30894183e3cd5264",
+  "text_sha256": "84272ff8d73b6ae9f921e7798b2d6792de62e7136a928ed7d3df61c17bafc9f7",
+  "text_chars": 3756,
+  "evidence_usable": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": "abi",
+  "url": "https://docs.soliditylang.org/en/latest/abi-spec.html",
+  "resolved_url": "https://docs.soliditylang.org/en/latest/abi-spec.html",
+  "status": 429,
+  "retrieved_at_utc": "2026-10-04T05:25:49.911179+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "abi.raw",
+  "text_path": "abi.txt",
+  "raw_sha256": "6e5ce0a2c4bddd62d14e5f048b04f7385d03ae9d0c88731ccd513fe58d955747",
+  "text_sha256": "05f8bdf19ca64ec98ac31c13061fb810966197580390f0688c67e092c21b5a3f",
+  "text_chars": 58
+}

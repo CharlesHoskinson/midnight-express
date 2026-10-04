@@ -1,0 +1,14 @@
+{
+  "id": "slotsupdatessubscribe",
+  "url": "https://solana.com/docs/rpc/websocket/slotsupdatessubscribe",
+  "resolved_url": "https://solana.com/docs/rpc/websocket/slotsupdatessubscribe",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:26:02.099201+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "slotsupdatessubscribe.raw",
+  "text_path": "slotsupdatessubscribe.txt",
+  "raw_sha256": "716c78387c1d5b3b9de8f1187eb2e829d5bf350bedee88ac3542275dcdfc6261",
+  "text_sha256": "8179a5f33d7295eef857198952e69e7c924037d8d2c2cf288dccf7a3c5e4a0a3",
+  "text_chars": 3181,
+  "evidence_usable": true
+}

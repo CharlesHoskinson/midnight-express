@@ -1,0 +1,13 @@
+{
+  "id": "protobuf-evolution",
+  "url": "https://protobuf.dev/programming-guides/proto3/",
+  "resolved_url": "https://protobuf.dev/programming-guides/proto3/",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:03:22.673342+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=25)",
+  "raw_path": "protobuf-evolution.raw",
+  "text_path": "protobuf-evolution.txt",
+  "raw_sha256": "c95ad0dff56abf0f2089388ec798263960b7e0e520ac53dcdb9b5a14e94cd6a2",
+  "text_sha256": "c077ffe8c3b0672bb224a3ec8dec838ec6e228a08a9ea7fe16340f705a762cb2",
+  "text_chars": 65110
+}

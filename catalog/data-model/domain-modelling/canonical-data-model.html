@@ -1,0 +1,140 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Canonical Data Model - Enterprise Integration Patterns</title>
+<meta http-equiv="Cache-Control" content="max-age=3600">
+<meta name="keywords" content="Canonical Data Model,integration, messaging, events, patterns, event-driven, coupling, eai, middleware, application integration, enterprise integration">
+<meta name="description" content="How can you minimize dependencies when integrating applications that use different data formats?">
+<link rel="stylesheet" href="/patterns.css" type="text/css">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Canonical Data Model - Enterprise Integration Patterns">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Enterprise Integration Patterns">
+<meta property="og:title" content="Canonical Data Model - Enterprise Integration Patterns">
+<meta property="og:url" content="https://www.enterpriseintegrationpatterns.com/patterns/messaging/CanonicalDataModel.html">
+<meta name="twitter:description" content="How can you minimize dependencies when integrating applications that use different data formats?">
+<meta name="twitter:image" content="https://www.enterpriseintegrationpatterns.com/img/CanonicalDataModel.gif">
+<meta property="og:image" content="https://www.enterpriseintegrationpatterns.com/img/CanonicalDataModel.gif">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body bgcolor="white">
+<div style="display:block;min-height:60px"><a href="https://www.enterpriseintegrationpatterns.com" class="hideOnMobile"><img src="/img/eip.gif" width="134" height="56" style="float: left; padding-right: 1em;padding-bottom: 0.2em;" alt="Enterprise Integration Patterns"></a><div class="title">Messaging Patterns</div><span class="header"><a href="/index.html" class="header">HOME</a> <a href="/eaipatterns.html" class="header">PATTERNS</a> <a href="/ramblings.html" class="header">RAMBLINGS</a> <a href="/articles.html" class="header">ARTICLES</a> <a href="/talks.html" class="header">TALKS</a> <a href="/downloads.html" class="header">DOWNLOAD</a> <a href="/books1.html" class="header">BOOKS</a> <a href="/gregor.html" class="header">CONTACT</a></span></div><div class="toc"><div id="tocsidetitle"><a href="index.html">Messaging Patterns</a></div><ul><ul><li><a href="toc.html">Table of Contents</a></li><li><a href="Preface.html">Preface</a></li><li><a href="Introduction.html">Introduction</a></li><li><a href="Chapter1.html">Solving Integration Problems using Patterns</a></li></ul><li><a href="IntegrationStylesIntro.html">Integration Styles</a></li><ul><li><a href="FileTransferIntegration.html">File Transfer</a></li><li><a href="SharedDataBaseIntegration.html">Shared Database</a></li><li><a href="EncapsulatedSynchronousIntegration.html">Remote Procedure Invocation</a></li><li><a href="Messaging.html">Messaging</a></li></ul><li><a href="MessagingComponentsIntro.html">Messaging Systems</a></li><ul><li><a href="MessageChannel.html">Message Channel</a></li><li><a href="Message.html">Message</a></li><li><a href="PipesAndFilters.html">Pipes and Filters</a></li><li><a href="MessageRouter.html">Message Router</a></li><li><a href="MessageTranslator.html">Message Translator</a></li><li><a href="MessageEndpoint.html">Message Endpoint</a></li></ul><li><a href="MessagingChannelsIntro.html">Messaging Channels</a></li><ul><li><a href="PointToPointChannel.html">Point-to-Point Channel</a></li><li><a href="PublishSubscribeChannel.html">Publish-Subscribe Channel</a></li><li><a href="DatatypeChannel.html">Datatype Channel</a></li><li><a href="InvalidMessageChannel.html">Invalid Message Channel</a></li><li><a href="DeadLetterChannel.html">Dead Letter Channel</a></li><li><a href="GuaranteedMessaging.html">Guaranteed Delivery</a></li><li><a href="ChannelAdapter.html">Channel Adapter</a></li><li><a href="MessagingBridge.html">Messaging Bridge</a></li><li><a href="MessageBus.html">Message Bus</a></li></ul><li><a href="MessageConstructionIntro.html">Message Construction</a></li><ul><li><a href="CommandMessage.html">Command Message</a></li><li><a href="DocumentMessage.html">Document Message</a></li><li><a href="EventMessage.html">Event Message</a></li><li><a href="RequestReply.html">Request-Reply</a></li><li><a href="ReturnAddress.html">Return Address</a></li><li><a href="CorrelationIdentifier.html">Correlation Identifier</a></li><li><a href="MessageSequence.html">Message Sequence</a></li><li><a href="MessageExpiration.html">Message Expiration</a></li><li><a href="FormatIndicator.html">Format Indicator</a></li></ul><li><a href="SimpleMessagingIntro.html">Interlude: Simple Messaging</a></li><ul><li><a href="RequestReplyJmsExample.html">JMS Request/Reply Example</a></li><li><a href="RequestReplyNetExample.html">.NET Request/Reply Example</a></li><li><a href="ObserverJmsExample.html">JMS Publish/Subscribe Example</a></li></ul><li><a href="MessageRoutingIntro.html">Message Routing</a></li><ul><li><a href="ContentBasedRouter.html">Content-Based Router</a></li><li><a href="Filter.html">Message Filter</a></li><li><a href="DynamicRouter.html">Dynamic Router</a></li><li><a href="RecipientList.html">Recipient List</a></li><li><a href="Sequencer.html">Splitter</a></li><li><a href="Aggregator.html">Aggregator</a></li><li><a href="Resequencer.html">Resequencer</a></li><li><a href="DistributionAggregate.html">Composed Msg. Processor</a></li><li><a href="BroadcastAggregate.html">Scatter-Gather</a></li><li><a href="RoutingTable.html">Routing Slip</a></li><li><a href="ProcessManager.html">Process Manager</a></li><li><a href="MessageBroker.html">Message Broker</a></li></ul><li><a href="MessageTransformationIntro.html">Message Transformation</a></li><ul><li><a href="EnvelopeWrapper.html">Envelope Wrapper</a></li><li><a href="DataEnricher.html">Content Enricher</a></li><li><a href="ContentFilter.html">Content Filter</a></li><li><a href="StoreInLibrary.html">Claim Check</a></li><li><a href="Normalizer.html">Normalizer</a></li><li><a href="CanonicalDataModel.html">Canonical Data Model</a></li></ul><li><a href="ComposedMessagingExample.html">Interlude: Composed Messaging</a></li><ul><li><a href="ComposedMessagingWS.html">Synchronous (Web Services)</a></li><li><a href="ComposedMessagingMSMQ.html">Asynchronous (MSMQ)</a></li><li><a href="ComposedMessagingTIBCO.html">Asynchronous (TIBCO)</a></li></ul><li><a href="MessagingEndpointsIntro.html">Messaging Endpoints</a></li><ul><li><a href="MessagingGateway.html">Messaging Gateway</a></li><li><a href="MessagingMapper.html">Messaging Mapper</a></li><li><a href="TransactionalClient.html">Transactional Client</a></li><li><a href="PollingConsumer.html">Polling Consumer</a></li><li><a href="EventDrivenConsumer.html">Event-Driven Consumer</a></li><li><a href="CompetingConsumers.html">Competing Consumers</a></li><li><a href="MessageDispatcher.html">Message Dispatcher</a></li><li><a href="MessageSelector.html">Selective Consumer</a></li><li><a href="DurableSubscription.html">Durable Subscriber</a></li><li><a href="IdempotentReceiver.html">Idempotent Receiver</a></li><li><a href="MessagingAdapter.html">Service Activator</a></li></ul><li><a href="SystemManagementIntro.html">System Management</a></li><ul><li><a href="ControlBus.html">Control Bus</a></li><li><a href="Detour.html">Detour</a></li><li><a href="WireTap.html">Wire Tap</a></li><li><a href="MessageHistory.html">Message History</a></li><li><a href="MessageStore.html">Message Store</a></li><li><a href="SmartProxy.html">Smart Proxy</a></li><li><a href="TestMessage.html">Test Message</a></li><li><a href="ChannelPurger.html">Channel Purger</a></li></ul><li>Interlude: Systems Management Example</li><ul><li><a href="SystemManagementExample.html">Instrumenting Loan Broker</a></li></ul><li>Integration Patterns in Practice</li><ul><li><a href="BondTradingCaseStudy.html">Case Study: Bond Trading System</a></li></ul><li>Concluding Remarks</li><ul><li><a href="Future.html">Emerging Standards</a></li></ul><li>Appendices</li><ul><li><a href="bib.html">Bibliography</a></li><li><a href="history.html">Revision History</a></li></ul></ul></div><div class="main" style="max-width:1200px"><table width="100%" border="1" cellspacing="0" cellpadding="3" style="font-stretch: revert;"><tr style="height: 4em"><td class="tocentry" style="text-align: center"></td><td valign="top"><span class="navtitle" style="width: 100%;display: inline-block;">Canonical Data Model</span><span class="navbar"><a href="index.html">Messaging Patterns</a> &#187; <a href="MessageTransformationIntro.html">Message Transformation</a>
+</span></td><td align="center" style="width: 6em; background-color: #CCCCCC" valign="top"><div style="display:grid; grid-template-columns: 50% 50%; gap:0.3em;padding: 0.1em"><span class="navtitle" style=" grid-column-start: 1;grid-column-end: 3;"><a href="toc.html" title="Table of Contents">Contents</a></span><span class="sansserif" style="white-space: nowrap;text-align: center; "><a href="Normalizer.html" title="Normalizer">⇐ Prev</a></span><span class="sansserif" style="white-space: nowrap;text-align: center; "><a href="ComposedMessagingExample.html" title="Introduction to Composed Messaging Examples">Next ⇒</a></span></div></td></tr></table><p></p>
+
+<div class="pattern">
+<p>I am designing several applications to work together through <a href="Messaging.html"><I>Messaging</I></a>. Each application has its own internal data format.</p>
+<p class="pattern-solution">How can you minimize dependencies when integrating applications that use different data formats?</p><img src="/img/CanonicalDataModel.gif">
+<p class="pattern-solution">Therefore, design a <I>Canonical Data Model</I> that is independent from any specific application. Require each application to produce and consume messages in this common format.</p><p>The <I>Canonical Data Model</I> provides an additional level of indirection between application's individual data formats. If a new application is added to the integration solution only transformation between the <I>Canonical Data Model</I> has to created, independent from the number of applications that already participate. </p>
+<p>The use a <I>Canonical Data Model</I> seems complicated if only a small number of applications participate in the integration solution. However, the solution quickly pays off as the number of applications increases. If we assume that each application sends and receives message to and from each other application, a solution consisting of 2 applications would require only 2 <a href="MessageTranslator.html"><I>Message Translator</I></a>s if we translate between the applications' data formats directly whereas the <I>Canonical Data Model</I> requires 4 <a href="MessageTranslator.html"><I>Message Translator</I></a>s. A solution consisting of 3 applications requires 6 <a href="MessageTranslator.html"><I>Message Translator</I></a>s with either approach. However, a solution consisting of 6 applications requires 30(!) <a href="MessageTranslator.html"><I>Message Translator</I></a>s without a <I>Canonical Data Model</I> and only 12 <a href="MessageTranslator.html"><I>Message Translator</I></a>s when using a <I>Canonical Data Model</I>.</p>
+<p style="margin: 2em auto">...
+<span class="bookisout">Read the entire pattern in the book <a href="/books1.html">Enterprise Integration Patterns</a></span></p><p><b>Related patterns: </b></p><p><a href="FormatIndicator.html"><I>Format Indicator</I></a>, <a href="MessageChannel.html"><I>Message Channel</I></a>, <a href="MessageRouter.html"><I>Message Router</I></a>, <a href="MessageRoutingIntro.html"><I>Introduction to Message Routing</I></a>, <a href="MessageTranslator.html"><I>Message Translator</I></a>, <a href="Messaging.html"><I>Messaging</I></a>, <a href="MessagingMapper.html"><I>Messaging Mapper</I></a>, <a href="SharedDataBaseIntegration.html"><I>Shared Database</I></a></p><hr><div class="navimg_wrapper">
+  <h2>Integration Pattern Language</h2>
+  <div style="width: 100%; max-width: 850px; min-width: 525px; position: relative; clear: left;">
+    <div class="hotspot-title" style="left: 5%; top: 3px; width: 20%; height:17px;"><a href="MessageConstructionIntro.html">Message Construct.</a></div>
+    <div class="hotspot" style="left:5.1%; top:  25px; width:19.8%"><a href="Message.html">Message</a></div>
+    <div class="hotspot" style="left:5.1%; top:  39px; width:19.8%"><a href="CommandMessage.html">Command Message</a></div>
+    <div class="hotspot" style="left:5.1%; top:  53px; width:19.8%"><a href="DocumentMessage.html">Document Message</a></div>
+    <div class="hotspot" style="left:5.1%; top:  67px; width:19.8%"><a href="EventMessage.html">Event Message</a></div>
+    <div class="hotspot" style="left:5.1%; top:  81px; width:19.8%"><a href="RequestReply.html">Request-Reply</a></div>
+    <div class="hotspot" style="left:5.1%; top:  95px; width:19.8%"><a href="ReturnAddress.html">Return Address</a></div>
+    <div class="hotspot" style="left:5.1%; top:109px; width:19.8%"><a href="CorrelationIdentifier.html">Correlation Identifier</a></div>
+    <div class="hotspot" style="left:5.1%; top:123px; width:19.8%"><a href="MessageSequence.html">Message Sequence</a></div>
+    <div class="hotspot" style="left:5.1%; top:137px; width:19.8%"><a href="MessageExpiration.html">Message Expiration</a></div>
+    <div class="hotspot" style="left:5.1%; top:151px; width:19.8%"><a href="FormatIndicator.html">Format Indicator</a></div>
+
+    <div class="hotspot-title" style="left: 29.3%; top: 47px; width:41.2%; height:17px"><a href="MessageRoutingIntro.html">Message Routing</a></div>
+    <div class="hotspot" style="left:29.2%; top:  68px; width:19%"><a href="PipesAndFilters.html">Pipes-and-Filters</a></div>
+    <div class="hotspot" style="left:29.2%; top:  82px; width:19%"><a href="MessageRouter.html">Message Router</a></div>
+    <div class="hotspot" style="left:29.2%; top:  96px; width:19%"><a href="ContentBasedRouter.html">Content-based Router</a></div>
+    <div class="hotspot" style="left:29.2%; top:110px; width:19%"><a href="Filter.html">Message Filter</a></div>
+    <div class="hotspot" style="left:29.2%; top:124px; width:19%"><a href="DynamicRouter.html">Dynamic Router</a></div>
+    <div class="hotspot" style="left:29.2%; top:138px; width:19%"><a href="RecipientList.html">Recipient List</a></div>
+    <div class="hotspot" style="left:29.2%; top:152px; width:19%"><a href="Sequencer.html">Splitter</a></div>
+
+    <div class="hotspot" style="left:48%; top:  68px; width:22.6%"><a href="Aggregator.html">Aggregator</a></div>
+    <div class="hotspot" style="left:48%; top:  82px; width:22.6%"><a href="Resequencer.html">Resequencer</a></div>
+    <div class="hotspot" style="left:48%; top:  96px; width:22.6%"><a href="DistributionAggregate.html">Composed Msg. Processor</a></div>
+    <div class="hotspot" style="left:48%; top:110px; width:22.6%"><a href="BroadcastAggregate.html">Scatter-Gather</a></div>
+    <div class="hotspot" style="left:48%; top:124px; width:22.6%"><a href="RoutingTable.html">Routing Slip</a></div>
+    <div class="hotspot" style="left:48%; top:138px; width:22.6%"><a href="ProcessManager.html">Process Manager</a></div>
+    <div class="hotspot" style="left:48%; top:152px; width:22.6%"><a href="MessageBroker.html">Message Broker</a></div>
+
+    <div class="hotspot-title" style="left:75.3%; top:35px; width:20%; height:30px"><a href="MessageTransformationIntro.html">Message<br>Transformation</a></div>
+    <div class="hotspot" style="left:75.3%; top:  69px; width:20%"><a href="MessageTranslator.html">Message Translator</a></div>
+    <div class="hotspot" style="left:75.3%; top:  83px; width:20%"><a href="EnvelopeWrapper.html">Envelope Wrapper</a></div>
+    <div class="hotspot" style="left:75.3%; top:  97px; width:20%"><a href="DataEnricher.html">Content Enricher</a></div>
+    <div class="hotspot" style="left:75.3%; top:111px; width:20%"><a href="ContentFilter.html">Content Filter</a></div>
+    <div class="hotspot" style="left:75.3%; top:125px; width:20%"><a href="StoreInLibrary.html">Claim Check</a></div>
+    <div class="hotspot" style="left:75.3%; top:139px; width:20%"><a href="Normalizer.html">Normalizer</a></div>
+    <div class="hotspot" style="left:75.3%; top:153px; width:20%"><a href="CanonicalDataModel.html">Canonical Data Model</a></div>
+
+    <div class="hotspot-title" style="left:1%; top:306px; width:39%; height:16px"><a href="MessagingEndpointsIntro.html">Messaging Endpoints</a></div>
+    <div class="hotspot" style="left:1.2%; top:326px; width:19%"><a href="MessageEndpoint.html">Message Endpoint</a></div>
+    <div class="hotspot" style="left:1.2%; top:340px; width:19%"><a href="MessagingGateway.html">Messaging Gateway</a></div>
+    <div class="hotspot" style="left:1.2%; top:354px; width:19%"><a href="MessagingMapper.html">Messaging Mapper</a></div>
+    <div class="hotspot" style="left:1.2%; top:368px; width:19%"><a href="TransactionalClient.html">Transactional Client</a></div>
+    <div class="hotspot" style="left:1.2%; top:382px; width:19%"><a href="PollingConsumer.html">Polling Consumer</a></div>
+    <div class="hotspot" style="left:1.2%; top:396px; width:20%"><a href="EventDrivenConsumer.html">Event-driven Consumer</a></div>
+
+    <div class="hotspot" style="left:20%; top:326px; width:19%"><a href="CompetingConsumers.html">Competing Consumers</a></div>
+    <div class="hotspot" style="left:20%; top:340px; width:19%"><a href="MessageDispatcher.html">Message Dispatcher</a></div>
+    <div class="hotspot" style="left:20%; top:354px; width:19%"><a href="MessageSelector.html">Selective Consumer</a></div>
+    <div class="hotspot" style="left:20%; top:368px; width:19%"><a href="DurableSubscription.html">Durable Subscriber</a></div>
+    <div class="hotspot" style="left:20%; top:382px; width:19%"><a href="IdempotentReceiver.html">Idempotent Receiver</a></div>
+    <div class="hotspot" style="left:20%; top:396px; width:19%"><a href="MessagingAdapter.html">Service Activator</a></div>
+
+    <div class="hotspot-title" style="left:42.6%; top:306px; width:20%; height:16px;"><a href="MessagingChannelsIntro.html">Messaging Channels</a></div>
+    <div class="hotspot" style="left:42.7%; top:326px; width:20%"><a href="MessageChannel.html">Message Channel</a></div>
+    <div class="hotspot" style="left:42.7%; top:340px; width:20%"><a href="PointToPointChannel.html">Point-to-Point Channel</a></div>
+    <div class="hotspot" style="left:42.7%; top:354px; width:20%"><a href="PublishSubscribeChannel.html">Publish-Subscr. Channel</a></div>
+    <div class="hotspot" style="left:42.7%; top:368px; width:20%"><a href="DatatypeChannel.html">Datatype Channel</a></div>
+    <div class="hotspot" style="left:42.7%; top:382px; width:20%"><a href="InvalidMessageChannel.html">Invalid Message Channel</a></div>
+    <div class="hotspot" style="left:42.7%; top:396px; width:20%"><a href="DeadLetterChannel.html">Dead Letter Channel</a></div>
+    <div class="hotspot" style="left:42.7%; top:410px; width:20%"><a href="GuaranteedMessaging.html">Guaranteed Delivery</a></div>
+    <div class="hotspot" style="left:42.7%; top:424px; width:20%"><a href="ChannelAdapter.html">Channel Adapter</a></div>
+    <div class="hotspot" style="left:42.7%; top:437px; width:20%"><a href="MessagingBridge.html">Messaging Bridge</a></div>
+    <div class="hotspot" style="left:42.7%; top:451px; width:20%"><a href="MessageBus.html">Message Bus</a></div>
+
+    <div class="hotspot-title" style="left:79.4%; top:306px; width:19.5%; height:16px"><a href="SystemManagementIntro.html">Systems Mgmt.</a></div>
+    <div class="hotspot" style="left:79.4%; top:326px; width:19%"><a href="ControlBus.html">Control Bus</a></div>
+    <div class="hotspot" style="left:79.4%; top:340px; width:19%"><a href="Detour.html">Detour</a></div>
+    <div class="hotspot" style="left:79.4%; top:354px; width:19%"><a href="WireTap.html">Wire Tap</a></div>
+    <div class="hotspot" style="left:79.4%; top:368px; width:19%"><a href="MessageHistory.html">Message History</a></div>
+    <div class="hotspot" style="left:79.4%; top:382px; width:19%"><a href="MessageStore.html">Message Store</a></div>
+    <div class="hotspot" style="left:79.4%; top:396px; width:19%"><a href="SmartProxy.html">Smart Proxy</a></div>
+    <div class="hotspot" style="left:79.4%; top:410px; width:19%"><a href="TestMessage.html">Test Message</a></div>
+    <div class="hotspot" style="left:79.4%; top:424px; width:19%"><a href="ChannelPurger.html">Channel Purger</a></div>
+
+    <img src="/img/eip1_nav.png" style="width:100%; max-width: revert;height:474px" BORDER="0">
+  </div>
+</div></div></div><div class="pattern tiles" style="border-style: solid none; border-width: thin; border-color: #888888;max-width:1200px"><div><ul><li>» <a href="/ramblings">Read the latest in My Blog</a></li><li>» <a href="/articles.html">Get more insights from My Articles</a></li><li>» <a href="/talks">See me live in my Upcoming Talks</a></li></ul></div><div><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Attribution License" src="/img/cc_by.png" align="left" width="100px" height="35px"></a><p>You can reuse the following elements under the <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution</a> license: pattern icon, pattern name, problem and solution statements (in bold), and the sketch. Other portions are protected by copyright.</p></div></div><div class="pattern tiles" style="max-width:1200px"><div><a href="https://amazon.com/o/asin/0321200683/ref=nosim/enterpriseint-20" target="_blank"><img src="/img/eip_cover_120.png" alt="Enterprise Integration Patterns book cover"></a><p><a href="https://amazon.com/o/asin/0321200683/ref=nosim/enterpriseint-20" target="_blank">Enterprise Integration Patterns</a><br>The de-facto language for designing asynchronous, distributed systems. Over 100,000 copies sold.<br></p></div><div><a href="https://www.architectelevator.com/book" target="_blank" onclick="ga('send', 'pageview', 'https://www.architectelevator.com/book');"><img src="/img/sae_cover.jpg" alt="Software Architect Elevator book cover" title="The Software Architect Elevator" width="120"></a><p><a href="https://www.architectelevator.com/book" target="_blank" onclick="ga('send', 'pageview', 'https://www.architectelevator.com/book');">The Software Architect Elevator</a><br>
+       Rethink the role of architects as a connecting element across organizational layers. Acquire the technical, communication, and organizational skills to succeed in this new role.</p></div><div><a href="https://www.cloudstrategybook.com" target="_blank" onclick="ga('send', 'pageview', 'https://www..cloudstrategybook.com');"><img src="/img/cloud_strategy_cover.png" alt="Cloud Strategy book cover" title="Cloud Strategy" width="120"></a><p><a href="https://www.cloudstrategybook.com" target="_blank" onclick="ga('send', 'pageview', 'https://www.cloudstrategybook.com');">Cloud Strategy</a><br>
+       Make your cloud migration a success by translating high-level goals into conscious decisions with well-understood trade-offs.</p></div><div><a href="https://www.platformstrategybook.info" target="_blank" onclick="ga('send', 'pageview', 'https://www..platformstrategybook.info');"><img src="/img/platform_strategy_cover.jpg" alt="Platform Strategy book cover" title="Platform Strategy" width="120"></a><p><a href="https://www.platformstrategybook.info" target="_blank" onclick="ga('send', 'pageview', 'https://www.platformstrategybook.info');">Platform Strategy</a><br>
+      Platforms can boost innovation through harmonization, but they aren't easy to build. Learn from over a decade of designing and rolling out IT platforms.</p></div></div><div class="footer">&#169; 2003, 2023 <script type="text/javascript">
+//
+<!--
+var x="function f(x){var i,o=\"\",l=x.length;for(i=l-1;i>=0;i--) {try{o+=x.c" +
+"harAt(i);}catch(e){}}return o;}f(\")\\\"function f(x,y){var i,o=\\\"\\\\\\\""+
+"\\\\,l=x.length;for(i=0;i<l;i++){y%=127;o+=String.fromCharCode(x.charCodeAt" +
+"(i)^(y++));}return o;}f(\\\"\\\\PZUBU\\\\\\\\\\\\\\\\TO\\\\\\\\022JLV4$.-lg" +
+"z&h!8.*p\\\\\\\\022m=0;? :l>6(/2.$\\\\\\\\036:\\\\\\\\016\\\\\\\\025\\\\\\\\"+
+"007\\\\\\\\021\\\\\\\\024\\\\\\\\027\\\\\\\\017\\\\\\\\024\\\\\\\\r\\\\\\\\" +
+"000\\\\\\\\004\\\\\\\\037\\\\\\\\t\\\\\\\\n\\\\\\\\034\\\\\\\\016\\\\\\\\00" +
+"4\\\\\\\\030\\\\\\\\035\\\\\\\\035\\\\\\\\004\\\\\\\\024\\\\\\\\002\\\\\\\\" +
+"003\\\\\\\\035\\\\\\\\013\\\\\\\\024\\\\\\\\010R\\\\\\\\036\\\\\\\\021m>qvf" +
+"ocd|4Oexh|\\\\\\\\177bxav4\\\\\\\\\\\\\\\\xc}~hzhtqq\\\\\\\\000qCWP@TI[u\\\\"+
+"\\\\010\\\\\\\\013XDZCU\\\\\\\\014n\\\\\\\\021q\\\\\\\\030{VQU\\\\\\\\032vY" +
+"a\\\\\\\\034\\\\\\\\001\\\\\\\\0073'$+7f\\\\\\\\017'!:.pb/qrxico\\\"\\\\,52" +
+")\\\"(f};)lo,0(rtsbus.o nruter};)i(tArahc.x=+o{)--i;0=>i;1-l=i(rof}}{)e(hct" +
+"ac};l=+l;x=+x{yrt{)94=!)31/l(tAedoCrahc.x(elihw;lo=l,htgnel.x=lo,\\\"\\\"=o" +
+",i rav{)x(f noitcnuf\")"                                                     ;
+while(x=eval(x));
+//-->
+//
+        </script> &#8226; <a href="mailto:woolf@acm.org">Bobby Woolf</a> &#8226; All rights reserved.</div><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-1733257-1', 'auto');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+</script></body></html>

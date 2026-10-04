@@ -1,0 +1,188 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "catalogVersion",
+    "status",
+    "purpose",
+    "runtimeContracts",
+    "effectAuthority",
+    "sourceReviewedOn",
+    "chains",
+    "families",
+    "coverage",
+    "exhaustive",
+    "events"
+  ],
+  "properties": {
+    "catalogVersion": {
+      "const": "0.1.0-proposed"
+    },
+    "status": {
+      "const": "proposed"
+    },
+    "purpose": {
+      "const": "application-domain-vocabulary"
+    },
+    "runtimeContracts": {
+      "const": false
+    },
+    "effectAuthority": {
+      "const": false
+    },
+    "sourceReviewedOn": {
+      "type": "string",
+      "format": "date"
+    },
+    "chains": {
+      "const": [
+        "ethereum",
+        "solana"
+      ]
+    },
+    "families": {
+      "const": [
+        "blocks",
+        "finality",
+        "rollback",
+        "transactions",
+        "simulation",
+        "state",
+        "logs-instructions-cpi",
+        "token-nft",
+        "approvals-permissions",
+        "staking",
+        "governance",
+        "defi",
+        "oracle",
+        "bridge",
+        "account-abstraction-wallet",
+        "rpc",
+        "subscriptions",
+        "errors",
+        "gaps",
+        "backfill"
+      ]
+    },
+    "coverage": {
+      "const": "bounded-common-candidates"
+    },
+    "exhaustive": {
+      "const": false
+    },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "chain",
+          "family",
+          "semanticName",
+          "sourcePrimitive",
+          "sourceStandard",
+          "primarySource",
+          "status",
+          "evidenceKind",
+          "messageKind",
+          "scope",
+          "effectAuthority",
+          "qualification"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^mpe\\.(ethereum|solana)\\.[a-z][a-z0-9-]*\\.[a-z][a-z0-9-]*\\.v1$"
+          },
+          "chain": {
+            "enum": [
+              "ethereum",
+              "solana"
+            ]
+          },
+          "family": {
+            "enum": [
+              "blocks",
+              "finality",
+              "rollback",
+              "transactions",
+              "simulation",
+              "state",
+              "logs-instructions-cpi",
+              "token-nft",
+              "approvals-permissions",
+              "staking",
+              "governance",
+              "defi",
+              "oracle",
+              "bridge",
+              "account-abstraction-wallet",
+              "rpc",
+              "subscriptions",
+              "errors",
+              "gaps",
+              "backfill"
+            ]
+          },
+          "semanticName": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$"
+          },
+          "sourcePrimitive": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sourceStandard": {
+            "type": "string",
+            "minLength": 1
+          },
+          "primarySource": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://"
+          },
+          "status": {
+            "const": "proposed"
+          },
+          "evidenceKind": {
+            "enum": [
+              "native",
+              "decoded",
+              "derived",
+              "intent"
+            ]
+          },
+          "messageKind": {
+            "enum": [
+              "observation",
+              "intent",
+              "rpc-request",
+              "rpc-response",
+              "subscription-control"
+            ]
+          },
+          "scope": {
+            "enum": [
+              "chain",
+              "standard",
+              "program",
+              "local"
+            ]
+          },
+          "effectAuthority": {
+            "const": false
+          },
+          "qualification": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mpe:domain-catalog:metadata:0.1",
+  "title": "Proposed chain catalog metadata (not runtime events)"
+}

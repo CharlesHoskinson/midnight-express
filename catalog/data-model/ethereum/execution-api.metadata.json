@@ -1,0 +1,13 @@
+{
+  "id": "execution-api",
+  "url": "https://raw.githubusercontent.com/ethereum/execution-apis/main/src/eth/transaction.yaml",
+  "resolved_url": "https://raw.githubusercontent.com/ethereum/execution-apis/main/src/eth/transaction.yaml",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:47.060496+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "execution-api.raw",
+  "text_path": "execution-api.txt",
+  "raw_sha256": "fb44558c40eb24b7f0d4b7e34fc1b8b7d69c4f57419332c84b6f59e0b1975cd3",
+  "text_sha256": "fb44558c40eb24b7f0d4b7e34fc1b8b7d69c4f57419332c84b6f59e0b1975cd3",
+  "text_chars": 6455
+}

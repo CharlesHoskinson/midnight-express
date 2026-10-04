@@ -1,0 +1,224 @@
+{
+  "type": "object",
+  "properties": {
+    "specversion": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^event:[a-z0-9][a-z0-9._/-]{0,63}$",
+      "maxLength": 80
+    },
+    "source": {
+      "type": "string",
+      "pattern": "^urn:mpe:source:[a-z0-9][a-z0-9-]{0,31}$"
+    },
+    "type": {
+      "const": "mpe.rfq.quote.v0.1"
+    },
+    "time": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.000Z$"
+    },
+    "datacontenttype": {
+      "const": "application/json"
+    },
+    "dataschema": {
+      "const": "urn:mpe:model:rfq.v0.1"
+    },
+    "mpeprofile": {
+      "const": "rfq.v0.1"
+    },
+    "mpecontract": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "rfqId": {
+          "type": "string",
+          "pattern": "^rfq:[a-z0-9][a-z0-9._/-]{0,63}$",
+          "maxLength": 80
+        },
+        "quoteId": {
+          "type": "string",
+          "pattern": "^quote:[a-z0-9][a-z0-9._/-]{0,63}$",
+          "maxLength": 80
+        },
+        "requester": {
+          "type": "string",
+          "pattern": "^party:[a-z0-9][a-z0-9._/-]{0,63}$",
+          "maxLength": 80
+        },
+        "dealer": {
+          "type": "string",
+          "pattern": "^party:[a-z0-9][a-z0-9._/-]{0,63}$",
+          "maxLength": 80
+        },
+        "requesterSide": {
+          "enum": [
+            "BuyAsset",
+            "SellAsset"
+          ]
+        },
+        "buyer": {
+          "type": "string",
+          "pattern": "^party:[a-z0-9][a-z0-9._/-]{0,63}$",
+          "maxLength": 80
+        },
+        "seller": {
+          "type": "string",
+          "pattern": "^party:[a-z0-9][a-z0-9._/-]{0,63}$",
+          "maxLength": 80
+        },
+        "asset": {
+          "type": "string",
+          "pattern": "^asset:[a-z0-9][a-z0-9._/-]{0,63}$",
+          "maxLength": 80
+        },
+        "quantity": {
+          "type": "object",
+          "properties": {
+            "coefficient": {
+              "type": "string",
+              "pattern": "^[1-9][0-9]{0,17}$"
+            },
+            "scale": {
+              "const": 0
+            },
+            "unit": {
+              "const": "Share"
+            }
+          },
+          "required": [
+            "coefficient",
+            "scale",
+            "unit"
+          ],
+          "additionalProperties": false
+        },
+        "currency": {
+          "const": "iso4217:USD"
+        },
+        "price": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "AbsolutePerUnit"
+            },
+            "value": {
+              "type": "object",
+              "properties": {
+                "coefficient": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]{0,17}$"
+                },
+                "scale": {
+                  "const": 2
+                }
+              },
+              "required": [
+                "coefficient",
+                "scale"
+              ],
+              "additionalProperties": false
+            },
+            "currency": {
+              "const": "iso4217:USD"
+            },
+            "assetRef": {
+              "type": "string",
+              "pattern": "^asset:[a-z0-9][a-z0-9._/-]{0,63}$",
+              "maxLength": 80
+            },
+            "unit": {
+              "const": "Share"
+            },
+            "baseQuantity": {
+              "const": "1"
+            },
+            "fees": {
+              "const": "None"
+            }
+          },
+          "required": [
+            "kind",
+            "value",
+            "currency",
+            "assetRef",
+            "unit",
+            "baseQuantity",
+            "fees"
+          ],
+          "additionalProperties": false
+        },
+        "cash": {
+          "type": "object",
+          "properties": {
+            "coefficient": {
+              "type": "string",
+              "pattern": "^[1-9][0-9]{0,17}$"
+            },
+            "scale": {
+              "const": 2
+            }
+          },
+          "required": [
+            "coefficient",
+            "scale"
+          ],
+          "additionalProperties": false
+        },
+        "quoteKind": {
+          "const": "Firm"
+        },
+        "validFrom": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.000Z$"
+        },
+        "validUntil": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.000Z$"
+        },
+        "settlement": {
+          "const": "OffchainCoordinationOnly"
+        }
+      },
+      "required": [
+        "rfqId",
+        "quoteId",
+        "requester",
+        "dealer",
+        "requesterSide",
+        "buyer",
+        "seller",
+        "asset",
+        "quantity",
+        "currency",
+        "price",
+        "cash",
+        "quoteKind",
+        "validFrom",
+        "validUntil",
+        "settlement"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "specversion",
+    "id",
+    "source",
+    "type",
+    "time",
+    "datacontenttype",
+    "dataschema",
+    "mpeprofile",
+    "mpecontract",
+    "data"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mpe:model:rfq.v0.1"
+}

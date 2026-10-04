@@ -1,0 +1,13 @@
+{
+  "id": "optimism-bridge",
+  "url": "https://docs.optimism.io/app-developers/bridging/standard-bridge",
+  "resolved_url": "https://docs.optimism.io/app-developers/guides/bridging/standard-bridge",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:52.275838+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "optimism-bridge.raw",
+  "text_path": "optimism-bridge.txt",
+  "raw_sha256": "5b9023de8e5e91cd795c765da7d240229cbe3c061c42b5efb09fa24617355aa0",
+  "text_sha256": "e76d65284b66648a9a78dbf40581166265060d792619d128183450f585b5eed8",
+  "text_chars": 14597
+}

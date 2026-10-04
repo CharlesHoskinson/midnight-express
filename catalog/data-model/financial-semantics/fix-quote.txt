@@ -1,0 +1,341 @@
+Quote | FIX.4.4 | FIX Trading | Orchimate
+Orchimate
+ / 
+FIX Trading
+ / 
+FIX.4.4
+FIX.4.4_EP311
+Orchestra Repository
+Open Local Repository
+Find All
+Message
+Component or Group
+Field
+Code Set
+Datatype
+Indexes
+Messages
+Components
+Groups
+Fields
+Code Sets
+Datatypes
+Message Layouts
+Session
+PreTrade
+Trade
+PostTrade
+Message
+Quote (S)
+ID
+27
+Abbr Name
+Quot
+Pedigree
+Added FIX.4.0
+The Quote message is used as the response to a Quote Request or a Quote Response message in both indicative, tradeable, and restricted tradeable quoting markets.
+Field
+Name
+Type
+Req'd
+Comments
+Pedigree
+Component
+StandardHeader
+StandardHeader
+Y
+MsgType = S
+Added FIX.4.0
+131
+QuoteReqID
+String
+Required when quote is in response to a Quote Request message
+Added FIX.4.0
+117
+QuoteID
+String
+Y
+Added FIX.4.0
+693
+QuoteRespID
+String
+Required when responding to the Quote Response message. The counterparty specified ID of the Quote Response message.
+Added FIX.4.4
+537
+QuoteType
+QuoteTypeCodeSet
+Quote Type
+         If not specified, the default is an indicative quote
+Added FIX.4.3
+Component
+QuotQualGrp
+QuotQualGrp
+Added FIX.4.4
+301
+QuoteResponseLevel
+QuoteResponseLevelCodeSet
+Level of Response requested from receiver of quote messages.
+Added FIX.4.2
+Component
+Parties
+Parties
+Insert here the set of "Parties" (firm identification) fields defined in "Common Components of Application Messages"
+Added FIX.4.3
+336
+TradingSessionID
+String
+Added FIX.4.2
+625
+TradingSessionSubID
+String
+Added FIX.4.3
+Component
+Instrument
+Instrument
+Y
+Insert here the set of "Instrument" (symbology) fields defined in "Common Components of Application Messages"
+Added FIX.4.3
+Component
+FinancingDetails
+FinancingDetails
+Insert here the set of "FinancingDetails" (symbology) fields defined in "Common Components of Application Messages"
+Added FIX.4.4
+Component
+UndInstrmtGrp
+UndInstrmtGrp
+Number of underlyings
+Added FIX.4.4
+54
+Side
+SideCodeSet
+Required for Tradeable or Counter quotes of single instruments
+Added FIX.4.4
+Component
+OrderQtyData
+OrderQtyData
+Required for Tradeable quotes or Counter quotes of single instruments
+Added FIX.4.4
+63
+SettlType
+SettlTypeCodeSet
+Added FIX.4.3
+64
+SettlDate
+LocalMktDate
+Can be used with forex quotes to specify a specific "value date"
+Added FIX.4.1
+193
+SettlDate2
+LocalMktDate
+Can be used with OrdType = "Forex - Swap" to specify the "value date" for the future portion of an F/X swap.
+Added FIX.4.1
+192
+OrderQty2
+Qty
+Can be used with OrdType = "Forex - Swap" to specify the order quantity for the future portion of an F/X swap.
+Added FIX.4.1
+15
+Currency
+Currency
+Can be used to specify the currency of the quoted prices. May differ from the ‘normal’ trading currency of the instrument being quoted
+Added FIX.4.2
+Component
+Stipulations
+Stipulations
+Insert here the set of "Stipulations" (repeating group of Fixed Income stipulations) fields defined in "Common Components of Application Messages"
+Added FIX.4.4
+1
+Account
+String
+Added FIX.4.3
+660
+AcctIDSource
+AcctIDSourceCodeSet
+Added FIX.4.4
+581
+AccountType
+AccountTypeCodeSet
+Type of account associated with the order (Origin)
+Added FIX.4.3
+Component
+LegQuotGrp
+LegQuotGrp
+Required for multileg quotes
+Added FIX.4.4
+132
+BidPx
+Price
+If F/X quote, should be the "all-in" rate (spot rate adjusted for forward points). Note that either BidPx, OfferPx or both must be specified.
+Added FIX.4.0
+133
+OfferPx
+Price
+If F/X quote, should be the "all-in" rate (spot rate adjusted for forward points). Note that either BidPx, OfferPx or both must be specified.
+Added FIX.4.0
+645
+MktBidPx
+Price
+Can be used by markets that require showing the current best bid and offer
+Added FIX.4.3
+646
+MktOfferPx
+Price
+Can be used by markets that require showing the current best bid and offer
+Added FIX.4.3
+647
+MinBidSize
+Qty
+Specifies the minimum bid size. Used for markets that use a minimum and maximum bid size.
+Added FIX.4.3
+134
+BidSize
+Qty
+Specifies the bid size. If MinBidSize is specified, BidSize is interpreted to contain the maximum bid size.
+Added FIX.4.0
+648
+MinOfferSize
+Qty
+Specifies the minimum offer size. If MinOfferSize is specified, OfferSize is interpreted to contain the maximum offer size.
+Added FIX.4.3
+135
+OfferSize
+Qty
+Specified the offer size. If MinOfferSize is specified, OfferSize is interpreted to contain the maximum offer size.
+Added FIX.4.0
+62
+ValidUntilTime
+UTCTimestamp
+The time when the quote will expire
+Added FIX.4.0
+188
+BidSpotRate
+Price
+May be applicable for F/X quotes
+Added FIX.4.1
+190
+OfferSpotRate
+Price
+May be applicable for F/X quotes
+Added FIX.4.1
+189
+BidForwardPoints
+PriceOffset
+May be applicable for F/X quotes
+Added FIX.4.1
+191
+OfferForwardPoints
+PriceOffset
+May be applicable for F/X quotes
+Added FIX.4.1
+631
+MidPx
+Price
+Added FIX.4.3
+632
+BidYield
+Percentage
+Added FIX.4.3
+633
+MidYield
+Percentage
+Added FIX.4.3
+634
+OfferYield
+Percentage
+Added FIX.4.3
+60
+TransactTime
+UTCTimestamp
+Added FIX.4.1
+40
+OrdType
+OrdTypeCodeSet
+Can be used to specify the type of order the quote is for
+Added FIX.4.1
+642
+BidForwardPoints2
+PriceOffset
+Bid F/X forward points of the future portion of an F/X swap quote added to spot rate. May be a negative value
+Added FIX.4.3
+643
+OfferForwardPoints2
+PriceOffset
+Offer F/X forward points of the future portion of an F/X swap quote added to spot rate. May be a negative value
+Added FIX.4.3
+656
+SettlCurrBidFxRate
+float
+Can be used when the quote is provided in a currency other than the instrument’s ‘normal’ trading currency. Applies to all bid prices contained in this quote message
+Added FIX.4.3
+657
+SettlCurrOfferFxRate
+float
+Can be used when the quote is provided in a currency other than the instrument’s ‘normal’ trading currency. Applies to all offer prices contained in this quote message
+Added FIX.4.3
+156
+SettlCurrFxRateCalc
+SettlCurrFxRateCalcCodeSet
+Can be used when the quote is provided in a currency other than the instruments trading currency.
+Added FIX.4.3
+13
+CommType
+CommTypeCodeSet
+Can be used to show the counterparty the commission associated with the transaction.
+Added FIX.4.3
+12
+Commission
+Amt
+Can be used to show the counterparty the commission associated with the transaction.
+Added FIX.4.3
+582
+CustOrderCapacity
+CustOrderCapacityCodeSet
+For Futures Exchanges
+Added FIX.4.3
+100
+ExDestination
+Exchange
+Used when routing quotes to multiple markets
+Added FIX.4.3
+528
+OrderCapacity
+OrderCapacityCodeSet
+Added FIX.4.4
+423
+PriceType
+PriceTypeCodeSet
+Added FIX.4.4
+Component
+SpreadOrBenchmarkCurveData
+SpreadOrBenchmarkCurveData
+Added FIX.4.4
+Component
+YieldData
+YieldData
+Added FIX.4.4
+58
+Text
+String
+Added FIX.4.3
+354
+EncodedTextLen
+Length
+Must be set if EncodedText field is specified and must immediately precede it.
+Added FIX.4.3
+355
+EncodedText
+data
+Encoded (non-ASCII characters) representation of the Text field in the encoded format specified via the MessageEncoding field.
+Added FIX.4.3
+Component
+StandardTrailer
+StandardTrailer
+Y
+Added FIX.4.0
+Orchimate Copyright 2026 
+Atomic Wire Technology Limited
+Orchestra Copyright 2026 
+FIX Protocol Ltd
+Terms of Service
+|
+Privacy Policy

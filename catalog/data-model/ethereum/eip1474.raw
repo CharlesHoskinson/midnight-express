@@ -1,0 +1,4576 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+    
+      <title>EIP-1474: Remote procedure call specification</title>
+      <meta property="og:title" content="EIP-1474: Remote procedure call specification" />
+    
+    <meta name="description" content="" />
+    <meta property="og:description" content="" />
+    <meta name="twitter:description" content="" />
+  
+  <meta name="generator" content="Jekyll" />
+  <meta property="og:locale" content="en_US" />
+  <link rel="canonical" href="https://eips.ethereum.org/EIPS/eip-1474" />
+  <meta property="og:url" content="https://eips.ethereum.org/EIPS/eip-1474" />
+  <meta property="og:site_name" content="Ethereum Improvement Proposals" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://eips.ethereum.org/assets/images/eip-og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://eips.ethereum.org/assets/images/eip-og-image.png" />
+  <meta name="twitter:site" content="@" />
+  <script type="application/ld+json">
+    {
+      "@type": "WebSite",
+      "url": "https://eips.ethereum.org",
+      "name": "Ethereum Improvement Proposals",
+      "description": "Ethereum Improvement Proposals (EIPs) describe standards for the Ethereum platform, such as core protocol specifications.",
+      "@context": "https://schema.org"
+    }
+  </script>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" /><link type="application/atom+xml" rel="alternate" href="https://eips.ethereum.org/feed.xml" title="Ethereum Improvement Proposals" /><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/css/override.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", (event) => {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    });
+  </script>
+  <script type="text/javascript">
+    window.MathJax = {
+      loader: {
+        load: ['input/tex-base', 'output/chtml']
+      },
+      tex: {
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']],
+        processEscapes: true,
+        processEnvironments: false,
+        processRefs: false
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js" integrity="sha384-/1zmJ1mBdfKIOnwPxpdG6yaRrxP6qu3eVYm0cz2nOx+AcL4d3AqEFrwcqGZVVroG" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/citation-js/0.6.7/citation.min.js" integrity="sha512-N+LDFMa9owHXGS+CyMrBvuxq2QuGl3fiB/7cys3aUEL7K6P1soHGqsS0sjHXZpwNd9Kz0m3R4IPy1HYRi6ROEQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript">
+    addEventListener('DOMContentLoaded', async () => {
+      const Cite = window.require('citation-js');
+      const citationElements = document.querySelectorAll('.language-csl-json');
+      for (let citationElement of citationElements) {
+        try {
+          const citation = await Cite.async(citationElement);
+          const template = document.createElement('template');
+          template.innerHTML = citation.format('bibliography', {
+            format: 'html',
+            template: 'apa',
+            lang: 'en-US'
+          });
+          if (citationElement.parentElement && citationElement.parentElement.matches('pre')) {
+            citationElement.parentElement.replaceWith(template.content);
+          } else {
+            citationElement.replaceWith(template.content);
+          }
+        } catch (e) {
+          console.error("unable to render citation", e);
+        }
+      }
+    });
+  </script>
+</head>
+<body><header class="site-header" role="banner">
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Ethereum Improvement Proposals</a><nav class="site-nav d-flex">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger row p-2"><a class="page-link col" href="/all">All</a><a class="page-link col" href="/core">Core</a><a class="page-link col" href="/networking">Networking</a><a class="page-link col" href="/interface">Interface</a><a class="page-link col" href="/erc">ERC</a><a class="page-link col" href="/meta">Meta</a><a class="page-link col" href="/informational">Informational</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="bi-megaphone-fill" fill="currentColor" viewBox="0 0 16 16">
+    <title>Alert</title>
+    <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-11zm-1 .724c-2.067.95-4.539 1.481-7 1.656v6.237a25.222 25.222 0 0 1 1.088.085c2.053.204 4.038.668 5.912 1.56V3.224zm-8 7.841V4.934c-.68.027-1.399.043-2.008.053A2.02 2.02 0 0 0 0 7v2c0 1.106.896 1.996 1.994 2.009a68.14 68.14 0 0 1 .496.008 64 64 0 0 1 1.51.048zm1.39 1.081c.285.021.569.047.85.078l.253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a65.81 65.81 0 0 1 1.692.064c.327.017.65.037.966.06z"/>
+  </symbol>
+  <symbol id="bi-code" fill="currentColor" viewBox="0 0 16 16">
+    <title>Source</title>
+    <path d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z"/>
+  </symbol>
+  <svg id="bi-chat" fill="currentColor" viewBox="0 0 16 16">
+    <title>Discuss</title>
+    <path d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z"/>
+  </svg>
+</svg>
+
+<div class="home">
+  
+  
+  
+ 
+  <span class="h5">
+    
+      <span class="badge text-light bg-danger" data-bs-toggle="tooltip" data-bs-title="This EIP had no activity for at least 6 months. This EIP should not be used.">🚧 Stagnant</span>
+    
+    
+    
+    
+    
+       
+    
+      <a class="badge text-light bg-primary" data-bs-toggle="tooltip" data-bs-title="Improvements around client API/RPC specifications and standards, and also certain language-level standards like method names and contract ABIs." href="../interface">Standards Track: Interface</a>
+    
+  </span>
+  <h1 class="page-heading">
+    EIP-1474: Remote procedure call specification
+    <a href="https://ethereum-magicians.org/t/eip-remote-procedure-call-specification/1537" class="no-underline">
+      <svg role="img" aria-label="Discuss" class="inline-svg" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 16 16">
+        <use xlink:href="#bi-chat"/>
+      </svg>
+    </a>
+    <a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1474.md" class="no-underline">
+      <svg role="img" aria-label="Source" class="inline-svg" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 16 16">
+        <use xlink:href="#bi-code"/>
+      </svg>
+    </a>
+  </h1>
+  <h3></h3>
+  <table class="table table-borderless preamble">
+    <tbody>
+      <tr>
+        <th scope="row">Authors</th>
+        <td>Paul Bouchon&nbsp;&lt;<a href="mailto:mail@bitpshr.net">mail@bitpshr.net</a>&gt;, Erik Marks&nbsp;(<a href="https://github.com/rekmarks">@rekmarks</a>)</td>
+      </tr>
+      
+        <tr>
+          <th scope="row">Created</th>
+          <td>2018-10-02</td>
+        </tr>
+      
+      
+             
+      
+        <tr>
+          <th scope="row">Discussion Link</th>
+          <td><a href="https://ethereum-magicians.org/t/eip-remote-procedure-call-specification/1537" target="_blank" rel="noopener">https://ethereum-magicians.org/t/eip-remote-procedure-call-specification/1537</a></td>
+        </tr>
+      
+      
+    </tbody>
+  </table>
+  <br/>
+
+  
+
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <ul>
+  <li><a href="#simple-summary">Simple Summary</a></li>
+  <li><a href="#abstract">Abstract</a></li>
+  <li><a href="#specification">Specification</a>
+    <ul>
+      <li><a href="#concepts">Concepts</a></li>
+      <li><a href="#methods">Methods</a></li>
+    </ul>
+  </li>
+  <li><a href="#rationale">Rationale</a></li>
+  <li><a href="#backwards-compatibility">Backwards compatibility</a></li>
+  <li><a href="#implementation">Implementation</a></li>
+  <li><a href="#copyright">Copyright</a></li>
+</ul>
+
+  </div>
+
+  <h2 id="simple-summary">
+      
+      
+        <a href="#simple-summary" class="anchor-link"></a> Simple Summary
+      
+      
+    </h2>
+
+<p>This proposal defines a standard set of remote procedure call methods that an Ethereum node should implement.</p>
+  
+    <h2 id="abstract">
+      
+      
+        <a href="#abstract" class="anchor-link"></a> Abstract
+      
+      
+    </h2>
+
+<p>Nodes created by the current generation of Ethereum clients expose inconsistent and incompatible remote procedure call (RPC) methods because no formal Ethereum RPC specification exists. This proposal standardizes such a specification to provide developers with a predictable Ethereum RPC interface regardless of underlying node implementation.</p>
+  
+    <h2 id="specification">
+      
+      
+        <a href="#specification" class="anchor-link"></a> Specification
+      
+      
+    </h2>
+  
+    <h3 id="concepts">
+      
+      
+        <a href="#concepts" class="anchor-link"></a> Concepts
+      
+      
+    </h3>
+  
+    <h4 id="rfc-2119">
+      
+      
+        <a href="#rfc-2119" class="anchor-link"></a> RFC-2119
+      
+      
+    </h4>
+
+<p>The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”,  “MAY”, and “OPTIONAL” in this document are to be interpreted as described in <a href="https://www.ietf.org/rfc/rfc2119.txt">RFC-2119</a>.</p>
+  
+    <h4 id="json-rpc">
+      
+      
+        <a href="#json-rpc" class="anchor-link"></a> JSON-RPC
+      
+      
+    </h4>
+
+<p>Communication with Ethereum nodes is accomplished using <a href="https://www.jsonrpc.org/specification">JSON-RPC</a>, a stateless, lightweight <a href="https://en.wikipedia.org/wiki/Remote_procedure_call">remote procedure call</a> protocol that uses <a href="http://www.json.org/">JSON</a> as its data format. Ethereum RPC methods <strong>MUST</strong> be called using <a href="https://www.jsonrpc.org/specification#request_object">JSON-RPC request objects</a> and <strong>MUST</strong> respond with <a href="https://www.jsonrpc.org/specification#response_object">JSON-RPC response objects</a>.</p>
+  
+    <h4 id="error-codes">
+      
+      
+        <a href="#error-codes" class="anchor-link"></a> Error codes
+      
+      
+    </h4>
+
+<p>If an Ethereum RPC method encounters an error, the <code class="language-plaintext highlighter-rouge">error</code> member included on the response object <strong>MUST</strong> be an object containing a <code class="language-plaintext highlighter-rouge">code</code> member and descriptive <code class="language-plaintext highlighter-rouge">message</code> member. The following list contains all possible error codes and associated messages:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Message</th>
+      <th>Meaning</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>-32700</td>
+      <td>Parse error</td>
+      <td>Invalid JSON</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <td>-32600</td>
+      <td>Invalid request</td>
+      <td>JSON is not a valid request object</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <td>-32601</td>
+      <td>Method not found</td>
+      <td>Method does not exist</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <td>-32602</td>
+      <td>Invalid params</td>
+      <td>Invalid method parameters</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <td>-32603</td>
+      <td>Internal error</td>
+      <td>Internal JSON-RPC error</td>
+      <td>standard</td>
+    </tr>
+    <tr>
+      <td>-32000</td>
+      <td>Invalid input</td>
+      <td>Missing or invalid parameters</td>
+      <td>non-standard</td>
+    </tr>
+    <tr>
+      <td>-32001</td>
+      <td>Resource not found</td>
+      <td>Requested resource not found</td>
+      <td>non-standard</td>
+    </tr>
+    <tr>
+      <td>-32002</td>
+      <td>Resource unavailable</td>
+      <td>Requested resource not available</td>
+      <td>non-standard</td>
+    </tr>
+    <tr>
+      <td>-32003</td>
+      <td>Transaction rejected</td>
+      <td>Transaction creation failed</td>
+      <td>non-standard</td>
+    </tr>
+    <tr>
+      <td>-32004</td>
+      <td>Method not supported</td>
+      <td>Method is not implemented</td>
+      <td>non-standard</td>
+    </tr>
+    <tr>
+      <td>-32005</td>
+      <td>Limit exceeded</td>
+      <td>Request exceeds defined limit</td>
+      <td>non-standard</td>
+    </tr>
+    <tr>
+      <td>-32006</td>
+      <td>JSON-RPC version not supported</td>
+      <td>Version of JSON-RPC protocol is not supported</td>
+      <td>non-standard</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Example error response:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">{</span>
+    <span class="s2">"id"</span>: 1337
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"error"</span>: <span class="o">{</span>
+        <span class="s2">"code"</span>: <span class="nt">-32003</span>,
+        <span class="s2">"message"</span>: <span class="s2">"Transaction rejected"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  
+    <h4 id="value-encoding">
+      
+      
+        <a href="#value-encoding" class="anchor-link"></a> Value encoding
+      
+      
+    </h4>
+
+<p>Specific types of values passed to and returned from Ethereum RPC methods require special encoding:</p>
+  
+    <h5 id="quantity">
+      
+      
+        <a href="#quantity" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">Quantity</code>
+      
+      
+    </h5>
+
+<ul>
+  <li>A <code class="language-plaintext highlighter-rouge">Quantity</code> value <strong>MUST</strong> be hex-encoded.</li>
+  <li>A <code class="language-plaintext highlighter-rouge">Quantity</code> value <strong>MUST</strong> be “0x”-prefixed.</li>
+  <li>A <code class="language-plaintext highlighter-rouge">Quantity</code> value <strong>MUST</strong> be expressed using the fewest possible hex digits per byte.</li>
+  <li>A <code class="language-plaintext highlighter-rouge">Quantity</code> value <strong>MUST</strong> express zero as “0x0”.</li>
+</ul>
+
+<p>Examples <code class="language-plaintext highlighter-rouge">Quantity</code> values:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Valid</th>
+      <th>Reason</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0x</td>
+      <td><code class="language-plaintext highlighter-rouge">invalid</code></td>
+      <td>empty not a valid quantity</td>
+    </tr>
+    <tr>
+      <td>0x0</td>
+      <td><code class="language-plaintext highlighter-rouge">valid</code></td>
+      <td>interpreted as a quantity of zero</td>
+    </tr>
+    <tr>
+      <td>0x00</td>
+      <td><code class="language-plaintext highlighter-rouge">invalid</code></td>
+      <td>leading zeroes not allowed</td>
+    </tr>
+    <tr>
+      <td>0x41</td>
+      <td><code class="language-plaintext highlighter-rouge">valid</code></td>
+      <td>interpreted as a quantity of 65</td>
+    </tr>
+    <tr>
+      <td>0x400</td>
+      <td><code class="language-plaintext highlighter-rouge">valid</code></td>
+      <td>interpreted as a quantity of 1024</td>
+    </tr>
+    <tr>
+      <td>0x0400</td>
+      <td><code class="language-plaintext highlighter-rouge">invalid</code></td>
+      <td>leading zeroes not allowed</td>
+    </tr>
+    <tr>
+      <td>ff</td>
+      <td><code class="language-plaintext highlighter-rouge">invalid</code></td>
+      <td>values must be prefixed</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="block-identifier">
+      
+      
+        <a href="#block-identifier" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">Block Identifier</code>
+      
+      
+    </h5>
+
+<p>The RPC methods below take a default block identifier as a parameter.</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">eth_getBalance</code></li>
+  <li><code class="language-plaintext highlighter-rouge">eth_getStorageAt</code></li>
+  <li><code class="language-plaintext highlighter-rouge">eth_getTransactionCount</code></li>
+  <li><code class="language-plaintext highlighter-rouge">eth_getCode</code></li>
+  <li><code class="language-plaintext highlighter-rouge">eth_call</code></li>
+  <li><code class="language-plaintext highlighter-rouge">eth_getProof</code></li>
+</ul>
+
+<p>Since there is no way to clearly distinguish between a <code class="language-plaintext highlighter-rouge">Data</code> parameter and a <code class="language-plaintext highlighter-rouge">Quantity</code> parameter, <a href="/EIPS/eip-1898">EIP-1898</a> provides a format to specify a block either using the block hash or block number. The block identifier is a JSON <code class="language-plaintext highlighter-rouge">object</code> with the following fields:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">[blockNumber]</code></td>
+      <td>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>}</td>
+      <td>The block in the canonical chain with this number</td>
+    </tr>
+    <tr>
+      <td>OR <code class="language-plaintext highlighter-rouge">[blockHash]</code></td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>The block uniquely identified by this hash. The <code class="language-plaintext highlighter-rouge">blockNumber</code> and <code class="language-plaintext highlighter-rouge">blockHash</code> properties are mutually exclusive; exactly one of them must be set.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">requireCanonical</code></td>
+      <td>{<code class="language-plaintext highlighter-rouge">boolean</code>}</td>
+      <td>(optional) Whether or not to throw an error if the block is not in the canonical chain as described below. Only allowed in conjunction with the <code class="language-plaintext highlighter-rouge">blockHash</code> tag. Defaults to <code class="language-plaintext highlighter-rouge">false</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If the block is not found, the callee SHOULD raise a JSON-RPC error (the recommended error code is <code class="language-plaintext highlighter-rouge">-32001: Resource not found</code>. If the tag is <code class="language-plaintext highlighter-rouge">blockHash</code> and <code class="language-plaintext highlighter-rouge">requireCanonical</code> is <code class="language-plaintext highlighter-rouge">true</code>, the callee SHOULD additionally raise a JSON-RPC error if the block is not in the canonical chain (the recommended error code is <code class="language-plaintext highlighter-rouge">-32000: Invalid input</code> and in any case should be different than the error code for the block not found case so that the caller can distinguish the cases). The block-not-found check SHOULD take precedence over the block-is-canonical check, so that if the block is not found the callee raises block-not-found rather than block-not-canonical.</p>
+  
+    <h5 id="data">
+      
+      
+        <a href="#data" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">Data</code>
+      
+      
+    </h5>
+
+<ul>
+  <li>A <code class="language-plaintext highlighter-rouge">Data</code> value <strong>MUST</strong> be hex-encoded.</li>
+  <li>A <code class="language-plaintext highlighter-rouge">Data</code> value <strong>MUST</strong> be “0x”-prefixed.</li>
+  <li>A <code class="language-plaintext highlighter-rouge">Data</code> value <strong>MUST</strong> be expressed using two hex digits per byte.</li>
+</ul>
+
+<p>Examples <code class="language-plaintext highlighter-rouge">Data</code> values:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Valid</th>
+      <th>Reason</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0x</td>
+      <td><code class="language-plaintext highlighter-rouge">valid</code></td>
+      <td>interpreted as empty data</td>
+    </tr>
+    <tr>
+      <td>0x0</td>
+      <td><code class="language-plaintext highlighter-rouge">invalid</code></td>
+      <td>each byte must be represented using two hex digits</td>
+    </tr>
+    <tr>
+      <td>0x00</td>
+      <td><code class="language-plaintext highlighter-rouge">valid</code></td>
+      <td>interpreted as a single zero byte</td>
+    </tr>
+    <tr>
+      <td>0x41</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>interpreted as a data value of 65</td>
+    </tr>
+    <tr>
+      <td>0x004200</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td>interpreted as a data value of 16896</td>
+    </tr>
+    <tr>
+      <td>0xf0f0f</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>bytes require two hex digits</td>
+    </tr>
+    <tr>
+      <td>004200</td>
+      <td><code class="language-plaintext highlighter-rouge">false</code></td>
+      <td>values must be prefixed</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="proposing-changes">
+      
+      
+        <a href="#proposing-changes" class="anchor-link"></a> Proposing changes
+      
+      
+    </h5>
+
+<p>New Ethereum RPC methods and changes to existing methods <strong>MUST</strong> be proposed via the traditional EIP process. This allows for community consensus around new method implementations and proposed method modifications. RPC method proposals <strong>MUST</strong> reach “draft” status before being added to this proposal and the official Ethereum RPC specification defined herein.</p>
+  
+    <h3 id="methods">
+      
+      
+        <a href="#methods" class="anchor-link"></a> Methods
+      
+      
+    </h3>
+  
+    <h4 id="web3_clientversion">
+      
+      
+        <a href="#web3_clientversion" class="anchor-link"></a> web3_clientVersion
+      
+      
+    </h4>
+  
+    <h5 id="description">
+      
+      
+        <a href="#description" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns the version of the current client</p>
+  
+    <h5 id="parameters">
+      
+      
+        <a href="#parameters" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<p><em>(none)</em></p>
+  
+    <h5 id="returns">
+      
+      
+        <a href="#returns" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<code class="language-plaintext highlighter-rouge">string</code>} - client version</p>
+  
+    <h5 id="example">
+      
+      
+        <a href="#example" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "web3_clientVersion",
+    "params": [],
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"Mist/v0.9.3/darwin/go1.4.1"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="web3_sha3">
+      
+      
+        <a href="#web3_sha3" class="anchor-link"></a> web3_sha3
+      
+      
+    </h4>
+  
+    <h5 id="description-1">
+      
+      
+        <a href="#description-1" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Hashes data using the Keccak-256 algorithm</p>
+  
+    <h5 id="parameters-1">
+      
+      
+        <a href="#parameters-1" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>data to hash</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-1">
+      
+      
+        <a href="#returns-1" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} - Keccak-256 hash of the given data</p>
+  
+    <h5 id="example-1">
+      
+      
+        <a href="#example-1" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "web3_sha3",
+    "params": ["0x68656c6c6f20776f726c64"]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0xc94770007dda54cF92009BFF0dE90c06F603a09f"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="net_listening">
+      
+      
+        <a href="#net_listening" class="anchor-link"></a> net_listening
+      
+      
+    </h4>
+  
+    <h5 id="description-2">
+      
+      
+        <a href="#description-2" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Determines if this client is listening for new network connections</p>
+  
+    <h5 id="parameters-2">
+      
+      
+        <a href="#parameters-2" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<p><em>(none)</em></p>
+  
+    <h5 id="returns-2">
+      
+      
+        <a href="#returns-2" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<code class="language-plaintext highlighter-rouge">boolean</code>} - <code class="language-plaintext highlighter-rouge">true</code> if listening is active or <code class="language-plaintext highlighter-rouge">false</code> if listening is not active</p>
+  
+    <h5 id="example-2">
+      
+      
+        <a href="#example-2" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "net_listening",
+    "params": []
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="nb">true</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="net_peercount">
+      
+      
+        <a href="#net_peercount" class="anchor-link"></a> net_peerCount
+      
+      
+    </h4>
+  
+    <h5 id="description-3">
+      
+      
+        <a href="#description-3" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns the number of peers currently connected to this client</p>
+  
+    <h5 id="parameters-3">
+      
+      
+        <a href="#parameters-3" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<p><em>(none)</em></p>
+  
+    <h5 id="returns-3">
+      
+      
+        <a href="#returns-3" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} - number of connected peers</p>
+  
+    <h5 id="example-3">
+      
+      
+        <a href="#example-3" class="anchor-link"></a> Example
+      
+      
+    </h5>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "net_peerCount",
+    "params": []
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0x2"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="net_version">
+      
+      
+        <a href="#net_version" class="anchor-link"></a> net_version
+      
+      
+    </h4>
+  
+    <h5 id="description-4">
+      
+      
+        <a href="#description-4" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns the chain ID associated with the current network</p>
+  
+    <h5 id="parameters-4">
+      
+      
+        <a href="#parameters-4" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<p><em>(none)</em></p>
+  
+    <h5 id="returns-4">
+      
+      
+        <a href="#returns-4" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<code class="language-plaintext highlighter-rouge">string</code>} - chain ID associated with the current network</p>
+
+<p>Common chain IDs:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"1"</code> -  Ethereum mainnet</li>
+  <li><code class="language-plaintext highlighter-rouge">"3"</code> - Ropsten testnet</li>
+  <li><code class="language-plaintext highlighter-rouge">"4"</code> - Rinkeby testnet</li>
+  <li><code class="language-plaintext highlighter-rouge">"42"</code> - Kovan testnet</li>
+</ul>
+
+<p><strong>Note:</strong> See EIP-155 for a <a href="/EIPS/eip-155#list-of-chain-ids">complete list</a> of possible chain IDs.</p>
+  
+    <h5 id="example-4">
+      
+      
+        <a href="#example-4" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "net_version",
+    "params": []
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"3"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_accounts">
+      
+      
+        <a href="#eth_accounts" class="anchor-link"></a> eth_accounts
+      
+      
+    </h4>
+  
+    <h5 id="description-5">
+      
+      
+        <a href="#description-5" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns a list of addresses owned by this client</p>
+  
+    <h5 id="parameters-5">
+      
+      
+        <a href="#parameters-5" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<p><em>(none)</em></p>
+  
+    <h5 id="returns-5">
+      
+      
+        <a href="#returns-5" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data[]</code></a>} - array of addresses</p>
+  
+    <h5 id="example-5">
+      
+      
+        <a href="#example-5" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_accounts",
+    "params": []
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="o">[</span><span class="s2">"0xc94770007dda54cF92009BFF0dE90c06F603a09f"</span><span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_blocknumber">
+      
+      
+        <a href="#eth_blocknumber" class="anchor-link"></a> eth_blockNumber
+      
+      
+    </h4>
+  
+    <h5 id="description-6">
+      
+      
+        <a href="#description-6" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns the number of the most recent block seen by this client</p>
+  
+    <h5 id="parameters-6">
+      
+      
+        <a href="#parameters-6" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<p><em>(none)</em></p>
+  
+    <h5 id="returns-6">
+      
+      
+        <a href="#returns-6" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} - number of the latest block</p>
+  
+    <h5 id="example-6">
+      
+      
+        <a href="#example-6" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_blockNumber",
+    "params": []
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0xc94"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_call">
+      
+      
+        <a href="#eth_call" class="anchor-link"></a> eth_call
+      
+      
+    </h4>
+  
+    <h5 id="description-7">
+      
+      
+        <a href="#description-7" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Executes a new message call immediately without submitting a transaction to the network</p>
+  
+    <h5 id="parameters-7">
+      
+      
+        <a href="#parameters-7" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<code class="language-plaintext highlighter-rouge">object</code>}</td>
+      <td>@property {<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">[from]</code> - transaction sender<br />@property {<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">to</code> - transaction recipient or <code class="language-plaintext highlighter-rouge">null</code> if deploying a contract<br />@property {<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">[gas]</code> - gas provided for transaction execution<br />@property {<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">[gasPrice]</code> - price in wei of each gas used<br />@property {<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">[value]</code> - value in wei sent with this transaction<br />@property {<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">[data]</code> - contract code or a hashed method call with encoded args</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>|<code class="language-plaintext highlighter-rouge">string</code>|<a href="#block-identifier"><code class="language-plaintext highlighter-rouge">Block Identifier</code></a>}</td>
+      <td>block number, or one of <code class="language-plaintext highlighter-rouge">"latest"</code>, <code class="language-plaintext highlighter-rouge">"earliest"</code> or <code class="language-plaintext highlighter-rouge">"pending"</code>, or a block identifier as described in <a href="#block-identifier"><code class="language-plaintext highlighter-rouge">Block Identifier</code></a></td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-7">
+      
+      
+        <a href="#returns-7" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} - return value of executed contract</p>
+  
+    <h5 id="example-7">
+      
+      
+        <a href="#example-7" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_call",
+    "params": [{
+        "data": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
+        "from": "0xb60e8dd61c5d32be8058bb8eb970870f07233155",
+        "gas": "0x76c0",
+        "gasPrice": "0x9184e72a000",
+        "to": "0xd46e8dd67c5d32be8058bb8eb970870f07244567",
+        "value": "0x9184e72a"
+    }]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0x"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_coinbase">
+      
+      
+        <a href="#eth_coinbase" class="anchor-link"></a> eth_coinbase
+      
+      
+    </h4>
+  
+    <h5 id="description-8">
+      
+      
+        <a href="#description-8" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns the coinbase address for this client</p>
+  
+    <h5 id="parameters-8">
+      
+      
+        <a href="#parameters-8" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<p><em>(none)</em></p>
+  
+    <h5 id="returns-8">
+      
+      
+        <a href="#returns-8" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} - coinbase address</p>
+  
+    <h5 id="example-8">
+      
+      
+        <a href="#example-8" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_coinbase",
+    "params": []
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0xc94770007dda54cF92009BFF0dE90c06F603a09f"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_estimategas">
+      
+      
+        <a href="#eth_estimategas" class="anchor-link"></a> eth_estimateGas
+      
+      
+    </h4>
+  
+    <h5 id="description-9">
+      
+      
+        <a href="#description-9" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Estimates the gas necessary to complete a transaction without submitting it to the network</p>
+
+<p><strong>Note:</strong> The resulting gas estimation may be significantly more than the amount of gas actually used by the transaction. This is due to a variety of reasons including EVM mechanics and node performance.</p>
+  
+    <h5 id="parameters-9">
+      
+      
+        <a href="#parameters-9" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<code class="language-plaintext highlighter-rouge">object</code>}</td>
+      <td>@property {<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">[from]</code> - transaction sender<br />@property {<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">[to]</code> - transaction recipient<br />@property {<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">[gas]</code> - gas provided for transaction execution<br />@property {<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">[gasPrice]</code> - price in wei of each gas used<br />@property {<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">[value]</code> - value in wei sent with this transaction<br />@property {<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">[data]</code> - contract code or a hashed method call with encoded args</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>|<code class="language-plaintext highlighter-rouge">string</code>}</td>
+      <td>block number, or one of <code class="language-plaintext highlighter-rouge">"latest"</code>, <code class="language-plaintext highlighter-rouge">"earliest"</code> or <code class="language-plaintext highlighter-rouge">"pending"</code></td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-9">
+      
+      
+        <a href="#returns-9" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} - amount of gas required by transaction</p>
+  
+    <h5 id="example-9">
+      
+      
+        <a href="#example-9" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_estimateGas",
+    "params": [{
+        "data": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
+        "from": "0xb60e8dd61c5d32be8058bb8eb970870f07233155",
+        "gas": "0x76c0",
+        "gasPrice": "0x9184e72a000",
+        "to": "0xd46e8dd67c5d32be8058bb8eb970870f07244567",
+        "value": "0x9184e72a"
+    }]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0x5208"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_gasprice">
+      
+      
+        <a href="#eth_gasprice" class="anchor-link"></a> eth_gasPrice
+      
+      
+    </h4>
+  
+    <h5 id="description-10">
+      
+      
+        <a href="#description-10" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns the current price of gas expressed in wei</p>
+  
+    <h5 id="parameters-10">
+      
+      
+        <a href="#parameters-10" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<p><em>(none)</em></p>
+  
+    <h5 id="returns-10">
+      
+      
+        <a href="#returns-10" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} - current gas price in wei</p>
+  
+    <h5 id="example-10">
+      
+      
+        <a href="#example-10" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_gasPrice",
+    "params": []
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0x09184e72a000"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_getbalance">
+      
+      
+        <a href="#eth_getbalance" class="anchor-link"></a> eth_getBalance
+      
+      
+    </h4>
+  
+    <h5 id="description-11">
+      
+      
+        <a href="#description-11" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns the balance of an address in wei</p>
+  
+    <h5 id="parameters-11">
+      
+      
+        <a href="#parameters-11" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>address to query for balance</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>|<code class="language-plaintext highlighter-rouge">string</code>|<a href="#block-identifier"><code class="language-plaintext highlighter-rouge">Block Identifier</code></a>}</td>
+      <td>block number, or one of <code class="language-plaintext highlighter-rouge">"latest"</code>, <code class="language-plaintext highlighter-rouge">"earliest"</code> or <code class="language-plaintext highlighter-rouge">"pending"</code>, or a block identifier as described in <a href="#block-identifier"><code class="language-plaintext highlighter-rouge">Block Identifier</code></a></td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-11">
+      
+      
+        <a href="#returns-11" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} - balance of the provided account in wei</p>
+  
+    <h5 id="example-11">
+      
+      
+        <a href="#example-11" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_getBalance",
+    "params": ["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0x0234c8a3397aab58"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_getblockbyhash">
+      
+      
+        <a href="#eth_getblockbyhash" class="anchor-link"></a> eth_getBlockByHash
+      
+      
+    </h4>
+  
+    <h5 id="description-12">
+      
+      
+        <a href="#description-12" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns information about a block specified by hash</p>
+  
+    <h5 id="parameters-12">
+      
+      
+        <a href="#parameters-12" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>hash of a block</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>{<code class="language-plaintext highlighter-rouge">boolean</code>}</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code> will pull full transaction objects, <code class="language-plaintext highlighter-rouge">false</code> will pull transaction hashes</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-12">
+      
+      
+        <a href="#returns-12" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<code class="language-plaintext highlighter-rouge">null|object</code>} - <code class="language-plaintext highlighter-rouge">null</code> if no block is found, otherwise a block object with the following members:</p>
+
+<ul>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">extraData</code> - “extra data” field of this block</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">hash</code> - block hash or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">logsBloom</code> - logs bloom filter or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">miner</code> - address that received this block’s mining rewards</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">nonce</code> - proof-of-work hash or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">parentHash</code> - parent block hash</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">receiptsRoot</code> -root of this block’s receipts trie</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">sha3Uncles</code> - SHA3 of the uncles data in this block</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">stateRoot</code> - root of this block’s final state trie</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">transactionsRoot</code> - root of this block’s transaction trie</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">difficulty</code> - difficulty for this block</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">gasLimit</code> - maximum gas allowed in this block</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">gasUsed</code> - total used gas by all transactions in this block</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">number</code> - block number or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">size</code> - size of this block in bytes</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">timestamp</code> - unix timestamp of when this block was collated</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">totalDifficulty</code> - total difficulty of the chain until this block</li>
+  <li>{<code class="language-plaintext highlighter-rouge">Array&lt;Transaction&gt;</code>} <code class="language-plaintext highlighter-rouge">transactions</code> - list of transaction objects or hashes</li>
+  <li>{<code class="language-plaintext highlighter-rouge">Array&lt;Transaction&gt;</code>} <code class="language-plaintext highlighter-rouge">uncles</code> - list of uncle hashes</li>
+</ul>
+  
+    <h5 id="example-12">
+      
+      
+        <a href="#example-12" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_getBlockByHash",
+    "params":["0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331", true]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="o">{</span>
+        <span class="s2">"difficulty"</span>: <span class="s2">"0x027f07"</span>,
+        <span class="s2">"extraData"</span>: <span class="s2">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,
+        <span class="s2">"gasLimit"</span>: <span class="s2">"0x9f759"</span>,
+        <span class="s2">"gasUsed"</span>: <span class="s2">"0x9f759"</span>,
+        <span class="s2">"hash"</span>: <span class="s2">"0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"</span>,
+        <span class="s2">"logsBloom"</span>: <span class="s2">"0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"</span>,
+        <span class="s2">"miner"</span>: <span class="s2">"0x4e65fda2159562a496f9f3522f89122a3088497a"</span>,
+        <span class="s2">"nonce"</span>: <span class="s2">"0xe04d296d2460cfb8472af2c5fd05b5a214109c25688d3704aed5484f9a7792f2"</span>,
+        <span class="s2">"number"</span>: <span class="s2">"0x1b4"</span>,
+        <span class="s2">"parentHash"</span>: <span class="s2">"0x9646252be9520f6e71339a8df9c55e4d7619deeb018d2a3f2d21fc165dde5eb5"</span>,
+        <span class="s2">"sha3Uncles"</span>: <span class="s2">"0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347"</span>,
+        <span class="s2">"size"</span>:  <span class="s2">"0x027f07"</span>,
+        <span class="s2">"stateRoot"</span>: <span class="s2">"0xd5855eb08b3387c0af375e9cdb6acfc05eb8f519e419b874b6ff2ffda7ed1dff"</span>,
+        <span class="s2">"timestamp"</span>: <span class="s2">"0x54e34e8e"</span>
+        <span class="s2">"totalDifficulty"</span>:  <span class="s2">"0x027f07"</span>,
+        <span class="s2">"transactions"</span>: <span class="o">[]</span>
+        <span class="s2">"transactionsRoot"</span>: <span class="s2">"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"</span>,
+        <span class="s2">"uncles"</span>: <span class="o">[</span><span class="s2">"0x1606e5..."</span>, <span class="s2">"0xd5145a9..."</span><span class="o">]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_getblockbynumber">
+      
+      
+        <a href="#eth_getblockbynumber" class="anchor-link"></a> eth_getBlockByNumber
+      
+      
+    </h4>
+  
+    <h5 id="description-13">
+      
+      
+        <a href="#description-13" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns information about a block specified by number</p>
+  
+    <h5 id="parameters-13">
+      
+      
+        <a href="#parameters-13" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>|<code class="language-plaintext highlighter-rouge">string</code>}</td>
+      <td>block number, or one of <code class="language-plaintext highlighter-rouge">"latest"</code>, <code class="language-plaintext highlighter-rouge">"earliest"</code> or <code class="language-plaintext highlighter-rouge">"pending"</code></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>{<code class="language-plaintext highlighter-rouge">boolean</code>}</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code> will pull full transaction objects, <code class="language-plaintext highlighter-rouge">false</code> will pull transaction hashes</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-13">
+      
+      
+        <a href="#returns-13" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<code class="language-plaintext highlighter-rouge">null|object</code>} - <code class="language-plaintext highlighter-rouge">null</code> if no block is found, otherwise a block object with the following members:</p>
+
+<ul>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">extraData</code> - “extra data” field of this block</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">hash</code> - block hash or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">logsBloom</code> - logs bloom filter or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">miner</code> - address that received this block’s mining rewards</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">nonce</code> - proof-of-work hash or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">parentHash</code> - parent block hash</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">receiptsRoot</code> -root of this block’s receipts trie</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">sha3Uncles</code> - SHA3 of the uncles data in this block</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">stateRoot</code> - root of this block’s final state trie</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">transactionsRoot</code> - root of this block’s transaction trie</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">difficulty</code> - difficulty for this block</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">gasLimit</code> - maximum gas allowed in this block</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">gasUsed</code> - total used gas by all transactions in this block</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">number</code> - block number or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">size</code> - size of this block in bytes</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">timestamp</code> - unix timestamp of when this block was collated</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">totalDifficulty</code> - total difficulty of the chain until this block</li>
+  <li>{<code class="language-plaintext highlighter-rouge">Array&lt;Transaction&gt;</code>} <code class="language-plaintext highlighter-rouge">transactions</code> - list of transaction objects or hashes</li>
+  <li>{<code class="language-plaintext highlighter-rouge">Array&lt;Transaction&gt;</code>} <code class="language-plaintext highlighter-rouge">uncles</code> - list of uncle hashes</li>
+</ul>
+  
+    <h5 id="example-13">
+      
+      
+        <a href="#example-13" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_getBlockByNumber",
+    "params":["0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331", true]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="o">{</span>
+        <span class="s2">"difficulty"</span>: <span class="s2">"0x027f07"</span>,
+        <span class="s2">"extraData"</span>: <span class="s2">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,
+        <span class="s2">"gasLimit"</span>: <span class="s2">"0x9f759"</span>,
+        <span class="s2">"gasUsed"</span>: <span class="s2">"0x9f759"</span>,
+        <span class="s2">"hash"</span>: <span class="s2">"0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"</span>,
+        <span class="s2">"logsBloom"</span>: <span class="s2">"0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"</span>,
+        <span class="s2">"miner"</span>: <span class="s2">"0x4e65fda2159562a496f9f3522f89122a3088497a"</span>,
+        <span class="s2">"nonce"</span>: <span class="s2">"0xe04d296d2460cfb8472af2c5fd05b5a214109c25688d3704aed5484f9a7792f2"</span>,
+        <span class="s2">"number"</span>: <span class="s2">"0x1b4"</span>,
+        <span class="s2">"parentHash"</span>: <span class="s2">"0x9646252be9520f6e71339a8df9c55e4d7619deeb018d2a3f2d21fc165dde5eb5"</span>,
+        <span class="s2">"sha3Uncles"</span>: <span class="s2">"0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347"</span>,
+        <span class="s2">"size"</span>:  <span class="s2">"0x027f07"</span>,
+        <span class="s2">"stateRoot"</span>: <span class="s2">"0xd5855eb08b3387c0af375e9cdb6acfc05eb8f519e419b874b6ff2ffda7ed1dff"</span>,
+        <span class="s2">"timestamp"</span>: <span class="s2">"0x54e34e8e"</span>
+        <span class="s2">"totalDifficulty"</span>:  <span class="s2">"0x027f07"</span>,
+        <span class="s2">"transactions"</span>: <span class="o">[]</span>
+        <span class="s2">"transactionsRoot"</span>: <span class="s2">"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"</span>,
+        <span class="s2">"uncles"</span>: <span class="o">[</span><span class="s2">"0x1606e5..."</span>, <span class="s2">"0xd5145a9..."</span><span class="o">]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_getblocktransactioncountbyhash">
+      
+      
+        <a href="#eth_getblocktransactioncountbyhash" class="anchor-link"></a> eth_getBlockTransactionCountByHash
+      
+      
+    </h4>
+  
+    <h5 id="description-14">
+      
+      
+        <a href="#description-14" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns the number of transactions in a block specified by block hash</p>
+  
+    <h5 id="parameters-14">
+      
+      
+        <a href="#parameters-14" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>hash of a block</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-14">
+      
+      
+        <a href="#returns-14" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} - number of transactions in the specified block</p>
+  
+    <h5 id="example-14">
+      
+      
+        <a href="#example-14" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_getBlockTransactionCountByHash",
+    "params": ["0xc94770007dda54cF92009BFF0dE90c06F603a09f"]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0xc"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_getblocktransactioncountbynumber">
+      
+      
+        <a href="#eth_getblocktransactioncountbynumber" class="anchor-link"></a> eth_getBlockTransactionCountByNumber
+      
+      
+    </h4>
+  
+    <h5 id="description-15">
+      
+      
+        <a href="#description-15" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns the number of transactions in a block specified by block number</p>
+  
+    <h5 id="parameters-15">
+      
+      
+        <a href="#parameters-15" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>|<code class="language-plaintext highlighter-rouge">string</code>}</td>
+      <td>block number, or one of <code class="language-plaintext highlighter-rouge">"latest"</code>, <code class="language-plaintext highlighter-rouge">"earliest"</code> or <code class="language-plaintext highlighter-rouge">"pending"</code></td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-15">
+      
+      
+        <a href="#returns-15" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} - number of transactions in the specified block</p>
+  
+    <h5 id="example-15">
+      
+      
+        <a href="#example-15" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_getBlockTransactionCountByNumber",
+    "params": ["0xe8"]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0xa"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_getcode">
+      
+      
+        <a href="#eth_getcode" class="anchor-link"></a> eth_getCode
+      
+      
+    </h4>
+  
+    <h5 id="description-16">
+      
+      
+        <a href="#description-16" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns the contract code stored at a given address</p>
+  
+    <h5 id="parameters-16">
+      
+      
+        <a href="#parameters-16" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>address to query for code</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>|<code class="language-plaintext highlighter-rouge">string</code>|<a href="#block-identifier"><code class="language-plaintext highlighter-rouge">Block Identifier</code></a>}</td>
+      <td>block number, or one of <code class="language-plaintext highlighter-rouge">"latest"</code>, <code class="language-plaintext highlighter-rouge">"earliest"</code> or <code class="language-plaintext highlighter-rouge">"pending"</code>, or a block identifier as described in <a href="#block-identifier"><code class="language-plaintext highlighter-rouge">Block Identifier</code></a></td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-16">
+      
+      
+        <a href="#returns-16" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} - code from the specified address</p>
+  
+    <h5 id="example-16">
+      
+      
+        <a href="#example-16" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_getCode",
+    "params": ["0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b", "0x2"]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0x600160008035811a818181146012578301005b601b6001356025565b8060005260206000f25b600060078202905091905056"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_getfilterchanges">
+      
+      
+        <a href="#eth_getfilterchanges" class="anchor-link"></a> eth_getFilterChanges
+      
+      
+    </h4>
+  
+    <h5 id="description-17">
+      
+      
+        <a href="#description-17" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns a list of all logs based on filter ID since the last log retrieval</p>
+  
+    <h5 id="parameters-17">
+      
+      
+        <a href="#parameters-17" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>}</td>
+      <td>ID of the filter</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-17">
+      
+      
+        <a href="#returns-17" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<code class="language-plaintext highlighter-rouge">Array&lt;Log&gt;</code>} - array of log objects with the following members:</p>
+
+<ul>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">address</code> - address from which this log originated</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">blockHash</code> - hash of block containing this log or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">data</code> - contains the non-indexed arguments of the log</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">transactionHash</code> - hash of the transaction that created this log or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">blockNumber</code> - number of block containing this log or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">logIndex</code> - index of this log within its block or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">transactionIndex</code> - index of the transaction that created this log or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data[]</code></a>} <code class="language-plaintext highlighter-rouge">topics</code> - list of order-dependent topics</li>
+  <li>{<code class="language-plaintext highlighter-rouge">boolean</code>} <code class="language-plaintext highlighter-rouge">removed</code> - <code class="language-plaintext highlighter-rouge">true</code> if this filter has been destroyed and is invalid</li>
+</ul>
+
+<p><strong>Note:</strong> The return value of <code class="language-plaintext highlighter-rouge">eth_getFilterChanges</code> when retrieving logs from <code class="language-plaintext highlighter-rouge">eth_newBlockFilter</code> and <code class="language-plaintext highlighter-rouge">eth_newPendingTransactionFilter</code> filters will be an array of hashes, not an array of Log objects.</p>
+  
+    <h5 id="example-17">
+      
+      
+        <a href="#example-17" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_getFilterChanges",
+    "params": ["0x16"]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+   <span class="s2">"id"</span>: 1337,
+   <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="o">[{</span>
+        <span class="s2">"address"</span>: <span class="s2">"0x16c5785ac562ff41e2dcfdf829c5a142f1fccd7d"</span>,
+        <span class="s2">"blockHash"</span>: <span class="s2">"0x8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcfdf829c5a142f1fccd7d"</span>,
+        <span class="s2">"blockNumber"</span>:<span class="s2">"0x1b4"</span>,
+        <span class="s2">"data"</span>:<span class="s2">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,
+        <span class="s2">"logIndex"</span>: <span class="s2">"0x1"</span>,
+        <span class="s2">"topics"</span>: <span class="o">[]</span>,
+        <span class="s2">"transactionHash"</span>:  <span class="s2">"0xdf829c5a142f1fccd7d8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcf"</span>,
+        <span class="s2">"transactionIndex"</span>: <span class="s2">"0x0"</span>
+   <span class="o">}]</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_getfilterlogs">
+      
+      
+        <a href="#eth_getfilterlogs" class="anchor-link"></a> eth_getFilterLogs
+      
+      
+    </h4>
+  
+    <h5 id="description-18">
+      
+      
+        <a href="#description-18" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns a list of all logs based on filter ID</p>
+  
+    <h5 id="parameters-18">
+      
+      
+        <a href="#parameters-18" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>}</td>
+      <td>ID of the filter</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-18">
+      
+      
+        <a href="#returns-18" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<code class="language-plaintext highlighter-rouge">Array&lt;Log&gt;</code>} - array of log objects with the following members:</p>
+
+<ul>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} address - address from which this log originated</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} blockHash - hash of block containing this log or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} data - contains the non-indexed arguments of the log</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} transactionHash - hash of the transaction that created this log or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} blockNumber - number of block containing this log or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} logIndex - index of this log within its block or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} transactionIndex - index of the transaction that created this log or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<code class="language-plaintext highlighter-rouge">Array&lt;Data&gt;</code>} topics - list of order-dependent topics</li>
+  <li>{<code class="language-plaintext highlighter-rouge">boolean</code>} removed - <code class="language-plaintext highlighter-rouge">true</code> if this filter has been destroyed and is invalid</li>
+</ul>
+
+<p><strong>Note:</strong> The return value of <code class="language-plaintext highlighter-rouge">eth_getFilterLogs</code> when retrieving logs from <code class="language-plaintext highlighter-rouge">eth_newBlockFilter</code> and <code class="language-plaintext highlighter-rouge">eth_newPendingTransactionFilter</code> filters will be an array of hashes, not an array of Log objects.</p>
+  
+    <h5 id="example-18">
+      
+      
+        <a href="#example-18" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_getFilterLogs",
+    "params": ["0x16"]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+   <span class="s2">"id"</span>: 1337,
+   <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="o">[{</span>
+        <span class="s2">"address"</span>: <span class="s2">"0x16c5785ac562ff41e2dcfdf829c5a142f1fccd7d"</span>,
+        <span class="s2">"blockHash"</span>: <span class="s2">"0x8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcfdf829c5a142f1fccd7d"</span>,
+        <span class="s2">"blockNumber"</span>:<span class="s2">"0x1b4"</span>,
+        <span class="s2">"data"</span>:<span class="s2">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,
+        <span class="s2">"logIndex"</span>: <span class="s2">"0x1"</span>,
+        <span class="s2">"topics"</span>: <span class="o">[]</span>,
+        <span class="s2">"transactionHash"</span>:  <span class="s2">"0xdf829c5a142f1fccd7d8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcf"</span>,
+        <span class="s2">"transactionIndex"</span>: <span class="s2">"0x0"</span>
+   <span class="o">}]</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_getlogs">
+      
+      
+        <a href="#eth_getlogs" class="anchor-link"></a> eth_getLogs
+      
+      
+    </h4>
+  
+    <h5 id="description-19">
+      
+      
+        <a href="#description-19" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns a list of all logs based on a filter object</p>
+  
+    <h5 id="parameters-19">
+      
+      
+        <a href="#parameters-19" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<code class="language-plaintext highlighter-rouge">object</code>}</td>
+      <td>@property {<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>|<code class="language-plaintext highlighter-rouge">string</code>} <code class="language-plaintext highlighter-rouge">[fromBlock]</code> - block number, or one of <code class="language-plaintext highlighter-rouge">"latest"</code>, <code class="language-plaintext highlighter-rouge">"earliest"</code> or <code class="language-plaintext highlighter-rouge">"pending"</code><br />@property {<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>|<code class="language-plaintext highlighter-rouge">string</code>} <code class="language-plaintext highlighter-rouge">[toBlock]</code> - block number, or one of <code class="language-plaintext highlighter-rouge">"latest"</code>, <code class="language-plaintext highlighter-rouge">"earliest"</code> or <code class="language-plaintext highlighter-rouge">"pending"</code><br />@property {<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>|<a href="#data"><code class="language-plaintext highlighter-rouge">Data[]</code></a>} <code class="language-plaintext highlighter-rouge">[address]</code> - contract address or a list of addresses from which logs should originate<br />@property {<a href="#data"><code class="language-plaintext highlighter-rouge">Data[]</code></a>} <code class="language-plaintext highlighter-rouge">[topics]</code> - list of order-dependent topics<br />@property {<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">[blockhash]</code> - restrict logs to a block by hash</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> If <code class="language-plaintext highlighter-rouge">blockhash</code> is passed, neither <code class="language-plaintext highlighter-rouge">fromBlock</code> nor <code class="language-plaintext highlighter-rouge">toBlock</code> are allowed or respected.</p>
+  
+    <h5 id="returns-19">
+      
+      
+        <a href="#returns-19" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<code class="language-plaintext highlighter-rouge">Array&lt;Log&gt;</code>} - array of log objects with the following members:</p>
+
+<ul>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">address</code> - address from which this log originated</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">blockHash</code> - hash of block containing this log or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">data</code> - contains the non-indexed arguments of the log</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">transactionHash</code> - hash of the transaction that created this log or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">blockNumber</code> - number of block containing this log or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">logIndex</code> - index of this log within its block or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">transactionIndex</code> - index of the transaction that created this log or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">topics</code> - list of order-dependent topics</li>
+  <li>{<code class="language-plaintext highlighter-rouge">boolean</code>} <code class="language-plaintext highlighter-rouge">removed</code> - <code class="language-plaintext highlighter-rouge">true</code> if this filter has been destroyed and is invalid</li>
+</ul>
+  
+    <h5 id="example-19">
+      
+      
+        <a href="#example-19" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_getLogs",
+    "params": [{
+        "topics":["0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"]
+    }]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+   <span class="s2">"id"</span>: 1337,
+   <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="o">[{</span>
+        <span class="s2">"address"</span>: <span class="s2">"0x16c5785ac562ff41e2dcfdf829c5a142f1fccd7d"</span>,
+        <span class="s2">"blockHash"</span>: <span class="s2">"0x8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcfdf829c5a142f1fccd7d"</span>,
+        <span class="s2">"blockNumber"</span>:<span class="s2">"0x1b4"</span>,
+        <span class="s2">"data"</span>:<span class="s2">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,
+        <span class="s2">"logIndex"</span>: <span class="s2">"0x1"</span>,
+        <span class="s2">"topics"</span>: <span class="o">[]</span>,
+        <span class="s2">"transactionHash"</span>:  <span class="s2">"0xdf829c5a142f1fccd7d8216c5785ac562ff41e2dcfdf5785ac562ff41e2dcf"</span>,
+        <span class="s2">"transactionIndex"</span>: <span class="s2">"0x0"</span>
+   <span class="o">}]</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_getstorageat">
+      
+      
+        <a href="#eth_getstorageat" class="anchor-link"></a> eth_getStorageAt
+      
+      
+    </h4>
+  
+    <h5 id="description-20">
+      
+      
+        <a href="#description-20" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns the value from a storage position at an address</p>
+  
+    <h5 id="parameters-20">
+      
+      
+        <a href="#parameters-20" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>address of stored data</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>}</td>
+      <td>index into stored data</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>|<code class="language-plaintext highlighter-rouge">string</code>|<a href="#block-identifier"><code class="language-plaintext highlighter-rouge">Block Identifier</code></a>}</td>
+      <td>block number, or one of <code class="language-plaintext highlighter-rouge">"latest"</code>, <code class="language-plaintext highlighter-rouge">"earliest"</code> or <code class="language-plaintext highlighter-rouge">"pending"</code>, or a block identifier as described in <a href="#block-identifier"><code class="language-plaintext highlighter-rouge">Block Identifier</code></a></td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-20">
+      
+      
+        <a href="#returns-20" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} - value stored at the given address and data index</p>
+  
+    <h5 id="example-20">
+      
+      
+        <a href="#example-20" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_getStorageAt",
+    "params": ["0x295a70b2de5e3953354a6a8344e616ed314d7251", "0x0", "latest"]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0x00000000000000000000000000000000000000000000000000000000000004d2"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_gettransactionbyblockhashandindex">
+      
+      
+        <a href="#eth_gettransactionbyblockhashandindex" class="anchor-link"></a> eth_getTransactionByBlockHashAndIndex
+      
+      
+    </h4>
+  
+    <h5 id="description-21">
+      
+      
+        <a href="#description-21" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns information about a transaction specified by block hash and transaction index</p>
+  
+    <h5 id="parameters-21">
+      
+      
+        <a href="#parameters-21" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>hash of a block</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>}</td>
+      <td>index of a transaction in the specified block</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-21">
+      
+      
+        <a href="#returns-21" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<code class="language-plaintext highlighter-rouge">null|object</code>} - <code class="language-plaintext highlighter-rouge">null</code> if no transaction is found, otherwise a transaction object with the following members:</p>
+
+<ul>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">r</code> - ECDSA signature r</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">s</code> - ECDSA signature s</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">blockHash</code> - hash of block containing this transaction or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">from</code> - transaction sender</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">hash</code> - hash of this transaction</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">input</code> - contract code or a hashed method call</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">to</code> - transaction recipient or <code class="language-plaintext highlighter-rouge">null</code> if deploying a contract</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">v</code> - ECDSA recovery ID</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">blockNumber</code> - number of block containing this transaction or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">gas</code> - gas provided for transaction execution</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">gasPrice</code> - price in wei of each gas used</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">nonce</code> - unique number identifying this transaction</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">transactionIndex</code> - index of this transaction in the block or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">value</code> - value in wei sent with this transaction</li>
+</ul>
+  
+    <h5 id="example-21">
+      
+      
+        <a href="#example-21" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_getTransactionByBlockHashAndIndex",
+    "params":["0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331", "0x0"]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="o">{</span>
+        <span class="s2">"blockHash"</span>: <span class="s2">"0x1d59ff54b1eb26b013ce3cb5fc9dab3705b415a67127a003c3e61eb445bb8df2"</span>,
+        <span class="s2">"blockNumber"</span>: <span class="s2">"0x5daf3b"</span>,
+        <span class="s2">"from"</span>: <span class="s2">"0xa7d9ddbe1f17865597fbd27ec712455208b6b76d"</span>,
+        <span class="s2">"gas"</span>: <span class="s2">"0xc350"</span>,
+        <span class="s2">"gasPrice"</span>: <span class="s2">"0x4a817c800"</span>,
+        <span class="s2">"hash"</span>: <span class="s2">"0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b"</span>,
+        <span class="s2">"input"</span>: <span class="s2">"0x68656c6c6f21"</span>,
+        <span class="s2">"nonce"</span>: <span class="s2">"0x15"</span>,
+        <span class="s2">"r"</span>: <span class="s2">"0x1b5e176d927f8e9ab405058b2d2457392da3e20f328b16ddabcebc33eaac5fea"</span>,
+        <span class="s2">"s"</span>: <span class="s2">"0x4ba69724e8f69de52f0125ad8b3c5c2cef33019bac3249e2c0a2192766d1721c"</span>,
+        <span class="s2">"to"</span>: <span class="s2">"0xf02c1c8e6114b1dbe8937a39260b5b0a374432bb"</span>,
+        <span class="s2">"transactionIndex"</span>: <span class="s2">"0x41"</span>,
+        <span class="s2">"v"</span>: <span class="s2">"0x25"</span>,
+        <span class="s2">"value"</span>: <span class="s2">"0xf3dbb76162000"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_gettransactionbyblocknumberandindex">
+      
+      
+        <a href="#eth_gettransactionbyblocknumberandindex" class="anchor-link"></a> eth_getTransactionByBlockNumberAndIndex
+      
+      
+    </h4>
+  
+    <h5 id="description-22">
+      
+      
+        <a href="#description-22" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns information about a transaction specified by block number and transaction index</p>
+  
+    <h5 id="parameters-22">
+      
+      
+        <a href="#parameters-22" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>|<code class="language-plaintext highlighter-rouge">string</code>}</td>
+      <td>block number, or one of <code class="language-plaintext highlighter-rouge">"latest"</code>, <code class="language-plaintext highlighter-rouge">"earliest"</code> or <code class="language-plaintext highlighter-rouge">"pending"</code></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>}</td>
+      <td>index of a transaction in the specified block</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-22">
+      
+      
+        <a href="#returns-22" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<code class="language-plaintext highlighter-rouge">null|object</code>} - <code class="language-plaintext highlighter-rouge">null</code> if no transaction is found, otherwise a transaction object with the following members:</p>
+
+<ul>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">r</code> - ECDSA signature r</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">s</code> - ECDSA signature s</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">blockHash</code> - hash of block containing this transaction or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">from</code> - transaction sender</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">hash</code> - hash of this transaction</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">input</code> - contract code or a hashed method call</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">to</code> - transaction recipient or <code class="language-plaintext highlighter-rouge">null</code> if deploying a contract</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">v</code> - ECDSA recovery ID</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">blockNumber</code> - number of block containing this transaction or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">gas</code> - gas provided for transaction execution</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">gasPrice</code> - price in wei of each gas used</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">nonce</code> - unique number identifying this transaction</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">transactionIndex</code> - index of this transaction in the block or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">value</code> - value in wei sent with this transaction</li>
+</ul>
+  
+    <h5 id="example-22">
+      
+      
+        <a href="#example-22" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_getTransactionByBlockNumberAndIndex",
+    "params":["0x29c", "0x0"]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="o">{</span>
+        <span class="s2">"blockHash"</span>: <span class="s2">"0x1d59ff54b1eb26b013ce3cb5fc9dab3705b415a67127a003c3e61eb445bb8df2"</span>,
+        <span class="s2">"blockNumber"</span>: <span class="s2">"0x5daf3b"</span>,
+        <span class="s2">"from"</span>: <span class="s2">"0xa7d9ddbe1f17865597fbd27ec712455208b6b76d"</span>,
+        <span class="s2">"gas"</span>: <span class="s2">"0xc350"</span>,
+        <span class="s2">"gasPrice"</span>: <span class="s2">"0x4a817c800"</span>,
+        <span class="s2">"hash"</span>: <span class="s2">"0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b"</span>,
+        <span class="s2">"input"</span>: <span class="s2">"0x68656c6c6f21"</span>,
+        <span class="s2">"nonce"</span>: <span class="s2">"0x15"</span>,
+        <span class="s2">"r"</span>: <span class="s2">"0x1b5e176d927f8e9ab405058b2d2457392da3e20f328b16ddabcebc33eaac5fea"</span>,
+        <span class="s2">"s"</span>: <span class="s2">"0x4ba69724e8f69de52f0125ad8b3c5c2cef33019bac3249e2c0a2192766d1721c"</span>,
+        <span class="s2">"to"</span>: <span class="s2">"0xf02c1c8e6114b1dbe8937a39260b5b0a374432bb"</span>,
+        <span class="s2">"transactionIndex"</span>: <span class="s2">"0x41"</span>,
+        <span class="s2">"v"</span>: <span class="s2">"0x25"</span>,
+        <span class="s2">"value"</span>: <span class="s2">"0xf3dbb76162000"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_gettransactionbyhash">
+      
+      
+        <a href="#eth_gettransactionbyhash" class="anchor-link"></a> eth_getTransactionByHash
+      
+      
+    </h4>
+  
+    <h5 id="description-23">
+      
+      
+        <a href="#description-23" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns information about a transaction specified by hash</p>
+  
+    <h5 id="parameters-23">
+      
+      
+        <a href="#parameters-23" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>hash of a transaction</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-23">
+      
+      
+        <a href="#returns-23" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<code class="language-plaintext highlighter-rouge">null|object</code>} - <code class="language-plaintext highlighter-rouge">null</code> if no transaction is found, otherwise a transaction object with the following members:</p>
+
+<ul>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">r</code> - ECDSA signature r</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">s</code> - ECDSA signature s</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">blockHash</code> - hash of block containing this transaction or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">from</code> - transaction sender</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">hash</code> - hash of this transaction</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">input</code> - contract code or a hashed method call</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">to</code> - transaction recipient or <code class="language-plaintext highlighter-rouge">null</code> if deploying a contract</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">v</code> - ECDSA recovery ID</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">blockNumber</code> - number of block containing this transaction or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">gas</code> - gas provided for transaction execution</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">gasPrice</code> - price in wei of each gas used</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">nonce</code> - unique number identifying this transaction</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">transactionIndex</code> - index of this transaction in the block or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">value</code> - value in wei sent with this transaction</li>
+</ul>
+  
+    <h5 id="example-23">
+      
+      
+        <a href="#example-23" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_getTransactionByHash",
+    "params": ["0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b"]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="o">{</span>
+        <span class="s2">"blockHash"</span>: <span class="s2">"0x1d59ff54b1eb26b013ce3cb5fc9dab3705b415a67127a003c3e61eb445bb8df2"</span>,
+        <span class="s2">"blockNumber"</span>: <span class="s2">"0x5daf3b"</span>,
+        <span class="s2">"from"</span>: <span class="s2">"0xa7d9ddbe1f17865597fbd27ec712455208b6b76d"</span>,
+        <span class="s2">"gas"</span>: <span class="s2">"0xc350"</span>,
+        <span class="s2">"gasPrice"</span>: <span class="s2">"0x4a817c800"</span>,
+        <span class="s2">"hash"</span>: <span class="s2">"0x88df016429689c079f3b2f6ad39fa052532c56795b733da78a91ebe6a713944b"</span>,
+        <span class="s2">"input"</span>: <span class="s2">"0x68656c6c6f21"</span>,
+        <span class="s2">"nonce"</span>: <span class="s2">"0x15"</span>,
+        <span class="s2">"r"</span>: <span class="s2">"0x1b5e176d927f8e9ab405058b2d2457392da3e20f328b16ddabcebc33eaac5fea"</span>,
+        <span class="s2">"s"</span>: <span class="s2">"0x4ba69724e8f69de52f0125ad8b3c5c2cef33019bac3249e2c0a2192766d1721c"</span>,
+        <span class="s2">"to"</span>: <span class="s2">"0xf02c1c8e6114b1dbe8937a39260b5b0a374432bb"</span>,
+        <span class="s2">"transactionIndex"</span>: <span class="s2">"0x41"</span>,
+        <span class="s2">"v"</span>: <span class="s2">"0x25"</span>,
+        <span class="s2">"value"</span>: <span class="s2">"0xf3dbb76162000"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_gettransactioncount">
+      
+      
+        <a href="#eth_gettransactioncount" class="anchor-link"></a> eth_getTransactionCount
+      
+      
+    </h4>
+  
+    <h5 id="description-24">
+      
+      
+        <a href="#description-24" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns the number of transactions sent from an address</p>
+  
+    <h5 id="parameters-24">
+      
+      
+        <a href="#parameters-24" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>address to query for sent transactions</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>|<code class="language-plaintext highlighter-rouge">string</code>|<a href="#block-identifier"><code class="language-plaintext highlighter-rouge">Block Identifier</code></a>}</td>
+      <td>block number, or one of <code class="language-plaintext highlighter-rouge">"latest"</code>, <code class="language-plaintext highlighter-rouge">"earliest"</code> or <code class="language-plaintext highlighter-rouge">"pending"</code>, or a block identifier as described in <a href="#block-identifier"><code class="language-plaintext highlighter-rouge">Block Identifier</code></a></td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-24">
+      
+      
+        <a href="#returns-24" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} - number of transactions sent from the specified address</p>
+  
+    <h5 id="example-24">
+      
+      
+        <a href="#example-24" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_getTransactionCount",
+    "params": ["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0x1"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_gettransactionreceipt">
+      
+      
+        <a href="#eth_gettransactionreceipt" class="anchor-link"></a> eth_getTransactionReceipt
+      
+      
+    </h4>
+  
+    <h5 id="description-25">
+      
+      
+        <a href="#description-25" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns the receipt of a transaction specified by hash</p>
+
+<p><strong>Note:</strong> Transaction receipts are unavailable for pending transactions.</p>
+  
+    <h5 id="parameters-25">
+      
+      
+        <a href="#parameters-25" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>hash of a transaction</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-25">
+      
+      
+        <a href="#returns-25" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<code class="language-plaintext highlighter-rouge">null|object</code>} - <code class="language-plaintext highlighter-rouge">null</code> if no transaction is found, otherwise a transaction receipt object with the following members:</p>
+
+<ul>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">blockHash</code> - hash of block containing this transaction</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">contractAddress</code> - address of new contract or <code class="language-plaintext highlighter-rouge">null</code> if no contract was created</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">from</code> - transaction sender</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">logsBloom</code> - logs bloom filter</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">to</code> - transaction recipient or <code class="language-plaintext highlighter-rouge">null</code> if deploying a contract</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">transactionHash</code> - hash of this transaction</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">blockNumber</code> - number of block containing this transaction</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">cumulativeGasUsed</code> - gas used by this and all preceding transactions in this block</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">gasUsed</code> - gas used by this transaction</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">status</code> - <code class="language-plaintext highlighter-rouge">1</code> if this transaction was successful or <code class="language-plaintext highlighter-rouge">0</code> if it failed</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">transactionIndex</code> - index of this transaction in the block</li>
+  <li>{<code class="language-plaintext highlighter-rouge">Array&lt;Log&gt;</code>} <code class="language-plaintext highlighter-rouge">logs</code> - list of log objects generated by this transaction</li>
+</ul>
+  
+    <h5 id="example-25">
+      
+      
+        <a href="#example-25" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_getTransactionReceipt",
+    "params": ["0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238"]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="o">{</span>
+        <span class="s2">"blockHash"</span>: <span class="s1">'0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b'</span>,
+        <span class="s2">"blockNumber"</span>: <span class="s1">'0xb'</span>,
+        <span class="s2">"contractAddress"</span>: <span class="s1">'0xb60e8dd61c5d32be8058bb8eb970870f07233155'</span>,
+        <span class="s2">"cumulativeGasUsed"</span>: <span class="s1">'0x33bc'</span>,
+        <span class="s2">"gasUsed"</span>: <span class="s1">'0x4dc'</span>,
+        <span class="s2">"logs"</span>: <span class="o">[]</span>,
+        <span class="s2">"logsBloom"</span>: <span class="s2">"0x00...0"</span>,
+        <span class="s2">"status"</span>: <span class="s2">"0x1"</span>,
+        <span class="s2">"transactionHash"</span>: <span class="s1">'0xb903239f8543d04b5dc1ba6579132b143087c68db1b2168786408fcbce568238'</span>,
+        <span class="s2">"transactionIndex"</span>:  <span class="s1">'0x1'</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_getunclebyblockhashandindex">
+      
+      
+        <a href="#eth_getunclebyblockhashandindex" class="anchor-link"></a> eth_getUncleByBlockHashAndIndex
+      
+      
+    </h4>
+  
+    <h5 id="description-26">
+      
+      
+        <a href="#description-26" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns information about an uncle specified by block hash and uncle index position</p>
+  
+    <h5 id="parameters-26">
+      
+      
+        <a href="#parameters-26" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>hash of a block</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>}</td>
+      <td>index of uncle</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-26">
+      
+      
+        <a href="#returns-26" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<code class="language-plaintext highlighter-rouge">null|object</code>} - <code class="language-plaintext highlighter-rouge">null</code> if no block or uncle is found, otherwise an uncle object with the following members:</p>
+
+<ul>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">extraData</code> - “extra data” field of this block</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">hash</code> - block hash or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">logsBloom</code> - logs bloom filter or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">miner</code> - address that received this block’s mining rewards</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">nonce</code> - proof-of-work hash or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">parentHash</code> - parent block hash</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">receiptsRoot</code> -root of this block’s receipts trie</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">sha3Uncles</code> - SHA3 of the uncles data in this block</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">stateRoot</code> - root of this block’s final state trie</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">transactionsRoot</code> - root of this block’s transaction trie</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">difficulty</code> - difficulty for this block</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">gasLimit</code> - maximum gas allowed in this block</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">gasUsed</code> - total used gas by all transactions in this block</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">number</code> - block number or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">size</code> - size of this block in bytes</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">timestamp</code> - unix timestamp of when this block was collated</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">totalDifficulty</code> - total difficulty of the chain until this block</li>
+  <li>{<code class="language-plaintext highlighter-rouge">Array&lt;Transaction&gt;</code>} <code class="language-plaintext highlighter-rouge">uncles</code> - list of uncle hashes</li>
+</ul>
+  
+    <h5 id="example-26">
+      
+      
+        <a href="#example-26" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_getUncleByBlockHashAndIndex",
+    "params": ["0xc6ef2fc5426d6ad6fd9e2a26abeab0aa2411b7ab17f30a99d3cb96aed1d1055b", "0x0"]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="o">{</span>
+        <span class="s2">"difficulty"</span>: <span class="s2">"0x027f07"</span>,
+        <span class="s2">"extraData"</span>: <span class="s2">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,
+        <span class="s2">"gasLimit"</span>: <span class="s2">"0x9f759"</span>,
+        <span class="s2">"gasUsed"</span>: <span class="s2">"0x9f759"</span>,
+        <span class="s2">"hash"</span>: <span class="s2">"0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"</span>,
+        <span class="s2">"logsBloom"</span>: <span class="s2">"0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"</span>,
+        <span class="s2">"miner"</span>: <span class="s2">"0x4e65fda2159562a496f9f3522f89122a3088497a"</span>,
+        <span class="s2">"nonce"</span>: <span class="s2">"0xe04d296d2460cfb8472af2c5fd05b5a214109c25688d3704aed5484f9a7792f2"</span>,
+        <span class="s2">"number"</span>: <span class="s2">"0x1b4"</span>,
+        <span class="s2">"parentHash"</span>: <span class="s2">"0x9646252be9520f6e71339a8df9c55e4d7619deeb018d2a3f2d21fc165dde5eb5"</span>,
+        <span class="s2">"sha3Uncles"</span>: <span class="s2">"0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347"</span>,
+        <span class="s2">"size"</span>:  <span class="s2">"0x027f07"</span>,
+        <span class="s2">"stateRoot"</span>: <span class="s2">"0xd5855eb08b3387c0af375e9cdb6acfc05eb8f519e419b874b6ff2ffda7ed1dff"</span>,
+        <span class="s2">"timestamp"</span>: <span class="s2">"0x54e34e8e"</span>
+        <span class="s2">"totalDifficulty"</span>:  <span class="s2">"0x027f07"</span>,
+        <span class="s2">"transactionsRoot"</span>: <span class="s2">"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"</span>,
+        <span class="s2">"uncles"</span>: <span class="o">[]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_getunclebyblocknumberandindex">
+      
+      
+        <a href="#eth_getunclebyblocknumberandindex" class="anchor-link"></a> eth_getUncleByBlockNumberAndIndex
+      
+      
+    </h4>
+  
+    <h5 id="description-27">
+      
+      
+        <a href="#description-27" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns information about an uncle specified by block number and uncle index position</p>
+  
+    <h5 id="parameters-27">
+      
+      
+        <a href="#parameters-27" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>|<code class="language-plaintext highlighter-rouge">string</code>}</td>
+      <td>block number, or one of <code class="language-plaintext highlighter-rouge">"latest"</code>, <code class="language-plaintext highlighter-rouge">"earliest"</code> or <code class="language-plaintext highlighter-rouge">"pending"</code></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>}</td>
+      <td>index of uncle</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-27">
+      
+      
+        <a href="#returns-27" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<code class="language-plaintext highlighter-rouge">null|object</code>} - <code class="language-plaintext highlighter-rouge">null</code> if no block or uncle is found, otherwise an uncle object with the following members:</p>
+
+<ul>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">extraData</code> - “extra data” field of this block</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">hash</code> - block hash or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">logsBloom</code> - logs bloom filter or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">miner</code> - address that received this block’s mining rewards</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">nonce</code> - proof-of-work hash or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">parentHash</code> - parent block hash</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">receiptsRoot</code> -root of this block’s receipts trie</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">sha3Uncles</code> - SHA3 of the uncles data in this block</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">stateRoot</code> - root of this block’s final state trie</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">transactionsRoot</code> - root of this block’s transaction trie</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">difficulty</code> - difficulty for this block</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">gasLimit</code> - maximum gas allowed in this block</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">gasUsed</code> - total used gas by all transactions in this block</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">number</code> - block number or <code class="language-plaintext highlighter-rouge">null</code> if pending</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">size</code> - size of this block in bytes</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">timestamp</code> - unix timestamp of when this block was collated</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">totalDifficulty</code> - total difficulty of the chain until this block</li>
+  <li>{<code class="language-plaintext highlighter-rouge">Array&lt;Transaction&gt;</code>} <code class="language-plaintext highlighter-rouge">uncles</code> - list of uncle hashes</li>
+</ul>
+  
+    <h5 id="example-27">
+      
+      
+        <a href="#example-27" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_getUncleByBlockNumberAndIndex",
+    "params": ["0x29c", "0x0"]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="o">{</span>
+        <span class="s2">"difficulty"</span>: <span class="s2">"0x027f07"</span>,
+        <span class="s2">"extraData"</span>: <span class="s2">"0x0000000000000000000000000000000000000000000000000000000000000000"</span>,
+        <span class="s2">"gasLimit"</span>: <span class="s2">"0x9f759"</span>,
+        <span class="s2">"gasUsed"</span>: <span class="s2">"0x9f759"</span>,
+        <span class="s2">"hash"</span>: <span class="s2">"0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"</span>,
+        <span class="s2">"logsBloom"</span>: <span class="s2">"0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"</span>,
+        <span class="s2">"miner"</span>: <span class="s2">"0x4e65fda2159562a496f9f3522f89122a3088497a"</span>,
+        <span class="s2">"nonce"</span>: <span class="s2">"0xe04d296d2460cfb8472af2c5fd05b5a214109c25688d3704aed5484f9a7792f2"</span>,
+        <span class="s2">"number"</span>: <span class="s2">"0x1b4"</span>,
+        <span class="s2">"parentHash"</span>: <span class="s2">"0x9646252be9520f6e71339a8df9c55e4d7619deeb018d2a3f2d21fc165dde5eb5"</span>,
+        <span class="s2">"sha3Uncles"</span>: <span class="s2">"0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347"</span>,
+        <span class="s2">"size"</span>:  <span class="s2">"0x027f07"</span>,
+        <span class="s2">"stateRoot"</span>: <span class="s2">"0xd5855eb08b3387c0af375e9cdb6acfc05eb8f519e419b874b6ff2ffda7ed1dff"</span>,
+        <span class="s2">"timestamp"</span>: <span class="s2">"0x54e34e8e"</span>
+        <span class="s2">"totalDifficulty"</span>:  <span class="s2">"0x027f07"</span>,
+        <span class="s2">"transactionsRoot"</span>: <span class="s2">"0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"</span>,
+        <span class="s2">"uncles"</span>: <span class="o">[]</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_getunclecountbyblockhash">
+      
+      
+        <a href="#eth_getunclecountbyblockhash" class="anchor-link"></a> eth_getUncleCountByBlockHash
+      
+      
+    </h4>
+  
+    <h5 id="description-28">
+      
+      
+        <a href="#description-28" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns the number of uncles in a block specified by block hash</p>
+  
+    <h5 id="parameters-28">
+      
+      
+        <a href="#parameters-28" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>hash of a block</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-28">
+      
+      
+        <a href="#returns-28" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} - number of uncles in the specified block</p>
+  
+    <h5 id="example-28">
+      
+      
+        <a href="#example-28" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_getUncleCountByBlockHash",
+    "params": ["0xc94770007dda54cF92009BFF0dE90c06F603a09f"]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0xc"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_getunclecountbyblocknumber">
+      
+      
+        <a href="#eth_getunclecountbyblocknumber" class="anchor-link"></a> eth_getUncleCountByBlockNumber
+      
+      
+    </h4>
+  
+    <h5 id="description-29">
+      
+      
+        <a href="#description-29" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns the number of uncles in a block specified by block number</p>
+  
+    <h5 id="parameters-29">
+      
+      
+        <a href="#parameters-29" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>|<code class="language-plaintext highlighter-rouge">string</code>}</td>
+      <td>block number, or one of <code class="language-plaintext highlighter-rouge">"latest"</code>, <code class="language-plaintext highlighter-rouge">"earliest"</code> or <code class="language-plaintext highlighter-rouge">"pending"</code></td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-29">
+      
+      
+        <a href="#returns-29" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} - number of uncles in the specified block</p>
+  
+    <h5 id="example-29">
+      
+      
+        <a href="#example-29" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_getUncleCountByBlockNumber",
+    "params": ["0xe8"]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0x1"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_getwork">
+      
+      
+        <a href="#eth_getwork" class="anchor-link"></a> eth_getWork
+      
+      
+    </h4>
+  
+    <h5 id="description-30">
+      
+      
+        <a href="#description-30" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns a list containing relevant information for proof-of-work</p>
+  
+    <h5 id="parameters-30">
+      
+      
+        <a href="#parameters-30" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<p><em>none</em></p>
+  
+    <h5 id="returns-30">
+      
+      
+        <a href="#returns-30" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data[]</code></a>} - array with the following items:</p>
+
+<ol>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} - current block header pow-hash</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} - seed hash used for the DAG</li>
+  <li>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} - boundary condition (“target”), 2^256 / difficulty</li>
+</ol>
+  
+    <h5 id="example-30">
+      
+      
+        <a href="#example-30" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_getWork",
+    "params": []
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="o">[</span>
+        <span class="s2">"0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"</span>,
+        <span class="s2">"0x5EED00000000000000000000000000005EED0000000000000000000000000000"</span>,
+        <span class="s2">"0xd1ff1c01710000000000000000000000d1ff1c01710000000000000000000000"</span>
+    <span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_hashrate">
+      
+      
+        <a href="#eth_hashrate" class="anchor-link"></a> eth_hashrate
+      
+      
+    </h4>
+  
+    <h5 id="description-31">
+      
+      
+        <a href="#description-31" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns the number of hashes-per-second this node is mining at</p>
+  
+    <h5 id="parameters-31">
+      
+      
+        <a href="#parameters-31" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<p><em>(none)</em></p>
+  
+    <h5 id="returns-31">
+      
+      
+        <a href="#returns-31" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} - number of hashes-per-second</p>
+  
+    <h5 id="example-31">
+      
+      
+        <a href="#example-31" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_hashrate",
+    "params": []
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0x38a"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_mining">
+      
+      
+        <a href="#eth_mining" class="anchor-link"></a> eth_mining
+      
+      
+    </h4>
+  
+    <h5 id="description-32">
+      
+      
+        <a href="#description-32" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Determines if this client is mining new blocks</p>
+  
+    <h5 id="parameters-32">
+      
+      
+        <a href="#parameters-32" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<p><em>(none)</em></p>
+  
+    <h5 id="returns-32">
+      
+      
+        <a href="#returns-32" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<code class="language-plaintext highlighter-rouge">boolean</code>} - <code class="language-plaintext highlighter-rouge">true</code> if this client is mining or <code class="language-plaintext highlighter-rouge">false</code> if it is not mining</p>
+  
+    <h5 id="example-32">
+      
+      
+        <a href="#example-32" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_mining",
+    "params": []
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="nb">true</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_newblockfilter">
+      
+      
+        <a href="#eth_newblockfilter" class="anchor-link"></a> eth_newBlockFilter
+      
+      
+    </h4>
+  
+    <h5 id="description-33">
+      
+      
+        <a href="#description-33" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Creates a filter to listen for new blocks that can be used with <code class="language-plaintext highlighter-rouge">eth_getFilterChanges</code></p>
+  
+    <h5 id="parameters-33">
+      
+      
+        <a href="#parameters-33" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<p><em>none</em></p>
+  
+    <h5 id="returns-33">
+      
+      
+        <a href="#returns-33" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} - ID of the newly-created filter that can be used with <code class="language-plaintext highlighter-rouge">eth_getFilterChanges</code></p>
+  
+    <h5 id="example-33">
+      
+      
+        <a href="#example-33" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337
+    "jsonrpc": "2.0",
+    "method": "eth_newBlockFilter",
+    "params": []
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0x1"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_newfilter">
+      
+      
+        <a href="#eth_newfilter" class="anchor-link"></a> eth_newFilter
+      
+      
+    </h4>
+  
+    <h5 id="description-34">
+      
+      
+        <a href="#description-34" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Creates a filter to listen for specific state changes that can then be used with <code class="language-plaintext highlighter-rouge">eth_getFilterChanges</code></p>
+  
+    <h5 id="parameters-34">
+      
+      
+        <a href="#parameters-34" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<code class="language-plaintext highlighter-rouge">object</code>}</td>
+      <td>@property {<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>|<code class="language-plaintext highlighter-rouge">string</code>} <code class="language-plaintext highlighter-rouge">[fromBlock]</code> - block number, or one of <code class="language-plaintext highlighter-rouge">"latest"</code>, <code class="language-plaintext highlighter-rouge">"earliest"</code> or <code class="language-plaintext highlighter-rouge">"pending"</code><br />@property {<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>|<code class="language-plaintext highlighter-rouge">string</code>} <code class="language-plaintext highlighter-rouge">[toBlock]</code> - block number, or one of <code class="language-plaintext highlighter-rouge">"latest"</code>, <code class="language-plaintext highlighter-rouge">"earliest"</code> or <code class="language-plaintext highlighter-rouge">"pending"</code><br />@property {<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>|<a href="#data"><code class="language-plaintext highlighter-rouge">Data[]</code></a>} <code class="language-plaintext highlighter-rouge">[address]</code> - contract address or a list of addresses from which logs should originate<br />@property {<a href="#data"><code class="language-plaintext highlighter-rouge">Data[]</code></a>} <code class="language-plaintext highlighter-rouge">[topics]</code> - list of order-dependent topics</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> Topics are order-dependent. A transaction with a log with topics <code class="language-plaintext highlighter-rouge">[A, B]</code> will be matched by the following topic filters:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">[]</code> - “anything”</li>
+  <li><code class="language-plaintext highlighter-rouge">[A]</code> - “A in first position (and anything after)”</li>
+  <li><code class="language-plaintext highlighter-rouge">[null, B]</code> - “anything in first position AND B in second position (and anything after)”</li>
+  <li><code class="language-plaintext highlighter-rouge">[A, B]</code> - “A in first position AND B in second position (and anything after)”</li>
+  <li><code class="language-plaintext highlighter-rouge">[[A, B], [A, B]]</code> - “(A OR B) in first position AND (A OR B) in second position (and anything after)”</li>
+</ul>
+  
+    <h5 id="returns-34">
+      
+      
+        <a href="#returns-34" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} - ID of the newly-created filter that can be used with <code class="language-plaintext highlighter-rouge">eth_getFilterChanges</code></p>
+  
+    <h5 id="example-34">
+      
+      
+        <a href="#example-34" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337
+    "jsonrpc": "2.0",
+    "method": "eth_newFilter",
+    "params": [{
+        "topics": ["0x0000000000000000000000000000000000000000000000000000000012341234"]
+    }]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0x1"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_newpendingtransactionfilter">
+      
+      
+        <a href="#eth_newpendingtransactionfilter" class="anchor-link"></a> eth_newPendingTransactionFilter
+      
+      
+    </h4>
+  
+    <h5 id="description-35">
+      
+      
+        <a href="#description-35" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Creates a filter to listen for new pending transactions that can be used with <code class="language-plaintext highlighter-rouge">eth_getFilterChanges</code></p>
+  
+    <h5 id="parameters-35">
+      
+      
+        <a href="#parameters-35" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<p><em>none</em></p>
+  
+    <h5 id="returns-35">
+      
+      
+        <a href="#returns-35" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} - ID of the newly-created filter that can be used with <code class="language-plaintext highlighter-rouge">eth_getFilterChanges</code></p>
+  
+    <h5 id="example-35">
+      
+      
+        <a href="#example-35" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337
+    "jsonrpc": "2.0",
+    "method": "eth_newPendingTransactionFilter",
+    "params": []
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0x1"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_protocolversion">
+      
+      
+        <a href="#eth_protocolversion" class="anchor-link"></a> eth_protocolVersion
+      
+      
+    </h4>
+  
+    <h5 id="description-36">
+      
+      
+        <a href="#description-36" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns the current Ethereum protocol version</p>
+  
+    <h5 id="parameters-36">
+      
+      
+        <a href="#parameters-36" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<p><em>(none)</em></p>
+  
+    <h5 id="returns-36">
+      
+      
+        <a href="#returns-36" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<code class="language-plaintext highlighter-rouge">string</code>} - current Ethereum protocol version</p>
+  
+    <h5 id="example-36">
+      
+      
+        <a href="#example-36" class="anchor-link"></a> Example
+      
+      
+    </h5>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_protocolVersion",
+    "params": []
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"54"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_sendrawtransaction">
+      
+      
+        <a href="#eth_sendrawtransaction" class="anchor-link"></a> eth_sendRawTransaction
+      
+      
+    </h4>
+  
+    <h5 id="description-37">
+      
+      
+        <a href="#description-37" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Sends and already-signed transaction to the network</p>
+  
+    <h5 id="parameters-37">
+      
+      
+        <a href="#parameters-37" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>signed transaction data</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-37">
+      
+      
+        <a href="#returns-37" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} - transaction hash, or the zero hash if the transaction is not yet available</p>
+  
+    <h5 id="example-37">
+      
+      
+        <a href="#example-37" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_sendRawTransaction",
+    "params": ["0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_sendtransaction">
+      
+      
+        <a href="#eth_sendtransaction" class="anchor-link"></a> eth_sendTransaction
+      
+      
+    </h4>
+  
+    <h5 id="description-38">
+      
+      
+        <a href="#description-38" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Creates, signs, and sends a new transaction to the network</p>
+  
+    <h5 id="parameters-38">
+      
+      
+        <a href="#parameters-38" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<code class="language-plaintext highlighter-rouge">object</code>}</td>
+      <td>@property {<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">from</code> - transaction sender<br />@property {<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">[to]</code> - transaction recipient<br />@property {<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">[gas="0x15f90"]</code> - gas provided for transaction execution<br />@property {<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">[gasPrice]</code> - price in wei of each gas used<br />@property {<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">[value]</code> - value in wei sent with this transaction<br />@property {<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">[data]</code> - contract code or a hashed method call with encoded args<br />@property {<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">[nonce]</code> - unique number identifying this transaction</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-38">
+      
+      
+        <a href="#returns-38" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} - transaction hash, or the zero hash if the transaction is not yet available</p>
+  
+    <h5 id="example-38">
+      
+      
+        <a href="#example-38" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_sendTransaction",
+    "params": [{
+        "data": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
+        "from": "0xb60e8dd61c5d32be8058bb8eb970870f07233155",
+        "gas": "0x76c0",
+        "gasPrice": "0x9184e72a000",
+        "to": "0xd46e8dd67c5d32be8058bb8eb970870f07244567",
+        "value": "0x9184e72a"
+    }]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_sign">
+      
+      
+        <a href="#eth_sign" class="anchor-link"></a> eth_sign
+      
+      
+    </h4>
+  
+    <h5 id="description-39">
+      
+      
+        <a href="#description-39" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Calculates an Ethereum-specific signature in the form of <code class="language-plaintext highlighter-rouge">keccak256("\x19Ethereum Signed Message:\n" + len(message) + message))</code></p>
+  
+    <h5 id="parameters-39">
+      
+      
+        <a href="#parameters-39" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>address to use for signing</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>data to sign</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-39">
+      
+      
+        <a href="#returns-39" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} - signature hash of the provided data</p>
+  
+    <h5 id="example-39">
+      
+      
+        <a href="#example-39" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_sign",
+    "params": ["0x9b2055d370f73ec7d8a03e965129118dc8f5bf83", "0xdeadbeaf"]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0xa3f20717a250c2b0b729b7e5becbff67fdaef7e0699da4de7ca5895b02a170a12d887fd3b17bfdce3481f10bea41f45ba9f709d39ce8325427b57afcfc994cee1b"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_signtransaction">
+      
+      
+        <a href="#eth_signtransaction" class="anchor-link"></a> eth_signTransaction
+      
+      
+    </h4>
+  
+    <h5 id="description-40">
+      
+      
+        <a href="#description-40" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Signs a transaction that can be submitted to the network at a later time using with <code class="language-plaintext highlighter-rouge">eth_sendRawTransaction</code></p>
+  
+    <h5 id="parameters-40">
+      
+      
+        <a href="#parameters-40" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<code class="language-plaintext highlighter-rouge">object</code>}</td>
+      <td>@property {<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">from</code> - transaction sender<br />@property {<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">[to]</code> - transaction recipient<br />@property {<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">[gas="0x15f90"]</code> - gas provided for transaction execution<br />@property {<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">[gasPrice]</code> - price in wei of each gas used<br />@property {<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">[value]</code> - value in wei sent with this transaction<br />@property {<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} <code class="language-plaintext highlighter-rouge">[data]</code> - contract code or a hashed method call with encoded args<br />@property {<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">[nonce]</code> - unique number identifying this transaction</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-40">
+      
+      
+        <a href="#returns-40" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} - signature hash of the transaction object</p>
+  
+    <h5 id="example-40">
+      
+      
+        <a href="#example-40" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_signTransaction",
+    "params": [{
+        "data": "0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675",
+        "from": "0xb60e8dd61c5d32be8058bb8eb970870f07233155",
+        "gas": "0x76c0",
+        "gasPrice": "0x9184e72a000",
+        "to": "0xd46e8dd67c5d32be8058bb8eb970870f07244567",
+        "value": "0x9184e72a"
+    }]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0xa3f20717a250c2b0b729b7e5becbff67fdaef7e0699da4de7ca5895b02a170a12d887fd3b17bfdce3481f10bea41f45ba9f709d39ce8325427b57afcfc994cee1b"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_signtypeddata">
+      
+      
+        <a href="#eth_signtypeddata" class="anchor-link"></a> eth_signTypedData
+      
+      
+    </h4>
+  
+    <h5 id="description-41">
+      
+      
+        <a href="#description-41" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Calculates an Ethereum-specific signature in the form of <code class="language-plaintext highlighter-rouge">keccak256("\x19Ethereum Signed Message:\n" + len(message) + message))</code></p>
+  
+    <h5 id="parameters-41">
+      
+      
+        <a href="#parameters-41" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>address to use for signing</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>message to sign containing type information, a domain separator, and data</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Note:</strong> Client developers should refer to EIP-712 for complete semantics around <a href="/EIPS/eip-712#specification">encoding and signing data</a>. Dapp developers should refer to EIP-712 for the expected structure of <a href="/EIPS/eip-712#parameters">RPC method input parameters</a>.</p>
+  
+    <h5 id="returns-41">
+      
+      
+        <a href="#returns-41" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>} - signature hash of the provided message</p>
+  
+    <h5 id="example-41">
+      
+      
+        <a href="#example-41" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+	"id": 1337
+	"jsonrpc": "2.0",
+	"method": "eth_signTypedData",
+	"params": ["0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826", {
+		"types": {
+			"EIP712Domain": [{
+				"name": "name",
+				"type": "string"
+			}, {
+				"name": "version",
+				"type": "string"
+			}, {
+				"name": "chainId",
+				"type": "uint256"
+			}, {
+				"name": "verifyingContract",
+				"type": "address"
+			}],
+			"Person": [{
+				"name": "name",
+				"type": "string"
+			}, {
+				"name": "wallet",
+				"type": "address"
+			}],
+			"Mail": [{
+				"name": "from",
+				"type": "Person"
+			}, {
+				"name": "to",
+				"type": "Person"
+			}, {
+				"name": "contents",
+				"type": "string"
+			}]
+		},
+		"primaryType": "Mail",
+		"domain": {
+			"name": "Ether Mail",
+			"version": "1",
+			"chainId": 1,
+			"verifyingContract": "0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC"
+		},
+		"message": {
+			"from": {
+				"name": "Cow",
+				"wallet": "0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826"
+			},
+			"to": {
+				"name": "Bob",
+				"wallet": "0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB"
+			},
+			"contents": "Hello, Bob!"
+		}
+	}]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="s2">"0x4355c47d63924e8a72e509b65029052eb6c299d53a04e167c5775fd466751c9d07299936d304c153f6443dfa05f40ff007d72911b6f72307f996231605b915621c"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_submithashrate">
+      
+      
+        <a href="#eth_submithashrate" class="anchor-link"></a> eth_submitHashrate
+      
+      
+    </h4>
+  
+    <h5 id="description-42">
+      
+      
+        <a href="#description-42" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Submit a mining hashrate</p>
+  
+    <h5 id="parameters-42">
+      
+      
+        <a href="#parameters-42" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>hash rate</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>random ID identifying this node</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-42">
+      
+      
+        <a href="#returns-42" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<code class="language-plaintext highlighter-rouge">boolean</code>} - <code class="language-plaintext highlighter-rouge">true</code> if submitting went through successfully, <code class="language-plaintext highlighter-rouge">false</code> otherwise</p>
+  
+    <h5 id="example-42">
+      
+      
+        <a href="#example-42" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_submitHashrate",
+    "params": [
+        "0x0000000000000000000000000000000000000000000000000000000000500000",
+        "0x59daa26581d0acd1fce254fb7e85952f4c09d0915afd33d3886cd914bc7d283c"
+    ]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="nb">true</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_submitwork">
+      
+      
+        <a href="#eth_submitwork" class="anchor-link"></a> eth_submitWork
+      
+      
+    </h4>
+  
+    <h5 id="description-43">
+      
+      
+        <a href="#description-43" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Submit a proof-of-work solution</p>
+  
+    <h5 id="parameters-43">
+      
+      
+        <a href="#parameters-43" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>nonce found</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>header’s pow-hash</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>{<a href="#data"><code class="language-plaintext highlighter-rouge">Data</code></a>}</td>
+      <td>mix digest</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-43">
+      
+      
+        <a href="#returns-43" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<code class="language-plaintext highlighter-rouge">boolean</code>} - <code class="language-plaintext highlighter-rouge">true</code> if the provided solution is valid, <code class="language-plaintext highlighter-rouge">false</code> otherwise</p>
+  
+    <h5 id="example-43">
+      
+      
+        <a href="#example-43" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_submitWork",
+    "params": [
+        "0x0000000000000001",
+        "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef",
+        "0xD1GE5700000000000000000000000000D1GE5700000000000000000000000000"
+    ]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="nb">true</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_syncing">
+      
+      
+        <a href="#eth_syncing" class="anchor-link"></a> eth_syncing
+      
+      
+    </h4>
+  
+    <h5 id="description-44">
+      
+      
+        <a href="#description-44" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Returns information about the status of this client’s network synchronization</p>
+  
+    <h5 id="parameters-44">
+      
+      
+        <a href="#parameters-44" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<p><em>(none)</em></p>
+  
+    <h5 id="returns-44">
+      
+      
+        <a href="#returns-44" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<code class="language-plaintext highlighter-rouge">boolean|object</code>} - <code class="language-plaintext highlighter-rouge">false</code> if this client is not syncing with the network, otherwise an object with the following members:</p>
+
+<ul>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">currentBlock</code> - number of the most-recent block synced</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">highestBlock</code> - number of latest block on the network</li>
+  <li>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>} <code class="language-plaintext highlighter-rouge">startingBlock</code> - block number at which syncing started</li>
+</ul>
+  
+    <h5 id="example-44">
+      
+      
+        <a href="#example-44" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_syncing",
+    "params": []
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="o">{</span>
+        <span class="s2">"currentBlock"</span>: <span class="s1">'0x386'</span>,
+        <span class="s2">"highestBlock"</span>: <span class="s1">'0x454'</span>,
+        <span class="s2">"startingBlock"</span>: <span class="s1">'0x384'</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h4 id="eth_uninstallfilter">
+      
+      
+        <a href="#eth_uninstallfilter" class="anchor-link"></a> eth_uninstallFilter
+      
+      
+    </h4>
+  
+    <h5 id="description-45">
+      
+      
+        <a href="#description-45" class="anchor-link"></a> Description
+      
+      
+    </h5>
+
+<p>Destroys a filter based on filter ID</p>
+
+<p><strong>Note:</strong> This should only be called if a filter and its notifications are no longer needed. This will also be called automatically on a filter if its notifications are not retrieved using <code class="language-plaintext highlighter-rouge">eth_getFilterChanges</code> for a period of time.</p>
+  
+    <h5 id="parameters-45">
+      
+      
+        <a href="#parameters-45" class="anchor-link"></a> Parameters
+      
+      
+    </h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{<a href="#quantity"><code class="language-plaintext highlighter-rouge">Quantity</code></a>}</td>
+      <td>ID of the filter to destroy</td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h5 id="returns-45">
+      
+      
+        <a href="#returns-45" class="anchor-link"></a> Returns
+      
+      
+    </h5>
+
+<p>{<code class="language-plaintext highlighter-rouge">boolean</code>} - <code class="language-plaintext highlighter-rouge">true</code> if the filter is found and successfully destroyed or <code class="language-plaintext highlighter-rouge">false</code> if it is not</p>
+  
+    <h5 id="example-45">
+      
+      
+        <a href="#example-45" class="anchor-link"></a> Example
+      
+      
+    </h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Request</span>
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{
+    "id": 1337,
+    "jsonrpc": "2.0",
+    "method": "eth_uninstallFilter",
+    "params": ["0xb"]
+}'</span> &lt;url&gt;
+
+<span class="c"># Response</span>
+<span class="o">{</span>
+    <span class="s2">"id"</span>: 1337,
+    <span class="s2">"jsonrpc"</span>: <span class="s2">"2.0"</span>,
+    <span class="s2">"result"</span>: <span class="nb">true</span>
+<span class="o">}</span>
+</code></pre></div></div>
+  <hr />
+    <h2 id="rationale">
+      
+      
+        <a href="#rationale" class="anchor-link"></a> Rationale
+      
+      
+    </h2>
+
+<p>Much of Ethereum’s effectiveness as an enterprise-grade application platform depends on its ability to provide a reliable and predictable developer experience. Nodes created by the current generation of Ethereum clients expose RPC endpoints with differing method signatures; this forces applications to work around method inconsistencies to maintain compatibility with various Ethereum RPC implementations.</p>
+
+<p>Both Ethereum client developers and downstream dapp developers lack a formal Ethereum RPC specification. This proposal standardizes such a specification in a way that’s versionable and modifiable through the traditional EIP process.</p>
+  
+    <h2 id="backwards-compatibility">
+      
+      
+        <a href="#backwards-compatibility" class="anchor-link"></a> Backwards compatibility
+      
+      
+    </h2>
+
+<p>This proposal impacts Ethereum client developers by requiring that any exposed RPC interface adheres to this specification. This proposal impacts dapp developers by requiring that any RPC calls currently used in applications are made according to this specification.</p>
+  
+    <h2 id="implementation">
+      
+      
+        <a href="#implementation" class="anchor-link"></a> Implementation
+      
+      
+    </h2>
+
+<p>The current generation of Ethereum clients includes several implementations that attempt to expose this RPC specification:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Client Name</th>
+      <th>Language</th>
+      <th>Homepage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Geth</td>
+      <td>Go</td>
+      <td><a href="https://geth.ethereum.org">geth.ethereum.org</a></td>
+    </tr>
+    <tr>
+      <td>Parity</td>
+      <td>Rust</td>
+      <td><a href="https://parity.io/ethereum">parity.io/ethereum</a></td>
+    </tr>
+    <tr>
+      <td>Aleth</td>
+      <td>C++</td>
+      <td><a href="https://cpp-ethereum.org">cpp-ethereum.org</a></td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h2 id="copyright">
+      
+      
+        <a href="#copyright" class="anchor-link"></a> Copyright
+      
+      
+    </h2>
+
+<p>Copyright and related rights waived via <a href="/LICENSE">CC0</a>.</p>
+
+  <h2>Citation</h2>
+  <p>Please cite this document as:</p>
+  
+  <p>Paul Bouchon&nbsp;&lt;<a href="mailto:mail@bitpshr.net">mail@bitpshr.net</a>&gt;, Erik Marks&nbsp;(<a href="https://github.com/rekmarks">@rekmarks</a>), "EIP-1474: Remote procedure call specification [STAGNANT]," <em>Ethereum Improvement Proposals</em>, no. 1474, October 2018. Available: https://eips.ethereum.org/EIPS/eip-1474.</p>
+</div>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "TechArticle",
+    "headline": "EIP-1474: Remote procedure call specification [STAGNANT]",
+    "name": "EIP-1474: Remote procedure call specification [STAGNANT]",
+    "author": "Paul Bouchon <mail@bitpshr.net>, Erik Marks (@rekmarks)",
+    "dateCreated": "2018-10-02",
+    "datePublished": "2018-10-02",
+    
+    "discussionUrl": "https://ethereum-magicians.org/t/eip-remote-procedure-call-specification/1537",
+    
+    "inLanguage": "en-US",
+    "license": "#copyright",
+    "copyrightYear": "2018"
+  }
+</script>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ethereum Improvement Proposals</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Ethereum Improvement Proposals</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ethereum/EIPs"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ethereum/EIPs</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Ethereum Improvement Proposals (EIPs) describe standards for the Ethereum platform, such as core protocol specifications.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

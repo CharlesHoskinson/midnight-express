@@ -1,0 +1,839 @@
+simulateTransaction | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+getAccountInfo
+getAgGenesisCert
+getBalance
+getBlock
+getBlockCommitment
+getBlockHeight
+getBlockProduction
+getBlocks
+getBlocksWithLimit
+getBlockTime
+getClusterNodes
+getEpochInfo
+getEpochSchedule
+getFeeForMessage
+getFirstAvailableBlock
+getGenesisHash
+getHealth
+getHighestSnapshotSlot
+getIdentity
+getInflationGovernor
+getInflationRate
+getInflationReward
+getLargestAccounts
+getLatestBlockhash
+getLeaderSchedule
+getMaxRetransmitSlot
+getMaxShredInsertSlot
+getMinimumBalanceForRentExemption
+getMultipleAccounts
+getProgramAccounts
+getRecentPerformanceSamples
+getRecentPrioritizationFees
+getSignaturesForAddress
+getSignatureStatuses
+getSlot
+getSlotLeader
+getSlotLeaders
+getStakeMinimumDelegation
+getSupply
+getTokenAccountBalance
+getTokenAccountsByDelegate
+getTokenAccountsByOwner
+getTokenLargestAccounts
+getTokenSupply
+getTransaction
+getTransactionCount
+getVersion
+getVoteAccounts
+isBlockhashValid
+minimumLedgerSlot
+requestAirdrop
+sendTransaction
+simulateTransaction
+Websocket Methods
+Removed Methods
+Solana RPC Methods
+HTTP Methods
+simulateTransaction
+Copy Markdown
+Open
+Simulates a signed transaction using the chain data available at the requested
+commitment, without broadcasting it.
+Source
+simulate_transaction
+params
+string
+required
+Transaction, as an encoded string.
+The transaction must include a recent blockhash unless
+
+replaceRecentBlockhash
+ is 
+true
+, in which case the RPC node replaces it
+before simulation. The transaction is not required to be signed unless
+
+sigVerify
+ is 
+true
+.
+object
+optional
+Configuration object containing the following fields:
+commitment
+string
+encoding
+string
+replaceRecentBlockhash
+bool
+sigVerify
+bool
+minContextSlot
+number
+innerInstructions
+bool
+accounts
+object
+result
+object
+RpcResponse object containing:
+context
+object
+value
+object
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"simulateTransaction"
+,
+>
+"params"
+: [
+>
+"AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEEjNmKiZGiOtSZ+g0//wH5kEQo3+UzictY+KlLV8hjXcs44M/Xnr+1SlZsqS6cFMQc46yj9PIsxqkycxJmXT+veJjIvefX4nhY9rY+B5qreeqTHu4mG6Xtxr5udn4MN8PnBt324e51j94YQl285GzN2rYa/E2DuQ0n/r35KNihi/zamQ6EeyeeVDvPVgUO2W3Lgt9hT+CfyqHvIa11egFPCgEDAwIBAAkDZAAAAAAAAAA="
+,
+>
+{
+>
+"commitment"
+:
+"confirmed"
+,
+>
+"encoding"
+:
+"base64"
+,
+>
+"replaceRecentBlockhash"
+:
+true
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+: {
+"context"
+: {
+"apiVersion"
+:
+"3.1.8"
+,
+"slot"
+:
+393226680
+},
+"value"
+: {
+"accounts"
+:
+null
+,
+"err"
+:
+null
+,
+"innerInstructions"
+:
+null
+,
+"loadedAccountsDataSize"
+:
+413
+,
+"logs"
+: [
+"Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb invoke [1]"
+,
+"Program log: Instruction: Transfer"
+,
+"Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb consumed 1714 of 200000 compute units"
+,
+"Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb success"
+],
+"replacementBlockhash"
+: {
+"blockhash"
+:
+"6oFLsE7kmgJx9PjR4R63VRNtpAVJ648gCTr3nq5Hihit"
+,
+"lastValidBlockHeight"
+:
+381186895
+},
+"returnData"
+:
+null
+,
+"unitsConsumed"
+:
+1714
+,
+"fee"
+:
+5000
+,
+"preBalances"
+: [],
+"postBalances"
+: [],
+"preTokenBalances"
+: [],
+"postTokenBalances"
+: [],
+"loadedAddresses"
+: {
+"readonly"
+: [],
+"writable"
+: []
+}
+}
+},
+"id"
+:
+1
+}
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"simulateTransaction"
+,
+>
+"params"
+: [
+>
+"AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEEjNmKiZGiOtSZ+g0//wH5kEQo3+UzictY+KlLV8hjXcs44M/Xnr+1SlZsqS6cFMQc46yj9PIsxqkycxJmXT+veJjIvefX4nhY9rY+B5qreeqTHu4mG6Xtxr5udn4MN8PnBt324e51j94YQl285GzN2rYa/E2DuQ0n/r35KNihi/zamQ6EeyeeVDvPVgUO2W3Lgt9hT+CfyqHvIa11egFPCgEDAwIBAAkDZAAAAAAAAAA="
+,
+>
+{
+>
+"commitment"
+:
+"confirmed"
+,
+>
+"encoding"
+:
+"base64"
+,
+>
+"replaceRecentBlockhash"
+:
+true
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+params
+string
+required
+Transaction, as an encoded string.
+The transaction must include a recent blockhash unless
+
+replaceRecentBlockhash
+ is 
+true
+, in which case the RPC node replaces it
+before simulation. The transaction is not required to be signed unless
+
+sigVerify
+ is 
+true
+.
+object
+optional
+Configuration object containing the following fields:
+commitment
+string
+encoding
+string
+replaceRecentBlockhash
+bool
+sigVerify
+bool
+minContextSlot
+number
+innerInstructions
+bool
+accounts
+object
+result
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+: {
+"context"
+: {
+"apiVersion"
+:
+"3.1.8"
+,
+"slot"
+:
+393226680
+},
+"value"
+: {
+"accounts"
+:
+null
+,
+"err"
+:
+null
+,
+"innerInstructions"
+:
+null
+,
+"loadedAccountsDataSize"
+:
+413
+,
+"logs"
+: [
+"Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb invoke [1]"
+,
+"Program log: Instruction: Transfer"
+,
+"Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb consumed 1714 of 200000 compute units"
+,
+"Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb success"
+],
+"replacementBlockhash"
+: {
+"blockhash"
+:
+"6oFLsE7kmgJx9PjR4R63VRNtpAVJ648gCTr3nq5Hihit"
+,
+"lastValidBlockHeight"
+:
+381186895
+},
+"returnData"
+:
+null
+,
+"unitsConsumed"
+:
+1714
+,
+"fee"
+:
+5000
+,
+"preBalances"
+: [],
+"postBalances"
+: [],
+"preTokenBalances"
+: [],
+"postTokenBalances"
+: [],
+"loadedAddresses"
+: {
+"readonly"
+: [],
+"writable"
+: []
+}
+}
+},
+"id"
+:
+1
+}
+object
+RpcResponse object containing:
+context
+object
+value
+object
+Example Result
+The 
+Parsed
+ example shows the simulation result for a transaction that
+creates an
+
+associated token account
+.
+The 
+Partially Decoded
+ example shows the simulation result for a transaction
+with a CPI (
+innerInstructions
+) that can't be parsed. Accounts are returned
+as base-58 encoded addresses, not indexes.
+Parsed Inner Instructions
+Partially Decoded Inner Instructions
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+: {
+"context"
+: {
+"apiVersion"
+:
+"3.1.8"
+,
+"slot"
+:
+1282
+},
+"value"
+: {
+"accounts"
+:
+null
+,
+"err"
+:
+null
+,
+"fee"
+:
+5000
+,
+"innerInstructions"
+: [
+{
+"index"
+:
+0
+,
+"instructions"
+: [
+{
+"parsed"
+: {
+"info"
+: {
+"extensionTypes"
+: [
+"immutableOwner"
+],
+"mint"
+:
+"AH2uKiJxRXuQbUZQpCoyeujLLKNHvUATXxBVEBWMof92"
+},
+"type"
+:
+"getAccountDataSize"
+},
+"program"
+:
+"spl-token"
+,
+"programId"
+:
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+,
+"stackHeight"
+:
+2
+},
+{
+"parsed"
+: {
+"info"
+: {
+"lamports"
+:
+2039280
+,
+"newAccount"
+:
+"Bgig53phxYuoiB2mveeBYGs9WpQPoUCJfDBGwpgWnkP"
+,
+"owner"
+:
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+,
+"source"
+:
+"23g1K6sr2bevNwLYPoB79jzEQtErioYQ8mpUa76xA6yu"
+,
+"space"
+:
+165
+},
+"type"
+:
+"createAccount"
+},
+"program"
+:
+"system"
+,
+"programId"
+:
+"11111111111111111111111111111111"
+,
+"stackHeight"
+:
+2
+},
+{
+"parsed"
+: {
+"info"
+: {
+"account"
+:
+"Bgig53phxYuoiB2mveeBYGs9WpQPoUCJfDBGwpgWnkP"
+},
+"type"
+:
+"initializeImmutableOwner"
+},
+"program"
+:
+"spl-token"
+,
+"programId"
+:
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+,
+"stackHeight"
+:
+2
+},
+{
+"parsed"
+: {
+"info"
+: {
+"account"
+:
+"Bgig53phxYuoiB2mveeBYGs9WpQPoUCJfDBGwpgWnkP"
+,
+"mint"
+:
+"AH2uKiJxRXuQbUZQpCoyeujLLKNHvUATXxBVEBWMof92"
+,
+"owner"
+:
+"23g1K6sr2bevNwLYPoB79jzEQtErioYQ8mpUa76xA6yu"
+},
+"type"
+:
+"initializeAccount3"
+},
+"program"
+:
+"spl-token"
+,
+"programId"
+:
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+,
+"stackHeight"
+:
+2
+}
+]
+}
+],
+"loadedAccountsDataSize"
+:
+238800
+,
+"loadedAddresses"
+: {
+"readonly"
+: [],
+"writable"
+: []
+},
+"logs"
+: [
+"Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [1]"
+,
+"Program log: Create"
+,
+"Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]"
+,
+"Program log: Instruction: GetAccountDataSize"
+,
+"Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 1595 of 193103 compute units"
+,
+"Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA="
+,
+"Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success"
+,
+"Program 11111111111111111111111111111111 invoke [2]"
+,
+"Program 11111111111111111111111111111111 success"
+,
+"Program log: Initialize the associated token account"
+,
+"Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]"
+,
+"Program log: Instruction: InitializeImmutableOwner"
+,
+"Program log: Please upgrade to SPL Token 2022 for immutable owner support"
+,
+"Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 1405 of 186490 compute units"
+,
+"Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success"
+,
+"Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]"
+,
+"Program log: Instruction: InitializeAccount3"
+,
+"Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 4214 of 182608 compute units"
+,
+"Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success"
+,
+"Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 21889 of 200000 compute units"
+,
+"Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success"
+],
+"postBalances"
+: [
+996484120
+,
+2039280
+,
+1
+,
+1461600
+,
+731913600
+,
+929020800
+],
+"postTokenBalances"
+: [
+{
+"accountIndex"
+:
+1
+,
+"mint"
+:
+"AH2uKiJxRXuQbUZQpCoyeujLLKNHvUATXxBVEBWMof92"
+,
+"owner"
+:
+"23g1K6sr2bevNwLYPoB79jzEQtErioYQ8mpUa76xA6yu"
+,
+"programId"
+:
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"0"
+,
+"decimals"
+:
+2
+,
+"uiAmount"
+:
+0.0
+,
+"uiAmountString"
+:
+"0"
+}
+}
+],
+"preBalances"
+: [
+998528400
+,
+0
+,
+1
+,
+1461600
+,
+731913600
+,
+929020800
+],
+"preTokenBalances"
+: [],
+"replacementBlockhash"
+: {
+"blockhash"
+:
+"3ojhhRUVJAfsFhaJ3ka7cmwmAHQizYWvDtykiSVVnnET"
+,
+"lastValidBlockHeight"
+:
+1432
+},
+"returnData"
+:
+null
+,
+"unitsConsumed"
+:
+21889
+}
+},
+"id"
+:
+1
+}
+Is this page helpful?
+Previous
+sendTransaction
+Next
+Solana RPC WebSocket Methods
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

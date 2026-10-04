@@ -1,0 +1,13 @@
+{
+  "id": "erc7769",
+  "url": "https://ercs.ethereum.org/ERCS/erc-7769",
+  "resolved_url": "https://ercs.ethereum.org/ERCS/erc-7769",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:51.810292+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "erc7769.raw",
+  "text_path": "erc7769.txt",
+  "raw_sha256": "7d83ad1ad5d5156b55fb9f0c226412e8f02d04c0095cd42e5b20838859488194",
+  "text_sha256": "2b3eb0cf1827b2fde6bd3aebd4b1ffd19ef283b3b486e17b0977862a940d4542",
+  "text_chars": 16605
+}

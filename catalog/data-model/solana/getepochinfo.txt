@@ -1,0 +1,338 @@
+getEpochInfo | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+getAccountInfo
+getAgGenesisCert
+getBalance
+getBlock
+getBlockCommitment
+getBlockHeight
+getBlockProduction
+getBlocks
+getBlocksWithLimit
+getBlockTime
+getClusterNodes
+getEpochInfo
+getEpochSchedule
+getFeeForMessage
+getFirstAvailableBlock
+getGenesisHash
+getHealth
+getHighestSnapshotSlot
+getIdentity
+getInflationGovernor
+getInflationRate
+getInflationReward
+getLargestAccounts
+getLatestBlockhash
+getLeaderSchedule
+getMaxRetransmitSlot
+getMaxShredInsertSlot
+getMinimumBalanceForRentExemption
+getMultipleAccounts
+getProgramAccounts
+getRecentPerformanceSamples
+getRecentPrioritizationFees
+getSignaturesForAddress
+getSignatureStatuses
+getSlot
+getSlotLeader
+getSlotLeaders
+getStakeMinimumDelegation
+getSupply
+getTokenAccountBalance
+getTokenAccountsByDelegate
+getTokenAccountsByOwner
+getTokenLargestAccounts
+getTokenSupply
+getTransaction
+getTransactionCount
+getVersion
+getVoteAccounts
+isBlockhashValid
+minimumLedgerSlot
+requestAirdrop
+sendTransaction
+simulateTransaction
+Websocket Methods
+Removed Methods
+Solana RPC Methods
+HTTP Methods
+getEpochInfo
+Copy Markdown
+Open
+Returns the current epoch position and counters the node sees at the requested
+commitment.
+Source
+get_epoch_info
+params
+object
+optional
+Configuration object containing the following fields:
+commitment
+string
+minContextSlot
+number
+result
+object
+Epoch info response object containing:
+absoluteSlot
+u64
+blockHeight
+u64
+epoch
+u64
+slotIndex
+u64
+slotsInEpoch
+u64
+transactionCount
+u64 | null
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"getEpochInfo"
+,
+>
+"params"
+: [
+>
+{
+>
+"commitment"
+:
+"finalized"
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+: {
+"absoluteSlot"
+:
+166598
+,
+"blockHeight"
+:
+166500
+,
+"epoch"
+:
+27
+,
+"slotIndex"
+:
+2790
+,
+"slotsInEpoch"
+:
+8192
+,
+"transactionCount"
+:
+22661093
+},
+"id"
+:
+1
+}
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"getEpochInfo"
+,
+>
+"params"
+: [
+>
+{
+>
+"commitment"
+:
+"finalized"
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+params
+object
+optional
+Configuration object containing the following fields:
+commitment
+string
+minContextSlot
+number
+result
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+: {
+"absoluteSlot"
+:
+166598
+,
+"blockHeight"
+:
+166500
+,
+"epoch"
+:
+27
+,
+"slotIndex"
+:
+2790
+,
+"slotsInEpoch"
+:
+8192
+,
+"transactionCount"
+:
+22661093
+},
+"id"
+:
+1
+}
+object
+Epoch info response object containing:
+absoluteSlot
+u64
+blockHeight
+u64
+epoch
+u64
+slotIndex
+u64
+slotsInEpoch
+u64
+transactionCount
+u64 | null
+Is this page helpful?
+Previous
+getClusterNodes
+Next
+getEpochSchedule
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

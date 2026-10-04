@@ -1,0 +1,13 @@
+{
+  "id": "protobuf-json",
+  "url": "https://protobuf.dev/programming-guides/json/",
+  "resolved_url": "https://protobuf.dev/programming-guides/json/",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:03:22.582691+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=25)",
+  "raw_path": "protobuf-json.raw",
+  "text_path": "protobuf-json.txt",
+  "raw_sha256": "bf5e0871661fbc1b2c5ce4f864ec7b750ef64d9e76da8eab91d07d59b427c7cc",
+  "text_sha256": "04459c214f238c4acf2c1cf94e2b1f87d6cddceae101634d15992f7b24413c66",
+  "text_chars": 28985
+}

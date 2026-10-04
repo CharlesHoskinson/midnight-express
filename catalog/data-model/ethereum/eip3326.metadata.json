@@ -1,0 +1,13 @@
+{
+  "id": "eip3326",
+  "url": "https://eips.ethereum.org/EIPS/eip-3326",
+  "resolved_url": "https://eips.ethereum.org/EIPS/eip-3326",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:48.872559+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "eip3326.raw",
+  "text_path": "eip3326.txt",
+  "raw_sha256": "bdca7e4e33c0be4737018a6b13a22703f3e693e4046c5fcf484a4059bf98925f",
+  "text_sha256": "9d836039ce84e53a0533e87e9eca7c7c699b86a397f2b5e18bb4c781ce58ff6b",
+  "text_chars": 5762
+}

@@ -1,0 +1,241 @@
+rootSubscribe | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+Websocket Methods
+accountSubscribe
+accountUnsubscribe
+blockSubscribe
+blockUnsubscribe
+logsSubscribe
+logsUnsubscribe
+programSubscribe
+programUnsubscribe
+rootSubscribe
+rootUnsubscribe
+signatureSubscribe
+signatureUnsubscribe
+slotSubscribe
+slotsUpdatesSubscribe
+slotsUpdatesUnsubscribe
+slotUnsubscribe
+voteSubscribe
+voteUnsubscribe
+Removed Methods
+Solana RPC Methods
+Websocket Methods
+rootSubscribe
+Copy Markdown
+Open
+Subscribe to notifications when the validator sets a new root slot.
+Source
+root_subscribe
+params
+None
+result
+integer
+Subscription id. Pass this to
+
+rootUnsubscribe
+.
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"rootSubscribe"
+>
+}
+>
+ '
+Try it
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+:
+0
+,
+"id"
+:
+1
+}
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"rootSubscribe"
+>
+}
+>
+ '
+Try it
+params
+None
+result
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+:
+0
+,
+"id"
+:
+1
+}
+integer
+Subscription id. Pass this to
+
+rootUnsubscribe
+.
+Notification format
+Notifications are delivered as 
+rootNotification
+.
+{
+"jsonrpc"
+:
+"2.0"
+,
+"method"
+:
+"rootNotification"
+,
+"params"
+: {
+"result"
+:
+324
+,
+"subscription"
+:
+3
+}
+}
+jsonrpc
+string
+Always 
+"2.0"
+.
+method
+string
+Always 
+"rootNotification"
+.
+params
+object
+Notification wrapper with the latest root and the subscription id.
+result
+u64
+subscription
+integer
+Is this page helpful?
+Previous
+programUnsubscribe
+Next
+rootUnsubscribe
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

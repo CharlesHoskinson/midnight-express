@@ -1,0 +1,14 @@
+{
+  "id": "wormhole-solana",
+  "url": "https://wormhole.com/docs/products/messaging/guides/solana-shim/",
+  "resolved_url": "https://wormhole.com/docs/products/messaging/guides/solana-shim/",
+  "status": 404,
+  "retrieved_at_utc": "2026-10-04T05:25:53.218257+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "wormhole-solana.raw",
+  "text_path": "wormhole-solana.txt",
+  "raw_sha256": "553fc9bf557ee06b9f603c78824998af2fa97ceea16e876f3512769b63715084",
+  "text_sha256": "d9615dc87228c2983e974bfdae98677d18c6d6c32b7fac66c79a87706008d000",
+  "text_chars": 444,
+  "evidence_usable": false
+}

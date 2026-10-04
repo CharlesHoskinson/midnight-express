@@ -1,0 +1,14 @@
+{
+  "id": "rootsubscribe",
+  "url": "https://solana.com/docs/rpc/websocket/rootsubscribe",
+  "resolved_url": "https://solana.com/docs/rpc/websocket/rootsubscribe",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:26:01.522558+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "rootsubscribe.raw",
+  "text_path": "rootsubscribe.txt",
+  "raw_sha256": "5895311d253bad2239d16f13872d4d024613549fe5adff969816ec4299e165ec",
+  "text_sha256": "ab9fb8dd645c41eab7cad7178d276b2dfb41ef3818a2904e322b8e96b28852a9",
+  "text_chars": 2240,
+  "evidence_usable": true
+}

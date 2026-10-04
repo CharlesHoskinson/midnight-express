@@ -1,0 +1,73 @@
+# Transport contribution to the first three prototype sprints
+
+Planning contribution only. No new runtime has been implemented or benchmarked for this review. The first deliverable is a real Rust GossipSub lab carrying sealed MPE envelopes; a JSON simulation of delivery is insufficient. Keep this work separate from the exploratory `experiments/` workspace and reuse its fixtures only after independent conformance checks.
+
+## Evidence and boundaries
+
+The working stack selects Rust libp2p/GossipSub and the original symmetric MPE profile ([proposed stack](../../docs/product-requirements/proposed-stack.md)). [GossipSub + Signal](../../docs/product-requirements/gossipsub-signal-option.md) requires negotiated v1.2, anonymous outer carriage, whole-shard reception, strict validation and recognition-independent controls. Signal remains deferred in the consolidated stack; neither Signal nor OpenMLS is a prerequisite for the transport lab. Later session packets must fit inside the existing sealed application payload or be refused.
+
+Use [original format requirements](../../design/rounds/r5/e07-fmt-format.md), [overlay requirements](../../design/rounds/r5/e12-net-overlay.md), [privacy requirements](../../design/rounds/r5/e01-prv-privacy.md), [publication requirements](../../design/rounds/r5/e08-pub-model.md), and their corrections in [RECONCILE](../../design/ears/RECONCILE.md). [PROTOTYPE](../../design/PROTOTYPE.md) supplies the old wire and lab architecture, but proposes v1.1; v1.2 in the working stack is an explicit lab profile choice to document and prove on connections. Do not copy a Signed/Strict skeleton.
+
+[Experiments README](../../experiments/README.md), [coverage](../../experiments/COVERAGE.md) and [results](../../experiments/RESULTS.md) are baseline evidence, not a completed product: real localhost swarms, synthetic admission cost, a verifier-secret-bearing stand-in, volatile storage and mock ledger. The repair report records failed churn, missing exhaustive cache/RSS and paired runtime privacy evidence, and custom vendored v1.2 selection/flush instrumentation. Its short-run figures do not establish WAN performance or production anonymity.
+
+## Sprint 1: freeze the profile and prove real anonymous carriage
+
+The unified data model belongs inside the sealed application payload. Freeze its typed semantic fields and schema/version identifier with the data-model lane; define canonical bytes and the signed business statement separately from transport envelope serialization. Test that semantically equivalent permitted inputs produce the same canonical signed bytes and that altered types, fields, domain, target, action or expiry invalidate authorization. Enforce byte-size limits after canonicalization and before admission allocation. Unsupported schema/type combinations fail closed for decoding, authorization and execution: an authenticated unknown-schema envelope may still be delivered as `undecodable` under original MPE-PUB-049, but cannot be coerced into a supported business instruction. Relays remain body-blind and must not expose schema, datatype or workflow IDs in routing topics, visible headers or logs.
+
+**Order:** profile decisions and independent vectors → wire/parser boundary → real swarm harness → connection and RPC capture → adversarial validation. The admission lane supplies a replaceable verifier and explicit outcome table; until a real selected proof is integrated, every lab report labels the fixture admission mechanism and its trust limits.
+
+Proposed artifacts in a new prototype workspace:
+
+- `profiles/mpe-v1-lab.json` plus a rationale: full Network Identifier, Registry identifier, wire/crypto/admission profile identifiers, class table, topic/protocol namespace, proof encoding, time policy and supported version policy. Pin Cargo versions, lockfile and any vendored patch diff/hash. One version maps to one cryptographic profile; a changed slot width or incompatible suite needs a new version and vectors.
+- `wire/` implementation, `vectors/` with all four complete sealed envelopes, EIDs, admission-binding examples and negative mutations, and an independent decoder test. Record the F1 AAD/body-only-carrier exception in PROTOTYPE instead of accidentally claiming literal uncorrected CRY-004 conformance.
+- `lab/` real swarms over TCP/Noise/Yamux with a captured effective configuration, negotiated protocol records and decoded RPC fixtures. Use baseline mesh `(8,6,12,4)`, flood publishing off, application validation on, 65,536-byte RPC bound and the pinned scoring/outcome mapping. Reject invalid `D_out` startup combinations.
+- `evidence/sprint-1/` commands, toolchain/host/config hashes, test outputs, packet decoder results and limitations. No production capacity claim.
+
+Preserve the prototype wire: 8-byte visible header + fixed 512-byte fixture Admission Slot + sealed bodies of 256/1,024/4,096/16,384 bytes, giving complete wire sizes 776/1,544/4,616/16,904 bytes. Payload capacities are 86/854/3,926/16,214 bytes for this symmetric profile. Test every capacity boundary and boundary+1; refuse >16,214 before consuming admission credits. Measure a real proof's total encoded slot later: the selected admission gate is ≤4,096 bytes, not an assertion that it fits this fixture's 512 bytes. Any incompatible profile change blocks integration until wire sizes, budgets and vectors are revised explicitly.
+
+Specific falsifiers:
+
+| Test | Failure that blocks the next step |
+|---|---|
+| Independent encode/decode, reserved-bit, truncation, class/length and endian mutations | Any second canonical representation, panic, or wrong class accepted |
+| Whole envelope as GossipSub `data`; decode outbound protobuf RPCs | Presence of `from`, `seqno`, `signature` or `key`, or an extra recipient/application topic |
+| Both ends record the actual custom v1.2 protocol and exercise IDONTWANT | Builder configuration says v1.2 but a connection negotiates an unintended version |
+| Hold admission validation; then Accept/Reject/Ignore | A downstream payload is forwarded before Accept; Ignore changes invalid-message score |
+| Corrupt Admission Slot arrives first, valid envelope second | Pre-validation GossipSub dedup suppresses the valid copy, or application seen-set contains an unaccepted EID |
+| Same body/header with alternative slot; cross-network and mixed-profile fixtures | GossipSub wire ID fails to distinguish slot corruption; EID fails its slot-exclusion relation; wrong domain/profile is accepted |
+
+Separate the full-wire GossipSub message ID from admission/anchor/application EID. EID remains domain-bound to the full Network Identifier, header and sealed body. The baseline topic namespace truncates the network to eight bytes; test two distinct full identifiers sharing that prefix and require unambiguous configured network separation before using that naming convention in the new lab. Do not call a prefix-only isolation test complete domain isolation.
+
+## Sprint 2: expiry and bounded state through every send path
+
+**Dependency:** Sprint 1 vectors and validated-forwarding trace pass. Coordinate with admission and recovery lanes on the clock, admission-state retention, restart barrier and historic backfill validation. Store persistence is another lane's responsibility; this lane owns transport visibility and queue behavior.
+
+Artifacts: `state-inventory.md`, configured count/byte limits and overflow outcomes, instrumented cache/queue implementation, controllable transport backpressure, expiry lifecycle traces, and `evidence/sprint-2/expiry-and-bounds.json`. Every inventory row names owner, allocation trigger, count/byte cap, retention deadline, eviction rule, observable counters and its test. Cover more than application feed rings:
+
+- GossipSub duplicate cache, message cache/history and pending validation; IHAVE/IWANT/IDONTWANT inventories and promises; behaviour event buffers, per-peer output queues, high-priority control queues and handler pending encoded RPCs.
+- Ingress scheduler, in-flight proof jobs/completion channels, connection/request queues, publisher retries/outbox, accepted feeds/cursors and reconciliation/backfill responses.
+- EID seen sets, admission nullifier/conflict evidence, root history, peer scores/backoff, anchor staging, client logical dedup, gap records, plaintext/diagnostics and retained envelope caches. Distinguish metadata whose required retention extends beyond expiry from sealed payload bytes.
+
+Visible expiry is bound by the envelope/admission and checked against authenticated creation on recipient open. Document the reconciled 48-hour lifetime and 60-second tolerance separately from admission's 60-second epoch/20-second tolerance. Resolve whether a path admits/serves in the expiry tolerance window and define its last permissible send instant; do not silently interpret tolerance as unlimited retention. Use injectable logical time for long deadlines, with real socket/backpressure tests for send ordering. Monotonic scheduling and wall-time jumps need explicit clock policy.
+
+Test arrival immediately before/at/after each configured deadline; slow verification crossing expiry; queued publish/forward expiring before handler flush; IWANT after expiry; delayed feed and backfill response; retry crossing admission deadline; time jump and stale-root transitions. Scan decoded outgoing RPCs and request-response frames, not only application return values. Recheck eligibility at cache retrieval, dequeue/serialization and the final controllable send boundary. A frame already handed to the kernel cannot be recalled: define and report that boundary, and test that newly eligible dispatches cease at the deadline. Treat partial writes and already serialized batches explicitly; dropping expired messages must not corrupt framing.
+
+Run adversaries with many peers, unique malformed IDs, never-completing requests and saturated proof/handler queues. Assert configured bounded occupancy/bytes, continued honest work after pressure ends, exact completion release on cancellation, and explicit Busy/refusal rather than concealed acceptance. Observe RSS and allocator/counter trends through repeated fill/drain cycles and a sustained byte-cap workload, sampling at least every 10 seconds; retained required metadata may plateau rather than vanish. An undocumented unbounded queue, expired payload sent beyond policy, incorrect penalty for freshness uncertainty, or growing state across identical cycles fails this sprint. A bounded application queue does not prove bounded libp2p internals.
+
+## Sprint 3: whole-shard privacy traces and measured operating envelope
+
+**Dependency:** Sprint 2 send-path expiry and state inventory pass. Integrate the selected admission verifier when the proof lane is ready; stand-in and real-proof runs remain separate. Recovery comparisons require the Store lane's whole-window inventory, portable pagination and authenticated retained-envelope validation. Measure transport even if durable-recovery integration is blocked, but report that gate as blocked.
+
+Artifacts: deterministic workload/schedule manifests, paired interest-swap runner, loss/churn/backpressure schedules, byte and latency schema, raw per-node results/captures, environment manifest and a limitations/decision report in `evidence/sprint-3/`. Include:
+
+1. A small real-swarm correctness run followed by the original 16-node/1,000-event/20%-churn at-least-once fixture where applicable, then replicated nominal and stress runs at declared node counts/seeds. Distinguish network loss from unavailable retained sources. Add controlled RTT/loss/bandwidth profiles; localhost results remain separately labelled.
+2. One- and eight-shard full reception, all four class mixes, embedded and gateway clients. Every subscriber receives the complete selected shard independent of recognized interests; local recognition has no effect on mesh subscriptions, IDONTWANT, pagination, inventory, telemetry or acknowledgement scheduling.
+3. Paired runs with identical sealed bytes, publication schedule, topology/fault schedule and application actions, swapping only local recognition keys. Compare per-client protocol actions, selectors, counts/lengths and destinations after normalizing known transport randomness; publish timestamp residuals and scheduler noise rather than claiming literal encrypted packet equality. Automatic match-triggered receipts, object fetches, narrow recovery or diagnostic uploads are failures. Run an infrastructure log/canary scan as well as wire scanning. Document source/connection and shard leakage that this test cannot remove.
+4. Serial matched IDONTWANT on/off runs and the original mesh tuple versus the `(6,5,12,2)` comparator, changing one variable at a time. Count successfully flushed per-class payload bytes separately from protobuf/control/Noise/TCP/request-response totals. Negotiation and advertised settings are not measurements of savings.
+5. Saturation/loss/churn including failed ingress and Store failover mid-page. Count expected subscriber-event pairs from scheduled publications, ingress accepted/refused, live delivered, backfill-only repaired, expired/unrecoverable and missing. Report p50/p95/p99 only alongside those denominators and deadlines; missing pairs cannot disappear from a latency pass claim.
+
+Measure subscriber download and upload, whole-shard bytes/day extrapolation with its assumed class/rate duty cycle, per-direction node amplification, recognition CPU by key count, proof CPU separately, retained bytes per hour, queue pressure and peak/steady RSS. Include all observed control, retries, failed requests and recovery traffic. Reconcile layer counters against transport totals and list excluded overhead.
+
+Use reconciled limits (10 envelopes/s or 64 KiB/s per shard, whichever binds first, and the original 6 Mbit/s edge budget) as declared experimental inputs/questions, not promised throughput. Report delivered operating ranges and bottlenecks with confidence from repeated runs. Single-host synthetic verification cannot establish a production proof budget or a mobile operating envelope. No mobile private reception, production anonymity, durable-delivery guarantee, nested contract binding or session forward-secrecy claim follows from transport success.
+
+The sprint exit decision is evidence-based: retain the selected profile only when the anonymity/layout, domain, validated-forwarding, expiry, bounds and whole-shard gates pass. Performance shortfalls produce measured bottlenecks and explicit scope/profile decisions; they must not be repaired by recipient-filtered topics, silent wire growth or hidden missing deliveries.

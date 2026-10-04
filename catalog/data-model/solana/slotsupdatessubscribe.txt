@@ -1,0 +1,317 @@
+slotsUpdatesSubscribe | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+Websocket Methods
+accountSubscribe
+accountUnsubscribe
+blockSubscribe
+blockUnsubscribe
+logsSubscribe
+logsUnsubscribe
+programSubscribe
+programUnsubscribe
+rootSubscribe
+rootUnsubscribe
+signatureSubscribe
+signatureUnsubscribe
+slotSubscribe
+slotsUpdatesSubscribe
+slotsUpdatesUnsubscribe
+slotUnsubscribe
+voteSubscribe
+voteUnsubscribe
+Removed Methods
+Solana RPC Methods
+Websocket Methods
+slotsUpdatesSubscribe
+Copy Markdown
+Open
+Subscribe to a stream of tagged slot lifecycle updates emitted by the validator.
+Source
+slots_updates_subscribe
+This subscription is unstable. The format may change in the future and may not
+always be supported.
+params
+None
+result
+integer
+Subscription id. Pass this to
+
+slotsUpdatesUnsubscribe
+.
+cURL
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"slotsUpdatesSubscribe"
+>
+}
+>
+ '
+Try it
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+:
+0
+,
+"id"
+:
+1
+}
+cURL
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"slotsUpdatesSubscribe"
+>
+}
+>
+ '
+Try it
+params
+None
+result
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+:
+0
+,
+"id"
+:
+1
+}
+integer
+Subscription id. Pass this to
+
+slotsUpdatesUnsubscribe
+.
+Notification format
+Notifications are delivered as 
+slotsUpdatesNotification
+. The payload is the
+tagged slot-update object serialized as JSON with a 
+type
+ field.
+type
+ value
+Fields present
+firstShredReceived
+slot
+, 
+timestamp
+completed
+slot
+, 
+timestamp
+createdBank
+slot
+, 
+parent
+, 
+timestamp
+frozen
+slot
+, 
+timestamp
+, 
+stats
+dead
+slot
+, 
+timestamp
+, 
+err
+optimisticConfirmation
+slot
+, 
+timestamp
+root
+slot
+, 
+timestamp
+timestamp
+ is emitted as a Unix timestamp in milliseconds.
+The example below shows a 
+frozen
+ notification captured from a local validator.
+Other variants use the field matrix above.
+{
+"jsonrpc"
+:
+"2.0"
+,
+"method"
+:
+"slotsUpdatesNotification"
+,
+"params"
+: {
+"result"
+: {
+"type"
+:
+"frozen"
+,
+"slot"
+:
+356
+,
+"timestamp"
+:
+1774643712834
+,
+"stats"
+: {
+"numTransactionEntries"
+:
+1
+,
+"numSuccessfulTransactions"
+:
+1
+,
+"numFailedTransactions"
+:
+0
+,
+"maxTransactionsPerEntry"
+:
+1
+}
+},
+"subscription"
+:
+4
+}
+}
+jsonrpc
+string
+Always 
+"2.0"
+.
+method
+string
+Always 
+"slotsUpdatesNotification"
+.
+params
+object
+Notification wrapper with the serialized slot-update payload and the
+subscription id.
+result
+object
+subscription
+integer
+Is this page helpful?
+Previous
+slotSubscribe
+Next
+slotsUpdatesUnsubscribe
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

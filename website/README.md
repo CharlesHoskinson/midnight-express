@@ -31,3 +31,11 @@ GitHub Pages deploys pushes to `gh-pages`. Changes on the research branch alone 
 ## Product explanation review
 
 [Eight product-manager reviews](../reviews/product-page/README.md) informed the product-first reading order, three business scenarios, expanded actor/trigger/example information across ten use cases, glossary, FAQ and clearer stage boundaries. These are editorial improvements, not customer validation.
+
+## Unified meaning and prototype validation
+
+The [unified model proposal](../docs/product-requirements/unified-data-model.md) synthesizes five Scrapling literature studies. The [reference model](../model/README.md) supplies closed schemas and unsigned conformance fixtures. The [three-sprint plan](../docs/product-requirements/prototype-sprints.md) synthesizes ten design reviews. The static Implementation tab is `website/dist/implementation.html`; it works without JavaScript. These are design/reference artifacts, not completed runtime sprints.
+
+The Implementation page also summarizes Ethereum/Solana application domains: chain lifecycle and rollback, RPC/subscriptions, state, tokens/NFTs, wallets and program-specific DeFi/bridge semantics. These are proposed domain inventories; no chain adapter runtime is included.
+
+Validation for this update: original workflow/component interaction checks and Implementation route/anchors/native details passed in headless Chromium at desktop/mobile widths, 200% text and with JavaScript disabled. Three model schemas self-validate and the reference's 51 conformance checks pass. Archive integrity: 140 fetch records, 253 raw/text hashes checked without mismatch. None of these checks establishes completed prototype sprints, deployed chain adapters, cryptographic acceptance or market demand.

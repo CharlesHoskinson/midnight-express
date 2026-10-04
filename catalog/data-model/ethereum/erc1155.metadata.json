@@ -1,0 +1,13 @@
+{
+  "id": "erc1155",
+  "url": "https://eips.ethereum.org/EIPS/eip-1155",
+  "resolved_url": "https://eips.ethereum.org/EIPS/eip-1155",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:49.798293+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "erc1155.raw",
+  "text_path": "erc1155.txt",
+  "raw_sha256": "50eece6ce1ad417b39ae7183a5626c6f9e3b11fc16a00ba5f630bc6fed01cfd2",
+  "text_sha256": "5373a8d22a7bac0e41173fc6cac9f3950f2896e099f3c38298550fdc001c9dff",
+  "text_chars": 55267
+}

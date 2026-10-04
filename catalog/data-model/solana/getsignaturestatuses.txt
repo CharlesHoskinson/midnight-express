@@ -1,0 +1,376 @@
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+getAccountInfo
+getAgGenesisCert
+getBalance
+getBlock
+getBlockCommitment
+getBlockHeight
+getBlockProduction
+getBlocks
+getBlocksWithLimit
+getBlockTime
+getClusterNodes
+getEpochInfo
+getEpochSchedule
+getFeeForMessage
+getFirstAvailableBlock
+getGenesisHash
+getHealth
+getHighestSnapshotSlot
+getIdentity
+getInflationGovernor
+getInflationRate
+getInflationReward
+getLargestAccounts
+getLatestBlockhash
+getLeaderSchedule
+getMaxRetransmitSlot
+getMaxShredInsertSlot
+getMinimumBalanceForRentExemption
+getMultipleAccounts
+getProgramAccounts
+getRecentPerformanceSamples
+getRecentPrioritizationFees
+getSignaturesForAddress
+getSignatureStatuses
+getSlot
+getSlotLeader
+getSlotLeaders
+getStakeMinimumDelegation
+getSupply
+getTokenAccountBalance
+getTokenAccountsByDelegate
+getTokenAccountsByOwner
+getTokenLargestAccounts
+getTokenSupply
+getTransaction
+getTransactionCount
+getVersion
+getVoteAccounts
+isBlockhashValid
+minimumLedgerSlot
+requestAirdrop
+sendTransaction
+simulateTransaction
+Websocket Methods
+Removed Methods
+Solana RPC Methods
+HTTP Methods
+getSignatureStatuses
+Copy Markdown
+Open
+Returns the current status for each supplied transaction signature. Each
+signature must be a 
+txid
+, the
+first signature of a transaction.
+Source
+get_signature_statuses
+Unless the 
+searchTransactionHistory
+ configuration parameter is included,
+this method only searches the recent status cache of signatures, which retains
+statuses for all active slots plus 
+MAX_RECENT_BLOCKHASHES
+ rooted slots.
+params
+array
+required
+An array of transaction signatures to confirm, as base-58 encoded strings (up to
+a maximum of 256)
+object
+optional
+Configuration object containing the following fields:
+searchTransactionHistory
+bool
+result
+object
+RpcResponse object containing:
+context
+object
+value
+array
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"getSignatureStatuses"
+,
+>
+"params"
+: [
+>
+[
+>
+"4cdd1oX7cfVALfr26tP52BZ6cSzrgnNGtYD7BFhm6FFeZV5sPTnRvg6NRn8yC6DbEikXcrNChBM5vVJnTgKhGhVu"
+>
+],
+>
+{
+>
+"searchTransactionHistory"
+:
+true
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+: {
+"context"
+: {
+"apiVersion"
+:
+"3.1.8"
+,
+"slot"
+:
+82
+},
+"value"
+: [
+{
+"slot"
+:
+48
+,
+"confirmations"
+:
+null
+,
+"err"
+:
+null
+,
+"status"
+: {
+"Ok"
+:
+null
+},
+"confirmationStatus"
+:
+"finalized"
+},
+null
+]
+},
+"id"
+:
+1
+}
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"getSignatureStatuses"
+,
+>
+"params"
+: [
+>
+[
+>
+"4cdd1oX7cfVALfr26tP52BZ6cSzrgnNGtYD7BFhm6FFeZV5sPTnRvg6NRn8yC6DbEikXcrNChBM5vVJnTgKhGhVu"
+>
+],
+>
+{
+>
+"searchTransactionHistory"
+:
+true
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+params
+array
+required
+An array of transaction signatures to confirm, as base-58 encoded strings (up to
+a maximum of 256)
+object
+optional
+Configuration object containing the following fields:
+searchTransactionHistory
+bool
+result
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+: {
+"context"
+: {
+"apiVersion"
+:
+"3.1.8"
+,
+"slot"
+:
+82
+},
+"value"
+: [
+{
+"slot"
+:
+48
+,
+"confirmations"
+:
+null
+,
+"err"
+:
+null
+,
+"status"
+: {
+"Ok"
+:
+null
+},
+"confirmationStatus"
+:
+"finalized"
+},
+null
+]
+},
+"id"
+:
+1
+}
+object
+RpcResponse object containing:
+context
+object
+value
+array
+Is this page helpful?
+Previous
+getSignaturesForAddress
+Next
+getSlot
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.
+getSignatureStatuses | Solana

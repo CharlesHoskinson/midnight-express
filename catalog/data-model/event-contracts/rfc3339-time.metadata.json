@@ -1,0 +1,13 @@
+{
+  "id": "rfc3339-time",
+  "url": "https://www.rfc-editor.org/rfc/rfc3339.txt",
+  "resolved_url": "https://www.rfc-editor.org/rfc/rfc3339.txt",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:03:23.365374+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=25)",
+  "raw_path": "rfc3339-time.raw",
+  "text_path": "rfc3339-time.txt",
+  "raw_sha256": "9ab2b8864a85dca73a88f49b0927bc7bc85f596926e4fd1890905777924e700a",
+  "text_sha256": "090ce3ca6454f101ef40b4ebc3a19089aa6c5c1eadc20b052085970892f054ae",
+  "text_chars": 34855
+}

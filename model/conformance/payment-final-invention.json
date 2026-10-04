@@ -1,0 +1,31 @@
+{
+  "specversion": "1.0",
+  "id": "event:invoice-pending",
+  "source": "urn:mpe:source:bank",
+  "type": "mpe.invoice.payment-observed.v0.1",
+  "time": "2026-10-04T11:00:00.000Z",
+  "datacontenttype": "application/json",
+  "dataschema": "urn:mpe:model:invoice.v0.1",
+  "mpeprofile": "invoice.v0.1",
+  "mpecontract": "sha256:4551a84e2670e9df1e8e7786a1eadf76793a4cf339bb528ac98facfada6bd006",
+  "data": {
+    "invoiceId": "invoice:supplier/demo",
+    "supplier": "party:supplier",
+    "customer": "party:customer",
+    "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "currency": "iso4217:USD",
+    "payable": {
+      "coefficient": "50000",
+      "scale": 2
+    },
+    "paymentId": "payment:pending",
+    "amount": {
+      "coefficient": "25000",
+      "scale": 2
+    },
+    "status": "Final",
+    "observedAt": "2026-10-04T11:00:00.000Z",
+    "effectiveAt": "2026-10-04T11:00:00.000Z",
+    "rail": "fixture-bank-v1"
+  }
+}

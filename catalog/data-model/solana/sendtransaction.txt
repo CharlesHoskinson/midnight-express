@@ -1,0 +1,343 @@
+sendTransaction | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+getAccountInfo
+getAgGenesisCert
+getBalance
+getBlock
+getBlockCommitment
+getBlockHeight
+getBlockProduction
+getBlocks
+getBlocksWithLimit
+getBlockTime
+getClusterNodes
+getEpochInfo
+getEpochSchedule
+getFeeForMessage
+getFirstAvailableBlock
+getGenesisHash
+getHealth
+getHighestSnapshotSlot
+getIdentity
+getInflationGovernor
+getInflationRate
+getInflationReward
+getLargestAccounts
+getLatestBlockhash
+getLeaderSchedule
+getMaxRetransmitSlot
+getMaxShredInsertSlot
+getMinimumBalanceForRentExemption
+getMultipleAccounts
+getProgramAccounts
+getRecentPerformanceSamples
+getRecentPrioritizationFees
+getSignaturesForAddress
+getSignatureStatuses
+getSlot
+getSlotLeader
+getSlotLeaders
+getStakeMinimumDelegation
+getSupply
+getTokenAccountBalance
+getTokenAccountsByDelegate
+getTokenAccountsByOwner
+getTokenLargestAccounts
+getTokenSupply
+getTransaction
+getTransactionCount
+getVersion
+getVoteAccounts
+isBlockhashValid
+minimumLedgerSlot
+requestAirdrop
+sendTransaction
+simulateTransaction
+Websocket Methods
+Removed Methods
+Solana RPC Methods
+HTTP Methods
+sendTransaction
+Copy Markdown
+Open
+Submits a signed transaction to the cluster and returns its first signature if
+the RPC accepts it.
+Source
+send_transaction
+This method does not alter the transaction in any way; it relays the transaction
+created by clients to the node as-is.
+If the node's rpc service receives the transaction, this method immediately
+succeeds, without waiting for any confirmations. A successful response from this
+method does not guarantee the transaction is processed or confirmed by the
+cluster.
+While the rpc service will reasonably retry to submit it, the transaction could
+be rejected if transaction's 
+recent_blockhash
+ expires before it lands.
+Use 
+getSignatureStatuses
+ to ensure a
+transaction is processed and confirmed.
+Before submitting, the following preflight checks are performed:
+The transaction signatures are verified
+The transaction is simulated against the state at the preflight commitment.
+On failure an error will be returned. Preflight checks may be disabled if
+desired. It is recommended to specify the same commitment and preflight
+commitment to avoid confusing behavior.
+When preflight simulation fails, the error data uses the same
+
+Simulation Results
+ structure
+documented for 
+simulateTransaction
+.
+The returned signature is the first signature in the transaction, which is used
+to identify the transaction
+(
+transaction id
+). This identifier
+can be easily extracted from the transaction data before submission.
+params
+string
+required
+Fully-signed Transaction, as encoded string.
+object
+optional
+Configuration object containing the following fields:
+encoding
+string
+skipPreflight
+bool
+preflightCommitment
+string
+maxRetries
+usize
+minContextSlot
+number
+result
+string
+First Transaction Signature embedded in the transaction, as base-58 encoded
+string (
+transaction id
+)
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"sendTransaction"
+,
+>
+"params"
+: [
+>
+"AX9ymHgILTd01GtdBsbQZ9by5D4z4UWh+1Tsh6LDuPHuZk/Z8LrIwoKZRp3le2RTb5lywL1xcJGQ8u3M3U0tyAgBAAEDXCL+JarHftfP5QgsRxpEsr+/YiRWQeCz7PI3jfzeppEvUc61u+TNHri9ChQdLN2evWGx+1O3MwbPFKV5rIqlxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvOdVbvGn3R+uBkugNCq8C/Texc7ILBoYjbn4aVQV0OgBAgIAAQwCAAAAQEIPAAAAAAA="
+,
+>
+{
+>
+"encoding"
+:
+"base64"
+,
+>
+"skipPreflight"
+:
+true
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+:
+"2id3YC2jK9G5Wo2phDx4gJVAew8DcY5NAojnVuao8rkxwPYPe8cSwE5GzhEgJA2y8fVjDEo6iR6ykBvDxrTQrtpb"
+,
+"id"
+:
+1
+}
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"sendTransaction"
+,
+>
+"params"
+: [
+>
+"AX9ymHgILTd01GtdBsbQZ9by5D4z4UWh+1Tsh6LDuPHuZk/Z8LrIwoKZRp3le2RTb5lywL1xcJGQ8u3M3U0tyAgBAAEDXCL+JarHftfP5QgsRxpEsr+/YiRWQeCz7PI3jfzeppEvUc61u+TNHri9ChQdLN2evWGx+1O3MwbPFKV5rIqlxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAvOdVbvGn3R+uBkugNCq8C/Texc7ILBoYjbn4aVQV0OgBAgIAAQwCAAAAQEIPAAAAAAA="
+,
+>
+{
+>
+"encoding"
+:
+"base64"
+,
+>
+"skipPreflight"
+:
+true
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+params
+string
+required
+Fully-signed Transaction, as encoded string.
+object
+optional
+Configuration object containing the following fields:
+encoding
+string
+skipPreflight
+bool
+preflightCommitment
+string
+maxRetries
+usize
+minContextSlot
+number
+result
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+:
+"2id3YC2jK9G5Wo2phDx4gJVAew8DcY5NAojnVuao8rkxwPYPe8cSwE5GzhEgJA2y8fVjDEo6iR6ykBvDxrTQrtpb"
+,
+"id"
+:
+1
+}
+string
+First Transaction Signature embedded in the transaction, as base-58 encoded
+string (
+transaction id
+)
+Is this page helpful?
+Previous
+requestAirdrop
+Next
+simulateTransaction
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

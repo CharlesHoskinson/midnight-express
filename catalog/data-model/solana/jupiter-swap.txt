@@ -1,0 +1,130 @@
+Metis Swap API Overview - Jupiter Developers
+Documentation Index
+Fetch the complete documentation index at: 
+/docs/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Manage your API keys, billing, and usage on the 
+Developer Platform
+. Questions? Reach us via 
+Support
+.
+Jupiter Developers home page
+Search...
+⌘K
+Ask Assistant
+⌘I
+Dashboard
+Dashboard
+Search...
+Navigation
+Metis Swap API Overview
+Get Started
+Docs
+AI
+Tool Kits
+Changelog
+Resources
+Swap
+Overview
+Meta-Aggregator
+Order & Execute
+GET
+Get Order
+POST
+Execute Transaction
+Metis (Onchain Router)
+Build
+Common Instructions
+GET
+Build Transaction
+GET
+Program ID to Label
+Advanced
+Overview
+Slippage Estimation
+Gasless Swaps
+Compute Units & Priority Fees
+Reduce Transaction Size
+Reduce Latency
+Routing Integration
+Integrate AMM into Metis
+Integrate MM into JupiterZ (RFQ)
+Guides
+Embed Swap Widget
+Migration
+Metis to Router
+Metis to Meta-Aggregator
+Ultra to Meta-Aggregator
+On this page
+We recommend using Swap API V2
+Getting Started with Metis Swap API
+Metis Swap API Overview
+Copy page
+Copy page
+Low-level routing engine for developers who need CPI, custom instructions, or full transaction control. Requires your own RPC.
+Copy page
+Copy page
+Metis Swap API
+ is no longer actively maintained and has been superseded by 
+Swap V2
+.
+Metis is Jupiter’s low-level routing engine for developers who need CPI, custom instructions, or full transaction control. Three steps: get a quote (
+GET /swap/v1/quote
+), build a transaction (
+POST /swap/v1/swap
+), then sign and send via your own RPC.
+​
+We recommend using Swap API V2
+The 
+Swap API V2
+ unifies Ultra and Metis into a single API. Use 
+/order
+ for the simplest flow with managed execution, or 
+/build
+ if you need custom transactions (the replacement for Metis 
+/swap-instructions
+).
+​
+Getting Started with Metis Swap API
+Get Quote
+: Request for a quote which consists of the route plan, and other params such as integrator fee, slippage, etc.
+Build Swap Transaction
+: Post the quote to build a swap transaction.
+You can utilize other methods to return swap instructions or use CPI rather than the default swap transaction.
+You can utilize other parameters such as priority fee, dynamic slippage, etc to customize the transaction.
+Send Swap Transaction
+: Sign and send the swap transaction to the network via your own RPC or other methods.
+Other Guides
+Adding Fees to Metis Swap API
+: Add custom integrator fees to the swap transaction.
+Requote with Lower Max Accounts
+: Requote with a lower max accounts to reduce the transaction size to fit more instructions or other use cases.
+Was this page helpful?
+Yes
+No
+Jupiter Developers home page
+x
+discord
+telegram
+github
+youtube
+Support
+Guidelines
+Legal
+Brand Kit
+Status
+x
+discord
+telegram
+github
+youtube
+x
+discord
+telegram
+github
+youtube
+Powered by
+This documentation is built and hosted on Mintlify, a developer documentation platform
+Assistant
+Responses are generated using AI and may contain mistakes.

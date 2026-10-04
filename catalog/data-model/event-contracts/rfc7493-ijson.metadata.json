@@ -1,0 +1,13 @@
+{
+  "id": "rfc7493-ijson",
+  "url": "https://www.rfc-editor.org/rfc/rfc7493.txt",
+  "resolved_url": "https://www.rfc-editor.org/rfc/rfc7493.txt",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:03:23.097120+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=25)",
+  "raw_path": "rfc7493-ijson.raw",
+  "text_path": "rfc7493-ijson.txt",
+  "raw_sha256": "a44ccf1451a7bf4f4bbb78b39e10ed0e9a27ff2ee5b639c6458042b5a7197062",
+  "text_sha256": "33a5576a708058824a8eb76c8371d793ccfd164d291e6dc4326fbb7ae39191bb",
+  "text_chars": 12533
+}

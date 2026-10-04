@@ -1,0 +1,564 @@
+Account Structure | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Accounts
+Account Structure
+Account Types
+Modification Rules
+Account Runtime
+Programs
+Instructions
+Transactions
+Fees
+Program Derived Address
+Cross-Program Invocation
+Constants Reference
+Table of Contents
+Solana Documentation
+Accounts
+Account Structure
+Copy Markdown
+Open
+Summary
+Accounts have 5 fields: lamports, data, owner, executable, and rent_epoch.
+Each account is identified by a unique 32-byte address. Accounts must hold a
+minimum lamport balance proportional to their data size to stay onchain.
+Account address
+Every account address is a 32-byte value, displayed as a base58-encoded string.
+An address can be one of two types:
+Public key
+: corresponds to an 
+Ed25519
+
+keypair (has a private key)
+Program derived address (PDA)
+: deterministically derived from a program
+ID and seeds (no private key)
+An account with its base58 encoded public key address
+Public key
+A 
+Keypair
+ consists of a public key (used as the account address) and a
+private key (used to sign transactions). The following example generates a
+keypair using the Solana SDK.
+Kit
+Legacy
+Rust
+import
+{ generateKeyPairSigner }
+from
+"@solana/kit"
+;
+// Kit does not enable extractable private keys
+const
+keypairSigner
+= await
+generateKeyPairSigner
+();
+console.
+log
+(keypairSigner);
+Console
+Run
+Click to execute the code.
+Kit
+Legacy
+Rust
+import
+{ generateKeyPairSigner }
+from
+"@solana/kit"
+;
+// Kit does not enable extractable private keys
+const
+keypairSigner
+= await
+generateKeyPairSigner
+();
+console.
+log
+(keypairSigner);
+Console
+Run
+Click to execute the code.
+Program derived address
+A 
+program derived address
+ (PDA) is deterministically derived
+from a program ID and one or more optional seeds. PDAs do not have a
+corresponding private key. The following example derives a PDA using the Solana
+SDK.
+Kit
+Legacy
+Rust
+import
+{ Address, getProgramDerivedAddress }
+from
+"@solana/kit"
+;
+const
+programAddress
+=
+"11111111111111111111111111111111"
+as
+Address
+;
+const
+seeds
+=
+[
+"helloWorld"
+];
+const
+[
+pda
+,
+bump
+]
+= await
+getProgramDerivedAddress
+({
+programAddress,
+seeds
+});
+console.
+log
+(
+`PDA: ${
+pda
+}`
+);
+console.
+log
+(
+`Bump: ${
+bump
+}`
+);
+Console
+Run
+Click to execute the code.
+Kit
+Legacy
+Rust
+import
+{ Address, getProgramDerivedAddress }
+from
+"@solana/kit"
+;
+const
+programAddress
+=
+"11111111111111111111111111111111"
+as
+Address
+;
+const
+seeds
+=
+[
+"helloWorld"
+];
+const
+[
+pda
+,
+bump
+]
+= await
+getProgramDerivedAddress
+({
+programAddress,
+seeds
+});
+console.
+log
+(
+`PDA: ${
+pda
+}`
+);
+console.
+log
+(
+`Bump: ${
+bump
+}`
+);
+Console
+Run
+Click to execute the code.
+Account fields
+Every
+
+Account
+
+has a maximum size of
+
+MAX_ACCOUNT_DATA_LEN
+
+(10 MiB, equivalent to 
+MAX_PERMITTED_DATA_LENGTH
+) and contains five
+fields:
+Field
+Type
+Description
+lamports
+u64
+Balance in lamports. Owner can debit; any program can credit.
+data
+Vec<u8>
+Account state or program bytecode. Max 10 MiB. Owner-writable only.
+owner
+Pubkey
+Program with write access. Reassignable only when data is zeroed.
+executable
+bool
+True = program account.
+rent_epoch
+Epoch
+Deprecated. Set to 
+u64::MAX
+ for rent-exempt accounts.
+Account
+pub struct
+Account
+{
+/// lamports in the account
+pub
+lamports
+:
+u64
+,
+/// data held in this account
+#[cfg_attr(feature
+=
+"serde"
+, serde(with
+=
+"serde_bytes"
+))]
+pub
+data
+:
+Vec
+<
+u8
+>,
+/// the program that owns this account. If executable, the program that loads this account.
+pub
+owner
+:
+Pubkey
+,
+/// if true, this account's data contains a program (and is now read-only)
+pub
+executable
+:
+bool
+,
+/// deprecated
+pub
+rent_epoch
+:
+Epoch
+,
+}
+Lamports
+The 
+lamports
+ field holds the account's balance in
+
+lamports
+ (1 SOL = 1,000,000,000
+lamports).
+Every account must maintain a minimum lamport balance to keep its data stored
+onchain. This refundable storage balance is proportional to the account's data
+size.
+The runtime and RPC method names call this the "rent-exempt minimum," but
+ongoing rent collection is disabled. Treat the balance as a refundable account
+storage deposit: the full balance can be recovered when the account is closed.
+See
+
+minimum_balance()
+
+and the rent
+
+constants
+.
+Data
+The 
+data
+ field stores an arbitrary byte array. Its contents depend on the
+account type:
+Program accounts
+: Contains executable bytecode or the address of a
+
+program data account
+
+that stores the bytecode.
+Data accounts
+: Contains program-defined state data. The owning program
+defines the serialization format.
+Reading account data requires two steps:
+Fetch the account by its 
+address
+.
+Deserialize the 
+data
+ field from raw bytes into the program-defined data
+structure.
+Owner
+The 
+owner
+ field contains the program ID (public key) of the program that owns
+this account.
+The owner program is the only program that can:
+Modify the account's 
+data
+ field
+Deduct lamports from the account's 
+lamports
+ field
+Any program can add lamports to another account, but only the owner can deduct
+lamports from it.
+For program accounts, the owner is the account's
+
+loader program
+.
+Executable
+The 
+executable
+ field is a boolean that determines whether the account is a
+
+program account
+ or a
+
+data account
+:
+true
+ = program account (contains executable code)
+false
+ = data account (stores state)
+Rent epoch
+The 
+rent_epoch
+ field is deprecated.
+Previously tracked when an account would automatically have lamports deducted to
+pay for maintaining its data onchain. Since ongoing rent collection is disabled,
+
+rent_epoch
+ is set to 
+u64::MAX
+ for all new accounts that meet the minimum
+storage balance.
+Lamports
+The 
+lamports
+ field holds the account's balance in
+
+lamports
+ (1 SOL = 1,000,000,000
+lamports).
+Every account must maintain a minimum lamport balance to keep its data stored
+onchain. This refundable storage balance is proportional to the account's data
+size.
+The runtime and RPC method names call this the "rent-exempt minimum," but
+ongoing rent collection is disabled. Treat the balance as a refundable account
+storage deposit: the full balance can be recovered when the account is closed.
+See
+
+minimum_balance()
+
+and the rent
+
+constants
+.
+Data
+The 
+data
+ field stores an arbitrary byte array. Its contents depend on the
+account type:
+Program accounts
+: Contains executable bytecode or the address of a
+
+program data account
+
+that stores the bytecode.
+Data accounts
+: Contains program-defined state data. The owning program
+defines the serialization format.
+Reading account data requires two steps:
+Fetch the account by its 
+address
+.
+Deserialize the 
+data
+ field from raw bytes into the program-defined data
+structure.
+Owner
+The 
+owner
+ field contains the program ID (public key) of the program that owns
+this account.
+The owner program is the only program that can:
+Modify the account's 
+data
+ field
+Deduct lamports from the account's 
+lamports
+ field
+Any program can add lamports to another account, but only the owner can deduct
+lamports from it.
+For program accounts, the owner is the account's
+
+loader program
+.
+Executable
+The 
+executable
+ field is a boolean that determines whether the account is a
+
+program account
+ or a
+
+data account
+:
+true
+ = program account (contains executable code)
+false
+ = data account (stores state)
+Rent epoch
+The 
+rent_epoch
+ field is deprecated.
+Previously tracked when an account would automatically have lamports deducted to
+pay for maintaining its data onchain. Since ongoing rent collection is disabled,
+
+rent_epoch
+ is set to 
+u64::MAX
+ for all new accounts that meet the minimum
+storage balance.
+Account Examples
+// Example Token Mint Account
+Account
+{
+lamports
+:
+1461600
+,
+data
+.
+len
+:
+82
+,
+owner
+:
+TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb
+,
+executable
+:
+false
+,
+rent_epoch
+:
+0
+,
+data
+:
+010000001e213c90625a7e643d9555bb01b6c3fe6416d7afd523ce8c7ddd9b923ceafb9d00000000000000000901010000001e213c90625a7e643d9555bb01b6,
+}
+// Example Token Program Account
+Account
+{
+lamports
+:
+4513200894
+,
+data
+.
+len
+:
+134080
+,
+owner
+:
+BPFLoader2111111111111111111111111111111111
+,
+executable
+:
+true
+,
+rent_epoch
+:
+18446744073709551615
+,
+data
+:
+7f454c460201010000000000000000000300f70001000000d8f90000000000004000000000000000800902000000000000000000400038000400400009000800,
+}
+Is this page helpful?
+Previous
+Accounts
+Next
+Account Types
+Table of Contents
+Account address
+Public key
+Program derived address
+Account fields
+Edit Page
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

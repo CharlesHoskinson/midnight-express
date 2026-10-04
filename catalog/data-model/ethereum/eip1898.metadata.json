@@ -1,0 +1,13 @@
+{
+  "id": "eip1898",
+  "url": "https://eips.ethereum.org/EIPS/eip-1898",
+  "resolved_url": "https://eips.ethereum.org/EIPS/eip-1898",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:47.711786+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "eip1898.raw",
+  "text_path": "eip1898.txt",
+  "raw_sha256": "e8472d29544494e33c10cdb37e5aae607bf7e78363827a59bc305835d130374d",
+  "text_sha256": "2842c2e9808fe26aa233672637e47b70df3b03e7e1514e7fa809f7a530b49156",
+  "text_chars": 8463
+}

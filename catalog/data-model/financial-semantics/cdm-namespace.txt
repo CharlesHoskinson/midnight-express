@@ -1,0 +1,136 @@
+Namespace | Common Domain Model
+Skip to main content
+Common Domain Model
+7.0.0
+Next
+7.0.0
+6.0.0
+5.20.0
+5.13.0
+Docs
+CDM Resources
+Schemas
+Get Involved
+GitHub
+Main Menu
+Homepage
+Overview of the FINOS CDM
+The Common Domain Model
+Product Model
+Event Model
+Legal Agreements
+Process Model
+Reference Data Model
+Namespace
+Serialization
+Use Cases
+eligible-collateral-representation
+Standardized Schedule functions
+Repurchase Transaction Representation in the CDM
+Securities Lending
+Pre-trade Processing
+CDM Java Distribution Guidelines
+Development Guidelines
+Download Source Code
+Common Domain Model Resources
+CDM Videos
+Get Involved
+CDM Contribution Review Working Group
+CDM Collateral Working Group
+CDM Steering Working Group
+CDM Tokenized Assets Working Group
+CDM Physical Risk WG
+CDM Technology Architecture Working Group
+CDM Derivatives Working Group
+Main Menu
+Namespace
+Version: 7.0.0
+The CDM is partitioned into groups of namespaces. A namespace is an
+abstract container created to hold a logical grouping of model
+artefacts. The approach is designed to make it easier for users to
+understand the model structure and adopt selected components. It also
+aids the development cycle by insulating groups of components from
+unrelated model changes that may occur. The partitioning is visible to
+users in Rosetta Core by toggling the Namespace view in the left hand
+panel, and in the generated code files.
+Namespaces have many benefits:
+Accelerated understanding of the model by allowing users to easily
+see a high-level view of the model and easily find, select, and
+study specific areas of interest
+Faster and easier to find data types and functions for
+referencing/use in new components
+Allowing for partial adoption of areas of interest in the model
+Smaller upgrades representing new versions limited to the name
+spaces that are impacted
+Model Artifacts
+Model artifacts are organised into a directory hierarchy that is exposed
+in the model editor.
+Organising Principles
+Namespaces are organised into a hierarchy, with layers going from in to
+out. The hierarchy contains an intrinsic inheritance structure where
+each layer has access to ("imports") the layer outside, and is designed
+to be usable without any of its inner layers. Layers can contain several
+namespaces ("siblings"), which can also refer to each other.
+Example -- the base namespace
+In the example above the layers of the "base" namespace can be observed.
+There are four layers to the namespace. The outer layer "base" contains
+one file and three namespaces. The next layer contains three siblings,
+"datetime", "math", and "staticdata". A third and fourth layer is
+contained within the "staticdata" namespace.
+Hierarchy Structure
+The namespace hierarchy in the CDM contains 7 components
+Base -- contains basic concepts used across the model: date, time,
+maths, static data
+Event -- contains business event concepts: primitive, contract
+state, and associated state transition function specifications
+Legal Agreement -- contains generic documentation concepts: legal
+agreement, contract, and credit support specifications
+Observable -- contains observable concepts: market data, holiday
+calendars, asset class specific specifications
+Product -- contains generic product concepts: quantity, price,
+economic terms and payout
+Regulation -- contains regulation concepts: regulatory bodies,
+corpus, report definitions and field rules
+Each of these higher-level namespaces is further divided into
+lower-level namespaces. The independent components in each namespace are
+organised according to their core purpose but can be referenced from
+anywhere in the model to allow all the components to work together for a
+complete modelling solution. E.g. below is the 
+product
+ namespace:
+When developing new CDM components, the positioning of those
+components in the namespace hierarchy is critical
+ as part of the
+design (or potentially the re-organising of the hierarchy following the
+new development), to ensure the CDM remains well organised.
+Edit this page
+Previous
+Reference Data Model
+Next
+Serialization
+CDM Working Groups
+Contribution Review Working Group
+Collateral Working Group
+Derivatives Working Group
+Technology Architecture Working Group
+Phsyical Risk Working Group
+Tokenized Assets Working Group
+More CDM Working Groups
+FINOS CDM Steering Working Group
+ISLA CDM Working Group (Securities Lending)
+ISLA CDM Trading Working Group (Securities Lending)
+ISLA Document Digitisation Working Group (GMSLA)
+Consume
+CDM GitHub Repo
+Releases
+Schemas
+What Is The CDM?
+Frequently Asked Questions
+CDM Java Distribution Guidelines
+Download Source Code
+CDM Launch Press Release
+FINOS
+FINOS Website
+FINOS GitHub Org
+About FINOS
+Copyright © 2026 Common Domain Model - FINOS

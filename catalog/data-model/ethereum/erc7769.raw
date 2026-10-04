@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <title>JSON-RPC API for ERC-4337 | Ethereum Improvement Proposals</title>
+    <meta
+      property="og:title"
+      content="JSON-RPC API for ERC-4337 | Ethereum Improvement Proposals"
+    />
+    <meta name="description" content="Ethereum Improvement Proposals (EIPs) describe standards for the Ethereum platform, including core protocol specifications, client APIs, and contract standards." />
+    <meta property="og:description" content="Ethereum Improvement Proposals (EIPs) describe standards for the Ethereum platform, including core protocol specifications, client APIs, and contract standards." />
+    <meta name="twitter:description" content="Ethereum Improvement Proposals (EIPs) describe standards for the Ethereum platform, including core protocol specifications, client APIs, and contract standards." />
+  
+  <meta name="generator" content="Jekyll" />
+  <meta property="og:locale" content="en_US" />
+  <link rel="canonical" href="https://ercs.ethereum.org/ERCS/erc-7769" />
+  <meta property="og:url" content="https://ercs.ethereum.org/ERCS/erc-7769" />
+  <meta property="og:site_name" content="Ethereum Improvement Proposals" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@" />
+  <script type="application/ld+json">
+    {
+      "@type": "WebSite",
+      "url": "https://ercs.ethereum.org",
+      "name": "Ethereum Improvement Proposals",
+      "description": "Ethereum Improvement Proposals (EIPs) describe standards for the Ethereum platform, including core protocol specifications, client APIs, and contract standards.",
+      "@context": "https://schema.org"
+    }
+  </script>
+  <link rel="stylesheet" href="/assets/css/style.css" /><link type="application/atom+xml" rel="alternate" href="https://ercs.ethereum.org/feed.xml" title="Ethereum Improvement Proposals" /><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/css/override.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", (event) => {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    });
+  </script>
+  <script type="text/javascript">
+    window.MathJax = {
+      loader: {
+        load: ['input/tex-base', 'output/chtml']
+      },
+      tex: {
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']],
+        processEscapes: true,
+        processEnvironments: false,
+        processRefs: false
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js" integrity="sha384-/1zmJ1mBdfKIOnwPxpdG6yaRrxP6qu3eVYm0cz2nOx+AcL4d3AqEFrwcqGZVVroG" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/citation-js/0.6.7/citation.min.js" integrity="sha512-N+LDFMa9owHXGS+CyMrBvuxq2QuGl3fiB/7cys3aUEL7K6P1soHGqsS0sjHXZpwNd9Kz0m3R4IPy1HYRi6ROEQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript">
+    addEventListener('DOMContentLoaded', async () => {
+      const Cite = window.require('citation-js');
+      const citationElements = document.querySelectorAll('.language-csl-json');
+      for (let citationElement of citationElements) {
+        try {
+          const citation = await Cite.async(citationElement);
+          const template = document.createElement('template');
+          template.innerHTML = citation.format('bibliography', {
+            format: 'html',
+            template: 'apa',
+            lang: 'en-US'
+          });
+          if (citationElement.parentElement && citationElement.parentElement.matches('pre')) {
+            citationElement.parentElement.replaceWith(template.content);
+          } else {
+            citationElement.replaceWith(template.content);
+          }
+        } catch (e) {
+          console.error("unable to render citation", e);
+        }
+      }
+    });
+  </script>
+</head>
+<body><header class="site-header" role="banner">
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Ethereum Improvement Proposals</a><nav class="site-nav d-flex">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger row p-2"><a class="page-link col" href="/all">All</a><a class="page-link col" href="/core">Core</a><a class="page-link col" href="/networking">Networking</a><a class="page-link col" href="/interface">Interface</a><a class="page-link col" href="/erc">ERC</a><a class="page-link col" href="/meta">Meta</a><a class="page-link col" href="/informational">Informational</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">JSON-RPC API for ERC-4337</h1>
+  </header>
+
+  <div class="post-content">
+    <h2 id="abstract">Abstract</h2>
+
+<p>Defines new JSON-RPC API methods which enable <a href="./eip-4337">ERC-4337</a> wallets to communicate with <code class="language-plaintext highlighter-rouge">UserOpeation</code> mempool
+nodes and bundlers, matching the functionality that exists for Ethereum transactions.</p>
+
+<p>Additionally, a set of <code class="language-plaintext highlighter-rouge">debug</code> JSON-RPC API methods is defined in order to facilitate development, testing and
+debugging issues with ERC-4337 implementations.</p>
+
+<h2 id="motivation">Motivation</h2>
+
+<p>In ERC-4337, user transactions as defined in Ethereum are replaced with <code class="language-plaintext highlighter-rouge">UserOperation</code> objects, which contain all the
+information needed to perform the operations requested by the users.</p>
+
+<p>However, existing Ethereum JSON-RPC API methods are not suited to working with <code class="language-plaintext highlighter-rouge">UserOperation</code> objects.
+In order to facilitate the operation of the alternative <code class="language-plaintext highlighter-rouge">UserOperation</code> mempool it is important that all
+implementations of the ERC-4337 protocol have a standardized set of APIs that can be used interchangeably.</p>
+
+<h2 id="specification">Specification</h2>
+
+<h3 id="definitions">Definitions</h3>
+
+<ul>
+  <li><strong>bundler</strong>: a node exposing the APIs, in order to submit them to the network.
+A bundler collects one or more UserOperations into a bundle and submits them together to
+the <code class="language-plaintext highlighter-rouge">EntryPoint</code> in a single <code class="language-plaintext highlighter-rouge">handleOps</code> call.</li>
+</ul>
+
+<h3 id="rpc-methods-eth-namespace">RPC methods (eth namespace)</h3>
+
+<h4 id="eth_senduseroperation"><code class="language-plaintext highlighter-rouge">eth_sendUserOperation</code></h4>
+
+<p>The <code class="language-plaintext highlighter-rouge">eth_sendUserOperation</code> method submits a <code class="language-plaintext highlighter-rouge">UserOperation</code> object to the UserOperation mempool.
+The client MUST validate the <code class="language-plaintext highlighter-rouge">UserOperation</code>, and return a result accordingly.</p>
+
+<p>The result SHOULD be set to the <code class="language-plaintext highlighter-rouge">userOpHash</code> if and only if the request passed simulation and was accepted
+in the client’s UserOperation pool.</p>
+
+<p>If the validation, simulation, or UserOperation pool inclusion fails,
+<code class="language-plaintext highlighter-rouge">userOpHash</code> SHOULD NOT be returned. Rather, the client SHOULD return the failure reason.</p>
+
+<h5 id="parameters">Parameters:</h5>
+
+<ol>
+  <li><strong>UserOperation</strong> a full user-operation struct.<br />
+  All fields MUST be set as hex values.<br />
+  Empty <code class="language-plaintext highlighter-rouge">bytes</code> block (e.g. empty <code class="language-plaintext highlighter-rouge">initCode</code>) MUST be set to <code class="language-plaintext highlighter-rouge">"0x"</code>\</li>
+  <li><strong>factory</strong> and <strong>factoryData</strong><br />
+  Must provide either both of these parameters, or none.</li>
+  <li><strong>paymaster</strong>, <strong>paymasterData</strong>, <strong>paymasterValidationGasLimit</strong>, <strong>paymasterPostOpGasLimit</strong><br />
+  Must provide either all of these parameters, or none.</li>
+  <li><strong>entryPoint</strong> the <code class="language-plaintext highlighter-rouge">EntryPoint</code> contract address the request should be sent through.<br />
+  This MUST be one of the entry points returned by the <code class="language-plaintext highlighter-rouge">supportedEntryPoints</code> RPC call.</li>
+</ol>
+
+<h5 id="return-value">Return value:</h5>
+
+<ul>
+  <li>If the UserOperation is valid, the client MUST return the calculated <code class="language-plaintext highlighter-rouge">userOpHash</code> for it</li>
+  <li>in case of failure, MUST return an <code class="language-plaintext highlighter-rouge">error</code> result object, with <code class="language-plaintext highlighter-rouge">code</code> and <code class="language-plaintext highlighter-rouge">message</code>.<br />
+The error code and message SHOULD be set as follows:
+    <ul>
+      <li><strong>code: -32602</strong> - invalid <code class="language-plaintext highlighter-rouge">UserOperation</code> struct/fields</li>
+      <li><strong>code: -32500</strong> - transaction rejected by <code class="language-plaintext highlighter-rouge">EntryPoint</code> contract’s <code class="language-plaintext highlighter-rouge">simulateValidation</code> function
+during wallet creation or validation
+        <ul>
+          <li>The <code class="language-plaintext highlighter-rouge">message</code> field MUST be set to the emitted <code class="language-plaintext highlighter-rouge">FailedOp</code> event’s “<code class="language-plaintext highlighter-rouge">AAxx</code>” error message from the <code class="language-plaintext highlighter-rouge">EntryPoint</code></li>
+        </ul>
+      </li>
+      <li><strong>code: -32501</strong> - transaction rejected by <code class="language-plaintext highlighter-rouge">paymaster</code> contract’s <code class="language-plaintext highlighter-rouge">validatePaymasterUserOp</code> function
+        <ul>
+          <li>The <code class="language-plaintext highlighter-rouge">message</code> field SHOULD be set to the revert message from the <code class="language-plaintext highlighter-rouge">paymaster</code> contract</li>
+          <li>The <code class="language-plaintext highlighter-rouge">data</code> field MUST contain a <code class="language-plaintext highlighter-rouge">paymaster</code> value</li>
+        </ul>
+      </li>
+      <li><strong>code: -32502</strong> - transaction rejected because of <a href="./eip-7562">ERC-7562</a> opcode validation rule violation</li>
+      <li><strong>code: -32503</strong> - UserOperation out of time-range:<br />
+either wallet or paymaster returned a time-range, and it has already expired or will expire soon.
+        <ul>
+          <li>The <code class="language-plaintext highlighter-rouge">data</code> field SHOULD contain the <code class="language-plaintext highlighter-rouge">validUntil</code> and <code class="language-plaintext highlighter-rouge">validAfter</code> values</li>
+          <li>The <code class="language-plaintext highlighter-rouge">data</code> field SHOULD contain a <code class="language-plaintext highlighter-rouge">paymaster</code> address if this error was triggered by the <code class="language-plaintext highlighter-rouge">paymaster</code> contract</li>
+        </ul>
+      </li>
+      <li><strong>code: -32504</strong> - transaction rejected because <code class="language-plaintext highlighter-rouge">paymaster</code> is throttled or banned due to ERC-7562 reputation rules
+        <ul>
+          <li>The <code class="language-plaintext highlighter-rouge">data</code> field SHOULD contain a <code class="language-plaintext highlighter-rouge">paymaster</code> address</li>
+        </ul>
+      </li>
+      <li><strong>code: -32505</strong> - transaction rejected because <code class="language-plaintext highlighter-rouge">paymaster</code> contract’s ERC-7562 stake or unstake-delay is too low
+        <ul>
+          <li>The <code class="language-plaintext highlighter-rouge">data</code> field SHOULD contain a <code class="language-plaintext highlighter-rouge">paymaster</code> address</li>
+          <li>The <code class="language-plaintext highlighter-rouge">data</code> field SHOULD contain a <code class="language-plaintext highlighter-rouge">minimumStake</code> and <code class="language-plaintext highlighter-rouge">minimumUnstakeDelay</code></li>
+        </ul>
+      </li>
+      <li><strong>code: -32507</strong> - transaction rejected because of wallet signature check failed</li>
+      <li><strong>code: -32508</strong> - transaction rejected because paymaster balance can’t cover all pending <code class="language-plaintext highlighter-rouge">UserOperations</code>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="example">Example:</h5>
+
+<p>Request:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">jsonrpc</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2.0</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">method</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">eth_sendUserOperation</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">params</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nx">eip7702Auth</span><span class="p">,</span> <span class="c1">// an EIP-7702 authorization tuple</span>
+      <span class="nx">sender</span><span class="p">,</span> <span class="c1">// address</span>
+      <span class="nx">nonce</span><span class="p">,</span> <span class="c1">// uint256</span>
+      <span class="nx">factory</span><span class="p">,</span> <span class="c1">// address</span>
+      <span class="nx">factoryData</span><span class="p">,</span> <span class="c1">// bytes</span>
+      <span class="nx">callData</span><span class="p">,</span> <span class="c1">// bytes</span>
+      <span class="nx">callGasLimit</span><span class="p">,</span> <span class="c1">// uint256</span>
+      <span class="nx">verificationGasLimit</span><span class="p">,</span> <span class="c1">// uint256</span>
+      <span class="nx">preVerificationGas</span><span class="p">,</span> <span class="c1">// uint256</span>
+      <span class="nx">maxFeePerGas</span><span class="p">,</span> <span class="c1">// uint256</span>
+      <span class="nx">maxPriorityFeePerGas</span><span class="p">,</span> <span class="c1">// uint256</span>
+      <span class="nx">paymaster</span><span class="p">,</span> <span class="c1">// address</span>
+      <span class="nx">paymasterVerificationGasLimit</span><span class="p">,</span> <span class="c1">// uint256</span>
+      <span class="nx">paymasterPostOpGasLimit</span><span class="p">,</span> <span class="c1">// uint256</span>
+      <span class="nx">paymasterData</span><span class="p">,</span> <span class="c1">// bytes</span>
+      <span class="nx">signature</span> <span class="c1">// bytes</span>
+    <span class="p">},</span>
+    <span class="nx">entryPoint</span> <span class="c1">// address</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>Response:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0x123456789012345678901234567890123456789012345678901234567890abcd"
+}
+</code></pre></div></div>
+
+<h5 id="example-failure-responses">Example failure responses:</h5>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AA21 didn't pay prefund"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-32500</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paymaster stake too low"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"paymaster"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x123456789012345678901234567890123456790"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"minimumStake"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xde0b6b3a7640000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"minimumUnstakeDelay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x15180"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">-32504</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h5 id="support-for-eip-7702-authorizations">Support for <a href="./eip-7702.md">EIP-7702</a> authorizations</h5>
+
+<p>On networks with <a href="./eip-7702">EIP-7702</a> activated, the <code class="language-plaintext highlighter-rouge">UserOperation</code> object may also contain an <code class="language-plaintext highlighter-rouge">eip7702Auth</code> tuple.
+Notice that according to EIP-7702 an <code class="language-plaintext highlighter-rouge">eip7702Auth</code> tuple must be provided only to perform a <strong>change</strong> of the authorization address.
+Once the necessary <code class="language-plaintext highlighter-rouge">eip7702Auth</code> tuple was stored on-chain,
+users are not required to provide the same <code class="language-plaintext highlighter-rouge">eip7702Auth</code> tuple for any consequent
+<code class="language-plaintext highlighter-rouge">UserOperation</code>.</p>
+
+<p>Separately, the fields <code class="language-plaintext highlighter-rouge">factory</code> and <code class="language-plaintext highlighter-rouge">factoryData</code> have a modified behaviour when using an EIP-7702 authorized <code class="language-plaintext highlighter-rouge">sender</code>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">factory</code> field SHOULD be set to exactly the <code class="language-plaintext highlighter-rouge">INITCODE_EIP7702_MARKER = 0x7702</code> flag when using an EIP-7702 authorized <code class="language-plaintext highlighter-rouge">sender</code>.
+Passing his flag instructs the <code class="language-plaintext highlighter-rouge">EntryPoint</code> contract to verify the <code class="language-plaintext highlighter-rouge">sender</code> address contains a valid EIP-7702 authorization.</p>
+
+<p>When <code class="language-plaintext highlighter-rouge">INITCODE_EIP7702_MARKER</code> is specified, the <code class="language-plaintext highlighter-rouge">factoryData</code> value is passed directly to the <code class="language-plaintext highlighter-rouge">sender</code> contract,
+instead of the <code class="language-plaintext highlighter-rouge">factory</code> contract.
+This is done as a separate call before the <code class="language-plaintext highlighter-rouge">validateUserOp</code> is called,
+meaning the <code class="language-plaintext highlighter-rouge">sender</code> contract will be called two times during validation.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">factoryData</code> value can be left empty. In this case, the call will not be performed.</p>
+
+<p>The purpose of this <code class="language-plaintext highlighter-rouge">factoryData</code> call is to provide the EIP-7702 <code class="language-plaintext highlighter-rouge">sender</code> contract an ability to initialize its
+storage before accepting the <code class="language-plaintext highlighter-rouge">UserOperation</code> via the <code class="language-plaintext highlighter-rouge">validateUserOp</code> function.</p>
+
+<h4 id="eth_estimateuseroperationgas">eth_estimateUserOperationGas</h4>
+
+<p>Estimate the gas values for a <code class="language-plaintext highlighter-rouge">UserOperation</code>.
+Given <code class="language-plaintext highlighter-rouge">UserOperation</code> optionally without gas limits and gas prices, return the needed gas limits.
+The signature field is ignored by the wallet, so that the operation will not require the user’s approval.
+Still, it might require putting a “stub” <code class="language-plaintext highlighter-rouge">signature</code> value, e.g. a <code class="language-plaintext highlighter-rouge">signature</code> byte array of the right length.
+If the UserOperation contains an <code class="language-plaintext highlighter-rouge">eip7702Auth</code> tuple, for the purpose of estimation the signature should be ignored, and the tuple should be evaluated as if it was signed by the <code class="language-plaintext highlighter-rouge">sender</code></p>
+
+<p><strong>Parameters</strong>:</p>
+<ul>
+  <li>Same as <code class="language-plaintext highlighter-rouge">eth_sendUserOperation</code><br />
+All gas limits and fees parameters are optional, but are used if specified.<br />
+<code class="language-plaintext highlighter-rouge">maxFeePerGas</code> and <code class="language-plaintext highlighter-rouge">maxPriorityFeePerGas</code> default to zero, so no payment is required by neither account nor paymaster.</li>
+  <li>Optionally accepts the <code class="language-plaintext highlighter-rouge">State Override Set</code> to allow users to modify the state during the gas estimation.<br />
+This field as well as its behavior is equivalent to the ones defined for <code class="language-plaintext highlighter-rouge">eth_call</code> RPC method.</li>
+</ul>
+
+<p><strong>Return Values:</strong></p>
+
+<ul>
+  <li><strong>preVerificationGas</strong> gas overhead of this <code class="language-plaintext highlighter-rouge">UserOperation</code></li>
+  <li><strong>verificationGasLimit</strong> estimation of gas limit required by the validation of this <code class="language-plaintext highlighter-rouge">UserOperation</code></li>
+  <li><strong>paymasterVerificationGasLimit</strong> estimation of gas limit required by the paymaster verification<br />
+Returned only if the <code class="language-plaintext highlighter-rouge">UserOperation</code> specifies a <code class="language-plaintext highlighter-rouge">Paymaster</code> address</li>
+  <li><strong>callGasLimit</strong> estimation of gas limit required by the inner account execution</li>
+</ul>
+
+<p><strong>Note:</strong> actual <code class="language-plaintext highlighter-rouge">postOpGasLimit</code> cannot be reliably estimated.<br />
+Paymasters should provide this value to account, and require that specific value on-chain during validation.</p>
+
+<h5 id="error-codes">Error Codes:</h5>
+
+<p>Same as <code class="language-plaintext highlighter-rouge">eth_sendUserOperation</code>
+This operation may also return an error if either the inner call to the account contract reverts,
+or paymaster’s <code class="language-plaintext highlighter-rouge">postOp</code> call reverts.</p>
+
+<h4 id="eth_getuseroperationbyhash">eth_getUserOperationByHash</h4>
+
+<p>Return a <code class="language-plaintext highlighter-rouge">UserOperation</code>object based on a <code class="language-plaintext highlighter-rouge">userOpHash</code> value returned by <code class="language-plaintext highlighter-rouge">eth_sendUserOperation</code>.</p>
+
+<p><strong>Parameters</strong></p>
+
+<ul>
+  <li><strong>hash</strong> a <code class="language-plaintext highlighter-rouge">userOpHash</code> value returned by <code class="language-plaintext highlighter-rouge">eth_sendUserOperation</code></li>
+</ul>
+
+<p><strong>Return value</strong>:</p>
+
+<ul>
+  <li>If the <code class="language-plaintext highlighter-rouge">UserOperation</code> is included in a block:
+    <ul>
+      <li>Return a full UserOperation, with the addition of <code class="language-plaintext highlighter-rouge">entryPoint</code>, <code class="language-plaintext highlighter-rouge">blockNumber</code>, <code class="language-plaintext highlighter-rouge">blockHash</code> and <code class="language-plaintext highlighter-rouge">transactionHash</code>.</li>
+    </ul>
+  </li>
+  <li>Else if the <code class="language-plaintext highlighter-rouge">UserOperation</code> is pending in the bundler’s mempool:
+    <ul>
+      <li>MAY return <code class="language-plaintext highlighter-rouge">null</code>, or a full <code class="language-plaintext highlighter-rouge">UserOperation</code>, with the addition of the <code class="language-plaintext highlighter-rouge">entryPoint</code> field and a <code class="language-plaintext highlighter-rouge">null</code> value for <code class="language-plaintext highlighter-rouge">blockNumber</code>, <code class="language-plaintext highlighter-rouge">blockHash</code> and <code class="language-plaintext highlighter-rouge">transactionHash</code>.</li>
+    </ul>
+  </li>
+  <li>Else:
+    <ul>
+      <li>Return <code class="language-plaintext highlighter-rouge">null</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="eth_getuseroperationreceipt">eth_getUserOperationReceipt</h4>
+
+<p>Return a <code class="language-plaintext highlighter-rouge">UserOperation</code> receipt object based on a <code class="language-plaintext highlighter-rouge">userOpHash</code> value returned by <code class="language-plaintext highlighter-rouge">eth_sendUserOperation</code>.</p>
+
+<p><strong>Parameters</strong></p>
+
+<ul>
+  <li><strong>hash</strong> a <code class="language-plaintext highlighter-rouge">userOpHash</code> value returned by <code class="language-plaintext highlighter-rouge">eth_sendUserOperation</code></li>
+</ul>
+
+<p><strong>Return value</strong>:</p>
+
+<p><code class="language-plaintext highlighter-rouge">null</code> in case the <code class="language-plaintext highlighter-rouge">UserOperation</code> is not yet included in a block, or:</p>
+
+<ul>
+  <li><strong>userOpHash</strong> the request hash</li>
+  <li><strong>entryPoint</strong></li>
+  <li><strong>sender</strong></li>
+  <li><strong>nonce</strong></li>
+  <li><strong>paymaster</strong> the paymaster used for this userOp (or empty)</li>
+  <li><strong>actualGasCost</strong> - the actual amount paid (by account or paymaster) for this <code class="language-plaintext highlighter-rouge">UserOperation</code></li>
+  <li><strong>actualGasUsed</strong> - total gas used by this <code class="language-plaintext highlighter-rouge">UserOperation</code>, including pre-verification, creation, validation and execution</li>
+  <li><strong>success</strong> boolean - whether this execution completed without a revert</li>
+  <li><strong>reason</strong> - in case of reverted <code class="language-plaintext highlighter-rouge">UserOperation</code>, the returned revert reason byte array</li>
+  <li><strong>logs</strong> - the logs generated by this particular <code class="language-plaintext highlighter-rouge">UserOperation</code>, not including logs of other <code class="language-plaintext highlighter-rouge">UserOperations</code> in the same bundle</li>
+  <li><strong>receipt</strong> the <code class="language-plaintext highlighter-rouge">TransactionReceipt</code> object.
+Note that the returned <code class="language-plaintext highlighter-rouge">TransactionReceipt</code> is for the entire bundle, not only for this <code class="language-plaintext highlighter-rouge">UserOperation</code>.</li>
+</ul>
+
+<h4 id="eth_supportedentrypoints">eth_supportedEntryPoints</h4>
+
+<p>Returns an array of the <code class="language-plaintext highlighter-rouge">EntryPoint</code> contracts’ addresses supported by the client.
+The first element of the array <code class="language-plaintext highlighter-rouge">SHOULD</code> be the <code class="language-plaintext highlighter-rouge">EntryPoint</code> contract addressed preferred by the client.</p>
+
+<pre><code class="language-json="># Request
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "eth_supportedEntryPoints",
+  "params": []
+}
+
+# Response
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": [
+    "0xcd01C8aa8995A59eB7B2627E69b40e0524B5ecf8",
+    "0x7A0A0d159218E6a2f407B99173A2b12A6DDfC2a6"
+  ]
+}
+</code></pre>
+
+<h4 id="eth_chainid">eth_chainId</h4>
+
+<p>Returns <a href="./eip-155.md">EIP-155</a> Chain ID.</p>
+
+<pre><code class="language-json="># Request
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "eth_chainId",
+  "params": []
+}
+
+# Response
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0x1"
+}
+</code></pre>
+
+<h3 id="rpc-methods-debug-namespace">RPC methods (debug Namespace)</h3>
+
+<p>This api must only be available in testing mode and is required by the compatibility test suite.
+In production, any <code class="language-plaintext highlighter-rouge">debug_*</code> rpc calls should be blocked.</p>
+
+<h4 id="debug_bundler_clearstate">debug_bundler_clearState</h4>
+
+<p>Clears the bundler mempool and reputation data of paymasters/accounts/factories.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span><span class="w"> </span><span class="err">Request</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"debug_bundler_clearState"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="err">#</span><span class="w"> </span><span class="err">Response</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="debug_bundler_dumpmempool">debug_bundler_dumpMempool</h4>
+
+<p>Dumps the current <code class="language-plaintext highlighter-rouge">UserOperation</code> mempool</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+  <li><strong>EntryPoint</strong> the entrypoint used by <code class="language-plaintext highlighter-rouge">eth_sendUserOperation</code></li>
+</ul>
+
+<p><strong>Returns:</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">array</code> - Array of <code class="language-plaintext highlighter-rouge">UserOperation</code> objects currently in the mempool.</p>
+
+<pre><code class="language-json="># Request
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "debug_bundler_dumpMempool",
+  "params": ["0x1306b01bC3e4AD202612D3843387e94737673F53"]
+}
+
+# Response
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": [
+    {
+        sender, // address
+        nonce, // uint256
+        factory, // address
+        factoryData, // bytes
+        callData, // bytes
+        callGasLimit, // uint256
+        verificationGasLimit, // uint256
+        preVerificationGas, // uint256
+        maxFeePerGas, // uint256
+        maxPriorityFeePerGas, // uint256
+        signature // bytes
+    }
+  ]
+}
+</code></pre>
+
+<h4 id="debug_bundler_sendbundlenow">debug_bundler_sendBundleNow</h4>
+
+<p>Forces the bundler to build and execute a bundle from the mempool as <code class="language-plaintext highlighter-rouge">handleOps()</code> transaction.</p>
+
+<p>Returns: <code class="language-plaintext highlighter-rouge">transactionHash</code></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span><span class="w"> </span><span class="err">Request</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"debug_bundler_sendBundleNow"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="err">#</span><span class="w"> </span><span class="err">Response</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xdead9e43632ac70c46b4003434058b18db0ad809617bd29f3448d46ca9085576"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="debug_bundler_setbundlingmode">debug_bundler_setBundlingMode</h4>
+
+<p>Sets bundling mode.</p>
+
+<p>After setting mode to “manual”, an explicit call to <code class="language-plaintext highlighter-rouge">debug_bundler_sendBundleNow</code> is required to send a bundle.</p>
+
+<h5 id="parameters-1">parameters:</h5>
+
+<table>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mode</code> - ‘manual’</td>
+      <td>‘auto’</td>
+    </tr>
+  </tbody>
+</table>
+
+<pre><code class="language-json="># Request
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "debug_bundler_setBundlingMode",
+  "params": ["manual"]
+}
+
+# Response
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "ok"
+}
+</code></pre>
+
+<h4 id="debug_bundler_setreputation">debug_bundler_setReputation</h4>
+
+<p>Sets the reputation of given addresses.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+  <li>
+    <p>An array of reputation entries to add/replace, with the fields:</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">address</code> - the address to set the reputation for</li>
+      <li><code class="language-plaintext highlighter-rouge">opsSeen</code> - number of times a user operations with that entity was seen and added to the mempool</li>
+      <li><code class="language-plaintext highlighter-rouge">opsIncluded</code> - number of times user operations that use this entity was included on-chain</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>EntryPoint</strong> the entrypoint used by <code class="language-plaintext highlighter-rouge">eth_sendUserOperation</code></p>
+  </li>
+</ul>
+
+<pre><code class="language-json="># Request
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "debug_bundler_setReputation",
+  "params": [
+    [
+      {
+        "address": "0x7A0A0d159218E6a2f407B99173A2b12A6DDfC2a6",
+        "opsSeen": "0x14",
+        "opsIncluded": "0x0D"
+      }
+    ],
+    "0x1306b01bC3e4AD202612D3843387e94737673F53"
+  ]
+}
+
+# Response
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "ok"
+}
+</code></pre>
+
+<h4 id="debug_bundler_dumpreputation">debug_bundler_dumpReputation</h4>
+
+<p>Returns the reputation data of all observed addresses.
+Returns an array of reputation objects, each with the fields described above in <code class="language-plaintext highlighter-rouge">debug_bundler_setReputation</code>.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+  <li><strong>EntryPoint</strong> the entrypoint used by <code class="language-plaintext highlighter-rouge">eth_sendUserOperation</code></li>
+</ul>
+
+<p><strong>Return value:</strong></p>
+
+<p>An array of reputation entries with the fields:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">address</code> - the address to set the reputation for</li>
+  <li><code class="language-plaintext highlighter-rouge">opsSeen</code> - number of times a user operations with that entity was seen and added to the mempool</li>
+  <li><code class="language-plaintext highlighter-rouge">opsIncluded</code> - number of times user operation that use this entity was included on-chain</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><code class="language-plaintext highlighter-rouge">status</code> - (string) The status of the address in the bundler (<code class="language-plaintext highlighter-rouge">'ok'</code></td>
+          <td><code class="language-plaintext highlighter-rouge">'throttled'</code></td>
+          <td><code class="language-plaintext highlighter-rouge">'banned'</code>)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<pre><code class="language-json="># Request
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "debug_bundler_dumpReputation",
+  "params": ["0x1306b01bC3e4AD202612D3843387e94737673F53"]
+}
+
+# Response
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": [
+    { "address": "0x7A0A0d159218E6a2f407B99173A2b12A6DDfC2a6",
+      "opsSeen": "0x14",
+      "opsIncluded": "0x13",
+      "status": "ok"
+    }
+  ]
+}
+</code></pre>
+
+<h4 id="debug_bundler_adduserops">debug_bundler_addUserOps</h4>
+
+<p>Inject <code class="language-plaintext highlighter-rouge">UserOperation</code> objects array into the mempool.
+Assume the given <code class="language-plaintext highlighter-rouge">UserOperation</code> objects all pass validation without actually validating them,
+and accept them directly into the mempool.</p>
+
+<p><strong>Parameters:</strong></p>
+
+<ul>
+  <li>An array of <code class="language-plaintext highlighter-rouge">UserOperation</code> objects</li>
+</ul>
+
+<pre><code class="language-json="># Request
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "debug_bundler_addUserOps",
+  "params": [
+    [
+      { sender: "0xa...", ... },
+      { sender: "0xb...", ... }
+    ]
+  ]
+}
+
+# Response
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "ok"
+}
+</code></pre>
+
+<h2 id="rationale">Rationale</h2>
+
+<ul>
+  <li>explicit debug functions: bundlers are required to provide a set of debug functions, so that the “bundler specification test suite” can be used to verify its adherance to the spec.</li>
+</ul>
+
+<h2 id="backwards-compatibility">Backwards Compatibility</h2>
+
+<p>This proposal defines a new JSON-RPC API standard that does not pose any backwards compatibility challenges.</p>
+
+<h2 id="security-considerations">Security Considerations</h2>
+
+<h3 id="preventing-dos-attacks-on-useroperation-mempool">Preventing DoS attacks on UserOperation mempool</h3>
+
+<p>Operating a public production ERC-4337 node is a computationally intensive task and may be a target of a DoS attack.
+This is addressed by the ERC-7562 validation rules, which defines a way for the ERC-4337 node to track participants’
+reputation as well as preventing nodes from accepting maliciously crafted <code class="language-plaintext highlighter-rouge">UserOperations</code>.</p>
+
+<p>It is strictly recommended that all ERC-4337 nodes also implement ERC-7562 validation rules to minimize DoS risks.</p>
+
+<h3 id="disabling-debug-api-in-production-servers">Disabling <code class="language-plaintext highlighter-rouge">debug</code> API in production servers</h3>
+
+<p>The API defined in the <code class="language-plaintext highlighter-rouge">debug</code> namespace is not intended to ever be publicly available.
+Production implementations of ERC-4337 must never make it available by default,
+and in fact enabling it should result in a clear warning of the potential dangers of exposing this API.</p>
+
+<h2 id="copyright">Copyright</h2>
+
+<p>Copyright and related rights waived via <a href="/LICENSE">CC0</a>.</p>
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ethereum Improvement Proposals</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Ethereum Improvement Proposals</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ethereum/EIPs"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ethereum/EIPs</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Ethereum Improvement Proposals (EIPs) describe standards for the Ethereum platform, including core protocol specifications, client APIs, and contract standards.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"b0ac75650ef241c6b9d979fc00a5cc45","spa":2}' crossorigin="anonymous"></script>
+</body>
+
+</html>

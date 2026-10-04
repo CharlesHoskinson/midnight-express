@@ -1,0 +1,552 @@
+Transaction Pipeline | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Accounts
+Programs
+Instructions
+Transactions
+Transaction Structure
+Transaction Introspection
+Signing in Production
+Partial Signing
+Versioned Transactions
+Transaction Pipeline
+Durable Nonces
+Fees
+Program Derived Address
+Cross-Program Invocation
+Constants Reference
+Table of Contents
+Solana Documentation
+Transactions
+Transaction Pipeline
+Copy Markdown
+Open
+Summary
+Transactions pass through 8 stages: receive, sigverify, sanitize, budget/age
+checks, fee payer validation, account loading, instruction execution, and
+commit.
+Transaction processing pipeline
+When a transaction arrives at a validator, it passes through a series of
+validation and execution stages. The following describes the full pipeline from
+receipt to commit, with source file references into the
+
+agave
+ validator client.
+1. Receive and deserialize
+The validator receives transaction bytes over UDP/QUIC. The raw bytes must fit
+within a single packet (
+PACKET_DATA_SIZE
+ = 1,232 bytes). The bytes are
+deserialized into a 
+VersionedTransaction
+, which contains the signatures
+array and a 
+VersionedMessage
+ (either legacy or v0).
+The 
+v1 format
+ raises
+the limit to 4,096 bytes. QUIC does not cap stream size, so a v1 transaction
+that exceeds the MTU is split across multiple QUIC frames on ingestion rather
+than being rejected.
+2. Signature verification (sigverify)
+Signatures are verified in the
+
+sigverify stage
+
+before the transaction enters the banking stage. For each signature at index
+
+i
+, the verifier checks Ed25519(
+signatures[i]
+, 
+account_keys[i]
+,
+
+message_bytes
+). If any signature is invalid, the packet is discarded.
+Verification is parallelized: the validator splits packet batches into chunks of
+
+VERIFY_PACKET_CHUNK_SIZE
+
+(128) and processes them in parallel.
+3. Sanitize
+The deserialized transaction is sanitized to produce a
+
+SanitizedTransaction
+ (or
+
+RuntimeTransaction
+).
+Sanitization validates structural invariants:
+Number of signatures matches 
+num_required_signatures
+ in the header
+All instruction 
+program_id_index
+ and 
+account_indices
+ are within bounds
+The fee payer (account index 0) is a writable signer
+The 
+RuntimeTransaction
+ wrapper caches precomputed metadata from
+
+TransactionMeta
+:
+the message hash, vote transaction flag, precompile signature counts
+(Ed25519/secp256k1/secp256r1), compute budget instruction details, and total
+instruction data length.
+4. Check compute budget, age, and status cache
+The
+
+check_transactions
+
+method performs several checks per transaction:
+Compute budget
+: The transaction's compute budget instructions are parsed and
+validated first. Fee details are calculated from the budget limits and
+prioritization fee. If the compute budget is invalid or conflicting, the
+transaction fails with compute-budget parsing errors such as
+
+DuplicateInstruction
+, 
+InstructionError(..., InvalidInstructionData)
+, or
+
+InvalidLoadedAccountsDataSizeLimit
+.
+For 
+v1 transactions
+
+there are no compute budget instructions to parse: the limits and priority fee
+come from the message config, and any ComputeBudget instructions in the message
+are ignored for configuration. Config fields left unset default to zero, which
+surfaces later at 
+account loading
+.
+Blockhash age
+: The transaction's 
+recent_blockhash
+ is looked up in the
+
+BlockhashQueue
+.
+If the hash is found and its age is within 
+MAX_PROCESSING_AGE
+ (150 slots),
+the transaction proceeds. If not found, the validator checks for a valid
+
+durable nonce
+.
+Status cache
+: The transaction's message hash is checked against a status
+cache. If found, the transaction is rejected with 
+AlreadyProcessed
+.
+5. Validate nonce and fee payer
+The
+
+validate_transaction_nonce_and_fee_payer
+
+method in the SVM handles two validations:
+Nonce validation
+ (if applicable): For nonce transactions, the validator
+loads the nonce account and verifies:
+The account is owned by the System Program
+It parses as 
+State
+::
+Initialized
+The stored durable nonce matches the transaction's 
+recent_blockhash
+The nonce can be advanced (its current durable nonce differs from the next
+durable nonce, i.e., the nonce has not already been used in the current block)
+The nonce authority has signed the transaction
+If valid, the nonce is advanced to the next durable nonce value. See
+
+validate_transaction_nonce
+.
+Fee payer validation
+: The fee payer account (always index 0) is loaded and
+checked by
+
+validate_fee_payer
+:
+Account must exist (lamports > 0), otherwise 
+AccountNotFound
+Account must be a system account or nonce account, otherwise
+
+InvalidAccountForFee
+Lamports must cover 
+min_balance + total_fee
+, where 
+min_balance
+ is 0 for
+system accounts or 
+rent.minimum_balance(NonceState::size())
+ for nonce
+accounts; otherwise 
+InsufficientFundsForFee
+After fee deduction, the account must remain rent-exempt (cannot transition
+from rent-exempt to rent-paying)
+The fee is deducted from the fee payer at this stage. A snapshot of the
+fee-subtracted fee payer (and advanced nonce, if applicable) is saved as
+
+RollbackAccounts
+, which are the accounts that get committed even if
+execution fails.
+6. Load accounts
+load_transaction
+
+loads all accounts referenced by the transaction. The
+
+AccountLoader
+
+wraps the external account store and maintains a batch-local cache so that
+accounts modified by earlier transactions in the same batch are visible to later
+ones.
+For each non-fee-payer account, the loader:
+Fetches the account from the cache or accounts-db
+Updates rent-exempt status if needed
+Accumulates the account's data size toward the
+
+loaded_accounts_data_size_limit
+
+(default 64 MiB). Each account incurs a base overhead of
+
+TRANSACTION_ACCOUNT_BASE_SIZE
+
+(64 bytes) plus its data length
+For each program invoked by the transaction's instructions, the loader verifies
+that the program account exists and is owned by a valid loader (
+NativeLoader
+
+or one of the 
+PROGRAM_OWNERS
+). Invalid programs fail with
+
+ProgramAccountNotFound
+ or 
+InvalidProgramForExecution
+.
+LoaderV3 (upgradeable) programs implicitly load their associated programdata
+account, which also counts toward the loaded data size limit.
+v1 transactions default this limit to zero
+The 64 MiB default applies to legacy and v0 transactions. In the 
+v1
+format
+ the loaded
+accounts data size limit is read from the message config, and a field left
+unset defaults to 
+0 bytes
+ rather than to a generous default. A v1
+transaction with an empty config therefore fails at this stage with
+
+MaxLoadedAccountsDataSizeExceeded
+ — the requested budget is too small
+for the first account loaded, so the failure lands before any instruction
+runs, with an error that mentions neither v1 nor the config. Always set the
+compute unit limit and the loaded accounts data size limit explicitly when
+building v1 transactions.
+If account loading fails but the fee payer was successfully validated, the
+transaction becomes a
+
+FeesOnly
+
+result: the fee is still collected but no instructions execute.
+7. Execute instructions
+execute_loaded_transaction
+
+creates a 
+TransactionContext
+ with all loaded accounts and invokes
+
+process_message
+.
+Instructions execute sequentially in the order they appear in the message. Each
+instruction invocation creates an 
+InvokeContext
+ and calls the target
+program.
+Instruction processing details
+The runtime's
+
+process_message
+
+function iterates through each instruction and calls the target program:
+For each instruction, the runtime calls
+
+prepare_next_top_level_instruction
+,
+which builds the
+
+InstructionContext
+.
+This context contains references to the instruction's accounts (resolved from
+the compiled indices), the instruction data, and the program account index.
+The runtime checks whether the program is a
+
+precompile
+ (Ed25519, Secp256k1,
+Secp256r1). Precompiles are verified directly without invoking the BPF VM.
+For all other programs, the runtime invokes
+
+process_instruction
+,
+which loads the program from the cache and executes it in the BPF virtual
+machine.
+After the instruction completes, the runtime
+
+verifies
+
+that the total lamport balance across all instruction accounts has not
+changed (
+UnbalancedInstruction
+ check).
+If any instruction fails, the entire transaction is rolled back. No
+intermediate state changes are committed.
+Each instruction increments the instruction trace. The trace includes both
+top-level instructions and any 
+CPIs
+ they invoke. The total
+trace length (top-level instructions plus all nested CPIs) cannot exceed 64
+(
+MAX_INSTRUCTION_TRACE_LENGTH
+). Exceeding this limit returns
+
+InstructionError
+::
+MaxInstructionTraceLengthExceeded
+.
+After execution, the runtime verifies that:
+The sum of lamports across all accounts has not changed
+No account transitioned from rent-exempt to rent-paying
+8. Commit or rollback
+If execution succeeds, the modified account states from the 
+TransactionContext
+
+are written back to the 
+AccountLoader
+'s batch-local cache. If execution
+fails, only the 
+RollbackAccounts
+ (fee payer with fee deducted and advanced
+nonce) are written back. The fee is still collected, but all other account
+changes are discarded.
+Pipeline summary
+Receive packet (UDP/QUIC)
+--> Deserialize into VersionedTransaction
+--> Sigverify (parallel Ed25519 verification)
+--> Sanitize (structural validation, metadata extraction)
+--> Parse compute budget, calculate fees
+--> Check blockhash age (or verify nonce account)
+--> Check status cache (dedup)
+--> Validate nonce authority and advanceability (if nonce transaction)
+--> Validate fee payer (load, check balance, deduct fee)
+--> Load all accounts (with data size limits)
+--> Load programs (verify loaders)
+--> Execute instructions sequentially
+--> Verify post-conditions (lamport balance, rent state)
+--> Commit account changes (or rollback on failure)
+Transaction error reference
+The following table lists all
+
+TransactionError
+
+variants and at which pipeline stage they occur:
+Error
+Stage
+Cause
+AccountInUse
+Scheduling
+Account is already locked by another transaction in the same batch
+AccountLoadedTwice
+Scheduling
+A pubkey appears twice in the transaction's 
+account_keys
+AccountNotFound
+Fee payer validation
+Fee payer account does not exist
+ProgramAccountNotFound
+Account loading
+An invoked program does not exist
+InsufficientFundsForFee
+Fee payer validation
+Fee payer cannot cover fee + rent-exempt minimum
+InvalidAccountForFee
+Fee payer validation
+Fee payer is not a system or nonce account
+AlreadyProcessed
+Status cache
+Transaction was already processed
+BlockhashNotFound
+Age check
+Blockhash not in queue and not a valid nonce
+InstructionError
+Execution
+An error occurred while processing an instruction (includes instruction index and specific 
+InstructionError
+)
+CallChainTooDeep
+Account loading
+Loader call chain is too deep
+MissingSignatureForFee
+Sanitize
+Transaction requires a fee but has no signature present
+InvalidAccountIndex
+Sanitize
+Transaction contains an invalid account reference
+SignatureFailure
+Sigverify
+Ed25519 signature does not verify (packet is discarded)
+InvalidProgramForExecution
+Account loading
+Program is not owned by a valid loader
+SanitizeFailure
+Sanitize
+Transaction failed to sanitize accounts offsets correctly
+ClusterMaintenance
+Scheduling
+Transactions are currently disabled due to cluster maintenance
+AccountBorrowOutstanding
+Execution
+Transaction processing left an account with an outstanding borrowed reference
+WouldExceedMaxBlockCostLimit
+Scheduling
+Transaction would exceed max block cost limit
+UnsupportedVersion
+Sanitize
+Transaction version is unsupported
+InvalidWritableAccount
+Account loading
+Transaction loads a writable account that cannot be written
+WouldExceedMaxAccountCostLimit
+Scheduling
+Transaction would exceed max account cost limit within the block
+WouldExceedAccountDataBlockLimit
+Scheduling
+Transaction would exceed account data limit within the block
+TooManyAccountLocks
+Scheduling
+Transaction locked too many accounts
+AddressLookupTableNotFound
+Account loading
+Address lookup table account does not exist
+InvalidAddressLookupTableOwner
+Account loading
+Address lookup table is owned by the wrong program
+InvalidAddressLookupTableData
+Account loading
+Address lookup table contains invalid data
+InvalidAddressLookupTableIndex
+Account loading
+Address table lookup uses an invalid index
+InvalidRentPayingAccount
+Post-execution check
+Account transitioned from rent-exempt to rent-paying
+WouldExceedMaxVoteCostLimit
+Scheduling
+Transaction would exceed max vote cost limit
+WouldExceedAccountDataTotalLimit
+Scheduling
+Transaction would exceed total account data limit
+DuplicateInstruction
+Compute budget parsing
+Duplicate compute budget instruction variant in the same transaction
+InsufficientFundsForRent
+Post-execution check
+Account does not have enough lamports to cover rent for its data size
+MaxLoadedAccountsDataSizeExceeded
+Account loading
+Total loaded data exceeds the transaction's loaded accounts data size limit (64 MiB by default; 0 in v1 unless set in the message config)
+InvalidLoadedAccountsDataSizeLimit
+Compute budget parsing
+SetLoadedAccountsDataSizeLimit
+ set to 0
+ResanitizationNeeded
+Sanitize
+Transaction differed before/after feature activation and needs resanitization
+ProgramExecutionTemporarilyRestricted
+Account loading
+Program execution is temporarily restricted on the referenced account
+UnbalancedTransaction
+Post-execution check
+Total lamport balance before the transaction does not equal the balance after
+ProgramCacheHitMaxLimit
+Account loading
+Program cache hit max limit
+CommitCancelled
+Commit
+Commit cancelled internally
+Is this page helpful?
+Previous
+Versioned Transactions
+Next
+Durable Nonces
+Table of Contents
+Transaction processing pipeline
+1. Receive and deserialize
+2. Signature verification (sigverify)
+3. Sanitize
+4. Check compute budget, age, and status cache
+5. Validate nonce and fee payer
+6. Load accounts
+7. Execute instructions
+Instruction processing details
+8. Commit or rollback
+Pipeline summary
+Transaction error reference
+Edit Page
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

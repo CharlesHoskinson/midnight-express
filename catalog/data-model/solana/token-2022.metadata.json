@@ -1,0 +1,14 @@
+{
+  "id": "token-2022",
+  "url": "https://www.solana-program.com/docs/token-2022",
+  "resolved_url": "https://www.solana-program.com/docs/token-2022",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:51.778976+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "token-2022.raw",
+  "text_path": "token-2022.txt",
+  "raw_sha256": "d902d6ef2241150b4597ee96a2c8e0c7a1e22790e06415d2620c357d85d73646",
+  "text_sha256": "cf05e64944210731dca3142d98dd57b465162c2a8d3be413a6c5caeaa82e5622",
+  "text_chars": 6257,
+  "evidence_usable": true
+}

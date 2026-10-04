@@ -1,0 +1,13 @@
+{
+  "id": "eip1474",
+  "url": "https://eips.ethereum.org/EIPS/eip-1474",
+  "resolved_url": "https://eips.ethereum.org/EIPS/eip-1474",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:46.890585+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "eip1474.raw",
+  "text_path": "eip1474.txt",
+  "raw_sha256": "a0cd4792dd222d90d81762d89923367831d25d41116d2cefc4584024fffdba04",
+  "text_sha256": "c15cfe6cc8bcdb167579311765929105366939cd72db23d55536284d91d186d7",
+  "text_chars": 63210
+}

@@ -1,0 +1,327 @@
+voteSubscribe | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+Websocket Methods
+accountSubscribe
+accountUnsubscribe
+blockSubscribe
+blockUnsubscribe
+logsSubscribe
+logsUnsubscribe
+programSubscribe
+programUnsubscribe
+rootSubscribe
+rootUnsubscribe
+signatureSubscribe
+signatureUnsubscribe
+slotSubscribe
+slotsUpdatesSubscribe
+slotsUpdatesUnsubscribe
+slotUnsubscribe
+voteSubscribe
+voteUnsubscribe
+Removed Methods
+Solana RPC Methods
+Websocket Methods
+voteSubscribe
+Copy Markdown
+Open
+Subscribe to notifications when a new vote is observed in gossip. These votes
+are pre-consensus, so there is no guarantee they will enter the ledger.
+Source
+vote_subscribe
+Unstable Method
+Agave documents this as an 
+unstable RPC PubSub 
+voteSubscribe
+
+subscription
+.
+It is only available if the validator was started with
+
+--rpc-pubsub-enable-vote-subscription
+.
+params
+None
+result
+integer
+Subscription id. Pass this to
+
+voteUnsubscribe
+.
+cURL
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"voteSubscribe"
+>
+}
+>
+ '
+Try it
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+:
+0
+,
+"id"
+:
+1
+}
+cURL
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"voteSubscribe"
+>
+}
+>
+ '
+Try it
+params
+None
+result
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+:
+0
+,
+"id"
+:
+1
+}
+integer
+Subscription id. Pass this to
+
+voteUnsubscribe
+.
+Notification format
+Notifications are delivered as 
+voteNotification
+.
+{
+"jsonrpc"
+:
+"2.0"
+,
+"method"
+:
+"voteNotification"
+,
+"params"
+: {
+"result"
+: {
+"votePubkey"
+:
+"Dsw9gS3HhFZKtdRETYxZEDfxnhvybP65seF9BJTFnLTZ"
+,
+"slots"
+: [
+326
+,
+327
+,
+328
+,
+329
+,
+330
+,
+331
+,
+332
+,
+333
+,
+334
+,
+335
+,
+336
+,
+337
+,
+338
+,
+339
+,
+340
+,
+341
+,
+342
+,
+343
+,
+344
+,
+345
+,
+346
+,
+347
+,
+348
+,
+349
+,
+350
+,
+351
+,
+352
+,
+353
+,
+354
+,
+355
+,
+356
+],
+"hash"
+:
+"AdU6NQBUhCpLGzsbV9Kn2vBG8pmedvnnSkxuctFQC9Du"
+,
+"timestamp"
+:
+1774643712
+,
+"signature"
+:
+"5Scozdcb2WM3tsEJtQYYYtKR2DbE7nNKsNVo2qQJm1XQ5K97pJnbgkGSiGh5YKWxMzQzDBUmw7A57gwsnqLceR2Q"
+},
+"subscription"
+:
+1
+}
+}
+jsonrpc
+string
+Always 
+"2.0"
+.
+method
+string
+Always 
+"voteNotification"
+.
+params
+object
+Notification wrapper with the vote payload and the subscription id.
+result
+object
+subscription
+integer
+Is this page helpful?
+Previous
+slotUnsubscribe
+Next
+voteUnsubscribe
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

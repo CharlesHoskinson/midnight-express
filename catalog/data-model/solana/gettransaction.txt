@@ -1,0 +1,693 @@
+getTransaction | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+getAccountInfo
+getAgGenesisCert
+getBalance
+getBlock
+getBlockCommitment
+getBlockHeight
+getBlockProduction
+getBlocks
+getBlocksWithLimit
+getBlockTime
+getClusterNodes
+getEpochInfo
+getEpochSchedule
+getFeeForMessage
+getFirstAvailableBlock
+getGenesisHash
+getHealth
+getHighestSnapshotSlot
+getIdentity
+getInflationGovernor
+getInflationRate
+getInflationReward
+getLargestAccounts
+getLatestBlockhash
+getLeaderSchedule
+getMaxRetransmitSlot
+getMaxShredInsertSlot
+getMinimumBalanceForRentExemption
+getMultipleAccounts
+getProgramAccounts
+getRecentPerformanceSamples
+getRecentPrioritizationFees
+getSignaturesForAddress
+getSignatureStatuses
+getSlot
+getSlotLeader
+getSlotLeaders
+getStakeMinimumDelegation
+getSupply
+getTokenAccountBalance
+getTokenAccountsByDelegate
+getTokenAccountsByOwner
+getTokenLargestAccounts
+getTokenSupply
+getTransaction
+getTransactionCount
+getVersion
+getVoteAccounts
+isBlockhashValid
+minimumLedgerSlot
+requestAirdrop
+sendTransaction
+simulateTransaction
+Websocket Methods
+Removed Methods
+Solana RPC Methods
+HTTP Methods
+getTransaction
+Copy Markdown
+Open
+Returns a confirmed transaction by signature, or 
+null
+ if it is not found at
+the requested commitment.
+Source
+get_transaction
+params
+string
+required
+Transaction signature, as base-58 encoded string
+string | object
+optional
+Either a configuration object or, for backwards compatibility, a bare encoding
+string. Prefer the object form.
+Passing a bare encoding string as the second positional parameter is
+deprecated. Use the configuration object instead.
+When this parameter is an object, it may contain the following fields:
+commitment
+string
+maxSupportedTransactionVersion
+number
+encoding
+string
+result
+object | null
+Returns 
+null
+ if transaction is not found or not confirmed, otherwise returns
+an object containing:
+This top-level response uses the shared
+
+Confirmed Transaction Responses
+
+structure.
+blockTime
+i64 | null
+meta
+object | null
+slot
+u64
+transaction
+object | string | [string,encoding]
+version
+"legacy" | number
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"getTransaction"
+,
+>
+"params"
+: [
+>
+"4ReKprwf3WdLHRrzp4ctPWNBsQDPL3VZz3zMmoZfcGJMJCHh5Vq937mPdyxhCbw54wNnA6hZ7KfNpQdpt13yY7A9"
+,
+>
+{
+>
+"commitment"
+:
+"confirmed"
+,
+>
+"maxSupportedTransactionVersion"
+:
+0
+,
+>
+"encoding"
+:
+"json"
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+: {
+"blockTime"
+:
+1763747336
+,
+"meta"
+: {
+}
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"getTransaction"
+,
+>
+"params"
+: [
+>
+"4ReKprwf3WdLHRrzp4ctPWNBsQDPL3VZz3zMmoZfcGJMJCHh5Vq937mPdyxhCbw54wNnA6hZ7KfNpQdpt13yY7A9"
+,
+>
+{
+>
+"commitment"
+:
+"confirmed"
+,
+>
+"maxSupportedTransactionVersion"
+:
+0
+,
+>
+"encoding"
+:
+"json"
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+params
+string
+required
+Transaction signature, as base-58 encoded string
+string | object
+optional
+Either a configuration object or, for backwards compatibility, a bare encoding
+string. Prefer the object form.
+Passing a bare encoding string as the second positional parameter is
+deprecated. Use the configuration object instead.
+When this parameter is an object, it may contain the following fields:
+commitment
+string
+maxSupportedTransactionVersion
+number
+encoding
+string
+result
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+: {
+"blockTime"
+:
+1763747336
+,
+"meta"
+: {
+}
+object | null
+Returns 
+null
+ if transaction is not found or not confirmed, otherwise returns
+an object containing:
+This top-level response uses the shared
+
+Confirmed Transaction Responses
+
+structure.
+blockTime
+i64 | null
+meta
+object | null
+slot
+u64
+transaction
+object | string | [string,encoding]
+version
+"legacy" | number
+Example Results
+The following examples show the responses for a transaction that creates an
+
+associated token account
+,
+presented for each supported 
+encoding
+ parameter.
+Json
+JsonParsed
+Base64
+Base58
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+: {
+"blockTime"
+:
+1763751415
+,
+"meta"
+: {
+"computeUnitsConsumed"
+:
+21889
+,
+"costUnits"
+:
+23273
+,
+"err"
+:
+null
+,
+"fee"
+:
+5000
+,
+"innerInstructions"
+: [
+{
+"index"
+:
+0
+,
+"instructions"
+: [
+{
+"accounts"
+: [
+3
+],
+"data"
+:
+"84eT"
+,
+"programIdIndex"
+:
+5
+,
+"stackHeight"
+:
+2
+},
+{
+"accounts"
+: [
+0
+,
+1
+],
+"data"
+:
+"11119os1e9qSs2u7TsThXqkBSRVFxhmYaFKFZ1waB2X7armDmvK3p5GmLdUxYdg3h7QSrL"
+,
+"programIdIndex"
+:
+2
+,
+"stackHeight"
+:
+2
+},
+{
+"accounts"
+: [
+1
+],
+"data"
+:
+"P"
+,
+"programIdIndex"
+:
+5
+,
+"stackHeight"
+:
+2
+},
+{
+"accounts"
+: [
+1
+,
+3
+],
+"data"
+:
+"6QFLvqUwxAjuz2HvEPJqmSbNyCeouS45dJEowLgrYTXLr"
+,
+"programIdIndex"
+:
+5
+,
+"stackHeight"
+:
+2
+}
+]
+}
+],
+"loadedAddresses"
+: {
+"readonly"
+: [],
+"writable"
+: []
+},
+"logMessages"
+: [
+"Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [1]"
+,
+"Program log: Create"
+,
+"Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]"
+,
+"Program log: Instruction: GetAccountDataSize"
+,
+"Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 1595 of 193103 compute units"
+,
+"Program return: TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA pQAAAAAAAAA="
+,
+"Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success"
+,
+"Program 11111111111111111111111111111111 invoke [2]"
+,
+"Program 11111111111111111111111111111111 success"
+,
+"Program log: Initialize the associated token account"
+,
+"Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]"
+,
+"Program log: Instruction: InitializeImmutableOwner"
+,
+"Program log: Please upgrade to SPL Token 2022 for immutable owner support"
+,
+"Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 1405 of 186490 compute units"
+,
+"Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success"
+,
+"Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA invoke [2]"
+,
+"Program log: Instruction: InitializeAccount3"
+,
+"Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA consumed 4214 of 182608 compute units"
+,
+"Program TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA success"
+,
+"Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 21889 of 200000 compute units"
+,
+"Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success"
+],
+"postBalances"
+: [
+996484120
+,
+2039280
+,
+1
+,
+1461600
+,
+933913600
+,
+8468187701
+],
+"postTokenBalances"
+: [
+{
+"accountIndex"
+:
+1
+,
+"mint"
+:
+"5kR7n7QJv85NrwwXdYWZ52qkRcyvXqKWDPNooYcfDV6e"
+,
+"owner"
+:
+"47eFuHR9ste9kopiJ9eRxcwahmE62JovbKe5r7AjANut"
+,
+"programId"
+:
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"0"
+,
+"decimals"
+:
+2
+,
+"uiAmount"
+:
+null
+,
+"uiAmountString"
+:
+"0"
+}
+}
+],
+"preBalances"
+: [
+998528400
+,
+0
+,
+1
+,
+1461600
+,
+933913600
+,
+8468187701
+],
+"preTokenBalances"
+: [],
+"rewards"
+: [],
+"status"
+: {
+"Ok"
+:
+null
+}
+},
+"slot"
+:
+423118809
+,
+"transaction"
+: {
+"message"
+: {
+"accountKeys"
+: [
+"47eFuHR9ste9kopiJ9eRxcwahmE62JovbKe5r7AjANut"
+,
+"9vLSZ1gujMzisVrK5r3ZBXLVJMrF3fp6BtAUDyD94nW2"
+,
+"11111111111111111111111111111111"
+,
+"5kR7n7QJv85NrwwXdYWZ52qkRcyvXqKWDPNooYcfDV6e"
+,
+"ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+,
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+],
+"addressTableLookups"
+: [],
+"header"
+: {
+"numReadonlySignedAccounts"
+:
+0
+,
+"numReadonlyUnsignedAccounts"
+:
+4
+,
+"numRequiredSignatures"
+:
+1
+},
+"instructions"
+: [
+{
+"accounts"
+: [
+0
+,
+1
+,
+0
+,
+3
+,
+2
+,
+5
+],
+"data"
+:
+"1"
+,
+"programIdIndex"
+:
+4
+,
+"stackHeight"
+:
+1
+}
+],
+"recentBlockhash"
+:
+"sammEBUaf2T7Tnr41i5YwWXXrMsTiP3NM6vbAc5tZGU"
+},
+"signatures"
+: [
+"56rgv1Fqg7MHLoct3ESNx8DHeC2c5TFYyK1As35paWn2KYuRuXPFZK3XDEwkkZemVfmnKrkj17mMzz4N1d8kMYC4"
+]
+},
+"version"
+:
+0
+},
+"id"
+:
+1
+}
+Is this page helpful?
+Previous
+getTokenSupply
+Next
+getTransactionCount
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

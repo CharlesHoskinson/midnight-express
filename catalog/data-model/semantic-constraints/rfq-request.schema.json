@@ -1,0 +1,151 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "kind",
+    "requestId",
+    "requesterId",
+    "instrument",
+    "side",
+    "quantity",
+    "limitPrice",
+    "executionTerms",
+    "createdAt",
+    "expiresAt",
+    "instrumentTermsDigest"
+  ],
+  "properties": {
+    "kind": {
+      "const": "rfq.request"
+    },
+    "requestId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+      "maxLength": 96
+    },
+    "requesterId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,95}$",
+      "maxLength": 96
+    },
+    "instrument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "baseAsset",
+        "quoteAsset"
+      ],
+      "properties": {
+        "baseAsset": {
+          "const": "pilot:asset:ABC"
+        },
+        "quoteAsset": {
+          "const": "pilot:fiat:USD"
+        }
+      }
+    },
+    "side": {
+      "enum": [
+        "BUY_BASE",
+        "SELL_BASE"
+      ]
+    },
+    "quantity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "scale",
+        "asset"
+      ],
+      "properties": {
+        "value": {
+          "type": "string",
+          "maxLength": 40,
+          "pattern": "^(0|[1-9][0-9]{0,17})\\.[0-9]{6}$"
+        },
+        "scale": {
+          "const": 6
+        },
+        "asset": {
+          "const": "pilot:asset:ABC"
+        }
+      }
+    },
+    "limitPrice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "scale",
+        "numeratorAsset",
+        "denominatorAsset",
+        "denominatorQuantity",
+        "basis",
+        "feeTreatment"
+      ],
+      "properties": {
+        "value": {
+          "type": "string",
+          "maxLength": 40,
+          "pattern": "^(0|[1-9][0-9]{0,17})\\.[0-9]{4}$"
+        },
+        "scale": {
+          "const": 4
+        },
+        "numeratorAsset": {
+          "const": "pilot:fiat:USD"
+        },
+        "denominatorAsset": {
+          "const": "pilot:asset:ABC"
+        },
+        "denominatorQuantity": {
+          "const": "1.000000"
+        },
+        "basis": {
+          "const": "QUOTE_PER_ONE_BASE"
+        },
+        "feeTreatment": {
+          "const": "EXCLUDES_FEES"
+        }
+      }
+    },
+    "executionTerms": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fillPolicy",
+        "settlementPolicy",
+        "roundingPolicy"
+      ],
+      "properties": {
+        "fillPolicy": {
+          "const": "ALL_OR_NONE"
+        },
+        "settlementPolicy": {
+          "const": "PILOT_OFFCHAIN_COORDINATION_ONLY"
+        },
+        "roundingPolicy": {
+          "const": "USD_TOTAL_HALF_EVEN_2"
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z$",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{3}Z$",
+      "format": "date-time"
+    },
+    "instrumentTermsDigest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mpe:example:rfq-request:1",
+  "title": "Illustrative closed RFQ request, pilot ABC/USD profile"
+}

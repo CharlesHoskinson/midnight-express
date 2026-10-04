@@ -1,0 +1,64 @@
+QuoteRequest | FIX.4.2 | FIX Trading | Orchimate
+Orchimate
+ / 
+FIX Trading
+ / 
+FIX.4.2
+FIX.4.2_EP310
+Orchestra Repository
+Open Local Repository
+Find All
+Message
+Component or Group
+Field
+Code Set
+Datatype
+Indexes
+Messages
+Components
+Groups
+Fields
+Code Sets
+Datatypes
+Message
+QuoteRequest (R)
+ID
+26
+Pedigree
+Added FIX.4.0, Updated EP310
+In some markets it is the practice to request quotes from brokers prior to placement of an order. The quote request message is used for this purpose.
+Field
+Name
+Type
+Req'd
+Comments
+Pedigree
+Component
+StandardHeader
+StandardHeader
+Y
+MsgType = R
+Added FIX.4.0
+131
+QuoteReqID
+String
+Y
+Added FIX.4.0
+Component
+QuotReqGrp
+QuotReqGrp
+Y
+Number of related symbols in Request
+Added FIX.4.2
+Component
+StandardTrailer
+StandardTrailer
+Y
+Added FIX.4.0
+Orchimate Copyright 2026 
+Atomic Wire Technology Limited
+Orchestra Copyright 2026 
+FIX Protocol Ltd
+Terms of Service
+|
+Privacy Policy

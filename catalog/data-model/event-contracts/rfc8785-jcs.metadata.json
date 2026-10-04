@@ -1,0 +1,13 @@
+{
+  "id": "rfc8785-jcs",
+  "url": "https://www.rfc-editor.org/rfc/rfc8785.txt",
+  "resolved_url": "https://www.rfc-editor.org/rfc/rfc8785.txt",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:03:22.313952+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=25)",
+  "raw_path": "rfc8785-jcs.raw",
+  "text_path": "rfc8785-jcs.txt",
+  "raw_sha256": "63d52294eb0e3f0014174288186d388b4ddbf2c67d1ce8af1d9726eb0c3ab240",
+  "text_sha256": "599823eb673a6264e0b24178f3b9fac0acab4429680c278f82a9ffa530b8f8bb",
+  "text_chars": 40542
+}

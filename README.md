@@ -61,3 +61,9 @@ Recommended implementation direction and ranked product portfolio: [stack and us
 ## Architecture showcase
 
 The [interactive architecture page](website/README.md) presents the recommended stack, event journey and ten product priorities. Its [ten-agent study](reviews/architecture-page/README.md) and GPT visual prompts are preserved for review.
+
+## Unified meaning and prototype validation
+
+The [unified model proposal](docs/product-requirements/unified-data-model.md) synthesizes five Scrapling literature studies. The [reference model](model/README.md) supplies closed schemas and unsigned conformance fixtures. The [three-sprint plan](docs/product-requirements/prototype-sprints.md) synthesizes ten design reviews. The static Implementation tab is `website/dist/implementation.html`; it works without JavaScript. These are design/reference artifacts, not completed runtime sprints.
+
+Application domains: [Ethereum](docs/product-requirements/ethereum-application-domain.md), [Solana](docs/product-requirements/solana-application-domain.md) and [machine-readable proposed event catalog](model/domains/README.md). Chain observations and signing/broadcast intents retain separate contracts and authority boundaries.

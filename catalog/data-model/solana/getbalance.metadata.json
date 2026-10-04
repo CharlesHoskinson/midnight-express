@@ -1,0 +1,14 @@
+{
+  "id": "getbalance",
+  "url": "https://solana.com/docs/rpc/http/getbalance",
+  "resolved_url": "https://solana.com/docs/rpc/http/getbalance",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:54.916224+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "getbalance.raw",
+  "text_path": "getbalance.txt",
+  "raw_sha256": "a7c2a579b9aa61ce21230dc5b177849af410dfdb1a94a591883dff58abf2589a",
+  "text_sha256": "4248e7ee247769fe4cab7edf2296366c60daf569bfab7fda9371d57a714d10a1",
+  "text_chars": 3161,
+  "evidence_usable": true
+}

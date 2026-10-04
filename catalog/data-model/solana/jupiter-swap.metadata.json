@@ -1,0 +1,14 @@
+{
+  "id": "jupiter-swap",
+  "url": "https://dev.jup.ag/docs/swap-api",
+  "resolved_url": "https://developers.jup.ag/docs/swap/v1",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:55.646627+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "jupiter-swap.raw",
+  "text_path": "jupiter-swap.txt",
+  "raw_sha256": "6d61606281a6e6d8a59d0cf630c3f1144aedf4ca7002805e2707d3904c5536ab",
+  "text_sha256": "3af11ab4151fe298584cab80c4ae6865b622eeaaab020af93af10a37da1479e9",
+  "text_chars": 3000,
+  "evidence_usable": true
+}

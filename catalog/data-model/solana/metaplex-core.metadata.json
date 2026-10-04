@@ -1,0 +1,14 @@
+{
+  "id": "metaplex-core",
+  "url": "https://developers.metaplex.com/core",
+  "resolved_url": "https://www.metaplex.com/docs/smart-contracts/core",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:55.601040+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "metaplex-core.raw",
+  "text_path": "metaplex-core.txt",
+  "raw_sha256": "29fcc4ecd4d18f8101e012d048e1bed66c56c26f8208556ede6fb6171b42e5ab",
+  "text_sha256": "e31771d3770d01123315c346771d8ddae75d1949d708adc54d7bf18b2f678d96",
+  "text_chars": 8536,
+  "evidence_usable": true
+}

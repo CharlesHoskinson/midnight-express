@@ -1,0 +1,14 @@
+{
+  "id": "cpi",
+  "url": "https://solana.com/docs/core/cpi",
+  "resolved_url": "https://solana.com/docs/core/cpi",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:50.421744+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "cpi.raw",
+  "text_path": "cpi.txt",
+  "raw_sha256": "d841e66e7634ca7637c5b44b70d4e89b309b8809b049956ef0caf43c6c1c0164",
+  "text_sha256": "94ff21b5264f9d5e2ba0f6d619d53806daa5269dae1182f408902a96d6ecbdcf",
+  "text_chars": 3715,
+  "evidence_usable": true
+}

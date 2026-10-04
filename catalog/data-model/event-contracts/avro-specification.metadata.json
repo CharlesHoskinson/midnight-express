@@ -1,0 +1,13 @@
+{
+  "id": "avro-specification",
+  "url": "https://avro.apache.org/docs/1.12.0/specification/",
+  "resolved_url": "https://avro.apache.org/docs/1.12.0/specification/",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:03:22.556270+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=25)",
+  "raw_path": "avro-specification.raw",
+  "text_path": "avro-specification.txt",
+  "raw_sha256": "db1b0aa168aca2eaa1e34161f81688fa3278892517eef09002c771efe2f50dcb",
+  "text_sha256": "b9165f485ba647b8b8a40fc9054cb9497f069b59524071585e567e9a98adadd2",
+  "text_chars": 57057
+}

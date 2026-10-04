@@ -1,0 +1,13 @@
+{
+  "id": "erc4337",
+  "url": "https://ercs.ethereum.org/ERCS/erc-4337",
+  "resolved_url": "https://ercs.ethereum.org/ERCS/erc-4337",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:51.459658+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "erc4337.raw",
+  "text_path": "erc4337.txt",
+  "raw_sha256": "f84ac625bf0a55e5f4a596ced398809b032814c0b482bde696ac24d48dcab53a",
+  "text_sha256": "bb837e91d7deb6edd015842cc664933e3483d54f366e3f127c4dff657a7b7a63",
+  "text_chars": 44850
+}

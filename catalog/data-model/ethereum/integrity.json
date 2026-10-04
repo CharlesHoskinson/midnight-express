@@ -1,0 +1,189 @@
+{
+  "checks": [
+    {
+      "file": "catalog/data-model/ethereum/json-rpc.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/json-rpc.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/execution-api.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/execution-api.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/pubsub.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/pubsub.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/eip1474.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/eip1474.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/eip1898.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/eip1898.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/eip1193.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/eip1193.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/eip2255.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/eip2255.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/eip712.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/eip712.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/eip3085.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/eip3085.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/eip3326.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/eip3326.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/erc20.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/erc20.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/erc721.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/erc721.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/erc1155.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/erc1155.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/abi.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/abi.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/finality.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/finality.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/uniswap-v3-events.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/uniswap-v3-events.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/optimism-bridge.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/optimism-bridge.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/eip4844.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/eip4844.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/eip7702.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/eip7702.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/erc4337.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/erc4337.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/erc7769.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/erc7769.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/eip5792.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/eip5792.txt",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/abi-source.raw",
+      "sha256_matches": true
+    },
+    {
+      "file": "catalog/data-model/ethereum/abi-source.txt",
+      "sha256_matches": true
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,14 @@
+{
+  "id": "rpc-websocket",
+  "url": "https://solana.com/docs/rpc/websocket",
+  "resolved_url": "https://solana.com/docs/rpc/websocket",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:50.643291+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "rpc-websocket.raw",
+  "text_path": "rpc-websocket.txt",
+  "raw_sha256": "92f83b52c4adc67290c00dc4e278d341eaf006655ea17ede221d899a68c9b039",
+  "text_sha256": "41dc2733a8f6d0968d2a4f36a0c4e2cfc696e4ffe200cc845c548ae2e376b631",
+  "text_chars": 4294,
+  "evidence_usable": true
+}

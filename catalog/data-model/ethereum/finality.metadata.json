@@ -1,0 +1,13 @@
+{
+  "id": "finality",
+  "url": "https://ethereum.org/developers/docs/consensus-mechanisms/pos/",
+  "resolved_url": "https://ethereum.org/developers/docs/consensus-mechanisms/pos/",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:50.322216+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "finality.raw",
+  "text_path": "finality.txt",
+  "raw_sha256": "b1489c66da72f2e15cac62c011617fcc35e983b17d773cc81a985321e57d2076",
+  "text_sha256": "25320759c5ee1de9a0b979dc792356f55f3cfa4054d1b07d1629bd4b3b99e226",
+  "text_chars": 18474
+}

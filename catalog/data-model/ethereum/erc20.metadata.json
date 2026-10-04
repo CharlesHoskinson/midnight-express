@@ -1,0 +1,13 @@
+{
+  "id": "erc20",
+  "url": "https://eips.ethereum.org/EIPS/eip-20",
+  "resolved_url": "https://eips.ethereum.org/EIPS/eip-20",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:49.175372+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "erc20.raw",
+  "text_path": "erc20.txt",
+  "raw_sha256": "98bda5e4707841a68684879878c4c165fdaa47d89ed69ebf232ab9be06ff050e",
+  "text_sha256": "a7a6fcc9598e9fb69c067ce4f131081bd62bc54c3f962511cd14a96bcc245962",
+  "text_chars": 6214
+}

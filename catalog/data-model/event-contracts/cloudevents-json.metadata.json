@@ -1,0 +1,13 @@
+{
+  "id": "cloudevents-json",
+  "url": "https://raw.githubusercontent.com/cloudevents/spec/v1.0.2/cloudevents/formats/json-format.md",
+  "resolved_url": "https://raw.githubusercontent.com/cloudevents/spec/v1.0.2/cloudevents/formats/json-format.md",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:03:21.177529+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=25)",
+  "raw_path": "cloudevents-json.raw",
+  "text_path": "cloudevents-json.txt",
+  "raw_sha256": "30778f995a2c82f3ac6c4f7cd56415d675111990151c9ab67bd0a2de1d0e1ce5",
+  "text_sha256": "adc725488054f1f555f99e2b29352b5edb68850fe37be475c92cc55b059d67ef",
+  "text_chars": 17606
+}

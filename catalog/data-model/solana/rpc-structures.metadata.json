@@ -1,0 +1,14 @@
+{
+  "id": "rpc-structures",
+  "url": "https://solana.com/docs/rpc/json-structures",
+  "resolved_url": "https://solana.com/docs/rpc/json-structures",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:50.767214+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "rpc-structures.raw",
+  "text_path": "rpc-structures.txt",
+  "raw_sha256": "fede19d6aa23e4e3fd26e53da3198dd1ca5a6f30fea2c6e26283253fc62289af",
+  "text_sha256": "0ca6aad8cbd96a3c6410996161235ef56477d2c121d97641de4d5e1712616e7c",
+  "text_chars": 44047,
+  "evidence_usable": true
+}

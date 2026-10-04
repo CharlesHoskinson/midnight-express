@@ -1,0 +1,13 @@
+{
+  "id": "eip3085",
+  "url": "https://eips.ethereum.org/EIPS/eip-3085",
+  "resolved_url": "https://eips.ethereum.org/EIPS/eip-3085",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:48.738034+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "eip3085.raw",
+  "text_path": "eip3085.txt",
+  "raw_sha256": "de1162ab61ffbdcad23b060b12d17e78926217395d9d2afe62f3321cd29c8f47",
+  "text_sha256": "4850dd1bba3b38c83b89c61d536a112ce821ea435b2d89d8b5d98a945e4a6849",
+  "text_chars": 10424
+}

@@ -1,0 +1,14 @@
+{
+  "id": "getepochinfo",
+  "url": "https://solana.com/docs/rpc/http/getepochinfo",
+  "resolved_url": "https://solana.com/docs/rpc/http/getepochinfo",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:59.683732+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "getepochinfo.raw",
+  "text_path": "getepochinfo.txt",
+  "raw_sha256": "6e17f37fc5d7c038c15e4961888a578f454a17ec2abea1776e645cfaee23cd9c",
+  "text_sha256": "5c80163a81bae531193dcd6024e27b81d3f0cf961e21650827ccc8add65f5488",
+  "text_chars": 3326,
+  "evidence_usable": true
+}

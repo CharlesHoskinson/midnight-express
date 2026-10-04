@@ -1,0 +1,14 @@
+{
+  "id": "accounts",
+  "url": "https://solana.com/docs/core/accounts",
+  "resolved_url": "https://solana.com/docs/core/accounts",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:50.378793+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "accounts.raw",
+  "text_path": "accounts.txt",
+  "raw_sha256": "6524a0ba9bb20e08bdad76acecf4e584b21c6e81e8f63030c042ad445fc3adc6",
+  "text_sha256": "8a6445d9a6f851b32eb6b66128bd61c925b8b683bad59ee94f617f5977587969",
+  "text_chars": 2694,
+  "evidence_usable": true
+}

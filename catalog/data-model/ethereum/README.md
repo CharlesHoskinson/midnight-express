@@ -1,0 +1,7 @@
+# Ethereum evidence archive
+
+Research snapshot fetched with Scrapling on 2026-10-03. `manifest.json` records requested/resolved URLs, actual status, UTC retrieval time, raw/text SHA-256 and archive paths. `integrity.json` checks every retained file. `inventory.json` is a proposed machine-readable scope inventory, not an executable schema or supported runtime API.
+
+22 successful primary-source captures and one failed capture are retained. Solidity's documentation endpoint returned HTTP 429; that response is not normative evidence. `abi-source` is a successful fallback from the Solidity project's primary repository. Optimism redirected to `/app-developers/guides/bridging/standard-bridge`; the manifest records that actual URL. TLS verification stayed enabled. Moving `main`/`develop` URLs are snapshots pinned by content hash, not immutable release references. They require reviewed release/commit pinning before adapter implementation.
+
+Run `/tmp/midnight-scrapling-env/bin/python catalog/data-model/ethereum/fetch_sources.py` to refresh the complete source list, including the Solidity source fallback. Captures are research evidence, not runtime lookup targets. Some records include upstream example data; no source ABI/schema is installed as an MPE executable contract. Artifact-specific licensing review remains required before importing or distributing generated standards implementations.

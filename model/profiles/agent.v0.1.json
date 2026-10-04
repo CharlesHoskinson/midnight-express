@@ -1,0 +1,17 @@
+{
+  "profile": "agent.v0.1",
+  "version": "0.1",
+  "status": "experimental-model-only",
+  "owner": "MPE model maintainers (proposed)",
+  "schema": "schemas/agent.v0.1.json",
+  "role": "human-approver",
+  "resources": {
+    "schemas/agent.v0.1.json": "sha256:9e37757d5d2b06fbf48aa327e085c46a594b718b601293c4a970453e1fe3db98",
+    "profiles/rules.json": "sha256:f6c791654167f3bdb2875a18f336327f7a64b4ecc90f0aaf7a002c92ed205809",
+    "validator.py": "sha256:82d147699eae68a8fa2be9a8a31bd29f75a59f512b59d15b0fe43b642340ac20"
+  },
+  "core": "private-structured-cloudevents-compatible-v0.1",
+  "workflow": "agent.v0.1",
+  "signatures": "unsigned; no cryptographic authority implemented",
+  "compatibility": "exact local digest only; no adapters"
+}

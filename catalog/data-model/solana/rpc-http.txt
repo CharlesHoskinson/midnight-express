@@ -1,0 +1,297 @@
+Solana RPC HTTP Methods | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+getAccountInfo
+getAgGenesisCert
+getBalance
+getBlock
+getBlockCommitment
+getBlockHeight
+getBlockProduction
+getBlocks
+getBlocksWithLimit
+getBlockTime
+getClusterNodes
+getEpochInfo
+getEpochSchedule
+getFeeForMessage
+getFirstAvailableBlock
+getGenesisHash
+getHealth
+getHighestSnapshotSlot
+getIdentity
+getInflationGovernor
+getInflationRate
+getInflationReward
+getLargestAccounts
+getLatestBlockhash
+getLeaderSchedule
+getMaxRetransmitSlot
+getMaxShredInsertSlot
+getMinimumBalanceForRentExemption
+getMultipleAccounts
+getProgramAccounts
+getRecentPerformanceSamples
+getRecentPrioritizationFees
+getSignaturesForAddress
+getSignatureStatuses
+getSlot
+getSlotLeader
+getSlotLeaders
+getStakeMinimumDelegation
+getSupply
+getTokenAccountBalance
+getTokenAccountsByDelegate
+getTokenAccountsByOwner
+getTokenLargestAccounts
+getTokenSupply
+getTransaction
+getTransactionCount
+getVersion
+getVoteAccounts
+isBlockhashValid
+minimumLedgerSlot
+requestAirdrop
+sendTransaction
+simulateTransaction
+Websocket Methods
+Removed Methods
+Table of Contents
+Solana RPC Methods
+Solana RPC HTTP Methods
+Copy Markdown
+Open
+Open an individual method page for request parameters, examples, and response
+details. For shared response objects reused across HTTP methods, see
+
+Solana RPC JSON Structures Reference
+.
+Request Format
+Solana RPC HTTP methods use
+
+JSON-RPC 2.0
+ over HTTP 
+POST
+. Send
+requests with 
+Content-Type: application/json
+.
+Field
+Type
+Description
+jsonrpc
+string
+JSON-RPC version. Set this to 
+"2.0"
+.
+id
+string | number | null
+Client-supplied request identifier. The server echoes it in the response.
+method
+string
+RPC method name, such as 
+getSlot
+ or 
+getAccountInfo
+.
+params
+array
+Ordered method parameters. Use an empty array when the method takes no parameters.
+Method Reference
+Accounts
+Method
+Description
+getAccountInfo
+Return the account state and metadata for one address.
+getBalance
+Return the lamport balance for one account.
+getLargestAccounts
+Return the 20 largest accounts by lamport balance.
+getMinimumBalanceForRentExemption
+Return the lamports required to make an account rent exempt at a given data size.
+getMultipleAccounts
+Return account state and metadata for multiple addresses in request order.
+getProgramAccounts
+Return accounts owned by a program, optionally filtered by data content or size.
+Tokens
+Method
+Description
+getTokenAccountBalance
+Return the token balance for an SPL Token account.
+getTokenAccountsByDelegate
+Return SPL Token accounts whose approved delegate matches an address.
+getTokenAccountsByOwner
+Return SPL Token accounts whose owner matches an address.
+getTokenLargestAccounts
+Return the 20 largest token accounts for an SPL Token mint.
+getTokenSupply
+Return the current supply for an SPL Token mint.
+Transactions
+Method
+Description
+getFeeForMessage
+Return the lamports the cluster would charge to process a serialized message.
+getLatestBlockhash
+Return the latest recent blockhash and its last valid block height.
+getRecentPrioritizationFees
+Return recent prioritization-fee samples.
+getSignaturesForAddress
+Return confirmed transaction signatures for transactions that reference an address.
+getSignatureStatuses
+Return the current status for each supplied transaction signature.
+getTransaction
+Return a confirmed transaction by signature.
+getTransactionCount
+Return the total number of transactions processed at the requested commitment.
+isBlockhashValid
+Return whether a blockhash is still valid at the requested commitment.
+requestAirdrop
+Request a faucet transaction that transfers lamports to the supplied Pubkey.
+sendTransaction
+Submit a signed transaction and return its first signature if the RPC accepts it.
+simulateTransaction
+Simulate a signed transaction without broadcasting it.
+Blocks
+Method
+Description
+getBlock
+Return a confirmed block for a slot, including transaction data in the requested encoding.
+getBlockCommitment
+Return the stake-weighted commitment information recorded for a slot.
+getBlockHeight
+Return the block height the node sees at the requested commitment.
+getBlockProduction
+Return validator block-production counts for a slot range.
+getBlocks
+Return confirmed block slots in a slot range.
+getBlocksWithLimit
+Return up to 
+limit
+ confirmed block slots starting at a slot.
+getBlockTime
+Return the estimated production time for a block.
+getFirstAvailableBlock
+Return the lowest confirmed block slot still available in the node's ledger.
+getRecentPerformanceSamples
+Return recent 60-second performance samples.
+minimumLedgerSlot
+Return the lowest slot still present in the node's local ledger.
+Cluster
+Method
+Description
+getClusterNodes
+Return network endpoints, shred version, feature set, and software version for known cluster nodes.
+getEpochInfo
+Return the current epoch position and counters the node sees.
+getEpochSchedule
+Return the cluster's epoch schedule parameters.
+getGenesisHash
+Return the genesis hash for the connected cluster.
+getHealth
+Return whether the RPC node is healthy relative to the cluster tip.
+getHighestSnapshotSlot
+Return the highest full snapshot slot and, when available, the highest incremental snapshot slot built on it.
+getIdentity
+Return the RPC node's identity Pubkey.
+getLeaderSchedule
+Return the leader schedule for an epoch.
+getMaxRetransmitSlot
+Return the highest slot this node has observed in retransmit.
+getMaxShredInsertSlot
+Return the highest slot for which this node has inserted shreds into blockstore.
+getSlot
+Return the highest slot reached at the requested commitment.
+getSlotLeader
+Return the validator identity scheduled to produce the slot at the requested commitment.
+getSlotLeaders
+Return the validator identity for each slot in a contiguous slot range.
+getVersion
+Return the node's software version string and optional feature set identifier.
+getVoteAccounts
+Return vote accounts visible at the requested commitment, partitioned into 
+current
+ and 
+delinquent
+.
+Economics
+Method
+Description
+getInflationGovernor
+Return the inflation governor parameters active at the requested commitment.
+getInflationRate
+Return the current epoch's effective inflation rates.
+getInflationReward
+Return the inflation reward credited to each supplied address for an epoch.
+getStakeMinimumDelegation
+Return the cluster's current minimum stake delegation, in lamports.
+getSupply
+Return total, circulating, and non-circulating supply data.
+Is this page helpful?
+Previous
+JSON Reference
+Next
+getAccountInfo
+Table of Contents
+Request Format
+Method Reference
+Accounts
+Tokens
+Transactions
+Blocks
+Cluster
+Economics
+Edit Page
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

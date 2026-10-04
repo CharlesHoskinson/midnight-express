@@ -1,0 +1,248 @@
+Solana RPC WebSocket Methods | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+Websocket Methods
+accountSubscribe
+accountUnsubscribe
+blockSubscribe
+blockUnsubscribe
+logsSubscribe
+logsUnsubscribe
+programSubscribe
+programUnsubscribe
+rootSubscribe
+rootUnsubscribe
+signatureSubscribe
+signatureUnsubscribe
+slotSubscribe
+slotsUpdatesSubscribe
+slotsUpdatesUnsubscribe
+slotUnsubscribe
+voteSubscribe
+voteUnsubscribe
+Removed Methods
+Table of Contents
+Solana RPC Methods
+Solana RPC WebSocket Methods
+Copy Markdown
+Open
+Open an individual method page for request parameters, examples, notification
+payloads, and unsubscription behavior. For shared response objects reused across
+WebSocket methods, see
+
+Solana RPC JSON Structures Reference
+.
+Request Format
+Solana RPC WebSocket methods use
+
+JSON-RPC 2.0
+ over a persistent
+WebSocket connection. Connect to the PubSub endpoint at 
+ws://<ADDRESS>/
+ or
+
+wss://<ADDRESS>/
+.
+Field
+Type
+Description
+jsonrpc
+string
+JSON-RPC version. Set this to 
+"2.0"
+.
+id
+string | number | null
+Client-supplied request identifier. The server echoes it in the subscribe response.
+method
+string
+PubSub method name, such as 
+accountSubscribe
+ or 
+slotSubscribe
+.
+params
+array
+Ordered method parameters. Use an empty array when the method takes no parameters.
+Many subscription methods take the optional
+
+commitment
+ parameter
+. If
+unspecified, subscriptions that accept commitment default to 
+finalized
+.
+Notification Format
+After a subscribe request succeeds, the server returns a numeric subscription id
+in the JSON-RPC response. Later notifications are pushed as JSON-RPC messages
+with a method-specific notification name and the active subscription id.
+Field
+Type
+Description
+jsonrpc
+string
+JSON-RPC version.
+method
+string
+Notification name, such as 
+accountNotification
+ or 
+slotNotification
+.
+params.result
+any
+Method-specific notification payload. Many methods include a 
+context
+ object and a method-specific 
+value
+.
+params.subscription
+number
+Subscription id returned by the corresponding 
+*Subscribe
+ method.
+For notifications that include 
+context
+ and 
+value
+, PubSub includes
+
+context.slot
+ and omits 
+context.apiVersion
+.
+Method Reference
+Accounts
+Method
+Description
+accountSubscribe
+Subscribe to notifications when one account's lamports or data change.
+accountUnsubscribe
+Cancel an 
+accountSubscribe
+ subscription.
+programSubscribe
+Subscribe to notifications for accounts owned by a program.
+programUnsubscribe
+Cancel a 
+programSubscribe
+ subscription.
+Transactions
+Method
+Description
+logsSubscribe
+Subscribe to transaction log messages that match a log filter.
+logsUnsubscribe
+Cancel a 
+logsSubscribe
+ subscription.
+signatureSubscribe
+Subscribe to status notifications for one transaction signature.
+signatureUnsubscribe
+Cancel a 
+signatureSubscribe
+ subscription.
+Blocks
+Method
+Description
+blockSubscribe
+Subscribe to block notifications as blocks reach confirmed or finalized commitment.
+blockUnsubscribe
+Cancel a 
+blockSubscribe
+ subscription.
+Cluster
+Method
+Description
+rootSubscribe
+Subscribe to notifications when the validator sets a new root slot.
+rootUnsubscribe
+Cancel a 
+rootSubscribe
+ subscription.
+slotSubscribe
+Subscribe to notifications when the validator processes a new slot.
+slotUnsubscribe
+Cancel a 
+slotSubscribe
+ subscription.
+slotsUpdatesSubscribe
+Subscribe to tagged slot lifecycle updates emitted by the validator.
+slotsUpdatesUnsubscribe
+Cancel a 
+slotsUpdatesSubscribe
+ subscription.
+voteSubscribe
+Subscribe to gossip vote notifications.
+voteUnsubscribe
+Cancel a 
+voteSubscribe
+ subscription.
+Is this page helpful?
+Previous
+simulateTransaction
+Next
+accountSubscribe
+Table of Contents
+Request Format
+Notification Format
+Method Reference
+Accounts
+Transactions
+Blocks
+Cluster
+Edit Page
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.
