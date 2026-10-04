@@ -15,3 +15,5 @@ Research date: 3 October 2026, America/Denver. Comparisons describe documented m
 The follow-up [GossipSub + Signal feasibility assessment](../../docs/product-requirements/gossipsub-signal-option.md) has a further three-agent study of each component ([coverage](gossipsub-signal/coverage.json)), for six additional reviewer/component studies.
 
 The subsequent [original-requirements fit study](requirements-fit/README.md) covers all twelve requirement areas and three independent assessments of each of fourteen open-source components. It inventories all 625 consolidated records while distinguishing 510 live obligations from aliases and withdrawals.
+
+- [Semaphore: three independent studies and membership extraction](semaphore/README.md).

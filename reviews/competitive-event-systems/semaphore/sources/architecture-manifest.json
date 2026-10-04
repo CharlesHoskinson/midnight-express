@@ -1,0 +1,76 @@
+{
+  "tool": "Scrapling 0.4.15",
+  "repository_commit": "38d99081d868acf85e19f217ba427fc3a9eb6111",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/38d99081d868acf85e19f217ba427fc3a9eb6111/packages/circuits/src/semaphore.circom",
+      "status": 200,
+      "file": "c1ba1bd4bbab.txt",
+      "retrieved_utc": "2026-10-04T03:17:23.830355+00:00",
+      "sha256": "d67fbae4504476569c03ce7beb23bacf4c4ebb9cbd8f49888f57ed14b288e486"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/38d99081d868acf85e19f217ba427fc3a9eb6111/packages/proof/src/generate-proof.ts",
+      "status": 200,
+      "file": "f6af1953a91e.txt",
+      "retrieved_utc": "2026-10-04T03:17:24.042339+00:00",
+      "sha256": "6db2d11a78c225a9bfa89120e352a56faece952302b0c1f82d3baea83c6cc342"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/38d99081d868acf85e19f217ba427fc3a9eb6111/packages/proof/src/verify-proof.ts",
+      "status": 200,
+      "file": "ece02df239e2.txt",
+      "retrieved_utc": "2026-10-04T03:17:23.837454+00:00",
+      "sha256": "2f72a3610bf2fcc1867ecf5d48363ce802d459bb2d6edc58b7238ca54a2b375a"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/38d99081d868acf85e19f217ba427fc3a9eb6111/packages/contracts/contracts/Semaphore.sol",
+      "status": 200,
+      "file": "953b2bb0938a.txt",
+      "retrieved_utc": "2026-10-04T03:17:23.834103+00:00",
+      "sha256": "bb6d92d9d4796bb43c48586366c7971fe63df35f01cb1ba27015a40116ded885"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/38d99081d868acf85e19f217ba427fc3a9eb6111/packages/identity/src/index.ts",
+      "status": 200,
+      "file": "3b9ed7d2c032.txt",
+      "retrieved_utc": "2026-10-04T03:17:24.838039+00:00",
+      "sha256": "910b431dd57f62ed087521b3af08a6b0389d923b4059e86641cfa92f85027d31"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/38d99081d868acf85e19f217ba427fc3a9eb6111/packages/group/src/index.ts",
+      "status": 200,
+      "file": "df8a608ebe0e.txt",
+      "retrieved_utc": "2026-10-04T03:17:24.845977+00:00",
+      "sha256": "98fb1d1ce956ab8cc88a7a494f44a6ae8cacef8b9ff1e59acca53f8adcb627d4"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/38d99081d868acf85e19f217ba427fc3a9eb6111/LICENSE",
+      "status": 200,
+      "file": "00457a569baf.txt",
+      "retrieved_utc": "2026-10-04T03:17:24.849769+00:00",
+      "sha256": "cfcf88f57e7bdeeae0a02b1ed1c2e320b88ebfe527fd25b5237b7dc829c7620c"
+    },
+    {
+      "url": "https://docs.semaphore.pse.dev/guides/proofs",
+      "status": 200,
+      "file": "b76ee5d10e3e.txt",
+      "retrieved_utc": "2026-10-04T03:17:24.871042+00:00",
+      "sha256": "4a13b9048119c52dd0f6b61e92a87ef7057c152e984e4e96715b7b37b29f7b2a"
+    },
+    {
+      "url": "https://docs.semaphore.pse.dev/technical-reference/circuits",
+      "status": 200,
+      "file": "0fd96fcbdf88.txt",
+      "retrieved_utc": "2026-10-04T03:17:25.660471+00:00",
+      "sha256": "f69d8551beb1e16b80839fc86b03ea4f90cbbd3e357ea6d467debb4fcfa1fd88"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ethereum/access-layer-specs/main/specs/3-semaphore-v4/README.md",
+      "status": 200,
+      "file": "21705e49b3e4.txt",
+      "retrieved_utc": "2026-10-04T03:17:25.843610+00:00",
+      "sha256": "b9c9084b391e66ca7258a30cd71671ef96030a14a1b2628492323e4f41080820"
+    }
+  ]
+}

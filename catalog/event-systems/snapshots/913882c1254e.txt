@@ -1,0 +1,457 @@
+GitHub - semaphore-protocol/semaphore: A zero-knowledge protocol for anonymous interactions. · GitHub
+Skip to content
+Navigation Menu
+Sign in
+Appearance settings
+Platform
+AI CODE CREATION
+GitHub Copilot
+Write better code with AI
+GitHub Copilot app
+Direct agents from issue to merge
+MCP Registry
+Integrate external tools
+DEVELOPER WORKFLOWS
+Actions
+Automate any workflow
+Codespaces
+Instant dev environments
+Issues
+Plan and track work
+Code Review
+Manage code changes
+Code Quality
+Enforce quality at merge
+APPLICATION SECURITY
+GitHub Advanced Security
+Find and fix vulnerabilities
+Code security
+Secure your code as you build
+Secret protection
+Stop leaks before they start
+EXPLORE
+Why GitHub
+Documentation
+Blog
+Changelog
+Marketplace
+View all features
+Solutions
+BY COMPANY SIZE
+Enterprises
+Small and medium teams
+Startups
+Nonprofits
+BY USE CASE
+App Modernization
+DevSecOps
+DevOps
+CI/CD
+View all use cases
+BY INDUSTRY
+Healthcare
+Financial services
+Manufacturing
+Government
+View all industries
+View all solutions
+Resources
+EXPLORE BY TOPIC
+AI
+Software Development
+DevOps
+Security
+View all topics
+EXPLORE BY TYPE
+Customer stories
+Events & webinars
+Ebooks & reports
+Business insights
+GitHub Skills
+SUPPORT & SERVICES
+Documentation
+Customer support
+Community forum
+Trust center
+Partners
+View all resources
+Open Source
+COMMUNITY
+GitHub Sponsors
+Fund open source developers
+PROGRAMS
+Security Lab
+Maintainer Community
+GitHub Stars
+Archive Program
+REPOSITORIES
+Topics
+Trending
+Collections
+Enterprise
+ENTERPRISE SOLUTIONS
+Enterprise platform
+AI-powered developer platform
+AVAILABLE ADD-ONS
+GitHub Advanced Security
+Enterprise-grade security features
+Copilot for Business
+Enterprise-grade AI features
+Premium Support
+Enterprise-grade 24/7 support
+Pricing
+Search
+/
+Sign in
+Sign up
+Appearance settings
+You signed in with another tab or window.
+Reload
+ to refresh your session.
+You signed out in another tab or window.
+Reload
+ to refresh your session.
+You switched accounts on another tab or window.
+Reload
+ to refresh your session.
+Dismiss alert
+{{ message }}
+
+        semaphore-protocol
+
+/
+semaphore
+Public
+Notifications
+
+You must be signed in to change notification settings
+Fork
+
+299
+
+          Star
+
+1.1k
+Code
+Issues
+33
+Pull requests
+32
+Discussions
+Actions
+Projects
+Security and quality
+0
+Insights
+Additional navigation options
+
+          Code
+
+          Issues
+
+          Pull requests
+
+          Discussions
+
+          Actions
+
+          Projects
+
+          Security and quality
+
+          Insights
+
+main
+Branches
+Tags
+Go to file
+Code
+Open more actions menu
+Latest commit
+History
+1,900 Commits
+1,900 Commits
+Folders and files
+Name
+Name
+Last commit message
+Last commit date
+.github
+.github
+.husky
+.husky
+.yarn
+.yarn
+apps
+apps
+packages
+packages
+scripts
+scripts
+types/
+ffjavascript
+types/
+ffjavascript
+.commitlintrc.js
+.commitlintrc.js
+.editorconfig
+.editorconfig
+.env.example
+.env.example
+.eslintignore
+.eslintignore
+.eslintrc.json
+.eslintrc.json
+.gitattributes
+.gitattributes
+.gitignore
+.gitignore
+.lintstagedrc.json
+.lintstagedrc.json
+.prettierignore
+.prettierignore
+.prettierrc.json
+.prettierrc.json
+.soldeerignore
+.soldeerignore
+.yarnrc.yml
+.yarnrc.yml
+CODE_OF_CONDUCT.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+CONTRIBUTING.md
+LICENSE
+LICENSE
+README.md
+README.md
+changelogithub.config.json
+changelogithub.config.json
+jest.config.ts
+jest.config.ts
+package.json
+package.json
+tsconfig.json
+tsconfig.json
+typedoc.js
+typedoc.js
+yarn.lock
+yarn.lock
+View all files
+Repository files navigation
+README
+Code of conduct
+Contributing
+MIT license
+More
+ items
+
+            👥 Contributing
+
+  |
+
+            🤝 Code of conduct
+
+  |
+
+            🔎 Issues
+
+  |
+
+            🗣️ Chat & Support
+
+  |
+
+            💻 API Reference
+
+Semaphore is a generic privacy layer. Leveraging zero-knowledge technology, users can prove their membership in groups and send messages (extending from votes to endorsements) off-chain or across EVM-compatible blockchains, all without revealing their personal identity.
+The core of the Semaphore protocol is in the
+circuit logic
+. However, Semaphore also provides
+Solidity contracts
+ and JavaScript libraries to make the steps for offchain proof creation and onchain/offchain verification easier. To learn more about Semaphore visit
+semaphore.pse.dev
+.
+Important
+Help Semaphore prosper by sharing your ideas with the PSE
+acceleration program
+.
+📦 Packages
+Package
+Version
+Downloads
+
+                    @semaphore-protocol/core
+
+                    @semaphore-protocol/contracts
+
+                    @semaphore-protocol/identity
+
+                    (docs)
+
+                    @semaphore-protocol/group
+
+                    (docs)
+
+                    @semaphore-protocol/proof
+
+                    (docs)
+
+                    @semaphore-protocol/data
+
+                    (docs)
+
+                    @semaphore-protocol/hardhat
+
+                    @semaphore-protocol/cli
+
+                    @semaphore-protocol/utils
+
+                    (docs)
+
+🛠 Install
+Clone this repository:
+git clone https://github.com/semaphore-protocol/semaphore.git
+Install the dependencies:
+cd
+ semaphore
+&&
+ yarn
+And build the repository:
+yarn build
+📜 Usage
+Copy the
+.env.example
+ file as
+.env
+:
+cp .env.example .env
+And add your environment variables.
+Code quality and formatting
+Run
+ESLint
+ to analyze the code and catch bugs:
+yarn lint
+Run
+Prettier
+ to check formatting rules:
+yarn format
+Or to automatically format the code:
+yarn format:write
+Conventional commits
+Semaphore uses
+conventional commits
+. A
+command line utility
+ to commit using the correct syntax can be used by running:
+git commit
+It will also automatically check that the modified files comply with ESLint and Prettier rules.
+Testing
+Run
+Jest
+ to test the JS libraries:
+yarn test:libraries
+Run
+Mocha
+ to test the contracts:
+yarn test:contracts
+Or test everything with:
+yarn
+test
+Build libraries & compile contracts
+Run
+Rollup
+ and
+TheGraph
+ to build all the packages and the subgraph:
+yarn build
+Compile the smart contracts with
+Hardhat
+:
+yarn compile:contracts
+Documentation (JS libraries)
+Run
+TypeDoc
+ to generate a documentation website for each package:
+yarn docs
+The output will be placed on the
+docs
+ folder.
+Releases
+Steps:
+Bump a new version with:
+yarn version:bump
+<
+version
+>
+#
+ e.g. yarn version:bump 2.0.0
+This step creates a commit and a git tag.
+Push the changes to main:
+git push origin main
+Push the new git tag:
+git push origin
+<
+version
+>
+#
+ e.g. git push origin v2.0.0
+After pushing the new git tag, a workflow will be triggered to publish the Semaphore packages on
+npm
+ and release a new version on GitHub with its changelogs automatically.
+About
+A zero-knowledge protocol for anonymous interactions.
+semaphore.pse.dev
+Topics
+circom
+ethereum
+hacktoberfest
+javascript
+monorepo
+proof-of-membership
+semaphore
+solidity
+typescript
+zero-knowledge
+zero-knowledge-proofs
+zk-snarks
+Resources
+Readme
+MIT license
+Code of conduct
+Code of conduct
+Contributing
+Contributing
+Activity
+Custom properties
+Stars
+1.1k
+ stars
+Watchers
+18
+ watching
+Forks
+299
+ forks
+Report repository
+Releases
+Used by
+Contributors
+Languages
+Footer
+
+        © 2026 GitHub, Inc.
+
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+
+      Manage cookies
+
+        Do not share my personal information
+
+    You can’t perform that action at this time.

@@ -1,0 +1,18 @@
+{
+  "component": "semaphore-v4",
+  "status": "three independent studies; adopted lifecycle patterns; runtime compatibility unverified",
+  "reviews": {
+    "architecture": {
+      "report": "architecture.md",
+      "retrieval_manifest": "sources/architecture-manifest.json"
+    },
+    "privacy": {
+      "report": "privacy.md",
+      "retrieval_manifest": "sources/privacy-manifest.json"
+    },
+    "product": {
+      "report": "product.md",
+      "retrieval_manifest": "sources/product-manifest.json"
+    }
+  }
+}

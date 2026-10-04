@@ -88,3 +88,7 @@ Complete Registry/Anchor/finalized-ledger adapters, carried-event exact-byte and
 5. **Production gates:** deploy measured workload/security tests, independent review, funded operators, costed service targets and profile-specific privacy evidence. Neither open-source availability nor documentation conformance proves these gates.
 
 The missing pieces are mostly acknowledged by the original PDF. New composition-specific questions are nested proof binding, exact library/profile compatibility, session-state persistence and whether stable recognition keys preserve metadata exposure after inner ratchet recovery. The practical decision is which narrow profile to deliver first, with its remaining requirements made explicit.
+
+## Semaphore extraction into the working stack
+
+The subsequent three-agent Semaphore study adopts its identity/group/witness lifecycle patterns while retaining the original RLN-style publication relation. Actual library reuse requires compatible commitment, hash, field and tree semantics; no second membership proof is added per message. See [working stack](proposed-stack.md) and [membership assessment](semaphore-membership-option.md).

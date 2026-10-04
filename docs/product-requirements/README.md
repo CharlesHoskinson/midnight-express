@@ -6,6 +6,8 @@ This is a **candidate portfolio**, informed by three independent reviews of each
 - [Machine-readable use-case register](use-cases.json): ten candidate records linked to existing and proposed requirements.
 - [Candidate EARS extensions](candidate-ears.md): sixteen product/API obligations with acceptance checks and an open product decision.
 - [Machine-readable candidate requirement register](candidate-requirements.json).
+- [Working stack and Semaphore extraction](proposed-stack.md): adopted membership lifecycle, admission boundaries and module interfaces.
+- [Semaphore membership option](semaphore-membership-option.md): scoped nullifiers, quota gaps and three-agent findings.
 - [Original requirement fit and open-source stack](requirements-fit-and-open-source.md): all twelve areas, remaining components and build sequence.
 - [GossipSub + Signal composition option](gossipsub-signal-option.md): three-agent feasibility study and experimental gates.
 - [Top ten feature considerations](feature-considerations.md): enabling capabilities kept separate from use cases.

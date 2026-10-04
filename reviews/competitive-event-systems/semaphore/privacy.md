@@ -1,0 +1,52 @@
+SEMAPHORE V4 FOR MIDNIGHT EXPRESS MEMBERSHIP — PRIVACY REVIEW
+Independent primary-source study, 3 October 2026. No repository edits or runtime benchmarks. Ten fresh Scrapling snapshots, resolved URLs, timestamps and SHA-256 hashes are listed in source-manifest.json. Sources reviewed are current v4 code/specification rather than v3 trapdoor/nullifier descriptions; current generateProof fetches v4.13.0 artifacts by default, which must be explicitly pinned for an experiment.
+
+CONCLUSION
+Yes: Semaphore can prove anonymous membership and bind a public message value to that proof. Its groups, identity commitments, Merkle proofs and off-chain verification make it a credible building block for Midnight's membership layer. Stock Semaphore is NOT a complete replacement for MPE rate-limit admission. It lacks the membership-leaf class-credit relation and RLN-style conflicting-share secret recovery currently required by MPE-ECO-016/018. A Semaphore-based design therefore needs an explicit changed circuit/admission profile or a conscious revision of those normative requirements. Do not call it drop-in MPE admission or interchangeable with RLN.
+
+WHAT THE CIRCUIT ACTUALLY PROVES
+The v4 circuit derives a BabyJubjub public key from a secret scalar, hashes its coordinates into an identity commitment, proves that commitment belongs to a Merkle root, and derives a scope-dependent Poseidon nullifier. It constrains the public message input against substitution; the message can be a canonical MPE envelope identifier through an agreed encoding/hash mapping. JavaScript/Solidity APIs hash message and scope before feeding the circuit, so raw application values and circuit values are different representations. Freeze conversion, hash, field bounds, verification key and artifact version.
+
+This is membership plus anonymous signaling. Public root, scope/message representations, nullifier, proof and transport metadata remain visible. Membership registration may link a wallet to its commitment; the proof hides which registered member published, under its cryptographic assumptions, but does not hide enrollment history, root/group choice, publisher IP or timing. Small anonymity sets and per-tier groups reduce effective anonymity.
+Sources: https://github.com/semaphore-protocol/semaphore/blob/main/packages/circuits/src/semaphore.circom ; https://github.com/semaphore-protocol/semaphore/blob/main/packages/proof/src/generate-proof.ts
+
+SCOPE DESIGN IS THE MAIN QUOTA/PRIVACY TRAP
+The same identity secret and same circuit scope produce the SAME nullifier, even across different messages or Merkle roots. Root/group is not automatically included in that derivation. Reusing an application-wide scope creates a persistent linkable publisher pseudonym and only one locally redeemable allowance, conflicting with repeated unlinkable MPE publications and MPE-FMT-005. The same secret/scope reused across services or groups can correlate proofs.
+
+Choosing a fresh scope for every envelope, especially scope=EID, removes useful quota enforcement: a sender can make unlimited new scopes. For finite allowances use a canonical domain containing network/genesis, Registry, membership period as needed, admission window, size class and bounded credit index. Verifiers must recompute/validate that domain and permitted current window; accepting an arbitrary caller-supplied scope is not rate limiting. Do NOT include the changing membership root in the allowance namespace in a way that renews already-spent credits after every root update. Retain nullifier state across eligible current/previous roots.
+
+Stock circuit membership leaves contain identity commitments, not MPE's secret per-class allowance data. A verifier can bound a public credit index only when a trustworthy public common/tier allowance is independently known. Proving an identity-specific class allowance committed in its leaf requires extending the circuit/leaf relation or a different authenticated credential scheme. Public tier/group separation changes anonymity and needs review. These are engineering inferences from the circuit, not stock Semaphore features.
+Source: https://github.com/semaphore-protocol/semaphore/blob/main/packages/circuits/src/semaphore.circom ; MPE-ECO-016/017, MPE-FMT-005.
+
+VERIFICATION IS NOT CONSUMPTION
+The off-chain verifyProof function verifies mathematical proof validity; it does NOT check approved root membership policy, store used nullifiers or reject a second valid proof solely because an application already consumed it. The Solidity contract distinguishes view verifyProof from state-changing validateProof; the latter records a used nullifier. MPE relays need their own durable nullifier-to-EID acceptance state and root/window policy.
+
+Two geographically separate relays can each accept the same allowance before conflicting publications meet. Local deduplication provides the existing MPE-ECO-019/020/021/022 behavior, not global serialized admission. Same nullifier/different EIDs can provide observable conflict evidence, but ordinary Semaphore produces NO RLN rate-limit share from which the member's admission secret can be recovered. A duplicate proof does not identify which hidden member to remove. MPE-ECO-018 explicitly demands two distinct message-bound shares and a test recovering the secret; retaining that requirement favors RLN or an added RLN relation.
+Sources: https://github.com/semaphore-protocol/semaphore/blob/main/packages/proof/src/verify-proof.ts ; https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/contracts/Semaphore.sol
+
+REVOCATION AND HISTORICAL ROOTS
+The Solidity reference records superseded roots and accepts them for a configured grace duration, defaulting to one hour in common group constructors. Member removal creates a new root but does not immediately invalidate proofs against a still-eligible prior root. This resembles MPE's supersession grace structurally, but does not automatically reproduce finalized-Midnight root timing, period trees or backfill eligibility. A removed member may continue generating proofs under an eligible old root; the grace is a deliberate exposure window, not a guarantee that a proof was made before removal.
+
+Separate LIVE admission freshness from historical verification of an envelope admitted before revocation. Rejecting all historical roots breaks honest retention/backfill; retaining old roots for live admission indefinitely defeats revocation. Resolve network stale state, block finality and root-authority policy with the existing Ledger Adapter. Solidity msg.sender administration and block.timestamp are not Midnight's governance/authentication mechanism.
+Source: https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/contracts/Semaphore.sol ; https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/contracts/base/SemaphoreGroups.sol ; MPE-ECO-015/026.
+
+KEYS AND APPLICATION AUTHORITY
+Use a dedicated random admission identity or an explicitly domain-separated approved wallet derivation. Keep the secret in the endpoint/prover; relays only receive proofs. Do not reuse spending, message encryption, Signal/MLS session, invitation or business-signature keys. A publicly obtainable wallet signature cannot safely serve as a secret simply because documentation demonstrates signature-based identity recovery. Independent identities per network/Registry can also reduce registration linkage, with explicit recovery/rotation policy.
+
+The identity package includes EdDSA-Poseidon signing helpers, but their existence does not satisfy MPE publisher statement format, authorized-business-role mapping, signature algorithm or Compact verifier. Anonymous membership proves permission to publish, not permission to settle funds or execute a payload. MPE-CON-043/044a/044b/060 remain separate: authorized canonical signatures, replay-safe effect and anchored-envelope opening/binding.
+Sources: https://github.com/semaphore-protocol/semaphore/blob/main/packages/identity/src/index.ts ; https://semaphore.pse.dev/learn ; MPE-SEC-029.
+
+ADOPTION AND ACCEPTANCE GATES
+Semaphore is MIT licensed and provides Circom/Groth16 plus JavaScript/Solidity tooling. It has a published v4 audit and trusted setup history, but reuse does not transfer an audit to a new Midnight circuit/profile. Solidity deployment is optional when off-chain proof verification is used; Midnight root/governance integration still needs implementation.
+1. Approved finalized root accepted; foreign/stale/removed membership rejected under exact live grace, and historical backfill policy tested separately.
+2. Verifier rejects free-form scope, wrong network/Registry/window/class and out-of-range credit; root changes cannot reset allowances.
+3. Two allowed credits have unlinkable distinct nullifiers; exact allowance reuse produces identical nullifier even through root rotation.
+4. Two valid conflicting messages at separate relays eventually produce conflict evidence; no claim of prior global uniqueness or Semaphore secret extraction.
+5. If MPE-ECO-018 remains normative, demonstrate an added RLN-style share relation and actual recovery; otherwise document the changed requirement explicitly.
+6. Forged proof, altered envelope/message mapping and copied proof for another EID fail; approved root trust is checked outside bare off-chain verification.
+7. Admission secret never appears in relay state/logs; wallet/business/encryption secrets remain distinct.
+8. Measure full encoded slot roundUp64(104 + proof length) <=4,096 bytes and one-core verification <=10ms on required hardware; no assumed conformance from Groth16 proof dimensions.
+9. Pin circuit/setup/verification artifacts and encoding; test restart durable acceptance, malformed input CPU and both actual mobile proving cost and group anonymity assumptions.
+
+Recommended role: use Semaphore as a membership proof reference and prototype alternative, while keeping RLN as the better direct match to the document's current accountability-and-quota relation. If simplifying to Semaphore-only anonymous tokens is preferred, explicitly redesign quota commitments, scope enforcement and abuse response rather than silently dropping those requirements.
+Sources: https://docs.semaphore.pse.dev/ ; https://github.com/semaphore-protocol/semaphore/blob/main/LICENSE ; https://github.com/privacy-ethereum/zkspecs/blob/main/specs/3/README.md
