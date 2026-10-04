@@ -1,0 +1,32 @@
+{
+  "specversion": "1.0",
+  "id": "event:agent",
+  "source": "urn:mpe:source:human",
+  "type": "mpe.agent.approval.v0.1",
+  "time": "2026-10-04T11:00:00.000Z",
+  "datacontenttype": "application/json",
+  "dataschema": "urn:mpe:model:agent.v0.1",
+  "mpeprofile": "agent.v0.1",
+  "mpecontract": "sha256:d5c2f2ea265465d5a6c809173f6527d5cdc3a9a4654d549ef1267b297d1c526f",
+  "data": {
+    "actionId": "action:demo",
+    "proposal": {
+      "environment": "Sandbox",
+      "operation": "WriteReport",
+      "target": "sandbox:reports/demo",
+      "inputDigest": "sha256:4444444444444444444444444444444444444444444444444444444444444444",
+      "budget": {
+        "coefficient": "5",
+        "scale": 0,
+        "unit": "Step"
+      },
+      "expires": "2026-10-04T13:00:00.000Z"
+    },
+    "proposalDigest": "sha256:17bfa439b7d55308f18ae09e976819a2196fe6f2ae5fd91aa25ebc8dffe165c4",
+    "policyDigest": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+    "human": "human:alice",
+    "validFrom": "2026-10-04T11:00:00.000Z",
+    "validUntil": "2026-10-04T13:00:00.000Z",
+    "maxEffects": 1
+  }
+}

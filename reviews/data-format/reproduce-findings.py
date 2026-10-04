@@ -4,10 +4,11 @@ Reports observed behavior, not passing security acceptance. Never executes effec
 from pathlib import Path
 import copy,json,sys
 ROOT=Path(__file__).resolve().parents[2]
-sys.path.insert(0,str(ROOT/'model'))
+MODEL=ROOT/'model' if '--current' in sys.argv else ROOT/'model/releases/v0.1'
+sys.path.insert(0,str(MODEL))
 from validator import Harness,Invalid,raw_json
-context=raw_json((ROOT/'model/conformance/trusted-context.json').read_bytes())
-def sample(name):return raw_json((ROOT/f'model/examples/{name}.json').read_bytes())
+context=raw_json((MODEL/'conformance/trusted-context.json').read_bytes())
+def sample(name):return raw_json((MODEL/f'examples/{name}.json').read_bytes())
 def outcome(event,harness=None):
  try:return (harness or Harness(copy.deepcopy(context))).check(json.dumps(event))['status']
  except Invalid as e:return 'reject:'+str(e)
@@ -22,5 +23,5 @@ e=sample('agent');raw=json.dumps(e).replace('"maxEffects": 1','"maxEffects": 1.0
 try:observed=Harness(copy.deepcopy(context)).check(raw)['status']
 except Invalid as err:observed='reject:'+str(err)
 findings.append({'finding':'fractional-max-effects-rounded-before-validation','expected':'reject','observed':observed})
-report={'status':'review-counterexamples-not-runtime-acceptance','modelChanged':False,'executes':False,'findings':findings}
+report={'status':'review-counterexamples-not-runtime-acceptance','modelChanged':'--current' in sys.argv,'executes':False,'findings':findings}
 print(json.dumps(report,indent=2))

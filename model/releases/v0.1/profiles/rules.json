@@ -1,0 +1,88 @@
+{
+  "version": "0.1",
+  "status": "experimental-model-only",
+  "identity": {
+    "event": "(source,id), immutable complete event",
+    "action": "(proposal.target,actionId), consumes approval once in fixture memory only",
+    "eid": "opaque transport identifier supplied separately; never computed or used for business replay"
+  },
+  "canonicalization": {
+    "algorithm": "RFC8785/JCS UTF-8 then SHA-256",
+    "intentDomain": "mpe.model.intent.v0.1",
+    "intentFields": [
+      "source",
+      "type",
+      "profile",
+      "contract",
+      "data"
+    ],
+    "proposalDomain": "mpe.model.proposal.v0.1",
+    "proposalFields": [
+      "contract",
+      "proposal"
+    ],
+    "manifest": "JCS of entire manifest; lock.json pins it; manifests never include their own hash"
+  },
+  "primitives": {
+    "ids": "bounded ASCII scoped identifiers; no normalization",
+    "timestamp": "real UTC calendar YYYY-MM-DDTHH:mm:ss.000Z; no leap seconds; seconds precision only",
+    "decimal": "positive canonical coefficient (1..18 digits), value coefficient * 10^-scale; fixed per-field scale, no leading zeros, exponents, sign, zero, floats, coercion or rounding",
+    "currency": "only iso4217:USD; pilot asset/unit from trusted RFQ fixture, only whole Share quantities",
+    "limits": {
+      "rawBodyBytes": 3926,
+      "maxDepth": 12,
+      "maxStringCharacters": 512,
+      "maxArrayItems": 16
+    }
+  },
+  "rfq": [
+    "open trusted RFQ; requester/dealer/side/asset/quantity/currency exact match",
+    "buyer/seller determined by requester side and distinct",
+    "absolute USD per exactly one Share, assetRef and unit match; fees None only",
+    "occurred <= validFrom <= trusted now < validUntil (exclusive)",
+    "cash coefficient equals whole Share coefficient * USD cents price coefficient; 18-digit bound",
+    "Firm is fixture business description only; no acceptance, trade execution or settlement"
+  ],
+  "invoice": [
+    "trusted invoice identity, parties, currency, payable and document digest match",
+    "payment source must match trusted complete paymentEvidence entry; effectiveAt <= observedAt <= trusted now",
+    "Pending/Reversed remain evidence and never imply payment completion",
+    "Final remains source assertion only; partial allowed, overpayment refused; no posting, allocation, tax or payment execution"
+  ],
+  "agent": [
+    "exact trusted proposal and policy; JCS proposal hash binds complete proposal and profile contract",
+    "human locally allowlisted, action not revoked, target locally allowlisted, Step budget within maxSteps",
+    "occurred <= validFrom <= now < validUntil <= proposal.expires; maxEffects exactly 1",
+    "new event id or EID cannot refresh same action; same action different intent is conflict",
+    "successful check produces sandbox candidate only; no actual execution or authenticated approval"
+  ],
+  "context": "Explicit trusted test fixture only; missing, stale or insufficient evidence rejects. Production source authentication, policy, clocks, durable atomic replay and finality remain pending.",
+  "unsupported": [
+    "all unknown fields and enum values",
+    "all uninstalled or mismatched schemas/profiles",
+    "all remote fetching and RDF reasoning",
+    "all LLM repairs and default insertion"
+  ],
+  "sources": [
+    {
+      "concept": "private structured context / occurrence identity",
+      "url": "https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md"
+    },
+    {
+      "concept": "closed structural validation",
+      "url": "https://json-schema.org/draft/2020-12/json-schema-core"
+    },
+    {
+      "concept": "canonical business intent",
+      "url": "https://www.rfc-editor.org/rfc/rfc8785"
+    },
+    {
+      "concept": "quantity units, denominator, buyer/seller; original narrow adaptation",
+      "url": "https://cdm.finos.org/docs/product-model/"
+    },
+    {
+      "concept": "invoice parties, payable and payment distinction; original narrow adaptation",
+      "url": "https://docs.oasis-open.org/ubl/os-UBL-2.3/mod/summary/reports/UBL-Invoice-2.3.html"
+    }
+  ]
+}

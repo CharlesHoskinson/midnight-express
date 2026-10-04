@@ -1,0 +1,138 @@
+[
+  {
+    "file": "examples/rfq.json",
+    "expect": "offchain-quote-valid"
+  },
+  {
+    "file": "examples/invoice-final.json",
+    "expect": "final-payment-evidence-only"
+  },
+  {
+    "file": "examples/invoice-pending.json",
+    "expect": "payment-evidence-pending-or-reversed"
+  },
+  {
+    "file": "examples/invoice-reversed.json",
+    "expect": "payment-evidence-pending-or-reversed"
+  },
+  {
+    "file": "examples/agent.json",
+    "expect": "sandbox-candidate-only"
+  },
+  {
+    "file": "conformance/price-asset.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/price-unit.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/side.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/precision.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/currency.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/unknown-fee.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/fee-enum.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/expired.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/cash.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/unknown-profile.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/profile-hash.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/schema.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/calendar.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/timestamp-offset.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/non-ascii-id.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/zero.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/decimal-leading-zero.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/decimal-exponent.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/decimal-overflow.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/changed-target.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/changed-input.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/expired-approval.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/unauthorized-human.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/unknown-operation.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/payment-final-invention.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/invoice-currency.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/missing-payment-evidence.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/duplicate-key.json",
+    "expect": "reject"
+  },
+  {
+    "file": "conformance/duplicate-escaped-key.json",
+    "expect": "reject"
+  }
+]

@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "0.1.0-proposed",
+  "catalogVersion": "0.2.0-proposed",
   "status": "proposed",
   "purpose": "application-domain-vocabulary",
   "runtimeContracts": false,
@@ -47,7 +47,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.account-abstraction-wallet.chain-changed.v1",
@@ -62,7 +63,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.account-abstraction-wallet.provider-connected.v1",
@@ -77,7 +79,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.account-abstraction-wallet.provider-disconnected.v1",
@@ -92,7 +95,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.account-abstraction-wallet.sign-intent.v1",
@@ -107,7 +111,24 @@
       "messageKind": "intent",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
+    },
+    {
+      "id": "mpe.ethereum.account-abstraction-wallet.sign-result.v1",
+      "chain": "ethereum",
+      "family": "account-abstraction-wallet",
+      "semanticName": "sign-result",
+      "sourcePrimitive": "exact signed bytes/signature result",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://eips.ethereum.org/EIPS/eip-1193",
+      "status": "proposed",
+      "evidenceKind": "derived",
+      "messageKind": "observation",
+      "scope": "local",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Bounded lifecycle candidate; source/session, original request, network, immutable intent and uncertain outcome must be preserved. No permission or runtime adapter implied."
     },
     {
       "id": "mpe.ethereum.account-abstraction-wallet.user-operation-estimate.v1",
@@ -122,7 +143,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Pin EntryPoint and bundler version; UserOperation identity is distinct from enclosing transaction identity."
+      "qualification": "Pin EntryPoint and bundler version; UserOperation identity is distinct from enclosing transaction identity.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.account-abstraction-wallet.user-operation-event.v1",
@@ -137,7 +159,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Pin EntryPoint and bundler version; UserOperation identity is distinct from enclosing transaction identity."
+      "qualification": "Pin EntryPoint and bundler version; UserOperation identity is distinct from enclosing transaction identity.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.account-abstraction-wallet.user-operation-intent.v1",
@@ -152,7 +175,8 @@
       "messageKind": "intent",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.account-abstraction-wallet.user-operation-receipt.v1",
@@ -167,7 +191,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Pin EntryPoint and bundler version; UserOperation identity is distinct from enclosing transaction identity."
+      "qualification": "Pin EntryPoint and bundler version; UserOperation identity is distinct from enclosing transaction identity.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.account-abstraction-wallet.user-operation-submit.v1",
@@ -182,7 +207,56 @@
       "messageKind": "intent",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
+    },
+    {
+      "id": "mpe.ethereum.account-abstraction-wallet.wallet-cancelled.v1",
+      "chain": "ethereum",
+      "family": "account-abstraction-wallet",
+      "semanticName": "wallet-cancelled",
+      "sourcePrimitive": "local pre-submission cancellation",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://eips.ethereum.org/EIPS/eip-1193",
+      "status": "proposed",
+      "evidenceKind": "derived",
+      "messageKind": "observation",
+      "scope": "local",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Bounded lifecycle candidate; source/session, original request, network, immutable intent and uncertain outcome must be preserved. No permission or runtime adapter implied."
+    },
+    {
+      "id": "mpe.ethereum.account-abstraction-wallet.wallet-outcome-unknown.v1",
+      "chain": "ethereum",
+      "family": "account-abstraction-wallet",
+      "semanticName": "wallet-outcome-unknown",
+      "sourcePrimitive": "unresolved signing/transport result",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://eips.ethereum.org/EIPS/eip-1193",
+      "status": "proposed",
+      "evidenceKind": "derived",
+      "messageKind": "observation",
+      "scope": "local",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Bounded lifecycle candidate; source/session, original request, network, immutable intent and uncertain outcome must be preserved. No permission or runtime adapter implied."
+    },
+    {
+      "id": "mpe.ethereum.account-abstraction-wallet.wallet-rejected.v1",
+      "chain": "ethereum",
+      "family": "account-abstraction-wallet",
+      "semanticName": "wallet-rejected",
+      "sourcePrimitive": "user rejection outcome",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://eips.ethereum.org/EIPS/eip-1193",
+      "status": "proposed",
+      "evidenceKind": "derived",
+      "messageKind": "observation",
+      "scope": "local",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Bounded lifecycle candidate; source/session, original request, network, immutable intent and uncertain outcome must be preserved. No permission or runtime adapter implied."
     },
     {
       "id": "mpe.ethereum.approvals-permissions.delegate-approve-intent.v1",
@@ -197,7 +271,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.approvals-permissions.delegate-revoke-intent.v1",
@@ -212,7 +287,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.approvals-permissions.erc1155-operator-approved.v1",
@@ -227,7 +303,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations."
+      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.approvals-permissions.erc20-allowance-approved.v1",
@@ -242,7 +319,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations."
+      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.approvals-permissions.erc20-allowance-observed.v1",
@@ -257,7 +335,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations."
+      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.approvals-permissions.erc2612-permit-intent.v1",
@@ -272,7 +351,8 @@
       "messageKind": "intent",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations."
+      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.approvals-permissions.erc721-operator-approved.v1",
@@ -287,7 +367,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations."
+      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.approvals-permissions.erc721-token-approved.v1",
@@ -302,7 +383,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations."
+      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.approvals-permissions.permission-request.v1",
@@ -317,7 +399,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Application capability vocabulary inferred from wallet boundaries; no universal native permission/revocation method is asserted. Human/capability authorization remains a separate executor concern."
+      "qualification": "Application capability vocabulary inferred from wallet boundaries; no universal native permission/revocation method is asserted. Human/capability authorization remains a separate executor concern.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.approvals-permissions.permission-revocation-intent.v1",
@@ -332,7 +415,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Application capability vocabulary inferred from wallet boundaries; no universal native permission/revocation method is asserted. Human/capability authorization remains a separate executor concern."
+      "qualification": "Application capability vocabulary inferred from wallet boundaries; no universal native permission/revocation method is asserted. Human/capability authorization remains a separate executor concern.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.approvals-permissions.wallet-permissions-query.v1",
@@ -347,7 +431,8 @@
       "messageKind": "rpc-request",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Wallet feature support and caveats must be discovered; proposed API support is not universal."
+      "qualification": "Wallet feature support and caveats must be discovered; proposed API support is not universal.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.approvals-permissions.wallet-permissions-request.v1",
@@ -362,7 +447,8 @@
       "messageKind": "rpc-request",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Wallet feature support and caveats must be discovered; proposed API support is not universal."
+      "qualification": "Wallet feature support and caveats must be discovered; proposed API support is not universal.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.backfill.backfill-completed-claim.v1",
@@ -377,7 +463,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local claim bounded to a stated range/filter, provider and commitment; deduplicate replay against live observations and retain gap evidence."
+      "qualification": "Local claim bounded to a stated range/filter, provider and commitment; deduplicate replay against live observations and retain gap evidence.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.backfill.backfill-progress-claim.v1",
@@ -392,7 +479,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local claim bounded to a stated range/filter, provider and commitment; deduplicate replay against live observations and retain gap evidence."
+      "qualification": "Local claim bounded to a stated range/filter, provider and commitment; deduplicate replay against live observations and retain gap evidence.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.backfill.range-query-request.v1",
@@ -407,7 +495,8 @@
       "messageKind": "rpc-request",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.blocks.block-observed.v1",
@@ -416,13 +505,14 @@
       "semanticName": "block-observed",
       "sourcePrimitive": "eth_getBlockByNumber",
       "sourceStandard": "Execution JSON-RPC / Geth PubSub",
-      "primarySource": "https://geth.ethereum.org/docs/interacting-with-geth/rpc/pubsub",
+      "primarySource": "https://ethereum.org/developers/docs/apis/json-rpc/",
       "status": "proposed",
       "evidenceKind": "native",
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.blocks.head-observed.v1",
@@ -437,7 +527,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.blocks.header-observed.v1",
@@ -446,13 +537,62 @@
       "semanticName": "header-observed",
       "sourcePrimitive": "eth_getBlockByHash",
       "sourceStandard": "Execution JSON-RPC / Geth PubSub",
-      "primarySource": "https://geth.ethereum.org/docs/interacting-with-geth/rpc/pubsub",
+      "primarySource": "https://ethereum.org/developers/docs/apis/json-rpc/",
       "status": "proposed",
       "evidenceKind": "native",
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
+    },
+    {
+      "id": "mpe.ethereum.bridge.destination-execution-observed.v1",
+      "chain": "ethereum",
+      "family": "bridge",
+      "semanticName": "destination-execution-observed",
+      "sourcePrimitive": "protocol-specific destination evidence and source-message linkage",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://docs.optimism.io/app-developers/bridging/standard-bridge",
+      "status": "proposed",
+      "evidenceKind": "derived",
+      "messageKind": "observation",
+      "scope": "local",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Bounded lifecycle candidate; source/session, original request, network, immutable intent and uncertain outcome must be preserved. No permission or runtime adapter implied."
+    },
+    {
+      "id": "mpe.ethereum.bridge.destination-failure-observed.v1",
+      "chain": "ethereum",
+      "family": "bridge",
+      "semanticName": "destination-failure-observed",
+      "sourcePrimitive": "protocol-specific destination evidence and source-message linkage",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://docs.optimism.io/app-developers/bridging/standard-bridge",
+      "status": "proposed",
+      "evidenceKind": "derived",
+      "messageKind": "observation",
+      "scope": "local",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Bounded lifecycle candidate; source/session, original request, network, immutable intent and uncertain outcome must be preserved. No permission or runtime adapter implied."
+    },
+    {
+      "id": "mpe.ethereum.bridge.destination-outcome-unknown.v1",
+      "chain": "ethereum",
+      "family": "bridge",
+      "semanticName": "destination-outcome-unknown",
+      "sourcePrimitive": "protocol-specific destination evidence and source-message linkage",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://docs.optimism.io/app-developers/bridging/standard-bridge",
+      "status": "proposed",
+      "evidenceKind": "derived",
+      "messageKind": "observation",
+      "scope": "local",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Bounded lifecycle candidate; source/session, original request, network, immutable intent and uncertain outcome must be preserved. No permission or runtime adapter implied."
     },
     {
       "id": "mpe.ethereum.bridge.destination-redeem-intent.v1",
@@ -467,7 +607,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.bridge.message-send-intent.v1",
@@ -482,7 +623,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.bridge.wormhole-message-observed.v1",
@@ -497,7 +639,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Bind emitter, source chain, sequence, payload, guardian set and verification status. A source message/VAA does not prove destination redemption or release."
+      "qualification": "Bind emitter, source chain, sequence, payload, guardian set and verification status. A source message/VAA does not prove destination redemption or release.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.bridge.wormhole-vaa-observed.v1",
@@ -512,7 +655,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Bind emitter, source chain, sequence, payload, guardian set and verification status. A source message/VAA does not prove destination redemption or release."
+      "qualification": "Bind emitter, source chain, sequence, payload, guardian set and verification status. A source message/VAA does not prove destination redemption or release.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.aave-borrow.v1",
@@ -527,7 +671,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.aave-flashloan.v1",
@@ -542,7 +687,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.aave-liquidation.v1",
@@ -557,7 +703,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.aave-repay.v1",
@@ -572,7 +719,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.aave-reserve-updated.v1",
@@ -587,7 +735,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.aave-supply.v1",
@@ -602,7 +751,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.aave-withdraw.v1",
@@ -617,7 +767,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.borrow-intent.v1",
@@ -632,7 +783,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.liquidate-intent.v1",
@@ -647,7 +799,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.liquidity-add-intent.v1",
@@ -662,7 +815,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.liquidity-remove-intent.v1",
@@ -677,7 +831,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.order-cancel-intent.v1",
@@ -692,7 +847,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.order-place-intent.v1",
@@ -707,7 +863,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.repay-intent.v1",
@@ -722,7 +879,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.supply-intent.v1",
@@ -737,7 +895,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.swap-intent.v1",
@@ -752,7 +911,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.uniswap-fees-collected.v1",
@@ -767,7 +927,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.uniswap-flash.v1",
@@ -782,7 +943,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.uniswap-liquidity-added.v1",
@@ -797,7 +959,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.uniswap-liquidity-removed.v1",
@@ -812,7 +975,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.uniswap-pool-initialized.v1",
@@ -827,7 +991,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.uniswap-swap.v1",
@@ -842,7 +1007,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.defi.withdraw-intent.v1",
@@ -857,7 +1023,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.errors.execution-error-observed.v1",
@@ -872,7 +1039,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.errors.rpc-error-observed.v1",
@@ -887,7 +1055,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.errors.transport-error-observed.v1",
@@ -902,7 +1071,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.finality.finalized-head-observed.v1",
@@ -917,7 +1087,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Provider observation of a chain-specific tag; no effect authorization or independent proof."
+      "qualification": "Provider observation of a chain-specific tag; no effect authorization or independent proof.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.finality.safe-head-observed.v1",
@@ -932,7 +1103,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Provider observation of a chain-specific tag; no effect authorization or independent proof."
+      "qualification": "Provider observation of a chain-specific tag; no effect authorization or independent proof.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.gaps.coverage-gap-claim.v1",
@@ -947,7 +1119,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Retain requested range, cursor, provider limits and uncertainty. Missing data, skipped slots, pending data and canonical rollback remain distinct."
+      "qualification": "Retain requested range, cursor, provider limits and uncertainty. Missing data, skipped slots, pending data and canonical rollback remain distinct.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.gaps.history-unavailable-claim.v1",
@@ -962,7 +1135,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Retain requested range, cursor, provider limits and uncertainty. Missing data, skipped slots, pending data and canonical rollback remain distinct."
+      "qualification": "Retain requested range, cursor, provider limits and uncertainty. Missing data, skipped slots, pending data and canonical rollback remain distinct.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.governance.execute-proposal-intent.v1",
@@ -977,7 +1151,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.governance.proposal-cancelled.v1",
@@ -992,7 +1167,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.governance.proposal-created.v1",
@@ -1007,7 +1183,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.governance.proposal-executed.v1",
@@ -1022,7 +1199,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.governance.proposal-intent.v1",
@@ -1037,7 +1215,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.governance.proposal-queued.v1",
@@ -1052,7 +1231,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.governance.vote-cast.v1",
@@ -1067,7 +1247,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.governance.vote-intent.v1",
@@ -1082,7 +1263,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.logs-instructions-cpi.contract-call-decoded.v1",
@@ -1097,7 +1279,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Require contract address, chain, ABI/version provenance and raw bytes. A selector/topic alone does not establish semantic trust."
+      "qualification": "Require contract address, chain, ABI/version provenance and raw bytes. A selector/topic alone does not establish semantic trust.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.logs-instructions-cpi.contract-event-decoded.v1",
@@ -1112,7 +1295,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Require contract address, chain, ABI/version provenance and raw bytes. A selector/topic alone does not establish semantic trust."
+      "qualification": "Require contract address, chain, ABI/version provenance and raw bytes. A selector/topic alone does not establish semantic trust.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.logs-instructions-cpi.raw-log-observed.v1",
@@ -1127,7 +1311,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.oracle.chainlink-round-observed.v1",
@@ -1142,7 +1327,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.oracle.get-round-observed.v1",
@@ -1157,7 +1343,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.oracle.stale-price-claim.v1",
@@ -1172,7 +1359,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.rollback.branch-replaced.v1",
@@ -1187,7 +1375,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Adapter inference from retained heads/logs; retain old and new block hashes, source and affected observations."
+      "qualification": "Adapter inference from retained heads/logs; retain old and new block hashes, source and affected observations.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.rollback.log-removed.v1",
@@ -1202,7 +1391,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.rollback.observation-invalidated.v1",
@@ -1217,7 +1407,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Adapter inference from retained heads/logs; retain old and new block hashes, source and affected observations."
+      "qualification": "Adapter inference from retained heads/logs; retain old and new block hashes, source and affected observations.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.rpc.read-query-request.v1",
@@ -1232,7 +1423,8 @@
       "messageKind": "rpc-request",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.rpc.read-query-response.v1",
@@ -1247,7 +1439,8 @@
       "messageKind": "rpc-response",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.rpc.signed-bytes-submit-request.v1",
@@ -1262,10 +1455,27 @@
       "messageKind": "rpc-request",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
-      "id": "mpe.ethereum.rpc.submission-response.v1",
+      "id": "mpe.ethereum.rpc.submission-outcome-unknown.v1",
+      "chain": "ethereum",
+      "family": "rpc",
+      "semanticName": "submission-outcome-unknown",
+      "sourcePrimitive": "transport timeout after submission; reconcile original identity before resubmitting",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://ethereum.org/developers/docs/apis/json-rpc/",
+      "status": "proposed",
+      "evidenceKind": "derived",
+      "messageKind": "observation",
+      "scope": "local",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Bounded lifecycle candidate; source/session, original request, network, immutable intent and uncertain outcome must be preserved. No permission or runtime adapter implied."
+    },
+    {
+      "id": "mpe.ethereum.rpc.submission-response.v2",
       "chain": "ethereum",
       "family": "rpc",
       "semanticName": "submission-response",
@@ -1274,10 +1484,12 @@
       "primarySource": "https://ethereum.org/developers/docs/apis/json-rpc/",
       "status": "proposed",
       "evidenceKind": "native",
-      "messageKind": "observation",
+      "messageKind": "rpc-response",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "RPC acceptance/identifier does not prove inclusion, execution success, finality or authorization."
+      "qualification": "Direct send RPC result, with method/request/session correlation and explicit hash/signature result or error; not inclusion or execution evidence.",
+      "vocabularyVersion": 2,
+      "supersedes": "mpe.ethereum.rpc.submission-response.v1"
     },
     {
       "id": "mpe.ethereum.simulation.call-result-observed.v1",
@@ -1292,7 +1504,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.simulation.estimate-request.v1",
@@ -1307,7 +1520,8 @@
       "messageKind": "rpc-request",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.simulation.fee-history-observed.v1",
@@ -1322,7 +1536,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.simulation.gas-estimate-observed.v1",
@@ -1337,7 +1552,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.simulation.simulate-request.v1",
@@ -1352,7 +1568,8 @@
       "messageKind": "rpc-request",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.staking.reward-claim-intent.v1",
@@ -1367,7 +1584,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.staking.rewards-observed.v1",
@@ -1382,7 +1600,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.staking.stake-intent.v1",
@@ -1397,7 +1616,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.staking.unstake-intent.v1",
@@ -1412,7 +1632,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.staking.validator-observed.v1",
@@ -1427,7 +1648,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.staking.withdrawals-observed.v1",
@@ -1442,7 +1664,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.state.balance-observed.v1",
@@ -1457,7 +1680,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.state.code-observed.v1",
@@ -1472,7 +1696,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.state.nonce-observed.v1",
@@ -1487,7 +1712,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.state.proof-observed.v1",
@@ -1502,7 +1728,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.state.storage-observed.v1",
@@ -1517,7 +1744,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.subscriptions.connection-lost.v1",
@@ -1532,7 +1760,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local lifecycle claim. Unsubscribe/disconnect is not transaction cancellation; reconnect creates a new session and may require explicit backfill."
+      "qualification": "Local lifecycle claim. Unsubscribe/disconnect is not transaction cancellation; reconnect creates a new session and may require explicit backfill.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.subscriptions.listener-cancelled.v1",
@@ -1547,7 +1776,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local lifecycle claim. Unsubscribe/disconnect is not transaction cancellation; reconnect creates a new session and may require explicit backfill."
+      "qualification": "Local lifecycle claim. Unsubscribe/disconnect is not transaction cancellation; reconnect creates a new session and may require explicit backfill.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.subscriptions.subscribe-request.v1",
@@ -1562,7 +1792,8 @@
       "messageKind": "subscription-control",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.subscriptions.subscription-gap-claim.v1",
@@ -1577,7 +1808,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local lifecycle claim. Unsubscribe/disconnect is not transaction cancellation; reconnect creates a new session and may require explicit backfill."
+      "qualification": "Local lifecycle claim. Unsubscribe/disconnect is not transaction cancellation; reconnect creates a new session and may require explicit backfill.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.subscriptions.subscription-response.v1",
@@ -1592,7 +1824,8 @@
       "messageKind": "rpc-response",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.subscriptions.unsubscribe-request.v1",
@@ -1607,7 +1840,8 @@
       "messageKind": "subscription-control",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.subscriptions.unsubscribe-response.v1",
@@ -1622,7 +1856,8 @@
       "messageKind": "rpc-response",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.token-nft.burn-intent.v1",
@@ -1637,7 +1872,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.token-nft.erc1155-batch-transfer.v1",
@@ -1652,7 +1888,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations."
+      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.token-nft.erc1155-metadata-reference.v1",
@@ -1667,7 +1904,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations."
+      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.token-nft.erc1155-single-transfer.v1",
@@ -1682,7 +1920,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations."
+      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.token-nft.erc20-balance-observed.v1",
@@ -1697,7 +1936,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations."
+      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.token-nft.erc20-supply-observed.v1",
@@ -1712,7 +1952,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations."
+      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.token-nft.erc20-transfer.v1",
@@ -1727,7 +1968,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations."
+      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.token-nft.erc721-metadata-reference-observed.v1",
@@ -1742,7 +1984,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations."
+      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.token-nft.erc721-owner-observed.v1",
@@ -1757,7 +2000,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations."
+      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.token-nft.erc721-transfer.v1",
@@ -1772,7 +2016,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations."
+      "qualification": "ERC-specific candidate; contract behavior/version and authenticated deployment identity remain adapter obligations.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.token-nft.mint-intent.v1",
@@ -1787,7 +2032,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.token-nft.token-transfer-intent.v1",
@@ -1802,7 +2048,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.transactions.cancelled-claim.v1",
@@ -1817,7 +2064,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local claim, not a native receipt status. Record evidence, observation interval, nonce relation and uncertainty; absence alone proves neither cancellation nor dropping."
+      "qualification": "Local claim, not a native receipt status. Record evidence, observation interval, nonce relation and uncertainty; absence alone proves neither cancellation nor dropping.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.transactions.contract-call-intent.v1",
@@ -1832,7 +2080,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.transactions.dropped-claim.v1",
@@ -1847,7 +2096,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local claim, not a native receipt status. Record evidence, observation interval, nonce relation and uncertainty; absence alone proves neither cancellation nor dropping."
+      "qualification": "Local claim, not a native receipt status. Record evidence, observation interval, nonce relation and uncertainty; absence alone proves neither cancellation nor dropping.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.transactions.expired-claim.v1",
@@ -1862,7 +2112,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local claim, not a native receipt status. Record evidence, observation interval, nonce relation and uncertainty; absence alone proves neither cancellation nor dropping."
+      "qualification": "Local claim, not a native receipt status. Record evidence, observation interval, nonce relation and uncertainty; absence alone proves neither cancellation nor dropping.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.transactions.pending-hash-observed.v1",
@@ -1877,7 +2128,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.transactions.receipt-observed.v1",
@@ -1892,7 +2144,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.transactions.replaced-claim.v1",
@@ -1907,7 +2160,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local claim, not a native receipt status. Record evidence, observation interval, nonce relation and uncertainty; absence alone proves neither cancellation nor dropping."
+      "qualification": "Local claim, not a native receipt status. Record evidence, observation interval, nonce relation and uncertainty; absence alone proves neither cancellation nor dropping.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.transactions.transaction-observed.v1",
@@ -1922,7 +2176,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.ethereum.transactions.transfer-intent.v1",
@@ -1937,7 +2192,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.account-abstraction-wallet.sign-and-send-intent.v1",
@@ -1952,7 +2208,8 @@
       "messageKind": "intent",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Wallet interaction request, not chain evidence; preserve network, accounts, exact bytes and requested feature version. Do not map to ERC-4337 semantics."
+      "qualification": "Wallet interaction request, not chain evidence; preserve network, accounts, exact bytes and requested feature version. Do not map to ERC-4337 semantics.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.account-abstraction-wallet.sign-in-intent.v1",
@@ -1967,7 +2224,8 @@
       "messageKind": "intent",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Wallet interaction request, not chain evidence; preserve network, accounts, exact bytes and requested feature version. Do not map to ERC-4337 semantics."
+      "qualification": "Wallet interaction request, not chain evidence; preserve network, accounts, exact bytes and requested feature version. Do not map to ERC-4337 semantics.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.account-abstraction-wallet.sign-message-intent.v1",
@@ -1982,7 +2240,24 @@
       "messageKind": "intent",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Wallet interaction request, not chain evidence; preserve network, accounts, exact bytes and requested feature version. Do not map to ERC-4337 semantics."
+      "qualification": "Wallet interaction request, not chain evidence; preserve network, accounts, exact bytes and requested feature version. Do not map to ERC-4337 semantics.",
+      "vocabularyVersion": 1
+    },
+    {
+      "id": "mpe.solana.account-abstraction-wallet.sign-result.v1",
+      "chain": "solana",
+      "family": "account-abstraction-wallet",
+      "semanticName": "sign-result",
+      "sourcePrimitive": "exact signed bytes/signature result",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://github.com/anza-xyz/wallet-adapter",
+      "status": "proposed",
+      "evidenceKind": "derived",
+      "messageKind": "observation",
+      "scope": "local",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Bounded lifecycle candidate; source/session, original request, network, immutable intent and uncertain outcome must be preserved. No permission or runtime adapter implied."
     },
     {
       "id": "mpe.solana.account-abstraction-wallet.sign-transaction-intent.v1",
@@ -1997,7 +2272,104 @@
       "messageKind": "intent",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Wallet interaction request, not chain evidence; preserve network, accounts, exact bytes and requested feature version. Do not map to ERC-4337 semantics."
+      "qualification": "Wallet interaction request, not chain evidence; preserve network, accounts, exact bytes and requested feature version. Do not map to ERC-4337 semantics.",
+      "vocabularyVersion": 1
+    },
+    {
+      "id": "mpe.solana.account-abstraction-wallet.wallet-accounts-observed.v1",
+      "chain": "solana",
+      "family": "account-abstraction-wallet",
+      "semanticName": "wallet-accounts-observed",
+      "sourcePrimitive": "wallet exposed accounts",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://github.com/anza-xyz/wallet-adapter",
+      "status": "proposed",
+      "evidenceKind": "derived",
+      "messageKind": "observation",
+      "scope": "local",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Bounded lifecycle candidate; source/session, original request, network, immutable intent and uncertain outcome must be preserved. No permission or runtime adapter implied."
+    },
+    {
+      "id": "mpe.solana.account-abstraction-wallet.wallet-cancelled.v1",
+      "chain": "solana",
+      "family": "account-abstraction-wallet",
+      "semanticName": "wallet-cancelled",
+      "sourcePrimitive": "local pre-submission cancellation",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://github.com/anza-xyz/wallet-adapter",
+      "status": "proposed",
+      "evidenceKind": "derived",
+      "messageKind": "observation",
+      "scope": "local",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Bounded lifecycle candidate; source/session, original request, network, immutable intent and uncertain outcome must be preserved. No permission or runtime adapter implied."
+    },
+    {
+      "id": "mpe.solana.account-abstraction-wallet.wallet-features-observed.v1",
+      "chain": "solana",
+      "family": "account-abstraction-wallet",
+      "semanticName": "wallet-features-observed",
+      "sourcePrimitive": "wallet feature/session capability",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://github.com/anza-xyz/wallet-adapter",
+      "status": "proposed",
+      "evidenceKind": "derived",
+      "messageKind": "observation",
+      "scope": "local",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Bounded lifecycle candidate; source/session, original request, network, immutable intent and uncertain outcome must be preserved. No permission or runtime adapter implied."
+    },
+    {
+      "id": "mpe.solana.account-abstraction-wallet.wallet-outcome-unknown.v1",
+      "chain": "solana",
+      "family": "account-abstraction-wallet",
+      "semanticName": "wallet-outcome-unknown",
+      "sourcePrimitive": "unresolved signing/transport result",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://github.com/anza-xyz/wallet-adapter",
+      "status": "proposed",
+      "evidenceKind": "derived",
+      "messageKind": "observation",
+      "scope": "local",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Bounded lifecycle candidate; source/session, original request, network, immutable intent and uncertain outcome must be preserved. No permission or runtime adapter implied."
+    },
+    {
+      "id": "mpe.solana.account-abstraction-wallet.wallet-rejected.v1",
+      "chain": "solana",
+      "family": "account-abstraction-wallet",
+      "semanticName": "wallet-rejected",
+      "sourcePrimitive": "user rejection outcome",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://github.com/anza-xyz/wallet-adapter",
+      "status": "proposed",
+      "evidenceKind": "derived",
+      "messageKind": "observation",
+      "scope": "local",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Bounded lifecycle candidate; source/session, original request, network, immutable intent and uncertain outcome must be preserved. No permission or runtime adapter implied."
+    },
+    {
+      "id": "mpe.solana.account-abstraction-wallet.wallet-session-invalidated.v1",
+      "chain": "solana",
+      "family": "account-abstraction-wallet",
+      "semanticName": "wallet-session-invalidated",
+      "sourcePrimitive": "account/network/session change",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://github.com/anza-xyz/wallet-adapter",
+      "status": "proposed",
+      "evidenceKind": "derived",
+      "messageKind": "observation",
+      "scope": "local",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Bounded lifecycle candidate; source/session, original request, network, immutable intent and uncertain outcome must be preserved. No permission or runtime adapter implied."
     },
     {
       "id": "mpe.solana.approvals-permissions.delegate-approve-intent.v1",
@@ -2012,7 +2384,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.approvals-permissions.delegate-revoke-intent.v1",
@@ -2027,7 +2400,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.approvals-permissions.permission-request.v1",
@@ -2042,7 +2416,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Application capability vocabulary inferred from wallet boundaries; no universal native permission/revocation method is asserted. Human/capability authorization remains a separate executor concern."
+      "qualification": "Application capability vocabulary inferred from wallet boundaries; no universal native permission/revocation method is asserted. Human/capability authorization remains a separate executor concern.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.approvals-permissions.permission-revocation-intent.v1",
@@ -2057,7 +2432,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Application capability vocabulary inferred from wallet boundaries; no universal native permission/revocation method is asserted. Human/capability authorization remains a separate executor concern."
+      "qualification": "Application capability vocabulary inferred from wallet boundaries; no universal native permission/revocation method is asserted. Human/capability authorization remains a separate executor concern.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.approvals-permissions.spl-account-frozen.v1",
@@ -2072,7 +2448,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.approvals-permissions.spl-account-thawed.v1",
@@ -2087,7 +2464,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.approvals-permissions.spl-authority-set.v1",
@@ -2102,7 +2480,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.approvals-permissions.spl-delegate-approved.v1",
@@ -2117,7 +2496,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.approvals-permissions.spl-delegate-revoked.v1",
@@ -2132,7 +2512,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.backfill.backfill-completed-claim.v1",
@@ -2147,7 +2528,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local claim bounded to a stated range/filter, provider and commitment; deduplicate replay against live observations and retain gap evidence."
+      "qualification": "Local claim bounded to a stated range/filter, provider and commitment; deduplicate replay against live observations and retain gap evidence.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.backfill.backfill-progress-claim.v1",
@@ -2162,7 +2544,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local claim bounded to a stated range/filter, provider and commitment; deduplicate replay against live observations and retain gap evidence."
+      "qualification": "Local claim bounded to a stated range/filter, provider and commitment; deduplicate replay against live observations and retain gap evidence.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.backfill.range-query-request.v1",
@@ -2177,7 +2560,8 @@
       "messageKind": "rpc-request",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.blocks.block-observed.v1",
@@ -2192,7 +2576,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.blocks.epoch-observed.v1",
@@ -2207,7 +2592,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.blocks.root-observed.v1",
@@ -2222,7 +2608,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.blocks.slot-observed.v1",
@@ -2237,7 +2624,56 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
+    },
+    {
+      "id": "mpe.solana.bridge.destination-execution-observed.v1",
+      "chain": "solana",
+      "family": "bridge",
+      "semanticName": "destination-execution-observed",
+      "sourcePrimitive": "protocol-specific destination evidence and source-message linkage",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://docs.wormhole.com/products/messaging/reference/core-contract-solana/",
+      "status": "proposed",
+      "evidenceKind": "derived",
+      "messageKind": "observation",
+      "scope": "local",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Bounded lifecycle candidate; source/session, original request, network, immutable intent and uncertain outcome must be preserved. No permission or runtime adapter implied."
+    },
+    {
+      "id": "mpe.solana.bridge.destination-failure-observed.v1",
+      "chain": "solana",
+      "family": "bridge",
+      "semanticName": "destination-failure-observed",
+      "sourcePrimitive": "protocol-specific destination evidence and source-message linkage",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://docs.wormhole.com/products/messaging/reference/core-contract-solana/",
+      "status": "proposed",
+      "evidenceKind": "derived",
+      "messageKind": "observation",
+      "scope": "local",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Bounded lifecycle candidate; source/session, original request, network, immutable intent and uncertain outcome must be preserved. No permission or runtime adapter implied."
+    },
+    {
+      "id": "mpe.solana.bridge.destination-outcome-unknown.v1",
+      "chain": "solana",
+      "family": "bridge",
+      "semanticName": "destination-outcome-unknown",
+      "sourcePrimitive": "protocol-specific destination evidence and source-message linkage",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://docs.wormhole.com/products/messaging/reference/core-contract-solana/",
+      "status": "proposed",
+      "evidenceKind": "derived",
+      "messageKind": "observation",
+      "scope": "local",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Bounded lifecycle candidate; source/session, original request, network, immutable intent and uncertain outcome must be preserved. No permission or runtime adapter implied."
     },
     {
       "id": "mpe.solana.bridge.destination-redeem-intent.v1",
@@ -2252,7 +2688,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.bridge.message-send-intent.v1",
@@ -2267,7 +2704,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.bridge.wormhole-message-observed.v1",
@@ -2282,7 +2720,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Bind emitter, source chain, sequence, payload, guardian set and verification status. A source message/VAA does not prove destination redemption or release."
+      "qualification": "Bind emitter, source chain, sequence, payload, guardian set and verification status. A source message/VAA does not prove destination redemption or release.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.bridge.wormhole-vaa-observed.v1",
@@ -2297,7 +2736,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Bind emitter, source chain, sequence, payload, guardian set and verification status. A source message/VAA does not prove destination redemption or release."
+      "qualification": "Bind emitter, source chain, sequence, payload, guardian set and verification status. A source message/VAA does not prove destination redemption or release.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.borrow-intent.v1",
@@ -2312,7 +2752,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.drift-funding-updated.v1",
@@ -2327,7 +2768,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Program/version-specific instruction observation; successful execution and economic interpretation require transaction metadata and the exact deployed decoder."
+      "qualification": "Program/version-specific instruction observation; successful execution and economic interpretation require transaction metadata and the exact deployed decoder.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.drift-order-cancelled.v1",
@@ -2342,7 +2784,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Program/version-specific instruction observation; successful execution and economic interpretation require transaction metadata and the exact deployed decoder."
+      "qualification": "Program/version-specific instruction observation; successful execution and economic interpretation require transaction metadata and the exact deployed decoder.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.drift-order-filled.v1",
@@ -2357,7 +2800,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Program/version-specific instruction observation; successful execution and economic interpretation require transaction metadata and the exact deployed decoder."
+      "qualification": "Program/version-specific instruction observation; successful execution and economic interpretation require transaction metadata and the exact deployed decoder.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.drift-order-placed.v1",
@@ -2372,7 +2816,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Program/version-specific instruction observation; successful execution and economic interpretation require transaction metadata and the exact deployed decoder."
+      "qualification": "Program/version-specific instruction observation; successful execution and economic interpretation require transaction metadata and the exact deployed decoder.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.drift-position-settled.v1",
@@ -2387,7 +2832,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Program/version-specific instruction observation; successful execution and economic interpretation require transaction metadata and the exact deployed decoder."
+      "qualification": "Program/version-specific instruction observation; successful execution and economic interpretation require transaction metadata and the exact deployed decoder.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.kamino-borrow.v1",
@@ -2402,7 +2848,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.kamino-liquidation.v1",
@@ -2417,7 +2864,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.kamino-repay.v1",
@@ -2432,7 +2880,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.kamino-supply.v1",
@@ -2447,7 +2896,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.kamino-withdraw.v1",
@@ -2462,7 +2912,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.liquidate-intent.v1",
@@ -2477,7 +2928,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.liquidity-add-intent.v1",
@@ -2492,7 +2944,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.liquidity-remove-intent.v1",
@@ -2507,7 +2960,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.orca-fees-collected.v1",
@@ -2522,7 +2976,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.orca-liquidity-decreased.v1",
@@ -2537,7 +2992,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.orca-liquidity-increased.v1",
@@ -2552,7 +3008,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.orca-pool-initialized.v1",
@@ -2567,7 +3024,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.orca-position-opened.v1",
@@ -2582,7 +3040,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.orca-swap.v1",
@@ -2597,7 +3056,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.order-cancel-intent.v1",
@@ -2612,7 +3072,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.order-place-intent.v1",
@@ -2627,7 +3088,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.repay-intent.v1",
@@ -2642,7 +3104,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.supply-intent.v1",
@@ -2657,7 +3120,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.swap-intent.v1",
@@ -2672,7 +3136,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.defi.withdraw-intent.v1",
@@ -2687,7 +3152,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.errors.execution-error-observed.v1",
@@ -2702,7 +3168,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.errors.rpc-error-observed.v1",
@@ -2717,7 +3184,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.errors.transport-error-observed.v1",
@@ -2732,7 +3200,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.finality.confirmed-observed.v1",
@@ -2747,7 +3216,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Preserve exact Solana commitment, context slot, endpoint and queried object; a commitment report grants no effect authority."
+      "qualification": "Preserve exact Solana commitment, context slot, endpoint and queried object; a commitment report grants no effect authority.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.finality.finalized-observed.v1",
@@ -2762,7 +3232,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Preserve exact Solana commitment, context slot, endpoint and queried object; a commitment report grants no effect authority."
+      "qualification": "Preserve exact Solana commitment, context slot, endpoint and queried object; a commitment report grants no effect authority.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.finality.processed-observed.v1",
@@ -2777,7 +3248,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Preserve exact Solana commitment, context slot, endpoint and queried object; a commitment report grants no effect authority."
+      "qualification": "Preserve exact Solana commitment, context slot, endpoint and queried object; a commitment report grants no effect authority.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.gaps.coverage-gap-claim.v1",
@@ -2792,7 +3264,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Retain requested range, cursor, provider limits and uncertainty. Missing data, skipped slots, pending data and canonical rollback remain distinct."
+      "qualification": "Retain requested range, cursor, provider limits and uncertainty. Missing data, skipped slots, pending data and canonical rollback remain distinct.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.gaps.history-unavailable-claim.v1",
@@ -2807,7 +3280,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Retain requested range, cursor, provider limits and uncertainty. Missing data, skipped slots, pending data and canonical rollback remain distinct."
+      "qualification": "Retain requested range, cursor, provider limits and uncertainty. Missing data, skipped slots, pending data and canonical rollback remain distinct.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.governance.execute-proposal-intent.v1",
@@ -2822,7 +3296,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.governance.proposal-execution-observed.v1",
@@ -2837,7 +3312,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.governance.proposal-intent.v1",
@@ -2852,7 +3328,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.governance.proposal-observed.v1",
@@ -2867,7 +3344,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.governance.realm-observed.v1",
@@ -2882,7 +3360,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.governance.vote-intent.v1",
@@ -2897,7 +3376,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.governance.vote-record-observed.v1",
@@ -2912,7 +3392,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.logs-instructions-cpi.compute-consumption-observed.v1",
@@ -2927,7 +3408,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.logs-instructions-cpi.cpi-invocation-decoded.v1",
@@ -2942,7 +3424,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Preserve program ID, decoder/version, instruction path, raw bytes/logs, transaction err and ancestry. Inner instructions/logs are not Ethereum events and can occur before transaction failure."
+      "qualification": "Preserve program ID, decoder/version, instruction path, raw bytes/logs, transaction err and ancestry. Inner instructions/logs are not Ethereum events and can occur before transaction failure.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.logs-instructions-cpi.inner-instructions-observed.v1",
@@ -2957,7 +3440,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.logs-instructions-cpi.outer-instructions-observed.v1",
@@ -2972,7 +3456,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.logs-instructions-cpi.program-event-decoded.v1",
@@ -2987,7 +3472,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Preserve program ID, decoder/version, instruction path, raw bytes/logs, transaction err and ancestry. Inner instructions/logs are not Ethereum events and can occur before transaction failure."
+      "qualification": "Preserve program ID, decoder/version, instruction path, raw bytes/logs, transaction err and ancestry. Inner instructions/logs are not Ethereum events and can occur before transaction failure.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.logs-instructions-cpi.program-instruction-decoded.v1",
@@ -3002,7 +3488,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Preserve program ID, decoder/version, instruction path, raw bytes/logs, transaction err and ancestry. Inner instructions/logs are not Ethereum events and can occur before transaction failure."
+      "qualification": "Preserve program ID, decoder/version, instruction path, raw bytes/logs, transaction err and ancestry. Inner instructions/logs are not Ethereum events and can occur before transaction failure.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.logs-instructions-cpi.raw-logs-observed.v1",
@@ -3017,7 +3504,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.logs-instructions-cpi.return-data-observed.v1",
@@ -3032,7 +3520,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.oracle.pyth-price-account-observed.v1",
@@ -3047,7 +3536,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.oracle.pyth-price-update-observed.v1",
@@ -3062,7 +3552,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.oracle.stale-price-claim.v1",
@@ -3077,7 +3568,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.rollback.observation-invalidated.v1",
@@ -3092,7 +3584,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local reconciliation with slot/blockhash provenance; missing RPC history is not proof of a reverted transaction."
+      "qualification": "Local reconciliation with slot/blockhash provenance; missing RPC history is not proof of a reverted transaction.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.rollback.slot-dead-observed.v1",
@@ -3107,7 +3600,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.rpc.read-query-request.v1",
@@ -3122,7 +3616,8 @@
       "messageKind": "rpc-request",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.rpc.read-query-response.v1",
@@ -3137,7 +3632,8 @@
       "messageKind": "rpc-response",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.rpc.signed-bytes-submit-request.v1",
@@ -3152,10 +3648,27 @@
       "messageKind": "rpc-request",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
-      "id": "mpe.solana.rpc.submission-response.v1",
+      "id": "mpe.solana.rpc.submission-outcome-unknown.v1",
+      "chain": "solana",
+      "family": "rpc",
+      "semanticName": "submission-outcome-unknown",
+      "sourcePrimitive": "transport timeout after submission; reconcile original identity before resubmitting",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://solana.com/docs/rpc",
+      "status": "proposed",
+      "evidenceKind": "derived",
+      "messageKind": "observation",
+      "scope": "local",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Bounded lifecycle candidate; source/session, original request, network, immutable intent and uncertain outcome must be preserved. No permission or runtime adapter implied."
+    },
+    {
+      "id": "mpe.solana.rpc.submission-response.v2",
       "chain": "solana",
       "family": "rpc",
       "semanticName": "submission-response",
@@ -3164,25 +3677,29 @@
       "primarySource": "https://solana.com/docs/rpc",
       "status": "proposed",
       "evidenceKind": "native",
-      "messageKind": "observation",
+      "messageKind": "rpc-response",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "RPC acceptance/identifier does not prove inclusion, execution success, finality or authorization."
+      "qualification": "Direct send RPC result, with method/request/session correlation and explicit hash/signature result or error; not inclusion or execution evidence.",
+      "vocabularyVersion": 2,
+      "supersedes": "mpe.solana.rpc.submission-response.v1"
     },
     {
-      "id": "mpe.solana.simulation.compute-budget-intent.v1",
+      "id": "mpe.solana.simulation.compute-budget-intent.v2",
       "chain": "solana",
       "family": "simulation",
       "semanticName": "compute-budget-intent",
       "sourcePrimitive": "ComputeBudget instructions",
-      "sourceStandard": "Chain RPC",
-      "primarySource": "https://solana.com/docs/rpc",
+      "sourceStandard": "Solana Compute Budget",
+      "primarySource": "https://solana.com/docs/core/fees/compute-budget",
       "status": "proposed",
       "evidenceKind": "intent",
-      "messageKind": "rpc-request",
-      "scope": "chain",
+      "messageKind": "intent",
+      "scope": "local",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Transaction instruction/message configuration intent under a pinned transaction-format version; not an RPC request.",
+      "vocabularyVersion": 2,
+      "supersedes": "mpe.solana.simulation.compute-budget-intent.v1"
     },
     {
       "id": "mpe.solana.simulation.estimate-request.v1",
@@ -3197,7 +3714,8 @@
       "messageKind": "rpc-request",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.simulation.fee-estimate-observed.v1",
@@ -3212,7 +3730,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.simulation.priority-fee-observed.v1",
@@ -3227,7 +3746,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.simulation.simulate-request.v1",
@@ -3242,7 +3762,8 @@
       "messageKind": "rpc-request",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.simulation.simulation-result-observed.v1",
@@ -3257,7 +3778,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.staking.reward-claim-intent.v1",
@@ -3272,7 +3794,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.staking.stake-account-observed.v1",
@@ -3287,7 +3810,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.staking.stake-authority-observed.v1",
@@ -3302,7 +3826,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.staking.stake-delegation-observed.v1",
@@ -3317,7 +3842,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.staking.stake-intent.v1",
@@ -3332,10 +3858,11 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
-      "id": "mpe.solana.staking.stake-rewards-observed.v1",
+      "id": "mpe.solana.staking.stake-rewards-observed.v2",
       "chain": "solana",
       "family": "staking",
       "semanticName": "stake-rewards-observed",
@@ -3343,11 +3870,13 @@
       "sourceStandard": "Solana Stake Program",
       "primarySource": "https://solana.com/docs/references/staking/stake-accounts",
       "status": "proposed",
-      "evidenceKind": "decoded",
+      "evidenceKind": "native",
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Direct getInflationReward source result; retain requested epoch, account, null/error and endpoint provenance; not a decoded instruction.",
+      "vocabularyVersion": 2,
+      "supersedes": "mpe.solana.staking.stake-rewards-observed.v1"
     },
     {
       "id": "mpe.solana.staking.unstake-intent.v1",
@@ -3362,7 +3891,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.state.account-observed.v1",
@@ -3377,7 +3907,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.state.accounts-observed.v1",
@@ -3392,7 +3923,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.state.balance-observed.v1",
@@ -3407,7 +3939,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.state.program-accounts-observed.v1",
@@ -3422,7 +3955,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.state.supply-observed.v1",
@@ -3437,7 +3971,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.state.token-accounts-observed.v1",
@@ -3452,7 +3987,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.subscriptions.connection-lost.v1",
@@ -3467,7 +4003,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local lifecycle claim. Unsubscribe/disconnect is not transaction cancellation; reconnect creates a new session and may require explicit backfill."
+      "qualification": "Local lifecycle claim. Unsubscribe/disconnect is not transaction cancellation; reconnect creates a new session and may require explicit backfill.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.subscriptions.listener-cancelled.v1",
@@ -3482,7 +4019,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local lifecycle claim. Unsubscribe/disconnect is not transaction cancellation; reconnect creates a new session and may require explicit backfill."
+      "qualification": "Local lifecycle claim. Unsubscribe/disconnect is not transaction cancellation; reconnect creates a new session and may require explicit backfill.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.subscriptions.subscribe-request.v1",
@@ -3497,7 +4035,8 @@
       "messageKind": "subscription-control",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.subscriptions.subscription-gap-claim.v1",
@@ -3512,7 +4051,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local lifecycle claim. Unsubscribe/disconnect is not transaction cancellation; reconnect creates a new session and may require explicit backfill."
+      "qualification": "Local lifecycle claim. Unsubscribe/disconnect is not transaction cancellation; reconnect creates a new session and may require explicit backfill.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.subscriptions.subscription-response.v1",
@@ -3527,7 +4067,8 @@
       "messageKind": "rpc-response",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.subscriptions.unsubscribe-request.v1",
@@ -3542,7 +4083,8 @@
       "messageKind": "subscription-control",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.subscriptions.unsubscribe-response.v1",
@@ -3557,7 +4099,24 @@
       "messageKind": "rpc-response",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
+    },
+    {
+      "id": "mpe.solana.token-nft.associated-token-created.v1",
+      "chain": "solana",
+      "family": "token-nft",
+      "semanticName": "associated-token-created",
+      "sourcePrimitive": "Associated Token Account instruction and state",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://solana.com/docs/tokens",
+      "status": "proposed",
+      "evidenceKind": "decoded",
+      "messageKind": "observation",
+      "scope": "program",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Instruction attempt and successful committed effect are distinct; failed execution cannot create an ordinary transfer effect. Full version/deployment and account evidence required."
     },
     {
       "id": "mpe.solana.token-nft.burn-intent.v1",
@@ -3572,7 +4131,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.token-nft.metaplex-core-asset-observed.v1",
@@ -3587,7 +4147,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Core account/plugin model is distinct from SPL mint and Token Metadata; retain asset account and plugin authority/version."
+      "qualification": "Core account/plugin model is distinct from SPL mint and Token Metadata; retain asset account and plugin authority/version.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.token-nft.metaplex-core-collection-observed.v1",
@@ -3602,7 +4163,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Core account/plugin model is distinct from SPL mint and Token Metadata; retain asset account and plugin authority/version."
+      "qualification": "Core account/plugin model is distinct from SPL mint and Token Metadata; retain asset account and plugin authority/version.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.token-nft.metaplex-core-plugin-observed.v1",
@@ -3617,7 +4179,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Core account/plugin model is distinct from SPL mint and Token Metadata; retain asset account and plugin authority/version."
+      "qualification": "Core account/plugin model is distinct from SPL mint and Token Metadata; retain asset account and plugin authority/version.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.token-nft.metaplex-edition-observed.v1",
@@ -3632,7 +4195,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.token-nft.metaplex-metadata-observed.v1",
@@ -3647,7 +4211,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.token-nft.metaplex-programmable-nft-observed.v1",
@@ -3662,7 +4227,8 @@
       "messageKind": "observation",
       "scope": "program",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.token-nft.mint-intent.v1",
@@ -3677,7 +4243,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.token-nft.spl-account-closed.v1",
@@ -3692,7 +4259,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.token-nft.spl-account-created.v1",
@@ -3707,7 +4275,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.token-nft.spl-burned.v1",
@@ -3722,7 +4291,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.token-nft.spl-mint-created.v1",
@@ -3737,7 +4307,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.token-nft.spl-minted.v1",
@@ -3752,7 +4323,24 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
+    },
+    {
+      "id": "mpe.solana.token-nft.spl-transfer-unchecked.v1",
+      "chain": "solana",
+      "family": "token-nft",
+      "semanticName": "spl-transfer-unchecked",
+      "sourcePrimitive": "Token Program Transfer; mint metadata separately evidenced",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://solana.com/docs/tokens",
+      "status": "proposed",
+      "evidenceKind": "decoded",
+      "messageKind": "observation",
+      "scope": "program",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Instruction attempt and successful committed effect are distinct; failed execution cannot create an ordinary transfer effect. Full version/deployment and account evidence required."
     },
     {
       "id": "mpe.solana.token-nft.spl-transfer.v1",
@@ -3767,7 +4355,40 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
+    },
+    {
+      "id": "mpe.solana.token-nft.system-transfer.v1",
+      "chain": "solana",
+      "family": "token-nft",
+      "semanticName": "system-transfer",
+      "sourcePrimitive": "System Program Transfer",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://solana.com/docs/tokens",
+      "status": "proposed",
+      "evidenceKind": "decoded",
+      "messageKind": "observation",
+      "scope": "program",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Instruction attempt and successful committed effect are distinct; failed execution cannot create an ordinary transfer effect. Full version/deployment and account evidence required."
+    },
+    {
+      "id": "mpe.solana.token-nft.token-account-closed.v1",
+      "chain": "solana",
+      "family": "token-nft",
+      "semanticName": "token-account-closed",
+      "sourcePrimitive": "Token Program CloseAccount",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://solana.com/docs/tokens",
+      "status": "proposed",
+      "evidenceKind": "decoded",
+      "messageKind": "observation",
+      "scope": "program",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Instruction attempt and successful committed effect are distinct; failed execution cannot create an ordinary transfer effect. Full version/deployment and account evidence required."
     },
     {
       "id": "mpe.solana.token-nft.token-transfer-intent.v1",
@@ -3782,7 +4403,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.token-nft.token2022-confidential-transfer-observed.v1",
@@ -3797,7 +4419,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Separate Token Program and Token-2022 program IDs and extension versions; conditional decoding, withheld fees and confidential values must not be treated as ordinary SPL transfers."
+      "qualification": "Separate Token Program and Token-2022 program IDs and extension versions; conditional decoding, withheld fees and confidential values must not be treated as ordinary SPL transfers.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.token-nft.token2022-extension-observed.v1",
@@ -3812,7 +4435,8 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Separate Token Program and Token-2022 program IDs and extension versions; conditional decoding, withheld fees and confidential values must not be treated as ordinary SPL transfers."
+      "qualification": "Separate Token Program and Token-2022 program IDs and extension versions; conditional decoding, withheld fees and confidential values must not be treated as ordinary SPL transfers.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.token-nft.token2022-metadata-observed.v1",
@@ -3827,13 +4451,14 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Separate Token Program and Token-2022 program IDs and extension versions; conditional decoding, withheld fees and confidential values must not be treated as ordinary SPL transfers."
+      "qualification": "Separate Token Program and Token-2022 program IDs and extension versions; conditional decoding, withheld fees and confidential values must not be treated as ordinary SPL transfers.",
+      "vocabularyVersion": 1
     },
     {
-      "id": "mpe.solana.token-nft.token2022-transfer-fee-observed.v1",
+      "id": "mpe.solana.token-nft.token2022-transfer-fee-config-observed.v2",
       "chain": "solana",
       "family": "token-nft",
-      "semanticName": "token2022-transfer-fee-observed",
+      "semanticName": "token2022-transfer-fee-config-observed",
       "sourcePrimitive": "TransferFeeConfig",
       "sourceStandard": "Token Extensions",
       "primarySource": "https://solana.com/docs/tokens/extensions",
@@ -3842,13 +4467,15 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Separate Token Program and Token-2022 program IDs and extension versions; conditional decoding, withheld fees and confidential values must not be treated as ordinary SPL transfers."
+      "qualification": "TransferFeeConfig extension configuration; does not assert actual fee withholding by a transfer.",
+      "vocabularyVersion": 2,
+      "supersedes": "mpe.solana.token-nft.token2022-transfer-fee-observed.v1"
     },
     {
-      "id": "mpe.solana.token-nft.token2022-transfer-hook-observed.v1",
+      "id": "mpe.solana.token-nft.token2022-transfer-hook-config-observed.v2",
       "chain": "solana",
       "family": "token-nft",
-      "semanticName": "token2022-transfer-hook-observed",
+      "semanticName": "token2022-transfer-hook-config-observed",
       "sourcePrimitive": "TransferHook",
       "sourceStandard": "Token Extensions",
       "primarySource": "https://solana.com/docs/tokens/extensions",
@@ -3857,7 +4484,25 @@
       "messageKind": "observation",
       "scope": "standard",
       "effectAuthority": false,
-      "qualification": "Separate Token Program and Token-2022 program IDs and extension versions; conditional decoding, withheld fees and confidential values must not be treated as ordinary SPL transfers."
+      "qualification": "TransferHook extension configuration; does not assert hook invocation or successful transfer.",
+      "vocabularyVersion": 2,
+      "supersedes": "mpe.solana.token-nft.token2022-transfer-hook-observed.v1"
+    },
+    {
+      "id": "mpe.solana.token-nft.wrapped-sol-sync.v1",
+      "chain": "solana",
+      "family": "token-nft",
+      "semanticName": "wrapped-sol-sync",
+      "sourcePrimitive": "Token Program SyncNative",
+      "sourceStandard": "Reviewed application adapter",
+      "primarySource": "https://solana.com/docs/tokens",
+      "status": "proposed",
+      "evidenceKind": "decoded",
+      "messageKind": "observation",
+      "scope": "program",
+      "effectAuthority": false,
+      "vocabularyVersion": 1,
+      "qualification": "Instruction attempt and successful committed effect are distinct; failed execution cannot create an ordinary transfer effect. Full version/deployment and account evidence required."
     },
     {
       "id": "mpe.solana.transactions.blockhash-observed.v1",
@@ -3872,7 +4517,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.transactions.blockhash-validity-observed.v1",
@@ -3887,7 +4533,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.transactions.cancelled-intent-claim.v1",
@@ -3902,7 +4549,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Retain original signature, blockhash or durable nonce, lastValidBlockHeight and relation evidence. Cancelling a local request does not cancel an on-chain transaction."
+      "qualification": "Retain original signature, blockhash or durable nonce, lastValidBlockHeight and relation evidence. Cancelling a local request does not cancel an on-chain transaction.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.transactions.contract-call-intent.v1",
@@ -3917,7 +4565,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.transactions.expired-claim.v1",
@@ -3932,22 +4581,25 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Retain original signature, blockhash or durable nonce, lastValidBlockHeight and relation evidence. Cancelling a local request does not cancel an on-chain transaction."
+      "qualification": "Retain original signature, blockhash or durable nonce, lastValidBlockHeight and relation evidence. Cancelling a local request does not cancel an on-chain transaction.",
+      "vocabularyVersion": 1
     },
     {
-      "id": "mpe.solana.transactions.nonce-account-observed.v1",
+      "id": "mpe.solana.transactions.nonce-account-observed.v2",
       "chain": "solana",
       "family": "transactions",
       "semanticName": "nonce-account-observed",
-      "sourcePrimitive": "getAccountInfo",
+      "sourcePrimitive": "System Program nonce state decoded from account bytes",
       "sourceStandard": "Solana RPC",
       "primarySource": "https://solana.com/docs/rpc",
       "status": "proposed",
-      "evidenceKind": "native",
+      "evidenceKind": "decoded",
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Decoded nonce/authority state requires pinned System Program layout and raw-account evidence; RPC transport alone is not nonce interpretation.",
+      "vocabularyVersion": 2,
+      "supersedes": "mpe.solana.transactions.nonce-account-observed.v1"
     },
     {
       "id": "mpe.solana.transactions.replaced-intent-claim.v1",
@@ -3962,7 +4614,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Retain original signature, blockhash or durable nonce, lastValidBlockHeight and relation evidence. Cancelling a local request does not cancel an on-chain transaction."
+      "qualification": "Retain original signature, blockhash or durable nonce, lastValidBlockHeight and relation evidence. Cancelling a local request does not cancel an on-chain transaction.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.transactions.resubmitted-claim.v1",
@@ -3977,7 +4630,8 @@
       "messageKind": "observation",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Retain original signature, blockhash or durable nonce, lastValidBlockHeight and relation evidence. Cancelling a local request does not cancel an on-chain transaction."
+      "qualification": "Retain original signature, blockhash or durable nonce, lastValidBlockHeight and relation evidence. Cancelling a local request does not cancel an on-chain transaction.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.transactions.signature-notification.v1",
@@ -3992,7 +4646,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.transactions.signature-status-observed.v1",
@@ -4007,7 +4662,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.transactions.transaction-observed.v1",
@@ -4022,7 +4678,8 @@
       "messageKind": "observation",
       "scope": "chain",
       "effectAuthority": false,
-      "qualification": "Candidate vocabulary; source evidence and adapter validation are required."
+      "qualification": "Candidate vocabulary; source evidence and adapter validation are required.",
+      "vocabularyVersion": 1
     },
     {
       "id": "mpe.solana.transactions.transfer-intent.v1",
@@ -4037,7 +4694,8 @@
       "messageKind": "intent",
       "scope": "local",
       "effectAuthority": false,
-      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability."
+      "qualification": "Local proposed action vocabulary, not a universal native API or decoder. Bind exact deployed contract/program, schema/version, bytes, amounts, constraints, account/chain, nonce/expiry, proposal digest and separate executor capability.",
+      "vocabularyVersion": 1
     }
   ]
 }

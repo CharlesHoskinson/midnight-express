@@ -2,13 +2,16 @@
   "specversion": "1.0",
   "id": "event:agent",
   "source": "urn:mpe:source:human",
-  "type": "mpe.agent.approval.v0.1",
+  "type": "mpe.agent.approval.v0.2",
   "time": "2026-10-04T11:00:00.000Z",
   "datacontenttype": "application/json",
-  "dataschema": "urn:mpe:model:agent.v0.1",
-  "mpeprofile": "agent.v0.1",
+  "dataschema": "urn:mpe:model:agent.v0.2",
+  "mpeprofile": "agent.v0.2",
   "mpecontract": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
   "data": {
+    "authorityDomain": "urn:mpe:sandbox:local",
+    "executionScope": "scope:fixture",
+    "budgetWindow": "window:fixture",
     "actionId": "action:demo",
     "proposal": {
       "environment": "Sandbox",
@@ -22,7 +25,7 @@
       },
       "expires": "2026-10-04T13:00:00.000Z"
     },
-    "proposalDigest": "sha256:17bfa439b7d55308f18ae09e976819a2196fe6f2ae5fd91aa25ebc8dffe165c4",
+    "proposalDigest": "sha256:94bdf0c08cd824de5432499e7bed3bf007cdc5b545dc089dc57b0eb5924ecb28",
     "policyDigest": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
     "human": "human:alice",
     "validFrom": "2026-10-04T11:00:00.000Z",

@@ -1,6 +1,6 @@
 # Data format review — recommendations from five roles
 
-Status: review and recommended backlog, not an implemented format revision. Two data scientists and three principal engineers studied the actual unified model, three pinned reference profiles and 267-entry Ethereum/Solana catalog. Their independent reports are in [reviews/data-format](../../reviews/data-format/README.md).
+Status: original review and backlog, retained as evidence. The subsequent [v0.2 implementation](data-format-implementation.md) records implemented corrections, prototypes and remaining gates. Two data scientists and three principal engineers studied the actual unified model, three pinned reference profiles and 267-entry Ethereum/Solana catalog. Their independent reports are in [reviews/data-format](../../reviews/data-format/README.md).
 
 ## Decision
 

@@ -21,7 +21,7 @@ def validate_catalog(catalog):
     semantic_keys = set()
     coverage = set()
     for event in catalog['events']:
-        expected = f"mpe.{event['chain']}.{event['family']}.{event['semanticName']}.v1"
+        expected = f"mpe.{event['chain']}.{event['family']}.{event['semanticName']}.v{event['vocabularyVersion']}"
         if event['id'] != expected:
             raise ValueError('event ID disagrees with chain/family/semantic name')
         key = (event['chain'], event['family'], event['semanticName'])
@@ -43,6 +43,10 @@ def validate_catalog(catalog):
     expected_coverage = {(chain, family) for chain in catalog['chains'] for family in catalog['families']}
     if coverage != expected_coverage:
         raise ValueError('missing chain/family coverage')
+    index = json.loads((HERE/'semantic-index.json').read_text())
+    for event in catalog['events']:
+        if event['id'] not in index or any(event[k] != v for k,v in index[event['id']].items()):
+            raise ValueError('semantic change under installed vocabulary identity')
     return len(ids)
 
 
@@ -94,6 +98,19 @@ class CatalogTests(unittest.TestCase):
         def mutate(c):
             next(e for e in c['events'] if e['evidenceKind'] == 'derived')['scope'] = 'chain'
         self.reject(mutate)
+
+    def test_two_field_semantic_promotion_rejected(self):
+        def mutate(c):
+            next(e for e in c['events'] if e['evidenceKind']=='derived').update(evidenceKind='native',scope='chain')
+        self.reject(mutate)
+
+    def test_support_matrix_closed_lifecycles(self):
+        matrix=json.loads((HERE/'support-matrix.json').read_text())
+        self.assertFalse(matrix['runtimeImplemented'])
+        self.assertEqual(len(matrix['rows']),14)
+        for row in matrix['rows']:
+            self.assertEqual(set(row['stages']),{'request','result','failure','rejection','cancellation','unknown-outcome'})
+            self.assertTrue(set(row['stages'].values()) <= {'typed-candidate','raw-generic-only','out-of-scope'})
 
     def test_no_unified_confirmation_enum(self):
         self.assertNotIn('confirmation', SCHEMA['properties'])

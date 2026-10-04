@@ -1,0 +1,14 @@
+{
+  "bundleVersion": 1,
+  "profile": "agent.v0.2",
+  "version": "0.2",
+  "status": "experimental-model-only",
+  "role": "human-approver",
+  "schema": "schema.json",
+  "resources": {
+    "schema.json": "sha256:e9ae010dc6c63c4cf9b2cf14ecb67c7b3b8a9c28d090239596485cf3f189b00f",
+    "core.json": "sha256:f35e995e91c2d3187bf3de56f20422dcc8beed972fc6db74f051e66ab799bb33",
+    "rules.json": "sha256:67db6c9a5d8140b01a11eacbe24a2d3f6db0c4b4f74a84c8c2947ecb35579f66"
+  },
+  "signatures": "unsigned-fixture-only"
+}

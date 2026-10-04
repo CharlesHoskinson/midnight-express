@@ -1,0 +1,54 @@
+{
+  "population": "finite-synthetic-adversarial-corpus",
+  "rfq": {
+    "attempts": 35,
+    "acceptedAgreementCases": 4,
+    "safeRefusals": 31,
+    "acceptedDisagreements": 0
+  },
+  "adapters": {
+    "attempts": 15,
+    "acceptedEquivalentEncodings": 2,
+    "safeRefusals": 13,
+    "acceptedDisagreements": 0
+  },
+  "partnerMeasurements": [
+    {
+      "metric": "engineer-hours-to-first-verified-exchange",
+      "value": null,
+      "status": "not-collected",
+      "reason": "No real design-partner corpus or baseline supplied"
+    },
+    {
+      "metric": "semantic-review-hours",
+      "value": null,
+      "status": "not-collected",
+      "reason": "No real design-partner corpus or baseline supplied"
+    },
+    {
+      "metric": "manual-corrections",
+      "value": null,
+      "status": "not-collected",
+      "reason": "No real design-partner corpus or baseline supplied"
+    },
+    {
+      "metric": "upgrade-replay-effort",
+      "value": null,
+      "status": "not-collected",
+      "reason": "No real design-partner corpus or baseline supplied"
+    },
+    {
+      "metric": "turnaround-baseline",
+      "value": null,
+      "status": "not-collected",
+      "reason": "No real design-partner corpus or baseline supplied"
+    },
+    {
+      "metric": "source-evidence-error-rate",
+      "value": null,
+      "status": "not-collected",
+      "reason": "No real design-partner corpus or baseline supplied"
+    }
+  ],
+  "operationalROIValidated": false
+}

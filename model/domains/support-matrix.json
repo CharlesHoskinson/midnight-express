@@ -1,0 +1,202 @@
+{
+  "release": "0.2.0-proposed",
+  "runtimeImplemented": false,
+  "rows": [
+    {
+      "chain": "ethereum",
+      "operation": "read",
+      "stages": {
+        "request": "raw-generic-only",
+        "result": "raw-generic-only",
+        "failure": "raw-generic-only",
+        "rejection": "raw-generic-only",
+        "cancellation": "raw-generic-only",
+        "unknown-outcome": "raw-generic-only"
+      },
+      "implementation": "vocabulary-only",
+      "reason": "No generic runtime dispatcher. Each admitted payload needs closed versioned schema, fixtures, authentication/evidence policy and independent interpretation."
+    },
+    {
+      "chain": "ethereum",
+      "operation": "simulate",
+      "stages": {
+        "request": "raw-generic-only",
+        "result": "raw-generic-only",
+        "failure": "raw-generic-only",
+        "rejection": "raw-generic-only",
+        "cancellation": "raw-generic-only",
+        "unknown-outcome": "raw-generic-only"
+      },
+      "implementation": "vocabulary-only",
+      "reason": "No generic runtime dispatcher. Each admitted payload needs closed versioned schema, fixtures, authentication/evidence policy and independent interpretation."
+    },
+    {
+      "chain": "ethereum",
+      "operation": "sign",
+      "stages": {
+        "request": "typed-candidate",
+        "result": "typed-candidate",
+        "failure": "typed-candidate",
+        "rejection": "typed-candidate",
+        "cancellation": "typed-candidate",
+        "unknown-outcome": "typed-candidate"
+      },
+      "implementation": "vocabulary-only",
+      "reason": "No generic runtime dispatcher. Each admitted payload needs closed versioned schema, fixtures, authentication/evidence policy and independent interpretation."
+    },
+    {
+      "chain": "ethereum",
+      "operation": "submit",
+      "stages": {
+        "request": "typed-candidate",
+        "result": "typed-candidate",
+        "failure": "typed-candidate",
+        "rejection": "typed-candidate",
+        "cancellation": "typed-candidate",
+        "unknown-outcome": "typed-candidate"
+      },
+      "implementation": "vocabulary-only",
+      "reason": "No generic runtime dispatcher. Each admitted payload needs closed versioned schema, fixtures, authentication/evidence policy and independent interpretation."
+    },
+    {
+      "chain": "ethereum",
+      "operation": "subscribe",
+      "stages": {
+        "request": "raw-generic-only",
+        "result": "raw-generic-only",
+        "failure": "raw-generic-only",
+        "rejection": "raw-generic-only",
+        "cancellation": "raw-generic-only",
+        "unknown-outcome": "raw-generic-only"
+      },
+      "implementation": "vocabulary-only",
+      "reason": "No generic runtime dispatcher. Each admitted payload needs closed versioned schema, fixtures, authentication/evidence policy and independent interpretation."
+    },
+    {
+      "chain": "ethereum",
+      "operation": "token-transfer",
+      "stages": {
+        "request": "raw-generic-only",
+        "result": "raw-generic-only",
+        "failure": "raw-generic-only",
+        "rejection": "raw-generic-only",
+        "cancellation": "raw-generic-only",
+        "unknown-outcome": "raw-generic-only"
+      },
+      "implementation": "vocabulary-only",
+      "reason": "No generic runtime dispatcher. Each admitted payload needs closed versioned schema, fixtures, authentication/evidence policy and independent interpretation."
+    },
+    {
+      "chain": "ethereum",
+      "operation": "bridge-destination",
+      "stages": {
+        "request": "raw-generic-only",
+        "result": "raw-generic-only",
+        "failure": "raw-generic-only",
+        "rejection": "raw-generic-only",
+        "cancellation": "out-of-scope",
+        "unknown-outcome": "raw-generic-only"
+      },
+      "implementation": "vocabulary-only",
+      "reason": "No generic runtime dispatcher. Each admitted payload needs closed versioned schema, fixtures, authentication/evidence policy and independent interpretation."
+    },
+    {
+      "chain": "solana",
+      "operation": "read",
+      "stages": {
+        "request": "raw-generic-only",
+        "result": "raw-generic-only",
+        "failure": "raw-generic-only",
+        "rejection": "raw-generic-only",
+        "cancellation": "raw-generic-only",
+        "unknown-outcome": "raw-generic-only"
+      },
+      "implementation": "vocabulary-only",
+      "reason": "No generic runtime dispatcher. Each admitted payload needs closed versioned schema, fixtures, authentication/evidence policy and independent interpretation."
+    },
+    {
+      "chain": "solana",
+      "operation": "simulate",
+      "stages": {
+        "request": "raw-generic-only",
+        "result": "raw-generic-only",
+        "failure": "raw-generic-only",
+        "rejection": "raw-generic-only",
+        "cancellation": "raw-generic-only",
+        "unknown-outcome": "raw-generic-only"
+      },
+      "implementation": "vocabulary-only",
+      "reason": "No generic runtime dispatcher. Each admitted payload needs closed versioned schema, fixtures, authentication/evidence policy and independent interpretation."
+    },
+    {
+      "chain": "solana",
+      "operation": "sign",
+      "stages": {
+        "request": "typed-candidate",
+        "result": "typed-candidate",
+        "failure": "typed-candidate",
+        "rejection": "typed-candidate",
+        "cancellation": "typed-candidate",
+        "unknown-outcome": "typed-candidate"
+      },
+      "implementation": "vocabulary-only",
+      "reason": "No generic runtime dispatcher. Each admitted payload needs closed versioned schema, fixtures, authentication/evidence policy and independent interpretation."
+    },
+    {
+      "chain": "solana",
+      "operation": "submit",
+      "stages": {
+        "request": "typed-candidate",
+        "result": "typed-candidate",
+        "failure": "typed-candidate",
+        "rejection": "typed-candidate",
+        "cancellation": "typed-candidate",
+        "unknown-outcome": "typed-candidate"
+      },
+      "implementation": "vocabulary-only",
+      "reason": "No generic runtime dispatcher. Each admitted payload needs closed versioned schema, fixtures, authentication/evidence policy and independent interpretation."
+    },
+    {
+      "chain": "solana",
+      "operation": "subscribe",
+      "stages": {
+        "request": "raw-generic-only",
+        "result": "raw-generic-only",
+        "failure": "raw-generic-only",
+        "rejection": "raw-generic-only",
+        "cancellation": "raw-generic-only",
+        "unknown-outcome": "raw-generic-only"
+      },
+      "implementation": "vocabulary-only",
+      "reason": "No generic runtime dispatcher. Each admitted payload needs closed versioned schema, fixtures, authentication/evidence policy and independent interpretation."
+    },
+    {
+      "chain": "solana",
+      "operation": "token-transfer",
+      "stages": {
+        "request": "raw-generic-only",
+        "result": "raw-generic-only",
+        "failure": "raw-generic-only",
+        "rejection": "raw-generic-only",
+        "cancellation": "raw-generic-only",
+        "unknown-outcome": "raw-generic-only"
+      },
+      "implementation": "vocabulary-only",
+      "reason": "No generic runtime dispatcher. Each admitted payload needs closed versioned schema, fixtures, authentication/evidence policy and independent interpretation."
+    },
+    {
+      "chain": "solana",
+      "operation": "bridge-destination",
+      "stages": {
+        "request": "raw-generic-only",
+        "result": "raw-generic-only",
+        "failure": "raw-generic-only",
+        "rejection": "raw-generic-only",
+        "cancellation": "out-of-scope",
+        "unknown-outcome": "raw-generic-only"
+      },
+      "implementation": "vocabulary-only",
+      "reason": "No generic runtime dispatcher. Each admitted payload needs closed versioned schema, fixtures, authentication/evidence policy and independent interpretation."
+    }
+  ]
+}

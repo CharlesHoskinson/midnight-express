@@ -1,71 +1,94 @@
-# MPE bounded model v0.1
+# Midnight Express model v0.2
 
-This is an experimental **data model and Python reference harness**, not an MPE runtime protocol, SDK implementation, standards implementation, authorization service or payment executor. Three closed profiles share a private structured CloudEvents-compatible core. Every example is unsigned. Production cryptography, authenticated source/role binding, finalized evidence, trusted clocks, permissions, durable atomic effect/replay state, and Rust/TypeScript agreement remain pending.
+This release implements the five-role review as a **conformance and local prototype**, with three strict event profiles, independent RFQ interpreters/adapters, immutable offline bundles, read-only chain projections and a fixture-authorized database sandbox. It is not a deployed MPE protocol, production capability service, consensus verifier or financial executor. Protocol signing/sealing, genuine admission, authenticated contract distribution and live partner evidence remain separate gates.
 
-All event fields belong inside the existing MPE encrypted body. This model does not change outer transport fields, admission, EID or wire encoding. `application/cloudevents+json` identifies the structured event representation; its required `datacontenttype` is `application/json`. This stricter application profile deliberately rejects otherwise permissible CloudEvents extensions and representations.
+## What changed
 
-## Artifacts and execution
+- Raw parsing rejects duplicate decoded keys, floats/exponents, negative/unsafe integer tokens, invalid UTF-8/surrogates and oversized/deep input. IDs and coefficients use exact portable grammar checks; whitespace is never trimmed.
+- Every valid occurrence is recorded, including duplicate actions. Same occurrence + changed complete content conflicts; a new occurrence/EID cannot renew an action.
+- Invoice amount cannot exceed payable for Pending, Final or Reversed. `effectiveAt <= observedAt <= event.time <= trustedNow`; event time is observation-record creation. No payment allocation or execution is implied.
+- Approval commits authority domain, execution scope, budget window and full proposal. Stable action identity is `(authorityDomain, executionScope, actionId)`; target/contract changes conflict rather than silently re-keying a consumed action.
+- Per-profile schema/rules + common primitive/canonicalization definition determine immutable semantic commitments. Python implementation bytes no longer determine every domain's contract. Implementation/dependency evidence is recorded separately.
+- The corrected vocabulary has 291 proposed entries and a lifecycle support matrix; semantic reclassification under a released ID is checked against a reviewed semantic index. These remain vocabulary, not 291 runtime payload contracts.
 
-- `schemas/{rfq,invoice,agent}.v0.1.json`: standalone JSON Schema 2020-12 resources, closed at every object, with no `$ref` or runtime fetch.
-- `profiles/{rfq,invoice,agent}.v0.1.json`: local manifests pin raw schema bytes, shared normative `profiles/rules.json`, and the exact reference `validator.py` bytes. `profiles/lock.json` pins the JCS digest of each complete manifest. Treat the installed lock and artifacts as locally trusted, reviewed distribution inputs.
-- `examples/`: five complete unsigned events (quote; final, pending and reversed payment observations; sandbox approval).
-- `conformance/cases.json`: expected outcomes for 34 raw JSON corpus files, including examples. Duplicate-key cases deliberately contain invalid raw JSON object semantics.
-- `conformance/trusted-context.json`: clearly labeled **trusted test fixture**, supplied separately from sender event bytes. It simulates clock, source role/principal bindings, RFQ state, exact invoice/payment records, proposed action, policy and human capability. It does not prove any of these facts.
-- `test_conformance.py`: raw corpus plus state/context counterexamples; `validator.py`: local validation CLI/library; `build.py`: maintainer-only deterministic artifact builder.
+## Run the checks
 
-From the repository root:
+Use an isolated Python environment; dependencies and transitive distribution hashes are pinned in `requirements.lock.txt`.
 
 ```bash
+uv venv /tmp/mpe-data-model-validation-env
+uv pip sync --python /tmp/mpe-data-model-validation-env/bin/python --require-hashes model/requirements.lock.txt
+cargo build --locked --manifest-path model/interpreters/rust/Cargo.toml
 /tmp/mpe-data-model-validation-env/bin/python model/test_conformance.py
-/tmp/mpe-data-model-validation-env/bin/python model/validator.py model/examples/agent.json --context model/conformance/trusted-context.json
+/tmp/mpe-data-model-validation-env/bin/python model/test_bundles.py
+/tmp/mpe-data-model-validation-env/bin/python model/domains/test_catalog.py
+/tmp/mpe-data-model-validation-env/bin/python model/test_interoperability.py
+/tmp/mpe-data-model-validation-env/bin/python model/test_chain_observations.py
 ```
 
-A fresh environment can install `model/requirements.txt`. Normal validation never runs `build.py`. After an authorized model edit, rebuilding deliberately changes contract digests and regenerates examples; review those changes before distribution. Rebuilding is not a migration, authenticated installation or approval.
+TypeScript runs directly on Node >=24 with type stripping. For strict type checking, `npm ci --prefix model/interpreters` then `npm run typecheck --prefix model/interpreters`. This compiler and its types are pinned independently of the semantic contract.
 
-## Exact core and primitives
+The RFQ campaign compares independently implemented Python, Rust and TypeScript parsing, schema checks, semantics, canonical bytes and intent digests. The Rust cents-per-hundred adapter and TypeScript dollars-per-share adapter represent the same complete attested fixture intent; price-basis, perspective and unknown-field negatives refuse. Different genuine dealers retain distinct source-bound intent hashes even when economics match.
 
-Each profile requires exactly `specversion`, `id`, `source`, `type`, `time`, `datacontenttype`, `dataschema`, `mpeprofile`, `mpecontract`, `data`. `specversion` is `1.0`; `mpecontract` is the locally pinned manifest SHA-256 digest; `dataschema` must be the exact installed profile URN. Unknown fields, schemas, profiles, digest mismatches and enum values reject, with no fallback or default insertion.
+Current evidence files in [evidence/](evidence/) record finite synthetic cases, not operational error rates or customer savings. `test_interoperability.py` deliberately regenerates local evidence after executing all interpreters; it never silently replaces an immutable bundle.
 
-`source` has the closed ASCII grammar `urn:mpe:source:` plus 1–32 lowercase letters/digits/hyphens, beginning with a letter or digit. Business IDs use a named scope plus `:` and 1–64 lowercase ASCII letters/digits/dot/underscore/slash/hyphen, beginning with a letter or digit. Equality is exact string equality. These pilot IDs do not establish legal identity, wallet ownership or production asset registration.
+## Exact profiles and primitives
 
-An instant is exactly `YYYY-MM-DDTHH:mm:ss.000Z`, with a real Gregorian calendar parse and UTC timezone. Leap seconds, offsets, fractional alternatives, invalid dates and future occurrence times reject. Only whole seconds are supported in v0.1. The fixture clock is explicit, not trusted merely because a timestamp parses.
+All ten event fields (`specversion`, `id`, `source`, `type`, `time`, `datacontenttype`, `dataschema`, `mpeprofile`, `mpecontract`, `data`) stay inside the proposed MPE encrypted body. The outer transport/EID/admission format is unchanged. Each schema closes every object and pins exact type/schema/profile. No sender URL triggers a fetch.
 
-Decimals are `{coefficient,scale}`, sometimes with mandatory `unit`. Coefficients are positive canonical integer strings with 1–18 digits; no zeros, signs, leading zeros, exponent syntax, floating point amounts or silent rounding. Value is `coefficient × 10^-scale`. Scale is fixed by the field, so equivalent alternative precision is rejected. Quantity and Step budget have scale 0; USD price/cash/payable/payment amount have scale 2. This intentionally excludes fractional shares, zero-value invoices, multi-currency, fees, taxes, derivatives and arbitrary assets or tools.
+IDs are bounded scoped ASCII strings with exact equality. Instants are real Gregorian UTC `YYYY-MM-DDTHH:mm:ss.000Z`, years 0001–9999, seconds precision, no leap seconds or offsets. JSON numeric tokens are nonnegative lexical integers <=9007199254740991; money and quantities use bounded decimal strings. Parsing is limited to 3926 raw UTF-8 bytes, depth 12, 512-character strings and 16-item arrays. This raw event limit does not establish sealed wire fit or signature overhead.
 
-The parser rejects duplicate decoded property names before normal object parsing, invalid UTF-8/surrogates, non-JSON NaN/Infinity, depth above 12, strings above 512 characters and arrays above 16 entries. The event body is bounded to 3926 raw UTF-8 bytes. This is a selected body constraint only: no sealing, signature overhead or class-2 wire acceptance is asserted.
-
-## Three typed profiles
-
-| Profile / exact event type | Required meaning | Successful result |
+| Profile | Exact type | Meaning |
 | --- | --- | --- |
-| `rfq.v0.1` / `mpe.rfq.quote.v0.1` | An open trusted RFQ's single pilot asset for USD, whole Share quantity, requester side, distinct resolved buyer/seller, Firm absolute price per one matching asset Share, fees `None`, cash, validity, off-chain coordination marker | `offchain-quote-valid` |
-| `invoice.v0.1` / `mpe.invoice.payment-observed.v0.1` | Exact trusted invoice parties/document/payable/currency plus a complete matching payment-evidence record, fixture rail, amount, effective/observed instants and `Pending`, `Final` or `Reversed` source status | `final-payment-evidence-only` or `payment-evidence-pending-or-reversed` |
-| `agent.v0.1` / `mpe.agent.approval.v0.1` | Logical action ID, complete sandbox `WriteReport` proposal with target/input digest/Step budget/expiry, proposal digest, policy digest, named human, approval validity and `maxEffects:1` | `sandbox-candidate-only` |
+| `rfq.v0.2` | `mpe.rfq.quote.v0.2` | Whole pilot Shares, USD cents, absolute price per one Share, explicit requester perspective, fees None, exact cash and exclusive expiry; off-chain observation only |
+| `invoice.v0.2` | `mpe.invoice.payment-observed.v0.2` | Matching complete trusted fixture evidence, positive partial/full amounts, distinct Pending/Final/Reversed and explicit clocks; Final remains a source assertion |
+| `agent.v0.2` | `mpe.agent.approval.v0.2` | Exact sandbox WriteReport proposal, authority domain/scope/window, input/target/policy/budget/expiry and named human; validation produces a candidate only |
 
-RFQ roles are fixed from requester perspective. `BuyAsset` means requester is buyer; `SellAsset` means dealer is buyer. Price numerator is `iso4217:USD`; denominator is exactly one matching asset `Share`. Cash coefficient equals quantity coefficient times price cents coefficient, bounded to 18 digits. The sample is 100 Shares × 123.45 USD = 12,345.00 USD. No acceptance event, settlement policy or trade execution is implemented; `Firm` is an off-chain fixture description.
+Decimals are `coefficient × 10^-scale`: positive canonical coefficient strings of 1–18 digits; quantity/Step scale 0 and USD scale 2. Zero/fractional Shares, multi-currency, arbitrary fees/assets/tools and broad invoice accounting are outside these pilot profiles. Chain uint256/u64 zero-inclusive quantities use their own primitives.
 
-Invoice evidence must match the separately trusted complete source record; a sender cannot relabel pending evidence Final. Final remains a source assertion, not proof of settlement. Partial payment is supported; overpayment is outside this profile. No matching allocation, journal posting, reversal accounting, refund, tax calculation or payment execution occurs.
+The intent candidate is SHA-256 of JCS `{domain:"mpe.model.intent.v0.2",source,type,profile,contract,data}`. Proposal candidate uses `{domain:"mpe.model.proposal.v0.2",contract,proposal}`. No occurrence ID/time or outer EID enters the business intent. These are unsigned commitments; origin authentication and permission are not inferred from a digest. Every Python/Rust/TypeScript validation success has `executes:false`.
 
-Approval checks exact proposal and policy, source principal/human binding, allowed human and sandbox target, Step budget and revocation. Changed target or input requires a different proposal; recomputing a proposal hash cannot bypass exact trusted proposal matching. Quote and approval validity use an exclusive upper bound: `validFrom <= now < validUntil`; approval expiry must not exceed proposal expiry. No action dispatch occurs after validation. Every returned result has `executes:false`.
+## Immutable bundles and history
 
-## Commitments and identities
+`bundles/<manifest-sha256>/` contains `manifest.json`, `schema.json`, `core.json`, `rules.json`. The manifest commits raw resource bytes; the contract commits its JCS manifest. Schema and rule resources never contain their own contract digest, avoiding cycles. The offline `profiles/installed.json` allowlist selects exact installed contracts; `profiles/lock.json` is the current alias set. Unknown contracts refuse, with no downgrade/default insertion.
 
-The reference computes `sha256:` plus lowercase hex SHA-256 over RFC 8785 JCS UTF-8 bytes of the following **unsigned intent candidate**:
+The loader closes manifest metadata, bounds reads, rejects symlink/path escape and every reference keyword, verifies resource bytes once and validates from that same snapshot. The pure `negotiate` helper intersects exact installed commitments; it does not provide authentication or perform a network handshake. Operator-reviewed allowlists are a fixture trust assumption; authenticated atomic installation and live workflow migration are not demonstrated.
 
-```json
-{"domain":"mpe.model.intent.v0.1","source":"<event source>","type":"<event type>","profile":"<mpeprofile>","contract":"<mpecontract>","data":"<complete typed data object>"}
+The original [v0.1 release](releases/v0.1/README.md) preserves exact schemas, validator, manifests, fixtures and known defects. Its archived interpreter retains historical behavior:
+
+```bash
+/tmp/mpe-data-model-validation-env/bin/python model/releases/v0.1/test_conformance.py
+/tmp/mpe-data-model-validation-env/bin/python reviews/data-format/reproduce-findings.py
+/tmp/mpe-data-model-validation-env/bin/python reviews/data-format/reproduce-findings.py --current
 ```
 
-The shown placeholders describe construction; actual hash input contains the complete object, never a serialized `data` string. `business_digest(event)` is authoritative executable construction. Occurrence `id` and `time` are excluded deliberately: resealing or emitting another occurrence cannot renew an action. Source, complete profile commitment and complete business intent are included. Narrative fields are absent. There is no signature field, signing algorithm, key binding or proof verifier; calling this candidate a verified signature would be incorrect.
+The default counterexample command reproduces the reviewed v0.1 faults; `--current` checks v0.2 corrections. v0.1 is registered **historical-read-only** and the current loader refuses to dispatch it. An archived test pass is not permission to reactivate an unsafe historical contract. No live workflow has been cut over. `build.py` creates reviewed current artifacts and refuses to overwrite different bytes under an existing content hash; it is not an installer or a migration service.
 
-`proposal_digest` hashes JCS of `{domain:"mpe.model.proposal.v0.1",contract:<mpecontract>,proposal:<complete proposal>}`. The manifest has no self digest; its resources have no manifest digest. Thus schema/rules/validator → manifest → local lock → event/intent is an acyclic commitment graph. Examples and corpus reference manifests but are outside the pinned manifest to avoid hash cycles. Test code and builder are not the semantic validation authority; `validator.py` and `rules.json` are pinned.
+## Read-only chain slices
 
-CloudEvents `(source,id)` identifies an occurrence. Same occurrence and same complete canonical event is a duplicate; changed content is a conflict. Logical approval action `(proposal.target,actionId)` identifies an at-most-one candidate in fixture memory. Same intent with a new event ID is `duplicate-action`; changed intent with the same action is a conflict. EID is an optional opaque harness argument kept separate, with no model interpretation or hash derivation. RFQ/payment observations never acquire effect IDs or execute effects.
+[chains/observations.py](chains/observations.py) and its closed [transfer schema](chains/transfer.schema.json) implement bounded Ethereum ERC-20 receipt/log projection and Solana legacy base Token Program TransferChecked projection. They preserve zero/max exact amounts, approved network/genesis, physical inclusion/instruction identity, source/fragment/context digests and decoder identity. ERC-721-shaped logs refuse; Token-2022/unknown instructions or transaction versions are outside the admitted base slice. Diagnostic failed transactions yield no ordinary transfer effects; this does not assert their fees or durable nonce changes vanish.
 
-The memory harness records only after checks; it is neither durable nor atomic and cannot supply production exactly-once effects. A production executor must recheck authenticated permission, revocation, trusted clock, input, target, budget, evidence and required ledger proof/finality immediately before committing a capability-bounded effect with durable replay state.
+The Solana branch hash is separately supplied fixture evidence, never inferred from the transaction's recent blockhash. Source payloads are bounded dictionary fixtures; `sourceDigest` identifies their deterministic JSON serialization, not authenticated original RPC wire bytes. Full live RPC parsing, provider authentication and independent program decoders remain required before promotion. No signing/broadcasting or effect capability is exposed.
 
-## Standards reuse and limits
+The SQLite journal keeps observer deliveries, physical facts, native commitment assertions, invalidations and gaps append-only. A supplied known-at clock is trusted local intake context and must not regress; it is not sender event time. Duplicates from polling/subscription/backfill aggregate once, repeated CPI transfers stay distinct, re-inclusion has a new physical location, historical cutoff views remain separate, and conflicting commitment assertions expose a gap instead of a total. Finality assertions are explicitly source fixtures, not consensus proofs.
 
-Original narrow definitions adapt concepts from [CloudEvents 1.0.2](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md), [JSON Schema 2020-12](https://json-schema.org/draft/2020-12/json-schema-core), [RFC 8785](https://www.rfc-editor.org/rfc/rfc8785), [FINOS CDM product concepts](https://cdm.finos.org/docs/product-model/) (units, price denominator, buyer/seller), and [OASIS UBL 2.3 Invoice concepts](https://docs.oasis-open.org/ubl/os-UBL-2.3/mod/summary/reports/UBL-Invoice-2.3.html) (parties and payable amount). Source URLs and adaptation labels are also in pinned rules. This is original MPE application vocabulary, not copied full CDM/UBL schemas or a CDM, UBL, ISO 20022, FIX or FpML conformance claim. Distribution licensing review of any future imported/generated artifacts remains pending; no full standard is imported here.
+## Durable sandbox and Umbra
 
-Design evidence is the completed [event contracts](../reviews/data-model/event-contracts.md), [domain modelling](../reviews/data-model/domain-modelling.md), [financial semantics](../reviews/data-model/financial-semantics.md), [semantic constraints](../reviews/data-model/semantic-constraints.md), and [selected stack](../docs/product-requirements/recommended-stack-and-use-cases.md) reviews. No live schema lookup, RDF reasoner or LLM interpretation participates in validation. Python-only tests establish reference behavior; cross-language canonicalization, production cryptographic/finality/permission checks, adapters and MPE wire compatibility are pending.
+[recovery/umbradb-host.mjs](recovery/umbradb-host.mjs) uses only Umbra's public root API and one `withTransaction` handle for inbox, action/dedup, sandbox report row, Step accounting, outbox, checkpoint and cursor. There is no nested `saveAndAdvance`. The host clones intent, checks scope, verifies current fixture capability before and inside the transaction, reserves the declared maximum, charges one Step for one report-row write and releases unused capacity. Stable action/occurrence conflicts, aggregate budget, revocation, concurrent replay and cursor behavior are tested.
+
+Run against an isolated PostgreSQL 17 database and the built reviewed Umbra checkout. The measured checkout is `f662822765247f0da553347c9819f958a1992d28` (package metadata 0.9.5); the original research's earlier checkout is not silently substituted.
+
+```bash
+UMBRA_DIST=/path/to/UmbraDB/dist \
+UMBRA_COMMIT=f662822765247f0da553347c9819f958a1992d28 \
+MPE_TEST_DATABASE_URL=postgres://postgres@127.0.0.1:55437/postgres \
+node model/recovery/test-postgres.mjs
+```
+
+The test creates a fresh `mpe_format_<pid>` schema. It kills four actual worker processes: after effect writes, before commit, after commit before acknowledgement, and after a separate destination-fixture commit. Recovery produces one local report write; uncertain delivery exposes OutcomeUnknown and reconciles the original idempotency key. Destination delivery is a separate-transaction acknowledgement fixture, not a live external payment/tool service. Neither PostgreSQL nor a local transaction supplies global exactly-once effects, HA fencing, consensus finality, checkpoint encryption or production authority.
+
+## Literature and implementation status
+
+Original narrow concepts draw from [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md), [JSON Schema](https://json-schema.org/draft/2020-12/json-schema-core), [JCS](https://www.rfc-editor.org/rfc/rfc8785), [FINOS CDM](https://cdm.finos.org/docs/product-model/) and [UBL](https://docs.oasis-open.org/ubl/os-UBL-2.3/mod/summary/reports/UBL-Invoice-2.3.html). This is not full CDM/UBL/ISO/FIX conformance. Research sources and five independent reviews remain in the repo.
+
+See [recommendation implementation status](../docs/product-requirements/data-format-implementation.md) for artifact-by-artifact evidence and remaining deployment/customer gates. The three website sprints remain a proposed protocol-validation plan; these components do not establish their entire completion.

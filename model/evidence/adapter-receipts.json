@@ -1,0 +1,26 @@
+[
+  {
+    "sourceFormat": "dealer-a.usd-share.v1",
+    "rawSource": "{\"format\":\"dealer-a.usd-share.v1\",\"quantity\":\"100\",\"unitPriceDollars\":\"123.45\",\"currency\":\"USD\",\"basisShares\":\"1\",\"perspective\":\"RequesterBuy\",\"fees\":\"None\"}",
+    "canonicalEvent": "{\"data\":{\"asset\":\"asset:pilot-share-42\",\"buyer\":\"party:buyer\",\"cash\":{\"coefficient\":\"1234500\",\"scale\":2},\"currency\":\"iso4217:USD\",\"dealer\":\"party:dealer\",\"price\":{\"assetRef\":\"asset:pilot-share-42\",\"baseQuantity\":\"1\",\"currency\":\"iso4217:USD\",\"fees\":\"None\",\"kind\":\"AbsolutePerUnit\",\"unit\":\"Share\",\"value\":{\"coefficient\":\"12345\",\"scale\":2}},\"quantity\":{\"coefficient\":\"100\",\"scale\":0,\"unit\":\"Share\"},\"quoteId\":\"quote:demo\",\"quoteKind\":\"Firm\",\"requester\":\"party:buyer\",\"requesterSide\":\"BuyAsset\",\"rfqId\":\"rfq:demo\",\"seller\":\"party:dealer\",\"settlement\":\"OffchainCoordinationOnly\",\"validFrom\":\"2026-10-04T11:00:00.000Z\",\"validUntil\":\"2026-10-04T13:00:00.000Z\"},\"datacontenttype\":\"application/json\",\"dataschema\":\"urn:mpe:model:rfq.v0.2\",\"id\":\"event:rfq\",\"mpecontract\":\"sha256:8b5c6b89f6019fcb06b479e92f1b3bea340ac500cc218341e368e1ed2093071c\",\"mpeprofile\":\"rfq.v0.2\",\"source\":\"urn:mpe:source:dealer\",\"specversion\":\"1.0\",\"time\":\"2026-10-04T11:00:00.000Z\",\"type\":\"mpe.rfq.quote.v0.2\"}",
+    "intentDigest": "sha256:28698f5da5ec1c8fb45234994d08a6347d9589b259e9e99c6bad27f547600c1b",
+    "loss": [],
+    "transformations": [
+      "exact-price-basis",
+      "explicit-role-perspective"
+    ],
+    "status": "unsigned-fixture-mapping"
+  },
+  {
+    "sourceFormat": "dealer-b.cents-lot.v1",
+    "rawSource": "{\"format\":\"dealer-b.cents-lot.v1\",\"quantity\":\"100\",\"quotePriceMinor\":\"1234500\",\"currency\":\"USD\",\"basisShares\":\"100\",\"perspective\":\"DealerSell\",\"fees\":\"None\"}",
+    "canonicalEvent": "{\"data\":{\"asset\":\"asset:pilot-share-42\",\"buyer\":\"party:buyer\",\"cash\":{\"coefficient\":\"1234500\",\"scale\":2},\"currency\":\"iso4217:USD\",\"dealer\":\"party:dealer\",\"price\":{\"assetRef\":\"asset:pilot-share-42\",\"baseQuantity\":\"1\",\"currency\":\"iso4217:USD\",\"fees\":\"None\",\"kind\":\"AbsolutePerUnit\",\"unit\":\"Share\",\"value\":{\"coefficient\":\"12345\",\"scale\":2}},\"quantity\":{\"coefficient\":\"100\",\"scale\":0,\"unit\":\"Share\"},\"quoteId\":\"quote:demo\",\"quoteKind\":\"Firm\",\"requester\":\"party:buyer\",\"requesterSide\":\"BuyAsset\",\"rfqId\":\"rfq:demo\",\"seller\":\"party:dealer\",\"settlement\":\"OffchainCoordinationOnly\",\"validFrom\":\"2026-10-04T11:00:00.000Z\",\"validUntil\":\"2026-10-04T13:00:00.000Z\"},\"datacontenttype\":\"application/json\",\"dataschema\":\"urn:mpe:model:rfq.v0.2\",\"id\":\"event:rfq\",\"mpecontract\":\"sha256:8b5c6b89f6019fcb06b479e92f1b3bea340ac500cc218341e368e1ed2093071c\",\"mpeprofile\":\"rfq.v0.2\",\"source\":\"urn:mpe:source:dealer\",\"specversion\":\"1.0\",\"time\":\"2026-10-04T11:00:00.000Z\",\"type\":\"mpe.rfq.quote.v0.2\"}",
+    "intentDigest": "sha256:28698f5da5ec1c8fb45234994d08a6347d9589b259e9e99c6bad27f547600c1b",
+    "loss": [],
+    "transformations": [
+      "exact-price-basis",
+      "explicit-role-perspective"
+    ],
+    "status": "unsigned-fixture-mapping"
+  }
+]

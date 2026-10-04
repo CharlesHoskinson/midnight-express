@@ -1,0 +1,7 @@
+{
+  "checks": 28,
+  "status": "synthetic-read-only-projections",
+  "liveRPC": false,
+  "finalityVerified": false,
+  "effectAuthority": false
+}

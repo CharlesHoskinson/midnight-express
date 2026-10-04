@@ -39,3 +39,7 @@ The [unified model proposal](../docs/product-requirements/unified-data-model.md)
 The Implementation page also summarizes Ethereum/Solana application domains: chain lifecycle and rollback, RPC/subscriptions, state, tokens/NFTs, wallets and program-specific DeFi/bridge semantics. These are proposed domain inventories; no chain adapter runtime is included.
 
 Validation for this update: original workflow/component interaction checks and Implementation route/anchors/native details passed in headless Chromium at desktop/mobile widths, 200% text and with JavaScript disabled. Three model schemas self-validate and the reference's 51 conformance checks pass. Archive integrity: 140 fetch records, 253 raw/text hashes checked without mismatch. None of these checks establishes completed prototype sprints, deployed chain adapters, cryptographic acceptance or market demand.
+
+## v0.2 reference release
+
+The Implementation tab now distinguishes implemented conformance/local components from the proposed full protocol sprints: 80 Python checks, 35 independent RFQ vectors, 14 corrected-catalog checks, 28 read-only chain cases, nine immutable-bundle checks and 56 real PostgreSQL sandbox/recovery checks. Review defects reject under v0.2; the original v0.1 remains historical read-only. Source/authority are fixtures, not production authentication or consensus verification.

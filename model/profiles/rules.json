@@ -1,14 +1,14 @@
 {
-  "version": "0.1",
+  "version": "0.2",
   "status": "experimental-model-only",
   "identity": {
     "event": "(source,id), immutable complete event",
-    "action": "(proposal.target,actionId), consumes approval once in fixture memory only",
+    "action": "(authorityDomain,executionScope,actionId); target and contract changes conflict; reference candidates only",
     "eid": "opaque transport identifier supplied separately; never computed or used for business replay"
   },
   "canonicalization": {
     "algorithm": "RFC8785/JCS UTF-8 then SHA-256",
-    "intentDomain": "mpe.model.intent.v0.1",
+    "intentDomain": "mpe.model.intent.v0.2",
     "intentFields": [
       "source",
       "type",
@@ -16,7 +16,7 @@
       "contract",
       "data"
     ],
-    "proposalDomain": "mpe.model.proposal.v0.1",
+    "proposalDomain": "mpe.model.proposal.v0.2",
     "proposalFields": [
       "contract",
       "proposal"
@@ -25,6 +25,7 @@
   },
   "primitives": {
     "ids": "bounded ASCII scoped identifiers; no normalization",
+    "jsonNumbers": "lexical nonnegative integer tokens only, <=9007199254740991; no floating/exponent tokens or negative zero",
     "timestamp": "real UTC calendar YYYY-MM-DDTHH:mm:ss.000Z; no leap seconds; seconds precision only",
     "decimal": "positive canonical coefficient (1..18 digits), value coefficient * 10^-scale; fixed per-field scale, no leading zeros, exponents, sign, zero, floats, coercion or rounding",
     "currency": "only iso4217:USD; pilot asset/unit from trusted RFQ fixture, only whole Share quantities",
@@ -47,13 +48,15 @@
     "trusted invoice identity, parties, currency, payable and document digest match",
     "payment source must match trusted complete paymentEvidence entry; effectiveAt <= observedAt <= trusted now",
     "Pending/Reversed remain evidence and never imply payment completion",
-    "Final remains source assertion only; partial allowed, overpayment refused; no posting, allocation, tax or payment execution"
+    "all statuses require amount <= payable; effectiveAt <= observedAt <= event time <= trusted now; event time is observation-record creation",
+    "Final remains source assertion only; partial allowed; no posting, allocation, tax or payment execution"
   ],
   "agent": [
     "exact trusted proposal and policy; JCS proposal hash binds complete proposal and profile contract",
     "human locally allowlisted, action not revoked, target locally allowlisted, Step budget within maxSteps",
     "occurred <= validFrom <= now < validUntil <= proposal.expires; maxEffects exactly 1",
     "new event id or EID cannot refresh same action; same action different intent is conflict",
+    "Step means one atomic sandbox report-row write; full declared budget reserved at effect boundary then actual one Step charged; fixture authority only",
     "successful check produces sandbox candidate only; no actual execution or authenticated approval"
   ],
   "context": "Explicit trusted test fixture only; missing, stale or insufficient evidence rejects. Production source authentication, policy, clocks, durable atomic replay and finality remain pending.",

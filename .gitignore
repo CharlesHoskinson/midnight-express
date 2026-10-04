@@ -40,3 +40,5 @@ experiments/results/
 design/AFK.md
 # Requested, private literature archive: preserve raw bytes referenced by manifests.
 !catalog/data-model/**/*.pdf
+model/interpreters/rust/target/
+model/interpreters/node_modules/

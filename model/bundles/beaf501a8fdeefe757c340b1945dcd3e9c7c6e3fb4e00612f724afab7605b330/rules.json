@@ -1,0 +1,13 @@
+{
+  "profile": "agent.v0.2",
+  "rules": [
+    "exact trusted proposal and policy; JCS proposal hash binds complete proposal and profile contract",
+    "human locally allowlisted, action not revoked, target locally allowlisted, Step budget within maxSteps",
+    "occurred <= validFrom <= now < validUntil <= proposal.expires; maxEffects exactly 1",
+    "new event id or EID cannot refresh same action; same action different intent is conflict",
+    "Step means one atomic sandbox report-row write; full declared budget reserved at effect boundary then actual one Step charged; fixture authority only",
+    "successful check produces sandbox candidate only; no actual execution or authenticated approval"
+  ],
+  "role": "human-approver",
+  "context": "Explicit trusted test fixture only; missing, stale or insufficient evidence rejects. Production source authentication, policy, clocks, durable atomic replay and finality remain pending."
+}

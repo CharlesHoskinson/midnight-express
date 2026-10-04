@@ -1,4 +1,7 @@
 {
+  "authorityDomain": "urn:mpe:sandbox:local",
+  "executionScope": "scope:fixture",
+  "budgetWindow": "window:fixture",
   "fixtureTrust": "trusted-test-fixture-only",
   "now": "2026-10-04T12:00:00.000Z",
   "sources": {

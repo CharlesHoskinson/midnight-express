@@ -14,39 +14,40 @@ def object_(properties):
     return {'type':'object','properties':properties,'required':list(properties),'additionalProperties':False}
 def enum(*items): return {'enum':list(items)}
 def const(value): return {'const':value}
-def ident(scope): return {'type':'string','pattern':f'^{scope}:[a-z0-9][a-z0-9._/-]{{0,63}}$','maxLength':80}
+def ident(scope): return {'type':'string','pattern':f'^{scope}:[a-z0-9][a-z0-9._/-]{{0,63}}(?![\\s\\S])','maxLength':80}
 def decimal(scale,unit=None):
-    fields={'coefficient':{'type':'string','pattern':'^[1-9][0-9]{0,17}$'},'scale':const(scale)}
+    fields={'coefficient':{'type':'string','pattern':'^[1-9][0-9]{0,17}(?![\\s\\S])'},'scale':const(scale)}
     if unit: fields['unit']=const(unit)
     return object_(fields)
-TIME={'type':'string','pattern':'^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.000Z$'}
-HASH={'type':'string','pattern':'^sha256:[0-9a-f]{64}$'}
+TIME={'type':'string','pattern':'^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.000Z(?![\\s\\S])'}
+HASH={'type':'string','pattern':'^sha256:[0-9a-f]{64}(?![\\s\\S])'}
 party=ident('party')
 proposal=object_({'environment':const('Sandbox'),'operation':const('WriteReport'),'target':ident('sandbox'),
  'inputDigest':HASH,'budget':decimal(0,'Step'),'expires':TIME})
 bodies={
- 'rfq.v0.1':object_({'rfqId':ident('rfq'),'quoteId':ident('quote'),'requester':party,'dealer':party,
+ 'rfq.v0.2':object_({'rfqId':ident('rfq'),'quoteId':ident('quote'),'requester':party,'dealer':party,
  'requesterSide':enum('BuyAsset','SellAsset'),'buyer':party,'seller':party,'asset':ident('asset'),
  'quantity':decimal(0,'Share'),'currency':const('iso4217:USD'),
  'price':object_({'kind':const('AbsolutePerUnit'),'value':decimal(2),'currency':const('iso4217:USD'),
                  'assetRef':ident('asset'),'unit':const('Share'),'baseQuantity':const('1'),'fees':const('None')}),
  'cash':decimal(2),'quoteKind':const('Firm'),'validFrom':TIME,'validUntil':TIME,'settlement':const('OffchainCoordinationOnly')}),
- 'invoice.v0.1':object_({'invoiceId':ident('invoice'),'supplier':party,'customer':party,'documentDigest':HASH,
+ 'invoice.v0.2':object_({'invoiceId':ident('invoice'),'supplier':party,'customer':party,'documentDigest':HASH,
  'currency':const('iso4217:USD'),'payable':decimal(2),'paymentId':ident('payment'),
  'amount':decimal(2),'status':enum('Pending','Final','Reversed'),'observedAt':TIME,'effectiveAt':TIME,
  'rail':const('fixture-bank-v1')}),
- 'agent.v0.1':object_({'actionId':ident('action'),'proposal':proposal,'proposalDigest':HASH,
+ 'agent.v0.2':object_({'authorityDomain':const('urn:mpe:sandbox:local'),'executionScope':ident('scope'),'budgetWindow':const('window:fixture'),'actionId':ident('action'),'proposal':proposal,'proposalDigest':HASH,
                     'policyDigest':HASH,'human':ident('human'),'validFrom':TIME,'validUntil':TIME,'maxEffects':const(1)})}
-types={'rfq.v0.1':'mpe.rfq.quote.v0.1','invoice.v0.1':'mpe.invoice.payment-observed.v0.1','agent.v0.1':'mpe.agent.approval.v0.1'}
-roles={'rfq.v0.1':'dealer','invoice.v0.1':'payment-adapter','agent.v0.1':'human-approver'}
+types={'rfq.v0.2':'mpe.rfq.quote.v0.2','invoice.v0.2':'mpe.invoice.payment-observed.v0.2','agent.v0.2':'mpe.agent.approval.v0.2'}
+roles={'rfq.v0.2':'dealer','invoice.v0.2':'payment-adapter','agent.v0.2':'human-approver'}
 rules={
- 'version':'0.1','status':'experimental-model-only',
- 'identity':{'event':'(source,id), immutable complete event','action':'(proposal.target,actionId), consumes approval once in fixture memory only',
+ 'version':'0.2','status':'experimental-model-only',
+ 'identity':{'event':'(source,id), immutable complete event','action':'(authorityDomain,executionScope,actionId); target and contract changes conflict; reference candidates only',
              'eid':'opaque transport identifier supplied separately; never computed or used for business replay'},
- 'canonicalization':{'algorithm':'RFC8785/JCS UTF-8 then SHA-256','intentDomain':'mpe.model.intent.v0.1',
-  'intentFields':['source','type','profile','contract','data'],'proposalDomain':'mpe.model.proposal.v0.1',
+ 'canonicalization':{'algorithm':'RFC8785/JCS UTF-8 then SHA-256','intentDomain':'mpe.model.intent.v0.2',
+  'intentFields':['source','type','profile','contract','data'],'proposalDomain':'mpe.model.proposal.v0.2',
   'proposalFields':['contract','proposal'],'manifest':'JCS of entire manifest; lock.json pins it; manifests never include their own hash'},
- 'primitives':{'ids':'bounded ASCII scoped identifiers; no normalization','timestamp':'real UTC calendar YYYY-MM-DDTHH:mm:ss.000Z; no leap seconds; seconds precision only',
+ 'primitives':{'ids':'bounded ASCII scoped identifiers; no normalization','jsonNumbers':'lexical nonnegative integer tokens only, <=9007199254740991; no floating/exponent tokens or negative zero',
+ 'timestamp':'real UTC calendar YYYY-MM-DDTHH:mm:ss.000Z; no leap seconds; seconds precision only',
  'decimal':'positive canonical coefficient (1..18 digits), value coefficient * 10^-scale; fixed per-field scale, no leading zeros, exponents, sign, zero, floats, coercion or rounding',
  'currency':'only iso4217:USD; pilot asset/unit from trusted RFQ fixture, only whole Share quantities',
  'limits':{'rawBodyBytes':3926,'maxDepth':12,'maxStringCharacters':512,'maxArrayItems':16}},
@@ -58,11 +59,13 @@ rules={
  'invoice':['trusted invoice identity, parties, currency, payable and document digest match',
  'payment source must match trusted complete paymentEvidence entry; effectiveAt <= observedAt <= trusted now',
  'Pending/Reversed remain evidence and never imply payment completion',
- 'Final remains source assertion only; partial allowed, overpayment refused; no posting, allocation, tax or payment execution'],
+ 'all statuses require amount <= payable; effectiveAt <= observedAt <= event time <= trusted now; event time is observation-record creation',
+ 'Final remains source assertion only; partial allowed; no posting, allocation, tax or payment execution'],
  'agent':['exact trusted proposal and policy; JCS proposal hash binds complete proposal and profile contract',
  'human locally allowlisted, action not revoked, target locally allowlisted, Step budget within maxSteps',
  'occurred <= validFrom <= now < validUntil <= proposal.expires; maxEffects exactly 1',
  'new event id or EID cannot refresh same action; same action different intent is conflict',
+ 'Step means one atomic sandbox report-row write; full declared budget reserved at effect boundary then actual one Step charged; fixture authority only',
  'successful check produces sandbox candidate only; no actual execution or authenticated approval'],
  'context':'Explicit trusted test fixture only; missing, stale or insufficient evidence rejects. Production source authentication, policy, clocks, durable atomic replay and finality remain pending.',
  'unsupported':['all unknown fields and enum values','all uninstalled or mismatched schemas/profiles','all remote fetching and RDF reasoning','all LLM repairs and default insertion'],
@@ -72,24 +75,22 @@ rules={
  {'concept':'canonical business intent','url':'https://www.rfc-editor.org/rfc/rfc8785'},
  {'concept':'quantity units, denominator, buyer/seller; original narrow adaptation','url':'https://cdm.finos.org/docs/product-model/'},
  {'concept':'invoice parties, payable and payment distinction; original narrow adaptation','url':'https://docs.oasis-open.org/ubl/os-UBL-2.3/mod/summary/reports/UBL-Invoice-2.3.html'}]}
+# Normative commitments do not depend on implementation source bytes.
+from bundles import publish_bundle
+core={"version":"0.2","eventFields":["specversion","id","source","type","time","datacontenttype","dataschema","mpeprofile","mpecontract","data"],
+      "canonicalization":rules["canonicalization"],"primitives":{k:v for k,v in rules["primitives"].items() if k!="currency"},"unsupported":rules["unsupported"]}
 put('profiles/rules.json',rules)
 lock={}
 for name,body in bodies.items():
     schema=object_({'specversion':const('1.0'),'id':ident('event'),
-     'source':{'type':'string','pattern':'^urn:mpe:source:[a-z0-9][a-z0-9-]{0,31}$'},
+     'source':{'type':'string','pattern':'^urn:mpe:source:[a-z0-9][a-z0-9-]{0,31}(?![\\s\\S])'},
      'type':const(types[name]),'time':TIME,'datacontenttype':const('application/json'),
      'dataschema':const('urn:mpe:model:'+name),'mpeprofile':const(name),'mpecontract':HASH,'data':body})
     schema['$schema']='https://json-schema.org/draft/2020-12/schema'
     schema['$id']='urn:mpe:model:'+name
-    # No remote or transitive refs: the schema closure is this one complete file.
     put(f'schemas/{name}.json',schema)
-    resources={p:'sha256:'+hashlib.sha256((ROOT/p).read_bytes()).hexdigest()
-               for p in (f'schemas/{name}.json','profiles/rules.json','validator.py')}
-    manifest={'profile':name,'version':'0.1','status':'experimental-model-only','owner':'MPE model maintainers (proposed)',
-              'schema':f'schemas/{name}.json','role':roles[name],'resources':resources,
-              'core':'private-structured-cloudevents-compatible-v0.1','workflow':name,
-              'signatures':'unsigned; no cryptographic authority implemented','compatibility':'exact local digest only; no adapters'}
-    put(f'profiles/{name}.json',manifest); lock[name]=digest(manifest)
+    normative={"profile":name,"rules":rules[name.split('.')[0]],"role":roles[name],"context":rules['context']}
+    lock[name]=publish_bundle(r=ROOT,profile=name,schema=schema,core=core,normative=normative)
 put('profiles/lock.json',lock)
 now='2026-10-04T12:00:00.000Z'; end='2026-10-04T13:00:00.000Z'; start='2026-10-04T11:00:00.000Z'
 rfq={'rfqId':'rfq:demo','quoteId':'quote:demo','requester':'party:buyer','dealer':'party:dealer','requesterSide':'BuyAsset',
@@ -102,9 +103,9 @@ invoice={'invoiceId':'invoice:supplier/demo','supplier':'party:supplier','custom
  'amount':{'coefficient':'25000','scale':2},'status':'Final','observedAt':start,'effectiveAt':start,'rail':'fixture-bank-v1'}
 prop={'environment':'Sandbox','operation':'WriteReport','target':'sandbox:reports/demo','inputDigest':'sha256:'+'2'*64,
       'budget':{'coefficient':'5','scale':0,'unit':'Step'},'expires':end}
-agent={'actionId':'action:demo','proposal':prop,'proposalDigest':digest({'domain':'mpe.model.proposal.v0.1','contract':lock['agent.v0.1'],'proposal':prop}),
+agent={'authorityDomain':'urn:mpe:sandbox:local','executionScope':'scope:fixture','budgetWindow':'window:fixture','actionId':'action:demo','proposal':prop,'proposalDigest':digest({'domain':'mpe.model.proposal.v0.2','contract':lock['agent.v0.2'],'proposal':prop}),
  'policyDigest':'sha256:'+'3'*64,'human':'human:alice','validFrom':start,'validUntil':end,'maxEffects':1}
-context={'fixtureTrust':'trusted-test-fixture-only','now':now,
+context={'authorityDomain':'urn:mpe:sandbox:local','executionScope':'scope:fixture','budgetWindow':'window:fixture','fixtureTrust':'trusted-test-fixture-only','now':now,
  'sources':{'urn:mpe:source:dealer':{'role':'dealer','principal':'party:dealer'},
  'urn:mpe:source:bank':{'role':'payment-adapter','principal':'fixture-bank-v1'},
  'urn:mpe:source:human':{'role':'human-approver','principal':'human:alice'}},
@@ -118,8 +119,8 @@ reversed_=copy.deepcopy(invoice); reversed_['status']='Reversed'; reversed_['pay
 context['paymentEvidence']['payment:reversed']=reversed_
 put('conformance/trusted-context.json',context)
 events={}
-for label,name,source,data in [('rfq','rfq.v0.1','dealer',rfq),('invoice-final','invoice.v0.1','bank',invoice),
- ('invoice-pending','invoice.v0.1','bank',pending),('invoice-reversed','invoice.v0.1','bank',reversed_),('agent','agent.v0.1','human',agent)]:
+for label,name,source,data in [('rfq','rfq.v0.2','dealer',rfq),('invoice-final','invoice.v0.2','bank',invoice),
+ ('invoice-pending','invoice.v0.2','bank',pending),('invoice-reversed','invoice.v0.2','bank',reversed_),('agent','agent.v0.2','human',agent)]:
     e={'specversion':'1.0','id':'event:'+label,'source':'urn:mpe:source:'+source,'type':types[name],
        'time':start,'datacontenttype':'application/json','dataschema':'urn:mpe:model:'+name,
        'mpeprofile':name,'mpecontract':lock[name],'data':data}
@@ -168,3 +169,6 @@ cases.append({'file':'conformance/duplicate-key.json','expect':'reject'})
 cases.append({'file':'conformance/duplicate-escaped-key.json','expect':'reject'})
 put('conformance/cases.json',cases)
 print(f'Built {len(bodies)} schemas, {len(lock)} pinned manifests, {len(events)} examples, {len(cases)} cases')
+
+from bundles import register_legacy
+register_legacy(ROOT)

@@ -8,7 +8,7 @@ Unify the **contract mechanism and a few primitives**, then define closed, indep
 
 The common private event core carries event identity, source, occurrence time, exact event type, schema identifier and semantic-contract commitment. Each domain profile defines its own terms, roles, units, state transitions and authority requirements. RFQ terms do not belong in invoice or agent schemas. All of this remains inside the MPE encrypted body: no public topics, schema lookups or routing selectors reveal business subscriptions.
 
-The initial reference implements three exact types: `mpe.rfq.quote.v0.1`, `mpe.invoice.payment-observed.v0.1`, and `mpe.agent.approval.v0.1`. These are conformance slices, not complete request/offer/accept, invoice-accounting or proposal/approval/execution/result protocols. The remaining typed events and state machines are prototype work.
+The current v0.2 reference implements three exact types: `mpe.rfq.quote.v0.2`, `mpe.invoice.payment-observed.v0.2`, and `mpe.agent.approval.v0.2`. These are conformance slices, not complete request/offer/accept, invoice-accounting or proposal/approval/execution/result protocols. The remaining typed events and state machines are prototype work.
 
 ## Literature we can use
 
@@ -28,11 +28,11 @@ Five role-specific studies and Scrapling archives are indexed in [catalog/data-m
 
 ## What agreement actually means
 
-A locally installed, reviewed contract manifest pins schema bytes, dictionaries, rules and validator semantics. Version names alone are insufficient. The reference pins schemas, rules and its Python validator, then commits the complete manifest using JCS and SHA-256. The graph is acyclic: resources → manifest → trusted lock → event. Production implementations must add protocol signing rules, workflow state-machine specifications and approved adapter definitions to their reviewed contract distribution.
+A locally installed, reviewed contract manifest pins schema bytes, dictionaries, rules and validator semantics. Version names alone are insufficient. The v0.2 reference pins each profile schema/rules and common primitive/canonicalization definitions, then commits the complete manifest using JCS and SHA-256. Implementation source and dependency locks are recorded separately as release evidence. The graph is acyclic: resources → manifest → trusted lock → event. Production implementations must add protocol signing rules, workflow state-machine specifications and approved adapter definitions to their reviewed contract distribution.
 
 Never fetch a schema from a sender-supplied URL during handling. Negotiate the intersection of installed exact contract commitments privately; no compatible intersection means no automatic action. Trust comes from authenticated installation and policy, not from a hash supplied by the sender. Keep wire/security, common core, domain contracts, and workflow/policy versions separate. Active workflows pin their contract; explicit authorized migration or continued old-contract interpretation is required for replay.
 
-The validator pipeline is: bounded raw parse → duplicate-key rejection → exact installed profile → closed structural validation → semantic invariants → authenticated source and role → freshness and current policy → state/replay checks → atomic effect boundary. The current reference implements the parse/contract/semantic stages and simulated context checks only. Its return values always say `executes:false`.
+The validator pipeline is: bounded raw parse → duplicate-key rejection → exact installed profile → closed structural validation → semantic invariants → authenticated source and role → freshness and current policy → state/replay checks → atomic effect boundary. The current validation reference implements parse/contract/semantic stages and simulated context checks; validation returns `executes:false`. A separate, fixture-authorized Umbra sandbox demonstrates atomic report-row effects and recovery, as detailed in the implementation status.
 
 ## Prevent the dangerous price mismatch
 
@@ -40,7 +40,7 @@ Consider 100 shares at 123.45 USD per share, total 12,345.00 USD. Participant A 
 
 Our pilot uses positive canonical integer coefficients and a declared scale: `value = coefficient × 10^-scale`. Quantity is whole Shares; USD price and cash use scale 2. Price states the numerator currency, denominator asset/unit and base quantity. Requester BuyAsset/SellAsset fixes buyer and seller roles. Fees are explicitly None. A precise cash equality check prevents plausible-but-inconsistent totals. This profile intentionally excludes fractional shares, derivatives, multi-currency and negotiated fee structures. Broader instruments require new reviewed profiles, not optional fields with guessed defaults.
 
-Sprint 1 must implement two independently specified source adapters and an independent Rust/TypeScript interpreter. They must produce equal canonical economics, or refuse the mapping. Intent commitments must agree when both encodings represent the same attesting source and complete business intent; quotes from different dealers retain distinct source identities and commitments. Python-only reference tests do not establish that agreement. Preserve source bytes/digest, adapter contract, transformations and loss information. A transformed event needs a new attestation; it cannot reuse a signature over the original bytes.
+The v0.2 conformance reference implements two independently specified source adapters and separate Rust/TypeScript interpreters, with 35 shared RFQ vectors and 15 adapter cases. They produce equal canonical economics for the declared equivalent fixture formats, or refuse the mapping. Sprint 1 must extend this evidence to actual participant formats and authenticated protocol integration. Intent commitments must agree when both encodings represent the same attesting source and complete business intent; quotes from different dealers retain distinct source identities and commitments. Python-only reference tests do not establish that agreement. Preserve source bytes/digest, adapter contract, transformations and loss information. A transformed event needs a new attestation; it cannot reuse a signature over the original bytes.
 
 ## Identity, authority and truth
 
@@ -62,7 +62,7 @@ The executable slice contains three closed schemas, pinned local manifests, five
 
 ## Ethereum and Solana application domain
 
-Extend the domain vocabulary through separate chain profiles, not a generic Transaction or Confirmed enum. Full inventories: [Ethereum](ethereum-application-domain.md), [Solana](solana-application-domain.md), and [machine-readable domain catalog](../../model/domains/README.md). The machine catalog contains 267 proposed vocabulary entries across 20 families per chain; its 12 checks validate catalog metadata, not chain payloads. These are proposed contracts; the executable v0.1 validator still accepts only the three financial/approval reference events.
+Extend the domain vocabulary through separate chain profiles, not a generic Transaction or Confirmed enum. Full inventories: [Ethereum](ethereum-application-domain.md), [Solana](solana-application-domain.md), and [machine-readable domain catalog](../../model/domains/README.md). The machine catalog contains 291 proposed vocabulary entries across 20 families per chain; its 14 checks validate catalog metadata, not chain payloads. These are proposed contracts; the executable v0.2 validator still accepts only the three financial/approval reference events.
 
 | Application surface | Required messages and events |
 | --- | --- |
@@ -85,3 +85,7 @@ Acceptance work includes duplicate/out-of-order feeds, reconnect gaps, contradic
 ## Independent format review
 
 The [five-role review](data-format-review.md) recommends retaining this bounded design while correcting exact parsing and occurrence bookkeeping before freezing an interoperable reference. It records additional counterexamples beyond the passing baseline suites and prioritizes immutable historic contracts, independent adapters and narrow chain observation slices. This review does not change the pinned model or claim the recommended fixes are implemented.
+
+## Implementation v0.2
+
+The [implementation status](data-format-implementation.md) records strict parsing/replay corrections, independent Python/Rust/TypeScript RFQ agreement, immutable offline bundles, corrected vocabulary, read-only chain projections and actual Umbra/PostgreSQL fault tests. The original model is preserved as a historical read-only release. The current semantic manifests commit per-profile schema/rules and common primitives; implementation bytes and dependency locks are separate release evidence. Authentication, live consensus evidence, protocol integration and partner ROI remain explicit gates.

@@ -1,0 +1,13 @@
+{
+  "profile": "rfq.v0.2",
+  "rules": [
+    "open trusted RFQ; requester/dealer/side/asset/quantity/currency exact match",
+    "buyer/seller determined by requester side and distinct",
+    "absolute USD per exactly one Share, assetRef and unit match; fees None only",
+    "occurred <= validFrom <= trusted now < validUntil (exclusive)",
+    "cash coefficient equals whole Share coefficient * USD cents price coefficient; 18-digit bound",
+    "Firm is fixture business description only; no acceptance, trade execution or settlement"
+  ],
+  "role": "dealer",
+  "context": "Explicit trusted test fixture only; missing, stale or insufficient evidence rejects. Production source authentication, policy, clocks, durable atomic replay and finality remain pending."
+}

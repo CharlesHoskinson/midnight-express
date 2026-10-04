@@ -69,3 +69,5 @@ The [unified model proposal](docs/product-requirements/unified-data-model.md) sy
 Application domains: [Ethereum](docs/product-requirements/ethereum-application-domain.md), [Solana](docs/product-requirements/solana-application-domain.md) and [machine-readable proposed event catalog](model/domains/README.md). Chain observations and signing/broadcast intents retain separate contracts and authority boundaries.
 
 The [five-role format review](docs/product-requirements/data-format-review.md) records concrete reference defects and a prioritized interoperability/evidence backlog. Its [counterexamples](reviews/data-format/observed-counterexamples.json) reproduce against unchanged pinned artifacts; passing baseline checks are not full semantic acceptance.
+
+The [v0.2 implementation](docs/product-requirements/data-format-implementation.md) adds strict contracts, independent RFQ interpretation/adapters, immutable history, read-only chain lineage and real Umbra/PostgreSQL sandbox crash/reconciliation tests. Reproduction commands and explicit deployment gates are in [model/README.md](model/README.md).

@@ -1,0 +1,14 @@
+{
+  "bundleVersion": 1,
+  "profile": "invoice.v0.2",
+  "version": "0.2",
+  "status": "experimental-model-only",
+  "role": "payment-adapter",
+  "schema": "schema.json",
+  "resources": {
+    "schema.json": "sha256:54c7c2df0491500b16e3e9bf043bcb7dc9855355087c0ce27b37517c3c789c2f",
+    "core.json": "sha256:f35e995e91c2d3187bf3de56f20422dcc8beed972fc6db74f051e66ab799bb33",
+    "rules.json": "sha256:1991aa626ef4458ed8be4f137053decf1178b2941016488a46c12c007d55f78e"
+  },
+  "signatures": "unsigned-fixture-only"
+}

@@ -1,4 +1,4 @@
-"""Bounded v0.1 reference MODEL validator. Never executes, authenticates, or fetches."""
+"""Bounded v0.2 reference MODEL validator. Never executes, authenticates, or fetches."""
 import argparse
 import datetime as dt
 import hashlib
@@ -25,7 +25,11 @@ def raw_json(raw):
         return out
     def bad(value):
         raise Invalid('non-json-number')
-    value = json.loads(raw, object_pairs_hook=pairs, parse_constant=bad)
+    def integer(token):
+        if not re.fullmatch(r'0|[1-9][0-9]*',token) or len(token)>16 or int(token)>9007199254740991:
+            raise Invalid('json-integer-token')
+        return int(token)
+    value = json.loads(raw, object_pairs_hook=pairs, parse_constant=bad, parse_float=bad, parse_int=integer)
     def bounded(node, depth=0):
         if depth > 12:
             raise Invalid('depth')
@@ -58,27 +62,21 @@ def instant(text):
     except ValueError as e:
         raise Invalid('utc-calendar') from e
 
+def occurred_time(e):
+    return instant(e['time'])
+
 def proposal_digest(proposal, contract):
-    return digest({'domain':'mpe.model.proposal.v0.1', 'contract':contract, 'proposal':proposal})
+    return digest({'domain':'mpe.model.proposal.v0.2', 'contract':contract, 'proposal':proposal})
 
 def business_digest(event):
     # Deliberately excludes occurrence id/time and all outer envelope bytes/EID.
-    return digest({'domain':'mpe.model.intent.v0.1', 'source':event['source'],
+    return digest({'domain':'mpe.model.intent.v0.2', 'source':event['source'],
                    'type':event['type'], 'profile':event['mpeprofile'],
                    'contract':event['mpecontract'], 'data':event['data']})
 
-def load_profile(name):
-    lock = raw_json((ROOT/'profiles/lock.json').read_bytes())
-    if name not in lock:
-        raise Invalid('unknown-profile')
-    manifest = raw_json((ROOT/'profiles'/f'{name}.json').read_bytes())
-    if digest(manifest) != lock[name]:
-        raise Invalid('local-manifest-integrity')
-    for path, expected in manifest['resources'].items():
-        local = ROOT/path
-        if not local.is_relative_to(ROOT) or file_digest(local) != expected:
-            raise Invalid('local-resource-integrity')
-    return manifest, lock[name]
+def load_profile(name, contract=None):
+    from bundles import load_bundle
+    return load_bundle(ROOT,name,contract)
 
 class Harness:
     """In-memory trusted TEST FIXTURE state. No durable/atomic authorization guarantee."""
@@ -93,10 +91,10 @@ class Harness:
             e = raw_json(raw)
             if not isinstance(e, dict):
                 raise Invalid('event-object')
-            m, contract = load_profile(e.get('mpeprofile'))
+            m, contract = load_profile(e.get('mpeprofile'),e.get('mpecontract'))
             if e.get('mpecontract') != contract:
                 raise Invalid('profile-hash')
-            schema = raw_json((ROOT/m['schema']).read_bytes())
+            schema = m['schemaObject']
             Draft202012Validator(schema).validate(e)
             c = self.context
             if c.get('fixtureTrust') != 'trusted-test-fixture-only':
@@ -110,7 +108,7 @@ class Harness:
             authority = c['sources'].get(e['source'])
             if not isinstance(authority, dict) or authority.get('role') != m['role']:
                 raise Invalid('source-role')
-            subject = d['dealer'] if e['mpeprofile']=='rfq.v0.1' else d['human'] if e['mpeprofile']=='agent.v0.1' else d['rail']
+            subject = d['dealer'] if e['mpeprofile']=='rfq.v0.2' else d['human'] if e['mpeprofile']=='agent.v0.2' else d['rail']
             if authority.get('principal') != subject:
                 raise Invalid('source-principal')
             result = self._semantic(e, now)
@@ -121,11 +119,12 @@ class Harness:
                 if self.events[identity] != eventhash:
                     raise Invalid('event-identity-conflict')
                 return {'status':'duplicate-event', 'businessDigest':intent, 'executes':False}
-            if e['mpeprofile'] == 'agent.v0.1':
-                key = (d['proposal']['target'], d['actionId'])
+            if e['mpeprofile'] == 'agent.v0.2':
+                key = (d['authorityDomain'], d['executionScope'], d['actionId'])
                 if key in self.actions:
                     if self.actions[key] != intent:
                         raise Invalid('action-identity-conflict')
+                    self.events[identity] = eventhash
                     return {'status':'duplicate-action', 'businessDigest':intent, 'executes':False}
                 self.actions[key] = intent
             self.events[identity] = eventhash
@@ -139,7 +138,7 @@ class Harness:
             raise Invalid('schema-or-validation-failure') from err
     def _semantic(self, e, now):
         d = e['data']; p = e['mpeprofile']; c = self.context
-        if p == 'rfq.v0.1':
+        if p == 'rfq.v0.2':
             ref = c['rfqs'].get(d['rfqId'])
             if ref is None or ref['state'] != 'open':
                 raise Invalid('unknown-or-closed-rfq')
@@ -158,21 +157,23 @@ class Harness:
             if cash > 999999999999999999 or int(d['cash']['coefficient']) != cash:
                 raise Invalid('cash-obligation-mismatch')
             return 'offchain-quote-valid'
-        if p == 'invoice.v0.1':
+        if p == 'invoice.v0.2':
             inv = c['invoices'].get(d['invoiceId'])
             if inv is None or any(d[k] != inv[k] for k in ('supplier','customer','currency','payable','documentDigest')):
                 raise Invalid('invoice-mismatch')
-            if instant(d['observedAt']) > now or instant(d['effectiveAt']) > instant(d['observedAt']):
+            if instant(d['observedAt']) > occurred_time(e) or instant(d['effectiveAt']) > instant(d['observedAt']):
                 raise Invalid('evidence-time')
             record = c['paymentEvidence'].get(d['paymentId'])
             if record != d:
                 raise Invalid('insufficient-payment-evidence')
-            if d['status'] != 'Final':
-                return 'payment-evidence-pending-or-reversed'
             if int(d['amount']['coefficient']) > int(d['payable']['coefficient']):
                 raise Invalid('overpayment-outside-profile')
+            if d['status'] != 'Final':
+                return 'payment-evidence-pending-or-reversed'
             return 'final-payment-evidence-only'
-        if p == 'agent.v0.1':
+        if p == 'agent.v0.2':
+            if d['authorityDomain'] != c.get('authorityDomain') or d['budgetWindow'] != c.get('budgetWindow') or d['executionScope'] != c.get('executionScope'):
+                raise Invalid('authority-domain')
             prop = d['proposal']
             if d['proposalDigest'] != proposal_digest(prop, e['mpecontract']):
                 raise Invalid('proposal-hash')

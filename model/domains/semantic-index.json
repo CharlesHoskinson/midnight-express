@@ -1,0 +1,2912 @@
+{
+  "mpe.ethereum.account-abstraction-wallet.accounts-changed.v1": {
+    "chain": "ethereum",
+    "family": "account-abstraction-wallet",
+    "semanticName": "accounts-changed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "accountsChanged"
+  },
+  "mpe.ethereum.account-abstraction-wallet.chain-changed.v1": {
+    "chain": "ethereum",
+    "family": "account-abstraction-wallet",
+    "semanticName": "chain-changed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "chainChanged"
+  },
+  "mpe.ethereum.account-abstraction-wallet.provider-connected.v1": {
+    "chain": "ethereum",
+    "family": "account-abstraction-wallet",
+    "semanticName": "provider-connected",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "connect"
+  },
+  "mpe.ethereum.account-abstraction-wallet.provider-disconnected.v1": {
+    "chain": "ethereum",
+    "family": "account-abstraction-wallet",
+    "semanticName": "provider-disconnected",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "disconnect"
+  },
+  "mpe.ethereum.account-abstraction-wallet.sign-intent.v1": {
+    "chain": "ethereum",
+    "family": "account-abstraction-wallet",
+    "semanticName": "sign-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "standard",
+    "sourcePrimitive": "eth_signTypedData signing request"
+  },
+  "mpe.ethereum.account-abstraction-wallet.sign-result.v1": {
+    "chain": "ethereum",
+    "family": "account-abstraction-wallet",
+    "semanticName": "sign-result",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "exact signed bytes/signature result"
+  },
+  "mpe.ethereum.account-abstraction-wallet.user-operation-estimate.v1": {
+    "chain": "ethereum",
+    "family": "account-abstraction-wallet",
+    "semanticName": "user-operation-estimate",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "eth_estimateUserOperationGas"
+  },
+  "mpe.ethereum.account-abstraction-wallet.user-operation-event.v1": {
+    "chain": "ethereum",
+    "family": "account-abstraction-wallet",
+    "semanticName": "user-operation-event",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "UserOperationEvent"
+  },
+  "mpe.ethereum.account-abstraction-wallet.user-operation-intent.v1": {
+    "chain": "ethereum",
+    "family": "account-abstraction-wallet",
+    "semanticName": "user-operation-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "standard",
+    "sourcePrimitive": "UserOperation"
+  },
+  "mpe.ethereum.account-abstraction-wallet.user-operation-receipt.v1": {
+    "chain": "ethereum",
+    "family": "account-abstraction-wallet",
+    "semanticName": "user-operation-receipt",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "eth_getUserOperationReceipt"
+  },
+  "mpe.ethereum.account-abstraction-wallet.user-operation-submit.v1": {
+    "chain": "ethereum",
+    "family": "account-abstraction-wallet",
+    "semanticName": "user-operation-submit",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "standard",
+    "sourcePrimitive": "eth_sendUserOperation"
+  },
+  "mpe.ethereum.account-abstraction-wallet.wallet-cancelled.v1": {
+    "chain": "ethereum",
+    "family": "account-abstraction-wallet",
+    "semanticName": "wallet-cancelled",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "local pre-submission cancellation"
+  },
+  "mpe.ethereum.account-abstraction-wallet.wallet-outcome-unknown.v1": {
+    "chain": "ethereum",
+    "family": "account-abstraction-wallet",
+    "semanticName": "wallet-outcome-unknown",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "unresolved signing/transport result"
+  },
+  "mpe.ethereum.account-abstraction-wallet.wallet-rejected.v1": {
+    "chain": "ethereum",
+    "family": "account-abstraction-wallet",
+    "semanticName": "wallet-rejected",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "user rejection outcome"
+  },
+  "mpe.ethereum.approvals-permissions.delegate-approve-intent.v1": {
+    "chain": "ethereum",
+    "family": "approvals-permissions",
+    "semanticName": "delegate-approve-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.approvals-permissions.delegate-revoke-intent.v1": {
+    "chain": "ethereum",
+    "family": "approvals-permissions",
+    "semanticName": "delegate-revoke-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.approvals-permissions.erc1155-operator-approved.v1": {
+    "chain": "ethereum",
+    "family": "approvals-permissions",
+    "semanticName": "erc1155-operator-approved",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "ApprovalForAll"
+  },
+  "mpe.ethereum.approvals-permissions.erc20-allowance-approved.v1": {
+    "chain": "ethereum",
+    "family": "approvals-permissions",
+    "semanticName": "erc20-allowance-approved",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "Approval"
+  },
+  "mpe.ethereum.approvals-permissions.erc20-allowance-observed.v1": {
+    "chain": "ethereum",
+    "family": "approvals-permissions",
+    "semanticName": "erc20-allowance-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "allowance"
+  },
+  "mpe.ethereum.approvals-permissions.erc2612-permit-intent.v1": {
+    "chain": "ethereum",
+    "family": "approvals-permissions",
+    "semanticName": "erc2612-permit-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "standard",
+    "sourcePrimitive": "permit"
+  },
+  "mpe.ethereum.approvals-permissions.erc721-operator-approved.v1": {
+    "chain": "ethereum",
+    "family": "approvals-permissions",
+    "semanticName": "erc721-operator-approved",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "ApprovalForAll"
+  },
+  "mpe.ethereum.approvals-permissions.erc721-token-approved.v1": {
+    "chain": "ethereum",
+    "family": "approvals-permissions",
+    "semanticName": "erc721-token-approved",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "Approval"
+  },
+  "mpe.ethereum.approvals-permissions.permission-request.v1": {
+    "chain": "ethereum",
+    "family": "approvals-permissions",
+    "semanticName": "permission-request",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application capability request"
+  },
+  "mpe.ethereum.approvals-permissions.permission-revocation-intent.v1": {
+    "chain": "ethereum",
+    "family": "approvals-permissions",
+    "semanticName": "permission-revocation-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application capability revocation"
+  },
+  "mpe.ethereum.approvals-permissions.wallet-permissions-query.v1": {
+    "chain": "ethereum",
+    "family": "approvals-permissions",
+    "semanticName": "wallet-permissions-query",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "rpc-request",
+    "scope": "standard",
+    "sourcePrimitive": "wallet_getPermissions"
+  },
+  "mpe.ethereum.approvals-permissions.wallet-permissions-request.v1": {
+    "chain": "ethereum",
+    "family": "approvals-permissions",
+    "semanticName": "wallet-permissions-request",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "rpc-request",
+    "scope": "standard",
+    "sourcePrimitive": "wallet_requestPermissions"
+  },
+  "mpe.ethereum.backfill.backfill-completed-claim.v1": {
+    "chain": "ethereum",
+    "family": "backfill",
+    "semanticName": "backfill-completed-claim",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "local coverage verification"
+  },
+  "mpe.ethereum.backfill.backfill-progress-claim.v1": {
+    "chain": "ethereum",
+    "family": "backfill",
+    "semanticName": "backfill-progress-claim",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "local cursor/range progress"
+  },
+  "mpe.ethereum.backfill.range-query-request.v1": {
+    "chain": "ethereum",
+    "family": "backfill",
+    "semanticName": "range-query-request",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "rpc-request",
+    "scope": "chain",
+    "sourcePrimitive": "eth_getLogs / eth_getBlockByNumber"
+  },
+  "mpe.ethereum.blocks.block-observed.v1": {
+    "chain": "ethereum",
+    "family": "blocks",
+    "semanticName": "block-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "eth_getBlockByNumber"
+  },
+  "mpe.ethereum.blocks.head-observed.v1": {
+    "chain": "ethereum",
+    "family": "blocks",
+    "semanticName": "head-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "newHeads"
+  },
+  "mpe.ethereum.blocks.header-observed.v1": {
+    "chain": "ethereum",
+    "family": "blocks",
+    "semanticName": "header-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "eth_getBlockByHash"
+  },
+  "mpe.ethereum.bridge.destination-execution-observed.v1": {
+    "chain": "ethereum",
+    "family": "bridge",
+    "semanticName": "destination-execution-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "protocol-specific destination evidence and source-message linkage"
+  },
+  "mpe.ethereum.bridge.destination-failure-observed.v1": {
+    "chain": "ethereum",
+    "family": "bridge",
+    "semanticName": "destination-failure-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "protocol-specific destination evidence and source-message linkage"
+  },
+  "mpe.ethereum.bridge.destination-outcome-unknown.v1": {
+    "chain": "ethereum",
+    "family": "bridge",
+    "semanticName": "destination-outcome-unknown",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "protocol-specific destination evidence and source-message linkage"
+  },
+  "mpe.ethereum.bridge.destination-redeem-intent.v1": {
+    "chain": "ethereum",
+    "family": "bridge",
+    "semanticName": "destination-redeem-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.bridge.message-send-intent.v1": {
+    "chain": "ethereum",
+    "family": "bridge",
+    "semanticName": "message-send-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.bridge.wormhole-message-observed.v1": {
+    "chain": "ethereum",
+    "family": "bridge",
+    "semanticName": "wormhole-message-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "core message"
+  },
+  "mpe.ethereum.bridge.wormhole-vaa-observed.v1": {
+    "chain": "ethereum",
+    "family": "bridge",
+    "semanticName": "wormhole-vaa-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "VAA"
+  },
+  "mpe.ethereum.defi.aave-borrow.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "aave-borrow",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Borrow"
+  },
+  "mpe.ethereum.defi.aave-flashloan.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "aave-flashloan",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "FlashLoan"
+  },
+  "mpe.ethereum.defi.aave-liquidation.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "aave-liquidation",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "LiquidationCall"
+  },
+  "mpe.ethereum.defi.aave-repay.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "aave-repay",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Repay"
+  },
+  "mpe.ethereum.defi.aave-reserve-updated.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "aave-reserve-updated",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "ReserveDataUpdated"
+  },
+  "mpe.ethereum.defi.aave-supply.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "aave-supply",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Supply"
+  },
+  "mpe.ethereum.defi.aave-withdraw.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "aave-withdraw",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Withdraw"
+  },
+  "mpe.ethereum.defi.borrow-intent.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "borrow-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.defi.liquidate-intent.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "liquidate-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.defi.liquidity-add-intent.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "liquidity-add-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.defi.liquidity-remove-intent.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "liquidity-remove-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.defi.order-cancel-intent.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "order-cancel-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.defi.order-place-intent.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "order-place-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.defi.repay-intent.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "repay-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.defi.supply-intent.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "supply-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.defi.swap-intent.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "swap-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.defi.uniswap-fees-collected.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "uniswap-fees-collected",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Collect"
+  },
+  "mpe.ethereum.defi.uniswap-flash.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "uniswap-flash",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Flash"
+  },
+  "mpe.ethereum.defi.uniswap-liquidity-added.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "uniswap-liquidity-added",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Mint"
+  },
+  "mpe.ethereum.defi.uniswap-liquidity-removed.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "uniswap-liquidity-removed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Burn"
+  },
+  "mpe.ethereum.defi.uniswap-pool-initialized.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "uniswap-pool-initialized",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Initialize"
+  },
+  "mpe.ethereum.defi.uniswap-swap.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "uniswap-swap",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Swap"
+  },
+  "mpe.ethereum.defi.withdraw-intent.v1": {
+    "chain": "ethereum",
+    "family": "defi",
+    "semanticName": "withdraw-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.errors.execution-error-observed.v1": {
+    "chain": "ethereum",
+    "family": "errors",
+    "semanticName": "execution-error-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "receipt status"
+  },
+  "mpe.ethereum.errors.rpc-error-observed.v1": {
+    "chain": "ethereum",
+    "family": "errors",
+    "semanticName": "rpc-error-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "JSON-RPC error"
+  },
+  "mpe.ethereum.errors.transport-error-observed.v1": {
+    "chain": "ethereum",
+    "family": "errors",
+    "semanticName": "transport-error-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "HTTP/WebSocket failure"
+  },
+  "mpe.ethereum.finality.finalized-head-observed.v1": {
+    "chain": "ethereum",
+    "family": "finality",
+    "semanticName": "finalized-head-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "finalized block tag"
+  },
+  "mpe.ethereum.finality.safe-head-observed.v1": {
+    "chain": "ethereum",
+    "family": "finality",
+    "semanticName": "safe-head-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "safe block tag"
+  },
+  "mpe.ethereum.gaps.coverage-gap-claim.v1": {
+    "chain": "ethereum",
+    "family": "gaps",
+    "semanticName": "coverage-gap-claim",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "cursor/range reconciliation"
+  },
+  "mpe.ethereum.gaps.history-unavailable-claim.v1": {
+    "chain": "ethereum",
+    "family": "gaps",
+    "semanticName": "history-unavailable-claim",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "missing/pruned query result"
+  },
+  "mpe.ethereum.governance.execute-proposal-intent.v1": {
+    "chain": "ethereum",
+    "family": "governance",
+    "semanticName": "execute-proposal-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.governance.proposal-cancelled.v1": {
+    "chain": "ethereum",
+    "family": "governance",
+    "semanticName": "proposal-cancelled",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "ProposalCanceled"
+  },
+  "mpe.ethereum.governance.proposal-created.v1": {
+    "chain": "ethereum",
+    "family": "governance",
+    "semanticName": "proposal-created",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "ProposalCreated"
+  },
+  "mpe.ethereum.governance.proposal-executed.v1": {
+    "chain": "ethereum",
+    "family": "governance",
+    "semanticName": "proposal-executed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "ProposalExecuted"
+  },
+  "mpe.ethereum.governance.proposal-intent.v1": {
+    "chain": "ethereum",
+    "family": "governance",
+    "semanticName": "proposal-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.governance.proposal-queued.v1": {
+    "chain": "ethereum",
+    "family": "governance",
+    "semanticName": "proposal-queued",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "ProposalQueued"
+  },
+  "mpe.ethereum.governance.vote-cast.v1": {
+    "chain": "ethereum",
+    "family": "governance",
+    "semanticName": "vote-cast",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "VoteCast"
+  },
+  "mpe.ethereum.governance.vote-intent.v1": {
+    "chain": "ethereum",
+    "family": "governance",
+    "semanticName": "vote-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.logs-instructions-cpi.contract-call-decoded.v1": {
+    "chain": "ethereum",
+    "family": "logs-instructions-cpi",
+    "semanticName": "contract-call-decoded",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "ABI input decoding"
+  },
+  "mpe.ethereum.logs-instructions-cpi.contract-event-decoded.v1": {
+    "chain": "ethereum",
+    "family": "logs-instructions-cpi",
+    "semanticName": "contract-event-decoded",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "ABI log decoding"
+  },
+  "mpe.ethereum.logs-instructions-cpi.raw-log-observed.v1": {
+    "chain": "ethereum",
+    "family": "logs-instructions-cpi",
+    "semanticName": "raw-log-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "eth_getLogs"
+  },
+  "mpe.ethereum.oracle.chainlink-round-observed.v1": {
+    "chain": "ethereum",
+    "family": "oracle",
+    "semanticName": "chainlink-round-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "latestRoundData"
+  },
+  "mpe.ethereum.oracle.get-round-observed.v1": {
+    "chain": "ethereum",
+    "family": "oracle",
+    "semanticName": "get-round-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "getRoundData"
+  },
+  "mpe.ethereum.oracle.stale-price-claim.v1": {
+    "chain": "ethereum",
+    "family": "oracle",
+    "semanticName": "stale-price-claim",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "observation time/freshness policy"
+  },
+  "mpe.ethereum.rollback.branch-replaced.v1": {
+    "chain": "ethereum",
+    "family": "rollback",
+    "semanticName": "branch-replaced",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "parent/hash comparison"
+  },
+  "mpe.ethereum.rollback.log-removed.v1": {
+    "chain": "ethereum",
+    "family": "rollback",
+    "semanticName": "log-removed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "logs removed flag"
+  },
+  "mpe.ethereum.rollback.observation-invalidated.v1": {
+    "chain": "ethereum",
+    "family": "rollback",
+    "semanticName": "observation-invalidated",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "canonical ancestry reconciliation"
+  },
+  "mpe.ethereum.rpc.read-query-request.v1": {
+    "chain": "ethereum",
+    "family": "rpc",
+    "semanticName": "read-query-request",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "rpc-request",
+    "scope": "chain",
+    "sourcePrimitive": "read method parameters"
+  },
+  "mpe.ethereum.rpc.read-query-response.v1": {
+    "chain": "ethereum",
+    "family": "rpc",
+    "semanticName": "read-query-response",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "rpc-response",
+    "scope": "chain",
+    "sourcePrimitive": "result + request correlation"
+  },
+  "mpe.ethereum.rpc.signed-bytes-submit-request.v1": {
+    "chain": "ethereum",
+    "family": "rpc",
+    "semanticName": "signed-bytes-submit-request",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "rpc-request",
+    "scope": "chain",
+    "sourcePrimitive": "eth_sendRawTransaction"
+  },
+  "mpe.ethereum.rpc.submission-outcome-unknown.v1": {
+    "chain": "ethereum",
+    "family": "rpc",
+    "semanticName": "submission-outcome-unknown",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "transport timeout after submission; reconcile original identity before resubmitting"
+  },
+  "mpe.ethereum.rpc.submission-response.v2": {
+    "chain": "ethereum",
+    "family": "rpc",
+    "semanticName": "submission-response",
+    "vocabularyVersion": 2,
+    "evidenceKind": "native",
+    "messageKind": "rpc-response",
+    "scope": "chain",
+    "sourcePrimitive": "transaction hash"
+  },
+  "mpe.ethereum.simulation.call-result-observed.v1": {
+    "chain": "ethereum",
+    "family": "simulation",
+    "semanticName": "call-result-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "eth_call"
+  },
+  "mpe.ethereum.simulation.estimate-request.v1": {
+    "chain": "ethereum",
+    "family": "simulation",
+    "semanticName": "estimate-request",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "rpc-request",
+    "scope": "chain",
+    "sourcePrimitive": "eth_estimateGas"
+  },
+  "mpe.ethereum.simulation.fee-history-observed.v1": {
+    "chain": "ethereum",
+    "family": "simulation",
+    "semanticName": "fee-history-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "eth_feeHistory"
+  },
+  "mpe.ethereum.simulation.gas-estimate-observed.v1": {
+    "chain": "ethereum",
+    "family": "simulation",
+    "semanticName": "gas-estimate-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "eth_estimateGas"
+  },
+  "mpe.ethereum.simulation.simulate-request.v1": {
+    "chain": "ethereum",
+    "family": "simulation",
+    "semanticName": "simulate-request",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "rpc-request",
+    "scope": "chain",
+    "sourcePrimitive": "eth_call"
+  },
+  "mpe.ethereum.staking.reward-claim-intent.v1": {
+    "chain": "ethereum",
+    "family": "staking",
+    "semanticName": "reward-claim-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.staking.rewards-observed.v1": {
+    "chain": "ethereum",
+    "family": "staking",
+    "semanticName": "rewards-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "/eth/v1/beacon/rewards"
+  },
+  "mpe.ethereum.staking.stake-intent.v1": {
+    "chain": "ethereum",
+    "family": "staking",
+    "semanticName": "stake-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.staking.unstake-intent.v1": {
+    "chain": "ethereum",
+    "family": "staking",
+    "semanticName": "unstake-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.staking.validator-observed.v1": {
+    "chain": "ethereum",
+    "family": "staking",
+    "semanticName": "validator-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "/eth/v1/beacon/states/{state_id}/validators"
+  },
+  "mpe.ethereum.staking.withdrawals-observed.v1": {
+    "chain": "ethereum",
+    "family": "staking",
+    "semanticName": "withdrawals-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "execution_payload.withdrawals"
+  },
+  "mpe.ethereum.state.balance-observed.v1": {
+    "chain": "ethereum",
+    "family": "state",
+    "semanticName": "balance-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "eth_getBalance"
+  },
+  "mpe.ethereum.state.code-observed.v1": {
+    "chain": "ethereum",
+    "family": "state",
+    "semanticName": "code-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "eth_getCode"
+  },
+  "mpe.ethereum.state.nonce-observed.v1": {
+    "chain": "ethereum",
+    "family": "state",
+    "semanticName": "nonce-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "eth_getTransactionCount"
+  },
+  "mpe.ethereum.state.proof-observed.v1": {
+    "chain": "ethereum",
+    "family": "state",
+    "semanticName": "proof-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "eth_getProof"
+  },
+  "mpe.ethereum.state.storage-observed.v1": {
+    "chain": "ethereum",
+    "family": "state",
+    "semanticName": "storage-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "eth_getStorageAt"
+  },
+  "mpe.ethereum.subscriptions.connection-lost.v1": {
+    "chain": "ethereum",
+    "family": "subscriptions",
+    "semanticName": "connection-lost",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "transport disconnect"
+  },
+  "mpe.ethereum.subscriptions.listener-cancelled.v1": {
+    "chain": "ethereum",
+    "family": "subscriptions",
+    "semanticName": "listener-cancelled",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "local listener removal"
+  },
+  "mpe.ethereum.subscriptions.subscribe-request.v1": {
+    "chain": "ethereum",
+    "family": "subscriptions",
+    "semanticName": "subscribe-request",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "subscription-control",
+    "scope": "chain",
+    "sourcePrimitive": "eth_subscribe"
+  },
+  "mpe.ethereum.subscriptions.subscription-gap-claim.v1": {
+    "chain": "ethereum",
+    "family": "subscriptions",
+    "semanticName": "subscription-gap-claim",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "cursor continuity check"
+  },
+  "mpe.ethereum.subscriptions.subscription-response.v1": {
+    "chain": "ethereum",
+    "family": "subscriptions",
+    "semanticName": "subscription-response",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "rpc-response",
+    "scope": "chain",
+    "sourcePrimitive": "subscription identifier"
+  },
+  "mpe.ethereum.subscriptions.unsubscribe-request.v1": {
+    "chain": "ethereum",
+    "family": "subscriptions",
+    "semanticName": "unsubscribe-request",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "subscription-control",
+    "scope": "chain",
+    "sourcePrimitive": "eth_unsubscribe"
+  },
+  "mpe.ethereum.subscriptions.unsubscribe-response.v1": {
+    "chain": "ethereum",
+    "family": "subscriptions",
+    "semanticName": "unsubscribe-response",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "rpc-response",
+    "scope": "chain",
+    "sourcePrimitive": "unsubscribe result"
+  },
+  "mpe.ethereum.token-nft.burn-intent.v1": {
+    "chain": "ethereum",
+    "family": "token-nft",
+    "semanticName": "burn-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.token-nft.erc1155-batch-transfer.v1": {
+    "chain": "ethereum",
+    "family": "token-nft",
+    "semanticName": "erc1155-batch-transfer",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "TransferBatch"
+  },
+  "mpe.ethereum.token-nft.erc1155-metadata-reference.v1": {
+    "chain": "ethereum",
+    "family": "token-nft",
+    "semanticName": "erc1155-metadata-reference",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "URI"
+  },
+  "mpe.ethereum.token-nft.erc1155-single-transfer.v1": {
+    "chain": "ethereum",
+    "family": "token-nft",
+    "semanticName": "erc1155-single-transfer",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "TransferSingle"
+  },
+  "mpe.ethereum.token-nft.erc20-balance-observed.v1": {
+    "chain": "ethereum",
+    "family": "token-nft",
+    "semanticName": "erc20-balance-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "balanceOf"
+  },
+  "mpe.ethereum.token-nft.erc20-supply-observed.v1": {
+    "chain": "ethereum",
+    "family": "token-nft",
+    "semanticName": "erc20-supply-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "totalSupply"
+  },
+  "mpe.ethereum.token-nft.erc20-transfer.v1": {
+    "chain": "ethereum",
+    "family": "token-nft",
+    "semanticName": "erc20-transfer",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "Transfer"
+  },
+  "mpe.ethereum.token-nft.erc721-metadata-reference-observed.v1": {
+    "chain": "ethereum",
+    "family": "token-nft",
+    "semanticName": "erc721-metadata-reference-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "tokenURI"
+  },
+  "mpe.ethereum.token-nft.erc721-owner-observed.v1": {
+    "chain": "ethereum",
+    "family": "token-nft",
+    "semanticName": "erc721-owner-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "ownerOf"
+  },
+  "mpe.ethereum.token-nft.erc721-transfer.v1": {
+    "chain": "ethereum",
+    "family": "token-nft",
+    "semanticName": "erc721-transfer",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "Transfer"
+  },
+  "mpe.ethereum.token-nft.mint-intent.v1": {
+    "chain": "ethereum",
+    "family": "token-nft",
+    "semanticName": "mint-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.token-nft.token-transfer-intent.v1": {
+    "chain": "ethereum",
+    "family": "token-nft",
+    "semanticName": "token-transfer-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.transactions.cancelled-claim.v1": {
+    "chain": "ethereum",
+    "family": "transactions",
+    "semanticName": "cancelled-claim",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "same-nonce replacement reconciliation"
+  },
+  "mpe.ethereum.transactions.contract-call-intent.v1": {
+    "chain": "ethereum",
+    "family": "transactions",
+    "semanticName": "contract-call-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.ethereum.transactions.dropped-claim.v1": {
+    "chain": "ethereum",
+    "family": "transactions",
+    "semanticName": "dropped-claim",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "pending observation timeout"
+  },
+  "mpe.ethereum.transactions.expired-claim.v1": {
+    "chain": "ethereum",
+    "family": "transactions",
+    "semanticName": "expired-claim",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "local intent deadline"
+  },
+  "mpe.ethereum.transactions.pending-hash-observed.v1": {
+    "chain": "ethereum",
+    "family": "transactions",
+    "semanticName": "pending-hash-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "newPendingTransactions"
+  },
+  "mpe.ethereum.transactions.receipt-observed.v1": {
+    "chain": "ethereum",
+    "family": "transactions",
+    "semanticName": "receipt-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "eth_getTransactionReceipt"
+  },
+  "mpe.ethereum.transactions.replaced-claim.v1": {
+    "chain": "ethereum",
+    "family": "transactions",
+    "semanticName": "replaced-claim",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "sender/nonce reconciliation"
+  },
+  "mpe.ethereum.transactions.transaction-observed.v1": {
+    "chain": "ethereum",
+    "family": "transactions",
+    "semanticName": "transaction-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "eth_getTransactionByHash"
+  },
+  "mpe.ethereum.transactions.transfer-intent.v1": {
+    "chain": "ethereum",
+    "family": "transactions",
+    "semanticName": "transfer-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.account-abstraction-wallet.sign-and-send-intent.v1": {
+    "chain": "solana",
+    "family": "account-abstraction-wallet",
+    "semanticName": "sign-and-send-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "standard",
+    "sourcePrimitive": "solana:signAndSendTransaction"
+  },
+  "mpe.solana.account-abstraction-wallet.sign-in-intent.v1": {
+    "chain": "solana",
+    "family": "account-abstraction-wallet",
+    "semanticName": "sign-in-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "standard",
+    "sourcePrimitive": "solana:signIn"
+  },
+  "mpe.solana.account-abstraction-wallet.sign-message-intent.v1": {
+    "chain": "solana",
+    "family": "account-abstraction-wallet",
+    "semanticName": "sign-message-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "standard",
+    "sourcePrimitive": "solana:signMessage"
+  },
+  "mpe.solana.account-abstraction-wallet.sign-result.v1": {
+    "chain": "solana",
+    "family": "account-abstraction-wallet",
+    "semanticName": "sign-result",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "exact signed bytes/signature result"
+  },
+  "mpe.solana.account-abstraction-wallet.sign-transaction-intent.v1": {
+    "chain": "solana",
+    "family": "account-abstraction-wallet",
+    "semanticName": "sign-transaction-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "standard",
+    "sourcePrimitive": "solana:signTransaction"
+  },
+  "mpe.solana.account-abstraction-wallet.wallet-accounts-observed.v1": {
+    "chain": "solana",
+    "family": "account-abstraction-wallet",
+    "semanticName": "wallet-accounts-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "wallet exposed accounts"
+  },
+  "mpe.solana.account-abstraction-wallet.wallet-cancelled.v1": {
+    "chain": "solana",
+    "family": "account-abstraction-wallet",
+    "semanticName": "wallet-cancelled",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "local pre-submission cancellation"
+  },
+  "mpe.solana.account-abstraction-wallet.wallet-features-observed.v1": {
+    "chain": "solana",
+    "family": "account-abstraction-wallet",
+    "semanticName": "wallet-features-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "wallet feature/session capability"
+  },
+  "mpe.solana.account-abstraction-wallet.wallet-outcome-unknown.v1": {
+    "chain": "solana",
+    "family": "account-abstraction-wallet",
+    "semanticName": "wallet-outcome-unknown",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "unresolved signing/transport result"
+  },
+  "mpe.solana.account-abstraction-wallet.wallet-rejected.v1": {
+    "chain": "solana",
+    "family": "account-abstraction-wallet",
+    "semanticName": "wallet-rejected",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "user rejection outcome"
+  },
+  "mpe.solana.account-abstraction-wallet.wallet-session-invalidated.v1": {
+    "chain": "solana",
+    "family": "account-abstraction-wallet",
+    "semanticName": "wallet-session-invalidated",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "account/network/session change"
+  },
+  "mpe.solana.approvals-permissions.delegate-approve-intent.v1": {
+    "chain": "solana",
+    "family": "approvals-permissions",
+    "semanticName": "delegate-approve-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.approvals-permissions.delegate-revoke-intent.v1": {
+    "chain": "solana",
+    "family": "approvals-permissions",
+    "semanticName": "delegate-revoke-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.approvals-permissions.permission-request.v1": {
+    "chain": "solana",
+    "family": "approvals-permissions",
+    "semanticName": "permission-request",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application capability request"
+  },
+  "mpe.solana.approvals-permissions.permission-revocation-intent.v1": {
+    "chain": "solana",
+    "family": "approvals-permissions",
+    "semanticName": "permission-revocation-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application capability revocation"
+  },
+  "mpe.solana.approvals-permissions.spl-account-frozen.v1": {
+    "chain": "solana",
+    "family": "approvals-permissions",
+    "semanticName": "spl-account-frozen",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "FreezeAccount"
+  },
+  "mpe.solana.approvals-permissions.spl-account-thawed.v1": {
+    "chain": "solana",
+    "family": "approvals-permissions",
+    "semanticName": "spl-account-thawed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "ThawAccount"
+  },
+  "mpe.solana.approvals-permissions.spl-authority-set.v1": {
+    "chain": "solana",
+    "family": "approvals-permissions",
+    "semanticName": "spl-authority-set",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "SetAuthority"
+  },
+  "mpe.solana.approvals-permissions.spl-delegate-approved.v1": {
+    "chain": "solana",
+    "family": "approvals-permissions",
+    "semanticName": "spl-delegate-approved",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "Approve"
+  },
+  "mpe.solana.approvals-permissions.spl-delegate-revoked.v1": {
+    "chain": "solana",
+    "family": "approvals-permissions",
+    "semanticName": "spl-delegate-revoked",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "Revoke"
+  },
+  "mpe.solana.backfill.backfill-completed-claim.v1": {
+    "chain": "solana",
+    "family": "backfill",
+    "semanticName": "backfill-completed-claim",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "local coverage verification"
+  },
+  "mpe.solana.backfill.backfill-progress-claim.v1": {
+    "chain": "solana",
+    "family": "backfill",
+    "semanticName": "backfill-progress-claim",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "local cursor/range progress"
+  },
+  "mpe.solana.backfill.range-query-request.v1": {
+    "chain": "solana",
+    "family": "backfill",
+    "semanticName": "range-query-request",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "rpc-request",
+    "scope": "chain",
+    "sourcePrimitive": "getBlocks / getSignaturesForAddress / getTransaction"
+  },
+  "mpe.solana.blocks.block-observed.v1": {
+    "chain": "solana",
+    "family": "blocks",
+    "semanticName": "block-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "getBlock"
+  },
+  "mpe.solana.blocks.epoch-observed.v1": {
+    "chain": "solana",
+    "family": "blocks",
+    "semanticName": "epoch-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "getEpochInfo"
+  },
+  "mpe.solana.blocks.root-observed.v1": {
+    "chain": "solana",
+    "family": "blocks",
+    "semanticName": "root-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "rootNotification"
+  },
+  "mpe.solana.blocks.slot-observed.v1": {
+    "chain": "solana",
+    "family": "blocks",
+    "semanticName": "slot-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "slotNotification"
+  },
+  "mpe.solana.bridge.destination-execution-observed.v1": {
+    "chain": "solana",
+    "family": "bridge",
+    "semanticName": "destination-execution-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "protocol-specific destination evidence and source-message linkage"
+  },
+  "mpe.solana.bridge.destination-failure-observed.v1": {
+    "chain": "solana",
+    "family": "bridge",
+    "semanticName": "destination-failure-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "protocol-specific destination evidence and source-message linkage"
+  },
+  "mpe.solana.bridge.destination-outcome-unknown.v1": {
+    "chain": "solana",
+    "family": "bridge",
+    "semanticName": "destination-outcome-unknown",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "protocol-specific destination evidence and source-message linkage"
+  },
+  "mpe.solana.bridge.destination-redeem-intent.v1": {
+    "chain": "solana",
+    "family": "bridge",
+    "semanticName": "destination-redeem-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.bridge.message-send-intent.v1": {
+    "chain": "solana",
+    "family": "bridge",
+    "semanticName": "message-send-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.bridge.wormhole-message-observed.v1": {
+    "chain": "solana",
+    "family": "bridge",
+    "semanticName": "wormhole-message-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "core message"
+  },
+  "mpe.solana.bridge.wormhole-vaa-observed.v1": {
+    "chain": "solana",
+    "family": "bridge",
+    "semanticName": "wormhole-vaa-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "VAA"
+  },
+  "mpe.solana.defi.borrow-intent.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "borrow-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.defi.drift-funding-updated.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "drift-funding-updated",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "update_funding_rate"
+  },
+  "mpe.solana.defi.drift-order-cancelled.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "drift-order-cancelled",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "cancel_order"
+  },
+  "mpe.solana.defi.drift-order-filled.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "drift-order-filled",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "fill_perp_order"
+  },
+  "mpe.solana.defi.drift-order-placed.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "drift-order-placed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "place_perp_order"
+  },
+  "mpe.solana.defi.drift-position-settled.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "drift-position-settled",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "settle_pnl"
+  },
+  "mpe.solana.defi.kamino-borrow.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "kamino-borrow",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "borrow_obligation_liquidity"
+  },
+  "mpe.solana.defi.kamino-liquidation.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "kamino-liquidation",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "liquidate_obligation_and_redeem_reserve_collateral"
+  },
+  "mpe.solana.defi.kamino-repay.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "kamino-repay",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "repay_obligation_liquidity"
+  },
+  "mpe.solana.defi.kamino-supply.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "kamino-supply",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "deposit_reserve_liquidity"
+  },
+  "mpe.solana.defi.kamino-withdraw.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "kamino-withdraw",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "redeem_reserve_collateral"
+  },
+  "mpe.solana.defi.liquidate-intent.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "liquidate-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.defi.liquidity-add-intent.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "liquidity-add-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.defi.liquidity-remove-intent.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "liquidity-remove-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.defi.orca-fees-collected.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "orca-fees-collected",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "collect_fees"
+  },
+  "mpe.solana.defi.orca-liquidity-decreased.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "orca-liquidity-decreased",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "decrease_liquidity"
+  },
+  "mpe.solana.defi.orca-liquidity-increased.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "orca-liquidity-increased",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "increase_liquidity"
+  },
+  "mpe.solana.defi.orca-pool-initialized.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "orca-pool-initialized",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "initialize_pool"
+  },
+  "mpe.solana.defi.orca-position-opened.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "orca-position-opened",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "open_position"
+  },
+  "mpe.solana.defi.orca-swap.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "orca-swap",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "swap"
+  },
+  "mpe.solana.defi.order-cancel-intent.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "order-cancel-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.defi.order-place-intent.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "order-place-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.defi.repay-intent.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "repay-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.defi.supply-intent.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "supply-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.defi.swap-intent.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "swap-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.defi.withdraw-intent.v1": {
+    "chain": "solana",
+    "family": "defi",
+    "semanticName": "withdraw-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.errors.execution-error-observed.v1": {
+    "chain": "solana",
+    "family": "errors",
+    "semanticName": "execution-error-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "transaction meta.err"
+  },
+  "mpe.solana.errors.rpc-error-observed.v1": {
+    "chain": "solana",
+    "family": "errors",
+    "semanticName": "rpc-error-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "JSON-RPC error"
+  },
+  "mpe.solana.errors.transport-error-observed.v1": {
+    "chain": "solana",
+    "family": "errors",
+    "semanticName": "transport-error-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "HTTP/WebSocket failure"
+  },
+  "mpe.solana.finality.confirmed-observed.v1": {
+    "chain": "solana",
+    "family": "finality",
+    "semanticName": "confirmed-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "confirmed commitment"
+  },
+  "mpe.solana.finality.finalized-observed.v1": {
+    "chain": "solana",
+    "family": "finality",
+    "semanticName": "finalized-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "finalized commitment"
+  },
+  "mpe.solana.finality.processed-observed.v1": {
+    "chain": "solana",
+    "family": "finality",
+    "semanticName": "processed-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "processed commitment"
+  },
+  "mpe.solana.gaps.coverage-gap-claim.v1": {
+    "chain": "solana",
+    "family": "gaps",
+    "semanticName": "coverage-gap-claim",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "cursor/range reconciliation"
+  },
+  "mpe.solana.gaps.history-unavailable-claim.v1": {
+    "chain": "solana",
+    "family": "gaps",
+    "semanticName": "history-unavailable-claim",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "missing/pruned query result"
+  },
+  "mpe.solana.governance.execute-proposal-intent.v1": {
+    "chain": "solana",
+    "family": "governance",
+    "semanticName": "execute-proposal-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.governance.proposal-execution-observed.v1": {
+    "chain": "solana",
+    "family": "governance",
+    "semanticName": "proposal-execution-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "ExecuteTransaction instruction"
+  },
+  "mpe.solana.governance.proposal-intent.v1": {
+    "chain": "solana",
+    "family": "governance",
+    "semanticName": "proposal-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.governance.proposal-observed.v1": {
+    "chain": "solana",
+    "family": "governance",
+    "semanticName": "proposal-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Proposal account"
+  },
+  "mpe.solana.governance.realm-observed.v1": {
+    "chain": "solana",
+    "family": "governance",
+    "semanticName": "realm-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Realm account"
+  },
+  "mpe.solana.governance.vote-intent.v1": {
+    "chain": "solana",
+    "family": "governance",
+    "semanticName": "vote-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.governance.vote-record-observed.v1": {
+    "chain": "solana",
+    "family": "governance",
+    "semanticName": "vote-record-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "VoteRecord account"
+  },
+  "mpe.solana.logs-instructions-cpi.compute-consumption-observed.v1": {
+    "chain": "solana",
+    "family": "logs-instructions-cpi",
+    "semanticName": "compute-consumption-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "meta.computeUnitsConsumed"
+  },
+  "mpe.solana.logs-instructions-cpi.cpi-invocation-decoded.v1": {
+    "chain": "solana",
+    "family": "logs-instructions-cpi",
+    "semanticName": "cpi-invocation-decoded",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "inner instruction decoder"
+  },
+  "mpe.solana.logs-instructions-cpi.inner-instructions-observed.v1": {
+    "chain": "solana",
+    "family": "logs-instructions-cpi",
+    "semanticName": "inner-instructions-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "meta.innerInstructions"
+  },
+  "mpe.solana.logs-instructions-cpi.outer-instructions-observed.v1": {
+    "chain": "solana",
+    "family": "logs-instructions-cpi",
+    "semanticName": "outer-instructions-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "transaction.message.instructions"
+  },
+  "mpe.solana.logs-instructions-cpi.program-event-decoded.v1": {
+    "chain": "solana",
+    "family": "logs-instructions-cpi",
+    "semanticName": "program-event-decoded",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "program-specific log decoder"
+  },
+  "mpe.solana.logs-instructions-cpi.program-instruction-decoded.v1": {
+    "chain": "solana",
+    "family": "logs-instructions-cpi",
+    "semanticName": "program-instruction-decoded",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "program instruction decoder"
+  },
+  "mpe.solana.logs-instructions-cpi.raw-logs-observed.v1": {
+    "chain": "solana",
+    "family": "logs-instructions-cpi",
+    "semanticName": "raw-logs-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "logsNotification"
+  },
+  "mpe.solana.logs-instructions-cpi.return-data-observed.v1": {
+    "chain": "solana",
+    "family": "logs-instructions-cpi",
+    "semanticName": "return-data-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "meta.returnData"
+  },
+  "mpe.solana.oracle.pyth-price-account-observed.v1": {
+    "chain": "solana",
+    "family": "oracle",
+    "semanticName": "pyth-price-account-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "price account"
+  },
+  "mpe.solana.oracle.pyth-price-update-observed.v1": {
+    "chain": "solana",
+    "family": "oracle",
+    "semanticName": "pyth-price-update-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "price update"
+  },
+  "mpe.solana.oracle.stale-price-claim.v1": {
+    "chain": "solana",
+    "family": "oracle",
+    "semanticName": "stale-price-claim",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "observation time/freshness policy"
+  },
+  "mpe.solana.rollback.observation-invalidated.v1": {
+    "chain": "solana",
+    "family": "rollback",
+    "semanticName": "observation-invalidated",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "fork/slot reconciliation"
+  },
+  "mpe.solana.rollback.slot-dead-observed.v1": {
+    "chain": "solana",
+    "family": "rollback",
+    "semanticName": "slot-dead-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "slotsUpdatesNotification dead"
+  },
+  "mpe.solana.rpc.read-query-request.v1": {
+    "chain": "solana",
+    "family": "rpc",
+    "semanticName": "read-query-request",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "rpc-request",
+    "scope": "chain",
+    "sourcePrimitive": "read method parameters"
+  },
+  "mpe.solana.rpc.read-query-response.v1": {
+    "chain": "solana",
+    "family": "rpc",
+    "semanticName": "read-query-response",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "rpc-response",
+    "scope": "chain",
+    "sourcePrimitive": "result + request correlation"
+  },
+  "mpe.solana.rpc.signed-bytes-submit-request.v1": {
+    "chain": "solana",
+    "family": "rpc",
+    "semanticName": "signed-bytes-submit-request",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "rpc-request",
+    "scope": "chain",
+    "sourcePrimitive": "sendTransaction"
+  },
+  "mpe.solana.rpc.submission-outcome-unknown.v1": {
+    "chain": "solana",
+    "family": "rpc",
+    "semanticName": "submission-outcome-unknown",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "transport timeout after submission; reconcile original identity before resubmitting"
+  },
+  "mpe.solana.rpc.submission-response.v2": {
+    "chain": "solana",
+    "family": "rpc",
+    "semanticName": "submission-response",
+    "vocabularyVersion": 2,
+    "evidenceKind": "native",
+    "messageKind": "rpc-response",
+    "scope": "chain",
+    "sourcePrimitive": "transaction signature"
+  },
+  "mpe.solana.simulation.compute-budget-intent.v2": {
+    "chain": "solana",
+    "family": "simulation",
+    "semanticName": "compute-budget-intent",
+    "vocabularyVersion": 2,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "ComputeBudget instructions"
+  },
+  "mpe.solana.simulation.estimate-request.v1": {
+    "chain": "solana",
+    "family": "simulation",
+    "semanticName": "estimate-request",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "rpc-request",
+    "scope": "chain",
+    "sourcePrimitive": "getFeeForMessage"
+  },
+  "mpe.solana.simulation.fee-estimate-observed.v1": {
+    "chain": "solana",
+    "family": "simulation",
+    "semanticName": "fee-estimate-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "getFeeForMessage"
+  },
+  "mpe.solana.simulation.priority-fee-observed.v1": {
+    "chain": "solana",
+    "family": "simulation",
+    "semanticName": "priority-fee-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "getRecentPrioritizationFees"
+  },
+  "mpe.solana.simulation.simulate-request.v1": {
+    "chain": "solana",
+    "family": "simulation",
+    "semanticName": "simulate-request",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "rpc-request",
+    "scope": "chain",
+    "sourcePrimitive": "simulateTransaction"
+  },
+  "mpe.solana.simulation.simulation-result-observed.v1": {
+    "chain": "solana",
+    "family": "simulation",
+    "semanticName": "simulation-result-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "simulateTransaction"
+  },
+  "mpe.solana.staking.reward-claim-intent.v1": {
+    "chain": "solana",
+    "family": "staking",
+    "semanticName": "reward-claim-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.staking.stake-account-observed.v1": {
+    "chain": "solana",
+    "family": "staking",
+    "semanticName": "stake-account-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "StakeState"
+  },
+  "mpe.solana.staking.stake-authority-observed.v1": {
+    "chain": "solana",
+    "family": "staking",
+    "semanticName": "stake-authority-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "authorized"
+  },
+  "mpe.solana.staking.stake-delegation-observed.v1": {
+    "chain": "solana",
+    "family": "staking",
+    "semanticName": "stake-delegation-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "delegation"
+  },
+  "mpe.solana.staking.stake-intent.v1": {
+    "chain": "solana",
+    "family": "staking",
+    "semanticName": "stake-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.staking.stake-rewards-observed.v2": {
+    "chain": "solana",
+    "family": "staking",
+    "semanticName": "stake-rewards-observed",
+    "vocabularyVersion": 2,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "getInflationReward"
+  },
+  "mpe.solana.staking.unstake-intent.v1": {
+    "chain": "solana",
+    "family": "staking",
+    "semanticName": "unstake-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.state.account-observed.v1": {
+    "chain": "solana",
+    "family": "state",
+    "semanticName": "account-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "getAccountInfo"
+  },
+  "mpe.solana.state.accounts-observed.v1": {
+    "chain": "solana",
+    "family": "state",
+    "semanticName": "accounts-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "getMultipleAccounts"
+  },
+  "mpe.solana.state.balance-observed.v1": {
+    "chain": "solana",
+    "family": "state",
+    "semanticName": "balance-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "getBalance"
+  },
+  "mpe.solana.state.program-accounts-observed.v1": {
+    "chain": "solana",
+    "family": "state",
+    "semanticName": "program-accounts-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "getProgramAccounts"
+  },
+  "mpe.solana.state.supply-observed.v1": {
+    "chain": "solana",
+    "family": "state",
+    "semanticName": "supply-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "getSupply"
+  },
+  "mpe.solana.state.token-accounts-observed.v1": {
+    "chain": "solana",
+    "family": "state",
+    "semanticName": "token-accounts-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "getTokenAccountsByOwner"
+  },
+  "mpe.solana.subscriptions.connection-lost.v1": {
+    "chain": "solana",
+    "family": "subscriptions",
+    "semanticName": "connection-lost",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "transport disconnect"
+  },
+  "mpe.solana.subscriptions.listener-cancelled.v1": {
+    "chain": "solana",
+    "family": "subscriptions",
+    "semanticName": "listener-cancelled",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "local listener removal"
+  },
+  "mpe.solana.subscriptions.subscribe-request.v1": {
+    "chain": "solana",
+    "family": "subscriptions",
+    "semanticName": "subscribe-request",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "subscription-control",
+    "scope": "chain",
+    "sourcePrimitive": "*Subscribe"
+  },
+  "mpe.solana.subscriptions.subscription-gap-claim.v1": {
+    "chain": "solana",
+    "family": "subscriptions",
+    "semanticName": "subscription-gap-claim",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "cursor continuity check"
+  },
+  "mpe.solana.subscriptions.subscription-response.v1": {
+    "chain": "solana",
+    "family": "subscriptions",
+    "semanticName": "subscription-response",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "rpc-response",
+    "scope": "chain",
+    "sourcePrimitive": "subscription identifier"
+  },
+  "mpe.solana.subscriptions.unsubscribe-request.v1": {
+    "chain": "solana",
+    "family": "subscriptions",
+    "semanticName": "unsubscribe-request",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "subscription-control",
+    "scope": "chain",
+    "sourcePrimitive": "*Unsubscribe"
+  },
+  "mpe.solana.subscriptions.unsubscribe-response.v1": {
+    "chain": "solana",
+    "family": "subscriptions",
+    "semanticName": "unsubscribe-response",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "rpc-response",
+    "scope": "chain",
+    "sourcePrimitive": "unsubscribe result"
+  },
+  "mpe.solana.token-nft.associated-token-created.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "associated-token-created",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Associated Token Account instruction and state"
+  },
+  "mpe.solana.token-nft.burn-intent.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "burn-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.token-nft.metaplex-core-asset-observed.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "metaplex-core-asset-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Asset account"
+  },
+  "mpe.solana.token-nft.metaplex-core-collection-observed.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "metaplex-core-collection-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Collection account"
+  },
+  "mpe.solana.token-nft.metaplex-core-plugin-observed.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "metaplex-core-plugin-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Plugin state"
+  },
+  "mpe.solana.token-nft.metaplex-edition-observed.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "metaplex-edition-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Edition account"
+  },
+  "mpe.solana.token-nft.metaplex-metadata-observed.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "metaplex-metadata-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Metadata account"
+  },
+  "mpe.solana.token-nft.metaplex-programmable-nft-observed.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "metaplex-programmable-nft-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "TokenStandard ProgrammableNonFungible"
+  },
+  "mpe.solana.token-nft.mint-intent.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "mint-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.token-nft.spl-account-closed.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "spl-account-closed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "CloseAccount"
+  },
+  "mpe.solana.token-nft.spl-account-created.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "spl-account-created",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "InitializeAccount"
+  },
+  "mpe.solana.token-nft.spl-burned.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "spl-burned",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "Burn"
+  },
+  "mpe.solana.token-nft.spl-mint-created.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "spl-mint-created",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "InitializeMint"
+  },
+  "mpe.solana.token-nft.spl-minted.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "spl-minted",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "MintTo"
+  },
+  "mpe.solana.token-nft.spl-transfer-unchecked.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "spl-transfer-unchecked",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Token Program Transfer; mint metadata separately evidenced"
+  },
+  "mpe.solana.token-nft.spl-transfer.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "spl-transfer",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "TransferChecked"
+  },
+  "mpe.solana.token-nft.system-transfer.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "system-transfer",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "System Program Transfer"
+  },
+  "mpe.solana.token-nft.token-account-closed.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "token-account-closed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Token Program CloseAccount"
+  },
+  "mpe.solana.token-nft.token-transfer-intent.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "token-transfer-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.token-nft.token2022-confidential-transfer-observed.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "token2022-confidential-transfer-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "ConfidentialTransfer"
+  },
+  "mpe.solana.token-nft.token2022-extension-observed.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "token2022-extension-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "mint/account extension state"
+  },
+  "mpe.solana.token-nft.token2022-metadata-observed.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "token2022-metadata-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "TokenMetadata"
+  },
+  "mpe.solana.token-nft.token2022-transfer-fee-config-observed.v2": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "token2022-transfer-fee-config-observed",
+    "vocabularyVersion": 2,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "TransferFeeConfig"
+  },
+  "mpe.solana.token-nft.token2022-transfer-hook-config-observed.v2": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "token2022-transfer-hook-config-observed",
+    "vocabularyVersion": 2,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "standard",
+    "sourcePrimitive": "TransferHook"
+  },
+  "mpe.solana.token-nft.wrapped-sol-sync.v1": {
+    "chain": "solana",
+    "family": "token-nft",
+    "semanticName": "wrapped-sol-sync",
+    "vocabularyVersion": 1,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "program",
+    "sourcePrimitive": "Token Program SyncNative"
+  },
+  "mpe.solana.transactions.blockhash-observed.v1": {
+    "chain": "solana",
+    "family": "transactions",
+    "semanticName": "blockhash-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "getLatestBlockhash"
+  },
+  "mpe.solana.transactions.blockhash-validity-observed.v1": {
+    "chain": "solana",
+    "family": "transactions",
+    "semanticName": "blockhash-validity-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "isBlockhashValid"
+  },
+  "mpe.solana.transactions.cancelled-intent-claim.v1": {
+    "chain": "solana",
+    "family": "transactions",
+    "semanticName": "cancelled-intent-claim",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "local cancellation decision"
+  },
+  "mpe.solana.transactions.contract-call-intent.v1": {
+    "chain": "solana",
+    "family": "transactions",
+    "semanticName": "contract-call-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  },
+  "mpe.solana.transactions.expired-claim.v1": {
+    "chain": "solana",
+    "family": "transactions",
+    "semanticName": "expired-claim",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "lastValidBlockHeight comparison"
+  },
+  "mpe.solana.transactions.nonce-account-observed.v2": {
+    "chain": "solana",
+    "family": "transactions",
+    "semanticName": "nonce-account-observed",
+    "vocabularyVersion": 2,
+    "evidenceKind": "decoded",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "System Program nonce state decoded from account bytes"
+  },
+  "mpe.solana.transactions.replaced-intent-claim.v1": {
+    "chain": "solana",
+    "family": "transactions",
+    "semanticName": "replaced-intent-claim",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "new signature for business intent"
+  },
+  "mpe.solana.transactions.resubmitted-claim.v1": {
+    "chain": "solana",
+    "family": "transactions",
+    "semanticName": "resubmitted-claim",
+    "vocabularyVersion": 1,
+    "evidenceKind": "derived",
+    "messageKind": "observation",
+    "scope": "local",
+    "sourcePrimitive": "same signed transaction bytes"
+  },
+  "mpe.solana.transactions.signature-notification.v1": {
+    "chain": "solana",
+    "family": "transactions",
+    "semanticName": "signature-notification",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "signatureNotification"
+  },
+  "mpe.solana.transactions.signature-status-observed.v1": {
+    "chain": "solana",
+    "family": "transactions",
+    "semanticName": "signature-status-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "getSignatureStatuses"
+  },
+  "mpe.solana.transactions.transaction-observed.v1": {
+    "chain": "solana",
+    "family": "transactions",
+    "semanticName": "transaction-observed",
+    "vocabularyVersion": 1,
+    "evidenceKind": "native",
+    "messageKind": "observation",
+    "scope": "chain",
+    "sourcePrimitive": "getTransaction"
+  },
+  "mpe.solana.transactions.transfer-intent.v1": {
+    "chain": "solana",
+    "family": "transactions",
+    "semanticName": "transfer-intent",
+    "vocabularyVersion": 1,
+    "evidenceKind": "intent",
+    "messageKind": "intent",
+    "scope": "local",
+    "sourcePrimitive": "application proposal -> chain transaction/instruction"
+  }
+}

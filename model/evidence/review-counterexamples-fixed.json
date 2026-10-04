@@ -1,0 +1,27 @@
+{
+  "status": "review-counterexamples-not-runtime-acceptance",
+  "modelChanged": true,
+  "executes": false,
+  "findings": [
+    {
+      "finding": "terminal-newline-event-id",
+      "expected": "reject",
+      "observed": "reject:schema-or-validation-failure"
+    },
+    {
+      "finding": "terminal-newline-price-coefficient",
+      "expected": "reject",
+      "observed": "reject:schema-or-validation-failure"
+    },
+    {
+      "finding": "duplicate-action-occurrence-conflict",
+      "expected": "reject:event-identity-conflict",
+      "observed": "reject:event-identity-conflict"
+    },
+    {
+      "finding": "fractional-max-effects-rounded-before-validation",
+      "expected": "reject",
+      "observed": "reject:non-json-number"
+    }
+  ]
+}

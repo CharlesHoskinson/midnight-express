@@ -57,11 +57,31 @@ def main():
     changed=copy.deepcopy(rfq); changed['data'].update(requesterSide='SellAsset',buyer='party:dealer',seller='party:buyer')
     c=copy.deepcopy(context); c['rfqs']['rfq:demo']['requesterSide']='SellAsset'
     checked(encoded(changed),'offchain-quote-valid',Harness(c))
+    # Regression sequences found by five independent reviewers.
+    h=Harness(copy.deepcopy(context)); checked(encoded(a),'sandbox-candidate-only',h)
+    replay=copy.deepcopy(a); replay['id']='event:replayed-action'
+    checked(encoded(replay),'duplicate-action',h)
+    checked(encoded(replay),'duplicate-event',h)
+    replay['time']='2026-10-04T10:59:59.000Z'
+    checked(encoded(replay),'reject',h)
+    for suffix in ('\n','\r','\r\n',' ','\t'):
+        changed=copy.deepcopy(rfq); changed['id']+=suffix; checked(encoded(changed),'reject')
+        changed=copy.deepcopy(rfq); changed['data']['price']['value']['coefficient']+=suffix; checked(encoded(changed),'reject')
+    for token in ('1.0','1e0','1.0000000000000001','1e999','-0'):
+        checked(encoded(a).replace('"maxEffects":1','"maxEffects":'+token),'reject')
+    for status,label in [('Pending','pending'),('Final','final'),('Reversed','reversed')]:
+        for amount in ('25000','50000','50001'):
+            e=raw_json((ROOT/f'examples/invoice-{label}.json').read_bytes())
+            e['data']['amount']['coefficient']=amount
+            c=copy.deepcopy(context); c['paymentEvidence'][e['data']['paymentId']]=copy.deepcopy(e['data'])
+            expected='reject' if amount=='50001' else 'final-payment-evidence-only' if status=='Final' else 'payment-evidence-pending-or-reversed'
+            checked(encoded(e),expected,Harness(c))
+    e=raw_json((ROOT/'examples/invoice-final.json').read_bytes());e['time']='2026-10-04T10:00:00.000Z';checked(encoded(e),'reject')
     # Profile integrity verified before parsing business data; schema resources have no refs.
-    for name in ('rfq.v0.1','invoice.v0.1','agent.v0.1'):
+    for name in ('rfq.v0.2','invoice.v0.2','agent.v0.2'):
         m,_=load_profile(name)
         from jsonschema import Draft202012Validator
-        schema=raw_json((ROOT/m['schema']).read_bytes())
+        schema=m['schemaObject']
         Draft202012Validator.check_schema(schema)
         assert '$ref' not in json.dumps(schema)
     sizes={p.name:len(p.read_bytes()) for p in (ROOT/'examples').glob('*.json')}

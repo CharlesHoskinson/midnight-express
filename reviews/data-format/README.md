@@ -19,3 +19,7 @@ Independent counterexamples: [reproduce-findings.py](reproduce-findings.py) and 
 ```
 
 The recorded report describes accepted cases that contradict intended rejection rules. It is not a security-pass report. The review leaves the pinned schemas, validator and semantic manifests unchanged; recommendations need implementation and additional negative/cross-language validation. Nothing here executes an effect.
+
+## Recommendations implemented in v0.2
+
+See [implementation status](../../docs/product-requirements/data-format-implementation.md). The default counterexample command now selects the exact archived v0.1 interpreter so this review remains reproducible; append `--current` to verify corrected v0.2 rejection. Pinned current artifacts changed in the implementation release, while the review evidence above describes the original model.

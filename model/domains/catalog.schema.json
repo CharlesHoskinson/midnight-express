@@ -16,7 +16,7 @@
   ],
   "properties": {
     "catalogVersion": {
-      "const": "0.1.0-proposed"
+      "const": "0.2.0-proposed"
     },
     "status": {
       "const": "proposed"
@@ -89,12 +89,13 @@
           "messageKind",
           "scope",
           "effectAuthority",
-          "qualification"
+          "qualification",
+          "vocabularyVersion"
         ],
         "properties": {
           "id": {
             "type": "string",
-            "pattern": "^mpe\\.(ethereum|solana)\\.[a-z][a-z0-9-]*\\.[a-z][a-z0-9-]*\\.v1$"
+            "pattern": "^mpe\\.(ethereum|solana)\\.[a-z][a-z0-9-]*\\.[a-z][a-z0-9-]*\\.v[1-9][0-9]*$"
           },
           "chain": {
             "enum": [
@@ -177,6 +178,15 @@
           "qualification": {
             "type": "string",
             "minLength": 1
+          },
+          "vocabularyVersion": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 99
+          },
+          "supersedes": {
+            "type": "string",
+            "pattern": "^mpe\\.(ethereum|solana)\\.[a-z][a-z0-9-]*\\.[a-z][a-z0-9-]*\\.v[1-9][0-9]*$"
           }
         }
       }
