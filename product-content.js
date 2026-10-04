@@ -2,7 +2,7 @@ window.MPE_PRODUCT = {
   "workflows": {
     "quotes": {
       "label": "PROPOSED FIRST DEMONSTRATION / QUOTE COORDINATION",
-      "title": "A buyer asks two approved dealers for prices.",
+      "title": "A buyer compares dealer quotes.",
       "context": "A request for quote (RFQ) asks a dealer for terms on a specified transaction. The buyer needs to compare valid offers and pass the accepted terms to settlement without losing track of which version was agreed.",
       "who": "Buyer · approved dealers · compliance reviewer · operations team",
       "steps": [
@@ -78,7 +78,7 @@ window.MPE_PRODUCT = {
       "title": "Request and compare confidential quotes",
       "summary": "A buyer requests prices from approved dealers, compares signed offers and records an explicit acceptance.",
       "who": "Buyer, approved dealers, compliance reviewer and settlement operations.",
-      "example": "Two dealers respond to the same request. The buyer accepts one valid offer before it expires and hands the agreed terms to the existing settlement process. The proposed recovery layer should preserve that accepted record after an interruption.",
+      "example": "Dealers respond to the same request. The buyer accepts one valid offer before it expires and hands the agreed terms to the existing settlement process. The proposed recovery layer should preserve that accepted record after an interruption.",
       "boundary": "The first scope coordinates quotes and off-chain acceptance. A receipt does not mean the trade settled."
     },
     "UC-03": {
