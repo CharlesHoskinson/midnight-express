@@ -1,0 +1,129 @@
+# Security
+
+The Messaging SDK prioritizes cryptographic security (privacy, authenticity, access control) while allowing operational components to scale independently. The architecture preserves end-to-end encryption and verifiable identity while moving delivery logistics offchain to enable real-time and cost-efficient messaging experiences.
+
+The alpha design (fully onchain messaging) proved strong for security experimentation but unsuitable for real-time messaging workloads due to transaction latency, scalability, and cost characteristics. The current architecture is a deliberate evolution that retains the alpha's cryptographic guarantees while introducing a hybrid trust model optimized for production messaging.
+
+## Threat model and trust boundaries
+
+The system protects against:
+
+- Unauthorized message reading: Only group members with `MessagingReader` permission can decrypt messages.
+
+- Message tampering: AES-GCM authenticated encryption detects modifications to ciphertext.
+
+- Sender impersonation: Per-message signatures bind ciphertext to the sender's wallet key.
+
+### Trust boundaries
+
+Trust levels range from trustless (fully verifiable), to trust-minimized (cryptographically constrained trust), to trusted (operational trust required).
+
+| Component | Trust Level | What This Means |
+|-----------|------------|-----------------|
+| Sui blockchain | Trustless | Group state, permissions, and encryption history are onchain and independently verifiable by any participant. No single party can alter group membership or encrypted key material without producing a verifiable transaction. |
+| Seal key servers | Trust-minimized | Threshold cryptography distributes trust across independent key server operators (for example, 2-of-3). Access control is enforced through `seal_approve` Move functions executed on Sui, so key servers cannot hand out decryption shares at their discretion: the onchain policy must pass first. A colluding majority of key servers could still theoretically reconstruct a DEK. This applies equally to a client-formed committee of independent key servers and to MPC-based decentralized key servers (similar to MPC-based systems used in custody platforms). |
+| Relayer | Trusted (operational trust required) | The primary trust dependency for delivery guarantees (content privacy remains trust-minimized). While message confidentiality and authenticity remain cryptographically protected, the relayer participates in delivery logistics. To minimize trust requirements, consider deploying the relayer within [Nautilus](https://docs.sui.io/guides/developer/nautilus/) for tamper-proof, verifiable execution. |
+
+This reflects a deliberate architectural shift from fully onchain ordering towards a hybrid trust model optimized for real-time messaging scale while preserving cryptographic security guarantees.
+
+The relayer includes a Walrus Sync component, and the SDK includes a reference walrus-discovery-indexer service that allows clients to recover messages when needed, or load messages across devices without having to configure backups to costlier and centralized storage systems. See [Relayer](./Relayer.md) for details.
+
+## Security guarantees
+
+- End-to-end encryption: Messages are encrypted client-side with AES-256-GCM before leaving the device. The relayer only stores and serves opaque ciphertext. See [Encryption](./Encryption.md) for the full encryption model.
+- Ciphertext integrity: AES-GCM's 16-byte authentication tag detects any tampering with the ciphertext in transit or at rest.
+- Sender verification: Each message includes a per-message signature over the canonical content (`groupId:encryptedText:nonce:keyVersion`), along with the sender's public key. This protects against message forgery by allowing clients to validate per-message signatures and independently verify that a message was signed by the claimed sender.
+- Permission-gated decryption: Access to the group DEK (Data Encryption Key) is controlled by Seal. Only addresses with `MessagingReader` permission on the group can decrypt the DEK.
+- AAD binding: Additional Authenticated Data (`[groupId][keyVersion][senderAddress]`) is included in AES-GCM encryption. If any field mismatches (for example, a message is moved to a different group or attributed to a different sender), decryption fails.
+
+## Security properties: what the SDK provides and what it does not
+
+### Forward secrecy
+
+Past messages remain secret even if long-term keys are compromised later.
+
+#### New members can read historical messages (by design)
+
+When a new member joins a group, they receive `MessagingReader` permission, which grants access to the group's DEKs through Seal. The default Seal policy (`seal_approve_reader`) checks that the caller holds `MessagingReader` and that the requested key version exists, but does not restrict which key versions a member can access. A new member can decrypt any key version from 0 to the current version and therefore read all historical messages.
+
+The default model prioritizes usability, recoverability, and cross-device access over forward secrecy with respect to new members. If you require forward secrecy, you can implement an optional custom mechanism on top of the SDK before using it. See the [Extending guide](./Extending.md) for examples.
+
+#### No per-message key ratcheting
+
+All messages under the same key version share a single DEK. There is no per-message key derivation or ratchet. Compromising the DEK for version N exposes all messages encrypted under that version. Key rotation creates a new, independent DEK for version N+1, but any current group member can still access old key versions through Seal. The protection that key rotation provides is against removed members: after rotation, a member who has lost `MessagingReader` cannot obtain the new DEK.
+
+### Post-compromise security
+
+After a key compromise, the system can recover security: future messages become unreadable to the attacker: MLS Protocol specification (RFC 9420)
+
+Manual post-compromise security through key rotation. An admin with `EncryptionKeyRotator` permission can rotate the DEK, after which an attacker holding the old DEK cannot decrypt new messages. But this requires explicit admin action; it is not automatic.
+
+Implication: The window between a key compromise and the next rotation is an exposure window.
+
+### No automatic key rotation on member removal
+
+When a member is removed (by admin) or leaves voluntarily (`leave()`), the DEK is not automatically rotated. The removed member retains the ability to decrypt future messages until an admin explicitly rotates the key.
+
+Always use `removeMembersAndRotateKey()`, an atomic PTB (Programmable Transaction Block) that combines member removal with key rotation, instead of standalone `removeMember()`.
+
+`leave()` caveat: When a member voluntarily leaves, there is no built-in key rotation. The admin must monitor `MemberRemoved` events and rotate keys. Consider building a key-rotation service that watches these events.
+
+The `sui_groups` contract is a generic library designed to remain usable beyond messaging use cases. It has no concept of encryption keys. The messaging layer offers `removeMembersAndRotateKey()` as a convenience, but intentionally does not restrict applications from calling the lower-level `removeMember()` directly.
+
+### Relayer as a delivery operator
+
+The relayer is the primary trust dependency for delivery guarantees. While it cannot:
+- Read message content (encrypted client-side)
+- Forge sender signatures (requires the sender's private key)
+
+It can:
+- Observe metadata: who sent messages, when, to which group, and attachment storage IDs
+- Influence message delivery and ordering
+- Attribute messages to the wrong sender in the stored `senderAddress` field (though the per-message signature lets clients detect this)
+
+Message confidentiality and authenticity remain cryptographically protected regardless of relayer behavior. To further minimize trust requirements, consider deploying the relayer within [Nautilus](https://docs.sui.io/guides/developer/nautilus/) as a tamper-proof, verifiable relayer that can anchor attestations onchain at periodic intervals. See [Relayer](./Relayer.md) for more details on the relayer architecture.
+
+### Nonce collision risk
+
+AES-GCM uses random 96-bit nonces. A nonce collision under the same key is catastrophic (it leaks the XOR of two plaintexts and breaks authentication). NIST SP 800-38D recommends encrypting at most 2^32 messages per key to keep the collision probability at or below 2^-32. In practice this limit is extremely high and unlikely to be reached in typical messaging usage before key rotation.
+
+For high-volume groups, rotate keys periodically to reset the nonce space.
+
+## Recommendations for developers
+
+These recommendations are best practices rather than mandatory requirements.
+
+1. Always use `removeMembersAndRotateKey()` when removing members from a group. This atomically removes the member and rotates the encryption key in a single transaction.
+
+2. Implement periodic key rotation for long-lived groups. Even without member changes, rotating keys limits the blast radius of a potential DEK compromise.
+
+3. Consider a key-rotation service that indexes `MemberRemoved` events and automatically rotates keys. Caveat: this requires an admin wallet with `EncryptionKeyRotator` permission that is a member of all groups it manages.
+
+4. Check `senderVerified` on received messages. The SDK populates this field after verifying the per-message signature. Messages where `senderVerified` is `false` should be treated with caution.
+
+5. Implement a message recovery service for production. Follow the reference walrus-discovery-indexer or build a custom solution. See [Relayer](./Relayer.md) for details.
+
+6. For high-security use cases, consider implementing a custom Seal policy with additional access controls (for example, subscription-gated, NFT-gated, version-restricted). See the [Extending guide](./Extending.md) for examples.
+
+7. Deploy your own relayer for production. The reference relayer is intended as a starting implementation, and you should consider adding rails to better fit your reliability, security, and scalability goals. Consider deploying within [Nautilus](https://docs.sui.io/guides/developer/nautilus/) for verifiable execution. See [Relayer](./Relayer.md) for the `RelayerTransport` interface and guidance on custom implementations.
+
+## Architecture comparison: alpha vs current
+
+| Property | Alpha (fully onchain) | Current (hybrid) |
+|----------|------------------------|-------------------|
+| Message confidentiality | E2E encrypted (Seal + AES-GCM) | E2E encrypted (Seal + AES-GCM) |
+| Message storage | Onchain (Sui objects) | Offchain (relayer + Walrus archival) |
+| Message ordering | Verified onchain through Sui consensus | Managed by relayer; optionally verifiable through [Nautilus](https://docs.sui.io/guides/developer/nautilus/) |
+| Message availability | Onchain (Sui objects) | Relayer with Walrus recovery path |
+| Gas cost per message | Sui transaction per message | None (HTTP to relayer) |
+| Scalability | Limited by gas/TPS | Limited by relayer capacity |
+| Encryption | Seal-protected DEK | Seal-protected DEK |
+| Sender verification | Onchain transaction signature | Per-message wallet signature |
+
+Security properties unchanged from Alpha:
+- End-to-end encryption remains client-enforced
+- Sender authenticity remains cryptographically verifiable
+- Access control remains onchain enforced
+- Encryption keys remain Seal-protected
+
+The alpha stored messages onchain, which provided onchain verifiability for ordering and availability but at the cost of transaction latency and gas fees per message. The current architecture moves delivery logistics offchain, introducing the relayer as a delivery operator while preserving the same E2E encryption and sender verification guarantees. For applications that require verifiable delivery, a [Nautilus](https://docs.sui.io/guides/developer/nautilus/)-based relayer can serve as a tamper-proof, verifiable delivery operator that can anchor attestations onchain at periodic intervals.

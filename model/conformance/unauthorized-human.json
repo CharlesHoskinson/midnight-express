@@ -1,0 +1,35 @@
+{
+  "specversion": "1.0",
+  "id": "event:agent",
+  "source": "urn:mpe:source:human",
+  "type": "mpe.agent.approval.v0.2",
+  "time": "2026-10-04T11:00:00.000Z",
+  "datacontenttype": "application/json",
+  "dataschema": "urn:mpe:model:agent.v0.2",
+  "mpeprofile": "agent.v0.2",
+  "mpecontract": "sha256:beaf501a8fdeefe757c340b1945dcd3e9c7c6e3fb4e00612f724afab7605b330",
+  "data": {
+    "authorityDomain": "urn:mpe:sandbox:local",
+    "executionScope": "scope:fixture",
+    "budgetWindow": "window:fixture",
+    "actionId": "action:demo",
+    "proposal": {
+      "environment": "Sandbox",
+      "operation": "WriteReport",
+      "target": "sandbox:reports/demo",
+      "inputDigest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+      "budget": {
+        "coefficient": "5",
+        "scale": 0,
+        "unit": "Step"
+      },
+      "expires": "2026-10-04T13:00:00.000Z"
+    },
+    "proposalDigest": "sha256:94bdf0c08cd824de5432499e7bed3bf007cdc5b545dc089dc57b0eb5924ecb28",
+    "policyDigest": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+    "human": "human:mallory",
+    "validFrom": "2026-10-04T11:00:00.000Z",
+    "validUntil": "2026-10-04T13:00:00.000Z",
+    "maxEffects": 1
+  }
+}

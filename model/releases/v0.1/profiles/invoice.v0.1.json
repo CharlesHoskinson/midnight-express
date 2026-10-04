@@ -1,0 +1,17 @@
+{
+  "profile": "invoice.v0.1",
+  "version": "0.1",
+  "status": "experimental-model-only",
+  "owner": "MPE model maintainers (proposed)",
+  "schema": "schemas/invoice.v0.1.json",
+  "role": "payment-adapter",
+  "resources": {
+    "schemas/invoice.v0.1.json": "sha256:583f4f308c793f6b256031af6d59d7e29874fc6893cda5da06bce47845ea5484",
+    "profiles/rules.json": "sha256:f6c791654167f3bdb2875a18f336327f7a64b4ecc90f0aaf7a002c92ed205809",
+    "validator.py": "sha256:82d147699eae68a8fa2be9a8a31bd29f75a59f512b59d15b0fe43b642340ac20"
+  },
+  "core": "private-structured-cloudevents-compatible-v0.1",
+  "workflow": "invoice.v0.1",
+  "signatures": "unsigned; no cryptographic authority implemented",
+  "compatibility": "exact local digest only; no adapters"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "sendtransaction",
+  "url": "https://solana.com/docs/rpc/http/sendtransaction",
+  "resolved_url": "https://solana.com/docs/rpc/http/sendtransaction",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:58.017934+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "sendtransaction.raw",
+  "text_path": "sendtransaction.txt",
+  "raw_sha256": "ef40eedd9fcf0cf749ca5743b14e4f0f6e99ac7f632296a5ed99a9dc1136febc",
+  "text_sha256": "80610ba5136c5f6e477e0df14c7a0a1d2f2a9181d4ceeff84a7278b7f4263519",
+  "text_chars": 5347,
+  "evidence_usable": true
+}

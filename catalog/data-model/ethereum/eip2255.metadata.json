@@ -1,0 +1,13 @@
+{
+  "id": "eip2255",
+  "url": "https://eips.ethereum.org/EIPS/eip-2255",
+  "resolved_url": "https://eips.ethereum.org/EIPS/eip-2255",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:48.144160+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "eip2255.raw",
+  "text_path": "eip2255.txt",
+  "raw_sha256": "aacd4374e26bd95b372ac6301bfc6653f22876a99af4653a2045cf19988cf90d",
+  "text_sha256": "60da4c6b3fde1d36ca8896950df3c8647171022bb2e37e7bf91e997b9e53db1e",
+  "text_chars": 7360
+}

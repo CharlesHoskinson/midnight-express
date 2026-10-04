@@ -1,0 +1,148 @@
+Transactions | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Accounts
+Programs
+Instructions
+Transactions
+Transaction Structure
+Transaction Introspection
+Signing in Production
+Partial Signing
+Versioned Transactions
+Transaction Pipeline
+Durable Nonces
+Fees
+Program Derived Address
+Cross-Program Invocation
+Constants Reference
+Table of Contents
+Solana Documentation
+Transactions
+Copy Markdown
+Open
+A transaction includes one or more 
+instructions
+, the
+signatures of accounts that authorize the changes, and a recent blockhash. The
+network processes all instructions in a transaction together. If any instruction
+fails, the entire transaction fails and all state changes are reverted.
+A simplified diagram showing two transactions
+Transaction Structure
+Signatures, message format (header, account addresses, blockhash, compiled
+instructions), binary encoding, size budget, and a SOL transfer example.
+Versioned Transactions
+Legacy vs V0 format, Address Lookup Tables, ALT resolution, and version
+comparison.
+Transaction Pipeline
+Full 8-stage processing pipeline (receive through commit), reading
+transaction details from the network, and validation error reference.
+Durable Nonces
+Offline signing with durable nonces, nonce lifecycle, detection, validation
+flow, and failure behavior.
+Production Readiness
+Configure transaction landing, retries, priority fees, and confirmation for
+mainnet applications.
+Key facts
+Atomic execution
+: All instructions succeed or all revert. Fees are still
+charged on failure.
+Size limit
+: 1,232 bytes maximum, derived from the IPv6 minimum MTU (1,280
+bytes) minus 48 bytes for network headers. The
+
+v1 format
+ raises
+this to 4,096 bytes.
+Signatures
+: Each signer provides one 64-byte Ed25519 signature.
+Blockhash expiry
+: A transaction's recent blockhash is valid for 150 slots.
+Limits
+Limit
+Value
+Source
+Max transaction size
+1,232 bytes
+PACKET_DATA_SIZE
+Max accounts per transaction
+64
+Enforced limit
+ (128 when 
+increase_tx_account_lock_limit
+ is activated, currently inactive)
+Blockhash expiry
+150 slots
+MAX_PROCESSING_AGE
+Signature size
+64 bytes (Ed25519)
+--
+Base fee per signature
+5,000 lamports
+Fees
+Max executed instructions
+64 (top-level + CPIs)
+MAX_INSTRUCTION_TRACE_LENGTH
+Max signatures per packet
+12
+MAX_SIGNATURES_PER_PACKET
+Is this page helpful?
+Previous
+Instruction Introspection
+Next
+Transaction Structure
+Table of Contents
+Key facts
+Limits
+Edit Page
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

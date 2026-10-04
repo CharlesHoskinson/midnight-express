@@ -1,0 +1,14 @@
+{
+  "id": "logssubscribe",
+  "url": "https://solana.com/docs/rpc/websocket/logssubscribe",
+  "resolved_url": "https://solana.com/docs/rpc/websocket/logssubscribe",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:26:00.943309+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "logssubscribe.raw",
+  "text_path": "logssubscribe.txt",
+  "raw_sha256": "ff111b126ed0c9e2336d9737c7ad1a07f93774536a67152dac715f782d4f6b20",
+  "text_sha256": "02eb8854cb0b8a4eb74d8089e2b53362b63efedab832d2b7ed6f1f3d209b0104",
+  "text_chars": 3952,
+  "evidence_usable": true
+}

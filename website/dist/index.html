@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Midnight Express: private workflow coordination</title>
+<meta name="description" content="What Midnight Express is, the coordination problems it addresses, ten candidate use cases and the proposed private event stack.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23091019'/%3E%3Cpath d='M6 23V9l10 10L26 9v14' fill='none' stroke='%2364efcf' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+<script src="use-cases.js" defer>
+</script>
+<script src="product-content.js" defer>
+</script>
+<script src="app.js" defer>
+</script>
+</head>
+<body>
+<a class="skip" href="#main-content">Skip to main content</a>
+<header>
+<a class="brand" href="#">
+<span class="mark">M∕E</span> MIDNIGHT EXPRESS</a>
+<nav aria-label="Main navigation">
+<a href="#overview">Overview</a>
+<a href="#example">Workflows</a>
+<a href="#use-cases">Use cases</a>
+<a href="#architecture">Architecture</a>
+<a href="#roadmap">Delivery</a>
+<a href="data-model.html">Data model</a>
+<a href="implementation.html">Implementation</a>
+</nav>
+<span class="edition">PRODUCT &amp; ARCHITECTURE</span>
+</header>
+<main id="main-content" tabindex="-1">
+<section class="intro" id="overview">
+<div>
+<p class="eyebrow">MIDNIGHT EXPRESS / PRIVATE WORKFLOW COORDINATION</p>
+<h1>Keep sensitive<br>work moving<span>.</span>
+</h1>
+<p class="lead">Midnight Express is proposed infrastructure for applications that coordinate confidential work across organizations and software agents.</p>
+<p class="intro-explanation">It is designed to exchange signed requests, status updates and approvals across applications, while keeping business contents and the updates each participant follows away from delivery operators under the selected privacy profile.</p>
+<div class="intro-meta">
+<span>First proposed pilot: quote coordination</span>
+<span>Local reference · protocol integration proposed</span>
+</div>
+<div class="intro-links">
+<a href="#example">See a business workflow</a>
+<a href="#architecture">Explore the architecture</a>
+</div>
+</div>
+<figure class="hero-art">
+<img src="assets/transport.webp" alt="Conceptual model of sealed event capsules moving through a distributed network">
+<figcaption>Conceptual illustration · encrypted updates between applications</figcaption>
+</figure>
+</section>
+<section class="meaning">
+<div class="section-heading">
+<div>
+<p class="eyebrow">01 / WHAT IT IS</p>
+<h2>A delivery layer for<br>confidential business updates.</h2>
+</div>
+<p>Starting with teams connecting backend and desktop quote systems, finance software and human-approved agents.</p>
+</div>
+<div class="meaning-grid">
+<article>
+<h3>An event is an update another application can use.</h3>
+<p>A dealer’s quote, a bank’s payment status and a person’s approval are updates other applications can use. Express would carry them as signed, encrypted messages between the participants coordinating that work.</p>
+</article>
+<article>
+<h3>Your application decides what happens next.</h3>
+<p>Authorized recipients recognize relevant messages using their own keys. Their applications check the sender, permissions, expiry and current workflow state before taking an action. Delivery is an input to that decision.</p>
+</article>
+</div>
+<div class="midnight-role">
+<h3>Where Midnight fits</h3>
+<p>The proposed Midnight Registry supplies the membership state used for publication admission. Batch anchors supply ledger evidence. An action that changes a contract needs a separate proof of business authority and protection against repeated execution. Ordinary coordination can finish off-chain without a ledger transaction for every update.</p>
+</div>
+<p class="section-note">Privacy scope: authorized endpoints can read their shared content. Connections, shard participation, timing and envelope sizes may remain visible. Local recognition requires receivers to handle additional traffic; bandwidth, integration and operating costs are part of the pilot evaluation.</p>
+</section>
+<section id="problem">
+<div class="section-heading">
+<div>
+<p class="eyebrow">02 / THE PROBLEM</p>
+<h2>Keep track of work<br>across applications.</h2>
+</div>
+<p>Who sent the update? Is it current? What did we already process? Which action was actually approved?</p>
+</div>
+<div class="problem-grid">
+<article>
+<span class="problem-index">01 / CONFIDENTIALITY</span>
+<h3>Share the update with the right participants.</h3>
+<p>Quotes, invoice amounts and approval instructions can reveal sensitive relationships. Topic names and subscription filters can also reveal what a participant is watching.</p>
+<p class="intended-response">
+<strong>Design response:</strong> encrypt business details and let receivers recognize relevant events locally.</p>
+</article>
+<article>
+<span class="problem-index">02 / CONTINUITY</span>
+<h3>Resume without rebuilding the story.</h3>
+<p>Disconnects, retries and updates from several systems can leave teams comparing records or chasing status. The latest received message may not be the latest valid state.</p>
+<p class="intended-response">
+<strong>Design response:</strong> retained history, explicit gaps and durable endpoint progress, with duplicate and expiry checks.</p>
+</article>
+<article>
+<span class="problem-index">03 / PERMISSION</span>
+<h3>Know what an approval permits.</h3>
+<p>A delivered or authentic message may still request an unauthorized action. An approval needs a specific signer, target, budget and deadline.</p>
+<p class="intended-response">
+<strong>Design response:</strong> signed business intent and application policy, plus consumer proofs for contract effects.</p>
+</article>
+</div>
+<p class="section-note">The value to test is fewer manual handoffs and less reconciliation effort while preserving confidentiality and correct decisions. Customer demand, savings and operating economics remain unvalidated.</p>
+</section>
+<section id="example" class="business-workflow">
+<div class="section-heading">
+<div>
+<p class="eyebrow">03 / SEE THE WORK</p>
+<h2>How the proposed pilots<br>would work.</h2>
+</div>
+<p>Illustrative pilot scenarios. Quotes come first; invoice matching and agent approvals test reuse of the foundation.</p>
+</div>
+<div class="workflow-controls" role="group" aria-label="Choose an illustrative business workflow">
+<button type="button" data-workflow="quotes" aria-pressed="true" aria-controls="workflow-panel">Request a quote</button>
+<button type="button" data-workflow="invoices" aria-pressed="false" aria-controls="workflow-panel">Match an invoice</button>
+<button type="button" data-workflow="agents" aria-pressed="false" aria-controls="workflow-panel">Approve an agent</button>
+</div>
+<div id="workflow-panel" class="workflow-panel" aria-label="Illustrative business workflow" aria-live="polite">
+<h3>A buyer asks two approved dealers for prices.</h3>
+<p>A request for quote (RFQ) asks what price a dealer will offer for a particular transaction.</p>
+<ol class="workflow-story">
+<li>
+<strong>Request</strong>
+<p>The buyer sends a confidential request with a response deadline to approved dealers.</p>
+</li>
+<li>
+<strong>Compare</strong>
+<p>Dealers return signed offers with expiry times. The buyer’s application checks roles and current terms.</p>
+</li>
+<li>
+<strong>Accept and hand off</strong>
+<p>The buyer explicitly accepts one valid offer. The agreed terms go to the separately authorized settlement process.</p>
+</li>
+</ol>
+<p>First scope: backend and desktop quote coordination and off-chain acceptance. Automated settlement requires separate authority and replay checks.</p>
+</div>
+<p class="section-note">Across these scenarios, recovery is intended to resume retained updates and stored workflow progress after an interruption. It needs verified endpoint processing; older history and gaps require explicit handling.</p>
+</section>
+<section id="use-cases">
+<div class="section-heading">
+<div>
+<p class="eyebrow">04 / WHERE IT COULD HELP</p>
+<h2>Three proposed pilots<br>and seven further candidates.</h2>
+</div>
+<p>These candidates are recommendations. Customer results and launch commitments have not been established. Ranking considers confidentiality, shared stack reuse, measurable outcomes and additional dependencies.</p>
+</div>
+<p class="portfolio-note">Expand a card for the people involved, the trigger, first scope, evaluation measures and remaining work.</p>
+<div id="pilot-grid" class="pilot-grid">
+<!-- pilot-grid:start -->
+<details class="case" id="uc-01"><summary><span class="rank">01</span><div><span class="case-stage">Proposed pilot a</span><h3>Request and compare confidential quotes</h3><p>A buyer requests prices from approved dealers, compares signed offers and records an explicit acceptance.</p></div></summary><div class="case-body"><h4>Who is involved</h4><p>Buyer, approved dealers, compliance reviewer and settlement operations.</p><h4>What starts it</h4><p>buyer requests a priced offer; dealers reply; buyer accepts one signed offer.</p><h4>Illustrative scenario</h4><p>Two dealers respond to the same request. The buyer accepts one valid offer before it expires and hands the agreed terms to the existing settlement process. The proposed recovery layer should preserve that accepted record after an interruption.</p><h4>Value to test</h4><p>Less disclosure of trade intent and counterparties; shorter reconciliation and settlement handoff.</p><h4>First useful scope</h4><p>Start with requests, signed quotes, expiry and off-chain acceptance; enable settlement only after authority/replay/anchored-binding gates.</p><h4>How we would measure it</h4><p>Quote turnaround, reconciliation effort and successful outage recovery.</p><h4>Scope boundary</h4><p>The first scope coordinates quotes and off-chain acceptance. A receipt does not mean the trade settled.</p><h4>What must be proven</h4><p>First design partner; CON-060 and contract adapter gate automated settlement.</p><h4>Integration dependencies</h4><p>MPE coordination + private schemas + signed roles + local recovery</p><p class="case-reference">Requirement identity: UC-01 · Institutional RFQ and negotiated quote coordination</p></div></details>
+<details class="case" id="uc-03"><summary><span class="rank">02</span><div><span class="case-stage">Proposed pilot b</span><h3>Match invoices to payment status</h3><p>Finance teams connect signed invoice updates to authenticated payment notices and investigate mismatches.</p></div></summary><div class="case-body"><h4>Who is involved</h4><p>Supplier finance team, customer treasury and a bank or payment-service integration.</p><h4>What starts it</h4><p>invoice issued, approved, paid, disputed or refunded.</p><h4>Illustrative scenario</h4><p>A supplier receives a payment notice for a particular invoice. The application checks the reference and amount before marking it paid. A wrong amount remains unresolved, and repeated notices must not create extra accounting entries.</p><h4>Value to test</h4><p>Reduce manual matching while protecting amounts, account relationships and invoice contents.</p><h4>First useful scope</h4><p>Match invoices and authenticated payment-status notices; no automatic payment execution in initial pilot.</p><h4>How we would measure it</h4><p>Unmatched invoices, manual handling time and duplicate postings.</p><h4>Scope boundary</h4><p>The initial scope matches status and records. Authenticated payment evidence, finance integration and destination duplicate protection are required.</p><h4>What must be proven</h4><p>ERP integration and authenticated payment evidence; destination idempotency for external effects.</p><h4>Integration dependencies</h4><p>MPE coordination + durable processing + ERP/payment adapter</p><p class="case-reference">Requirement identity: UC-03 · Invoice, payment-status and reconciliation workflows</p></div></details>
+<details class="case" id="uc-05"><summary><span class="rank">03</span><div><span class="case-stage">Proposed pilot c</span><h3>Coordinate agents with human approval</h3><p>An agent proposes a bounded action; a person approves a specific target, budget and expiry.</p></div></summary><div class="case-body"><h4>Who is involved</h4><p>Enterprise worker, AI or business agent, approval officer and sandbox executor.</p><h4>What starts it</h4><p>agent proposes purchase, settlement, access grant or other bounded action.</p><h4>Illustrative scenario</h4><p>A procurement agent requests a purchase from one supplier within a budget. A person signs that exact scope. The executor rejects a different supplier, an excessive amount or an expired approval, even when the message is authentic.</p><h4>Value to test</h4><p>Automate multi-party work with accountable approvals and protected instructions.</p><h4>First useful scope</h4><p>Agent proposes a bounded action; human signs an expiring approval; sandbox executor enforces target and budget.</p><h4>How we would measure it</h4><p>Approval cycle time, manual handoffs and rejected unauthorized/replayed actions.</p><h4>Scope boundary</h4><p>The application must verify agent output and enforce permission before acting on a delivered message.</p><h4>What must be proven</h4><p>Application capability enforcement and trusted human approval UI; contract effects require consumer proof.</p><h4>Integration dependencies</h4><p>MPE coordination + signed action policy + durable processing</p><p class="case-reference">Requirement identity: UC-05 · Agent coordination with bounded human approvals</p></div></details>
+<!-- pilot-grid:end -->
+</div>
+<h3 class="portfolio-subheading">Further candidates</h3>
+<div id="case-grid" class="case-grid">
+<!-- case-grid:start -->
+<details class="case" id="uc-06"><summary><span class="rank">04</span><div><span class="case-stage">Candidate · next</span><h3>Keep credential and access status current</h3><p>An issuer or employer sends authenticated changes so verifiers can update their access decisions.</p></div></summary><div class="case-body"><h4>Who is involved</h4><p>Credential issuer, subject wallet and service or employer verifier.</p><h4>What starts it</h4><p>credential issued/expired/revoked or staff/partner removed.</p><h4>Illustrative scenario</h4><p>A contractor’s credential is revoked. Services receive a newer authenticated issuer version that overrides a delayed earlier grant. A service with outdated evidence reports stale status and blocks high-risk access.</p><h4>Value to test</h4><p>Reduce stale authorization while avoiding public subscription graph.</p><h4>First useful scope</h4><p>Propagate authenticated issuer epochs to backend verifiers and mark stale state explicitly.</p><h4>How we would measure it</h4><p>Stale authorization interval, update coverage and membership-change recovery.</p><h4>Scope boundary</h4><p>Receiving a notice is not completed revocation. Tested enforcement and rekeying govern future access; past copies remain possible.</p><h4>What must be proven</h4><p>Issuer authority, stale-cache policy and tested removal/rekey; event receipt is not revocation completion.</p><h4>Integration dependencies</h4><p>MPE coordination + issuer adapter + group/rekey policy</p><p class="case-reference">Requirement identity: UC-06 · Credential and access-revocation coordination</p></div></details>
+<details class="case" id="uc-07"><summary><span class="rank">05</span><div><span class="case-stage">Candidate · next</span><h3>Resolve procurement and delivery exceptions</h3><p>A buyer, supplier and logistics team share restricted milestones and agree the next step after a delay.</p></div></summary><div class="case-body"><h4>Who is involved</h4><p>Purchasing manager, supplier, logistics provider and authorized insurer or auditor.</p><h4>What starts it</h4><p>purchase order accepted, delivery milestone reached, delay/temperature anomaly detected.</p><h4>Illustrative scenario</h4><p>A supplier reports that required parts will arrive late. The logistics team shares a revised estimate with the people handling the order. The buyer records an acknowledged next step without spreading unrelated commercial terms.</p><h4>Value to test</h4><p>Faster exception resolution with limited sharing of commercial counterparties and terms.</p><h4>First useful scope</h4><p>Share signed delivery milestones and restricted exception notices among buyer, supplier and logistics actors.</p><h4>How we would measure it</h4><p>Exception resolution time, missed handoffs and connector integration effort.</p><h4>Scope boundary</h4><p>A signature identifies the report’s source. Physical shipment evidence, partner integrations and history policies need separate validation.</p><h4>What must be proven</h4><p>Authenticated gateways and archive/key policy; sensor provenance does not prove physical truth.</p><h4>Integration dependencies</h4><p>MPE coordination + group roles + connector schemas + history policy</p><p class="case-reference">Requirement identity: UC-07 · Procurement and supply-chain exception coordination</p></div></details>
+<details class="case" id="uc-02"><summary><span class="rank">06</span><div><span class="case-stage">Candidate · ledger-gated</span><h3>Follow contract milestones privately</h3><p>A desktop application distinguishes a received notice from a verified contract milestone.</p></div></summary><div class="case-body"><h4>Who is involved</h4><p>Application user, desktop wallet or application and contract observer.</p><h4>What starts it</h4><p>contract event such as settlement completion, escrow milestone or authorization change.</p><h4>Illustrative scenario</h4><p>A user is waiting for an escrow milestone. The application shows an update as pending, then confirms it only after checking the exact ledger event and successful application. Retained notices can support catch-up after a disconnect.</p><h4>Value to test</h4><p>Timely useful notifications without publishing subscription interests or exposing private business data.</p><h4>First useful scope</h4><p>Desktop/backend public-event or signed-application pilot first; private carried events follow underlying Midnight capability.</p><h4>How we would measure it</h4><p>Finality-label correctness, missed-event recovery and application integration time.</p><h4>Scope boundary</h4><p>Start with public-event or signed-application notices. Private carried events and private mobile reception require further platform work.</p><h4>What must be proven</h4><p>Private carried-event capability, exact-byte/applied-phase verification; private mobile delivery is separately gated.</p><h4>Integration dependencies</h4><p>MPE coordination + finalized Midnight adapter + listener SDK</p><p class="case-reference">Requirement identity: UC-02 · Private contract lifecycle notifications</p></div></details>
+<details class="case" id="uc-10"><summary><span class="rank">07</span><div><span class="case-stage">Candidate · connector-gated</span><h3>Coordinate sensitive incident response</h3><p>Authorized responders exchange incident updates and record who owns the next investigation step.</p></div></summary><div class="case-body"><h4>Who is involved</h4><p>Operations lead, service owner, chain or service integration and response team.</p><h4>What starts it</h4><p>service degradation, key compromise, delayed settlement or chain interruption.</p><h4>Illustrative scenario</h4><p>A settlement service stops progressing. Responders exchange private status updates and assign a human-reviewed investigation step. A returning responder recovers retained notices to catch up on the handoff.</p><h4>Value to test</h4><p>Faster coordinated response with protected incident details and less dependence on one public notification provider.</p><h4>First useful scope</h4><p>Coordinate human-reviewed response using an independent emergency channel alongside MPE.</p><h4>How we would measure it</h4><p>Response handoff time, recovered notices and failed-handler isolation.</p><h4>Scope boundary</h4><p>Keep an independent emergency channel. Delivery, source trust, funding and failure isolation must be validated.</p><h4>What must be proven</h4><p>Declared cross-chain trust/finality, funded operators and alternate emergency path.</p><h4>Integration dependencies</h4><p>MPE coordination + failure isolation + encrypted quarantine + connector trust</p><p class="case-reference">Requirement identity: UC-10 · Confidential incident and cross-chain operations coordination</p></div></details>
+<details class="case" id="uc-09"><summary><span class="rank">08</span><div><span class="case-stage">Candidate · policy-gated</span><h3>Review proposals and collect approvals</h3><p>A board or committee coordinates confidential review and records explicit approvals under its own rules.</p></div></summary><div class="case-body"><h4>Who is involved</h4><p>Board or DAO committee, authorized reviewers and execution agent.</p><h4>What starts it</h4><p>proposal submitted, confidential review requested, approval threshold met.</p><h4>Illustrative scenario</h4><p>A committee reviews a vendor proposal under an illustrative three-approval policy. Two approvals, an expired approval or a delivery receipt cannot satisfy that policy. The application checks valid authority before execution and prepares narrowly scoped audit evidence.</p><h4>Value to test</h4><p>Coordinate sensitive deliberation and auditable authorization without exposing reviewer watchlists.</p><h4>First useful scope</h4><p>Coordinate confidential review and collect explicit approvals; execution policy remains application-owned.</p><h4>How we would measure it</h4><p>Review completion time, complete approval evidence and replay rejection.</p><h4>Scope boundary</h4><p>The customer defines and enforces the approval threshold. Anonymous voting and ledger execution require separate evidence; ledger execution also needs consumer proof.</p><h4>What must be proven</h4><p>Threshold/multisig authority, selective disclosure and CON-060 before on-chain execution; no anonymous voting claim.</p><h4>Integration dependencies</h4><p>MPE coordination + group roles + signed threshold policy</p><p class="case-reference">Requirement identity: UC-09 · Private governance review and approval workflows</p></div></details>
+<details class="case" id="uc-04"><summary><span class="rank">09</span><div><span class="case-stage">Candidate · freshness/mobile-gated</span><h3>Review portfolio and collateral warnings</h3><p>An account owner receives advisory risk updates with visible source age and gap status.</p></div></summary><div class="case-body"><h4>Who is involved</h4><p>Account owner, risk service and an explicitly authorized delegated agent.</p><h4>What starts it</h4><p>margin breach, liquidation risk, expiring order or abnormal exposure.</p><h4>Illustrative scenario</h4><p>A desktop risk application reports collateral below the owner’s threshold. The owner checks the underlying account before deciding whether to add collateral. A stale or incomplete feed is shown as such and blocks high-risk automated effects.</p><h4>Value to test</h4><p>Earlier intervention without broadcasting portfolio/watchlist to notification infrastructure.</p><h4>First useful scope</h4><p>Backend advisory alerts first; block automated effects on stale/gapped feeds.</p><h4>How we would measure it</h4><p>Alert freshness, gap detection and recipient intervention time.</p><h4>Scope boundary</h4><p>Advisory backend/desktop alerts first. Freshness and market integrations must be measured; there is no liquidation-prevention guarantee.</p><h4>What must be proven</h4><p>Reliable market connectors and proven budgets; no hard-real-time liquidation guarantee; private phones need retrieval.</p><h4>Integration dependencies</h4><p>MPE coordination + source snapshot/delta adapters + freshness guards</p><p class="case-reference">Requirement identity: UC-04 · Portfolio and collateral risk alerts</p></div></details>
+<details class="case" id="uc-08"><summary><span class="rank">10</span><div><span class="case-stage">Candidate · sector-gated</span><h3>Keep insurance claim handoffs moving</h3><p>Claims handlers and adjusters exchange status updates and authorized references to encrypted documents.</p></div></summary><div class="case-body"><h4>Who is involved</h4><p>Claimant, insurer, adjuster and authorized payment or reinsurance partner.</p><h4>What starts it</h4><p>claim submitted, evidence requested, assessment completed or payment approved.</p><h4>Illustrative scenario</h4><p>An adjuster requests a repair estimate. The claims handler shares an authorized document reference with the assigned adjuster. An assessment update moves the claim to its next review step while role permissions limit the evidence shared.</p><h4>Value to test</h4><p>Faster multi-party processing with narrowed exposure of claimant facts.</p><h4>First useful scope</h4><p>Exchange status and authorized encrypted-document references among claimant, insurer and adjuster.</p><h4>How we would measure it</h4><p>Claim handoff time, missing-document requests and duplicate payment prevention.</p><h4>Scope boundary</h4><p>Claims decisions, payment permission and retention policy remain with the insurer. Access withdrawal or event expiry does not erase copies already obtained.</p><h4>What must be proven</h4><p>Customer data/retention policy, encrypted object integration and authorized retrieval; expiry does not erase copies.</p><h4>Integration dependencies</h4><p>MPE coordination + role-scoped attachments + long-history policy</p><p class="case-reference">Requirement identity: UC-08 · Insurance claim handoffs and milestones</p></div></details>
+<!-- case-grid:end -->
+</div>
+</section>
+<section id="architecture" class="architecture">
+<div class="section-heading">
+<div>
+<p class="eyebrow">05 / HOW THE STACK SUPPORTS THE WORK</p>
+<h2>What each component<br>is responsible for.</h2>
+</div>
+<p>The overlay distributes sealed events. Endpoints recognize relevant updates and apply their own rules. Select a component to see its role and remaining integration work.</p>
+</div>
+<div class="system-layout">
+<div class="map">
+<div class="lane-label">APPLICATION ENDPOINT <span>Private business context</span>
+</div>
+<div class="node-row two">
+<button class="node" aria-controls="component-detail" data-component="sdk">
+<span class="node-num">01</span>
+<strong>Event SDK</strong>
+<small>Rust core · TypeScript interface</small>
+</button>
+<button class="node" aria-controls="component-detail" data-component="seal">
+<span class="node-num">02</span>
+<strong>MPE envelope</strong>
+<small>Sealing · local recognition</small>
+</button>
+</div>
+<div class="connector">
+<span>Sealed event + one admission proof</span>
+</div>
+<div class="lane-label">DISTRIBUTION OVERLAY <span>Opaque envelopes</span>
+</div>
+<div class="node-row three">
+<button class="node" aria-controls="component-detail" data-component="membership">
+<span class="node-num">03</span>
+<strong>Membership &amp; RLN</strong>
+<small>Registry roots · accountable quota</small>
+</button>
+<button class="node primary" aria-controls="component-detail" data-component="gossip">
+<span class="node-num">04</span>
+<strong>GossipSub</strong>
+<small>Rust sidecar · decentralized relay</small>
+</button>
+<button class="node" aria-controls="component-detail" data-component="store">
+<span class="node-num">05</span>
+<strong>MPE store</strong>
+<small>Retention · receipts · backfill</small>
+</button>
+</div>
+<p class="branch-note">GossipSub fans out in parallel to retained stores, whole-shard receivers and the Midnight anchor.</p>
+<div class="connector">
+<span>Whole-shard reception → recognize locally</span>
+</div>
+<div class="lane-label">RECEIVING ENDPOINT <span>Authorized processing</span>
+</div>
+<div class="node-row two">
+<button class="node" aria-controls="component-detail" data-component="recovery">
+<span class="node-num">06</span>
+<strong>UmbraDB / SQLite</strong>
+<small>Endpoint state · proposed atomic commit</small>
+</button>
+<button class="node" aria-controls="component-detail" data-component="groups">
+<span class="node-num">07</span>
+<strong>OpenMLS</strong>
+<small>Session security · sender and receiver</small>
+</button>
+</div>
+<div class="connector">
+<span>Optional effect: workflow authority + anchor evidence</span>
+</div>
+<div class="lane-label">PARALLEL LEDGER BRANCH <span>Independent inclusion evidence</span>
+</div>
+<div class="node-row two">
+<button class="node" aria-controls="component-detail" data-component="anchor">
+<span class="node-num">08</span>
+<strong>Midnight anchor</strong>
+<small>Batch commitments · inclusion</small>
+</button>
+<button class="node" aria-controls="component-detail" data-component="authority">
+<span class="node-num">09</span>
+<strong>Consumer authority</strong>
+<small>Signed intent · proof · replay guard</small>
+</button>
+</div>
+<p class="map-caption">Responsibility map. RLN admission proves membership and committed class credits together; group security sits inside the encrypted payload. Components shown are proposed integrations.</p>
+</div>
+<aside id="component-detail" aria-label="Selected architecture component" class="detail" aria-live="polite">
+</aside>
+</div>
+<div class="principles">
+<div>
+<span>01</span>
+<h3>Privacy at the endpoints</h3>
+<p>Event semantics stay encrypted. Receivers recognize relevant events using local keys, so relays do not need their business subscription filters.</p>
+</div>
+<div>
+<span>02</span>
+<h3>Recovery before action</h3>
+<p>Endpoint recovery is designed to make interrupted workflows recoverable through durable state and bounded replay. External effects still need destination idempotency.</p>
+</div>
+<div>
+<span>03</span>
+<h3>Authority is explicit</h3>
+<p>Encryption and anchor inclusion do not grant permission. Authorized signed instructions and application policy define permission. A consumer contract checks that permission, message binding and replay protection.</p>
+</div>
+</div>
+</section>
+<section id="journey" class="journey">
+<div class="section-heading">
+<div>
+<p class="eyebrow">06 / THE PROTOCOL JOURNEY</p>
+<h2>What happens beneath<br>the business workflow.</h2>
+</div>
+<p>A technical walkthrough of publication, local reception and recovery. Retention and anchoring proceed independently; contract effects add a separate proof path.</p>
+</div>
+<div class="journey-layout">
+<div id="journey-steps" class="steps" role="group" aria-label="Event journey steps">
+</div>
+<div id="journey-detail" aria-label="Selected event journey step" class="journey-detail" aria-live="polite">
+</div>
+</div>
+<div class="evidence">
+<strong>Five different kinds of evidence</strong>
+<p>Admission · persistence · anchor/finality · local processing · signed business acknowledgement</p>
+<small>These are independent facts. An inclusion proof does not establish delivery, availability or business completion.</small>
+</div>
+</section>
+<section class="recovery-section">
+<figure>
+<img src="assets/recovery.webp" alt="Conceptual layered archive with sealed data modules and a highlighted checkpoint" loading="lazy">
+</figure>
+<div>
+<p class="eyebrow">07 / RECOVERY FOUNDATION</p>
+<h2>Resume the workflow<br>after an interruption.</h2>
+<p>A receiving application needs a durable record of what it processed and what remains to do. UmbraDB, which understands Midnight data, and PostgreSQL are the proposed foundation for trusted Node backend hosts. Its temporal records, checkpoints and cursors provide a starting point.</p>
+<p>A local Umbra/PostgreSQL prototype now commits one report-row effect, deduplication, outbox, checkpoint and cursor through the public transaction API. Full MPE recovery still needs authenticated processing, protected restore and writer ownership enforced at commit, alongside the proposed future-release requirements.</p>
+<div class="recovery-tags">
+<span>Tested locally: report row + progress</span>
+<span>Remaining: full MPE recovery</span>
+</div>
+<p class="fine">SQLite serves standalone Rust nodes and clients. The custom MPE store protocol separately handles replicated opaque envelopes and persistence receipts.</p>
+</div>
+</section>
+<section id="roadmap" class="roadmap">
+<div class="section-heading">
+<div>
+<p class="eyebrow">08 / FROM PROPOSAL TO PRODUCT</p>
+<h2>From a workflow demo<br>to production evidence.</h2>
+</div>
+</div>
+<div class="phases">
+<article>
+<span>FIRST DEMONSTRATION</span>
+<h3>Quote coordination</h3>
+<p>Requests, signed quotes, expiry and off-chain acceptance on backend and desktop. Internal demonstrations may use clearly labeled mock membership and admission. Measure turnaround, manual handoffs and outage recovery.</p>
+</article>
+<article>
+<span>REUSE PILOTS</span>
+<h3>Invoices and agent approvals</h3>
+<p>Match invoices to authenticated payment status; enforce expiring human approvals in a sandbox. Set targets against actual customer baselines and test duplicate, stale and unauthorized messages.</p>
+</article>
+<article>
+<span>BEFORE PRODUCTION</span>
+<h3>Prove the coordination core</h3>
+<p>Real finalized membership, accepted admission proofs, measured limits, replicated retention, signed receipts and funded operators. Verify durable endpoint processing through the proposed Umbra capability or an equivalent composition.</p>
+</article>
+</div>
+<div class="extension-note">
+<h3>Separate extensions, separate evidence</h3>
+<p>OpenMLS group security needs identity, epoch and recovery tests. Contract effects need signed authority, replay protection and binding to an anchored message. Private contract-origin events and mobile reception depend on additional platform and retrieval work. These tracks can proceed alongside coordination, with their own acceptance gates.</p>
+</div>
+<div class="choices">
+<h3>Deliberate choices</h3>
+<p>
+Semaphore supplies membership lifecycle patterns; publication uses one combined proof. Signal is available as a pairwise alternative; OpenMLS is the selected group extension. Kafka, NATS and RabbitMQ inform delivery semantics; the stack does not require those services.</p>
+</div>
+</section>
+<section class="questions" id="questions">
+<div class="section-heading">
+<div>
+<p class="eyebrow">QUESTIONS / IN PLAIN LANGUAGE</p>
+<h2>What a design partner<br>should know.</h2>
+</div>
+</div>
+<div class="faq-grid">
+<details>
+<summary>Who is the first audience?</summary>
+<p>Teams building institutional backend and desktop workflows: quote coordination, invoice reconciliation and human-approved agents. Wallet, contract and mobile experiences are part of the broader portfolio, with separate readiness requirements.</p>
+</details>
+<details>
+<summary>What would Express add to an existing event system?</summary>
+<p>The proposed combination is encrypted business events, local recognition that keeps subscription interests away from delivery infrastructure, anonymous accountable publication admission, and recoverable endpoint processing. Existing brokers can encrypt payloads; private matching, metadata exposure and workflow permissions need their own evaluation.</p>
+</details>
+<details>
+<summary>What does “private” cover?</summary>
+<p>Business contents and subscription interests under the selected profile. Connection, shard, timing and size information can remain observable. The symmetric launch profile does not establish forward secrecy or origin anonymity; private mobile reception remains research-dependent.</p>
+</details>
+<details>
+<summary>How do delivery and business completion differ?</summary>
+<p>A message can be relayed or stored before anyone acts on it. The receiving application checks business policy and records progress. An accepted offer, verified payment match or authorized execution is a distinct result, with an explicit signed acknowledgement when the workflow requires one.</p>
+</details>
+<details>
+<summary>What is available now?</summary>
+<p>The project has a v0.2 conformance reference and bounded local prototypes: strict data contracts, independent RFQ interpretation, read-only chain projections and tested Umbra/PostgreSQL report-row recovery. Explore the <a href="data-model.html">Data Model guide</a> for shared meaning and scope. Complete Express integration, production authentication/admission, live finality and authorized contract effects still require acceptance evidence.</p>
+</details>
+<details>
+<summary>How would we judge a pilot?</summary>
+<p>Agree a real customer baseline, then measure turnaround and staff effort alongside correctness, outage recovery, duplicate handling, integration cost and operating cost. A useful result improves the agreed workflow without sacrificing valid permissions or losing progress. No savings percentage or performance target is established yet.</p>
+</details>
+</div>
+<details class="glossary">
+<summary>A few useful terms</summary>
+<dl>
+<dt>Event</dt>
+<dd>An update that another application can respond to.</dd>
+<dt>Endpoint</dt>
+<dd>The participating application or host where keys, private business context and processing policy live.</dd>
+<dt>Local recognition</dt>
+<dd>Identifying relevant messages using keys at the receiver, without giving the relay a business subscription filter.</dd>
+<dt>Request for quote (RFQ)</dt>
+<dd>Asking approved dealers what price they will offer for a specified transaction.</dd>
+<dt>Reconciliation</dt>
+<dd>Checking that invoice, payment and accounting records agree.</dd>
+<dt>Duplicate protection / idempotency</dt>
+<dd>Ensuring a repeated update does not create another effect, using the receiving application or destination’s rules.</dd>
+<dt>Anchor</dt>
+<dd>A batch commitment recorded on Midnight that can support inclusion evidence.</dd>
+<dt>Finality</dt>
+<dd>The point at which ledger evidence is accepted as settled under the chosen chain policy.</dd>
+</dl>
+</details>
+</section>
+<section class="sources">
+<p class="eyebrow">DESIGN &amp; EVIDENCE</p>
+<h2>Design documents<br>and implementation evidence.</h2>
+<p>The stack is a recommendation with tested local components. Production deployment and protocol performance remain to be demonstrated; the selected libraries need integration.</p>
+<div class="source-links">
+<a href="https://github.com/CharlesHoskinson/midnight-express/blob/research/event-systems-product-candidates/docs/product-requirements/recommended-stack-and-use-cases.md">Recommended stack &amp; requirements</a>
+<a href="https://github.com/CharlesHoskinson/midnight-express/blob/research/event-systems-product-candidates/docs/design-document/Midnight-Express-Design-Document.pdf">Original design document</a>
+<a href="https://github.com/CharlesHoskinson/UmbraDB/pull/5">Umbra future-release proposal</a>
+</div>
+</section>
+</main>
+<footer>
+<span class="brand">M∕E &nbsp; MIDNIGHT EXPRESS</span>
+<span>Product &amp; architecture study · October 2026</span>
+<a href="#">Back to top</a>
+</footer>
+</body>
+</html>

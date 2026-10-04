@@ -1,0 +1,66 @@
+{
+  "status": "research completed; experimental candidate, not implementation",
+  "systems": [
+    {
+      "system_id": "gossipsub",
+      "reviews": {
+        "architecture": {
+          "report": "architecture.md",
+          "report_heading": "1. GossipSub design study",
+          "source_urls": [
+            "https://github.com/libp2p/specs/blob/master/pubsub/gossipsub/gossipsub-v1.2.md"
+          ]
+        },
+        "privacy": {
+          "report": "privacy.md",
+          "report_heading": "1. GOSSIPSUB 1.2: WHAT IT CONTRIBUTES",
+          "source_urls": [
+            "https://github.com/libp2p/specs/blob/master/pubsub/gossipsub/gossipsub-v1.2.md"
+          ]
+        },
+        "product": {
+          "report": "product.md",
+          "report_heading": "GOSSIPSUB DESIGN ASSESSMENT",
+          "source_urls": [
+            "https://github.com/libp2p/specs/blob/master/pubsub/gossipsub/gossipsub-v1.2.md"
+          ]
+        }
+      }
+    },
+    {
+      "system_id": "signal",
+      "reviews": {
+        "architecture": {
+          "report": "architecture.md",
+          "report_heading": "2. Signal design study",
+          "source_urls": [
+            "https://signal.org/docs/specifications/pqxdh/",
+            "https://signal.org/docs/specifications/doubleratchet/",
+            "https://signal.org/docs/specifications/sesame/",
+            "https://github.com/signalapp/libsignal"
+          ]
+        },
+        "privacy": {
+          "report": "privacy.md",
+          "report_heading": "2. SIGNAL KEY AGREEMENT AND CONTINUOUS RATCHETING",
+          "source_urls": [
+            "https://signal.org/docs/specifications/pqxdh/",
+            "https://signal.org/docs/specifications/doubleratchet/",
+            "https://signal.org/docs/specifications/sesame/",
+            "https://github.com/signalapp/libsignal"
+          ]
+        },
+        "product": {
+          "report": "product.md",
+          "report_heading": "SIGNAL DESIGN ASSESSMENT",
+          "source_urls": [
+            "https://signal.org/docs/specifications/pqxdh/",
+            "https://signal.org/docs/specifications/doubleratchet/",
+            "https://signal.org/docs/specifications/sesame/",
+            "https://github.com/signalapp/libsignal"
+          ]
+        }
+      }
+    }
+  ]
+}

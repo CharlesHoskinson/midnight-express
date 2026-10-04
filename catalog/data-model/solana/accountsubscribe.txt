@@ -1,0 +1,372 @@
+accountSubscribe | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+Websocket Methods
+accountSubscribe
+accountUnsubscribe
+blockSubscribe
+blockUnsubscribe
+logsSubscribe
+logsUnsubscribe
+programSubscribe
+programUnsubscribe
+rootSubscribe
+rootUnsubscribe
+signatureSubscribe
+signatureUnsubscribe
+slotSubscribe
+slotsUpdatesSubscribe
+slotsUpdatesUnsubscribe
+slotUnsubscribe
+voteSubscribe
+voteUnsubscribe
+Removed Methods
+Solana RPC Methods
+Websocket Methods
+accountSubscribe
+Copy Markdown
+Open
+Subscribe to notifications when an account's lamports or data change.
+Source
+account_subscribe
+params
+string !required
+optional
+Account Pubkey, as base-58 encoded string
+object
+optional
+Optional configuration object.
+commitment
+string !values processed confirmed finalized !default finalized
+encoding
+string !values base58 base64 base64+zstd binary jsonParsed !default binary
+dataSlice
+object
+result
+number
+Subscription id. Pass this to
+
+accountUnsubscribe
+.
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"accountSubscribe"
+,
+>
+"params"
+: [
+>
+"CM78CPUeXjn8o3yroDHxUtKsZZgoy4GPkPPXfouKNH12"
+,
+>
+{
+>
+"encoding"
+:
+"jsonParsed"
+,
+>
+"commitment"
+:
+"finalized"
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+:
+23784
+,
+"id"
+:
+1
+}
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"accountSubscribe"
+,
+>
+"params"
+: [
+>
+"CM78CPUeXjn8o3yroDHxUtKsZZgoy4GPkPPXfouKNH12"
+,
+>
+{
+>
+"encoding"
+:
+"jsonParsed"
+,
+>
+"commitment"
+:
+"finalized"
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+params
+string !required
+optional
+Account Pubkey, as base-58 encoded string
+object
+optional
+Optional configuration object.
+commitment
+string !values processed confirmed finalized !default finalized
+encoding
+string !values base58 base64 base64+zstd binary jsonParsed !default binary
+dataSlice
+object
+result
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+:
+23784
+,
+"id"
+:
+1
+}
+number
+Subscription id. Pass this to
+
+accountUnsubscribe
+.
+Notification format
+Notifications are delivered as 
+accountNotification
+.
+{
+"jsonrpc"
+:
+"2.0"
+,
+"method"
+:
+"accountNotification"
+,
+"params"
+: {
+"result"
+: {
+"context"
+: {
+"slot"
+:
+559
+},
+"value"
+: {
+"lamports"
+:
+1169280
+,
+"data"
+: {
+"program"
+:
+"sysvar"
+,
+"parsed"
+: {
+"info"
+: {
+"epoch"
+:
+0
+,
+"epochStartTimestamp"
+:
+1774643544
+,
+"leaderScheduleEpoch"
+:
+1
+,
+"slot"
+:
+559
+,
+"unixTimestamp"
+:
+1774643807
+},
+"type"
+:
+"clock"
+},
+"space"
+:
+40
+},
+"owner"
+:
+"Sysvar1111111111111111111111111111111111111"
+,
+"executable"
+:
+false
+,
+"rentEpoch"
+:
+0
+,
+"space"
+:
+40
+}
+},
+"subscription"
+:
+10
+}
+}
+jsonrpc
+string
+Always 
+"2.0"
+.
+method
+string
+Always 
+"accountNotification"
+.
+params
+object
+Notification wrapper with the updated account payload and the subscription id.
+result
+object
+subscription
+integer
+Is this page helpful?
+Previous
+Solana RPC WebSocket Methods
+Next
+accountUnsubscribe
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

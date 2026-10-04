@@ -1,0 +1,13 @@
+{
+  "id": "uniswap-v3-events",
+  "url": "https://raw.githubusercontent.com/Uniswap/v3-core/main/contracts/interfaces/pool/IUniswapV3PoolEvents.sol",
+  "resolved_url": "https://raw.githubusercontent.com/Uniswap/v3-core/main/contracts/interfaces/pool/IUniswapV3PoolEvents.sol",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:49.988583+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "uniswap-v3-events.raw",
+  "text_path": "uniswap-v3-events.txt",
+  "raw_sha256": "2c2b798ca4288dfdf746bca8516b4e725b79ca6636af3d38a5a64801e50020a7",
+  "text_sha256": "2c2b798ca4288dfdf746bca8516b4e725b79ca6636af3d38a5a64801e50020a7",
+  "text_chars": 5964
+}

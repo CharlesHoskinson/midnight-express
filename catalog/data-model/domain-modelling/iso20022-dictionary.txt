@@ -1,0 +1,384 @@
+Understanding the Data Dictionary | ISO20022
+
+      Skip to main content
+    
+ISO 20022
+ISO 20022
+Universal financial industry message scheme
+
+              About ISO 20022
+            
+
+      About ISO 20022
+    
+
+      ISO 20022 is a multi part International Standard prepared by ISO Technical Committee TC68 Financial Services
+    
+
+                          Governance
+                        
+
+                          APIs and ISO 20022
+                        
+
+                          Intellectual property rights
+                        
+
+              Catalogue
+            
+
+                          Business Domain Catalogues
+                        
+
+                                  Payments
+                                
+
+                                  Securities
+                                
+
+                                  Trade Finance
+                                
+
+                                  Cards
+                                
+
+                                  FX
+                                
+
+                          API Resources
+                        
+
+                          Additional Content for the Messages
+                        
+
+                                  Business application header (BAH)
+                                
+
+                                  Business file envelope
+                                
+
+                                  Business message envelope
+                                
+
+                                  Data Source Scheme
+                                
+
+                                  External Code Sets
+                                
+
+                                  ISO 20022 Real-Time Payments Group
+                                
+
+                                  Supplementary Data Extension
+                                
+
+                                  Variants
+                                
+
+                          Message archive
+                        
+
+              ISO20022 repository
+            
+
+      ISO 20022 Repository
+    
+
+      The ISO 20022 Repository consists of two major parts:
+
+
+	the Data Dictionary
+	the Business Process Catalogue
+    
+
+                          ISO 20022 Repository Online Search
+                        
+
+                          Download the e-Repository
+                        
+
+                          Business Model
+                        
+
+              Development
+            
+
+                          List of Submissions
+                        
+
+                                  Catalogue of Business Justifications for message development
+                                
+
+                                  Catalogue of Business Justifications for API resource development
+                                
+
+                                  Catalogue of Business Justifications for Supplementary Data Extension development
+                                
+
+                                  Catalogue of Business Justifications for variants development
+                                
+
+              Maintenance
+            
+
+                          Catalogue of Change Requests
+                        
+
+                                  Catalogue of message definitions change requests
+                                
+
+                                  Catalogue of API Resources change requests
+                                
+
+                                  Catalogue of change requests related to external code sets
+                                
+
+                                  Catalogue of change requests related to data sources schemes
+                                
+
+                                  Catalogue of change requests related to Supplementary Data
+                                
+
+                                  Catalogue of change requests related to the business model
+                                
+
+              eRequests
+            
+
+              FAQ & Search
+            
+
+                          FAQ
+                        
+
+                          Search
+                        
+Contact us
+
+              Home
+            
+Understanding the Data Dictionary
+The items in the Dictionary can be classified in three categories: 
+Business Concepts
+, 
+Data Types
+ and 
+Message Concepts
+.
+Business Concepts
+ are Dictionary items with a business semantic meaning. The following items are part of this category:
+Business Associations,
+Business Components,
+Constraints,
+Business Elements,
+Business Roles.
+Data Types
+ are Dictionary items that unambiguously specifies the set of valid values of a Business Element or of a Message Element.
+Message Concepts
+ are Dictionary items used in Message Definitions. The following items are part of this category:
+Message Components,
+Constraints,
+Message Elements.
+This diagram shows the conceptual structure of the Dictionary. It shows all types of Dictionary items and the relationships between them.
+
+            Dictionary items definitions
+      
+Show more
+Show less
+
+            Business Component
+      
+Show more
+Show less
+Representation of a (part of a) key business notion, characterised by specific Business Elements. Each Business Component may have one or more Associations with other Business Components. A Business Component is uniquely identified in the Dictionary.
+Examples: TradeTransaction, Account, CashEntry
+
+            Business Element
+      
+Show more
+Show less
+A business characteristic of a Business Component. A Business Element is uniquely identified in its Business Component, its meaning can only be described unambiguously in combination with its Business Component.
+When a business characteristic of a Business Component may be repeated in an instance of that Component, a multiplicity information is added behind the Business Element name between square brackets; e.g. "[2..n]" - meaning that the characteristic can be repeated two to an indefinite number of times.
+Examples: DealPrice (in TradeTransaction), SettledQuantity (in SecuritiesTransfer), Amount (in CashEntry).
+
+            Business Association
+      
+Show more
+Show less
+A semantic relation between two Business Components. The meaning of a Business Association is always defined in combination with these two Business Components. A Business Association is therefore uniquely identified in the scope of two Business Components.
+Business Associations have two Business Associations Ends.These endpointsconnect the BusinessAssociation to its BusinessComponents.
+
+            Business Role
+      
+Show more
+Show less
+A functional role played by a business actor in a particular BusinessProcess or BusinessTransaction.
+A Business Role is uniquely identified in the Dictionary.
+Examples: FinancialInstitution, CSD
+
+            Data Type and Data Type Representations
+      
+Show more
+Show less
+A Data Type is the unambiguous specification of the set of valid values of a Business Element or of a Message Element.
+The set of valid values may be defined via a format specification or via an exhaustive enumeration of all possible values. A Data Type is uniquely identified in the Dictionary.
+Each Data Type belongs to a specific category of Data Types called a Data Type Representation. Each Data Type Representation is characterized by a set of technical information required for implementation and processing.
+The user-defined DataTypes are categorized in a limited number of datatype representations, such as Amount, IdentifierSet, Quantity, CodeSet, Date, Time, Text, etc. The full list of DataType representations is defined in the metamodel.
+Examples of Data Types (Representation Types): PercentageRate (Rate), BalanceTypeCode (Code), PaymentDirectionIndicator (Indicator)
+
+            Message Component
+      
+Show more
+Show less
+A reusable Dictionary Item that is a building block for assembling Message Definitions. It is normally linked to a Business Component and characterised by specific Message Elements.
+A Message Component is uniquely identified in the Dictionary. A Message Component may be qualified as a "Choice" component meaning that only one of the elements composing this Message Component may be selected in an XML instance of a message containing that Choice Message Component
+
+            Message Element
+      
+Show more
+Show less
+A characteristic of a Message Component. A Message Element is uniquely identified in its Message / Choice Component.
+When a Message Element may be repeated in an instance of a Message Component, a multiplicity information is added behind the Message Element name between square brackets; e.g. "[0..n]" - meaning that the Message Element may be repeated 0, 1 or an indefinite number of times.
+
+            Constraint
+      
+Show more
+Show less
+A constraint attached to a Business or Message Component and defining specific conditions applicable to that Component or to its associated Business Components. A Constraint is uniquely identified in the scope of a Business or Message Component.
+Examples: ExchangeConversionRule (applied on the Business Component CurrencyExchange), AmountsCurrencyRule (applied on the Message Component SubscriptionCashFlow2).
+Some typical constraints that may appear regularly in the Dictionary are:
+Format or XML Facet: This constraint assigned to a Data Type provides formatting constraints on the value that may be assigned to an element typed by this Data Type.
+Typical constraints that may be assigned are for instance: Total number of digits; A pattern with which the value must comply (e.g. 3 alphanumeric characters);
+Maximum value
+
+            Additional information on items displayed on Dictionary screens
+      
+Show more
+Show less
+
+            Code /Code Name
+      
+Show more
+Show less
+Code: A character string (letters, figures or symbols) that for brevity and/or language independence can be used to represent or replace a definitive value or text of an attribute.
+
+	Example: CBNS Applies to: Data Types of Representation Type "CodeSet"
+Name: The full name of a particular Code within the set of valid values.
+
+	Example: "CumBonus" is the Code Name of the Code "CBNS" in TradeTransactionConditionCode
+
+	Applies to: Data Types of Representation Type "CodeSet".
+
+            Defined in
+      
+Show more
+Show less
+When a Business / Message Component extends (refer to the " Extends" field description below) an other Business / Message Component, the former one inherits automatically the characteristics (i.e. the Business Elements and Constraints) of the latter.
+Therefore, for each Business / Message Element and for each Constraint, the "Defined in" field indicates the original Business / Message Component from which this characteristic is inherited. For characteristics that are not inherited, the name of the current Business / Message Component is displayed.
+Applies to: Business Elements; Message Elements; Constraints
+
+            Description
+      
+Show more
+Show less
+Provides a precise description of the meaning of the Dictionary item.
+Applies to Dictionary items: Business Roles, Business Components, Message Components, Business Elements, Message Elements, Data Types and Codes.
+
+            Traces to
+      
+Show more
+Show less
+Message Components and Message Elements are usually based on a Business item (i.e. Business Component, Business Element or Business Association). This field indicates on which Business item, the Message Component or Element is based.
+In a limited number of cases, a Message Element may have been introduced for purely technical reasons. Such a Message Elements is not based on a Business item because it has no business meaning. In this case, no "trace to" information is displayed.
+Applies to: Message Components; Message Elements.
+
+            Multiplicity
+      
+Show more
+Show less
+Indicates the number of times a Business / Message Element may be repeated in an instance of the Business / Message Component it is defined in.
+Applies to: Business Elements; Message Elements.
+
+            Registration status
+      
+Show more
+Show less
+The status of the item in the Repository registration life cycle. One of the following Registration Status values can be specified for each of the item:
+Provisionally Registered
+ - The Repository item is pending final approval. This enables the Registration Authority to inform users that the Repository Item will potentially become "Registered" in the near future.
+Registered
+ - The Repository item is ISO 20022 compliant and can be used for ISO 20022 compliant developments.
+Obsolete + Will be removed on: dd-month-yyyy 
+- The Repository item is still compliant but cannot be used in new ISO 20022 compliant developments. The indicated in the "Will be removed on:" field is specified when the Repository item is no longer considered as compliant as of a specific date. This means the Repository item may no longer be used for registering updates to the Repository and will be removed from the Repository at the date specified as.
+Applies to: All Repository items.
+
+            Constraint description
+      
+Show more
+Show less
+A textual or formal description of the meaning of a Constraint associated to a Business or Message Component.
+Applies to: Constraints.
+
+            Synonyms
+      
+Show more
+Show less
+There are two types of synonyms:
+Alternative names of a Dictionary item in a particular business context. The business context is specified in the Synonym column.
+
+	Example: The synonym ":19A::REPA" is the representation of the Business Element "RepurchaseAmount" in the Business Component "RepurchaseAgreement" for the Enhanced-7775 syntax (ISO 15022).
+Possible representations of a Dictionary item in a particular syntax. The syntax is specified in the Synonym column.
+
+	Example 2:"Strike price" is an alternative name for the "ExercisePrice" Business Element in the "Option" Business Component.
+
+	Applies to: Business Components, Message Components, Business Elements, Message Elements, Data Types, Codes, Business Associations, Business Roles.
+
+            Type
+      
+Show more
+Show less
+Identifies the Business or Message Component or Data Type used to type a Business or Message Element.
+Applies to: Business Elements, Message Elements.
+
+            XML attribute
+      
+Show more
+Show less
+Additional information provided for a Data Type, specifying values for technical information that is relevant for the Data Type Representation to which the Data Type belongs. This information appears in the XML schema. The XML attribute is a name / value pair that is specified in the XML start-tag.
+An XML attribute has a Data Type assigned, specifying the set of valid values of the XML attribute.
+Example:The "Currency" XML Attribute in the "CurrencyAndAmount" Data Type specifies the Currency in which the amount must be considered.
+Applies to: Data Types (of the Representation Type "Quantity" or "Amount").
+
+            XML tag
+      
+Show more
+Show less
+Specific name assigned to a Message Element. This name will appear as an XML tag in XML instances of Messages re-using this Message Element as well as in XML Schemas of Messages re-using this Message Element.
+XML tags are attributed by the RA. They are derived from the full name of the element which is abbreviated according to an 
+algorithm
+.
+The mapping list of abbreviations used in 
+XML tags
+ is available here and is updated on a regular basis.
+Note: There are exceptions that cannot be automated using the algorithm and, sometimes, the tag is attributed by the RA. Applies to: Message Elements.
+
+            XML Tags
+      
+The mapping list of abbreviations used in XML tags is available here and is updated on a regular basis.
+Download the mapping list
+ISO 20022
+
+                  © Copyright ISO 20022
+              
+
+        Contact
+      
+
+        Privacy statement
+      
+
+        Cookie policy
+      
+
+        Terms of use
+      

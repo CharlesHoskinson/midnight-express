@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+    
+      <title>EIP-5792: Wallet Call API</title>
+      <meta property="og:title" content="EIP-5792: Wallet Call API" />
+    
+    <meta name="description" content="Adds JSON-RPC methods for sending multiple calls from the user&#39;s wallet, and checking their status" />
+    <meta property="og:description" content="Adds JSON-RPC methods for sending multiple calls from the user&#39;s wallet, and checking their status" />
+    <meta name="twitter:description" content="Adds JSON-RPC methods for sending multiple calls from the user&#39;s wallet, and checking their status" />
+  
+  <meta name="generator" content="Jekyll" />
+  <meta property="og:locale" content="en_US" />
+  <link rel="canonical" href="https://eips.ethereum.org/EIPS/eip-5792" />
+  <meta property="og:url" content="https://eips.ethereum.org/EIPS/eip-5792" />
+  <meta property="og:site_name" content="Ethereum Improvement Proposals" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://eips.ethereum.org/assets/images/eip-og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://eips.ethereum.org/assets/images/eip-og-image.png" />
+  <meta name="twitter:site" content="@" />
+  <script type="application/ld+json">
+    {
+      "@type": "WebSite",
+      "url": "https://eips.ethereum.org",
+      "name": "Ethereum Improvement Proposals",
+      "description": "Ethereum Improvement Proposals (EIPs) describe standards for the Ethereum platform, such as core protocol specifications.",
+      "@context": "https://schema.org"
+    }
+  </script>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" /><link type="application/atom+xml" rel="alternate" href="https://eips.ethereum.org/feed.xml" title="Ethereum Improvement Proposals" /><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/css/override.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", (event) => {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    });
+  </script>
+  <script type="text/javascript">
+    window.MathJax = {
+      loader: {
+        load: ['input/tex-base', 'output/chtml']
+      },
+      tex: {
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']],
+        processEscapes: true,
+        processEnvironments: false,
+        processRefs: false
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js" integrity="sha384-/1zmJ1mBdfKIOnwPxpdG6yaRrxP6qu3eVYm0cz2nOx+AcL4d3AqEFrwcqGZVVroG" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/citation-js/0.6.7/citation.min.js" integrity="sha512-N+LDFMa9owHXGS+CyMrBvuxq2QuGl3fiB/7cys3aUEL7K6P1soHGqsS0sjHXZpwNd9Kz0m3R4IPy1HYRi6ROEQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript">
+    addEventListener('DOMContentLoaded', async () => {
+      const Cite = window.require('citation-js');
+      const citationElements = document.querySelectorAll('.language-csl-json');
+      for (let citationElement of citationElements) {
+        try {
+          const citation = await Cite.async(citationElement);
+          const template = document.createElement('template');
+          template.innerHTML = citation.format('bibliography', {
+            format: 'html',
+            template: 'apa',
+            lang: 'en-US'
+          });
+          if (citationElement.parentElement && citationElement.parentElement.matches('pre')) {
+            citationElement.parentElement.replaceWith(template.content);
+          } else {
+            citationElement.replaceWith(template.content);
+          }
+        } catch (e) {
+          console.error("unable to render citation", e);
+        }
+      }
+    });
+  </script>
+</head>
+<body><header class="site-header" role="banner">
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Ethereum Improvement Proposals</a><nav class="site-nav d-flex">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger row p-2"><a class="page-link col" href="/all">All</a><a class="page-link col" href="/core">Core</a><a class="page-link col" href="/networking">Networking</a><a class="page-link col" href="/interface">Interface</a><a class="page-link col" href="/erc">ERC</a><a class="page-link col" href="/meta">Meta</a><a class="page-link col" href="/informational">Informational</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="bi-megaphone-fill" fill="currentColor" viewBox="0 0 16 16">
+    <title>Alert</title>
+    <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-11zm-1 .724c-2.067.95-4.539 1.481-7 1.656v6.237a25.222 25.222 0 0 1 1.088.085c2.053.204 4.038.668 5.912 1.56V3.224zm-8 7.841V4.934c-.68.027-1.399.043-2.008.053A2.02 2.02 0 0 0 0 7v2c0 1.106.896 1.996 1.994 2.009a68.14 68.14 0 0 1 .496.008 64 64 0 0 1 1.51.048zm1.39 1.081c.285.021.569.047.85.078l.253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a65.81 65.81 0 0 1 1.692.064c.327.017.65.037.966.06z"/>
+  </symbol>
+  <symbol id="bi-code" fill="currentColor" viewBox="0 0 16 16">
+    <title>Source</title>
+    <path d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z"/>
+  </symbol>
+  <svg id="bi-chat" fill="currentColor" viewBox="0 0 16 16">
+    <title>Discuss</title>
+    <path d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z"/>
+  </svg>
+</svg>
+
+<div class="home">
+  
+  
+  
+ 
+  <span class="h5">
+    
+    
+    
+    
+    
+      <span class="badge text-light bg-success" data-bs-toggle="tooltip" data-bs-title="This EIP is finalized and is added as an Ethereum Standard. "> 🎉 Final</span>
+    
+       
+    
+      <a class="badge text-light bg-primary" data-bs-toggle="tooltip" data-bs-title="Improvements around client API/RPC specifications and standards, and also certain language-level standards like method names and contract ABIs." href="../interface">Standards Track: Interface</a>
+    
+  </span>
+  <h1 class="page-heading">
+    EIP-5792: Wallet Call API
+    <a href="https://ethereum-magicians.org/t/eip-5792-wallet-abstract-transaction-send-api/11374" class="no-underline">
+      <svg role="img" aria-label="Discuss" class="inline-svg" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 16 16">
+        <use xlink:href="#bi-chat"/>
+      </svg>
+    </a>
+    <a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-5792.md" class="no-underline">
+      <svg role="img" aria-label="Source" class="inline-svg" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 16 16">
+        <use xlink:href="#bi-code"/>
+      </svg>
+    </a>
+  </h1>
+  <h3>Adds JSON-RPC methods for sending multiple calls from the user&apos;s wallet, and checking their status</h3>
+  <table class="table table-borderless preamble">
+    <tbody>
+      <tr>
+        <th scope="row">Authors</th>
+        <td>Moody Salem&nbsp;(<a href="https://github.com/moodysalem">@moodysalem</a>), Lukas Rosario&nbsp;(<a href="https://github.com/lukasrosario">@lukasrosario</a>), Wilson Cusack&nbsp;(<a href="https://github.com/wilsoncusack">@wilsoncusack</a>), Dror Tirosh&nbsp;(<a href="https://github.com/drortirosh">@drortirosh</a>), Jake Moxey&nbsp;(<a href="https://github.com/jxom">@jxom</a>), Derek Rein&nbsp;(<a href="https://github.com/arein">@arein</a>), Alex Forshtat&nbsp;(<a href="https://github.com/forshtat">@forshtat</a>), Sam Wilson (@SamWilsn)&nbsp;&lt;<a href="mailto:sam@binarycake.ca">sam@binarycake.ca</a>&gt;, Borislav Itskov&nbsp;(<a href="https://github.com/Oxbobby">@Oxbobby</a>), Joao Tavares&nbsp;(<a href="https://github.com/cryptotavares">@cryptotavares</a>), Adam Fuller&nbsp;(<a href="https://github.com/azf20">@azf20</a>), Philip Liao&nbsp;(<a href="https://github.com/phil-ociraptor">@phil-ociraptor</a>), bumblefudge&nbsp;(<a href="https://github.com/bumblefudge">@bumblefudge</a>)</td>
+      </tr>
+      
+        <tr>
+          <th scope="row">Created</th>
+          <td>2022-10-17</td>
+        </tr>
+      
+      
+             
+      
+      
+        <tr>
+          <th scope="row">Requires</th>
+          <td>
+
+  <a href="eip-1193">EIP-1193</a>
+
+</td>
+        </tr>
+      
+    </tbody>
+  </table>
+  <br/>
+
+  
+
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <ul>
+  <li><a href="#abstract">Abstract</a></li>
+  <li><a href="#motivation">Motivation</a></li>
+  <li><a href="#specification">Specification</a>
+    <ul>
+      <li><a href="#wallet_sendcalls">wallet_sendCalls</a></li>
+      <li><a href="#wallet_getcallsstatus">wallet_getCallsStatus</a></li>
+      <li><a href="#wallet_showcallsstatus">wallet_showCallsStatus</a></li>
+      <li><a href="#wallet_getcapabilities">wallet_getCapabilities</a></li>
+      <li><a href="#atomic-capability">atomic Capability</a></li>
+      <li><a href="#error-codes">Error Codes</a></li>
+    </ul>
+  </li>
+  <li><a href="#rationale">Rationale</a>
+    <ul>
+      <li><a href="#on-naming">On Naming</a></li>
+      <li><a href="#call-execution-atomicity">Call Execution Atomicity</a></li>
+      <li><a href="#call-gas-limit">Call Gas Limit</a></li>
+    </ul>
+  </li>
+  <li><a href="#backwards-compatibility">Backwards Compatibility</a></li>
+  <li><a href="#security-considerations">Security Considerations</a>
+    <ul>
+      <li><a href="#privacy-considerations">Privacy Considerations</a></li>
+    </ul>
+  </li>
+  <li><a href="#copyright">Copyright</a></li>
+</ul>
+
+  </div>
+
+  <h2 id="abstract">
+      
+      
+        <a href="#abstract" class="anchor-link"></a> Abstract
+      
+      
+    </h2>
+
+<p>Defines new JSON-RPC methods which enable apps to ask a wallet to process a batch of onchain write calls and to check on the status of those calls.
+Applications can specify that these onchain calls be executed taking advantage of specific capabilities previously expressed by the wallet; an additional, novel wallet RPC is defined to enable apps to query the wallet for those capabilities.</p>
+  
+    <h2 id="motivation">
+      
+      
+        <a href="#motivation" class="anchor-link"></a> Motivation
+      
+      
+    </h2>
+
+<p>The current methods used to send transactions from the user wallet and check their status are <code class="language-plaintext highlighter-rouge">eth_sendTransaction</code> and <code class="language-plaintext highlighter-rouge">eth_getTransactionReceipt</code>.</p>
+
+<p>The current methods used to send transactions from the user wallet and check their status do not meet modern developer demands and cannot accommodate new transaction formats. Even the name–- <code class="language-plaintext highlighter-rouge">eth_sendTransaction</code>-– is an artifact of a time when nodes served as wallets.</p>
+
+<p>Today, developers want to send multiple calls batched together in a single RPC call, which many smart accounts can, in turn, execute atomically in a single transaction. Developers also want to make use of features afforded by new transaction formats, like paymasters in <a href="/EIPS/eip-4337">ERC-4337</a> transactions. <code class="language-plaintext highlighter-rouge">eth_sendTransaction</code> offers no way to do these things.</p>
+
+<p>In updating to a new set of <code class="language-plaintext highlighter-rouge">wallet_</code> RPCs, our main goals are to enforce a clean separation of wallet and app concerns, enable developers to make use of things like paymasters and batch transactions, and to create a clear way for more safely discoverable features to be added over time with minimal coordination.</p>
+  
+    <h2 id="specification">
+      
+      
+        <a href="#specification" class="anchor-link"></a> Specification
+      
+      
+    </h2>
+
+<p>Four new JSON-RPC methods are added: three are for handling batches of onchain calls, and one is for querying support for wallet capabilities, such as to make better use of the three batching methods.
+Apps may begin using these first three methods immediately, falling back to <code class="language-plaintext highlighter-rouge">eth_sendTransaction</code> and <code class="language-plaintext highlighter-rouge">eth_getTransactionReceipt</code> when they are not available.</p>
+  
+    <h3 id="wallet_sendcalls">
+      
+      
+        <a href="#wallet_sendcalls" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_sendCalls</code>
+      
+      
+    </h3>
+
+<p>Requests that a wallet submits a batch of calls. <code class="language-plaintext highlighter-rouge">from</code> and <code class="language-plaintext highlighter-rouge">chainId</code> are identified by <a href="/EIPS/eip-155">EIP-155</a> integers expressed in hexadecimal notation,
+with <code class="language-plaintext highlighter-rouge">0x</code> prefix and no leading zeroes for the <code class="language-plaintext highlighter-rouge">chainId</code> value.
+The items in the <code class="language-plaintext highlighter-rouge">calls</code> field are simple <code class="language-plaintext highlighter-rouge">{to, data, value}</code> tuples.</p>
+
+<p>The capabilities field is how an app can communicate with a wallet about capabilities a wallet supports. For example, this is where an app can specify a paymaster service URL from which an <a href="/EIPS/eip-4337">ERC-4337</a> wallet can request a <code class="language-plaintext highlighter-rouge">paymasterAndData</code> input for a user operation.</p>
+
+<p>Each capability defined in the “capabilities” member can define global or call specific fields.
+These fields are set inside this capability’s entry in the <code class="language-plaintext highlighter-rouge">capabilities</code> object.
+Each entity in the <code class="language-plaintext highlighter-rouge">calls</code> field may contain an optional <code class="language-plaintext highlighter-rouge">capabilities</code> object.
+This object allows the applications to attach a capability-specific metadata to individual calls.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">atomicRequired</code> field specifies if a wallet is required to handle the batch of calls atomically or not. The wallet capacity to execute batch calls atomically is exposed through the built in <code class="language-plaintext highlighter-rouge">atomic</code> capability and can be sourced via <code class="language-plaintext highlighter-rouge">wallet_getCapabilities</code>..</p>
+
+<p>Unless these requirements are explicitly overridden by a certain <code class="language-plaintext highlighter-rouge">capability</code>, the wallet must adhere to the following rules.
+Note that such a <code class="language-plaintext highlighter-rouge">capability</code> is not in the scope of this EIP and should be defined in its own ERC.</p>
+
+<p>The wallet:</p>
+
+<ul>
+  <li>MUST send the calls in the order specified in the request</li>
+  <li>MUST send the calls on the same chain identified by the request’s <code class="language-plaintext highlighter-rouge">chainId</code> property</li>
+  <li>MUST send the calls from the address specified in the request’s <code class="language-plaintext highlighter-rouge">from</code> property, if provided
+    <ul>
+      <li>If <code class="language-plaintext highlighter-rouge">from</code> is not provided the wallet SHOULD present the user with an opportunity to view and select the <code class="language-plaintext highlighter-rouge">from</code> address during confirmation</li>
+    </ul>
+  </li>
+  <li>MUST NOT await for any calls to be finalized to complete the batch</li>
+  <li>MUST NOT send any calls from the request if the user rejects the request</li>
+  <li>When <code class="language-plaintext highlighter-rouge">atomicRequired</code> is set to <code class="language-plaintext highlighter-rouge">true</code>:
+    <ul>
+      <li>MUST execute all calls atomically, meaning that either all calls execute successfully or no material effects appear on chain.</li>
+      <li>MUST execute all calls contiguously, meaning no other transactions/calls may be interleaved with the calls from this batch.</li>
+      <li>If a wallet is able to upgrade its atomicity guarantees from <code class="language-plaintext highlighter-rouge">ready</code> to <code class="language-plaintext highlighter-rouge">supported</code> but has not yet done so, it MUST upgrade before proceeding to submit the calls with the above guarantees.</li>
+    </ul>
+  </li>
+  <li>When <code class="language-plaintext highlighter-rouge">atomicRequired</code> is set to <code class="language-plaintext highlighter-rouge">false</code>:
+    <ul>
+      <li>MAY execute all calls sequentially without any atomicity/contiguity guarantees.</li>
+      <li>If a wallet is capable of providing atomicity guarantees, it MAY execute the batch atomically.</li>
+      <li>If a wallet is able to upgrade its atomicity guarantees to <code class="language-plaintext highlighter-rouge">supported</code> (see <code class="language-plaintext highlighter-rouge">atomic</code> capability definition below), it MAY do so and then execute the batch atomically.</li>
+    </ul>
+  </li>
+  <li>MAY reject the request if the from address does not match the enabled account</li>
+  <li>MAY reject the request if one or more calls in the batch is expected to fail, when simulated sequentially</li>
+  <li>MUST reject the request if it contains a <code class="language-plaintext highlighter-rouge">capability</code> (either top-level or call-level) that is not supported by the wallet and the <code class="language-plaintext highlighter-rouge">capability</code> is not explicitly marked as optional.
+    <ul>
+      <li>Applications may mark a capability as optional by setting <code class="language-plaintext highlighter-rouge">optional</code> to <code class="language-plaintext highlighter-rouge">true</code>. See the RPC Specification section below for details.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>If provided, the wallet MUST respect the <code class="language-plaintext highlighter-rouge">id</code> field and return it in the response.</p>
+
+<p>Identifiers, whether provided by the app or generated by the wallet, MUST be a unique string up to 4096 bytes (8194 characters including leading <code class="language-plaintext highlighter-rouge">0x</code>).</p>
+
+<p>App-provided <code class="language-plaintext highlighter-rouge">id</code>s MUST be unique per sender per app, where each “app” SHOULD be identified by their domain.</p>
+
+<p>Wallets MUST reject requests with duplicate <code class="language-plaintext highlighter-rouge">id</code>s.</p>
+
+<p>Within 24 hours from the corresponding <code class="language-plaintext highlighter-rouge">wallet_sendCalls</code>, wallets SHOULD return a call-batch status when <code class="language-plaintext highlighter-rouge">wallet_getCallsStatus</code> is called with the same <code class="language-plaintext highlighter-rouge">id</code>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">capabilities</code> response object allows the wallets to attach a capability-specific metadata to the response.</p>
+  
+    <h4 id="wallet_sendcalls-rpc-specification">
+      
+      
+        <a href="#wallet_sendcalls-rpc-specification" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_sendCalls</code> RPC Specification
+      
+      
+    </h4>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">Capability</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">[</span><span class="na">key</span><span class="p">:</span> <span class="kr">string</span><span class="p">]:</span> <span class="nx">unknown</span><span class="p">;</span>
+  <span class="nl">optional</span><span class="p">?:</span> <span class="nx">boolean</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">SendCallsParams</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">version</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">id</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">from</span><span class="p">?:</span> <span class="s2">`0x</span><span class="p">${</span><span class="kr">string</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+  <span class="nl">chainId</span><span class="p">:</span> <span class="s2">`0x</span><span class="p">${</span><span class="kr">string</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span> <span class="c1">// Hex chain id</span>
+  <span class="nl">atomicRequired</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+  <span class="nl">calls</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">to</span><span class="p">?:</span> <span class="s2">`0x</span><span class="p">${</span><span class="kr">string</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+    <span class="nl">data</span><span class="p">?:</span> <span class="s2">`0x</span><span class="p">${</span><span class="kr">string</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+    <span class="nl">value</span><span class="p">?:</span> <span class="s2">`0x</span><span class="p">${</span><span class="kr">string</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span> <span class="c1">// Hex value</span>
+    <span class="nl">capabilities</span><span class="p">?:</span> <span class="nb">Record</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="nx">Capability</span><span class="o">&gt;</span><span class="p">;</span>
+  <span class="p">}[];</span>
+  <span class="nl">capabilities</span><span class="p">?:</span> <span class="nb">Record</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="nx">Capability</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">type</span> <span class="nx">SendCallsResult</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">id</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">capabilities</span><span class="p">?:</span> <span class="nb">Record</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="kr">any</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+  
+    <h5 id="wallet_sendcalls-example-parameters">
+      
+      
+        <a href="#wallet_sendcalls-example-parameters" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_sendCalls</code> Example Parameters
+      
+      
+    </h5>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xd46e8dd67c5d32be8058bb8eb970870f07244567"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"chainId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x01"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"atomicRequired"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"calls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xd46e8dd67c5d32be8058bb8eb970870f07244567"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x9184e72a"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xd46e8dd67c5d32be8d46e8dd67c5d32be8058bb8eb970870f072445675058bb8eb970870f072445675"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xd46e8dd67c5d32be8058bb8eb970870f07244567"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x182183"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xfbadbaf01"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"capabilities"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"paymasterService"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://..."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"optional"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Note that since the <code class="language-plaintext highlighter-rouge">paymasterService</code> <code class="language-plaintext highlighter-rouge">capability</code> is marked as optional, wallets that do not support it will still process and handle the request as if the capability had not been present. If this <code class="language-plaintext highlighter-rouge">optional</code> field were set to <code class="language-plaintext highlighter-rouge">false</code> or absent from the request, wallets that do not support the <code class="language-plaintext highlighter-rouge">capability</code> MUST reject the request.</p>
+  
+    <h5 id="wallet_sendcalls-example-return-value">
+      
+      
+        <a href="#wallet_sendcalls-example-return-value" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_sendCalls</code> Example Return Value
+      
+      
+    </h5>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x00000000000000000000000000000000000000000000000000000000000000000e670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+  
+    <h3 id="wallet_getcallsstatus">
+      
+      
+        <a href="#wallet_getcallsstatus" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_getCallsStatus</code>
+      
+      
+    </h3>
+
+<p>Returns the status of a call batch that was sent via <code class="language-plaintext highlighter-rouge">wallet_sendCalls</code>.
+The identifier of the batch is the value returned from the <code class="language-plaintext highlighter-rouge">wallet_sendCalls</code> RPC.
+Note that the <code class="language-plaintext highlighter-rouge">receipts</code> objects of this method’s response is a strict subset of the object returned by <code class="language-plaintext highlighter-rouge">eth_getTransactionReceipt</code>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">capabilities</code> object allows the wallets to attach a capability-specific metadata to the response.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">atomic</code> field specifies how the wallet handled the batch of calls, which influences the structure of the <code class="language-plaintext highlighter-rouge">receipts</code> field.</p>
+
+<ul>
+  <li>The receipts in the <code class="language-plaintext highlighter-rouge">receipts</code> field MUST be in the order that they are included onchain.</li>
+  <li>If a wallet executes multiple calls <strong>atomically</strong>, <code class="language-plaintext highlighter-rouge">wallet_getCallsStatus</code> MAY return an object with a <code class="language-plaintext highlighter-rouge">receipts</code> field that contains a single transaction receipt or an array of receipts, corresponding to how the batch of transactions were included onchain. It also MUST be explicit and return an <code class="language-plaintext highlighter-rouge">atomic</code> field set to <code class="language-plaintext highlighter-rouge">true</code>.</li>
+  <li>If a wallet executes multiple calls <strong>non-atomically</strong>, <code class="language-plaintext highlighter-rouge">wallet_getCallsStatus</code> MUST return an object with a <code class="language-plaintext highlighter-rouge">receipts</code> field that contains <strong>an array of receipts</strong> for all transactions containing batch calls that were included onchain. This includes the batch calls that were included on-chain but eventually reverted. It also MUST be explicit and return a <code class="language-plaintext highlighter-rouge">atomic</code> field set to <code class="language-plaintext highlighter-rouge">false</code>.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">logs</code> in the receipt objects MUST only include logs relevant to the calls submitted using <code class="language-plaintext highlighter-rouge">wallet_sendCalls</code>. For example, in the case of a transaction submitted onchain by an <a href="/EIPS/eip-4337">ERC-4337</a> bundler, the logs must only include those relevant to the user operation constructed using the calls submitted via <code class="language-plaintext highlighter-rouge">wallet_sendCalls</code>. I.e. the logs should not include those from other unrelated user operations submitted in the same bundle.
+    <ul>
+      <li>Similarly, if a user upgrades their wallet to support atomicity before submitting a batch of calls from an app, the logs MUST NOT include those emitted as part of the upgrade process.</li>
+    </ul>
+  </li>
+</ul>
+  
+    <h4 id="wallet_getcallsstatus-rpc-specification">
+      
+      
+        <a href="#wallet_getcallsstatus-rpc-specification" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_getCallsStatus</code> RPC Specification
+      
+      
+    </h4>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">GetCallsParams</span> <span class="o">=</span> <span class="p">[</span><span class="kr">string</span><span class="p">];</span>
+
+<span class="kd">type</span> <span class="nx">GetCallsResult</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">version</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">id</span><span class="p">:</span> <span class="s2">`0x</span><span class="p">${</span><span class="kr">string</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+  <span class="nl">chainId</span><span class="p">:</span> <span class="s2">`0x</span><span class="p">${</span><span class="kr">string</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+  <span class="nl">status</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span> <span class="c1">// See "Status Codes"</span>
+  <span class="nl">atomic</span><span class="p">:</span> <span class="nx">boolean</span><span class="p">;</span>
+  <span class="nl">receipts</span><span class="p">?:</span> <span class="p">{</span>
+    <span class="na">logs</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">address</span><span class="p">:</span> <span class="s2">`0x</span><span class="p">${</span><span class="kr">string</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+      <span class="nl">data</span><span class="p">:</span> <span class="s2">`0x</span><span class="p">${</span><span class="kr">string</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+      <span class="nl">topics</span><span class="p">:</span> <span class="s2">`0x</span><span class="p">${</span><span class="kr">string</span><span class="p">}</span><span class="s2">`</span><span class="p">[];</span>
+    <span class="p">}[];</span>
+    <span class="nl">status</span><span class="p">:</span> <span class="s2">`0x</span><span class="p">${</span><span class="kr">string</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span> <span class="c1">// Hex 1 or 0 for success or failure, respectively</span>
+    <span class="nl">blockHash</span><span class="p">:</span> <span class="s2">`0x</span><span class="p">${</span><span class="kr">string</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+    <span class="nl">blockNumber</span><span class="p">:</span> <span class="s2">`0x</span><span class="p">${</span><span class="kr">string</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+    <span class="nl">gasUsed</span><span class="p">:</span> <span class="s2">`0x</span><span class="p">${</span><span class="kr">string</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+    <span class="nl">transactionHash</span><span class="p">:</span> <span class="s2">`0x</span><span class="p">${</span><span class="kr">string</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+  <span class="p">}[];</span>
+  <span class="nl">capabilities</span><span class="p">?:</span> <span class="nb">Record</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="kr">any</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+  
+    <h5 id="status-codes-for-status-field">
+      
+      
+        <a href="#status-codes-for-status-field" class="anchor-link"></a> Status Codes for <code class="language-plaintext highlighter-rouge">status</code> field
+      
+      
+    </h5>
+
+<p>The purpose of the <code class="language-plaintext highlighter-rouge">status</code> field is to provide a short summary of the current status of the batch.
+It provides some off-chain context to the array of inner transaction <code class="language-plaintext highlighter-rouge">receipts</code>.</p>
+
+<p>Status codes follow these categories:</p>
+
+<ul>
+  <li>1xx: Pending states</li>
+  <li>2xx: Confirmed states</li>
+  <li>4xx: Offchain failures</li>
+  <li>5xx: Chain rules failures</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>100</td>
+      <td>Batch has been received by the wallet but has not completed execution onchain (pending)</td>
+    </tr>
+    <tr>
+      <td>200</td>
+      <td>Batch has been included onchain without reverts, receipts array contains info of all calls (confirmed)</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>Batch has not been included onchain and wallet will not retry (offchain failure)</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>Batch reverted <strong>completely</strong> and only changes related to gas charge may have been included onchain (chain rules failure)</td>
+    </tr>
+    <tr>
+      <td>600</td>
+      <td>Batch reverted <strong>partially</strong> and some changes related to batch calls may have been included onchain (partial chain rules failure)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>More specific status codes within these categories should be proposed and agreed upon in separate ERCs.</p>
+  
+    <h5 id="wallet_getcallsstatus-example-parameters">
+      
+      
+        <a href="#wallet_getcallsstatus-example-parameters" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_getCallsStatus</code> Example Parameters
+      
+      
+    </h5>
+
+<p>The <code class="language-plaintext highlighter-rouge">id</code> batch identifier is a unique 64 bytes represented as a hex encoded string returned from <code class="language-plaintext highlighter-rouge">wallet_sendCalls</code>.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="s2">"0x00000000000000000000000000000000000000000000000000000000000000000e670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+  
+    <h5 id="wallet_getcallsstatus-example-return-value">
+      
+      
+        <a href="#wallet_getcallsstatus-example-return-value" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_getCallsStatus</code> Example Return Value
+      
+      
+    </h5>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"chainId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x01"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x00000000000000000000000000000000000000000000000000000000000000000e670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"atomic"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"receipts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"logs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xa922b54716264130634d6ff183747a8ead91a40b"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"topics"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"0x5a2a90727cc9d000dd060b1132a5c977c9702bb3a52afe360c9c22f0e9451a68"</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xabcd"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"blockHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xf19bbafd9fd0124ec110b848e8de4ab4f62bf60c189524e54213285e7f540d4a"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"blockNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xabcd"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"gasUsed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xdef"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"transactionHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x9b7bb827c2e5e3c1a0a44dc53e573aa0b3af3bd1f9f5ed03071b100bb039eaff"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+  
+    <h3 id="wallet_showcallsstatus">
+      
+      
+        <a href="#wallet_showcallsstatus" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_showCallsStatus</code>
+      
+      
+    </h3>
+
+<p>Requests that a wallet shows information about a given call bundle that was sent with <code class="language-plaintext highlighter-rouge">wallet_sendCalls</code>. Note that this method does not return anything for a known <code class="language-plaintext highlighter-rouge">id</code> batch identifier. If the identifier is not known, or in case of any other failure to execute <code class="language-plaintext highlighter-rouge">wallet_showCallsStatus</code> returns an RPC call error.</p>
+  
+    <h4 id="wallet_showcallsstatus-rpc-specification">
+      
+      
+        <a href="#wallet_showcallsstatus-rpc-specification" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_showCallsStatus</code> RPC Specification
+      
+      
+    </h4>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">ShowCallsParams</span> <span class="o">=</span> <span class="kr">string</span><span class="p">;</span> <span class="c1">// Call bundle identifier returned by wallet_sendCalls</span>
+</code></pre></div></div>
+  
+    <h5 id="wallet_showcallsstatus-example-parameters">
+      
+      
+        <a href="#wallet_showcallsstatus-example-parameters" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_showCallsStatus</code> Example Parameters
+      
+      
+    </h5>
+
+<p>This method accepts a call bundle identifier returned by a <code class="language-plaintext highlighter-rouge">wallet_sendCalls</code> call.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="s2">"0xe670ec64341771606e55d6b4ca35a1a6b75ee3d5145a99d05921026d1527331"</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+  
+    <h3 id="wallet_getcapabilities">
+      
+      
+        <a href="#wallet_getcapabilities" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_getCapabilities</code>
+      
+      
+    </h3>
+
+<p>This RPC allows an application to request capabilities from a wallet (e.g. batch transactions, paymaster communication), without distinct discovery and permission requests. For more on the difference between requesting capabilities and discovering features, see the <a href="#privacy-considerations">“Privacy Considerations” section</a>.</p>
+
+<p>This method SHOULD return an <code class="language-plaintext highlighter-rouge">4100 Unauthorized</code> error if the user has not already authorized a connection between the application and the requested address.</p>
+
+<p>We expect the community to align on the definition of additional capabilities in separate ERCs over time.</p>
+
+<p>Note that in addition to, or instead of, querying the wallet directly for capabilities, the same capability objects MAY be exposed out-of-band, such as in a <code class="language-plaintext highlighter-rouge">sessionProperties</code> and/or <code class="language-plaintext highlighter-rouge">scopedProperties</code> collections persisted in a <a href="https://github.com/ChainAgnostic/CAIPs/blob/c599f7601d0ce83e6dd9f350c6c21d158d56fd6d/CAIPs/caip-25.md">CAIP-25</a>-conformant wallet provider interface (see the ethereum usage profile for CAIP-25 for an example request and response), or in some other a well-known location (such as a URL derived from an <a href="/EIPS/eip-6963">EIP-6963</a> <code class="language-plaintext highlighter-rouge">rdns</code> identifier).
+Provider abstractions MAY also cache capabilities from previous requests or otherwise inject them from out-of-band to facilitate better user experience.
+If any of these supplemental expressions of capabilities are contradicted by capabilities expressed in live wallet RPC responses, these latter values SHOULD be taken as the canonical and current expression of capabilities.</p>
+  
+    <h4 id="wallet_getcapabilities-rpc-specification">
+      
+      
+        <a href="#wallet_getcapabilities-rpc-specification" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_getCapabilities</code> RPC Specification
+      
+      
+    </h4>
+
+<p>Capabilities are returned in key/value pairs, with the key naming a capability and a value conforming to a shape defined for that name, in an object keyed to the relevant <a href="/EIPS/eip-155">EIP-155</a> <code class="language-plaintext highlighter-rouge">chainId</code> expressed in hexadecimal notation.
+Capabilities are nested in per-chain objects because wallets may support different capabilities across multiple chains authorized in a given session.
+Capabilities that the wallet supports on all the chains SHOULD be included only once, using a special <code class="language-plaintext highlighter-rouge">chainID</code> value <code class="language-plaintext highlighter-rouge">"0x0"</code>, and SHOULD NOT be repeated in nested per-chain objects.
+If a wallet does not support a chain that is requested in the <code class="language-plaintext highlighter-rouge">wallet_getCapabilities</code> method, the wallet MUST NOT respond with an error, and MUST instead not include a key for the unsupported chain(s) in the response.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">GetCapabilitiesParams</span> <span class="o">=</span> <span class="p">[</span><span class="s2">`0x</span><span class="p">${</span><span class="kr">string</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="p">[</span><span class="s2">`0x</span><span class="p">${</span><span class="kr">string</span><span class="p">}</span><span class="s2">`</span><span class="p">]];</span> <span class="c1">// Wallet address, array of queried chain ids (optional)</span>
+
+<span class="kd">type</span> <span class="nx">GetCapabilitiesResult</span> <span class="o">=</span> <span class="nb">Record</span><span class="o">&lt;</span><span class="s2">`0x</span><span class="p">${</span><span class="kr">string</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="o">&lt;</span><span class="nb">Record</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="kr">any</span><span class="o">&gt;&gt;</span><span class="p">;</span> <span class="c1">// Hex chain id</span>
+</code></pre></div></div>
+  
+    <h5 id="wallet_getcapabilities-example-parameters">
+      
+      
+        <a href="#wallet_getcapabilities-example-parameters" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_getCapabilities</code> Example Parameters
+      
+      
+    </h5>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="s2">"0xd46e8dd67c5d32be8058bb8eb970870f07244567"</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s2">"0x2105"</span><span class="p">,</span><span class="w"> </span><span class="s2">"0x14A34"</span><span class="p">]]</span><span class="w">
+</span></code></pre></div></div>
+  
+    <h5 id="wallet_getcapabilities-example-return-value">
+      
+      
+        <a href="#wallet_getcapabilities-example-return-value" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_getCapabilities</code> Example Return Value
+      
+      
+    </h5>
+
+<p>The capabilities below are for illustrative purposes.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"0x0"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"flow-control"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"supported"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"0x2105"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"paymasterService"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"supported"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"sessionKeys"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"supported"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"0x14A34"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"auxiliaryFunds"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"supported"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+  
+    <h3 id="atomic-capability">
+      
+      
+        <a href="#atomic-capability" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">atomic</code> Capability
+      
+      
+    </h3>
+
+<p>Like the illustrative examples given above and other capabilities to be defined in future EIPs, the <code class="language-plaintext highlighter-rouge">atomic</code> capability specifies how the wallet will execute the batches of transactions requested through <code class="language-plaintext highlighter-rouge">wallet_sendCalls</code> method.</p>
+
+<p>The valid JSON-RPC values for this <code class="language-plaintext highlighter-rouge">atomic</code> capability’s only property, <code class="language-plaintext highlighter-rouge">status</code>, are <code class="language-plaintext highlighter-rouge">supported</code>, <code class="language-plaintext highlighter-rouge">ready</code>, and <code class="language-plaintext highlighter-rouge">unsupported</code>:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">supported</code> means that the wallet will execute the calls atomically and contiguously.</li>
+  <li><code class="language-plaintext highlighter-rouge">ready</code> means that the wallet is able to upgrade to <code class="language-plaintext highlighter-rouge">supported</code> pending user approval.</li>
+  <li><code class="language-plaintext highlighter-rouge">unsupported</code> means that the wallet does not provide any atomicity or contiguity guarantees, nor will it suggest an upgrade to the user.</li>
+</ul>
+
+<p>This capability is expressed separately on each chain and should be interpreted as a guarantee only for batches of transactions on that chain.</p>
+
+<p>If the <code class="language-plaintext highlighter-rouge">atomic</code> capability is not present for a given chain, and unless it is explicitly overridden by another <code class="language-plaintext highlighter-rouge">capability</code> (not in scope of this EIP), it means that the wallet does not support batching for that given chain.</p>
+  
+    <h4 id="atomic-capability-specification">
+      
+      
+        <a href="#atomic-capability-specification" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">atomic</code> Capability Specification
+      
+      
+    </h4>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">AtomicCapability</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">status</span><span class="p">:</span> <span class="dl">'</span><span class="s1">supported</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">ready</span><span class="dl">'</span> <span class="o">|</span> <span class="dl">'</span><span class="s1">unsupported</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+  
+    <h4 id="wallet_getcapabilities-example-return-value-including-atomic">
+      
+      
+        <a href="#wallet_getcapabilities-example-return-value-including-atomic" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_getCapabilities</code> Example Return Value including <code class="language-plaintext highlighter-rouge">atomic</code>
+      
+      
+    </h4>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"0x2105"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"atomic"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"supported"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"0x14A34"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"atomic"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unsupported"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+  
+    <h3 id="error-codes">
+      
+      
+        <a href="#error-codes" class="anchor-link"></a> Error Codes
+      
+      
+    </h3>
+
+<p>The following error codes are defined for the methods specified in this EIP. These errors follow the JSON-RPC 2.0 specification for error objects, which require a <code class="language-plaintext highlighter-rouge">code</code> and <code class="language-plaintext highlighter-rouge">message</code> field.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Message</th>
+      <th>Description</th>
+      <th>Related RPCs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>-32602</td>
+      <td>Invalid params</td>
+      <td>The wallet cannot parse this request (e.g., missing 0x prefix, leading zeros in chain id, request fails schema validation)</td>
+      <td><code class="language-plaintext highlighter-rouge">wallet_sendCalls</code>, <code class="language-plaintext highlighter-rouge">wallet_getCallsStatus</code>, <code class="language-plaintext highlighter-rouge">wallet_showCallsStatus</code>, <code class="language-plaintext highlighter-rouge">wallet_getCapabilities</code></td>
+    </tr>
+    <tr>
+      <td>4001</td>
+      <td>User Rejected Request</td>
+      <td>The user rejected submitting the batch of calls (from <a href="/EIPS/eip-1193">EIP-1193</a>)</td>
+      <td><code class="language-plaintext highlighter-rouge">wallet_sendCalls</code></td>
+    </tr>
+    <tr>
+      <td>4100</td>
+      <td>Unauthorized</td>
+      <td>The specified address is not connected or not in the wallet (from <a href="/EIPS/eip-1193">EIP-1193</a>)</td>
+      <td><code class="language-plaintext highlighter-rouge">wallet_sendCalls</code>, <code class="language-plaintext highlighter-rouge">wallet_getCapabilities</code></td>
+    </tr>
+    <tr>
+      <td>5700</td>
+      <td>Unsupported non-optional capability</td>
+      <td>This wallet does not support a capability that was not marked as optional</td>
+      <td><code class="language-plaintext highlighter-rouge">wallet_sendCalls</code></td>
+    </tr>
+    <tr>
+      <td>5710</td>
+      <td>Unsupported chain id</td>
+      <td>This wallet does not support the specified chain id</td>
+      <td><code class="language-plaintext highlighter-rouge">wallet_sendCalls</code></td>
+    </tr>
+    <tr>
+      <td>5720</td>
+      <td>Duplicate ID</td>
+      <td>There is already a bundle submitted with this id</td>
+      <td><code class="language-plaintext highlighter-rouge">wallet_sendCalls</code></td>
+    </tr>
+    <tr>
+      <td>5730</td>
+      <td>Unknown bundle id</td>
+      <td>This bundle id is unknown / has not been submitted</td>
+      <td><code class="language-plaintext highlighter-rouge">wallet_getCallsStatus</code>, <code class="language-plaintext highlighter-rouge">wallet_showCallsStatus</code></td>
+    </tr>
+    <tr>
+      <td>5740</td>
+      <td>Bundle too large</td>
+      <td>The call bundle is too large for the wallet to process</td>
+      <td><code class="language-plaintext highlighter-rouge">wallet_sendCalls</code></td>
+    </tr>
+    <tr>
+      <td>5750</td>
+      <td>Atomic-ready wallet rejected upgrade</td>
+      <td>The wallet can support atomicity after an upgrade, but the user rejected the upgrade</td>
+      <td><code class="language-plaintext highlighter-rouge">wallet_sendCalls</code></td>
+    </tr>
+    <tr>
+      <td>5760</td>
+      <td>Atomicity not supported</td>
+      <td>The wallet does not support atomic execution but the request requires it</td>
+      <td><code class="language-plaintext highlighter-rouge">wallet_sendCalls</code></td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h2 id="rationale">
+      
+      
+        <a href="#rationale" class="anchor-link"></a> Rationale
+      
+      
+    </h2>
+  
+    <h3 id="on-naming">
+      
+      
+        <a href="#on-naming" class="anchor-link"></a> On Naming
+      
+      
+    </h3>
+
+<p>We considered modifying <code class="language-plaintext highlighter-rouge">eth_sendTransaction</code> to add support for these new capabilities, but the method is ultimately an artifact of when nodes were used to sign transactions. We decided it is better to move forward with <code class="language-plaintext highlighter-rouge">wallet_</code>-namespaced methods that better describe what they are used for.</p>
+
+<p>We also debated whether the methods should be called <code class="language-plaintext highlighter-rouge">wallet_sendTransaction</code>, <code class="language-plaintext highlighter-rouge">wallet_sendCalls</code>, or something else. We ultimately landed on <code class="language-plaintext highlighter-rouge">wallet_sendCalls</code> because in the case of EOA wallets the <code class="language-plaintext highlighter-rouge">wallet_send*</code> method might send more than one transaction. Similarly, we decided against <code class="language-plaintext highlighter-rouge">wallet_sendTransactions</code> because in the case of other wallet implementations (e.g. <a href="/EIPS/eip-4337">ERC-4337</a>) multiple calls could result in a single transaction.</p>
+  
+    <h3 id="call-execution-atomicity">
+      
+      
+        <a href="#call-execution-atomicity" class="anchor-link"></a> Call Execution Atomicity
+      
+      
+    </h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">wallet_sendCalls</code> method accepts an array of <code class="language-plaintext highlighter-rouge">calls</code>. However, this proposal does not require that these calls be executed as part of a single transaction. It enables EOA wallets to express their ability to execute calls as part of a single transaction or as part of multiple transactions. It also enables Apps to express their minimum atomicity requirements for how calls must be executed.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">atomic</code> special capability was made an integral part of this specification in order promote expressiveness and facilitate adoption (from both wallets and apps). And due to its importance to reduce ambiguity between the App and the Wallet, the capability is expressed as a top-level field in the <code class="language-plaintext highlighter-rouge">wallet_sendCalls</code> request (through the <code class="language-plaintext highlighter-rouge">atomicRequired</code> parameter) and the <code class="language-plaintext highlighter-rouge">wallet_getCallsStatus</code> response (through the <code class="language-plaintext highlighter-rouge">atomic</code> field).</p>
+
+<p>We initially proposed that multiple calls must be executed atomically, but after some debate we ultimately decided this was too opinionated. Instead, we are including a specification for an <code class="language-plaintext highlighter-rouge">atomic</code> capability. This allows for EOA wallets to accept multiple calls and still gives developers the option to only submit batched calls if they are executed atomically.</p>
+  
+    <h3 id="call-gas-limit">
+      
+      
+        <a href="#call-gas-limit" class="anchor-link"></a> Call Gas Limit
+      
+      
+    </h3>
+
+<p>Our initial proposal included an optional <code class="language-plaintext highlighter-rouge">gas</code> field for each call in the <code class="language-plaintext highlighter-rouge">calls</code> field accepted by the <code class="language-plaintext highlighter-rouge">walletSendCalls</code> method. However, we realized this could be misleading because in the case of <a href="/EIPS/eip-4337">ERC-4337</a> wallets you cannot specify a gas limit per call, only a single gas limit for all calls in the user operation. We then proposed a single <code class="language-plaintext highlighter-rouge">gas</code> value that would apply to all of the calls. This works for <a href="/EIPS/eip-4337">ERC-4337</a> wallets, but not for EOA wallets. When we decided that EOA wallets should be able to handle multiple calls, the common <code class="language-plaintext highlighter-rouge">gas</code> field became untenable across use cases and we removed it altogether.</p>
+  
+    <h2 id="backwards-compatibility">
+      
+      
+        <a href="#backwards-compatibility" class="anchor-link"></a> Backwards Compatibility
+      
+      
+    </h2>
+
+<p>Wallets that do not support the methods defined here SHOULD return error responses when these new JSON-RPC methods are called. Apps MAY attempt to send the same batch of calls serially via <code class="language-plaintext highlighter-rouge">eth_sendTransaction</code> when a call to these methods fails for lack of wallet support, or they MAY indicate to the user that their wallet is not supported and the request was not processed.</p>
+  
+    <h2 id="security-considerations">
+      
+      
+        <a href="#security-considerations" class="anchor-link"></a> Security Considerations
+      
+      
+    </h2>
+
+<p>Regardless of the <code class="language-plaintext highlighter-rouge">atomic</code> value specified, App developers MUST NOT assume that all calls will be sent in a single transaction. An example could be an L2 resistant to reorgs that implements a sendBundle or similar functionality.</p>
+
+<p>Wallets MUST ensure that batch identifiers returned by <code class="language-plaintext highlighter-rouge">wallet_sendCalls</code> are unpredictable to prevent malicious apps from inferring information about other users’ transactions.</p>
+
+<p>Wallets MUST NOT leak sensitive information in <code class="language-plaintext highlighter-rouge">wallet_getCallsStatus</code> <code class="language-plaintext highlighter-rouge">capabilities</code> responses.</p>
+  
+    <h3 id="privacy-considerations">
+      
+      
+        <a href="#privacy-considerations" class="anchor-link"></a> Privacy Considerations
+      
+      
+    </h3>
+
+<p>Progressive authorization and progressive consent paradigms are important to modern user experience, as well as to preserving the anonymity of user agents. To protect these patterns from the cross-incentives of feature-discovery that enables better user experiences, capability semantics are used and the difference between lack of feature support and lack of feature permission explicitly occluded in the design of the <code class="language-plaintext highlighter-rouge">wallet_</code> RPC for querying capabilities.</p>
+
+<p>Furthermore, wallets are recommended to avoid exposing capabilities to untrusted callers or to more callers than necessary, as this may allow their “user-agent” (i.e. client software) to be “fingerprinted” or probabilistically identified, which combined with other deanonymization vectors inherent to the web platform could contribute to the deanonymization of the individual user or to the deanonymization of all users of a given client in aggregate. Similarly, applications over-querying capabilities or incentivizing capability oversharing (including third-party capability oversharing) is an anti-pattern to be avoided in the implementation of capability exchanges serving to discover features.</p>
+  
+    <h2 id="copyright">
+      
+      
+        <a href="#copyright" class="anchor-link"></a> Copyright
+      
+      
+    </h2>
+
+<p>Copyright and related rights waived via <a href="/LICENSE">CC0</a>.</p>
+
+  <h2>Citation</h2>
+  <p>Please cite this document as:</p>
+  
+  <p>Moody Salem&nbsp;(<a href="https://github.com/moodysalem">@moodysalem</a>), Lukas Rosario&nbsp;(<a href="https://github.com/lukasrosario">@lukasrosario</a>), Wilson Cusack&nbsp;(<a href="https://github.com/wilsoncusack">@wilsoncusack</a>), Dror Tirosh&nbsp;(<a href="https://github.com/drortirosh">@drortirosh</a>), Jake Moxey&nbsp;(<a href="https://github.com/jxom">@jxom</a>), Derek Rein&nbsp;(<a href="https://github.com/arein">@arein</a>), Alex Forshtat&nbsp;(<a href="https://github.com/forshtat">@forshtat</a>), Sam Wilson (@SamWilsn)&nbsp;&lt;<a href="mailto:sam@binarycake.ca">sam@binarycake.ca</a>&gt;, Borislav Itskov&nbsp;(<a href="https://github.com/Oxbobby">@Oxbobby</a>), Joao Tavares&nbsp;(<a href="https://github.com/cryptotavares">@cryptotavares</a>), Adam Fuller&nbsp;(<a href="https://github.com/azf20">@azf20</a>), Philip Liao&nbsp;(<a href="https://github.com/phil-ociraptor">@phil-ociraptor</a>), bumblefudge&nbsp;(<a href="https://github.com/bumblefudge">@bumblefudge</a>), "EIP-5792: Wallet Call API," <em>Ethereum Improvement Proposals</em>, no. 5792, October 2022. Available: https://eips.ethereum.org/EIPS/eip-5792.</p>
+</div>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "TechArticle",
+    "headline": "EIP-5792: Wallet Call API",
+    "name": "EIP-5792: Wallet Call API",
+    "author": "Moody Salem (@moodysalem), Lukas Rosario (@lukasrosario), Wilson Cusack (@wilsoncusack), Dror Tirosh (@drortirosh), Jake Moxey (@jxom), Derek Rein (@arein), Alex Forshtat (@forshtat), Sam Wilson (@SamWilsn) <sam@binarycake.ca>, Borislav Itskov (@Oxbobby), Joao Tavares (@cryptotavares), Adam Fuller (@azf20), Philip Liao (@phil-ociraptor), bumblefudge (@bumblefudge)",
+    "dateCreated": "2022-10-17",
+    "datePublished": "2022-10-17",
+    
+    "discussionUrl": "https://ethereum-magicians.org/t/eip-5792-wallet-abstract-transaction-send-api/11374",
+    
+    "inLanguage": "en-US",
+    "license": "#copyright",
+    "copyrightYear": "2022"
+  }
+</script>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ethereum Improvement Proposals</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Ethereum Improvement Proposals</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ethereum/EIPs"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ethereum/EIPs</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Ethereum Improvement Proposals (EIPs) describe standards for the Ethereum platform, such as core protocol specifications.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

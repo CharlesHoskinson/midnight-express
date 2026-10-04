@@ -1,0 +1,339 @@
+getTokenAccountBalance | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+getAccountInfo
+getAgGenesisCert
+getBalance
+getBlock
+getBlockCommitment
+getBlockHeight
+getBlockProduction
+getBlocks
+getBlocksWithLimit
+getBlockTime
+getClusterNodes
+getEpochInfo
+getEpochSchedule
+getFeeForMessage
+getFirstAvailableBlock
+getGenesisHash
+getHealth
+getHighestSnapshotSlot
+getIdentity
+getInflationGovernor
+getInflationRate
+getInflationReward
+getLargestAccounts
+getLatestBlockhash
+getLeaderSchedule
+getMaxRetransmitSlot
+getMaxShredInsertSlot
+getMinimumBalanceForRentExemption
+getMultipleAccounts
+getProgramAccounts
+getRecentPerformanceSamples
+getRecentPrioritizationFees
+getSignaturesForAddress
+getSignatureStatuses
+getSlot
+getSlotLeader
+getSlotLeaders
+getStakeMinimumDelegation
+getSupply
+getTokenAccountBalance
+getTokenAccountsByDelegate
+getTokenAccountsByOwner
+getTokenLargestAccounts
+getTokenSupply
+getTransaction
+getTransactionCount
+getVersion
+getVoteAccounts
+isBlockhashValid
+minimumLedgerSlot
+requestAirdrop
+sendTransaction
+simulateTransaction
+Websocket Methods
+Removed Methods
+Solana RPC Methods
+HTTP Methods
+getTokenAccountBalance
+Copy Markdown
+Open
+Returns the token balance for an SPL Token account.
+Source
+get_token_account_balance
+params
+string
+required
+Pubkey of Token account to query, as base-58 encoded string
+object
+optional
+Configuration object containing the following fields:
+commitment
+string
+result
+object
+RpcResponse object containing:
+context
+object
+value
+object
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"getTokenAccountBalance"
+,
+>
+"params"
+: [
+>
+"48gpnn8nsmkvkgso7462Z1nFhUrprGQ71u1YLBPzizbY"
+,
+>
+{
+>
+"commitment"
+:
+"finalized"
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+: {
+"context"
+: {
+"apiVersion"
+:
+"3.1.8"
+,
+"slot"
+:
+1114
+},
+"value"
+: {
+"amount"
+:
+"9864"
+,
+"decimals"
+:
+2
+,
+"uiAmount"
+:
+98.64
+,
+"uiAmountString"
+:
+"98.64"
+}
+},
+"id"
+:
+1
+}
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"getTokenAccountBalance"
+,
+>
+"params"
+: [
+>
+"48gpnn8nsmkvkgso7462Z1nFhUrprGQ71u1YLBPzizbY"
+,
+>
+{
+>
+"commitment"
+:
+"finalized"
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+params
+string
+required
+Pubkey of Token account to query, as base-58 encoded string
+object
+optional
+Configuration object containing the following fields:
+commitment
+string
+result
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+: {
+"context"
+: {
+"apiVersion"
+:
+"3.1.8"
+,
+"slot"
+:
+1114
+},
+"value"
+: {
+"amount"
+:
+"9864"
+,
+"decimals"
+:
+2
+,
+"uiAmount"
+:
+98.64
+,
+"uiAmountString"
+:
+"98.64"
+}
+},
+"id"
+:
+1
+}
+object
+RpcResponse object containing:
+context
+object
+value
+object
+Is this page helpful?
+Previous
+getSupply
+Next
+getTokenAccountsByDelegate
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

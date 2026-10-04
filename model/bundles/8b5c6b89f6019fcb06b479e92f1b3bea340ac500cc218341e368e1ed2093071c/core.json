@@ -1,0 +1,50 @@
+{
+  "version": "0.2",
+  "eventFields": [
+    "specversion",
+    "id",
+    "source",
+    "type",
+    "time",
+    "datacontenttype",
+    "dataschema",
+    "mpeprofile",
+    "mpecontract",
+    "data"
+  ],
+  "canonicalization": {
+    "algorithm": "RFC8785/JCS UTF-8 then SHA-256",
+    "intentDomain": "mpe.model.intent.v0.2",
+    "intentFields": [
+      "source",
+      "type",
+      "profile",
+      "contract",
+      "data"
+    ],
+    "proposalDomain": "mpe.model.proposal.v0.2",
+    "proposalFields": [
+      "contract",
+      "proposal"
+    ],
+    "manifest": "JCS of entire manifest; lock.json pins it; manifests never include their own hash"
+  },
+  "primitives": {
+    "ids": "bounded ASCII scoped identifiers; no normalization",
+    "jsonNumbers": "lexical nonnegative integer tokens only, <=9007199254740991; no floating/exponent tokens or negative zero",
+    "timestamp": "real UTC calendar YYYY-MM-DDTHH:mm:ss.000Z; no leap seconds; seconds precision only",
+    "decimal": "positive canonical coefficient (1..18 digits), value coefficient * 10^-scale; fixed per-field scale, no leading zeros, exponents, sign, zero, floats, coercion or rounding",
+    "limits": {
+      "rawBodyBytes": 3926,
+      "maxDepth": 12,
+      "maxStringCharacters": 512,
+      "maxArrayItems": 16
+    }
+  },
+  "unsupported": [
+    "all unknown fields and enum values",
+    "all uninstalled or mismatched schemas/profiles",
+    "all remote fetching and RDF reasoning",
+    "all LLM repairs and default insertion"
+  ]
+}

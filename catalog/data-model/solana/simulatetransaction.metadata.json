@@ -1,0 +1,14 @@
+{
+  "id": "simulatetransaction",
+  "url": "https://solana.com/docs/rpc/http/simulatetransaction",
+  "resolved_url": "https://solana.com/docs/rpc/http/simulatetransaction",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:58.579610+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "simulatetransaction.raw",
+  "text_path": "simulatetransaction.txt",
+  "raw_sha256": "16c486d478aa05a222c46e40ffb4784eda5cc1396929eb82c57b7870863209cd",
+  "text_sha256": "c433d0ad516ed0885775184f421fd47e869c1d83ac4aea2cca88d2287e9a08d9",
+  "text_chars": 10089,
+  "evidence_usable": true
+}

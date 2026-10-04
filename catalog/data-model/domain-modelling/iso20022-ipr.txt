@@ -1,0 +1,198 @@
+Intellectual property rights | ISO20022
+
+      Skip to main content
+    
+ISO 20022
+ISO 20022
+Universal financial industry message scheme
+
+              About ISO 20022
+            
+
+      About ISO 20022
+    
+
+      ISO 20022 is a multi part International Standard prepared by ISO Technical Committee TC68 Financial Services
+    
+
+                          Governance
+                        
+
+                          APIs and ISO 20022
+                        
+
+                          Intellectual property rights
+                        
+
+              Catalogue
+            
+
+                          Business Domain Catalogues
+                        
+
+                                  Payments
+                                
+
+                                  Securities
+                                
+
+                                  Trade Finance
+                                
+
+                                  Cards
+                                
+
+                                  FX
+                                
+
+                          API Resources
+                        
+
+                          Additional Content for the Messages
+                        
+
+                                  Business application header (BAH)
+                                
+
+                                  Business file envelope
+                                
+
+                                  Business message envelope
+                                
+
+                                  Data Source Scheme
+                                
+
+                                  External Code Sets
+                                
+
+                                  ISO 20022 Real-Time Payments Group
+                                
+
+                                  Supplementary Data Extension
+                                
+
+                                  Variants
+                                
+
+                          Message archive
+                        
+
+              ISO20022 repository
+            
+
+      ISO 20022 Repository
+    
+
+      The ISO 20022 Repository consists of two major parts:
+
+
+	the Data Dictionary
+	the Business Process Catalogue
+    
+
+                          ISO 20022 Repository Online Search
+                        
+
+                          Download the e-Repository
+                        
+
+                          Business Model
+                        
+
+              Development
+            
+
+                          List of Submissions
+                        
+
+                                  Catalogue of Business Justifications for message development
+                                
+
+                                  Catalogue of Business Justifications for API resource development
+                                
+
+                                  Catalogue of Business Justifications for Supplementary Data Extension development
+                                
+
+                                  Catalogue of Business Justifications for variants development
+                                
+
+              Maintenance
+            
+
+                          Catalogue of Change Requests
+                        
+
+                                  Catalogue of message definitions change requests
+                                
+
+                                  Catalogue of API Resources change requests
+                                
+
+                                  Catalogue of change requests related to external code sets
+                                
+
+                                  Catalogue of change requests related to data sources schemes
+                                
+
+                                  Catalogue of change requests related to Supplementary Data
+                                
+
+                                  Catalogue of change requests related to the business model
+                                
+
+              eRequests
+            
+
+              FAQ & Search
+            
+
+                          FAQ
+                        
+
+                          Search
+                        
+Contact us
+
+              Home
+            
+•
+
+              About ISO 20022
+            
+•
+
+              Intellectual property rights
+            
+Intellectual property rights
+About ISO 20022
+Intellectual Property Rights Policy
+Organizations that contribute information to be incorporated into the ISO 20022 Financial Repository shall keep any Intellectual Property Rights (IPR) they have on this information. A contributing organization warrants that it has sufficient rights on the contributed information to have it published in the ISO 20022 Repository through the Registration Authority in accordance with the rules set in the ISO 20022 standard. To ascertain a widespread, public and uniform use of the Financial Repository information, the contributing organisation grants third parties a non-exclusive, royalty-free license to use the published information.
+Contributing organizations can communicate their IPR policies to the 
+RA
+ for publication on this website. Received IPR policies are available for download hereafter.
+CBI
+SWIFT
+Disclaimer:
+Although the Registration Authority has used all reasonable efforts to ensure accuracy of the contents of this website and the information published thereon, the Registration Authority assumes no liability whatsoever for any inadvertent errors or omissions that may appear thereon. 
+
+Moreover, the information is provided on an "as is" basis. The Registration Authority disclaims all warranties and conditions, either express or implied, including but not limited to implied warranties of merchantability, title, non-infringement and fitness for a particular purpose.
+
+The Registration Authority shall not be liable for any direct, indirect, special or consequential damages arising out of the use of the information published on this website, even if the Registration Authority has been advised of the possibility of such damages.
+ISO 20022
+
+                  © Copyright ISO 20022
+              
+
+        Contact
+      
+
+        Privacy statement
+      
+
+        Cookie policy
+      
+
+        Terms of use
+      

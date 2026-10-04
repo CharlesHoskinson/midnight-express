@@ -1,0 +1,14 @@
+{
+  "id": "durable-nonce",
+  "url": "https://solana.com/developers/guides/advanced/introduction-to-durable-nonces",
+  "resolved_url": "https://solana.com/developers/cookbook/transactions/durable-nonces",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:53.074910+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "durable-nonce.raw",
+  "text_path": "durable-nonce.txt",
+  "raw_sha256": "aac006000ab7d23f4400b7f9bff5b2fa499b5128246cb1cdfa5a992079b9b067",
+  "text_sha256": "83f48c4813135cb3f085663aec637ee629f5e03aaeaa95db0d663412bf0f0290",
+  "text_chars": 20760,
+  "evidence_usable": true
+}

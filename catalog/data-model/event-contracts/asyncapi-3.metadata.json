@@ -1,0 +1,13 @@
+{
+  "id": "asyncapi-3",
+  "url": "https://raw.githubusercontent.com/asyncapi/spec/v3.0.0/spec/asyncapi.md",
+  "resolved_url": "https://raw.githubusercontent.com/asyncapi/spec/v3.0.0/spec/asyncapi.md",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:03:23.662456+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=25)",
+  "raw_path": "asyncapi-3.raw",
+  "text_path": "asyncapi-3.txt",
+  "raw_sha256": "2c57c205e0c3f75fba504b4ed978064cd9f6878b8d8ca3eec57646525fc50cf8",
+  "text_sha256": "475e9f99a134cb284af995c3c01c74178771e47883bd82a909b4e176f5cb6f36",
+  "text_chars": 109147
+}

@@ -1,0 +1,421 @@
+Proof-of-stake (PoS) | ethereum.org
+Skip to main content
+Overview
+What is Ethereum?
+Why Ethereum exists
+Smart contracts
+Test your knowledge
+Start here
+Choose your wallet
+Get ETH
+Explore apps
+See all guides
+Payments
+Stablecoins
+Prediction markets
+See all use cases
+Solo staking
+Run a node
+Pooled staking
+Staking as a service
+Layer 2 networks
+Find an L2 network
+Blockchain bridges
+Builder's home
+Builder tools & apps
+Learn Ethereum development
+Tutorials
+Learn by coding
+Overview
+Foundational topics
+Ethereum stack
+UX/UI design fundamentals
+Founders
+Institution & enterprise
+Privacy for institutions and technical solutions
+Community hub
+Events calendar
+Online communities
+Devcon
+Where to start
+Grants
+About ethereum.org
+Contributing to ethereum.org
+Translation Program
+ethereum.org collectibles
+Brand assets
+Ethereum Whitepaper
+Reports
+Governance
+Overview
+Improved security
+Cheaper transactions
+Better user experience
+Privacy
+EIPs - Ethereum improvement proposals
+ERCs
+Bug bounty
+Trillion-dollar security
+Energy consumption
+History & founders
+Technical history
+Open research
+Data & analytics tools
+Ethereum Foundation
+Change page
+Overview
+Foundational topics
+Intro to Ethereum
+Intro to Ether
+Intro to dapps
+Web2 vs Web3
+Accounts
+Transactions
+Blocks
+Ethereum virtual machine (EVM)
+Opcodes
+Gas
+Nodes and clients
+Run a node
+Client diversity
+Nodes as a service
+Node architecture
+Light clients
+Archive nodes
+Bootnodes
+Networks
+Consensus mechanisms
+Proof-of-stake
+Gasper
+Weak subjectivity
+Attestations
+PoS rewards and penalties
+PoS attack and defense
+Keys
+Withdrawal credentials
+Proof-of-stake versus proof-of-work
+Block proposal
+Proof-of-stake FAQs
+Proof-of-work
+Mining
+Mining algorithms
+Dagger-Hashimoto
+Ethash
+Proof-of-authority
+Ethereum stack
+Intro to the stack
+Smart contracts
+Smart contract languages
+Smart contract anatomy
+Smart contracts libraries
+Interacting with smart contracts
+Testing smart contracts
+Compiling smart contracts
+Deploying smart contracts
+Naming smart contracts
+Verifying smart contracts
+Upgrading smart contracts
+Smart contract security
+Smart contract formal verification
+Composability
+Development networks
+Development frameworks
+Ethereum client APIs
+JavaScript APIs
+Backend APIs
+JSON-RPC
+Authentication
+Data and analytics
+Block explorers
+Storage
+Integrated Development Environments (IDEs)
+Programming languages
+Dart
+Delphi
+.NET
+Elixir
+Golang
+Java
+JavaScript
+Python
+Ruby
+Rust
+Advanced
+Bridges
+Standards
+Token standards
+ERC-20: Fungible Tokens
+ERC-721: NFTs
+ERC-1155
+Maximal extractable value (MEV)
+Oracles
+Scaling
+Optimistic rollups
+Zero-knowledge rollups
+State channels
+Sidechains
+Plasma
+Validium
+Data availability
+Blockchain data storage strategies
+Networking layer
+Network addresses
+Portal Network
+Data structures and encoding
+Patricia Merkle Trie
+Recursive-length prefix (RLP)
+Simple serialize (SSZ)
+Web3 secret storage definition
+Design fundamentals
+Intro to design and UX
+Heuristics for Web3
+Decentralized Exchange (DEX) design best practices
+Proof-of-stake (PoS)
+Copy .md
+Copy .md
+Edit page
+ (opens in a new tab)
+On this page
+Proof-of-stake (PoS) underlies Ethereum's 
+consensus mechanism
+. Ethereum switched on its proof-of-stake mechanism in 2022 because it is more secure, less energy-intensive, and better for implementing new scaling solutions compared to the previous 
+proof-of-work
+ architecture.
+Prerequisites
+To better understand this page, we recommend you first read up on 
+consensus mechanisms
+.
+What is proof-of-stake (PoS)?
+Proof-of-stake is a way to prove that validators have put something of value into the network that can be destroyed if they act dishonestly. In 
+Ethereum's
+ proof-of-stake, validators explicitly stake capital in the form of ETH into a smart contract on Ethereum. The validator is then responsible for checking that new blocks propagated over the network are valid and occasionally creating and propagating new blocks themselves. If they try to defraud the network (for example by proposing multiple blocks when they ought to send one or sending conflicting attestations), some or all of their staked ETH can be destroyed.
+Validators
+To participate as a validator, a user must deposit 32 ETH into the deposit contract and run three separate pieces of software: an execution client, a consensus client, and a validator client. On depositing their ETH, the user joins an activation queue that limits the rate of new validators joining the network. Once activated, validators receive new blocks from peers on the Ethereum network. The transactions delivered in the block are re-executed to check that the proposed changes to Ethereum's state are valid, and the block signature is checked. The validator then sends a vote (called an attestation) in favor of that block across the network.
+Whereas under proof-of-work, the timing of blocks is determined by the mining difficulty, in proof-of-stake, the tempo is fixed. Time in proof-of-stake Ethereum is divided into slots (12 seconds) and epochs (32 slots). One validator is randomly selected to be a block proposer in every slot. This validator is responsible for creating a new block and sending it out to other nodes on the network. Also in every slot, a committee of validators is randomly chosen, whose votes are used to determine the validity of the block being proposed. Dividing the validator set up into committees is important for keeping the network load manageable. Committees divide up the validator set so that every active validator attests in every epoch, but not in every slot.
+How a Transaction Gets Executed in Ethereum PoS
+The following provides an end-to-end explanation of how a transaction gets executed in Ethereum proof-of-stake.
+A user creates and signs a 
+transaction
+ with their private key. This is usually handled by a wallet or a library such as 
+ethers.js
+ (opens in a new tab)
+, 
+web3js
+ (opens in a new tab)
+, 
+web3py
+ (opens in a new tab)
+ etc but under the hood the user is making a request to a node using the Ethereum 
+JSON-RPC API
+. The user defines the amount of gas that they are prepared to pay as a tip to a validator to encourage them to include the transaction in a block. The 
+tips
+ get paid to the validator while the 
+base fee
+ gets burned.
+The transaction is submitted to an Ethereum 
+execution client
+ which verifies its validity. This means ensuring that the sender has enough ETH to fulfill the transaction and they have signed it with the correct key.
+If the transaction is valid, the execution client adds it to its local mempool (list of pending transactions) and also broadcasts it to other nodes over the execution layer gossip network. When other nodes hear about the transaction they add it to their local mempool too. Advanced users might refrain from broadcasting their transaction and instead forward it to specialized block builders such as 
+Flashbots Auction
+ (opens in a new tab)
+. This allows them to organize the transactions in upcoming blocks for maximum profit (
+MEV
+).
+One of the validator nodes on the network is the block proposer for the current slot, having previously been selected pseudo-randomly using RANDAO. This node is responsible for building and broadcasting the next block to be added to the Ethereum blockchain and updating the global state. The node is made up of three parts: an execution client, a consensus client and a validator client. The execution client bundles transactions from the local mempool into an "execution payload" and executes them locally to generate a state change. This information is passed to the consensus client where the execution payload is wrapped as part of a "beacon block" that also contains information about rewards, penalties, slashings, attestations etc. that enable the network to agree on the sequence of blocks at the head of the chain. The communication between the execution and consensus clients is described in more detail in 
+Connecting the Consensus and Execution Clients
+.
+Other nodes receive the new beacon block on the consensus layer gossip network. They pass it to their execution client where the transactions are re-executed locally to ensure the proposed state change is valid. The validator client then attests that the block is valid and is the logical next block in their view of the chain (meaning it builds on the chain with the greatest weight of attestations as defined in the 
+fork choice rules
+). The block is added to the local database in each node that attests to it.
+The transaction can be considered "finalized" if it has become part of a chain with a "supermajority link" between two checkpoints. Checkpoints occur at the start of each epoch and they exist to account for the fact that only a subset of active validators attest in each slot, but all active validators attest across each epoch. Therefore, it is only between epochs that a 'supermajority link' can be demonstrated (this is where 66% of the total staked ETH on the network agrees on two checkpoints).
+More detail on finality can be found below.
+Finality
+A transaction has "finality" in distributed networks when it is part of a block that can't change without a large amount of ETH getting burned. On proof-of-stake Ethereum, this is managed using "checkpoint" blocks. The first block in each epoch is a checkpoint. Validators vote for pairs of checkpoints that it considers to be valid. If a pair of checkpoints attracts votes representing at least two-thirds of the total staked ETH, the checkpoints are upgraded. The more recent of the two (target) becomes "justified". The earlier of the two is already justified because it was the "target" in the previous epoch. Now it is upgraded to "finalized". This process of upgrading the checkpoints is handled by 
+Casper the Friendly Finality Gadget (Casper-FFG)
+ (opens in a new tab)
+. Casper-FFG is a block finality tool for consensus. Once a block is finalized, it cannot be reverted or changed without a majority slashing of stakers, making it economically inviable.
+To revert a finalized block, an attacker would commit to losing at least one-third of the total supply of staked ETH. The exact reason for this is explained in this 
+Ethereum Foundation blog post
+ (opens in a new tab)
+. Since finality requires a two-thirds majority, an attacker could prevent the network from reaching finality by voting with one-third of the total stake. There is a mechanism to defend against this: the 
+inactivity leak
+ (opens in a new tab)
+. This activates whenever the chain fails to finalize for more than four epochs. The inactivity leak bleeds away the staked ETH from validators voting against the majority, allowing the majority to regain a two-thirds majority and finalize the chain.
+Crypto-economic security
+Running a validator is a commitment. The validator is expected to maintain sufficient hardware and connectivity to participate in block validation and proposal. In return, the validator is paid in ETH (their staked balance increases). On the other hand, participating as a validator also opens new avenues for users to attack the network for personal gain or sabotage. To prevent this, validators miss out on ETH rewards if they fail to participate when called upon, and their existing stake can be destroyed if they behave dishonestly. Two primary behaviors can be considered dishonest: proposing multiple blocks in a single slot (equivocating) and submitting contradictory attestations.
+The amount of ETH slashed depends on how many validators are also being slashed at around the same time. This is known as the 
+"correlation penalty"
+ (opens in a new tab)
+, and it can be minor (less than 0.1% stake for a single validator slashed on their own) or can result in 100% of the validator's stake getting destroyed (mass slashing event). It is imposed halfway through a forced exit period that begins with an immediate penalty (1/4096 of the validator's effective balance, up to 0.5 ETH) on Day 1, the correlation penalty on Day 18, and finally, ejection from the network on Day 36. They receive minor attestation penalties every day because they are present on the network but not submitting votes. This all means a coordinated attack would be very costly for the attacker.
+Fork choice
+When the network performs optimally and honestly, there is only ever one new block at the head of the chain, and all validators attest to it. However, it is possible for validators to have different views of the head of the chain due to network latency or because a block proposer has equivocated. Therefore, consensus clients require an algorithm to decide which one to favor. The algorithm used in proof-of-stake Ethereum is called 
+LMD-GHOST
+ (opens in a new tab)
+, and it works by identifying the fork that has the greatest weight of attestations in its history.
+Proof-of-stake and security
+The threat of a 
+51% attack
+ (opens in a new tab)
+ still exists on proof-of-stake as it does on proof-of-work, but it's even riskier for the attackers. An attacker would need 51% of the staked ETH. They could then use their own attestations to ensure their preferred fork was the one with the most accumulated attestations. The 'weight' of accumulated attestations is what consensus clients use to determine the correct chain, so this attacker would be able to make their fork the canonical one. However, a strength of proof-of-stake over proof-of-work is that the community has flexibility in mounting a counter-attack. For example, the honest validators could decide to keep building on the minority chain and ignore the attacker's fork while encouraging apps, exchanges, and pools to do the same. They could also decide to forcibly remove the attacker from the network and destroy their staked ETH. These are strong economic defenses against a 51% attack.
+Beyond 51% attacks, bad actors might also attempt other types of malicious activities, such as:
+long-range attacks (although the finality gadget neutralizes this attack vector)
+short range 'reorgs' (although proposer boosting and attestation deadlines mitigate this)
+bouncing and balancing attacks (also mitigated by proposer boosting, and these attacks have anyway only been demonstrated under idealized network conditions)
+avalanche attacks (neutralized by the fork choice algorithms rule of only considering the latest message)
+Overall, proof-of-stake, as it is implemented on Ethereum, has been demonstrated to be more economically secure than proof-of-work.
+Pros and cons
+Pros
+Cons
+Staking makes it easier for individuals to participate in securing the network, promoting decentralization. validator node can be run on a normal laptop. Staking pools allow users to stake without having 32 ETH.
+Proof-of-stake is younger and less battle-tested compared to proof-of-work
+Staking is more decentralized. Economies of scale do not apply in the same way that they do for PoW mining.
+Proof-of-stake is more complex to implement than proof-of-work
+Proof-of-stake offers greater crypto-economic security than proof-of-work
+Users need to run three pieces of software to participate in Ethereum's proof-of-stake.
+Less issuance of new ETH is required to incentivize network participants
+Comparison to proof-of-work
+Ethereum originally used proof-of-work but switched to proof-of-stake in September 2022. PoS offers several advantages over PoW, such as:
+better energy efficiency – there is no need to use lots of energy on proof-of-work computations
+lower barriers to entry, reduced hardware requirements – there is no need for elite hardware to stand a chance of creating new blocks
+reduced centralization risk – proof-of-stake should lead to more nodes securing the network
+because of the low energy requirement less ETH issuance is required to incentivize participation
+economic penalties for misbehavior make 51% style attacks more costly for an attacker compared to proof-of-work
+the community can resort to social recovery of an honest chain if a 51% attack were to overcome the crypto-economic defenses.
+Further reading
+Proof of Stake FAQ
+ (opens in a new tab)
+Vitalik Buterin
+What is Proof of Stake
+ (opens in a new tab)
+ConsenSys
+What Proof of Stake Is And Why It Matters
+ (opens in a new tab)
+Vitalik Buterin
+Why Proof of Stake (Nov 2020)
+ (opens in a new tab)
+Vitalik Buterin
+Proof of Stake: How I Learned to Love Weak Subjectivity
+ (opens in a new tab)
+Vitalik Buterin
+Proof-of-stake Ethereum attack and defense
+ (opens in a new tab)
+A Proof of Stake Design Philosophy
+ (opens in a new tab)
+Vitalik Buterin
+Video: Vitalik Buterin explains proof-of-stake to Lex Fridman
+ (opens in a new tab)
+Related topics
+Proof-of-work
+Proof-of-authority
+Test your Ethereum knowledge
+Page last update: August 31, 2026
+j
+ (opens in a new tab)
+P
+ (opens in a new tab)
+c
+ (opens in a new tab)
++20
+See contributors
+Previous
+Consensus mechanisms
+Next
+Gasper
+Was this article helpful?
+Yes
+No
+On this page
+Prerequisites
+What is proof-of-stake (PoS)?
+Validators
+How a Transaction Gets Executed in Ethereum PoS
+Finality
+Crypto-economic security
+Fork choice
+Proof-of-stake and security
+Pros and cons
+Comparison to proof-of-work
+Further reading
+Related topics
+Website last updated: 
+October 1, 2026
+Go to top
+ethereum.org
+Learn
+Learn Hub
+What is Ethereum?
+What is ether (ETH)?
+Ethereum wallets
+What is Web3?
+Smart contracts
+Gas fees
+Run a node
+Ethereum security and scam prevention
+Quiz Hub
+How people use Ethereum
+Ethereum glossary
+Use
+Guides
+Choose your wallet
+Get ETH
+Application explorer
+Stablecoins
+NFTs - Non-fungible tokens
+DeFi - Decentralized finance
+DAOs - Decentralized autonomous organizations
+Decentralized identity
+Stake ETH
+Layer 2
+Build
+Builder's home
+Tutorials
+Documentation
+Start building
+Learn Ethereum development
+Grants
+Foundational topics
+UX/UI design fundamentals
+Enterprise - Mainnet Ethereum
+ (opens in a new tab)
+Founders
+Participate
+Community hub
+Online communities
+Ethereum events
+Contributing to ethereum.org
+Translation Program
+Ethereum bug bounty program
+Ethereum Foundation
+Ethereum Foundation Blog
+ (opens in a new tab)
+Ecosystem Support Program
+ (opens in a new tab)
+Devcon
+ (opens in a new tab)
+Research
+Ethereum Whitepaper
+Ethereum roadmap
+Improved security
+Technical history of Ethereum
+Open research
+Ethereum Improvement Proposals
+Ethereum governance
+Reports
+Trillion dollar security project
+GitHub
+ (opens in a new tab)
+Farcaster
+ (opens in a new tab)
+X
+ (opens in a new tab)
+Discord
+ (opens in a new tab)
+About us
+Ethereum brand assets
+Code of conduct
+Jobs
+Privacy policy
+Terms of use
+Cookie policy
+Press Contact
+ (opens email client)

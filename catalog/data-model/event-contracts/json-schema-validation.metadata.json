@@ -1,0 +1,13 @@
+{
+  "id": "json-schema-validation",
+  "url": "https://json-schema.org/draft/2020-12/json-schema-validation",
+  "resolved_url": "https://json-schema.org/draft/2020-12/json-schema-validation",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:03:21.321483+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=25)",
+  "raw_path": "json-schema-validation.raw",
+  "text_path": "json-schema-validation.txt",
+  "raw_sha256": "c0b09ce43a3caf8d90c02e53a2694174d925906009c7c9b2f8c0244af41f8d44",
+  "text_sha256": "4ffc769d4f8e317edc8e9c9a5b846e9778ee90217e8d3cc7c3827733e985a4ef",
+  "text_chars": 67420
+}

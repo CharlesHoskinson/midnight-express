@@ -1,0 +1,15 @@
+{
+  "status": "synthetic-independent-conformance",
+  "implementations": [
+    "Python",
+    "Rust",
+    "TypeScript"
+  ],
+  "cases": 35,
+  "acceptedDisagreements": 0,
+  "safeRefusals": 31,
+  "adapterCases": 15,
+  "replaySequenceCases": 3,
+  "sourceAuthentication": false,
+  "executes": false
+}

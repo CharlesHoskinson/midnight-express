@@ -1,0 +1,31 @@
+{
+  "specversion": "1.0",
+  "id": "event:invoice-reversed",
+  "source": "urn:mpe:source:bank",
+  "type": "mpe.invoice.payment-observed.v0.2",
+  "time": "2026-10-04T11:00:00.000Z",
+  "datacontenttype": "application/json",
+  "dataschema": "urn:mpe:model:invoice.v0.2",
+  "mpeprofile": "invoice.v0.2",
+  "mpecontract": "sha256:dd3b68c4f25c4ca87a57e5e5dda88cb8a1630fa9a1b0ab394744fdf984eb047a",
+  "data": {
+    "invoiceId": "invoice:supplier/demo",
+    "supplier": "party:supplier",
+    "customer": "party:customer",
+    "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "currency": "iso4217:USD",
+    "payable": {
+      "coefficient": "50000",
+      "scale": 2
+    },
+    "paymentId": "payment:reversed",
+    "amount": {
+      "coefficient": "25000",
+      "scale": 2
+    },
+    "status": "Reversed",
+    "observedAt": "2026-10-04T11:00:00.000Z",
+    "effectiveAt": "2026-10-04T11:00:00.000Z",
+    "rail": "fixture-bank-v1"
+  }
+}

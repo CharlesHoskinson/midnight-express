@@ -1,0 +1,565 @@
+GitHub - MystenLabs/sui-stack-messaging: End-to-end encrypted Messaging tooling on Sui, powered by Seal threshold encryption and Walrus decentralized storage. · GitHub
+Skip to content
+Navigation Menu
+Sign in
+Appearance settings
+Platform
+AI CODE CREATION
+GitHub Copilot
+Write better code with AI
+GitHub Copilot app
+Direct agents from issue to merge
+MCP Registry
+Integrate external tools
+DEVELOPER WORKFLOWS
+Actions
+Automate any workflow
+Codespaces
+Instant dev environments
+Issues
+Plan and track work
+Code Review
+Manage code changes
+Code Quality
+Enforce quality at merge
+APPLICATION SECURITY
+GitHub Advanced Security
+Find and fix vulnerabilities
+Code security
+Secure your code as you build
+Secret protection
+Stop leaks before they start
+EXPLORE
+Why GitHub
+Documentation
+Blog
+Changelog
+Marketplace
+View all features
+Solutions
+BY COMPANY SIZE
+Enterprises
+Small and medium teams
+Startups
+Nonprofits
+BY USE CASE
+App Modernization
+DevSecOps
+DevOps
+CI/CD
+View all use cases
+BY INDUSTRY
+Healthcare
+Financial services
+Manufacturing
+Government
+View all industries
+View all solutions
+Resources
+EXPLORE BY TOPIC
+AI
+Software Development
+DevOps
+Security
+View all topics
+EXPLORE BY TYPE
+Customer stories
+Events & webinars
+Ebooks & reports
+Business insights
+GitHub Skills
+SUPPORT & SERVICES
+Documentation
+Customer support
+Community forum
+Trust center
+Partners
+View all resources
+Open Source
+COMMUNITY
+GitHub Sponsors
+Fund open source developers
+PROGRAMS
+Security Lab
+Maintainer Community
+GitHub Stars
+Archive Program
+REPOSITORIES
+Topics
+Trending
+Collections
+Enterprise
+ENTERPRISE SOLUTIONS
+Enterprise platform
+AI-powered developer platform
+AVAILABLE ADD-ONS
+GitHub Advanced Security
+Enterprise-grade security features
+Copilot for Business
+Enterprise-grade AI features
+Premium Support
+Enterprise-grade 24/7 support
+Pricing
+Search
+/
+Sign in
+Sign up
+Appearance settings
+You signed in with another tab or window.
+Reload
+ to refresh your session.
+You signed out in another tab or window.
+Reload
+ to refresh your session.
+You switched accounts on another tab or window.
+Reload
+ to refresh your session.
+Dismiss alert
+{{ message }}
+
+        MystenLabs
+
+/
+sui-stack-messaging
+Public
+Notifications
+
+You must be signed in to change notification settings
+Fork
+
+8
+
+          Star
+
+11
+Code
+Issues
+1
+Pull requests
+4
+Actions
+Projects
+Security and quality
+0
+Insights
+Additional navigation options
+
+          Code
+
+          Issues
+
+          Pull requests
+
+          Actions
+
+          Projects
+
+          Security and quality
+
+          Insights
+
+main
+Branches
+Tags
+Go to file
+Code
+Open more actions menu
+Latest commit
+History
+249 Commits
+249 Commits
+Folders and files
+Name
+Name
+Last commit message
+Last commit date
+.claude
+.claude
+.github/
+workflows
+.github/
+workflows
+chat-app
+chat-app
+docs
+docs
+move
+move
+publish
+publish
+relayer
+relayer
+ts-sdks
+ts-sdks
+walrus-discovery-indexer
+walrus-discovery-indexer
+.changeset
+.changeset
+.gitignore
+.gitignore
+AGENTS.md
+AGENTS.md
+CLAUDE.md
+CLAUDE.md
+README.md
+README.md
+View all files
+Repository files navigation
+README
+More
+ items
+Sui Stack Messaging
+Note
+The Sui Stack Messaging tooling is currently in Beta and available on both Testnet and Mainnet.
+The tooling is production-capable for many use cases, but developers should evaluate their own security, reliability, and operational requirements before deploying to production.
+For questions, feedback, or production discussions, reach out to the team on
+Sui Discord
+.
+Contents
+Architecture
+Architecture Evolution
+Dependencies
+Features
+Use Cases
+Package
+Quick Start
+Documentation:
+Installation
+Setup
+Examples
+API Reference
+Encryption
+Security
+Relayer
+Attachments
+Archive & Recovery
+Group Discovery
+Extending
+Testing
+Community Contributed Tools
+Messaging tooling for Web3 applications, built on
+Sui
+,
+Seal
+, and
+Walrus
+.
+Architecture
+┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+│   Your App   │     │   Relayer    │     │     Sui      │
+│              │     │              │  R  │              │
+│  SDK encrypts├────►│ Stores E2EE  ├────►│ Permissions  │
+│  client-side │     │  ciphertext  │     │ Encryption   │
+│              │◄────┤ Serves msgs  │     │ Key History  │
+└──┬───┬───┬───┘     └──────┬───────┘     └──────────────┘
+   │   │   │                │                    ▲
+   │   │   └─────────────────────────────────────┘
+   │   │          R/W       │
+   │  ┌▼─────────┐    ┌─────▼──────┐
+   │  │   Seal   │    │   Walrus   │
+   │  │ Key Mgmt │    │  Archival  │
+   │  └──────────┘    └────────────┘
+   │                        ▲
+   └────────────────────────┘
+
+Messages are encrypted client-side using AES-256-GCM with Seal-managed keys, stored off-chain via a relayer service, and optionally archived to Walrus. Group permissions and encryption key history live on-chain as Sui objects.
+Architecture Evolution
+The Sui Stack Messaging tooling is infrastructure for building encrypted, programmable messaging directly into applications, rather than a standalone messaging service.
+The alpha version stored messages on-chain as Sui objects, providing on-chain verifiability for ordering and availability. The current architecture moves delivery logistics off-chain to a relayer, highly optimizing the total cost while preserving E2E encryption and sender verification. The relayer acts as a delivery operator for message routing and ordering; for applications that require verifiable delivery, you can adapt the available relayer template to run inside
+Nautilus
+. See
+Security
+ for the full trust model.
+Dependencies
+@mysten/sui-groups
+: generic on-chain permissioned groups library for verifiable on-chain group governance
+
+Conceptually, Groups provides the "who is allowed" layer, while Messaging tooling provides the "how they communicate" layer.
+@mysten/seal
+: threshold encryption for DEK management
+@mysten/sui
+: Sui TypeScript SDK
+Features
+Composable SDK
+: client extension pattern following
+MystenLabs SDK guidelines
+Pluggable transport
+: interface-driven transport layer; swap the built-in HTTP relayer for any custom backend
+End-to-end encryption
+: AES-256-GCM with Seal-managed keys; the relayer never sees plaintext
+Sender verification
+: per-message wallet signatures, independently verifiable by all group members
+File attachments
+: per-file encryption with lazy download via pluggable storage adapters (Walrus built-in)
+Real-time subscriptions
+:
+AsyncIterable
+-based message streaming with automatic decryption
+Key rotation
+: manual DEK rotation with atomic member-removal-and-rotate operations
+Group lifecycle
+: create, archive, and leave groups; batch member management with permission control
+Cross-device recovery
+: encrypted message history restorable from Walrus without requiring centralized backups
+Custom Seal policies
+: override default access control with application-specific logic (token-gated, subscription-based)
+UUID-based addressing
+: deterministic on-chain object IDs from client-provided UUIDs, enabling single-transaction group creation
+SuiNS integration
+: reverse lookup support for human-readable group names
+Group metadata
+: on-chain key-value store for application-specific group data
+Use Cases
+The tooling is designed as communication infrastructure that apps can embed directly into their product workflows.
+Secure 1:1 DMs and group chats
+Token-gated or membership-gated communities
+Guild chats for games
+In-app support channels
+Cross-app coordination between protocols
+AI agents interacting inside encrypted channels
+Reputation or identity-driven messaging workflows
+Package
+Primary developer entry point for building messaging features.
+@mysten/sui-stack-messaging
+
+Quick Start
+import
+{
+SuiGrpcClient
+}
+from
+'@mysten/sui/grpc'
+;
+import
+{
+createMessagingGroupsClient
+}
+from
+'@mysten/sui-stack-messaging'
+;
+const
+client
+=
+createMessagingGroupsClient
+(
+new
+SuiGrpcClient
+(
+{
+baseUrl
+:
+'https://fullnode.testnet.sui.io:443'
+,
+network
+:
+'testnet'
+,
+}
+)
+,
+{
+seal
+:
+{
+serverConfigs
+:
+[
+{
+objectId
+:
+'0x...'
+,
+weight
+:
+1
+}
+,
+{
+objectId
+:
+'0x...'
+,
+weight
+:
+1
+}
+,
+]
+,
+}
+,
+encryption
+:
+{
+sessionKey
+:
+{
+signer
+:
+keypair
+}
+,
+}
+,
+relayer
+:
+{
+relayerUrl
+:
+'https://your-relayer.example.com'
+,
+}
+,
+}
+,
+)
+;
+// Create a group
+await
+client
+.
+messaging
+.
+createAndShareGroup
+(
+{
+signer
+:
+keypair
+,
+name
+:
+'My Group'
+,
+initialMembers
+:
+[
+'0xAlice...'
+,
+'0xBob...'
+]
+,
+}
+)
+;
+// Send a message
+await
+client
+.
+messaging
+.
+sendMessage
+(
+{
+signer
+:
+keypair
+,
+groupRef
+:
+{
+uuid
+:
+'my-group-uuid'
+}
+,
+text
+:
+'Hello, world!'
+,
+}
+)
+;
+// Subscribe to messages
+for
+await
+(
+const
+msg
+of
+client
+.
+messaging
+.
+subscribe
+(
+{
+signer
+:
+keypair
+,
+groupRef
+:
+{
+uuid
+:
+'my-group-uuid'
+}
+,
+signal
+:
+new
+AbortController
+(
+)
+.
+signal
+,
+}
+)
+)
+{
+console
+.
+log
+(
+msg
+.
+text
+,
+msg
+.
+senderVerified
+)
+;
+}
+About
+End-to-end encrypted Messaging tooling on Sui, powered by Seal threshold encryption and Walrus decentralized storage.
+www.npmjs.com/package/@mysten/sui-stack-messaging
+Resources
+Readme
+Activity
+Custom properties
+Stars
+11
+ stars
+Watchers
+1
+ watching
+Forks
+8
+ forks
+Report repository
+Releases
+Packages
+Used by
+Contributors
+Languages
+Footer
+
+        © 2026 GitHub, Inc.
+
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+
+      Manage cookies
+
+        Do not share my personal information
+
+    You can’t perform that action at this time.

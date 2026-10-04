@@ -1,0 +1,13 @@
+{
+  "id": "eip1193",
+  "url": "https://eips.ethereum.org/EIPS/eip-1193",
+  "resolved_url": "https://eips.ethereum.org/EIPS/eip-1193",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:48.067789+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "eip1193.raw",
+  "text_path": "eip1193.txt",
+  "raw_sha256": "7a29e3f43c262ad3f663b8f419257132c127e1580c91cbe837d59f86a5bd7ab4",
+  "text_sha256": "64dcca614175a5fa54265904a3d82553441ca21adcb0cf2899feba4900b897cf",
+  "text_chars": 22583
+}

@@ -1,0 +1,83 @@
+Welcome to Dialect - Dialect Developer Documentation
+Documentation Index
+Fetch the complete documentation index at:
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Dialect Developer Documentation home page
+Search...
+⌘K
+Ask Assistant
+⌘I
+Search...
+Navigation
+Welcome to Dialect
+Introduction
+Alerts & Events
+Blinks
+Standard Blinks Library
+Markets and Positions (Beta)
+MCP
+Release Notes
+Introduction
+Request API Keys
+Welcome to Dialect
+Copy page
+Copy page
+The complete UX stack for Web3 - transforming links into blockchain actions and keeping users engaged with real-time notifications
+Copy page
+Copy page
+​
+Get started
+If you’re new to Dialect, start here to learn the essentials and start building.
+Blinks Quickstart
+Create seamless blockchain interactions.
+Alerts Quickstart
+Send notifications in under 15 minutes.
+API Guide
+Build with any tech stack using our APIs.
+Request API Keys
+Get your API keys for Alerts, Blinks, and Markets products.
+​
+Blinks
+Build Blinks
+Create new blockchain actions and transform URLs into interactive
+experiences.
+Integrate Blinks
+Add Blinks to your application with React components or headless
+integration.
+Standard Blinks Library
+Ready-to-use Blinks from top Solana ecosystem projects. Copy, paste, done.
+​
+Alerts
+Real-time Notifications
+Build advanced notification systems with multi-channel delivery including
+in-app, email, and push notifications.
+Event Detection & Monitoring
+Monitor blockchain events and integrate alerting for your applications with
+custom triggers.
+Universal Inbox
+Add an inbox to your app that receives notifications from multiple
+protocols, so users never miss important updates.
+Dashboard
+Send events and manage notifications through our no-code dashboard
+interface.
+​
+Markets and Positions
+Markets and Position Data
+Get real-time lending rates, market data, and position tracking for Solana’s
+top lending protocols with ready-to-use Blinks.
+Markets API Reference
+Access lending market and position data through our RESTful API.
+Was this page helpful?
+Yes
+No
+Request API Keys
+website
+x
+github
+youtube
+Powered by
+This documentation is built and hosted on Mintlify, a developer documentation platform
+Assistant
+Responses are generated using AI and may contain mistakes.

@@ -1,0 +1,365 @@
+programSubscribe | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+Websocket Methods
+accountSubscribe
+accountUnsubscribe
+blockSubscribe
+blockUnsubscribe
+logsSubscribe
+logsUnsubscribe
+programSubscribe
+programUnsubscribe
+rootSubscribe
+rootUnsubscribe
+signatureSubscribe
+signatureUnsubscribe
+slotSubscribe
+slotsUpdatesSubscribe
+slotsUpdatesUnsubscribe
+slotUnsubscribe
+voteSubscribe
+voteUnsubscribe
+Removed Methods
+Solana RPC Methods
+Websocket Methods
+programSubscribe
+Copy Markdown
+Open
+Subscribe to notifications for accounts owned by a given program.
+Source
+program_subscribe
+params
+string !required
+optional
+Pubkey of the 
+program_id
+, as base-58 encoded string
+object
+optional
+Optional configuration object.
+commitment
+string !values processed confirmed finalized !default finalized
+filters
+array
+encoding
+string !values base58 base64 base64+zstd binary jsonParsed !default binary
+dataSlice
+object
+withContext
+bool !values true false !default false
+result
+integer
+Subscription id. Pass this to
+
+programUnsubscribe
+.
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"programSubscribe"
+,
+>
+"params"
+: [
+>
+"11111111111111111111111111111111"
+,
+>
+{
+>
+"encoding"
+:
+"base64"
+,
+>
+"filters"
+: [{
+"dataSize"
+:
+80
+}]
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+:
+24040
+,
+"id"
+:
+1
+}
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"programSubscribe"
+,
+>
+"params"
+: [
+>
+"11111111111111111111111111111111"
+,
+>
+{
+>
+"encoding"
+:
+"base64"
+,
+>
+"filters"
+: [{
+"dataSize"
+:
+80
+}]
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+params
+string !required
+optional
+Pubkey of the 
+program_id
+, as base-58 encoded string
+object
+optional
+Optional configuration object.
+commitment
+string !values processed confirmed finalized !default finalized
+filters
+array
+encoding
+string !values base58 base64 base64+zstd binary jsonParsed !default binary
+dataSlice
+object
+withContext
+bool !values true false !default false
+result
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+:
+24040
+,
+"id"
+:
+1
+}
+integer
+Subscription id. Pass this to
+
+programUnsubscribe
+.
+Notification format
+Notifications are delivered as 
+programNotification
+.
+{
+"jsonrpc"
+:
+"2.0"
+,
+"method"
+:
+"programNotification"
+,
+"params"
+: {
+"result"
+: {
+"context"
+: {
+"slot"
+:
+583
+},
+"value"
+: {
+"pubkey"
+:
+"BpdYYo2Vw1NVbzE2DqJxCX2xEfr42xvMYFU2dKd1CW57"
+,
+"account"
+: {
+"lamports"
+:
+499997095000
+,
+"data"
+: [
+""
+,
+"base64"
+],
+"owner"
+:
+"11111111111111111111111111111111"
+,
+"executable"
+:
+false
+,
+"rentEpoch"
+:
+18446744073709551615
+,
+"space"
+:
+0
+}
+}
+},
+"subscription"
+:
+11
+}
+}
+jsonrpc
+string
+Always 
+"2.0"
+.
+method
+string
+Always 
+"programNotification"
+.
+params
+object
+Notification wrapper with a single matching account and the subscription id.
+result
+object
+subscription
+integer
+Is this page helpful?
+Previous
+logsUnsubscribe
+Next
+programUnsubscribe
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

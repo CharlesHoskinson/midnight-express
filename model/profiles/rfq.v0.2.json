@@ -1,0 +1,14 @@
+{
+  "bundleVersion": 1,
+  "profile": "rfq.v0.2",
+  "version": "0.2",
+  "status": "experimental-model-only",
+  "role": "dealer",
+  "schema": "schema.json",
+  "resources": {
+    "schema.json": "sha256:16027b9d5c2b635934ac5f4b591966f930d3bc8324cee65a72456cb49c50e113",
+    "core.json": "sha256:f35e995e91c2d3187bf3de56f20422dcc8beed972fc6db74f051e66ab799bb33",
+    "rules.json": "sha256:4ad2c4ee0618b57a9a647003ce4f8194c75720d3fb6168b78018c935682641aa"
+  },
+  "signatures": "unsigned-fixture-only"
+}

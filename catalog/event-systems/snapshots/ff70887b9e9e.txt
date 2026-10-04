@@ -1,0 +1,351 @@
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+Websocket Methods
+accountSubscribe
+accountUnsubscribe
+blockSubscribe
+blockUnsubscribe
+logsSubscribe
+logsUnsubscribe
+programSubscribe
+programUnsubscribe
+rootSubscribe
+rootUnsubscribe
+signatureSubscribe
+signatureUnsubscribe
+slotSubscribe
+slotsUpdatesSubscribe
+slotsUpdatesUnsubscribe
+slotUnsubscribe
+voteSubscribe
+voteUnsubscribe
+Removed Methods
+Solana RPC Methods
+Websocket Methods
+logsSubscribe
+Copy Markdown
+Open
+Subscribe to transaction log messages that match a log filter.
+Source
+logs_subscribe
+params
+string | object !required
+optional
+Filter describing which transactions should emit log notifications.
+all
+ subscribes to all transactions except simple vote transactions
+allWithVotes
+ subscribes to all transactions, including simple vote
+transactions
+{ "mentions": [<pubkey>] }
+ subscribes to transactions that mention a single
+base-58 encoded address
+The
+mentions
+ filter currently supports exactly one address. Listing more
+than one returns an
+Invalid params
+ error.
+object
+optional
+Optional configuration object.
+commitment
+string !values processed confirmed finalized !default finalized
+result
+integer
+Subscription id. Pass this to
+
+logsUnsubscribe
+.
+cURL
+Kit
+web3.js
+Rust
+$
+ curl
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d '
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"logsSubscribe"
+,
+>
+"params"
+: [
+>
+{
+>
+"mentions"
+: [
+"11111111111111111111111111111111"
+]
+>
+},
+>
+{
+>
+"commitment"
+:
+"finalized"
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+:
+24040
+,
+"id"
+:
+1
+}
+cURL
+Kit
+web3.js
+Rust
+$
+ curl
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d '
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"logsSubscribe"
+,
+>
+"params"
+: [
+>
+{
+>
+"mentions"
+: [
+"11111111111111111111111111111111"
+]
+>
+},
+>
+{
+>
+"commitment"
+:
+"finalized"
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+params
+string | object !required
+optional
+Filter describing which transactions should emit log notifications.
+all
+ subscribes to all transactions except simple vote transactions
+allWithVotes
+ subscribes to all transactions, including simple vote
+transactions
+{ "mentions": [<pubkey>] }
+ subscribes to transactions that mention a single
+base-58 encoded address
+The
+mentions
+ filter currently supports exactly one address. Listing more
+than one returns an
+Invalid params
+ error.
+object
+optional
+Optional configuration object.
+commitment
+string !values processed confirmed finalized !default finalized
+result
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+:
+24040
+,
+"id"
+:
+1
+}
+integer
+Subscription id. Pass this to
+
+logsUnsubscribe
+.
+Notification format
+Notifications are delivered as
+logsNotification
+.
+{
+"jsonrpc"
+:
+"2.0"
+,
+"method"
+:
+"logsNotification"
+,
+"params"
+: {
+"result"
+: {
+"context"
+: {
+"slot"
+:
+3557
+},
+"value"
+: {
+"signature"
+:
+"67Viive4HpLJRPuYggAu3cbxZeQra5Y58oh4AmGc1YRXgQHevSwFbyxhBeDXw6rTCmUtHyCY7BjeHiHvhC9tud9U"
+,
+"err"
+:
+null
+,
+"logs"
+: [
+"Program 11111111111111111111111111111111 invoke [1]"
+,
+"Program 11111111111111111111111111111111 success"
+]
+}
+},
+"subscription"
+:
+14
+}
+}
+jsonrpc
+string
+Always
+"2.0"
+.
+method
+string
+Always
+"logsNotification"
+.
+params
+object
+Notification wrapper with the logs payload and the subscription id.
+result
+object
+subscription
+integer
+Is this page helpful?
+Previous
+blockUnsubscribe
+Next
+logsUnsubscribe
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.
+logsSubscribe | Solana

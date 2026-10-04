@@ -1,0 +1,121 @@
+[workspace]
+members = ["crates/*"]
+resolver = "2"
+
+[workspace.package]
+version = "0.6.0"
+edition = "2021"
+homepage = "https://github.com/worldcoin/semaphore-rs"
+license = "MIT"
+repository = "https://github.com/worldcoin/semaphore-rs"
+authors = [
+  "Remco Bloemen <remco@worldcoin.org>",
+  "Philipp Sippl <philipp@worldcoin.org>",
+]
+description = "Rust support library for Semaphore"
+keywords = ["worldcoin", "protocol", "signup"]
+categories = ["cryptography"]
+
+[workspace.dependencies]
+# Internal
+semaphore-rs-utils = { version = "0.6.0", path = "crates/utils" }
+semaphore-rs-ark-circom = { version = "0.6.0", path = "crates/ark-circom" }
+semaphore-rs-ark-zkey = { version = "0.6.0", path = "crates/ark-zkey" }
+semaphore-rs-proof = { version = "0.6.0", path = "crates/proof", default-features = false }
+semaphore-rs-poseidon = { version = "0.6.0", path = "crates/poseidon" }
+semaphore-rs-hasher = { version = "0.6.0", path = "crates/hasher" }
+semaphore-rs-keccak = { version = "0.6.0", path = "crates/keccak" }
+semaphore-rs-trees = { version = "0.6.0", path = "crates/trees" }
+semaphore-rs-storage = { version = "0.6.0", path = "crates/storage" }
+semaphore-rs-depth-config = { version = "0.6.0", path = "crates/semaphore-depth-config" }
+semaphore-rs-depth-macros = { version = "0.6.0", path = "crates/semaphore-depth-macros" }
+semaphore-rs-witness = { version = "0.6.0", path = "crates/circom-witness-rs" }
+
+# 3rd Party
+alloy-core = { version = "1.0", default-features = false, features = [
+  "sol-types",
+] }
+bytemuck = "1.18"
+byteorder = "1"
+color-eyre = "0.6"
+criterion = { version = "0.5", features = ["async_tokio", "html_reports"] }
+cxx = "1"
+cxx-build = "1"
+derive-where = "1.6.0"
+hex = "0.4.0"
+hex-literal = "0.4"
+itertools = "0.13"
+lazy_static = "1"
+mmap-rs = "0.6.1"
+num-bigint = { version = "0.4", default-features = false, features = ["rand"] }
+num-traits = "0.2.19"
+once_cell = "1.8"
+# Default features pull in heapless 0.7 -> atomic-polyfill (RUSTSEC-2023-0089).
+postcard = { version = "1", default-features = false }
+proptest = "1.0"
+rand = { version = "0.8.4", features = ["small_rng"] }
+rand_chacha = "0.3.1"
+rayon = "1.5.1"
+ruint = { version = "1.12.3", features = [
+  "rand",
+  "bytemuck",
+  "serde",
+  "num-bigint",
+  "ark-ff-06",
+] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0.79"
+serial_test = "3"
+sha2 = "0.10.1"
+test-case = "3.3.1"
+tempfile = "3.0"
+thiserror = "1.0.0"
+tiny-keccak = { version = "2.0.2", features = ["sha3", "keccak"] }
+tokio = "1"
+tracing-test = "0.2"
+zeroize = "1.6.0"
+memmap2 = "0.9"
+flame = "0.2"
+flamer = "0.5"
+
+# WASM
+wasm-bindgen = "0.2"
+js-sys = "0.3"
+# Required if we're compiling to WASM
+getrandom = { version = "0.2.15", features = ["js"] }
+wasm-bindgen-test = "0.3"
+
+# Proc macros
+syn = { version = "2.0.9", features = ["full", "visit-mut", "extra-traits"] }
+proc-macro2 = "1.0.53"
+quote = "1.0.26"
+
+# Ark
+ark-bn254 = { version = "0.6.0" }
+ark-ec = { version = "0.6.0", default-features = false, features = [
+  "parallel",
+] }
+ark-ff = { version = "0.6.0", default-features = false, features = [
+  "parallel",
+  "asm",
+] }
+ark-groth16 = { version = "0.6.0", features = ["parallel"] }
+ark-relations = { version = "0.6.0", default-features = false }
+ark-std = { version = "0.6.0", default-features = false, features = [
+  "parallel",
+] }
+ark-serialize = { version = "0.6.0", features = ["derive"] }
+ark-poly = { version = "0.6.0" }
+ark-crypto-primitives = { version = "0.6.0" }
+
+[profile.release]
+codegen-units = 1
+lto = true
+panic = "abort"
+opt-level = 3
+
+# Compilation profile for any non-workspace member.
+# Dependencies are optimized, even in a dev build. This improves dev performance
+# while having neglible impact on incremental build times.
+[profile.dev.package."*"]
+opt-level = 3

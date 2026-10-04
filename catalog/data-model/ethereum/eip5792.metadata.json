@@ -1,0 +1,13 @@
+{
+  "id": "eip5792",
+  "url": "https://eips.ethereum.org/EIPS/eip-5792",
+  "resolved_url": "https://eips.ethereum.org/EIPS/eip-5792",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:52.012288+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "eip5792.raw",
+  "text_path": "eip5792.txt",
+  "raw_sha256": "0dfe25f25a8eb0b41c24433d72a29a09cac8840f1d53033bb69fff08c9256460",
+  "text_sha256": "60956d0a9181868f1e55bf99f8837b2cf073e5c33b2ca2e9789f0913f55a2915",
+  "text_chars": 25618
+}

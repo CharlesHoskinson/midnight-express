@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+    
+      <title>EIP-2255: Wallet Permissions System</title>
+      <meta property="og:title" content="EIP-2255: Wallet Permissions System" />
+    
+    <meta name="description" content="An interface to restrict access to sensitive methods" />
+    <meta property="og:description" content="An interface to restrict access to sensitive methods" />
+    <meta name="twitter:description" content="An interface to restrict access to sensitive methods" />
+  
+  <meta name="generator" content="Jekyll" />
+  <meta property="og:locale" content="en_US" />
+  <link rel="canonical" href="https://eips.ethereum.org/EIPS/eip-2255" />
+  <meta property="og:url" content="https://eips.ethereum.org/EIPS/eip-2255" />
+  <meta property="og:site_name" content="Ethereum Improvement Proposals" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://eips.ethereum.org/assets/images/eip-og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://eips.ethereum.org/assets/images/eip-og-image.png" />
+  <meta name="twitter:site" content="@" />
+  <script type="application/ld+json">
+    {
+      "@type": "WebSite",
+      "url": "https://eips.ethereum.org",
+      "name": "Ethereum Improvement Proposals",
+      "description": "Ethereum Improvement Proposals (EIPs) describe standards for the Ethereum platform, such as core protocol specifications.",
+      "@context": "https://schema.org"
+    }
+  </script>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" /><link type="application/atom+xml" rel="alternate" href="https://eips.ethereum.org/feed.xml" title="Ethereum Improvement Proposals" /><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/css/override.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", (event) => {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    });
+  </script>
+  <script type="text/javascript">
+    window.MathJax = {
+      loader: {
+        load: ['input/tex-base', 'output/chtml']
+      },
+      tex: {
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']],
+        processEscapes: true,
+        processEnvironments: false,
+        processRefs: false
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js" integrity="sha384-/1zmJ1mBdfKIOnwPxpdG6yaRrxP6qu3eVYm0cz2nOx+AcL4d3AqEFrwcqGZVVroG" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/citation-js/0.6.7/citation.min.js" integrity="sha512-N+LDFMa9owHXGS+CyMrBvuxq2QuGl3fiB/7cys3aUEL7K6P1soHGqsS0sjHXZpwNd9Kz0m3R4IPy1HYRi6ROEQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript">
+    addEventListener('DOMContentLoaded', async () => {
+      const Cite = window.require('citation-js');
+      const citationElements = document.querySelectorAll('.language-csl-json');
+      for (let citationElement of citationElements) {
+        try {
+          const citation = await Cite.async(citationElement);
+          const template = document.createElement('template');
+          template.innerHTML = citation.format('bibliography', {
+            format: 'html',
+            template: 'apa',
+            lang: 'en-US'
+          });
+          if (citationElement.parentElement && citationElement.parentElement.matches('pre')) {
+            citationElement.parentElement.replaceWith(template.content);
+          } else {
+            citationElement.replaceWith(template.content);
+          }
+        } catch (e) {
+          console.error("unable to render citation", e);
+        }
+      }
+    });
+  </script>
+</head>
+<body><header class="site-header" role="banner">
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Ethereum Improvement Proposals</a><nav class="site-nav d-flex">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger row p-2"><a class="page-link col" href="/all">All</a><a class="page-link col" href="/core">Core</a><a class="page-link col" href="/networking">Networking</a><a class="page-link col" href="/interface">Interface</a><a class="page-link col" href="/erc">ERC</a><a class="page-link col" href="/meta">Meta</a><a class="page-link col" href="/informational">Informational</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="bi-megaphone-fill" fill="currentColor" viewBox="0 0 16 16">
+    <title>Alert</title>
+    <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-11zm-1 .724c-2.067.95-4.539 1.481-7 1.656v6.237a25.222 25.222 0 0 1 1.088.085c2.053.204 4.038.668 5.912 1.56V3.224zm-8 7.841V4.934c-.68.027-1.399.043-2.008.053A2.02 2.02 0 0 0 0 7v2c0 1.106.896 1.996 1.994 2.009a68.14 68.14 0 0 1 .496.008 64 64 0 0 1 1.51.048zm1.39 1.081c.285.021.569.047.85.078l.253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a65.81 65.81 0 0 1 1.692.064c.327.017.65.037.966.06z"/>
+  </symbol>
+  <symbol id="bi-code" fill="currentColor" viewBox="0 0 16 16">
+    <title>Source</title>
+    <path d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z"/>
+  </symbol>
+  <svg id="bi-chat" fill="currentColor" viewBox="0 0 16 16">
+    <title>Discuss</title>
+    <path d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z"/>
+  </svg>
+</svg>
+
+<div class="home">
+  
+  
+  
+ 
+  <span class="h5">
+    
+    
+    
+    
+    
+      <span class="badge text-light bg-success" data-bs-toggle="tooltip" data-bs-title="This EIP is finalized and is added as an Ethereum Standard. "> 🎉 Final</span>
+    
+       
+    
+      <a class="badge text-light bg-primary" data-bs-toggle="tooltip" data-bs-title="Improvements around client API/RPC specifications and standards, and also certain language-level standards like method names and contract ABIs." href="../interface">Standards Track: Interface</a>
+    
+  </span>
+  <h1 class="page-heading">
+    EIP-2255: Wallet Permissions System
+    <a href="https://ethereum-magicians.org/t/web3-login-permissions/3583" class="no-underline">
+      <svg role="img" aria-label="Discuss" class="inline-svg" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 16 16">
+        <use xlink:href="#bi-chat"/>
+      </svg>
+    </a>
+    <a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-2255.md" class="no-underline">
+      <svg role="img" aria-label="Source" class="inline-svg" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 16 16">
+        <use xlink:href="#bi-code"/>
+      </svg>
+    </a>
+  </h1>
+  <h3>An interface to restrict access to sensitive methods</h3>
+  <table class="table table-borderless preamble">
+    <tbody>
+      <tr>
+        <th scope="row">Authors</th>
+        <td>Dan Finlay&nbsp;(<a href="https://github.com/danfinlay">@danfinlay</a>), Erik Marks&nbsp;(<a href="https://github.com/rekmarks">@rekmarks</a>), Gavin John&nbsp;(<a href="https://github.com/Pandapip1">@Pandapip1</a>)</td>
+      </tr>
+      
+        <tr>
+          <th scope="row">Created</th>
+          <td>2019-08-22</td>
+        </tr>
+      
+      
+             
+      
+      
+        <tr>
+          <th scope="row">Requires</th>
+          <td>
+
+  <a href="eip-1193">EIP-1193</a>
+
+</td>
+        </tr>
+      
+    </tbody>
+  </table>
+  <br/>
+
+  
+
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <ul>
+  <li><a href="#abstract">Abstract</a></li>
+  <li><a href="#motivation">Motivation</a></li>
+  <li><a href="#specification">Specification</a>
+    <ul>
+      <li><a href="#wallet_getpermissions">wallet_getPermissions</a></li>
+      <li><a href="#wallet_requestpermissions">wallet_requestPermissions</a></li>
+    </ul>
+  </li>
+  <li><a href="#rationale">Rationale</a></li>
+  <li><a href="#test-cases">Test Cases</a>
+    <ul>
+      <li><a href="#requesting-permissions">Requesting permissions</a></li>
+      <li><a href="#getting-permissions">Getting permissions</a></li>
+    </ul>
+  </li>
+  <li><a href="#security-considerations">Security Considerations</a>
+    <ul>
+      <li><a href="#server-side-request-forgery-ssrf">Server-Side Request Forgery (SSRF)</a></li>
+    </ul>
+  </li>
+  <li><a href="#copyright">Copyright</a></li>
+</ul>
+
+  </div>
+
+  <h2 id="abstract">
+      
+      
+        <a href="#abstract" class="anchor-link"></a> Abstract
+      
+      
+    </h2>
+
+<p>This EIP adds two new wallet-namespaced RPC endpoints, <code class="language-plaintext highlighter-rouge">wallet_getPermissions</code> and <code class="language-plaintext highlighter-rouge">wallet_requestPermissions</code>, providing a standard interface for requesting and checking permissions.</p>
+  
+    <h2 id="motivation">
+      
+      
+        <a href="#motivation" class="anchor-link"></a> Motivation
+      
+      
+    </h2>
+
+<p>Wallets are responsible for mediating interactions between untrusted applications and users’ keys through appropriate user consent. Today, wallets always prompt the user for every action. This provides security at the cost of substantial user friction. We believe that a single permissions request can achieve the same level of security with vastly improved UX.</p>
+
+<p>The pattern of permissions requests (typically using Oauth2) is common around the web, making it a very familiar pattern:</p>
+
+<p><img src="/assets/eip-2255/facebook_permissions.png" alt="Facebook Permissions" /></p>
+
+<p><img src="/assets/eip-2255/log_in_with_apple.jpeg" alt="Log in With Apple" /></p>
+
+<p>Many web3 applications today begin their sessions with a series of repetitive requests:</p>
+
+<ul>
+  <li>Reveal your wallet address to this site.</li>
+  <li>Switch to a preferred network.</li>
+  <li>Sign a cryptographic challenge.</li>
+  <li>Grant a token allowance to our contract.</li>
+  <li>Send a transaction to our contract.</li>
+</ul>
+
+<p>Many of these (and possibly all), and many more (like decryption), could be generalized into a set of human-readable permissions prompts on the original sign-in screen, and additional permissions could be requested only as needed:</p>
+
+<p><img src="/assets/eip-2255/permissions.png" alt="Sample prompt screenshot" /></p>
+
+<p>Each of these permissions could be individually rejected, or even <em>attenuated</em>–adjusted to meet the user’s terms (for example, a sign-in request could have a user-added expiration date, and a token allowance could be adjusted by the user when it is requested).</p>
+  
+    <h2 id="specification">
+      
+      
+        <a href="#specification" class="anchor-link"></a> Specification
+      
+      
+    </h2>
+
+<p>The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in RFC 2119.</p>
+
+<p>This proposal adds two new methods to a wallet’s web3 provider API: <code class="language-plaintext highlighter-rouge">wallet_getPermissions</code> and <code class="language-plaintext highlighter-rouge">wallet_requestPermissions</code>.</p>
+  
+    <h3 id="wallet_getpermissions">
+      
+      
+        <a href="#wallet_getpermissions" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_getPermissions</code>
+      
+      
+    </h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">wallet_getPermissions</code> method is used for getting an array of current permissions (empty by default). It takes no parameters and returns an array of <code class="language-plaintext highlighter-rouge">Permission</code> objects.</p>
+  
+    <h4 id="wallet_getpermissions-returns">
+      
+      
+        <a href="#wallet_getpermissions-returns" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_getPermissions</code> Returns
+      
+      
+    </h4>
+
+<p>The format of the returned permissions MUST be an array of <code class="language-plaintext highlighter-rouge">Permission</code> objects, which are defined as follows:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Caveat</span> <span class="p">{</span>
+  <span class="nl">type</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">value</span><span class="p">:</span> <span class="kr">any</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">Permission</span> <span class="p">{</span>
+  <span class="nl">invoker</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">parentCapability</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">caveats</span><span class="p">:</span> <span class="nx">Caveat</span><span class="p">[];</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">invoker</code> is a URI used to identify the source of the current dapp (e.g. <code class="language-plaintext highlighter-rouge">https://your-site.com/</code>). The term <code class="language-plaintext highlighter-rouge">parentCapability</code> refers to the method that is being permitted (e.g. <code class="language-plaintext highlighter-rouge">eth_accounts</code>). The <code class="language-plaintext highlighter-rouge">caveats</code> array represents the specific restrictions applied to the permitted method. The <code class="language-plaintext highlighter-rouge">type</code> of a <code class="language-plaintext highlighter-rouge">Caveat</code> is a string, and the <code class="language-plaintext highlighter-rouge">value</code> is an arbitrary JSON value. The <code class="language-plaintext highlighter-rouge">value</code> of a <code class="language-plaintext highlighter-rouge">Caveat</code> is only meaningful in the context of the <code class="language-plaintext highlighter-rouge">type</code> of the <code class="language-plaintext highlighter-rouge">Caveat</code>.</p>
+  
+    <h3 id="wallet_requestpermissions">
+      
+      
+        <a href="#wallet_requestpermissions" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_requestPermissions</code>
+      
+      
+    </h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">wallet_requestPermissions</code> method is used for an application to request additional permissions. It MUST take a single parameter, a <code class="language-plaintext highlighter-rouge">PermissionRequest</code> object, and MUST return an array of <code class="language-plaintext highlighter-rouge">RequestedPermission</code> objects.</p>
+  
+    <h4 id="wallet_requestpermissions-parameters">
+      
+      
+        <a href="#wallet_requestpermissions-parameters" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_requestPermissions</code> Parameters
+      
+      
+    </h4>
+
+<p>The <code class="language-plaintext highlighter-rouge">wallet_requestPermissions</code> method takes a single parameter, a <code class="language-plaintext highlighter-rouge">PermissionRequest</code> object, which is defined as follows:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">PermissionRequest</span> <span class="p">{</span>
+  <span class="p">[</span><span class="nx">methodName</span><span class="p">:</span> <span class="kr">string</span><span class="p">]:</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nx">caveatName</span><span class="p">:</span> <span class="kr">string</span><span class="p">]:</span> <span class="kr">any</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">methodName</code> is the name of the method for which the permission is being requested (e.g. <code class="language-plaintext highlighter-rouge">eth_accounts</code>). The <code class="language-plaintext highlighter-rouge">caveatName</code> is the name of the caveat being applied to the permission (e.g. <code class="language-plaintext highlighter-rouge">requiredMethods</code>). The caveat value is the value of the caveat (e.g. <code class="language-plaintext highlighter-rouge">["signTypedData_v3"]</code>).</p>
+
+<p>Attempted requests to a restricted method must fail with an error, until a <code class="language-plaintext highlighter-rouge">wallet_requestPermissions</code> request is made and accepted by the user.</p>
+
+<p>If a <code class="language-plaintext highlighter-rouge">wallet_requestPermissions</code> request is rejected, it should throw an error with a <code class="language-plaintext highlighter-rouge">code</code> value equal to <code class="language-plaintext highlighter-rouge">4001</code> as per <a href="/EIPS/eip-1193">EIP-1193</a>.</p>
+  
+    <h4 id="wallet_requestpermissions-returns">
+      
+      
+        <a href="#wallet_requestpermissions-returns" class="anchor-link"></a> <code class="language-plaintext highlighter-rouge">wallet_requestPermissions</code> Returns
+      
+      
+    </h4>
+
+<p>The <code class="language-plaintext highlighter-rouge">wallet_requestPermissions</code> method returns an array of <code class="language-plaintext highlighter-rouge">RequestedPermission</code> objects, which are defined as follows:</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">RequestedPermission</span> <span class="p">{</span>
+  <span class="nl">parentCapability</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">date</span><span class="p">?:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">parentCapability</code> is the name of the method for which the permission is being requested (e.g. <code class="language-plaintext highlighter-rouge">eth_accounts</code>). The <code class="language-plaintext highlighter-rouge">date</code> is the timestamp of the request, in Unix time, and is optional.</p>
+  
+    <h2 id="rationale">
+      
+      
+        <a href="#rationale" class="anchor-link"></a> Rationale
+      
+      
+    </h2>
+
+<p>While the current model of getting user consent on a per-action basis has high security, there are huge usability gains to be had bo getting more general user consent which can cover broad categories of usage, which can be expressed in a more human-readable way. This pattern has a variety of benefits to offer different functions within a web3 wallet.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">requestPermissions</code> method can be expanded to include other options related to the requested permissions, for example, sites could request accounts with specific abilities. For example, a website like an exchange that requires <code class="language-plaintext highlighter-rouge">signTypedData_v3</code> (which is not supported by some hardware wallets), might want to specify that requirement. This would allow wallets to display only compatible accounts, while preserving the user’s privacy and choice regarding how they are storing their keys.</p>
+  
+    <h2 id="test-cases">
+      
+      
+        <a href="#test-cases" class="anchor-link"></a> Test Cases
+      
+      
+    </h2>
+  
+    <h3 id="requesting-permissions">
+      
+      
+        <a href="#requesting-permissions" class="anchor-link"></a> Requesting permissions
+      
+      
+    </h3>
+
+<p>The following example should prompt the user to approve the <code class="language-plaintext highlighter-rouge">eth_accounts</code> permission, and return the permission object if approved.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">provider</span><span class="p">.</span><span class="nx">request</span><span class="p">({</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">requestPermissions</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">params</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="dl">'</span><span class="s1">eth_accounts</span><span class="dl">'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">requiredMethods</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">signTypedData_v3</span><span class="dl">'</span><span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">});</span>
+</code></pre></div></div>
+  
+    <h3 id="getting-permissions">
+      
+      
+        <a href="#getting-permissions" class="anchor-link"></a> Getting permissions
+      
+      
+    </h3>
+
+<p>The following example should return the current permissions object.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">provider</span><span class="p">.</span><span class="nx">request</span><span class="p">({</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">getPermissions</span><span class="dl">'</span>
+<span class="p">});</span>
+</code></pre></div></div>
+  
+    <h2 id="security-considerations">
+      
+      
+        <a href="#security-considerations" class="anchor-link"></a> Security Considerations
+      
+      
+    </h2>
+  
+    <h3 id="server-side-request-forgery-ssrf">
+      
+      
+        <a href="#server-side-request-forgery-ssrf" class="anchor-link"></a> Server-Side Request Forgery (SSRF)
+      
+      
+    </h3>
+
+<p>This consideration is applicable if the favicon of a website is to be displayed.</p>
+
+<p>Wallets should be careful about making arbitrary requests to URLs. As such, it is recommended for wallets to sanitize the URI by whitelisting specific schemes and ports. A vulnerable wallet could be tricked into, for example, modifying data on a locally-hosted redis database.</p>
+  
+    <h2 id="copyright">
+      
+      
+        <a href="#copyright" class="anchor-link"></a> Copyright
+      
+      
+    </h2>
+
+<p>Copyright and related rights waived via <a href="/LICENSE">CC0</a>.</p>
+
+  <h2>Citation</h2>
+  <p>Please cite this document as:</p>
+  
+  <p>Dan Finlay&nbsp;(<a href="https://github.com/danfinlay">@danfinlay</a>), Erik Marks&nbsp;(<a href="https://github.com/rekmarks">@rekmarks</a>), Gavin John&nbsp;(<a href="https://github.com/Pandapip1">@Pandapip1</a>), "EIP-2255: Wallet Permissions System," <em>Ethereum Improvement Proposals</em>, no. 2255, August 2019. Available: https://eips.ethereum.org/EIPS/eip-2255.</p>
+</div>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "TechArticle",
+    "headline": "EIP-2255: Wallet Permissions System",
+    "name": "EIP-2255: Wallet Permissions System",
+    "author": "Dan Finlay (@danfinlay), Erik Marks (@rekmarks), Gavin John (@Pandapip1)",
+    "dateCreated": "2019-08-22",
+    "datePublished": "2019-08-22",
+    
+    "discussionUrl": "https://ethereum-magicians.org/t/web3-login-permissions/3583",
+    
+    "inLanguage": "en-US",
+    "license": "#copyright",
+    "copyrightYear": "2019"
+  }
+</script>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ethereum Improvement Proposals</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Ethereum Improvement Proposals</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ethereum/EIPs"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ethereum/EIPs</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Ethereum Improvement Proposals (EIPs) describe standards for the Ethereum platform, such as core protocol specifications.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

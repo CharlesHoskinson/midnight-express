@@ -1,0 +1,9 @@
+# Ledger, authority, replay and anchor review
+
+Necessary corrections against `recommended-stack-and-use-cases.md`:
+
+1. **Responsibility map visually serializes the anchor after the receiving endpoint.** In `dist/index.html`, the receiving endpoint row leads through “Optional authorized contract effect” to a shared Anchor/Consumer row. This contradicts the source diagram's independent `Bus → Anchor → Authority` branch and the page's correct component detail. Show the anchor branching directly from GossipSub alongside retention and reception; join finalized anchor evidence with authenticated workflow policy at the consumer. If restructuring the map is impractical, explicitly label that branch at its placement and in the map caption so the map cannot imply local processing precedes anchoring.
+
+2. **Delivery card omits the anchored-message binding gate and obscures parallel work.** In `dist/index.html`, phase C currently says “Settlement requires authority and replay proofs.” Replace with “Settlement requires signed authority, atomic replay protection and anchored-message binding.” Also clarify that authorized ledger effects and private carried-event development may proceed alongside coordination work, while their gates must pass before those promises. The source explicitly permits these tracks in parallel; “BUILD IN ORDER” / “Then expand the promise” currently suggests all development must wait for production coordination.
+
+No required changes in `dist/app.js` for this review scope. Its consumer detail identifies CON-043, CON-044 and CON-060; it distinguishes inclusion from availability/delivery/authorization/completion, describes atomic contract effects, and explicitly states that anchoring runs in parallel. The numbered event journey also marks the anchor step as parallel and the contract path as optional.

@@ -1,0 +1,13 @@
+{
+  "id": "cloudevents-core",
+  "url": "https://raw.githubusercontent.com/cloudevents/spec/v1.0.2/cloudevents/spec.md",
+  "resolved_url": "https://raw.githubusercontent.com/cloudevents/spec/v1.0.2/cloudevents/spec.md",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:03:21.214663+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=25)",
+  "raw_path": "cloudevents-core.raw",
+  "text_path": "cloudevents-core.txt",
+  "raw_sha256": "e327435c858d19fd171e4ab9781a01fc22dfa949d23c4220976529ebd16a1aa3",
+  "text_sha256": "a652f8d131a18d51c9497e0e507403d289c866c9e63c2172cc3a4519747c7023",
+  "text_chars": 25524
+}

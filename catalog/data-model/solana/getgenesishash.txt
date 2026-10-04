@@ -1,0 +1,229 @@
+getGenesisHash | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+getAccountInfo
+getAgGenesisCert
+getBalance
+getBlock
+getBlockCommitment
+getBlockHeight
+getBlockProduction
+getBlocks
+getBlocksWithLimit
+getBlockTime
+getClusterNodes
+getEpochInfo
+getEpochSchedule
+getFeeForMessage
+getFirstAvailableBlock
+getGenesisHash
+getHealth
+getHighestSnapshotSlot
+getIdentity
+getInflationGovernor
+getInflationRate
+getInflationReward
+getLargestAccounts
+getLatestBlockhash
+getLeaderSchedule
+getMaxRetransmitSlot
+getMaxShredInsertSlot
+getMinimumBalanceForRentExemption
+getMultipleAccounts
+getProgramAccounts
+getRecentPerformanceSamples
+getRecentPrioritizationFees
+getSignaturesForAddress
+getSignatureStatuses
+getSlot
+getSlotLeader
+getSlotLeaders
+getStakeMinimumDelegation
+getSupply
+getTokenAccountBalance
+getTokenAccountsByDelegate
+getTokenAccountsByOwner
+getTokenLargestAccounts
+getTokenSupply
+getTransaction
+getTransactionCount
+getVersion
+getVoteAccounts
+isBlockhashValid
+minimumLedgerSlot
+requestAirdrop
+sendTransaction
+simulateTransaction
+Websocket Methods
+Removed Methods
+Solana RPC Methods
+HTTP Methods
+getGenesisHash
+Copy Markdown
+Open
+Returns the genesis hash for the connected cluster.
+Source
+get_genesis_hash
+params
+None
+result
+string
+Genesis hash, as a base-58 encoded string.
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"getGenesisHash"
+>
+}
+>
+ '
+Try it
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+:
+"GH7ome3EiwEr7tu9JuTh2dpYWBJK3z69Xm1ZE3MEE6JC"
+,
+"id"
+:
+1
+}
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"getGenesisHash"
+>
+}
+>
+ '
+Try it
+params
+None
+result
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+:
+"GH7ome3EiwEr7tu9JuTh2dpYWBJK3z69Xm1ZE3MEE6JC"
+,
+"id"
+:
+1
+}
+string
+Genesis hash, as a base-58 encoded string.
+Is this page helpful?
+Previous
+getFirstAvailableBlock
+Next
+getHealth
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

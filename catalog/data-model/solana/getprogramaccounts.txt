@@ -1,0 +1,498 @@
+getProgramAccounts | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+getAccountInfo
+getAgGenesisCert
+getBalance
+getBlock
+getBlockCommitment
+getBlockHeight
+getBlockProduction
+getBlocks
+getBlocksWithLimit
+getBlockTime
+getClusterNodes
+getEpochInfo
+getEpochSchedule
+getFeeForMessage
+getFirstAvailableBlock
+getGenesisHash
+getHealth
+getHighestSnapshotSlot
+getIdentity
+getInflationGovernor
+getInflationRate
+getInflationReward
+getLargestAccounts
+getLatestBlockhash
+getLeaderSchedule
+getMaxRetransmitSlot
+getMaxShredInsertSlot
+getMinimumBalanceForRentExemption
+getMultipleAccounts
+getProgramAccounts
+getRecentPerformanceSamples
+getRecentPrioritizationFees
+getSignaturesForAddress
+getSignatureStatuses
+getSlot
+getSlotLeader
+getSlotLeaders
+getStakeMinimumDelegation
+getSupply
+getTokenAccountBalance
+getTokenAccountsByDelegate
+getTokenAccountsByOwner
+getTokenLargestAccounts
+getTokenSupply
+getTransaction
+getTransactionCount
+getVersion
+getVoteAccounts
+isBlockhashValid
+minimumLedgerSlot
+requestAirdrop
+sendTransaction
+simulateTransaction
+Websocket Methods
+Removed Methods
+Solana RPC Methods
+HTTP Methods
+getProgramAccounts
+Copy Markdown
+Open
+Returns accounts owned by the specified program, optionally filtered by data
+content or size.
+Source
+get_program_accounts
+params
+string
+required
+Pubkey of program, as base-58 encoded string
+object
+optional
+Configuration object containing the following fields:
+commitment
+string
+minContextSlot
+number
+withContext
+bool
+encoding
+string
+dataSlice
+object
+filters
+array
+sortResults
+bool
+result
+array
+By default, returns an array of JSON objects. If 
+withContext
+ flag is set, the
+array will be wrapped in an RpcResponse JSON object.
+Each object contains:
+pubkey
+string
+account
+object
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"getProgramAccounts"
+,
+>
+"params"
+: [
+>
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+,
+>
+{
+>
+"commitment"
+:
+"finalized"
+,
+>
+"encoding"
+:
+"base64"
+,
+>
+"filters"
+: [
+>
+{
+"dataSize"
+:
+165
+},
+>
+{
+>
+"memcmp"
+: {
+>
+"offset"
+:
+0
+,
+>
+"bytes"
+:
+"Gh9ZwEmdLJ8DscKNTkTqPbNwLNNBjuSzaG9Vp2KGtKJr"
+>
+}
+>
+},
+>
+{
+>
+"memcmp"
+: {
+>
+"offset"
+:
+32
+,
+>
+"bytes"
+:
+"5wx11hXBHQALycTQNkeQ5w1N9vgup4ardN2yLiDK4JyK"
+>
+}
+>
+}
+>
+],
+>
+"sortResults"
+:
+true
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+: [
+{
+"pubkey"
+:
+"CxELquR1gPP8wHe33gZ4QxqGB3sZ9RSwsJ2KshVewkFY"
+,
+"account"
+: {
+"data"
+: [
+"KgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+,
+"base64"
+],
+"executable"
+:
+false
+,
+"lamports"
+:
+15298080
+,
+"owner"
+:
+"4Nd1mBQtrMJVYVfKf2PJy9NZUZdTAsp7D4xWLs4gDB4T"
+,
+"rentEpoch"
+:
+28
+,
+"space"
+:
+42
+}
+}
+],
+"id"
+:
+1
+}
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+1
+,
+>
+"method"
+:
+"getProgramAccounts"
+,
+>
+"params"
+: [
+>
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+,
+>
+{
+>
+"commitment"
+:
+"finalized"
+,
+>
+"encoding"
+:
+"base64"
+,
+>
+"filters"
+: [
+>
+{
+"dataSize"
+:
+165
+},
+>
+{
+>
+"memcmp"
+: {
+>
+"offset"
+:
+0
+,
+>
+"bytes"
+:
+"Gh9ZwEmdLJ8DscKNTkTqPbNwLNNBjuSzaG9Vp2KGtKJr"
+>
+}
+>
+},
+>
+{
+>
+"memcmp"
+: {
+>
+"offset"
+:
+32
+,
+>
+"bytes"
+:
+"5wx11hXBHQALycTQNkeQ5w1N9vgup4ardN2yLiDK4JyK"
+>
+}
+>
+}
+>
+],
+>
+"sortResults"
+:
+true
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+params
+string
+required
+Pubkey of program, as base-58 encoded string
+object
+optional
+Configuration object containing the following fields:
+commitment
+string
+minContextSlot
+number
+withContext
+bool
+encoding
+string
+dataSlice
+object
+filters
+array
+sortResults
+bool
+result
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+: [
+{
+"pubkey"
+:
+"CxELquR1gPP8wHe33gZ4QxqGB3sZ9RSwsJ2KshVewkFY"
+,
+"account"
+: {
+"data"
+: [
+"KgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+,
+"base64"
+],
+"executable"
+:
+false
+,
+"lamports"
+:
+15298080
+,
+"owner"
+:
+"4Nd1mBQtrMJVYVfKf2PJy9NZUZdTAsp7D4xWLs4gDB4T"
+,
+"rentEpoch"
+:
+28
+,
+"space"
+:
+42
+}
+}
+],
+"id"
+:
+1
+}
+array
+By default, returns an array of JSON objects. If 
+withContext
+ flag is set, the
+array will be wrapped in an RpcResponse JSON object.
+Each object contains:
+pubkey
+string
+account
+object
+Is this page helpful?
+Previous
+getMultipleAccounts
+Next
+getRecentPerformanceSamples
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

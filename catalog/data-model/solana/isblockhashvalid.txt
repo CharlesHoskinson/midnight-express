@@ -1,0 +1,313 @@
+isBlockhashValid | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+getAccountInfo
+getAgGenesisCert
+getBalance
+getBlock
+getBlockCommitment
+getBlockHeight
+getBlockProduction
+getBlocks
+getBlocksWithLimit
+getBlockTime
+getClusterNodes
+getEpochInfo
+getEpochSchedule
+getFeeForMessage
+getFirstAvailableBlock
+getGenesisHash
+getHealth
+getHighestSnapshotSlot
+getIdentity
+getInflationGovernor
+getInflationRate
+getInflationReward
+getLargestAccounts
+getLatestBlockhash
+getLeaderSchedule
+getMaxRetransmitSlot
+getMaxShredInsertSlot
+getMinimumBalanceForRentExemption
+getMultipleAccounts
+getProgramAccounts
+getRecentPerformanceSamples
+getRecentPrioritizationFees
+getSignaturesForAddress
+getSignatureStatuses
+getSlot
+getSlotLeader
+getSlotLeaders
+getStakeMinimumDelegation
+getSupply
+getTokenAccountBalance
+getTokenAccountsByDelegate
+getTokenAccountsByOwner
+getTokenLargestAccounts
+getTokenSupply
+getTransaction
+getTransactionCount
+getVersion
+getVoteAccounts
+isBlockhashValid
+minimumLedgerSlot
+requestAirdrop
+sendTransaction
+simulateTransaction
+Websocket Methods
+Removed Methods
+Solana RPC Methods
+HTTP Methods
+isBlockhashValid
+Copy Markdown
+Open
+Returns whether a blockhash is still valid at the requested commitment.
+Source
+is_blockhash_valid
+params
+string
+required
+The blockhash of the block to evaluate, as base-58 encoded string
+object
+optional
+Configuration object containing the following fields:
+commitment
+string
+minContextSlot
+number
+result
+object
+RpcResponse object containing:
+context
+object
+value
+bool
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+45
+,
+>
+"method"
+:
+"isBlockhashValid"
+,
+>
+"params"
+: [
+>
+"J7rBdM6AecPDEZp8aPq5iPSNKVkU5Q76F3oAV4eW5wsW"
+,
+>
+{
+>
+"commitment"
+:
+"processed"
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+: {
+"context"
+: {
+"apiVersion"
+:
+"3.1.8"
+,
+"slot"
+:
+2483
+},
+"value"
+:
+false
+},
+"id"
+:
+45
+}
+cURL
+Kit
+web3.js
+Rust
+$
+ curl 
+https://api.devnet.solana.com
+ -s -X \
+
+>
+   POST -H "Content-Type: application/json" -d ' 
+
+>
+{
+>
+"jsonrpc"
+:
+"2.0"
+,
+>
+"id"
+:
+45
+,
+>
+"method"
+:
+"isBlockhashValid"
+,
+>
+"params"
+: [
+>
+"J7rBdM6AecPDEZp8aPq5iPSNKVkU5Q76F3oAV4eW5wsW"
+,
+>
+{
+>
+"commitment"
+:
+"processed"
+>
+}
+>
+]
+>
+}
+>
+ '
+Try it
+params
+string
+required
+The blockhash of the block to evaluate, as base-58 encoded string
+object
+optional
+Configuration object containing the following fields:
+commitment
+string
+minContextSlot
+number
+result
+Response
+{
+"jsonrpc"
+:
+"2.0"
+,
+"result"
+: {
+"context"
+: {
+"apiVersion"
+:
+"3.1.8"
+,
+"slot"
+:
+2483
+},
+"value"
+:
+false
+},
+"id"
+:
+45
+}
+object
+RpcResponse object containing:
+context
+object
+value
+bool
+Is this page helpful?
+Previous
+getVoteAccounts
+Next
+minimumLedgerSlot
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

@@ -1,0 +1,266 @@
+{
+  "collected_at_utc": "2026-10-04T05:04:06.173269+00:00",
+  "sources": [
+    {
+      "id": "cdm-product",
+      "url": "https://cdm.finos.org/docs/product-model/",
+      "requested_at_utc": "2026-10-04T05:04:01.299454+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "status": 200,
+      "text_path": "cdm-product.txt",
+      "sha256": "86852ba46129fd11d4ab5b976e4ad86567075c36ac1e5062ccfe31b695ef2b21",
+      "bytes": 48951,
+      "usable": true
+    },
+    {
+      "id": "cdm-pretrade",
+      "url": "https://cdm.finos.org/docs/pre-trade-processing/",
+      "requested_at_utc": "2026-10-04T05:04:01.300120+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "status": 200,
+      "text_path": "cdm-pretrade.txt",
+      "sha256": "4d9db9f5d927b2a0771237e82f11331134b762b68699c10fd5adaaef076cf129",
+      "bytes": 27844,
+      "usable": true
+    },
+    {
+      "id": "cdm-namespace",
+      "url": "https://cdm.finos.org/docs/namespace/",
+      "requested_at_utc": "2026-10-04T05:04:01.300467+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "status": 200,
+      "text_path": "cdm-namespace.txt",
+      "sha256": "d1558c5c2f5e1136568ef61adf72c474ccf6e52dbf7fc4a170ec17f86c2e2ada",
+      "bytes": 4716,
+      "usable": true
+    },
+    {
+      "id": "cdm-readme",
+      "url": "https://raw.githubusercontent.com/finos/common-domain-model/master/README.md",
+      "requested_at_utc": "2026-10-04T05:04:01.300721+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "status": 200,
+      "text_path": "cdm-readme.txt",
+      "sha256": "9f4fa2a6b320ca64d5af7e7ffe92b234bad45a35baa842d89d6ccf740d5c4a92",
+      "bytes": 19084,
+      "usable": true
+    },
+    {
+      "id": "cdm-license",
+      "url": "https://raw.githubusercontent.com/finos/common-domain-model/master/LICENSE.md",
+      "requested_at_utc": "2026-10-04T05:04:01.300875+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "status": 200,
+      "text_path": "cdm-license.txt",
+      "sha256": "edbf99eb78c11a79ec3f4f669746877cbc9182e8c13699adff4369717c96de21",
+      "bytes": 16142,
+      "usable": true
+    },
+    {
+      "id": "cdm-model-common",
+      "url": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-common.rosetta",
+      "requested_at_utc": "2026-10-04T05:04:02.287874+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "status": 404,
+      "text_path": "cdm-model-common.txt",
+      "sha256": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed",
+      "bytes": 14,
+      "usable": false
+    },
+    {
+      "id": "fpml-standard",
+      "url": "https://www.fpml.org/the_standard/",
+      "requested_at_utc": "2026-10-04T05:04:02.292328+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "status": 200,
+      "text_path": "fpml-standard.txt",
+      "sha256": "89b2889d775f092620099c0d7722493e40bbfb099171931ba2ee462ea9793ecc",
+      "bytes": 7542,
+      "usable": true
+    },
+    {
+      "id": "fpml-expiry",
+      "url": "https://www.fpml.org/spec/fpml-5-12-4-rec-1/html/pretrade/schemaDocumentation/schemas/fpml-asset-5-12_xsd/groups/QuotationCharacteristics.model/expiryTime.html",
+      "requested_at_utc": "2026-10-04T05:04:02.378784+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "status": 200,
+      "text_path": "fpml-expiry.txt",
+      "sha256": "01c9b415bc9ba0bd22b61b9c586620e68c43742ef8aeba97194af9852932d9cf",
+      "bytes": 903,
+      "usable": true
+    },
+    {
+      "id": "fpml-pretrade",
+      "url": "https://www.fpml.org/spec/fpml-5-13-5-rec-2/html/pretrade/fpml-5-13-intro-2.html",
+      "requested_at_utc": "2026-10-04T05:04:02.378980+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "status": 404,
+      "text_path": "fpml-pretrade.txt",
+      "sha256": "c3df39a88073e92c88db5dc8997e7d273c0f4092ea5612251152d84a060c8619",
+      "bytes": 5575,
+      "usable": false
+    },
+    {
+      "id": "fix-implementation",
+      "url": "https://dev.fixtrading.org/implementation-guide/",
+      "requested_at_utc": "2026-10-04T05:04:02.610718+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "usable": false,
+      "error": "Failed to perform, curl: (6) Could not resolve host: dev.fixtrading.org. See https://curl.se/libcurl/c/libcurl-errors.html first for more details."
+    },
+    {
+      "id": "fix-sbe-encoding",
+      "url": "https://raw.githubusercontent.com/FIXTradingCommunity/fix-simple-binary-encoding/master/v2-0-RC1/doc/02FieldEncoding.md",
+      "requested_at_utc": "2026-10-04T05:04:03.199126+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "status": 200,
+      "text_path": "fix-sbe-encoding.txt",
+      "sha256": "fb806ad54c478aa162a9b2ad21ee683054086907f3db1658468e88f46779c882",
+      "bytes": 61816,
+      "usable": true
+    },
+    {
+      "id": "iso-business-model",
+      "url": "https://www.iso20022.org/iso20022-repository/business-model",
+      "requested_at_utc": "2026-10-04T05:04:03.443184+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "status": 200,
+      "text_path": "iso-business-model.txt",
+      "sha256": "9d03b6f3f06a3dafc23d0f787edfc0f95ff20d0a3487208b3e9ba2e8e041832c",
+      "bytes": 9100,
+      "usable": true
+    },
+    {
+      "id": "iso-dictionary",
+      "url": "https://www.iso20022.org/understanding-data-dictionary",
+      "requested_at_utc": "2026-10-04T05:04:04.076405+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "status": 200,
+      "text_path": "iso-dictionary.txt",
+      "sha256": "357c60a50083dac1f9a092729f4b56a9bb61161c2868adc6687fe3b89866b482",
+      "bytes": 15892,
+      "usable": true
+    },
+    {
+      "id": "ubl-invoice",
+      "url": "https://docs.oasis-open.org/ubl/os-UBL-2.3/mod/summary/reports/UBL-Invoice-2.3.html",
+      "requested_at_utc": "2026-10-04T05:04:04.119141+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "status": 200,
+      "text_path": "ubl-invoice.txt",
+      "sha256": "36563ca831ef5b95fb8e96ad2d17d0594d407e1e2986c8712aeb068e018b083f",
+      "bytes": 598696,
+      "usable": true
+    },
+    {
+      "id": "cdm-model-common-correct",
+      "url": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-common-type.rosetta",
+      "requested_at_utc": "2026-10-04T05:04:59.756146+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "status": 200,
+      "text_path": "cdm-model-common-correct.txt",
+      "sha256": "145751ea7a96971775476b23952309f7dba26d1343ce927500f74d898884e541",
+      "bytes": 58,
+      "usable": false
+    },
+    {
+      "id": "cdm-model-math",
+      "url": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-math-type.rosetta",
+      "requested_at_utc": "2026-10-04T05:05:00.670027+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "status": 200,
+      "text_path": "cdm-model-math.txt",
+      "sha256": "7f63e590725e3a9c069cf1229fb9369c30ede17389625d8541701ada7e7984d7",
+      "bytes": 10987,
+      "usable": true
+    },
+    {
+      "id": "fix-quoterequest",
+      "url": "https://fiximate.fixtrading.org/legacy/en/FIX.4.2/body_505482.html?find=Side",
+      "requested_at_utc": "2026-10-04T05:05:01.610406+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "status": 200,
+      "text_path": "fix-quoterequest.txt",
+      "sha256": "60983aedca7d9c1f1bd7d5b12ffa001fca17817ce06ce8be245ff17c01ed5de4",
+      "bytes": 907,
+      "usable": true
+    },
+    {
+      "id": "fix-quote",
+      "url": "https://fiximate.fixtrading.org/legacy/en/FIX.4.4/body_505583.html",
+      "requested_at_utc": "2026-10-04T05:05:04.093994+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "status": 200,
+      "text_path": "fix-quote.txt",
+      "sha256": "891730947e7d3390c4f581323406be2551defde1c9ad7cc3e45de595529be6e1",
+      "bytes": 7008,
+      "usable": true
+    },
+    {
+      "id": "fix-introduction",
+      "url": "https://www.fixtrading.org/online-specification/introduction/",
+      "requested_at_utc": "2026-10-04T05:05:06.383475+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "status": 202,
+      "text_path": "fix-introduction.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "usable": false
+    },
+    {
+      "id": "fpml-pretrade-legacy",
+      "url": "https://www.fpml.org/spec/fpml-4-4-12-rec-1/html/fpml-4-4-intro.html",
+      "requested_at_utc": "2026-10-04T05:05:07.990172+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "status": 200,
+      "text_path": "fpml-pretrade-legacy.txt",
+      "sha256": "af22c14ad4acc1a9316f1be95e5d32c1e7ce418a131f6beb95e3e861785d41f4",
+      "bytes": 539905,
+      "usable": true
+    },
+    {
+      "id": "cdm-commit",
+      "url": "https://api.github.com/repos/finos/common-domain-model/commits/master",
+      "requested_at_utc": "2026-10-04T05:05:10.229666+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "status": 200,
+      "text_path": "cdm-commit.txt",
+      "sha256": "df1fe2263de0feb358c6cb3ee049befdea1cf39fe5675173f24e5fdcc8df1011",
+      "bytes": 7137,
+      "usable": true
+    },
+    {
+      "id": "cdm-observable-pinned",
+      "url": "https://raw.githubusercontent.com/finos/common-domain-model/9e036949e273a2f29a6a40aa222c5dd33c39b3ad/rosetta-source/src/main/rosetta/observable-asset-type.rosetta",
+      "status": 200,
+      "requested_at_utc": "2026-10-04T05:06:09.770817+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "text_path": "cdm-observable-pinned.txt",
+      "bytes": 46434,
+      "sha256": "806777ddb6393579bb0b66f5d15b26bc280ee120e447aa535a49bc4a077ebe64",
+      "usable": true
+    },
+    {
+      "id": "cdm-settlement-pinned",
+      "url": "https://raw.githubusercontent.com/finos/common-domain-model/9e036949e273a2f29a6a40aa222c5dd33c39b3ad/rosetta-source/src/main/rosetta/product-common-settlement-type.rosetta",
+      "status": 200,
+      "requested_at_utc": "2026-10-04T05:06:10.603092+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "text_path": "cdm-settlement-pinned.txt",
+      "bytes": 52448,
+      "sha256": "fd0723d2512095c186eca1dbc911b69f2f8adf24cc44db1639f1455199168a7b",
+      "usable": true
+    },
+    {
+      "id": "cdm-math-pinned",
+      "url": "https://raw.githubusercontent.com/finos/common-domain-model/9e036949e273a2f29a6a40aa222c5dd33c39b3ad/rosetta-source/src/main/rosetta/base-math-type.rosetta",
+      "status": 200,
+      "requested_at_utc": "2026-10-04T05:06:11.669056+00:00",
+      "fetcher": "Scrapling Fetcher.get(url, timeout=25)",
+      "text_path": "cdm-math-pinned.txt",
+      "bytes": 10987,
+      "sha256": "7f63e590725e3a9c069cf1229fb9369c30ede17389625d8541701ada7e7984d7",
+      "usable": true
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "gettokenaccountbalance",
+  "url": "https://solana.com/docs/rpc/http/gettokenaccountbalance",
+  "resolved_url": "https://solana.com/docs/rpc/http/gettokenaccountbalance",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:55.004426+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "gettokenaccountbalance.raw",
+  "text_path": "gettokenaccountbalance.txt",
+  "raw_sha256": "4fd0b293d75aefd5b10737b9110253164d50a8b549f13bb07c9a73967eb125df",
+  "text_sha256": "5904b5868c7b91f43002528912959a8abc97b17422af4615f66872b631087b5b",
+  "text_chars": 3416,
+  "evidence_usable": true
+}

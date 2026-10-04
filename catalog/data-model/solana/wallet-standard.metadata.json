@@ -1,0 +1,14 @@
+{
+  "id": "wallet-standard",
+  "url": "https://raw.githubusercontent.com/wallet-standard/wallet-standard/master/extensions/solana.md",
+  "resolved_url": "https://raw.githubusercontent.com/wallet-standard/wallet-standard/master/extensions/solana.md",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:52.806253+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "wallet-standard.raw",
+  "text_path": "wallet-standard.txt",
+  "raw_sha256": "e6519afb71904cf9b182d3ae058dff9a9a03d473552892fcc9f7338e9c9bb275",
+  "text_sha256": "e6519afb71904cf9b182d3ae058dff9a9a03d473552892fcc9f7338e9c9bb275",
+  "text_chars": 432,
+  "evidence_usable": true
+}

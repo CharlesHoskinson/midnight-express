@@ -1,0 +1,14 @@
+{
+  "id": "wallet-signers",
+  "url": "https://raw.githubusercontent.com/anza-xyz/wallet-adapter/master/packages/core/base/src/signer.ts",
+  "resolved_url": "https://raw.githubusercontent.com/anza-xyz/wallet-adapter/master/packages/core/base/src/signer.ts",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:26:49.800055+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "wallet-signers.raw",
+  "text_path": "wallet-signers.txt",
+  "raw_sha256": "f77914c05aa361cbccb35cd15c8beb5269488f0a53cad0e23c9b42b5d630dacc",
+  "text_sha256": "fb48523ef20a8186e2687e8d13d45f134154035be2e84886b6edc9223c5443e7",
+  "text_chars": 5350,
+  "evidence_usable": true
+}

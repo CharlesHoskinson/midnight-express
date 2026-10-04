@@ -1,0 +1,566 @@
+GitHub - semaphore-protocol/semaphore-rs: Semaphore v4 implemented in Rust · GitHub
+Skip to content
+Navigation Menu
+Sign in
+Appearance settings
+Platform
+AI CODE CREATION
+GitHub Copilot
+Write better code with AI
+GitHub Copilot app
+Direct agents from issue to merge
+MCP Registry
+Integrate external tools
+DEVELOPER WORKFLOWS
+Actions
+Automate any workflow
+Codespaces
+Instant dev environments
+Issues
+Plan and track work
+Code Review
+Manage code changes
+Code Quality
+Enforce quality at merge
+APPLICATION SECURITY
+GitHub Advanced Security
+Find and fix vulnerabilities
+Code security
+Secure your code as you build
+Secret protection
+Stop leaks before they start
+EXPLORE
+Why GitHub
+Documentation
+Blog
+Changelog
+Marketplace
+View all features
+Solutions
+BY COMPANY SIZE
+Enterprises
+Small and medium teams
+Startups
+Nonprofits
+BY USE CASE
+App Modernization
+DevSecOps
+DevOps
+CI/CD
+View all use cases
+BY INDUSTRY
+Healthcare
+Financial services
+Manufacturing
+Government
+View all industries
+View all solutions
+Resources
+EXPLORE BY TOPIC
+AI
+Software Development
+DevOps
+Security
+View all topics
+EXPLORE BY TYPE
+Customer stories
+Events & webinars
+Ebooks & reports
+Business insights
+GitHub Skills
+SUPPORT & SERVICES
+Documentation
+Customer support
+Community forum
+Trust center
+Partners
+View all resources
+Open Source
+COMMUNITY
+GitHub Sponsors
+Fund open source developers
+PROGRAMS
+Security Lab
+Maintainer Community
+GitHub Stars
+Archive Program
+REPOSITORIES
+Topics
+Trending
+Collections
+Enterprise
+ENTERPRISE SOLUTIONS
+Enterprise platform
+AI-powered developer platform
+AVAILABLE ADD-ONS
+GitHub Advanced Security
+Enterprise-grade security features
+Copilot for Business
+Enterprise-grade AI features
+Premium Support
+Enterprise-grade 24/7 support
+Pricing
+Search
+/
+Sign in
+Sign up
+Appearance settings
+You signed in with another tab or window.
+Reload
+ to refresh your session.
+You signed out in another tab or window.
+Reload
+ to refresh your session.
+You switched accounts on another tab or window.
+Reload
+ to refresh your session.
+Dismiss alert
+{{ message }}
+
+        semaphore-protocol
+
+/
+semaphore-rs
+Public
+Notifications
+
+You must be signed in to change notification settings
+Fork
+
+2
+
+          Star
+
+11
+Code
+Issues
+1
+Pull requests
+0
+Actions
+Projects
+Security and quality
+0
+Insights
+Additional navigation options
+
+          Code
+
+          Issues
+
+          Pull requests
+
+          Actions
+
+          Projects
+
+          Security and quality
+
+          Insights
+
+main
+Branches
+Tags
+Go to file
+Code
+Open more actions menu
+Latest commit
+History
+62 Commits
+62 Commits
+Folders and files
+Name
+Name
+Last commit message
+Last commit date
+.github
+.github
+script
+script
+src
+src
+tests
+tests
+witness_graph
+witness_graph
+.gitignore
+.gitignore
+CODE_OF_CONDUCT.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+CONTRIBUTING.md
+Cargo.lock
+Cargo.lock
+Cargo.toml
+Cargo.toml
+LICENSE
+LICENSE
+README.md
+README.md
+View all files
+Repository files navigation
+README
+Code of conduct
+Contributing
+MIT license
+More
+ items
+Rust
+
+            👥 Contributing
+
+  |
+
+            🤝 Code of conduct
+
+  |
+
+            🔎 Issues
+
+  |
+
+            🗣️ Chat & Support
+
+Semaphore is a generic privacy layer. Leveraging zero-knowledge technology, users can prove their membership in groups and send messages (extending from votes to endorsements) off-chain or across EVM-compatible blockchains, all without revealing their personal identity.
+Semaphore Rust board
+All tasks related to the Semaphore Rust implementation are public. You can track their progress, statuses, and additional details in the
+Semaphore Rust view
+.
+Semaphore Rust Package
+🛠 Install
+Add this to your
+Cargo.toml
+:
+[
+dependencies
+]
+
+semaphore-protocol
+ =
+"
+0.1
+"
+📜 Usage
+Semaphore Identity
+Generate a semaphore identity from a string
+
+use
+ semaphore
+::
+identity
+::
+Identity
+;
+let
+ identity =
+Identity
+::
+new
+(
+"secret"
+.
+as_bytes
+(
+)
+)
+;
+Get the identity commitment
+
+identity
+.
+commitment
+(
+)
+Get the identity private key
+
+identity
+.
+private_key
+(
+)
+Semaphore Group
+Generate a group member from an identity
+use
+ semaphore
+::
+utils
+::
+to_element
+;
+let
+ member =
+to_element
+(
+*
+identity
+.
+commitment
+(
+)
+)
+Generate a semaphore group from members
+use
+ semaphore
+::
+group
+::
+{
+Element
+,
+Group
+}
+;
+const
+MEMBER1
+:
+Element
+ =
+[
+1
+;
+32
+]
+;
+const
+MEMBER2
+:
+Element
+ =
+[
+2
+;
+32
+]
+;
+let
+ group =
+Group
+::
+new
+(
+&
+[
+MEMBER1
+,
+MEMBER2
+,
+to_element
+(
+*
+identity
+.
+commitment
+(
+)
+)
+]
+)
+.
+unwrap
+(
+)
+;
+Get the group root
+let
+ root = group
+.
+root
+(
+)
+;
+Semaphore Proof
+Generate a semaphore proof
+use
+ semaphore
+::
+proof
+::
+GroupOrMerkleProof
+;
+use
+ semaphore
+::
+proof
+::
+Proof
+;
+let
+ message =
+"message"
+;
+let
+ scope =
+"scope"
+;
+let
+ tree_depth =
+20
+;
+let
+ proof =
+Proof
+::
+generate_proof
+(
+
+    identity
+,
+GroupOrMerkleProof
+::
+Group
+(
+group
+)
+,
+
+    message
+.
+to_string
+(
+)
+,
+
+    scope
+.
+to_string
+(
+)
+,
+
+    tree_depth
+as
+u16
+,
+)
+.
+unwrap
+(
+)
+;
+Verify a semaphore proof
+let
+ valid =
+Proof
+::
+verify_proof
+(
+proof
+)
+;
+Serde
+Please enable the feature in the
+Cargo.toml
+semaphore-rs
+ = {
+version
+ =
+"
+0.1
+"
+,
+features
+ = [
+"
+serde
+"
+] }
+Serialize a semaphore proof
+let
+ proof_json = proof
+.
+export
+(
+)
+.
+unwrap
+(
+)
+;
+Deserialize a semaphore proof
+use
+ semaphore
+::
+proof
+::
+SemaphoreProof
+;
+let
+ proof_imported =
+SemaphoreProof
+::
+import
+(
+&
+proof_json
+)
+.
+unwrap
+(
+)
+;
+Development
+🛠 Install
+Clone this repository:
+git clone https://github.com/semaphore-protocol/semaphore-rs
+📜 Usage
+Code quality and formatting
+Run
+Rustfmt
+ to automatically format the code
+cargo fmt --all
+Run
+rust-clippy
+ to catch common mistakes and improve your Rust code.
+cargo clippy
+Testing
+cargo
+test
+Update
+witness_graph
+ with
+circom-witnesscalc
+./script build_witness_graph.sh
+About
+Semaphore v4 implemented in Rust
+Resources
+Readme
+MIT license
+Code of conduct
+Code of conduct
+Contributing
+Contributing
+Activity
+Custom properties
+Stars
+11
+ stars
+Watchers
+3
+ watching
+Forks
+2
+ forks
+Report repository
+Releases
+Packages
+Used by
+Contributors
+Languages
+Footer
+
+        © 2026 GitHub, Inc.
+
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+
+      Manage cookies
+
+        Do not share my personal information
+
+    You can’t perform that action at this time.

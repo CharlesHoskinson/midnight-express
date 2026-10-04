@@ -1,0 +1,17 @@
+{
+  "profile": "rfq.v0.1",
+  "version": "0.1",
+  "status": "experimental-model-only",
+  "owner": "MPE model maintainers (proposed)",
+  "schema": "schemas/rfq.v0.1.json",
+  "role": "dealer",
+  "resources": {
+    "schemas/rfq.v0.1.json": "sha256:c97a786811b8aeac4e5c271f1474db4a44d08fd43ef65177860f4bee3fe9b6d5",
+    "profiles/rules.json": "sha256:f6c791654167f3bdb2875a18f336327f7a64b4ecc90f0aaf7a002c92ed205809",
+    "validator.py": "sha256:82d147699eae68a8fa2be9a8a31bd29f75a59f512b59d15b0fe43b642340ac20"
+  },
+  "core": "private-structured-cloudevents-compatible-v0.1",
+  "workflow": "rfq.v0.1",
+  "signatures": "unsigned; no cryptographic authority implemented",
+  "compatibility": "exact local digest only; no adapters"
+}

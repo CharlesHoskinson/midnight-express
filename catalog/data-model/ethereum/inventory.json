@@ -1,0 +1,204 @@
+{
+  "status": "proposed-inventory-only",
+  "implemented_profiles": [],
+  "document": "docs/product-requirements/ethereum-application-domain.md",
+  "as_of": "2026-10-03",
+  "design_supported_families": [
+    {
+      "family": "rpc.request-result",
+      "messages": [
+        "web3_clientVersion",
+        "net_version",
+        "net_listening",
+        "net_peerCount",
+        "eth_chainId",
+        "eth_syncing",
+        "eth_blockNumber",
+        "eth_accounts"
+      ],
+      "boundary": "Endpoint and chain/session-scoped request/result/error; no authority"
+    },
+    {
+      "family": "block.observation",
+      "messages": [
+        "eth_getBlockByHash",
+        "eth_getBlockByNumber",
+        "eth_getBlockTransactionCountByHash",
+        "eth_getBlockTransactionCountByNumber",
+        "eth_getBlockReceipts"
+      ],
+      "boundary": "Hash/parent/height and bounded body projection; optional method capability checked"
+    },
+    {
+      "family": "transaction.observation",
+      "messages": [
+        "eth_getTransactionByHash",
+        "eth_getTransactionByBlockHashAndIndex",
+        "eth_getTransactionByBlockNumberAndIndex",
+        "eth_getTransactionReceipt"
+      ],
+      "boundary": "Null distinct from failed; pending/included/receipt EVM status distinct from finality"
+    },
+    {
+      "family": "state.observation",
+      "messages": [
+        "eth_getBalance",
+        "eth_getTransactionCount",
+        "eth_getCode",
+        "eth_getStorageAt",
+        "eth_getProof"
+      ],
+      "boundary": "Subject and concrete state reference; proof verification not implemented"
+    },
+    {
+      "family": "simulation.fee",
+      "messages": [
+        "eth_call",
+        "eth_estimateGas",
+        "eth_gasPrice",
+        "eth_maxPriorityFeePerGas",
+        "eth_feeHistory",
+        "eth_createAccessList"
+      ],
+      "boundary": "Inputs/state/revert/gas/caps; no permission or inclusion"
+    },
+    {
+      "family": "broadcast.sign",
+      "messages": [
+        "eth_sendRawTransaction",
+        "eth_sendTransaction",
+        "eth_sign",
+        "personal_sign",
+        "eth_signTypedData",
+        "eth_signTypedData_v3",
+        "eth_signTypedData_v4"
+      ],
+      "boundary": "Separate proposal/signature/broadcast results; vendor codecs pinned"
+    },
+    {
+      "family": "filter.subscription",
+      "messages": [
+        "eth_getLogs",
+        "eth_newFilter",
+        "eth_newBlockFilter",
+        "eth_newPendingTransactionFilter",
+        "eth_getFilterChanges",
+        "eth_getFilterLogs",
+        "eth_uninstallFilter",
+        "eth_subscribe",
+        "eth_unsubscribe",
+        "eth_subscription"
+      ],
+      "boundary": "Connection/filter scoped IDs, reorg removals and reconnect reconciliation"
+    },
+    {
+      "family": "wallet.provider",
+      "messages": [
+        "connect",
+        "disconnect",
+        "accountsChanged",
+        "chainChanged",
+        "message",
+        "wallet_getPermissions",
+        "wallet_requestPermissions",
+        "wallet_addEthereumChain",
+        "wallet_switchEthereumChain"
+      ],
+      "boundary": "Session/permission claims; explicit version/caveats; refresh account and chain"
+    },
+    {
+      "family": "token.erc20",
+      "messages": [
+        "Transfer(address,address,uint256)",
+        "Approval(address,address,uint256)"
+      ],
+      "boundary": "Indexed layout plus emitter identity and pinned ABI; base units not display decimals"
+    },
+    {
+      "family": "token.erc721",
+      "messages": [
+        "Transfer(address,address,uint256)",
+        "Approval(address,address,uint256)",
+        "ApprovalForAll(address,address,bool)"
+      ],
+      "boundary": "Token IDs not amounts; topic layout differs from ERC20"
+    },
+    {
+      "family": "token.erc1155",
+      "messages": [
+        "TransferSingle(address,address,address,uint256,uint256)",
+        "TransferBatch(address,address,address,uint256[],uint256[])",
+        "ApprovalForAll(address,address,bool)",
+        "URI(string,uint256)"
+      ],
+      "boundary": "Paired ID/value arrays; bounded chunks preserve original digest/order"
+    },
+    {
+      "family": "application.protocol-specific",
+      "messages": [
+        "swap",
+        "liquidity",
+        "lending",
+        "staking",
+        "oracle",
+        "governance",
+        "bridge-origin",
+        "bridge-relay",
+        "bridge-destination"
+      ],
+      "boundary": "No universal ABI; network/deployment/version/proof and interpretation contracts required"
+    }
+  ],
+  "subscriptions": [
+    "newHeads",
+    "logs",
+    "newPendingTransactions",
+    "syncing"
+  ],
+  "native_vs_inferred": {
+    "native_observations": [
+      "pending-source-view",
+      "included-receipt",
+      "receipt-status",
+      "log-removed",
+      "safe-head-source-view",
+      "finalized-head-source-view"
+    ],
+    "inferred_policy_required": [
+      "replacement",
+      "dropped",
+      "canonical-ancestry",
+      "economic-outcome",
+      "bridge-completion",
+      "current-authorization"
+    ]
+  },
+  "deferred": [
+    "debug/trace/txpool/admin/personal and Engine API",
+    "legacy mining and uncle queries",
+    "complete ABI universe and arbitrary DeFi economics",
+    "ERC4337/ERC7769 UserOperations",
+    "EIP5792 batch calls/status",
+    "permits/delegations and contract-wallet signature verification",
+    "rollup/bridge consensus proof verification",
+    "runtime schemas/adapters and effect execution"
+  ],
+  "primitives": {
+    "quantity": "minimal unsigned RPC hex -> bounded exact unsigned decimal string; zero allowed",
+    "data": "even-length 0x byte hex",
+    "address_bytes": 20,
+    "hash_bytes": 32,
+    "chain_id": "exact integer string plus approved genesis/checkpoint binding",
+    "native_amount_unit": "wei",
+    "gas_price_unit": "wei/gas",
+    "token_amount": "uint256 base units plus network/contract/standard",
+    "token_id": "uint256 identifier",
+    "state_reference": "concrete block hash/height or explicit pending view",
+    "log_location": [
+      "network",
+      "blockHash",
+      "transactionHash",
+      "logIndex"
+    ]
+  }
+}

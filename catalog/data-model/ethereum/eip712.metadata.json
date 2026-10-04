@@ -1,0 +1,13 @@
+{
+  "id": "eip712",
+  "url": "https://eips.ethereum.org/EIPS/eip-712",
+  "resolved_url": "https://eips.ethereum.org/EIPS/eip-712",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:48.320167+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "eip712.raw",
+  "text_path": "eip712.txt",
+  "raw_sha256": "0951c36c432c48e281bd131331bdd5f4426706417e0d38fa3e667c0b7f84a530",
+  "text_sha256": "750e7ba18ce57634ea46b9ff2f96fb314b6c4f9040eebf9a1f11a63051890aa5",
+  "text_chars": 22919
+}

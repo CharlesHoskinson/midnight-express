@@ -1,0 +1,115 @@
+{
+  "status": "synthetic-read-only",
+  "ethereum": {
+    "receipt": {
+      "status": "0x1",
+      "blockHash": "0x0202020202020202020202020202020202020202020202020202020202020202",
+      "transactionHash": "0x0303030303030303030303030303030303030303030303030303030303030303",
+      "blockNumber": "0x64",
+      "logs": [
+        {
+          "address": "0x1111111111111111111111111111111111111111",
+          "blockHash": "0x0202020202020202020202020202020202020202020202020202020202020202",
+          "transactionHash": "0x0303030303030303030303030303030303030303030303030303030303030303",
+          "logIndex": "0x0",
+          "removed": false,
+          "topics": [
+            "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+            "0x0000000000000000000000002222222222222222222222222222222222222222",
+            "0x0000000000000000000000003333333333333333333333333333333333333333"
+          ],
+          "data": "0x0000000000000000000000000000000000000000000000000000000000000005"
+        }
+      ]
+    },
+    "context": {
+      "fixtureTrust": "trusted-test-fixture-only",
+      "chainId": "0x1",
+      "genesis": "0x0101010101010101010101010101010101010101010101010101010101010101",
+      "contract": "0x1111111111111111111111111111111111111111",
+      "blockHash": "0x0202020202020202020202020202020202020202020202020202020202020202"
+    }
+  },
+  "solana": {
+    "transaction": {
+      "version": "legacy",
+      "slot": 100,
+      "transaction": {
+        "signatures": [
+          "4VZdodJgBy6dxMgm45zusmRzrPvKtiumu5YrK9RLPJADpzeJzgebxHsoQD4B58FCFS6aGUufKZka56xFiBGpB94"
+        ],
+        "message": {
+          "accountKeys": [
+            "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+            "GgBaCs3NCBuZN12kCJgAW63ydqohFkHEdfdEXBPzLHq",
+            "LbUiWL3xVV8hTFYBVdbTNrpDo41NKS6o3LHHuDzjfcY",
+            "QWmroo4YnnMqYW3cnxWkFdaTxGD3P7vMSzwMHGbUzwF",
+            "US517G5965aydkZ46HS38QLi7UQiSojurfbQfKCELFx"
+          ],
+          "instructions": [
+            {
+              "programIdIndex": 0,
+              "accounts": [
+                1,
+                2,
+                3,
+                4
+              ],
+              "data": "gAe48S56ByxQM"
+            }
+          ]
+        }
+      },
+      "meta": {
+        "err": null,
+        "innerInstructions": [
+          {
+            "index": 0,
+            "instructions": [
+              {
+                "programIdIndex": 0,
+                "accounts": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "data": "gAe48S56ByxQM"
+              },
+              {
+                "programIdIndex": 0,
+                "accounts": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "data": "gAe48S56ByxQM"
+              }
+            ]
+          }
+        ],
+        "preTokenBalances": [
+          {
+            "accountIndex": 1,
+            "mint": "LbUiWL3xVV8hTFYBVdbTNrpDo41NKS6o3LHHuDzjfcY",
+            "uiTokenAmount": {
+              "decimals": 6,
+              "amount": "100"
+            }
+          }
+        ]
+      }
+    },
+    "context": {
+      "fixtureTrust": "trusted-test-fixture-only",
+      "genesis": "4vJ9JU1bJJE96FWSJKvHsmmFADCg4gpZQff4P3bkLKi",
+      "branchHash": "8qbHbw2BbbTHBW1sbeqakYXVKRQM8Ne7pLK7m6CVfeR",
+      "instructionOutcomeSource": "fixture-program-trace-v1",
+      "instructionOutcomes": {
+        "outer:0/inner:0": "Succeeded",
+        "outer:0/inner:1": "Succeeded"
+      }
+    }
+  }
+}

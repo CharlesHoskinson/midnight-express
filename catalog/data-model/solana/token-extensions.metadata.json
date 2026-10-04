@@ -1,0 +1,14 @@
+{
+  "id": "token-extensions",
+  "url": "https://www.solana-program.com/docs/token-2022/extensions",
+  "resolved_url": "https://www.solana-program.com/docs/token-2022/extensions",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:52.210254+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "token-extensions.raw",
+  "text_path": "token-extensions.txt",
+  "raw_sha256": "37bd6b5545ed7a7f3bdf03cb03b84e0b1eef73a69be00e33a56532e034226bf6",
+  "text_sha256": "91fff624fc968ef47f398475dfe21d7f29cbb20b54107efb78852ab681056644",
+  "text_chars": 43712,
+  "evidence_usable": true
+}

@@ -1,0 +1,13 @@
+{
+  "id": "protobuf-noncanonical",
+  "url": "https://protobuf.dev/programming-guides/serialization-not-canonical/",
+  "resolved_url": "https://protobuf.dev/programming-guides/serialization-not-canonical/",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:04:12.802567+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=25)",
+  "raw_path": "protobuf-noncanonical.raw",
+  "text_path": "protobuf-noncanonical.txt",
+  "raw_sha256": "e338bc8aa5b5c8fa0fca8f5d15c668d20ca6b3a1564b56c84c84ea62405bf7d7",
+  "text_sha256": "d0d60f04a8694e9e811e0e2306209acab390ae1658e7ca32de74332c710e7ac5",
+  "text_chars": 7356
+}

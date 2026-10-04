@@ -1,0 +1,2426 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="Understanding the Data Dictionary" />
+<link rel="canonical" href="http://www.iso20022.org/understanding-data-dictionary" />
+<link rel="shortlink" href="http://www.iso20022.org/understanding-data-dictionary" />
+<meta property="og:site_name" content="ISO20022" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://www.iso20022.org/understanding-data-dictionary" />
+<meta property="og:title" content="Understanding the Data Dictionary | ISO20022" />
+<meta property="og:description" content="Understanding the Data Dictionary" />
+<meta name="Generator" content="Drupal 10 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/themes/custom/iso20022_theme_evo/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="alternate" hreflang="en" href="http://www.iso20022.org/understanding-data-dictionary" />
+
+    <title>Understanding the Data Dictionary | ISO20022</title>
+    <link rel="stylesheet" media="all" href="/sites/default/files/css/css_BXjP_9ZU0w2-EK2kppbrmTAnIN3Ry9eRFy6QgNmB43k.css?delta=0&amp;language=en&amp;theme=iso20022_theme_evo&amp;include=eJxtjUEKwzAMBD_kxsEfMnIiYhfFEpIc6t8XCiWXXPYwM7AbK8ZdhwAt8IZPaMZpXVPKG1_I8be5gObWHbUD3YVXPDHjxfEgLs_Gm8h8mU9CCwIKh4JU-1_eZBldRqFmFfdg0xzPWMDwC7_NPGs" />
+<link rel="stylesheet" media="all" href="https://static.cloud.coveo.com/atomic/v2/themes/coveo.css" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_oU95aOwLqx5Y3wS9_tY3gA1VfWDpb-oGlwm_Rret4xY.css?delta=2&amp;language=en&amp;theme=iso20022_theme_evo&amp;include=eJxtjUEKwzAMBD_kxsEfMnIiYhfFEpIc6t8XCiWXXPYwM7AbK8ZdhwAt8IZPaMZpXVPKG1_I8be5gObWHbUD3YVXPDHjxfEgLs_Gm8h8mU9CCwIKh4JU-1_eZBldRqFmFfdg0xzPWMDwC7_NPGs" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_L9NpdO_pn321XXzulgKixv2AljlCI0hhB-HHbz7xp0g.css?delta=3&amp;language=en&amp;theme=iso20022_theme_evo&amp;include=eJxtjUEKwzAMBD_kxsEfMnIiYhfFEpIc6t8XCiWXXPYwM7AbK8ZdhwAt8IZPaMZpXVPKG1_I8be5gObWHbUD3YVXPDHjxfEgLs_Gm8h8mU9CCwIKh4JU-1_eZBldRqFmFfdg0xzPWMDwC7_NPGs" />
+
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","pathPrefix":"","currentPath":"node\/600","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","gtag":{"tagId":"","consentMode":false,"otherIds":[],"events":[],"additionalConfigInfo":[]},"suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"eJxtilEKAyEMBS9kdfFCErshWqIRE5f29i39WRb2Z-DNPBIhxmRAgX5wdN0eXvC-yuaqSty2GNNTDpTwZ8owU-2GswOfDyvYMOEhgVjyfWlQ-6NhX3fRRNjqcAMm0IRRNOxzDWB_Gr_6WJmrFtydftSwhQyKXx31Ugg","theme":"iso20022_theme_evo","theme_token":null},"ajaxTrustedUrl":{"form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM":true},"gtm":{"tagId":null,"settings":{"data_layer":"dataLayer","include_classes":false,"allowlist_classes":"google\nnonGooglePixels\nnonGoogleScripts\nnonGoogleIframes","blocklist_classes":"customScripts\ncustomPixels","include_environment":false,"environment_id":"","environment_token":""},"tagIds":["GTM-THHPNRK"]},"coveo_search_bar":{"SEARCH_BAR_API_KEY":"xx30c065a8-4e96-4e1d-af41-c5481788687b","ORGANIZATION_ID":"swiftproduction15ydq4vo","SEARCH_PATH":"\/advanced-search"},"user":{"uid":0,"permissionsHash":"213d965f0c2d8be58ff7546757ce893cb953fae70d0d0c23ae49f145049cc084"}}</script>
+<script src="/sites/default/files/js/js_T0OX1wnvcvejvrR3-XF5wj3kzSqaxorDNHddwWEC73o.js?scope=header&amp;delta=0&amp;language=en&amp;theme=iso20022_theme_evo&amp;include=eJxtikEKgDAMBD-kVvqhkEqIlbQrGsXnK15E6GVgdlYBNSFnDfqg078PvPD1H0uXd8RxjJEmnILwkhJvlKvLVtm-h89ShOREUENql8K59kXq0YoOmOf1BkG7PTk"></script>
+<script src="/modules/contrib/google_tag/js/gtag.js?tmacj1"></script>
+<script src="/modules/contrib/google_tag/js/gtm.js?tmacj1"></script>
+<script src="https://static.cloud.coveo.com/atomic/v2/atomic.esm.js" type="module"></script>
+
+  <script >bazadebezolkohpepadr="1605096235"</script><script type="text/javascript" src="https://www.iso20022.org/akam/13/5fabd201"  defer></script></head>
+  <body class="iso20022-theme-evo">
+        <a href="#main-content" class="sr-only sr-only-focusable">
+      Skip to main content
+    </a>
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THHPNRK"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    
+
+
+<div class="layout-container min-h-screen flex flex-col ">
+            
+
+
+<header
+  class="header overflow-x-clip z-10 max-lg:fixed max-lg:top-0 max-lg:left-0 max-lg:right-0"
+  x-data="{
+    navOpen: false,
+    searchOpen: false,
+    toggleNav() {
+      this.navOpen = !this.navOpen;
+      if (this.navOpen) {
+        this.searchOpen = false;
+        document.documentElement.classList.add('nav-is-open');
+        document.documentElement.classList.remove('searchbar-open');
+      } else {
+        document.documentElement.classList.remove('nav-is-open');
+      }
+    },
+    toggleSearch() {
+      this.searchOpen = !this.searchOpen;
+      if (this.searchOpen) {
+        this.navOpen = false;
+        document.documentElement.classList.add('searchbar-open');
+        document.documentElement.classList.remove('nav-is-open');
+      } else {
+        document.documentElement.classList.remove('searchbar-open');
+      }
+    },
+    closeAll() {
+      this.navOpen = false;
+      this.searchOpen = false;
+      document.documentElement.classList.remove('nav-is-open');
+      document.documentElement.classList.remove('searchbar-open');
+    }
+  }"
+  @keydown.escape.window="closeAll()"
+>
+  <div class="container">
+                <div class="header-top relative z-[11] flex items-center h-[60px] lg:h-auto py-[15px] lg:py-[25px] xl:py-[30px]">
+
+                  
+<div class="logo-wrapper flex items-center ">
+  
+    
+
+
+
+<a
+  href="https://www.iso20022.org/"
+  class=" logo__link"      >
+        
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+        aria-labelledby="title-logo-swift-iso20022-1704585563"
+    >
+      <title id="title-logo-swift-iso20022-1704585563">ISO 20022</title>
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#logo-swift-iso20022"></use>
+</svg>
+    </a>
+
+      <div class="logo-slogan ml-4 lg:ml-5 flex">
+      <p class="m-0">
+                  <span class="logo-slogan__top">ISO 20022</span>
+          <br>                          <span class="logo-slogan__bottom">Universal financial industry message scheme</span>
+              </p>
+    </div>
+  </div>
+        
+                            <div class="coveo-search-wrapper w-full max-lg:w-auto max-lg:ml-auto">
+            <div
+              class="swift-search-box lg:block lg:w-full lg:pl-8 lg:max-w-[640px] lg:ml-auto"
+              :class="searchOpen ? 'max-lg:block max-lg:fixed max-lg:top-[60px] max-lg:left-0 max-lg:right-0 max-lg:z-[100] max-lg:bg-white max-lg:shadow-[0_0_10px_rgba(48,53,71,0.1)] max-lg:py-2 max-lg:px-4 max-lg:animate-fadeInDown' : 'max-lg:hidden'"
+            >
+                          </div>
+          </div>
+        
+                <div class="header-top__mobile flex lg:hidden items-center ml-auto">
+                    <button
+            type="button"
+            class="mobile-search-toggle btn-reset w-[50px] h-[50px] p-0 inline-flex justify-center items-center"
+            @click="toggleSearch()"
+            aria-label="Toggle search"
+          >
+            
+
+  
+
+<svg  class="icon w-[23px] h-[23px] fill-primary transition-all duration-300"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#search"></use>
+</svg>
+          </button>
+
+                    <button
+            type="button"
+            class="mobile-nav-toggle btn-reset relative z-[2001] h-[46px] w-[23px] cursor-pointer p-[25px]"
+            @click="toggleNav()"
+            aria-label="Toggle mobile navigation"
+            :aria-expanded="navOpen.toString()"
+          >
+            <span class="mobile-nav-toggle__icon absolute w-[23px] h-[20px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                            <span
+                class="mobile-nav-toggle__line mobile-nav-toggle__line--1 absolute left-0 bg-primary h-0.5 w-full pointer-events-none"
+                :class="navOpen ? 'top-[18px] -translate-y-[9px] -rotate-45' : 'top-0'"
+              ></span>
+                            <span
+                class="mobile-nav-toggle__line mobile-nav-toggle__line--2 absolute left-auto right-0 top-0 bottom-0 m-auto bg-primary h-0.5 w-full pointer-events-none"
+                :class="navOpen ? 'opacity-0' : 'opacity-100'"
+              ></span>
+                            <span
+                class="mobile-nav-toggle__line mobile-nav-toggle__line--3 absolute left-0 bottom-0 bg-primary h-0.5 w-full pointer-events-none"
+                :class="navOpen ? 'opacity-0' : 'opacity-100'"
+              ></span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+                      <div
+          class="header-main"
+          :class="navOpen ? 'is-open' : ''"
+        >
+          <div class="header-main__inner lg:flex items-center">
+                                  
+
+
+<nav
+  class="main-nav-wrapper relative"
+  x-data="{
+    activeDropdown: null,
+    isMobile: window.innerWidth < 1024,
+    init() {
+      window.addEventListener('resize', () => {
+        this.isMobile = window.innerWidth < 1024;
+        if (!this.isMobile) {
+          this.activeDropdown = null;
+        }
+      });
+    }
+  }"
+  @keydown.escape.window="activeDropdown = null"
+>
+  <div id="main-nav" class="main-nav">
+    <ul class="main-menu flex max-lg:flex-col max-lg:px-4">
+                              
+        <li
+          class="main-menu__item max-lg:border-b max-lg:border-border max-lg:relative  main-menu__item--with-sub"
+                      x-data="{ hovered: false }"
+            @mouseenter="hovered = true"
+            @mouseleave="hovered = false"
+            :class="{ 'subnav-is-open': activeDropdown === 'menu-item-1' }"
+                  >
+                      <a
+              href="/about-iso-20022"
+              class="main-menu__link flex py-6 px-4 font-medium text-secondary-300 relative no-underline max-lg:font-bold max-lg:py-5 max-lg:px-0 max-lg:text-lg lg:py-5 lg:px-5 lg:h-[50px] lg:items-center xl:py-6 xl:px-6 xl:h-[70px]"
+              :class="{ 'is-active': (hovered && !isMobile) || activeDropdown === 'menu-item-1' }"
+              @focus="hovered = true"
+            >
+              About ISO 20022
+            </a>
+
+                        <button
+              type="button"
+              class="js-sub-toggle absolute right-0 top-3 w-11 h-11 bg-light z-10 lg:hidden flex items-center justify-center"
+              @click="activeDropdown = activeDropdown === 'menu-item-1' ? null : 'menu-item-1'"
+              aria-label="Toggle submenu"
+            >
+              <span class="relative w-3 h-3">
+                                <span
+                  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-0.5 bg-secondary transition-all duration-300"
+                  :class="{ 'bg-primary': activeDropdown === 'menu-item-1' }"
+                ></span>
+                                <span
+                  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-0.5 bg-secondary transition-all duration-300"
+                  :class="{
+                    '-rotate-90': activeDropdown !== 'menu-item-1',
+                    'rotate-0 bg-primary': activeDropdown === 'menu-item-1'
+                  }"
+                ></span>
+              </span>
+            </button>
+
+            <div
+              class="main-menu__item_dropdown lg:w-screen lg:container absolute top-[calc(100%-1px)] left-0 lg:-left-6 w-full z-[1] py-12 bg-white max-lg:relative max-lg:top-0 max-lg:py-0 max-lg:border-0 "
+              x-show="(hovered && !isMobile) || activeDropdown === 'menu-item-1'"
+              x-transition:enter="transition ease-out duration-200"
+              x-transition:enter-start="opacity-0 lg:-translate-y-2"
+              x-transition:enter-end="opacity-100 lg:translate-y-0"
+              x-transition:leave="transition ease-in duration-150"
+              x-transition:leave-start="opacity-100 lg:translate-y-0"
+              x-transition:leave-end="opacity-0 lg:-translate-y-2"
+              x-cloak
+              @focusout.debounce.100ms="if (!$el.contains($event.relatedTarget)) hovered = false"
+            >
+              <div class="main-menu__dropdown-inner container flex max-lg:flex-col max-lg:py-4 max-lg:px-0">
+                                  
+
+<div class="main-menu__item__message w-[35%] pr-6 xl:w-[30%] xl:pr-12 max-lg:hidden">
+      <h3 class="text-xl lg:text-2xl text-primary leading-tight mb-4 animate-[fadeInDown_0.3s_both]">
+      About ISO 20022
+    </h3>
+  
+      <div class="text-secondary-300 mb-4 animate-[fadeInDown_0.3s_0.1s_both]">
+      ISO 20022 is a multi part International Standard prepared by ISO Technical Committee TC68 Financial Services
+    </div>
+  
+  </div>
+
+                
+                                  <ul class="main-menu--sub w-full flex max-lg:flex-col max-lg:p-0 ">
+                                          <li class="main-menu__item--sub-1 flex-col lg:pr-5 lg:flex-grow lg:max-w-[25%] max-lg:mb-5 ">
+                        <a
+                          href="/about-iso-20022/governance"
+                          class="main-menu__link--sub text-primary uppercase font-semibold tracking-widest leading-snug text-sm no-underline max-lg:p-0 max-lg:pb-1 max-lg:mb-1 lg:p-0 lg:pb-5 lg:flex"
+                        >
+                          Governance
+                        </a>
+
+                                              </li>
+                                          <li class="main-menu__item--sub-1 flex-col lg:pr-5 lg:flex-grow lg:max-w-[25%] max-lg:mb-5 ">
+                        <a
+                          href="/about-iso-20022/apis-and-iso-20022"
+                          class="main-menu__link--sub text-primary uppercase font-semibold tracking-widest leading-snug text-sm no-underline max-lg:p-0 max-lg:pb-1 max-lg:mb-1 lg:p-0 lg:pb-5 lg:flex"
+                        >
+                          APIs and ISO 20022
+                        </a>
+
+                                              </li>
+                                          <li class="main-menu__item--sub-1 flex-col lg:pr-5 lg:flex-grow lg:max-w-[25%] max-lg:mb-5 ">
+                        <a
+                          href="/intellectual-property-rights"
+                          class="main-menu__link--sub text-primary uppercase font-semibold tracking-widest leading-snug text-sm no-underline max-lg:p-0 max-lg:pb-1 max-lg:mb-1 lg:p-0 lg:pb-5 lg:flex"
+                        >
+                          Intellectual property rights
+                        </a>
+
+                                              </li>
+                                      </ul>
+                              </div>
+            </div>
+                  </li>
+                              
+        <li
+          class="main-menu__item max-lg:border-b max-lg:border-border max-lg:relative  main-menu__item--with-sub"
+                      x-data="{ hovered: false }"
+            @mouseenter="hovered = true"
+            @mouseleave="hovered = false"
+            :class="{ 'subnav-is-open': activeDropdown === 'menu-item-2' }"
+                  >
+                      <a
+              href="/iso-20022-message-definitions"
+              class="main-menu__link flex py-6 px-4 font-medium text-secondary-300 relative no-underline max-lg:font-bold max-lg:py-5 max-lg:px-0 max-lg:text-lg lg:py-5 lg:px-5 lg:h-[50px] lg:items-center xl:py-6 xl:px-6 xl:h-[70px]"
+              :class="{ 'is-active': (hovered && !isMobile) || activeDropdown === 'menu-item-2' }"
+              @focus="hovered = true"
+            >
+              Catalogue
+            </a>
+
+                        <button
+              type="button"
+              class="js-sub-toggle absolute right-0 top-3 w-11 h-11 bg-light z-10 lg:hidden flex items-center justify-center"
+              @click="activeDropdown = activeDropdown === 'menu-item-2' ? null : 'menu-item-2'"
+              aria-label="Toggle submenu"
+            >
+              <span class="relative w-3 h-3">
+                                <span
+                  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-0.5 bg-secondary transition-all duration-300"
+                  :class="{ 'bg-primary': activeDropdown === 'menu-item-2' }"
+                ></span>
+                                <span
+                  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-0.5 bg-secondary transition-all duration-300"
+                  :class="{
+                    '-rotate-90': activeDropdown !== 'menu-item-2',
+                    'rotate-0 bg-primary': activeDropdown === 'menu-item-2'
+                  }"
+                ></span>
+              </span>
+            </button>
+
+            <div
+              class="main-menu__item_dropdown lg:w-screen lg:container absolute top-[calc(100%-1px)] left-0 lg:-left-6 w-full z-[1] py-12 bg-white max-lg:relative max-lg:top-0 max-lg:py-0 max-lg:border-0 "
+              x-show="(hovered && !isMobile) || activeDropdown === 'menu-item-2'"
+              x-transition:enter="transition ease-out duration-200"
+              x-transition:enter-start="opacity-0 lg:-translate-y-2"
+              x-transition:enter-end="opacity-100 lg:translate-y-0"
+              x-transition:leave="transition ease-in duration-150"
+              x-transition:leave-start="opacity-100 lg:translate-y-0"
+              x-transition:leave-end="opacity-0 lg:-translate-y-2"
+              x-cloak
+              @focusout.debounce.100ms="if (!$el.contains($event.relatedTarget)) hovered = false"
+            >
+              <div class="main-menu__dropdown-inner container flex max-lg:flex-col max-lg:py-4 max-lg:px-0">
+                
+                                  <ul class="main-menu--sub w-full flex max-lg:flex-col max-lg:p-0 ">
+                                          <li class="main-menu__item--sub-1 flex-col lg:pr-5 lg:flex-grow lg:max-w-[25%] max-lg:mb-5 ">
+                        <a
+                          href="/"
+                          class="main-menu__link--sub text-primary uppercase font-semibold tracking-widest leading-snug text-sm no-underline max-lg:p-0 max-lg:pb-1 max-lg:mb-1 lg:p-0 lg:pb-5 lg:flex"
+                        >
+                          Business Domain Catalogues
+                        </a>
+
+                                                  <ul class="main-menu--sub-2 flex flex-col">
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="/iso-20022-message-definitions?business-domain%5B0%5D=1"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  Payments
+                                </a>
+                              </li>
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="/iso-20022-message-definitions?business-domain%5B0%5D=6"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  Securities
+                                </a>
+                              </li>
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="/iso-20022-message-definitions?business-domain%5B0%5D=11"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  Trade Finance
+                                </a>
+                              </li>
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="/iso-20022-message-definitions?business-domain%5B0%5D=16"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  Cards
+                                </a>
+                              </li>
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="/iso-20022-message-definitions?business-domain%5B0%5D=21"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  FX
+                                </a>
+                              </li>
+                                                      </ul>
+                                              </li>
+                                          <li class="main-menu__item--sub-1 flex-col lg:pr-5 lg:flex-grow lg:max-w-[25%] max-lg:mb-5 ">
+                        <a
+                          href="/catalogue/iso-20022-api-resources"
+                          class="main-menu__link--sub text-primary uppercase font-semibold tracking-widest leading-snug text-sm no-underline max-lg:p-0 max-lg:pb-1 max-lg:mb-1 lg:p-0 lg:pb-5 lg:flex"
+                        >
+                          API Resources
+                        </a>
+
+                                              </li>
+                                          <li class="main-menu__item--sub-1 flex-col lg:pr-5 lg:flex-grow lg:max-w-[25%] max-lg:mb-5 ">
+                        <a
+                          href="/catalogue-messages/additional-content-iso-20022-message-definitions"
+                          class="main-menu__link--sub text-primary uppercase font-semibold tracking-widest leading-snug text-sm no-underline max-lg:p-0 max-lg:pb-1 max-lg:mb-1 lg:p-0 lg:pb-5 lg:flex"
+                        >
+                          Additional Content for the Messages
+                        </a>
+
+                                                  <ul class="main-menu--sub-2 flex flex-col">
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="/catalogue-messages/additional-content-messages/business-application-header-bah"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  Business application header (BAH)
+                                </a>
+                              </li>
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="/business-file-envelope-bfe"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  Business file envelope
+                                </a>
+                              </li>
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="/catalogue/additional-content-messages/business-message-envelope-bme"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  Business message envelope
+                                </a>
+                              </li>
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="/catalogue-messages/additional-content-messages/data-source-scheme"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  Data Source Scheme
+                                </a>
+                              </li>
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="/catalogue/additional-content-messages/external-code-sets"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  External Code Sets
+                                </a>
+                              </li>
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="/catalogue-messages/additional-content-messages/iso-20022-real-time-payments-group-rtpg"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  ISO 20022 Real-Time Payments Group
+                                </a>
+                              </li>
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="/catalogue-messages/additional-content-messages/supplementary-data"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  Supplementary Data Extension
+                                </a>
+                              </li>
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="/catalogue-messages/additional-content-messages/variants"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  Variants
+                                </a>
+                              </li>
+                                                      </ul>
+                                              </li>
+                                          <li class="main-menu__item--sub-1 flex-col lg:pr-5 lg:flex-grow lg:max-w-[25%] max-lg:mb-5 ">
+                        <a
+                          href="/catalogue-messages/iso-20022-messages-archive"
+                          class="main-menu__link--sub text-primary uppercase font-semibold tracking-widest leading-snug text-sm no-underline max-lg:p-0 max-lg:pb-1 max-lg:mb-1 lg:p-0 lg:pb-5 lg:flex"
+                        >
+                          Message archive
+                        </a>
+
+                                              </li>
+                                      </ul>
+                              </div>
+            </div>
+                  </li>
+                              
+        <li
+          class="main-menu__item max-lg:border-b max-lg:border-border max-lg:relative  main-menu__item--with-sub"
+                      x-data="{ hovered: false }"
+            @mouseenter="hovered = true"
+            @mouseleave="hovered = false"
+            :class="{ 'subnav-is-open': activeDropdown === 'menu-item-3' }"
+                  >
+                      <a
+              href="/financial-repository"
+              class="main-menu__link flex py-6 px-4 font-medium text-secondary-300 relative no-underline max-lg:font-bold max-lg:py-5 max-lg:px-0 max-lg:text-lg lg:py-5 lg:px-5 lg:h-[50px] lg:items-center xl:py-6 xl:px-6 xl:h-[70px]"
+              :class="{ 'is-active': (hovered && !isMobile) || activeDropdown === 'menu-item-3' }"
+              @focus="hovered = true"
+            >
+              ISO20022 repository
+            </a>
+
+                        <button
+              type="button"
+              class="js-sub-toggle absolute right-0 top-3 w-11 h-11 bg-light z-10 lg:hidden flex items-center justify-center"
+              @click="activeDropdown = activeDropdown === 'menu-item-3' ? null : 'menu-item-3'"
+              aria-label="Toggle submenu"
+            >
+              <span class="relative w-3 h-3">
+                                <span
+                  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-0.5 bg-secondary transition-all duration-300"
+                  :class="{ 'bg-primary': activeDropdown === 'menu-item-3' }"
+                ></span>
+                                <span
+                  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-0.5 bg-secondary transition-all duration-300"
+                  :class="{
+                    '-rotate-90': activeDropdown !== 'menu-item-3',
+                    'rotate-0 bg-primary': activeDropdown === 'menu-item-3'
+                  }"
+                ></span>
+              </span>
+            </button>
+
+            <div
+              class="main-menu__item_dropdown lg:w-screen lg:container absolute top-[calc(100%-1px)] left-0 lg:-left-6 w-full z-[1] py-12 bg-white max-lg:relative max-lg:top-0 max-lg:py-0 max-lg:border-0 "
+              x-show="(hovered && !isMobile) || activeDropdown === 'menu-item-3'"
+              x-transition:enter="transition ease-out duration-200"
+              x-transition:enter-start="opacity-0 lg:-translate-y-2"
+              x-transition:enter-end="opacity-100 lg:translate-y-0"
+              x-transition:leave="transition ease-in duration-150"
+              x-transition:leave-start="opacity-100 lg:translate-y-0"
+              x-transition:leave-end="opacity-0 lg:-translate-y-2"
+              x-cloak
+              @focusout.debounce.100ms="if (!$el.contains($event.relatedTarget)) hovered = false"
+            >
+              <div class="main-menu__dropdown-inner container flex max-lg:flex-col max-lg:py-4 max-lg:px-0">
+                                  
+
+<div class="main-menu__item__message w-[35%] pr-6 xl:w-[30%] xl:pr-12 max-lg:hidden">
+      <h3 class="text-xl lg:text-2xl text-primary leading-tight mb-4 animate-[fadeInDown_0.3s_both]">
+      ISO 20022 Repository
+    </h3>
+  
+      <div class="text-secondary-300 mb-4 animate-[fadeInDown_0.3s_0.1s_both]">
+      The ISO 20022 Repository consists of two major parts:
+
+
+	the Data Dictionary
+	the Business Process Catalogue
+    </div>
+  
+  </div>
+
+                
+                                  <ul class="main-menu--sub w-full flex max-lg:flex-col max-lg:p-0 ">
+                                          <li class="main-menu__item--sub-1 flex-col lg:pr-5 lg:flex-grow lg:max-w-[25%] max-lg:mb-5 ">
+                        <a
+                          href="https://www.iso20022.org/standardsrepository"
+                          class="main-menu__link--sub text-primary uppercase font-semibold tracking-widest leading-snug text-sm no-underline max-lg:p-0 max-lg:pb-1 max-lg:mb-1 lg:p-0 lg:pb-5 lg:flex"
+                        >
+                          ISO 20022 Repository Online Search
+                        </a>
+
+                                              </li>
+                                          <li class="main-menu__item--sub-1 flex-col lg:pr-5 lg:flex-grow lg:max-w-[25%] max-lg:mb-5 ">
+                        <a
+                          href="/iso20022-repository/e-repository"
+                          class="main-menu__link--sub text-primary uppercase font-semibold tracking-widest leading-snug text-sm no-underline max-lg:p-0 max-lg:pb-1 max-lg:mb-1 lg:p-0 lg:pb-5 lg:flex"
+                        >
+                          Download the e-Repository
+                        </a>
+
+                                              </li>
+                                          <li class="main-menu__item--sub-1 flex-col lg:pr-5 lg:flex-grow lg:max-w-[25%] max-lg:mb-5 ">
+                        <a
+                          href="/iso20022-repository/business-model"
+                          class="main-menu__link--sub text-primary uppercase font-semibold tracking-widest leading-snug text-sm no-underline max-lg:p-0 max-lg:pb-1 max-lg:mb-1 lg:p-0 lg:pb-5 lg:flex"
+                        >
+                          Business Model
+                        </a>
+
+                                              </li>
+                                      </ul>
+                              </div>
+            </div>
+                  </li>
+                              
+        <li
+          class="main-menu__item max-lg:border-b max-lg:border-border max-lg:relative  main-menu__item--with-sub"
+                      x-data="{ hovered: false }"
+            @mouseenter="hovered = true"
+            @mouseleave="hovered = false"
+            :class="{ 'subnav-is-open': activeDropdown === 'menu-item-4' }"
+                  >
+                      <a
+              href="/development"
+              class="main-menu__link flex py-6 px-4 font-medium text-secondary-300 relative no-underline max-lg:font-bold max-lg:py-5 max-lg:px-0 max-lg:text-lg lg:py-5 lg:px-5 lg:h-[50px] lg:items-center xl:py-6 xl:px-6 xl:h-[70px]"
+              :class="{ 'is-active': (hovered && !isMobile) || activeDropdown === 'menu-item-4' }"
+              @focus="hovered = true"
+            >
+              Development
+            </a>
+
+                        <button
+              type="button"
+              class="js-sub-toggle absolute right-0 top-3 w-11 h-11 bg-light z-10 lg:hidden flex items-center justify-center"
+              @click="activeDropdown = activeDropdown === 'menu-item-4' ? null : 'menu-item-4'"
+              aria-label="Toggle submenu"
+            >
+              <span class="relative w-3 h-3">
+                                <span
+                  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-0.5 bg-secondary transition-all duration-300"
+                  :class="{ 'bg-primary': activeDropdown === 'menu-item-4' }"
+                ></span>
+                                <span
+                  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-0.5 bg-secondary transition-all duration-300"
+                  :class="{
+                    '-rotate-90': activeDropdown !== 'menu-item-4',
+                    'rotate-0 bg-primary': activeDropdown === 'menu-item-4'
+                  }"
+                ></span>
+              </span>
+            </button>
+
+            <div
+              class="main-menu__item_dropdown lg:w-screen lg:container absolute top-[calc(100%-1px)] left-0 lg:-left-6 w-full z-[1] py-12 bg-white max-lg:relative max-lg:top-0 max-lg:py-0 max-lg:border-0 "
+              x-show="(hovered && !isMobile) || activeDropdown === 'menu-item-4'"
+              x-transition:enter="transition ease-out duration-200"
+              x-transition:enter-start="opacity-0 lg:-translate-y-2"
+              x-transition:enter-end="opacity-100 lg:translate-y-0"
+              x-transition:leave="transition ease-in duration-150"
+              x-transition:leave-start="opacity-100 lg:translate-y-0"
+              x-transition:leave-end="opacity-0 lg:-translate-y-2"
+              x-cloak
+              @focusout.debounce.100ms="if (!$el.contains($event.relatedTarget)) hovered = false"
+            >
+              <div class="main-menu__dropdown-inner container flex max-lg:flex-col max-lg:py-4 max-lg:px-0">
+                
+                                  <ul class="main-menu--sub w-full flex max-lg:flex-col max-lg:p-0 ">
+                                          <li class="main-menu__item--sub-1 flex-col lg:pr-5 lg:flex-grow lg:max-w-[25%] max-lg:mb-5 ">
+                        <a
+                          href="/development/status-iso-20022-submissions"
+                          class="main-menu__link--sub text-primary uppercase font-semibold tracking-widest leading-snug text-sm no-underline max-lg:p-0 max-lg:pb-1 max-lg:mb-1 lg:p-0 lg:pb-5 lg:flex"
+                        >
+                          List of Submissions
+                        </a>
+
+                                                  <ul class="main-menu--sub-2 flex flex-col">
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="https://www.iso20022.org/development/status-iso-20022-submissions?block_id=iso20022_submission_catalogue_all_submissions_block&amp;prefix=BJMS"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  Catalogue of Business Justifications for message development
+                                </a>
+                              </li>
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="https://www.iso20022.org/development/status-iso-20022-submissions?block_id=iso20022_submission_catalogue_all_submissions_block&amp;prefix=BJAP"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  Catalogue of Business Justifications for API resource development
+                                </a>
+                              </li>
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="https://www.iso20022.org/development/status-iso-20022-submissions?block_id=iso20022_submission_catalogue_all_submissions_block&amp;prefix=BJSD"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  Catalogue of Business Justifications for Supplementary Data Extension development
+                                </a>
+                              </li>
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="https://www.iso20022.org/development/status-iso-20022-submissions?block_id=iso20022_submission_catalogue_all_submissions_block&amp;prefix=BJVA"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  Catalogue of Business Justifications for variants development
+                                </a>
+                              </li>
+                                                      </ul>
+                                              </li>
+                                      </ul>
+                              </div>
+            </div>
+                  </li>
+                              
+        <li
+          class="main-menu__item max-lg:border-b max-lg:border-border max-lg:relative  main-menu__item--with-sub"
+                      x-data="{ hovered: false }"
+            @mouseenter="hovered = true"
+            @mouseleave="hovered = false"
+            :class="{ 'subnav-is-open': activeDropdown === 'menu-item-5' }"
+                  >
+                      <a
+              href="/maintenance"
+              class="main-menu__link flex py-6 px-4 font-medium text-secondary-300 relative no-underline max-lg:font-bold max-lg:py-5 max-lg:px-0 max-lg:text-lg lg:py-5 lg:px-5 lg:h-[50px] lg:items-center xl:py-6 xl:px-6 xl:h-[70px]"
+              :class="{ 'is-active': (hovered && !isMobile) || activeDropdown === 'menu-item-5' }"
+              @focus="hovered = true"
+            >
+              Maintenance
+            </a>
+
+                        <button
+              type="button"
+              class="js-sub-toggle absolute right-0 top-3 w-11 h-11 bg-light z-10 lg:hidden flex items-center justify-center"
+              @click="activeDropdown = activeDropdown === 'menu-item-5' ? null : 'menu-item-5'"
+              aria-label="Toggle submenu"
+            >
+              <span class="relative w-3 h-3">
+                                <span
+                  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-0.5 bg-secondary transition-all duration-300"
+                  :class="{ 'bg-primary': activeDropdown === 'menu-item-5' }"
+                ></span>
+                                <span
+                  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-0.5 bg-secondary transition-all duration-300"
+                  :class="{
+                    '-rotate-90': activeDropdown !== 'menu-item-5',
+                    'rotate-0 bg-primary': activeDropdown === 'menu-item-5'
+                  }"
+                ></span>
+              </span>
+            </button>
+
+            <div
+              class="main-menu__item_dropdown lg:w-screen lg:container absolute top-[calc(100%-1px)] left-0 lg:-left-6 w-full z-[1] py-12 bg-white max-lg:relative max-lg:top-0 max-lg:py-0 max-lg:border-0 "
+              x-show="(hovered && !isMobile) || activeDropdown === 'menu-item-5'"
+              x-transition:enter="transition ease-out duration-200"
+              x-transition:enter-start="opacity-0 lg:-translate-y-2"
+              x-transition:enter-end="opacity-100 lg:translate-y-0"
+              x-transition:leave="transition ease-in duration-150"
+              x-transition:leave-start="opacity-100 lg:translate-y-0"
+              x-transition:leave-end="opacity-0 lg:-translate-y-2"
+              x-cloak
+              @focusout.debounce.100ms="if (!$el.contains($event.relatedTarget)) hovered = false"
+            >
+              <div class="main-menu__dropdown-inner container flex max-lg:flex-col max-lg:py-4 max-lg:px-0">
+                
+                                  <ul class="main-menu--sub w-full flex max-lg:flex-col max-lg:p-0 ">
+                                          <li class="main-menu__item--sub-1 flex-col lg:pr-5 lg:flex-grow lg:max-w-[25%] max-lg:mb-5 ">
+                        <a
+                          href="/maintenance/catalogue-change-requests"
+                          class="main-menu__link--sub text-primary uppercase font-semibold tracking-widest leading-snug text-sm no-underline max-lg:p-0 max-lg:pb-1 max-lg:mb-1 lg:p-0 lg:pb-5 lg:flex"
+                        >
+                          Catalogue of Change Requests
+                        </a>
+
+                                                  <ul class="main-menu--sub-2 flex flex-col">
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="/catalogue-message-definitions-change-requests"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  Catalogue of message definitions change requests
+                                </a>
+                              </li>
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="/catalogue-api-resources-change-requests"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  Catalogue of API Resources change requests
+                                </a>
+                              </li>
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="/catalogue-change-requests-related-external-code-sets"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  Catalogue of change requests related to external code sets
+                                </a>
+                              </li>
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="/catalogue-change-requests-related-data-sources-schemes"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  Catalogue of change requests related to data sources schemes
+                                </a>
+                              </li>
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="/catalogue-supplementary-data"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  Catalogue of change requests related to Supplementary Data
+                                </a>
+                              </li>
+                                                          <li class="main-menu__item--sub-2 flex-grow-0 max-w-none">
+                                <a
+                                  href="/catalogue-business-model"
+                                  class="main-menu__link--sub-2 text-secondary-300 normal-case tracking-normal p-0 pb-2 flex font-medium text-base no-underline hover:text-primary transition-colors max-lg:py-1"
+                                >
+                                  Catalogue of change requests related to the business model
+                                </a>
+                              </li>
+                                                      </ul>
+                                              </li>
+                                      </ul>
+                              </div>
+            </div>
+                  </li>
+                              
+        <li
+          class="main-menu__item max-lg:border-b max-lg:border-border max-lg:relative"
+                  >
+                      <a
+              href="/erequest-forms"
+              class="main-menu__link flex py-6 px-4 font-medium text-secondary-300 relative no-underline max-lg:font-bold max-lg:py-5 max-lg:px-0 max-lg:text-lg lg:py-5 lg:px-5 lg:h-[50px] lg:items-center xl:py-6 xl:px-6 xl:h-[70px] "
+            >
+              eRequests
+            </a>
+                  </li>
+                              
+        <li
+          class="main-menu__item max-lg:border-b max-lg:border-border max-lg:relative  main-menu__item--with-sub"
+                      x-data="{ hovered: false }"
+            @mouseenter="hovered = true"
+            @mouseleave="hovered = false"
+            :class="{ 'subnav-is-open': activeDropdown === 'menu-item-7' }"
+                  >
+                      <a
+              href=""
+              class="main-menu__link flex py-6 px-4 font-medium text-secondary-300 relative no-underline max-lg:font-bold max-lg:py-5 max-lg:px-0 max-lg:text-lg lg:py-5 lg:px-5 lg:h-[50px] lg:items-center xl:py-6 xl:px-6 xl:h-[70px]"
+              :class="{ 'is-active': (hovered && !isMobile) || activeDropdown === 'menu-item-7' }"
+              @focus="hovered = true"
+            >
+              FAQ &amp; Search
+            </a>
+
+                        <button
+              type="button"
+              class="js-sub-toggle absolute right-0 top-3 w-11 h-11 bg-light z-10 lg:hidden flex items-center justify-center"
+              @click="activeDropdown = activeDropdown === 'menu-item-7' ? null : 'menu-item-7'"
+              aria-label="Toggle submenu"
+            >
+              <span class="relative w-3 h-3">
+                                <span
+                  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-0.5 bg-secondary transition-all duration-300"
+                  :class="{ 'bg-primary': activeDropdown === 'menu-item-7' }"
+                ></span>
+                                <span
+                  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-0.5 bg-secondary transition-all duration-300"
+                  :class="{
+                    '-rotate-90': activeDropdown !== 'menu-item-7',
+                    'rotate-0 bg-primary': activeDropdown === 'menu-item-7'
+                  }"
+                ></span>
+              </span>
+            </button>
+
+            <div
+              class="main-menu__item_dropdown lg:w-screen lg:container absolute top-[calc(100%-1px)] left-0 lg:-left-6 w-full z-[1] py-12 bg-white max-lg:relative max-lg:top-0 max-lg:py-0 max-lg:border-0 "
+              x-show="(hovered && !isMobile) || activeDropdown === 'menu-item-7'"
+              x-transition:enter="transition ease-out duration-200"
+              x-transition:enter-start="opacity-0 lg:-translate-y-2"
+              x-transition:enter-end="opacity-100 lg:translate-y-0"
+              x-transition:leave="transition ease-in duration-150"
+              x-transition:leave-start="opacity-100 lg:translate-y-0"
+              x-transition:leave-end="opacity-0 lg:-translate-y-2"
+              x-cloak
+              @focusout.debounce.100ms="if (!$el.contains($event.relatedTarget)) hovered = false"
+            >
+              <div class="main-menu__dropdown-inner container flex max-lg:flex-col max-lg:py-4 max-lg:px-0">
+                
+                                  <ul class="main-menu--sub w-full flex max-lg:flex-col max-lg:p-0 ">
+                                          <li class="main-menu__item--sub-1 flex-col lg:pr-5 lg:flex-grow lg:max-w-[25%] max-lg:mb-5 ">
+                        <a
+                          href="/faq"
+                          class="main-menu__link--sub text-primary uppercase font-semibold tracking-widest leading-snug text-sm no-underline max-lg:p-0 max-lg:pb-1 max-lg:mb-1 lg:p-0 lg:pb-5 lg:flex"
+                        >
+                          FAQ
+                        </a>
+
+                                              </li>
+                                          <li class="main-menu__item--sub-1 flex-col lg:pr-5 lg:flex-grow lg:max-w-[25%] max-lg:mb-5 ">
+                        <a
+                          href="/search"
+                          class="main-menu__link--sub text-primary uppercase font-semibold tracking-widest leading-snug text-sm no-underline max-lg:p-0 max-lg:pb-1 max-lg:mb-1 lg:p-0 lg:pb-5 lg:flex"
+                        >
+                          Search
+                        </a>
+
+                                              </li>
+                                      </ul>
+                              </div>
+            </div>
+                  </li>
+          </ul>
+  </div>
+</nav>
+
+
+      
+                      
+<div class="header-top__cta lg:ml-auto">
+      <a
+      href="/contact-us"
+      class="btn btn-secondary header-cta-link"
+      aria-label="Contact us"
+    >
+      <span>Contact us</span>
+      <span class="arrow-right transition" aria-hidden="true"></span>
+    </a>
+  </div>
+
+                </div>
+        </div>
+          
+        <div
+      class="main-overlay"
+      :class="(navOpen || searchOpen) ? 'is-visible' : ''"
+      @click="closeAll()"
+    ></div>
+  </div>
+</header>
+
+      
+      
+    
+    
+    
+  
+  <main role="main" class="main flex-1 max-lg:mt-[60px]">
+    <a id="main-content" tabindex="-1"></a>
+
+    <div class="main-content container py-8 lg:py-12">
+            <div>
+    <div data-drupal-messages-fallback class="hidden"></div>
+<div id="block-iso20022-theme-evo-content" class="block--system-main-block block block--system">
+  
+    
+
+      <div class="block__content">
+      <article data-history-node-id="600" about="/understanding-data-dictionary" typeof="schema:WebPage" class="node node--type-page node--view-mode-full">
+      
+
+<div class="intro-secondary mt-8 mb-12 lg:mt-12 ">
+    <div class="intro-secondary__breadcrumb">
+              <nav class="breadcrumb-menu" aria-label="Breadcrumb">
+    <ol class="breadcrumb__list flex items-center flex-wrap gap-2 text-sm">
+              <li class="breadcrumb__item flex items-center">
+                      <a href="/" class="breadcrumb__link text-gray-500 hover:text-primary">
+              Home
+            </a>
+                            </li>
+          </ol>
+  </nav>
+
+        </div>
+
+        <div class="intro-secondary__title w-full md-lg:w-3/4 lg:w-2/3">
+      <h1  data-history-node-id="600" about="/understanding-data-dictionary" typeof="schema:WebPage" class="heading intro-page-title md-lg:mb-0 node node--type-page node--view-mode-full">
+            <span property="schema:name" class="field--title">Understanding the Data Dictionary</span>
+
+      </h1>
+    </div>
+  
+    </div>
+
+  
+    <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+      <div class="prose max-w-none mb-10 lg:mb-12">
+    <p>The items in the Dictionary can be classified in three categories: <strong>Business Concepts</strong>, <strong>Data Types</strong> and <strong>Message Concepts</strong>.</p>
+
+<p><strong>Business Concepts</strong> are Dictionary items with a business semantic meaning. The following items are part of this category:</p>
+
+<ul class="w-icons__ul">
+	<li class="list-item">Business Associations,</li>
+	<li class="list-item">Business Components,</li>
+	<li class="list-item">Constraints,</li>
+	<li class="list-item">Business Elements,</li>
+	<li class="list-item">Business Roles.</li>
+</ul>
+
+<p><strong>Data Types</strong> are Dictionary items that unambiguously specifies the set of valid values of a Business Element or of a Message Element.</p>
+
+<p><strong>Message Concepts</strong> are Dictionary items used in Message Definitions. The following items are part of this category:</p>
+
+<ul class="w-icons__ul">
+	<li class="list-item">Message Components,</li>
+	<li class="list-item">Constraints,</li>
+	<li class="list-item">Message Elements.</li>
+</ul>
+    </div>
+  </div>
+
+      
+
+
+
+<div class="media-text-section flex flex-col gap-10 lg:gap-20 xl:gap-32 md:flex-row mt-8 mb-12 lg:mt-16 ">
+    <div class="media-text-section__img relative w-full md:w-1/2 overflow-hidden md:order-2">
+              <img class="w-full h-auto object-cover max-w-full" sizes="796w" src="/sites/default/files/styles/750w/public/2023-01/UnderstandingDataDictionary.jpg?itok=SUTCWWyU" alt="DataDictionary" title="DataDictionary" typeof="foaf:Image" />
+
+
+              </div>
+
+    <div class="media-text-section__body w-full md:w-1/2 md:order-1">
+    <div class="flex flex-col">
+      
+            <div class="prose max-w-none">
+    <p>This diagram shows the conceptual structure of the Dictionary. It shows all types of Dictionary items and the relationships between them.</p>
+  </div>
+
+      </div>
+  </div>
+</div>
+
+
+  <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4627-4627"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            Dictionary items definitions
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4627-4627"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4612-4612"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            Business Component
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4612-4612"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+      <div class="prose max-w-none mb-10 lg:mb-12">
+    <p>Representation of a (part of a) key business notion, characterised by specific Business Elements. Each Business Component may have one or more Associations with other Business Components. A Business Component is uniquely identified in the Dictionary.</p>
+
+<p>Examples: TradeTransaction, Account, CashEntry</p>
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4614-4614"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            Business Element
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4614-4614"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+      <div class="prose max-w-none mb-10 lg:mb-12">
+    <p>A business characteristic of a Business Component. A Business Element is uniquely identified in its Business Component, its meaning can only be described unambiguously in combination with its Business Component.</p>
+
+<p>When a business characteristic of a Business Component may be repeated in an instance of that Component, a multiplicity information is added behind the Business Element name between square brackets; e.g. "[2..n]" - meaning that the characteristic can be repeated two to an indefinite number of times.</p>
+
+<p>Examples: DealPrice (in TradeTransaction), SettledQuantity (in SecuritiesTransfer), Amount (in CashEntry).</p>
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4616-4616"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            Business Association
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4616-4616"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+      <div class="prose max-w-none mb-10 lg:mb-12">
+    <p>A semantic relation between two Business Components. The meaning of a Business Association is always defined in combination with these two Business Components. A Business Association is therefore uniquely identified in the scope of two Business Components.</p>
+
+<p>Business Associations have two Business Associations Ends.These endpointsconnect the BusinessAssociation to its BusinessComponents.</p>
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4618-4618"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            Business Role
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4618-4618"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+      <div class="prose max-w-none mb-10 lg:mb-12">
+    <p>A functional role played by a business actor in a particular BusinessProcess or BusinessTransaction.</p>
+
+<p>A Business Role is uniquely identified in the Dictionary.</p>
+
+<p>Examples: FinancialInstitution, CSD</p>
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4620-4620"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            Data Type and Data Type Representations
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4620-4620"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+      <div class="prose max-w-none mb-10 lg:mb-12">
+    <p>A Data Type is the unambiguous specification of the set of valid values of a Business Element or of a Message Element.</p>
+
+<p>The set of valid values may be defined via a format specification or via an exhaustive enumeration of all possible values. A Data Type is uniquely identified in the Dictionary.</p>
+
+<p>Each Data Type belongs to a specific category of Data Types called a Data Type Representation. Each Data Type Representation is characterized by a set of technical information required for implementation and processing.</p>
+
+<p>The user-defined DataTypes are categorized in a limited number of datatype representations, such as Amount, IdentifierSet, Quantity, CodeSet, Date, Time, Text, etc. The full list of DataType representations is defined in the metamodel.</p>
+
+<p>Examples of Data Types (Representation Types): PercentageRate (Rate), BalanceTypeCode (Code), PaymentDirectionIndicator (Indicator)</p>
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4622-4622"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            Message Component
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4622-4622"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+      <div class="prose max-w-none mb-10 lg:mb-12">
+    <p>A reusable Dictionary Item that is a building block for assembling Message Definitions. It is normally linked to a Business Component and characterised by specific Message Elements.</p>
+
+<p>A Message Component is uniquely identified in the Dictionary. A Message Component may be qualified as a "Choice" component meaning that only one of the elements composing this Message Component may be selected in an XML instance of a message containing that Choice Message Component</p>
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4624-4624"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            Message Element
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4624-4624"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+      <div class="prose max-w-none mb-10 lg:mb-12">
+    <p>A characteristic of a Message Component. A Message Element is uniquely identified in its Message / Choice Component.</p>
+
+<p>When a Message Element may be repeated in an instance of a Message Component, a multiplicity information is added behind the Message Element name between square brackets; e.g. "[0..n]" - meaning that the Message Element may be repeated 0, 1 or an indefinite number of times.</p>
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4626-4626"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            Constraint
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4626-4626"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+      <div class="prose max-w-none mb-10 lg:mb-12">
+    <p>A constraint attached to a Business or Message Component and defining specific conditions applicable to that Component or to its associated Business Components. A Constraint is uniquely identified in the scope of a Business or Message Component.</p>
+
+<p>Examples: ExchangeConversionRule (applied on the Business Component CurrencyExchange), AmountsCurrencyRule (applied on the Message Component SubscriptionCashFlow2).</p>
+
+<p>Some typical constraints that may appear regularly in the Dictionary are:</p>
+
+<ul class="w-icons__ul">
+	<li class="list-item">Format or XML Facet: This constraint assigned to a Data Type provides formatting constraints on the value that may be assigned to an element typed by this Data Type.</li>
+	<li class="list-item">Typical constraints that may be assigned are for instance: Total number of digits; A pattern with which the value must comply (e.g. 3 alphanumeric characters);</li>
+	<li class="list-item">Maximum value</li>
+</ul>
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4650-4650"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            Additional information on items displayed on Dictionary screens
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4650-4650"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4629-4629"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            Code /Code Name
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4629-4629"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+      <div class="prose max-w-none mb-10 lg:mb-12">
+    <ul class="w-icons__ul">
+	<li class="list-item">Code: A character string (letters, figures or symbols) that for brevity and/or language independence can be used to represent or replace a definitive value or text of an attribute.<br>
+	Example: CBNS Applies to: Data Types of Representation Type "CodeSet"</li>
+	<li class="list-item">Name: The full name of a particular Code within the set of valid values.<br>
+	Example: "CumBonus" is the Code Name of the Code "CBNS" in TradeTransactionConditionCode<br>
+	<br>
+	Applies to: Data Types of Representation Type "CodeSet".</li>
+</ul>
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4631-4631"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            Defined in
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4631-4631"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+      <div class="prose max-w-none mb-10 lg:mb-12">
+    <p>When a Business / Message Component extends (refer to the " Extends" field description below) an other Business / Message Component, the former one inherits automatically the characteristics (i.e. the Business Elements and Constraints) of the latter.</p>
+
+<p>Therefore, for each Business / Message Element and for each Constraint, the "Defined in" field indicates the original Business / Message Component from which this characteristic is inherited. For characteristics that are not inherited, the name of the current Business / Message Component is displayed.</p>
+
+<p>Applies to: Business Elements; Message Elements; Constraints</p>
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4633-4633"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            Description
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4633-4633"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+      <div class="prose max-w-none mb-10 lg:mb-12">
+    <p>Provides a precise description of the meaning of the Dictionary item.</p>
+
+<p>Applies to Dictionary items: Business Roles, Business Components, Message Components, Business Elements, Message Elements, Data Types and Codes.</p>
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4635-4635"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            Traces to
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4635-4635"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+      <div class="prose max-w-none mb-10 lg:mb-12">
+    <p>Message Components and Message Elements are usually based on a Business item (i.e. Business Component, Business Element or Business Association). This field indicates on which Business item, the Message Component or Element is based.</p>
+
+<p>In a limited number of cases, a Message Element may have been introduced for purely technical reasons. Such a Message Elements is not based on a Business item because it has no business meaning. In this case, no "trace to" information is displayed.</p>
+
+<p>Applies to: Message Components; Message Elements.</p>
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4637-4637"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            Multiplicity
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4637-4637"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+      <div class="prose max-w-none mb-10 lg:mb-12">
+    <p>Indicates the number of times a Business / Message Element may be repeated in an instance of the Business / Message Component it is defined in.</p>
+
+<p>Applies to: Business Elements; Message Elements.</p>
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4639-4639"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            Registration status
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4639-4639"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+      <div class="prose max-w-none mb-10 lg:mb-12">
+    <p>The status of the item in the Repository registration life cycle. One of the following Registration Status values can be specified for each of the item:</p>
+
+<ul class="w-icons__ul">
+	<li class="list-item"><strong>Provisionally Registered</strong> - The Repository item is pending final approval. This enables the Registration Authority to inform users that the Repository Item will potentially become "Registered" in the near future.</li>
+	<li class="list-item"><strong>Registered</strong> - The Repository item is ISO 20022 compliant and can be used for ISO 20022 compliant developments.</li>
+	<li class="list-item"><strong>Obsolete + Will be removed on: dd-month-yyyy </strong>- The Repository item is still compliant but cannot be used in new ISO 20022 compliant developments. The indicated in the "Will be removed on:" field is specified when the Repository item is no longer considered as compliant as of a specific date. This means the Repository item may no longer be used for registering updates to the Repository and will be removed from the Repository at the date specified as.</li>
+</ul>
+
+<p>Applies to: All Repository items.</p>
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4641-4641"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            Constraint description
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4641-4641"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+      <div class="prose max-w-none mb-10 lg:mb-12">
+    <p>A textual or formal description of the meaning of a Constraint associated to a Business or Message Component.</p>
+
+<p>Applies to: Constraints.</p>
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4643-4643"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            Synonyms
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4643-4643"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+      <div class="prose max-w-none mb-10 lg:mb-12">
+    <p>There are two types of synonyms:</p>
+
+<ul class="w-icons__ul">
+	<li class="list-item">Alternative names of a Dictionary item in a particular business context. The business context is specified in the Synonym column.<br>
+	Example: The synonym ":19A::REPA" is the representation of the Business Element "RepurchaseAmount" in the Business Component "RepurchaseAgreement" for the Enhanced-7775 syntax (ISO 15022).</li>
+	<li class="list-item">Possible representations of a Dictionary item in a particular syntax. The syntax is specified in the Synonym column.<br>
+	Example 2:"Strike price" is an alternative name for the "ExercisePrice" Business Element in the "Option" Business Component.<br>
+	<br>
+	Applies to: Business Components, Message Components, Business Elements, Message Elements, Data Types, Codes, Business Associations, Business Roles.</li>
+</ul>
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4645-4645"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            Type
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4645-4645"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+      <div class="prose max-w-none mb-10 lg:mb-12">
+    <p>Identifies the Business or Message Component or Data Type used to type a Business or Message Element.</p>
+
+<p>Applies to: Business Elements, Message Elements.</p>
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4647-4647"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            XML attribute
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4647-4647"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+      <div class="prose max-w-none mb-10 lg:mb-12">
+    <p>Additional information provided for a Data Type, specifying values for technical information that is relevant for the Data Type Representation to which the Data Type belongs. This information appears in the XML schema. The XML attribute is a name / value pair that is specified in the XML start-tag.</p>
+
+<p>An XML attribute has a Data Type assigned, specifying the set of valid values of the XML attribute.</p>
+
+<p>Example:The "Currency" XML Attribute in the "CurrencyAndAmount" Data Type specifies the Currency in which the amount must be considered.</p>
+
+<p>Applies to: Data Types (of the Representation Type "Quantity" or "Amount").</p>
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div
+  class="catalog-view__item catalog-view__item--default"
+  id="accordion-item-4649-4649"
+  x-data="{ expanded: false }"
+  :class="expanded ? 'is-active' : ''"
+>
+  <div
+    class="catalog-view__item__visible"
+    @click="expanded = !expanded"
+    :aria-expanded="expanded"
+  >
+
+    <div class="catalog-col__main flex items-center pr-2">
+                                <h5  class="heading catalog-col__main__title mb-0 text-secondary">
+            XML tag
+      </h5>
+                  </div>
+
+    <div class="catalog-col__show-more">
+      <button type="button" class="btn-show-more" aria-label="Show more">
+        <span class="btn-show-more__text">Show more</span>
+        <span class="btn-show-more__text btn-show-more__text--less">Show less</span>
+        <span class="btn-show-more__icon">
+          
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#triangle-down"></use>
+</svg>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="catalog-view__item__extra"
+    x-show="expanded"
+    x-collapse
+    aria-labelledby="accordion-item-4649-4649"
+  >
+    <div class="catalog-view__item__extra__inner px-5 xl:px-8">
+      <div class="catalog-view__item__extra__box  py-6 lg:py-10 xl:py-12">
+              <div class="paragraph paragraph--type--text paragraph--view-mode--default">
+      <div class="prose max-w-none mb-10 lg:mb-12">
+    <p>Specific name assigned to a Message Element. This name will appear as an XML tag in XML instances of Messages re-using this Message Element as well as in XML Schemas of Messages re-using this Message Element.</p>
+
+<p>XML tags are attributed by the RA. They are derived from the full name of the element which is abbreviated according to an <a href="/sites/default/files/documents/D7/XML_Tag_algorithm.pdf">algorithm</a>.</p>
+
+<p>The mapping list of abbreviations used in <a href="/sites/default/files/media/file/XML_Tags.pdf">XML tags</a> is available here and is updated on a regular basis.</p>
+
+<p>Note: There are exceptions that cannot be automated using the algorithm and, sometimes, the tag is attributed by the RA. Applies to: Message Elements.</p>
+    </div>
+  </div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+
+        </div>
+    </div>
+  </div>
+</div>
+
+  <div class="paragraph paragraph--type--call-to-action paragraph--view-mode--default">
+      
+            <div class="field--field-call-to-action-ref field field--name-field-call-to-action-ref field--type-entity-reference field--label-hidden">
+
+<div class="cta-block cta-block-default bg-white  mb-14 mt-16 md:mb-16 md:mt-20 lg:mb-20 xl:lg:mt-28">
+  <div class="cta-block__body">
+          <div class="flex flex-col lg:flex-row">
+                  <div class="cta-block__content px-10 lg:px-16 pb-10 lg:pb-16">
+                          <h2  class="heading cta-block__title mb-0 text-primary leading-none text-2xl -translate-y-4 lg:-translate-y-7 lg:text-3xl">
+            XML Tags
+      </h2>
+                                      <div class="cta-block__text prose max-w-none">
+                <p>The mapping list of abbreviations used in XML tags is available here and is updated on a regular basis.</p>
+              </div>
+                      </div>
+        
+                              <div class="cta-block__link flex flex-col items-center">
+              <a
+                href="/sites/default/files/media/file/XML_Tags.pdf"
+                class="cta-block__link-inner flex lg:flex-col"
+              >
+                <span>Download the mapping list</span>
+                
+
+  
+
+<svg  class="icon cta-block__link-icon"
+      aria-hidden="true" role="img"
+      >
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#arrow-line"></use>
+</svg>
+              </a>
+            </div>
+                        </div>
+      </div>
+</div>
+</div>
+      
+  </div>
+
+
+</article>
+
+    </div>
+  </div>
+
+  </div>
+
+      </div>
+  </main>
+
+            
+
+
+
+<footer
+  role="contentinfo"
+  class="site-footer bg-white border-t border-border z-[1] w-full mt-10 lg:mt-16"
+>
+      <div class="footer-sitemap container hidden md:flex pt-16 pb-10">
+            <div class="footer-sitemap__logo w-[17%]">
+        
+<div class="logo-wrapper flex items-center ">
+  
+    
+
+
+
+<a
+  href="/"
+  class=" logo__link"      >
+        
+
+  
+
+<svg  class="icon"
+      aria-hidden="true" role="img"
+        aria-labelledby="title-logo-swift-iso20022-1612326048"
+    >
+      <title id="title-logo-swift-iso20022-1612326048">ISO 20022</title>
+      <use xlink:href="/themes/custom/iso20022_theme_evo/dist/icons.svg#logo-swift-iso20022"></use>
+</svg>
+    </a>
+
+  </div>
+      </div>
+
+                <div class="footer-sitemap__nav w-[83%]">
+      
+    </div>
+      </div>
+  
+    <div class="container">
+    <div class="footer-bottom relative z-[2] py-6 md:py-8 flex flex-col md:flex-row border-t border-border-dark/40">
+      <div class="footer-bottom__copy text-xs max-md:mt-4 max-md:order-2">
+                  &copy; Copyright ISO 20022
+              </div>
+      <div class="footer-bottom__nav flex md:ml-auto lg:ml-24 max-md:order-1">
+        <nav class="max-md:w-full">
+                                <ul class="footer-bottom__nav__list flex max-md:flex-wrap max-md:w-full">
+      <li class="inline-flex max-md:w-1/2 max-md:inline-block pr-8">
+      <a href="/contact-us" class="text-secondary text-xs no-underline border-b-2 border-primary hover:text-primary transition-colors">
+        Contact
+      </a>
+    </li>
+      <li class="inline-flex max-md:w-1/2 max-md:inline-block pr-8">
+      <a href="/sites/default/files/2021-09/ISO20022_PrivacyStatement.pdf" class="text-secondary text-xs no-underline border-b-2 border-primary hover:text-primary transition-colors">
+        Privacy statement
+      </a>
+    </li>
+      <li class="inline-flex max-md:w-1/2 max-md:inline-block pr-8">
+      <a href="/cookie-policy" class="text-secondary text-xs no-underline border-b-2 border-primary hover:text-primary transition-colors">
+        Cookie policy
+      </a>
+    </li>
+      <li class="inline-flex max-md:w-1/2 max-md:inline-block ">
+      <a href="/terms-use" class="text-secondary text-xs no-underline border-b-2 border-primary hover:text-primary transition-colors">
+        Terms of use
+      </a>
+    </li>
+  </ul>
+
+
+              </nav>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </div>
+
+  </div>
+
+    
+
+    <script src="/sites/default/files/js/js_JDgmOA6uFH-RGcpblnE3gLEzosx-d7T0Dv1KI_576_E.js?scope=footer&amp;delta=0&amp;language=en&amp;theme=iso20022_theme_evo&amp;include=eJxtikEKgDAMBD-kVvqhkEqIlbQrGsXnK15E6GVgdlYBNSFnDfqg078PvPD1H0uXd8RxjJEmnILwkhJvlKvLVtm-h89ShOREUENql8K59kXq0YoOmOf1BkG7PTk"></script>
+
+  <noscript><img src="https://www.iso20022.org/akam/13/pixel_5fabd201?a=dD01YjY1YmRjZmJmOWE5ODFlOTRjNDEyZmIzZmE1NTM0ZjQyNGE4MzgwJmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;" /></noscript></body>
+</html>

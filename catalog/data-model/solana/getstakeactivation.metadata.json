@@ -1,0 +1,14 @@
+{
+  "id": "getstakeactivation",
+  "url": "https://solana.com/docs/rpc/http/getstakeactivation",
+  "resolved_url": "https://solana.com/docs/rpc/deprecated/getstakeactivation",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:26:00.393290+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "getstakeactivation.raw",
+  "text_path": "getstakeactivation.txt",
+  "raw_sha256": "cb206ae7900795c15a91d67db8159011f5696ac7c1c0238f9cae38e94d9ff0c4",
+  "text_sha256": "d1bae600ec1515bb153c3c81405396b977057710e2ad723dbabf2ac6821860e1",
+  "text_chars": 3088,
+  "evidence_usable": true
+}

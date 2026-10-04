@@ -1,0 +1,4 @@
+# Preserve fetched literature bytes and hashes; review manifests and synthesis.
+catalog/data-model/**/*.raw -diff -whitespace
+catalog/data-model/**/*.html -diff -whitespace
+catalog/data-model/**/*.txt -diff -whitespace

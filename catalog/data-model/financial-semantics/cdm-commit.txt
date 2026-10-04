@@ -1,0 +1,108 @@
+{
+  "sha": "9e036949e273a2f29a6a40aa222c5dd33c39b3ad",
+  "node_id": "C_kwDOBzKP9doAKDllMDM2OTQ5ZTI3M2EyZjI5YTZhNDBhYTIyMmM1ZGQzM2MzOWIzYWQ",
+  "commit": {
+    "author": {
+      "name": "ReleaseManagement-BP",
+      "email": "benjamin.page+cdm@regnosys.com",
+      "date": "2026-10-01T15:05:41Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-10-01T15:05:41Z"
+    },
+    "message": "Merge pull request #5241 from rosetta-models/lgarc_639c44ea4290012551b1245-Qualify_FullReturn_Modification\n\n[master] Laura Garcia Qualification Functions - Updated Qualify_FullReturn",
+    "tree": {
+      "sha": "352b437f969001832bbd093c5795251ec2fcbd17",
+      "url": "https://api.github.com/repos/finos/common-domain-model/git/trees/352b437f969001832bbd093c5795251ec2fcbd17"
+    },
+    "url": "https://api.github.com/repos/finos/common-domain-model/git/commits/9e036949e273a2f29a6a40aa222c5dd33c39b3ad",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqvnbFCRC1aQ7uu5UhlAAAoNEQAAshCG69ON/z6bkcpM0X5ffe\nEjwSb1/GCvz9jGDWAgsci//mfdEKo1+Y9cFqmYtaHk3v5ZRC0q47o9110dEzjjnx\nuSCeMunXo9SKBB8l8g9jxty1llrtbAgsuW2PF33ZGhC+M2PXtBWnNUdLKi4EdM2r\n7Pr9svf14Y/YCiu2jnM6D7dkejqpjN3l2MQBgo3fvoxvs8yaZbAaJ5/9hmalpn0H\nGyM3O1Qje7W/vA7kDbSLObynoNyNwoDjLlfmWcZsyM/50I1UiTOI+sf5ZryfC5ke\ngYXkp1USON9LHnJZgNKGjQPjj12crRuxd09p22s5z6/XuN266e9+jJ0OPvRKfRe+\nQZvCHWPJbFMzRHDmBFCXAdOmPd/mxZuv/lQRuq+lAwMBt1xqTs3d6tWQ74NQmN5A\nSWtXY7pdcsjCdzi1Zj6q2/xOrgd6zQ52bPKruUsdY8VtI6AJlyRj0cC/1azR4Le+\nVb2/ohPeSDDX58wZvVtMiJcNO/MVkuutV4ZFz8B94m/0wi1Lf+3080hp0oXOcpPa\nhvaYt3Dc2yGyIYTEfASn4IU0zIc/ptH49jlpH3DrEHeC0cTGIhWBa6JJvyzylChr\nDHBJxmOCXL4deUEuSWfv/quOHM6ePnx39lftfYgrox8W0S16Nq7oQtB68puZkVKl\nLXQMWSQKT7gGhEMfCUWI\n=10jz\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 352b437f969001832bbd093c5795251ec2fcbd17\nparent 0e3958785b2b055398232ae2022a06b1cb34dd08\nparent 534ced74ee92aab060767afa9ca46b92946554a1\nauthor ReleaseManagement-BP 
+ 1790867141 +0100\ncommitter GitHub 
+ 1790867141 +0100\n\nMerge pull request #5241 from rosetta-models/lgarc_639c44ea4290012551b1245-Qualify_FullReturn_Modification\n\n[master] Laura Garcia Qualification Functions - Updated Qualify_FullReturn",
+      "verified_at": "2026-10-01T15:05:44Z"
+    }
+  },
+  "url": "https://api.github.com/repos/finos/common-domain-model/commits/9e036949e273a2f29a6a40aa222c5dd33c39b3ad",
+  "html_url": "https://github.com/finos/common-domain-model/commit/9e036949e273a2f29a6a40aa222c5dd33c39b3ad",
+  "comments_url": "https://api.github.com/repos/finos/common-domain-model/commits/9e036949e273a2f29a6a40aa222c5dd33c39b3ad/comments",
+  "author": {
+    "login": "ReleaseManagement-BP",
+    "id": 237967747,
+    "node_id": "U_kgDODi8Zgw",
+    "avatar_url": "https://avatars.githubusercontent.com/u/237967747?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/ReleaseManagement-BP",
+    "html_url": "https://github.com/ReleaseManagement-BP",
+    "followers_url": "https://api.github.com/users/ReleaseManagement-BP/followers",
+    "following_url": "https://api.github.com/users/ReleaseManagement-BP/following{/other_user}",
+    "gists_url": "https://api.github.com/users/ReleaseManagement-BP/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/ReleaseManagement-BP/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/ReleaseManagement-BP/subscriptions",
+    "organizations_url": "https://api.github.com/users/ReleaseManagement-BP/orgs",
+    "repos_url": "https://api.github.com/users/ReleaseManagement-BP/repos",
+    "events_url": "https://api.github.com/users/ReleaseManagement-BP/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/ReleaseManagement-BP/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "0e3958785b2b055398232ae2022a06b1cb34dd08",
+      "url": "https://api.github.com/repos/finos/common-domain-model/commits/0e3958785b2b055398232ae2022a06b1cb34dd08",
+      "html_url": "https://github.com/finos/common-domain-model/commit/0e3958785b2b055398232ae2022a06b1cb34dd08"
+    },
+    {
+      "sha": "534ced74ee92aab060767afa9ca46b92946554a1",
+      "url": "https://api.github.com/repos/finos/common-domain-model/commits/534ced74ee92aab060767afa9ca46b92946554a1",
+      "html_url": "https://github.com/finos/common-domain-model/commit/534ced74ee92aab060767afa9ca46b92946554a1"
+    }
+  ],
+  "stats": {
+    "total": 2,
+    "additions": 1,
+    "deletions": 1
+  },
+  "files": [
+    {
+      "sha": "5fc0340b948a0476625012e4099a93ccf5fd85f7",
+      "filename": "rosetta-source/src/main/rosetta/event-qualification-func.rosetta",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/finos/common-domain-model/blob/9e036949e273a2f29a6a40aa222c5dd33c39b3ad/rosetta-source%2Fsrc%2Fmain%2Frosetta%2Fevent-qualification-func.rosetta",
+      "raw_url": "https://github.com/finos/common-domain-model/raw/9e036949e273a2f29a6a40aa222c5dd33c39b3ad/rosetta-source%2Fsrc%2Fmain%2Frosetta%2Fevent-qualification-func.rosetta",
+      "contents_url": "https://api.github.com/repos/finos/common-domain-model/contents/rosetta-source%2Fsrc%2Fmain%2Frosetta%2Fevent-qualification-func.rosetta?ref=9e036949e273a2f29a6a40aa222c5dd33c39b3ad",
+      "patch": "@@ -226,7 +226,7 @@ func Qualify_FullReturn: <\"The qualification of a full return event from the fac\n             only-element\n     set is_event:\n         (businessEvent -> intent is absent)\n-            and businessEvent -> after -> trade -> product -> economicTerms -> collateral -> collateralPortfolio -> collateralPosition -> product ->> economicTerms -> payout\n+            and businessEvent -> after -> trade -> product -> economicTerms -> payout\n                 as AssetPayout\n                 exists\n             and (businessEvent -> instruction count = 1"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "getgenesishash",
+  "url": "https://solana.com/docs/rpc/http/getgenesishash",
+  "resolved_url": "https://solana.com/docs/rpc/http/getgenesishash",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:59.217915+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "getgenesishash.raw",
+  "text_path": "getgenesishash.txt",
+  "raw_sha256": "65b7acffc1a26968e0647887e9ac478a78f57e16724df8e82ef7852d13bbf340",
+  "text_sha256": "763839e4e29899f5a0c789c64fc6baa67bc9080b66b92fa275c5c1d4a475c01e",
+  "text_chars": 2581,
+  "evidence_usable": true
+}

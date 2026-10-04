@@ -1,0 +1,202 @@
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Accounts
+Programs
+Instructions
+Transactions
+Transaction Structure
+Transaction Introspection
+Signing in Production
+Partial Signing
+Versioned Transactions
+Transaction Pipeline
+Durable Nonces
+Fees
+Program Derived Address
+Cross-Program Invocation
+Constants Reference
+Table of Contents
+Solana Documentation
+Transactions
+Durable Nonces
+Copy Markdown
+Open
+Summary
+Durable nonce transactions replace the recent blockhash with a stored nonce
+value, removing the 150 slot expiry window for a transaction. This enables
+offline signing and delayed submission.
+Durable nonces may be deprecated in a future release. See 
+SIMD
+discussion
+
+for details.
+Durable nonces
+A durable nonce transaction replaces the recent blockhash with a stored nonce
+value, removing the 150 slot expiry window. This enables offline signing and
+delayed submission.
+How nonce transactions work
+A nonce account is a System Program-owned account that stores a
+
+State
+::
+Initialized
+ value containing three fields: an 
+authority
+ pubkey
+(who can advance the nonce), a 
+durable nonce
+ value (a hash derived from a
+recent blockhash), and 
+lamports per signature
+ (the fee rate when the nonce
+was last advanced).
+To use a durable nonce:
+Create and initialize a nonce account using 
+CreateAccount
+ +
+
+InitializeNonceAccount
+Build the transaction with 
+AdvanceNonceAccount
+ as the 
+first
+instruction
+ and the nonce value as the 
+recent_blockhash
+Sign the transaction (can be done offline, since the nonce does not expire)
+Submit when ready
+Create and use a nonce account
+This example creates a nonce account, reads its stored nonce, and uses that
+nonce to send a SOL transfer. It uses a local validator so the payer can be
+funded automatically.
+setTransactionMessageLifetimeUsingDurableNonce
+ sets the stored nonce as the
+transaction lifetime and prepends the required 
+AdvanceNonceAccount
+
+instruction. Add the transaction's other instructions after applying the durable
+nonce lifetime so the advance instruction remains first.
+After this transaction is processed, the nonce account contains a new value.
+Refetch the account before building another transaction; a transaction signed
+with the previous nonce cannot be submitted again.
+Nonce detection
+The runtime detects nonce transactions by checking whether the first instruction
+(index
+
+NONCED_TX_MARKER_IX_INDEX
+
+= 0) is a call to the System Program with the 
+AdvanceNonceAccount
+
+instruction. The nonce account must be the first account of that instruction and
+must be writable. See
+
+get_durable_nonce
+.
+Nonce validation flow
+When a transaction's 
+recent_blockhash
+ is not found in the 
+BlockhashQueue
+,
+the validator checks if it is a valid nonce transaction via
+
+check_transaction_age
+:
+The nonce's stored 
+durable_nonce
+ must differ from the next durable nonce
+(derived from the current blockhash). This ensures the nonce has not already
+been used in this block
+The nonce account must be loaded and must parse as 
+State
+::
+Initialized
+The stored 
+durable_nonce
+ must match the transaction's 
+recent_blockhash
+The nonce authority signing check is performed later
+(
+validate_transaction_nonce
+).
+If all checks pass, the nonce is advanced to the next durable nonce value before
+execution begins. On execution failure, the advanced nonce and the fee-deducted
+fee payer are still committed (preventing replay while collecting fees).
+Nonce failure behavior
+If a nonce transaction 
+fails validation
+ (nonce already used, authority not
+signed, account not found), the entire transaction is dropped. No fees
+collected, no state changes.
+If a nonce transaction 
+passes validation but execution fails
+ (an instruction
+returns an error), the nonce is still advanced and fees are still collected.
+This prevents the transaction from being replayed while ensuring the validator
+is compensated.
+Is this page helpful?
+Previous
+Transaction Pipeline
+Next
+Fees
+Table of Contents
+Durable nonces
+How nonce transactions work
+Create and use a nonce account
+Nonce detection
+Nonce validation flow
+Nonce failure behavior
+Edit Page
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.
+Durable Nonces | Solana

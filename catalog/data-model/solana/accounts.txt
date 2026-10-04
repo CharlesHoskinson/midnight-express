@@ -1,0 +1,136 @@
+Accounts | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Accounts
+Account Structure
+Account Types
+Modification Rules
+Account Runtime
+Programs
+Instructions
+Transactions
+Fees
+Program Derived Address
+Cross-Program Invocation
+Constants Reference
+Table of Contents
+Solana Documentation
+Accounts
+Copy Markdown
+Open
+An account is Solana's fundamental data unit for storing state. The network
+stores all state in a key-value store where each key is a 32-byte address and
+each value is an account.
+Diagram of 3 accounts and their addresses. Includes the account structure definition.
+Account Structure
+Account addresses (public key, PDA), the five fields every account contains,
+storage balance, and the deprecated rent field, with an interactive code
+walkthrough.
+Account Types
+Program accounts (executable code), data accounts (program state), system
+accounts, and sysvars (cluster-wide state).
+Modification Rules
+Runtime-enforced rules for lamports, data, owner, executable flag, and
+borrows.
+Account Runtime
+Account loading validation, BPF serialization format, and deserialization.
+Key facts
+Structure
+: Every account has the same
+
+five fields
+: lamports, data, owner,
+executable, rent_epoch.
+Address
+: Each account is identified by a unique 32-byte address (either an
+Ed25519 public key or a 
+PDA
+).
+Ownership
+: Only the account's owner program can modify its data or debit
+lamports. Any program can credit lamports to any writable account.
+Account storage
+: Every account must hold a refundable minimum lamport
+balance proportional to its data size to remain onchain.
+Limits
+Limit
+Value
+Source
+Max account data size
+10 MiB (10,485,760 bytes)
+MAX_ACCOUNT_DATA_LEN
+Max data growth per instruction
+10 KiB (10,240 bytes)
+MAX_PERMITTED_DATA_INCREASE
+Max data growth per transaction
+20 MiB (20,971,520 bytes)
+MAX_ACCOUNT_DATA_GROWTH_PER_TRANSACTION
+Account base storage overhead
+64 bytes per account
+TRANSACTION_ACCOUNT_BASE_SIZE
+Address size
+32 bytes (Ed25519 public key)
+--
+Minimum storage balance (formula)
+(account_size + 128) * 3,480 lamports/byte-year * 2 years
+minimum_balance()
+Is this page helpful?
+Previous
+Core Concepts
+Next
+Account Structure
+Table of Contents
+Key facts
+Limits
+Edit Page
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

@@ -1,0 +1,32 @@
+{
+  "kind": "rfq.request",
+  "requestId": "r-101",
+  "requesterId": "org:buyer",
+  "instrument": {
+    "baseAsset": "pilot:asset:ABC",
+    "quoteAsset": "pilot:fiat:USD"
+  },
+  "side": "BUY_BASE",
+  "quantity": {
+    "value": "10.000000",
+    "scale": 6,
+    "asset": "pilot:asset:ABC"
+  },
+  "limitPrice": {
+    "value": "12.5000",
+    "scale": 4,
+    "numeratorAsset": "pilot:fiat:USD",
+    "denominatorAsset": "pilot:asset:ABC",
+    "denominatorQuantity": "1.000000",
+    "basis": "QUOTE_PER_ONE_BASE",
+    "feeTreatment": "EXCLUDES_FEES"
+  },
+  "executionTerms": {
+    "fillPolicy": "ALL_OR_NONE",
+    "settlementPolicy": "PILOT_OFFCHAIN_COORDINATION_ONLY",
+    "roundingPolicy": "USD_TOTAL_HALF_EVEN_2"
+  },
+  "createdAt": "2026-10-03T12:00:00.000Z",
+  "expiresAt": "2026-10-03T12:05:00.000Z",
+  "instrumentTermsDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

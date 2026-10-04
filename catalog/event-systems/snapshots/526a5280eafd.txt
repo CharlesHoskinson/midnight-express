@@ -1,0 +1,142 @@
+What Is Semaphore? | Semaphore
+Skip to main content
+Semaphore V4
+ is out 🎉
+Try it out
+ and let us know if you have any feedback on
+Telegram
+ or
+Github
+!
+V4
+V4
+V3
+V2
+V1
+Whitepaper
+Github
+Website
+English
+English
+Español
+Search
+What Is Semaphore?
+Getting started
+Guides
+Technical reference
+Deployed contracts
+Mobile SDKs
+Subgraph
+Benchmarks
+Glossary
+Resources
+Code editors and LLM setup
+Troubleshooting
+FAQ
+Credits
+What Is Semaphore?
+Version: V4
+On this page
+What Is Semaphore?
+Overview
+​
+Semaphore
+ is a
+zero-knowledge
+ protocol that allows you to cast a message (for example, a vote or endorsement) as a provable group member without revealing your identity.
+Additionally, it provides a simple mechanism to prevent double-signaling.
+Use cases include private voting, whistleblowing, anonymous DAOs and mixers.
+For in-depth technical details about Semaphore, refer to the
+Semaphore V4 Specification
+.
+Features
+​
+With Semaphore, you can allow your users to do the following:
+Create a Semaphore identity
+.
+Add their Semaphore identity to a group (i.e.
+Merkle tree
+)
+.
+Send a verifiable, anonymous message (e.g a vote or endorsement)
+.
+When a user broadcasts a message, Semaphore zero-knowledge
+proofs can ensure that the user has joined the group and hasn't already cast a message with their nullifier.
+Semaphore uses on-chain Solidity contracts and off-chain JavaScript libraries that work in tandem.
+Off chain, JavaScript libraries can be used to create identities, manage groups and generate proofs.
+On chain, Solidity contracts can be used to manage groups and verify proofs.
+Developer benefits
+​
+Semaphore is designed to be a simple and generic
+privacy layer
+ for decentralized applications (dApps) on Ethereum. It encourages modular application design, allowing dApp developers to choose and customize the on-chain and off-chain components they need.
+About the code
+​
+The core of the protocol is the
+circuit logic
+.
+In addition to circuits,
+Semaphore provides
+Solidity contracts
+
+and
+JavaScript libraries
+ that allow developers to generate zero-knowledge proofs and verify them with minimal effort.
+Trusted Setup Ceremony
+​
+The
+secure parameters
+ for generating valid proofs with Semaphore circuits were generated in a
+Trusted Setup Ceremony
+ that was completed with over 400 participants on
+13 July 2024
+.
+Audits
+​
+Version
+Auditors
+Report
+Scope
+v2.0.0
+PSE
+Semaphore_2.0.0_Audit.pdf
+circuits
+,
+contracts
+v2.5.0
+PSE
+Semaphore_2.5.0_Audit.pdf
+contracts
+,
+libraries
+v3.0.0
+Veridise
+Semaphore_3.0.0_Audit.pdf
+circuits
+,
+contracts
+v4.0.0
+PSE
+Semaphore_4.0.0_Audit.pdf
+circuits
+,
+contracts
+,
+libraries
+Edit this page
+Next
+Getting started
+Overview
+Features
+Developer benefits
+About the code
+Trusted Setup Ceremony
+Audits
+About
+Semaphore is part of Privacy & Scaling Explorations (PSE), a multidisciplinary team supported by the Ethereum Foundation. PSE explores new use cases for zero knowledge proofs and other cryptographic primitives.
+pse.dev
+Connect
+Telegram
+X (Twitter)
+Github
+Copyright © 2026 Ethereum Foundation

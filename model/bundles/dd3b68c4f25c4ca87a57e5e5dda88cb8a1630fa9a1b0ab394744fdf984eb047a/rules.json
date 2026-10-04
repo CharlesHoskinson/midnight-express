@@ -1,0 +1,12 @@
+{
+  "profile": "invoice.v0.2",
+  "rules": [
+    "trusted invoice identity, parties, currency, payable and document digest match",
+    "payment source must match trusted complete paymentEvidence entry; effectiveAt <= observedAt <= trusted now",
+    "Pending/Reversed remain evidence and never imply payment completion",
+    "all statuses require amount <= payable; effectiveAt <= observedAt <= event time <= trusted now; event time is observation-record creation",
+    "Final remains source assertion only; partial allowed; no posting, allocation, tax or payment execution"
+  ],
+  "role": "payment-adapter",
+  "context": "Explicit trusted test fixture only; missing, stale or insufficient evidence rejects. Production source authentication, policy, clocks, durable atomic replay and finality remain pending."
+}

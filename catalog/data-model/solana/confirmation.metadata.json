@@ -1,0 +1,14 @@
+{
+  "id": "confirmation",
+  "url": "https://solana.com/developers/guides/advanced/confirmation",
+  "resolved_url": "https://solana.com/developers/cookbook/transactions/confirmation",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:52.389520+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "confirmation.raw",
+  "text_path": "confirmation.txt",
+  "raw_sha256": "0e1f1dec875a132dab592feaf8f0a947d3351ec13c95964128f655750ae17614",
+  "text_sha256": "30465972d8f552c4d0615c5c7530a303c1a47891cc167c96e83ee72b4af829ba",
+  "text_chars": 17996,
+  "evidence_usable": true
+}

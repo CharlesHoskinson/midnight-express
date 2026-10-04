@@ -1,0 +1,14 @@
+{
+  "id": "account-structure",
+  "url": "https://solana.com/docs/core/accounts/account-structure",
+  "resolved_url": "https://solana.com/docs/core/accounts/account-structure",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:26:56.198273+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "account-structure.raw",
+  "text_path": "account-structure.txt",
+  "raw_sha256": "077f9e37ca75258c2697fdb78b3dda6db817db100355d842daaddc3f0c739f4c",
+  "text_sha256": "21c15f93cc35a268f49de26988d877e7de93e6a277d19f6f2f9016b321ac8303",
+  "text_chars": 8784,
+  "evidence_usable": true
+}

@@ -1,0 +1,16 @@
+{
+  "name": "mpe-independent-rfq-typescript",
+  "private": true,
+  "type": "module",
+  "version": "0.2.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit --strict --target es2022 --module nodenext --moduleResolution nodenext --skipLibCheck --types node typescript.mts"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "26.1.1"
+  }
+}

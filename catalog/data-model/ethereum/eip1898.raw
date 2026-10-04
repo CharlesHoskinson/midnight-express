@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+    
+      <title>EIP-1898: Add `blockHash` to defaultBlock methods</title>
+      <meta property="og:title" content="EIP-1898: Add `blockHash` to defaultBlock methods" />
+    
+    <meta name="description" content="Add `blockHash` option to JSON-RPC methods that currently support defaultBlock parameter." />
+    <meta property="og:description" content="Add `blockHash` option to JSON-RPC methods that currently support defaultBlock parameter." />
+    <meta name="twitter:description" content="Add `blockHash` option to JSON-RPC methods that currently support defaultBlock parameter." />
+  
+  <meta name="generator" content="Jekyll" />
+  <meta property="og:locale" content="en_US" />
+  <link rel="canonical" href="https://eips.ethereum.org/EIPS/eip-1898" />
+  <meta property="og:url" content="https://eips.ethereum.org/EIPS/eip-1898" />
+  <meta property="og:site_name" content="Ethereum Improvement Proposals" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://eips.ethereum.org/assets/images/eip-og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://eips.ethereum.org/assets/images/eip-og-image.png" />
+  <meta name="twitter:site" content="@" />
+  <script type="application/ld+json">
+    {
+      "@type": "WebSite",
+      "url": "https://eips.ethereum.org",
+      "name": "Ethereum Improvement Proposals",
+      "description": "Ethereum Improvement Proposals (EIPs) describe standards for the Ethereum platform, such as core protocol specifications.",
+      "@context": "https://schema.org"
+    }
+  </script>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" /><link type="application/atom+xml" rel="alternate" href="https://eips.ethereum.org/feed.xml" title="Ethereum Improvement Proposals" /><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/css/override.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", (event) => {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    });
+  </script>
+  <script type="text/javascript">
+    window.MathJax = {
+      loader: {
+        load: ['input/tex-base', 'output/chtml']
+      },
+      tex: {
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']],
+        processEscapes: true,
+        processEnvironments: false,
+        processRefs: false
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js" integrity="sha384-/1zmJ1mBdfKIOnwPxpdG6yaRrxP6qu3eVYm0cz2nOx+AcL4d3AqEFrwcqGZVVroG" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/citation-js/0.6.7/citation.min.js" integrity="sha512-N+LDFMa9owHXGS+CyMrBvuxq2QuGl3fiB/7cys3aUEL7K6P1soHGqsS0sjHXZpwNd9Kz0m3R4IPy1HYRi6ROEQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript">
+    addEventListener('DOMContentLoaded', async () => {
+      const Cite = window.require('citation-js');
+      const citationElements = document.querySelectorAll('.language-csl-json');
+      for (let citationElement of citationElements) {
+        try {
+          const citation = await Cite.async(citationElement);
+          const template = document.createElement('template');
+          template.innerHTML = citation.format('bibliography', {
+            format: 'html',
+            template: 'apa',
+            lang: 'en-US'
+          });
+          if (citationElement.parentElement && citationElement.parentElement.matches('pre')) {
+            citationElement.parentElement.replaceWith(template.content);
+          } else {
+            citationElement.replaceWith(template.content);
+          }
+        } catch (e) {
+          console.error("unable to render citation", e);
+        }
+      }
+    });
+  </script>
+</head>
+<body><header class="site-header" role="banner">
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Ethereum Improvement Proposals</a><nav class="site-nav d-flex">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger row p-2"><a class="page-link col" href="/all">All</a><a class="page-link col" href="/core">Core</a><a class="page-link col" href="/networking">Networking</a><a class="page-link col" href="/interface">Interface</a><a class="page-link col" href="/erc">ERC</a><a class="page-link col" href="/meta">Meta</a><a class="page-link col" href="/informational">Informational</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="bi-megaphone-fill" fill="currentColor" viewBox="0 0 16 16">
+    <title>Alert</title>
+    <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-11zm-1 .724c-2.067.95-4.539 1.481-7 1.656v6.237a25.222 25.222 0 0 1 1.088.085c2.053.204 4.038.668 5.912 1.56V3.224zm-8 7.841V4.934c-.68.027-1.399.043-2.008.053A2.02 2.02 0 0 0 0 7v2c0 1.106.896 1.996 1.994 2.009a68.14 68.14 0 0 1 .496.008 64 64 0 0 1 1.51.048zm1.39 1.081c.285.021.569.047.85.078l.253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a65.81 65.81 0 0 1 1.692.064c.327.017.65.037.966.06z"/>
+  </symbol>
+  <symbol id="bi-code" fill="currentColor" viewBox="0 0 16 16">
+    <title>Source</title>
+    <path d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z"/>
+  </symbol>
+  <svg id="bi-chat" fill="currentColor" viewBox="0 0 16 16">
+    <title>Discuss</title>
+    <path d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z"/>
+  </svg>
+</svg>
+
+<div class="home">
+  
+  
+  
+ 
+  <span class="h5">
+    
+    
+    
+    
+    
+      <span class="badge text-light bg-success" data-bs-toggle="tooltip" data-bs-title="This EIP is finalized and is added as an Ethereum Standard. "> 🎉 Final</span>
+    
+       
+    
+      <a class="badge text-light bg-primary" data-bs-toggle="tooltip" data-bs-title="Improvements around client API/RPC specifications and standards, and also certain language-level standards like method names and contract ABIs." href="../interface">Standards Track: Interface</a>
+    
+  </span>
+  <h1 class="page-heading">
+    EIP-1898: Add `blockHash` to defaultBlock methods
+    <a href="https://ethereum-magicians.org/t/eip-1898-add-blockhash-option-to-json-rpc-methods-that-currently-support-defaultblock-parameter/11757" class="no-underline">
+      <svg role="img" aria-label="Discuss" class="inline-svg" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 16 16">
+        <use xlink:href="#bi-chat"/>
+      </svg>
+    </a>
+    <a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1898.md" class="no-underline">
+      <svg role="img" aria-label="Source" class="inline-svg" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 16 16">
+        <use xlink:href="#bi-code"/>
+      </svg>
+    </a>
+  </h1>
+  <h3>Add `blockHash` option to JSON-RPC methods that currently support defaultBlock parameter.</h3>
+  <table class="table table-borderless preamble">
+    <tbody>
+      <tr>
+        <th scope="row">Authors</th>
+        <td>Charles Cooper&nbsp;(<a href="https://github.com/charles-cooper">@charles-cooper</a>)</td>
+      </tr>
+      
+        <tr>
+          <th scope="row">Created</th>
+          <td>2019-04-01</td>
+        </tr>
+      
+      
+             
+      
+      
+        <tr>
+          <th scope="row">Requires</th>
+          <td>
+
+  <a href="eip-234">EIP-234</a>
+
+</td>
+        </tr>
+      
+    </tbody>
+  </table>
+  <br/>
+
+  
+
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <ul>
+  <li><a href="#abstract">Abstract</a></li>
+  <li><a href="#specification">Specification</a></li>
+  <li><a href="#rationale">Rationale</a></li>
+  <li><a href="#backwards-compatibility">Backwards Compatibility</a></li>
+  <li><a href="#test-cases">Test Cases</a></li>
+  <li><a href="#security-considerations">Security Considerations</a></li>
+  <li><a href="#copyright">Copyright</a></li>
+</ul>
+
+  </div>
+
+  <h2 id="abstract">
+      
+      
+        <a href="#abstract" class="anchor-link"></a> Abstract
+      
+      
+    </h2>
+
+<p>For JSON-RPC methods which currently accept a default block parameter, additionally allow the parameter to be a block hash.</p>
+
+<p>This EIP can be considered a generalization of <a href="/EIPS/eip-234">EIP-234</a>. It would enable clients to unambiguously specify the block they want to query for certain JSON-RPC methods, even if the block is not in the canonical chain. This allows clients to maintain a coherent picture of blockchain state that they are interested in, even in the presence of reorgs, without requiring that the node maintain a persistent connection with the client or store any client-specific state.</p>
+  
+    <h2 id="specification">
+      
+      
+        <a href="#specification" class="anchor-link"></a> Specification
+      
+      
+    </h2>
+
+<p>The following JSON-RPC methods are affected:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">eth_getBalance</code></li>
+  <li><code class="language-plaintext highlighter-rouge">eth_getStorageAt</code></li>
+  <li><code class="language-plaintext highlighter-rouge">eth_getTransactionCount</code></li>
+  <li><code class="language-plaintext highlighter-rouge">eth_getCode</code></li>
+  <li><code class="language-plaintext highlighter-rouge">eth_call</code></li>
+  <li><code class="language-plaintext highlighter-rouge">eth_getProof</code></li>
+</ul>
+
+<p>The following options, quoted from the Ethereum JSON-RPC spec, are currently possible for the defaultBlock parameter:</p>
+
+<blockquote>
+  <ul>
+    <li>HEX String - an integer block number</li>
+    <li>String “earliest” for the earliest/genesis block</li>
+    <li>String “latest” - for the latest canonical block</li>
+    <li>String “pending” - for the pending state/transactions</li>
+    <li>String “safe” - for the most recent safe block</li>
+    <li>String “finalized” - for the most recent finalized block</li>
+  </ul>
+</blockquote>
+
+<p>Since there is no way to clearly distinguish between a DATA parameter and a QUANTITY parameter, this EIP proposes a new scheme for the block parameter. The following option is additionally allowed:</p>
+
+<ul>
+  <li>OBJECT
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">blockNumber</code>: QUANTITY - a block number</li>
+      <li><code class="language-plaintext highlighter-rouge">blockHash</code>: DATA - a block hash</li>
+    </ul>
+  </li>
+</ul>
+
+<p>If the block is not found, the callee SHOULD raise a JSON-RPC error (the recommended error code is <code class="language-plaintext highlighter-rouge">-32001: Resource not found</code>).</p>
+
+<p>If the tag is <code class="language-plaintext highlighter-rouge">blockHash</code>, an additional boolean field may be supplied to the block parameter, <code class="language-plaintext highlighter-rouge">requireCanonical</code>, which defaults to <code class="language-plaintext highlighter-rouge">false</code> and defines whether the block must be a canonical block according to the callee. If <code class="language-plaintext highlighter-rouge">requireCanonical</code> is <code class="language-plaintext highlighter-rouge">false</code>, the callee should raise a JSON-RPC error only if the block is not found (as described above). If <code class="language-plaintext highlighter-rouge">requireCanonical</code> is <code class="language-plaintext highlighter-rouge">true</code>, the callee SHOULD additionally raise a JSON-RPC error if the block is not in the canonical chain (the recommended error code is <code class="language-plaintext highlighter-rouge">-32000: Invalid input</code> and in any case should be different than the error code for the block not found case so that the caller can distinguish the cases). The block-not-found check SHOULD take precedence over the block-is-canonical check, so that if the block is not found the callee raises block-not-found rather than block-not-canonical.</p>
+
+<p>To maintain backwards compatibility, the block number MAY be specified either as a hex string or using the new block parameter scheme. In other words, the following are equivalent for the default block parameter:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"earliest"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"0x0"</code></li>
+  <li><code class="language-plaintext highlighter-rouge">{ "blockNumber": "0x0" }</code></li>
+  <li><code class="language-plaintext highlighter-rouge">{ "blockHash": "0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3" }</code> (hash of the genesis block on the Ethereum main chain)</li>
+  <li><code class="language-plaintext highlighter-rouge">{ "blockHash": "0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3", "requireCanonical": true }</code></li>
+  <li><code class="language-plaintext highlighter-rouge">{ "blockHash": "0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3", "requireCanonical": false }</code></li>
+</ul>
+  
+    <h2 id="rationale">
+      
+      
+        <a href="#rationale" class="anchor-link"></a> Rationale
+      
+      
+    </h2>
+
+<p>Currently, the state-querying JSON-RPC methods specified above have no option to unambiguously specify which block to query the state for. This can cause issues for applications which need to make multiple calls to the RPC. For instance, a wallet which just executed a transfer may want to display the balances of both the sender and recipient. If there is a re-org in between when the balance of the sender is queried via <code class="language-plaintext highlighter-rouge">eth_getBalance</code> and when the balance of the recipient is queried, the balances may not reconcile. As a slightly more complicated example, the UI for a decentralized exchange (which hosts orders on-chain) may walk a list of orders by calling <code class="language-plaintext highlighter-rouge">eth_call</code> for each of them to get the order data. Another type of use case is where an application needs to make a decision based on multiple pieces of state, e.g. a payout predicated on simultaneous ownership of two NFTs.</p>
+
+<p>In order to ensure that the state is coherent (i.e., <code class="language-plaintext highlighter-rouge">eth_call</code> was called with exactly the same block for every call), the application may currently use one of several strategies:</p>
+
+<ul>
+  <li>Decide on a block number to use (e.g., the latest block number known to the application). After each <code class="language-plaintext highlighter-rouge">eth_call</code> using that block number, call <code class="language-plaintext highlighter-rouge">eth_getBlockByNumber</code>, also with that block number. If the block hash does not match the known hash for that block number, rollback the current activity and retry from the beginning. This adds <code class="language-plaintext highlighter-rouge">O(n)</code> invocations as baseline overhead and another <code class="language-plaintext highlighter-rouge">O(n)</code> invocations for every retry needed. Moreover, there is no way to detect the (unlikely but possible) case that the relevant block was reorged out before <code class="language-plaintext highlighter-rouge">eth_call</code>, and then reorged back in before <code class="language-plaintext highlighter-rouge">eth_getBlockByNumber</code>.</li>
+  <li>Rely on logs, which <em>can</em> be queried unambiguously thanks to the <code class="language-plaintext highlighter-rouge">blockHash</code> parameter. However, this requires semantic support from the smart contract; if the smart contract does not emit appropriate events, the client will not be able to reconstruct the specific state it is interested in.</li>
+  <li>Rely on non-standard extensions like <code class="language-plaintext highlighter-rouge">parity_subscribe</code>. This requires a persistent connection between the client and node (via IPC or websockets), increases coupling between the client and the node, and cannot handle use cases where there are dependencies between invocations of <code class="language-plaintext highlighter-rouge">eth_call</code>, for example, walking a linked list.</li>
+</ul>
+
+<p>Allowing <code class="language-plaintext highlighter-rouge">eth_call</code> and friends to unambiguously specify the block to be queried give the application developer a robust and intuitive way to solve these problems. Multiple sequential queries will query the same state, enabling the application developer to not worry about inconsistencies in their view of the blockchain state.</p>
+  
+    <h2 id="backwards-compatibility">
+      
+      
+        <a href="#backwards-compatibility" class="anchor-link"></a> Backwards Compatibility
+      
+      
+    </h2>
+
+<p>Backwards compatible.</p>
+  
+    <h2 id="test-cases">
+      
+      
+        <a href="#test-cases" class="anchor-link"></a> Test Cases
+      
+      
+    </h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">eth_getStorageAt [ "0x&lt;address&gt;", { "blockNumber": "0x0" }</code> -&gt; return storage at given address in genesis block</li>
+  <li><code class="language-plaintext highlighter-rouge">eth_getStorageAt [ "0x&lt;address&gt;", { "blockHash": "0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3" }</code> -&gt; return storage at given address in genesis block</li>
+  <li><code class="language-plaintext highlighter-rouge">eth_getStorageAt [ "0x&lt;address&gt;", { "blockHash": "0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3", "requireCanonical": false }</code> -&gt; return storage at given address in genesis block</li>
+  <li><code class="language-plaintext highlighter-rouge">eth_getStorageAt [ "0x&lt;address&gt;", { "blockHash": "0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3", "requireCanonical": true }</code> -&gt; return storage at given address in genesis block</li>
+  <li><code class="language-plaintext highlighter-rouge">eth_getStorageAt [ "0x&lt;address&gt;", { "blockHash": "0x&lt;non-existent-block-hash&gt;" }</code> -&gt; raise block-not-found error</li>
+  <li><code class="language-plaintext highlighter-rouge">eth_getStorageAt [ "0x&lt;address&gt;", { "blockHash": "0x&lt;non-existent-block-hash&gt;", "requireCanonical": false }</code> -&gt; raise block-not-found error</li>
+  <li><code class="language-plaintext highlighter-rouge">eth_getStorageAt [ "0x&lt;address&gt;", { "blockHash": "0x&lt;non-existent-block-hash&gt;", "requireCanonical": true }</code> -&gt; raise block-not-found error</li>
+  <li><code class="language-plaintext highlighter-rouge">eth_getStorageAt [ "0x&lt;address&gt;", { "blockHash": "0x&lt;non-canonical-block-hash&gt;" }</code> -&gt; return storage at given address in specified block</li>
+  <li><code class="language-plaintext highlighter-rouge">eth_getStorageAt [ "0x&lt;address&gt;", { "blockHash": "0x&lt;non-canonical-block-hash&gt;", "requireCanonical": false }</code> -&gt; return storage at given address in specified block</li>
+  <li><code class="language-plaintext highlighter-rouge">eth_getStorageAt [ "0x&lt;address&gt;", { "blockHash": "0x&lt;non-canonical-block-hash&gt;", "requireCanonical": true }</code> -&gt; raise block-not-canonical error</li>
+</ul>
+  
+    <h2 id="security-considerations">
+      
+      
+        <a href="#security-considerations" class="anchor-link"></a> Security Considerations
+      
+      
+    </h2>
+
+<p>None</p>
+  
+    <h2 id="copyright">
+      
+      
+        <a href="#copyright" class="anchor-link"></a> Copyright
+      
+      
+    </h2>
+
+<p>Copyright and related rights waived via <a href="/LICENSE">CC0</a>.</p>
+
+  <h2>Citation</h2>
+  <p>Please cite this document as:</p>
+  
+  <p>Charles Cooper&nbsp;(<a href="https://github.com/charles-cooper">@charles-cooper</a>), "EIP-1898: Add `blockHash` to defaultBlock methods," <em>Ethereum Improvement Proposals</em>, no. 1898, April 2019. Available: https://eips.ethereum.org/EIPS/eip-1898.</p>
+</div>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "TechArticle",
+    "headline": "EIP-1898: Add `blockHash` to defaultBlock methods",
+    "name": "EIP-1898: Add `blockHash` to defaultBlock methods",
+    "author": "Charles Cooper (@charles-cooper)",
+    "dateCreated": "2019-04-01",
+    "datePublished": "2019-04-01",
+    
+    "discussionUrl": "https://ethereum-magicians.org/t/eip-1898-add-blockhash-option-to-json-rpc-methods-that-currently-support-defaultblock-parameter/11757",
+    
+    "inLanguage": "en-US",
+    "license": "#copyright",
+    "copyrightYear": "2019"
+  }
+</script>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ethereum Improvement Proposals</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Ethereum Improvement Proposals</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ethereum/EIPs"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ethereum/EIPs</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Ethereum Improvement Proposals (EIPs) describe standards for the Ethereum platform, such as core protocol specifications.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+Semaphore
+Semaphore V4
+ has been released 🚀
+Projects
+Build
+Learn
+Documentation
+Github
+About Semaphore
+About Zero Knowledge
+Semaphore: Anonymous interactions
+Using zero knowledge, Semaphore allows users to prove their membership of a group and send signals such as votes or endorsements without revealing their original identity. The goal is to make Semaphore a standard for anonymous signaling and group membership proving.
+Principles
+Accessibility
+To reach a very large group of developers, a protocol needs to be extremely user-friendly, understandable and simple.
+Composability
+Achieve an excellent balance between simplicity and functionality through modularity, autonomy, and interoperability.
+Efficiency
+A protocol must not only work, it must also be extremely efficient if the goal is to support privacy by default for everyone.
+Main focus
+Developer experience
+Enabling developers to focus on innovation by simplifying complexities while supporting diverse use cases.
+Education
+Empowering individuals with knowledge, resources, and support, ensuring they're equipped to innovate and solve challenges.
+Community
+Fostering spaces where collaboration thrives, ideas flourish, and diverse voices are celebrated.
+Zero Knowledge: new cryptography
+Zero-knowledge is a new field in cryptography that allows developers to build apps that allow users to share information with each other without revealing their identities or the contents of the information being shared.
+Learn more
+Characteristics
+Completeness
+If the statement is true, an honest verifier will be convinced of this fact by an honest prover every time.
+Soundness
+If the statement is false, no cheating prover can convince an honest verifier that is true, except with some small probability.
+Zero-knowledge
+If the statement is true, no verifier learns anything other than the fact that the statement is true.
+Main use cases
+Privacy
+Zero-knowledge property enables hiding any personal information while still enabling to building convincing proofs.
+Scalability
+Multiple proofs can be aggregated into a single one, enabling smaller machines to verify 100s of transactions or claims in one go.
+Interoperability
+ZKPs enable porting trust from one “realm” to another, for example between web2<>web3 worlds.
+Semaphore identities
+A Semaphore identity is an EdDSA key-pair plus the commitment (i.e. the hash of the public key), which is used as the public value of the Semaphore group members.
+Create Semaphore identities
+import { Identity } from "@semaphore-protocol/identity"
+
+// Random identity.
+const identity1 = new Identity()
+
+// Passing a secret.
+const identity2 = new Identity("secret")
+
+copy
+Private value
+The private key is a secret that identity owners must keep private. It can either be generated randomly or passed as a parameter.
+Public values
+Semaphore uses the Poseidon hash function to derive the identity commitment from the identity public key. Identity commitments can be made public, similarly to Ethereum addresses.
+Storing identities
+Building a system to save or recover secret values of Semaphore identities is nontrivial. You may choose to delegate such functionality, for example by using a signature as a secret.
+Semaphore groups
+Semaphore groups are binary incremental Merkle trees that store the public identity commitment of each member.
+Create Semaphore groups
+import { Group } from "@semaphore-protocol/group"
+
+const members = [identity1.commitment, identity2.commitment]
+
+const group = new Group(members)
+
+copy
+Merkle trees
+Each leaf contains an identity commitment for a user. The structure of Merkle trees ensures that it can be efficiently proved that an identity commitment is a member of the group.
+Types of groups
+Groups can be created and managed in a decentralized fashion with Semaphore contracts or off-chain with the JavaScript libraries.
+Group management
+Users could join and leave groups by themselves, or an admin could add and remove them. Admins can be centralized authorities, Ethereum accounts, multi-sig wallets or smart contracts.
+Semaphore proofs
+Semaphore group members can prove that they are part of a group and send anonymous messages.
+Generate Semaphore proofs
+import { generateProof, verifyProof } from "@semaphore-protocol/proof"
+
+const scope = "Semaphore"
+const message = "Hello world"
+
+const proof = await generateProof(identity1, group, scope, message)
+
+await verifyProof(proof)
+copy
+Membership
+Only users who are part of a group can generate a valid proof for that group.
+Messages
+Group users can anonymously share messages such as votes or endorsements without revealing their original identity.
+Proof verification
+Semaphore proofs can be verified both on-chain with the Semaphore contracts, or off-chain with the JavaScript libraries.
+Videos
+Scaling Semaphore: Noir in Action
+Scaling Semaphore
+Semaphore: The power of anonymity
+Semaphore in a Nutshell
+Semaphore
+Building with Semaphore
+Building zero-knowledge applications using Semaphore
+Old & New Primitives
+Anonymous Signalling on Ethereum
+Proposal: Semaphore - Zero-Knowledge Signaling on Ethereum
+A trustless Ethereum mixer using zero-knowledge signalling
+Hands-on Applications of Zero-Knowledge Signaling
+Privacy in Ethereum
+Semaphore Roadmap for Ethereum
+Privacy in Ethereum
+Succinct Proofs in Ethereum
+Snarks for mixing, signaling and scaling
+Articles
+Semaphore V4 Specification
+10 min read
+Getting Started with Semaphore: Building Privacy-Preserving dApps on Ethereum
+7 min read
+Semaphore v3 overview + simplification
+7 min read
+Brief Introduction of Semaphore, a Zero-knowledge Group Membership Protocol
+7 min read
+Semaphore v3 Announcement
+4 min read
+Release announcement: Semaphore, a zero-knowledge gadget for Ethereum
+4 min read
+Community Proposal: Semaphore: Zero-Knowledge Signaling on Ethereum (Whitepaper v1)
+60 min read
+To Mixers and Beyond: presenting Semaphore, a privacy gadget built on Ethereum
+8 min read
+Videos
+Scaling Semaphore: Noir in Action
+Scaling Semaphore
+Semaphore: The power of anonymity
+Semaphore in a Nutshell
+Semaphore
+Building with Semaphore
+Building zero-knowledge applications using Semaphore
+Old & New Primitives
+Anonymous Signalling on Ethereum
+Proposal: Semaphore - Zero-Knowledge Signaling on Ethereum
+A trustless Ethereum mixer using zero-knowledge signalling
+Hands-on Applications of Zero-Knowledge Signaling
+Privacy in Ethereum
+Semaphore Roadmap for Ethereum
+Privacy in Ethereum
+Succinct Proofs in Ethereum
+Snarks for mixing, signaling and scaling
+Articles
+Semaphore V4 Specification
+10 min read
+Getting Started with Semaphore: Building Privacy-Preserving dApps on Ethereum
+7 min read
+Semaphore v3 overview + simplification
+7 min read
+Brief Introduction of Semaphore, a Zero-knowledge Group Membership Protocol
+7 min read
+Semaphore v3 Announcement
+4 min read
+Release announcement: Semaphore, a zero-knowledge gadget for Ethereum
+4 min read
+Community Proposal: Semaphore: Zero-Knowledge Signaling on Ethereum (Whitepaper v1)
+60 min read
+To Mixers and Beyond: presenting Semaphore, a privacy gadget built on Ethereum
+8 min read
+Projects
+Learn
+Build
+Documentation
+Github
+Design Kit
+Telegram
+X (Twitter)
+Give feedback about the website
+Copyright © 2026 Ethereum Foundation

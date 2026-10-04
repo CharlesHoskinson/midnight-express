@@ -1,0 +1,41 @@
+{
+  "release": "0.2.0-conformance-prototype",
+  "semanticContracts": {
+    "rfq.v0.2": "sha256:8b5c6b89f6019fcb06b479e92f1b3bea340ac500cc218341e368e1ed2093071c",
+    "invoice.v0.2": "sha256:dd3b68c4f25c4ca87a57e5e5dda88cb8a1630fa9a1b0ab394744fdf984eb047a",
+    "agent.v0.2": "sha256:beaf501a8fdeefe757c340b1945dcd3e9c7c6e3fb4e00612f724afab7605b330"
+  },
+  "sourceHashes": {
+    "build.py": "sha256:950fbfeb0a8962a8485d8238e39a538081476be38ef038206664b1bb5979de87",
+    "bundles.py": "sha256:d7cb6e6fdf3e39e1a9a136f461db771626e3df9fe23d63d735409f4a3193ebe1",
+    "chains/observations.py": "sha256:707abb0fd5eb785c260d3f42689e2c19372a884efcd1fd33a2a19b361c87e2f0",
+    "domains/test_catalog.py": "sha256:b74d6cd41a924755f6a3a59cce1f871797afbfb93adaac822710b8370656e4bc",
+    "interpreters/package-lock.json": "sha256:f7c78c7aca88875f9ac387f2f73b4b311916553dc7eae567c80a03fa2430d4a7",
+    "interpreters/rust/Cargo.lock": "sha256:aa23f117d0a02b20bafa7f25e7ba516a1e564fca43b94f395a35d91eff691f58",
+    "interpreters/rust/Cargo.toml": "sha256:5fb865dc80218c14935ea70e567fa5a214214ebc66c92d60b8ea40fbbcbbdfae",
+    "interpreters/typescript.mts": "sha256:d896c7806aa7347dee6525c54eaf72ca5cc829186ce72ceb9087a690510e99e4",
+    "recovery/test-postgres.mjs": "sha256:01aa8e79b08b1f9d25343011046abb7cca416fe59aeb64bc07c86800a9e8b3ee",
+    "recovery/umbradb-host.mjs": "sha256:8352e2c2b85d115ffe2ea9b01a6b318978ddca5f948025623195ba0d26ef869a",
+    "release_attestation.py": "sha256:f1c39d734ca7a4742f0731a3c5bdacba1038fdf9b2842f8ab7241769325183cf",
+    "requirements.lock.txt": "sha256:ee67362555875b705e05c93eeba11389b7c12a41ce8ddc6c6f14e10322d50d3c",
+    "test_bundles.py": "sha256:c8b2a9483c5e48ca2f69a8aa60ef4b961e37facb3e73ee780adcba486373b934",
+    "test_chain_observations.py": "sha256:ae9c6cecb71ca5f7072b93ff91076603ec6f4954220c58c6f18e036b06dba6f8",
+    "test_conformance.py": "sha256:aa5b1396eb0350aad25f1d787b751f1b5972f12dff1b16f4297d3e7602bd1430",
+    "test_interoperability.py": "sha256:6a26cacb2ca4c58802037b9dac645dfbeb47c0bd0bf29bae6930aeca6820037f",
+    "validator.py": "sha256:444db9dbcc69f39cd9556d4304f7a0af139ca777b864f7f4bd18a541c3438b75"
+  },
+  "python": "3.13.15 (main, Sep 29 2026, 15:01:28) [Clang 22.1.3 ]",
+  "node": "v26.10.0",
+  "rust": "rustc 1.99.0 (b940084d7 2026-09-28)",
+  "cargo": "cargo 1.99.0 (5f94df478 2026-08-27)",
+  "pythonPackages": {
+    "jsonschema": "4.26.0",
+    "rfc8785": "0.1.4",
+    "attrs": "26.1.0",
+    "referencing": "0.37.0",
+    "rpds-py": "2026.6.3",
+    "jsonschema-specifications": "2025.9.1"
+  },
+  "authentication": "unsigned-local-release-evidence",
+  "productionAssurance": false
+}

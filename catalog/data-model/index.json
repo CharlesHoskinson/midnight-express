@@ -1,0 +1,1997 @@
+{
+  "fetch_records": 140,
+  "hash_checks": 253,
+  "hash_failures": [],
+  "records": [
+    {
+      "study": "domain-modelling",
+      "url": "https://www.domainlanguage.com/ddd/reference/",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/domain-modelling/ddd-reference-page.html",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/domain-modelling/ddd-reference-page.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "domain-modelling",
+      "url": "https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/domain-modelling/ddd-reference.pdf",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/domain-modelling/ddd-reference.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "domain-modelling",
+      "url": "https://www.enterpriseintegrationpatterns.com/patterns/messaging/CanonicalDataModel.html",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/domain-modelling/canonical-data-model.html",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/domain-modelling/canonical-data-model.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "domain-modelling",
+      "url": "https://www.enterpriseintegrationpatterns.com/patterns/messaging/FormatIndicator.html",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/domain-modelling/format-indicator.html",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/domain-modelling/format-indicator.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "domain-modelling",
+      "url": "https://docs.oasis-open.org/ubl/guidelines/UBL2-Customization1.0cs01.html",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/domain-modelling/ubl-customization.html",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/domain-modelling/ubl-customization.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "domain-modelling",
+      "url": "https://docs.oasis-open.org/ubl/UBL-2.4.html",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/domain-modelling/ubl-2.4.html",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/domain-modelling/ubl-2.4.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "domain-modelling",
+      "url": "https://unece.org/fileadmin/DAM/cefact/codesfortrade/CCTS/CCTS_V2-01_Final.pdf",
+      "status": 403,
+      "checks": [
+        {
+          "file": "catalog/data-model/domain-modelling/ccts-2.01.html",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/domain-modelling/ccts-2.01.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "domain-modelling",
+      "url": "https://www.iso20022.org/iso20022-repository/business-model",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/domain-modelling/iso20022-business-model.html",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/domain-modelling/iso20022-business-model.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "domain-modelling",
+      "url": "https://www.iso20022.org/understanding-data-dictionary",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/domain-modelling/iso20022-dictionary.html",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/domain-modelling/iso20022-dictionary.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "domain-modelling",
+      "url": "https://www.iso20022.org/faq",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/domain-modelling/iso20022-faq.html",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/domain-modelling/iso20022-faq.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "domain-modelling",
+      "url": "https://www.iso20022.org/terms-use",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/domain-modelling/iso20022-terms.html",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/domain-modelling/iso20022-terms.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "domain-modelling",
+      "url": "https://www.iso20022.org/about-iso-20022",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/domain-modelling/iso20022-about.html",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/domain-modelling/iso20022-about.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "domain-modelling",
+      "url": "https://www.iso20022.org/intellectual-property-rights",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/domain-modelling/iso20022-ipr.html",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/domain-modelling/iso20022-ipr.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "domain-modelling",
+      "url": "https://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/os/Business-Document-NDR-v1.0-os.html",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/domain-modelling/oasis-business-document-ndr.html",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/domain-modelling/oasis-business-document-ndr.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "domain-modelling",
+      "url": "https://www.oasis-open.org/committees/download.php/6232/CEFACT-CCTS-Version-2pt01.zip",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/domain-modelling/ccts-oasis-mirror.zip",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/domain-modelling/ccts-oasis-mirror.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://ethereum.org/developers/docs/apis/json-rpc/",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/json-rpc.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/json-rpc.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://raw.githubusercontent.com/ethereum/execution-apis/main/src/eth/transaction.yaml",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/execution-api.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/execution-api.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://geth.ethereum.org/docs/interacting-with-geth/rpc/pubsub",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/pubsub.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/pubsub.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://eips.ethereum.org/EIPS/eip-1474",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/eip1474.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/eip1474.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://eips.ethereum.org/EIPS/eip-1898",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/eip1898.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/eip1898.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://eips.ethereum.org/EIPS/eip-1193",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/eip1193.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/eip1193.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://eips.ethereum.org/EIPS/eip-2255",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/eip2255.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/eip2255.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://eips.ethereum.org/EIPS/eip-712",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/eip712.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/eip712.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://eips.ethereum.org/EIPS/eip-3085",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/eip3085.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/eip3085.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://eips.ethereum.org/EIPS/eip-3326",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/eip3326.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/eip3326.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://eips.ethereum.org/EIPS/eip-20",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/erc20.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/erc20.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://eips.ethereum.org/EIPS/eip-721",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/erc721.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/erc721.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://eips.ethereum.org/EIPS/eip-1155",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/erc1155.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/erc1155.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://docs.soliditylang.org/en/latest/abi-spec.html",
+      "status": 429,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/abi.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/abi.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://ethereum.org/developers/docs/consensus-mechanisms/pos/",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/finality.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/finality.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://raw.githubusercontent.com/Uniswap/v3-core/main/contracts/interfaces/pool/IUniswapV3PoolEvents.sol",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/uniswap-v3-events.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/uniswap-v3-events.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://docs.optimism.io/app-developers/bridging/standard-bridge",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/optimism-bridge.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/optimism-bridge.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://eips.ethereum.org/EIPS/eip-4844",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/eip4844.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/eip4844.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://eips.ethereum.org/EIPS/eip-7702",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/eip7702.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/eip7702.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://ercs.ethereum.org/ERCS/erc-4337",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/erc4337.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/erc4337.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://ercs.ethereum.org/ERCS/erc-7769",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/erc7769.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/erc7769.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://eips.ethereum.org/EIPS/eip-5792",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/eip5792.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/eip5792.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "ethereum",
+      "url": "https://raw.githubusercontent.com/ethereum/solidity/develop/docs/abi-spec.rst",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/ethereum/abi-source.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/ethereum/abi-source.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "event-contracts",
+      "url": "https://raw.githubusercontent.com/cloudevents/spec/v1.0.2/cloudevents/spec.md",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/event-contracts/cloudevents-core.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/event-contracts/cloudevents-core.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "event-contracts",
+      "url": "https://raw.githubusercontent.com/cloudevents/spec/v1.0.2/cloudevents/formats/json-format.md",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/event-contracts/cloudevents-json.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/event-contracts/cloudevents-json.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "event-contracts",
+      "url": "https://json-schema.org/draft/2020-12/json-schema-core",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/event-contracts/json-schema-core.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/event-contracts/json-schema-core.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "event-contracts",
+      "url": "https://json-schema.org/draft/2020-12/json-schema-validation",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/event-contracts/json-schema-validation.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/event-contracts/json-schema-validation.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "event-contracts",
+      "url": "https://avro.apache.org/docs/1.12.0/specification/",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/event-contracts/avro-specification.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/event-contracts/avro-specification.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "event-contracts",
+      "url": "https://protobuf.dev/programming-guides/proto3/",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/event-contracts/protobuf-evolution.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/event-contracts/protobuf-evolution.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "event-contracts",
+      "url": "https://protobuf.dev/programming-guides/json/",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/event-contracts/protobuf-json.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/event-contracts/protobuf-json.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "event-contracts",
+      "url": "https://www.rfc-editor.org/rfc/rfc8785.txt",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/event-contracts/rfc8785-jcs.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/event-contracts/rfc8785-jcs.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "event-contracts",
+      "url": "https://www.rfc-editor.org/rfc/rfc7493.txt",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/event-contracts/rfc7493-ijson.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/event-contracts/rfc7493-ijson.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "event-contracts",
+      "url": "https://www.rfc-editor.org/rfc/rfc3339.txt",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/event-contracts/rfc3339-time.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/event-contracts/rfc3339-time.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "event-contracts",
+      "url": "https://raw.githubusercontent.com/asyncapi/spec/v3.0.0/spec/asyncapi.md",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/event-contracts/asyncapi-3.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/event-contracts/asyncapi-3.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "event-contracts",
+      "url": "https://protobuf.dev/programming-guides/serialization-not-canonical/",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/event-contracts/protobuf-noncanonical.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/event-contracts/protobuf-noncanonical.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://cdm.finos.org/docs/product-model/",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/cdm-product.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://cdm.finos.org/docs/pre-trade-processing/",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/cdm-pretrade.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://cdm.finos.org/docs/namespace/",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/cdm-namespace.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://raw.githubusercontent.com/finos/common-domain-model/master/README.md",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/cdm-readme.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://raw.githubusercontent.com/finos/common-domain-model/master/LICENSE.md",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/cdm-license.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-common.rosetta",
+      "status": 404,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/cdm-model-common.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://www.fpml.org/the_standard/",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/fpml-standard.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://www.fpml.org/spec/fpml-5-12-4-rec-1/html/pretrade/schemaDocumentation/schemas/fpml-asset-5-12_xsd/groups/QuotationCharacteristics.model/expiryTime.html",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/fpml-expiry.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://www.fpml.org/spec/fpml-5-13-5-rec-2/html/pretrade/fpml-5-13-intro-2.html",
+      "status": 404,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/fpml-pretrade.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://dev.fixtrading.org/implementation-guide/",
+      "status": null,
+      "checks": []
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://raw.githubusercontent.com/FIXTradingCommunity/fix-simple-binary-encoding/master/v2-0-RC1/doc/02FieldEncoding.md",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/fix-sbe-encoding.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://www.iso20022.org/iso20022-repository/business-model",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/iso-business-model.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://www.iso20022.org/understanding-data-dictionary",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/iso-dictionary.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://docs.oasis-open.org/ubl/os-UBL-2.3/mod/summary/reports/UBL-Invoice-2.3.html",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/ubl-invoice.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/product-common-type.rosetta",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/cdm-model-common-correct.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://raw.githubusercontent.com/finos/common-domain-model/master/rosetta-source/src/main/rosetta/base-math-type.rosetta",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/cdm-model-math.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://fiximate.fixtrading.org/legacy/en/FIX.4.2/body_505482.html?find=Side",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/fix-quoterequest.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://fiximate.fixtrading.org/legacy/en/FIX.4.4/body_505583.html",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/fix-quote.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://www.fixtrading.org/online-specification/introduction/",
+      "status": 202,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/fix-introduction.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://www.fpml.org/spec/fpml-4-4-12-rec-1/html/fpml-4-4-intro.html",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/fpml-pretrade-legacy.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://api.github.com/repos/finos/common-domain-model/commits/master",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/cdm-commit.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://raw.githubusercontent.com/finos/common-domain-model/9e036949e273a2f29a6a40aa222c5dd33c39b3ad/rosetta-source/src/main/rosetta/observable-asset-type.rosetta",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/cdm-observable-pinned.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://raw.githubusercontent.com/finos/common-domain-model/9e036949e273a2f29a6a40aa222c5dd33c39b3ad/rosetta-source/src/main/rosetta/product-common-settlement-type.rosetta",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/cdm-settlement-pinned.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "financial-semantics",
+      "url": "https://raw.githubusercontent.com/finos/common-domain-model/9e036949e273a2f29a6a40aa222c5dd33c39b3ad/rosetta-source/src/main/rosetta/base-math-type.rosetta",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/financial-semantics/cdm-math-pinned.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "safe-agent-actions",
+      "url": "https://langsec.org/papers/langsec-tr.pdf",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/safe-agent-actions/langsec-report.pdf",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/safe-agent-actions/langsec-report.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "safe-agent-actions",
+      "url": "https://web.mit.edu/Saltzer/www/publications/protection/Basic.html",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/safe-agent-actions/saltzer-basic.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/safe-agent-actions/saltzer-basic.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "safe-agent-actions",
+      "url": "https://web.mit.edu/Saltzer/www/publications/protection/Descriptors.html",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/safe-agent-actions/saltzer-descriptors.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/safe-agent-actions/saltzer-descriptors.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "safe-agent-actions",
+      "url": "https://cap-lore.com/CapTheory/ConfusedDeputy.html",
+      "status": null,
+      "checks": []
+    },
+    {
+      "study": "safe-agent-actions",
+      "url": "https://www.rfc-editor.org/rfc/rfc8785.txt",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/safe-agent-actions/rfc8785.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/safe-agent-actions/rfc8785.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "safe-agent-actions",
+      "url": "https://www.rfc-editor.org/rfc/rfc8725.txt",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/safe-agent-actions/rfc8725.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/safe-agent-actions/rfc8725.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "safe-agent-actions",
+      "url": "https://www.rfc-editor.org/rfc/rfc7493.txt",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/safe-agent-actions/rfc7493.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/safe-agent-actions/rfc7493.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "safe-agent-actions",
+      "url": "https://json-schema.org/draft/2020-12/json-schema-core",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/safe-agent-actions/schema-core.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/safe-agent-actions/schema-core.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "safe-agent-actions",
+      "url": "https://json-schema.org/draft/2020-12/json-schema-validation",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/safe-agent-actions/schema-validation.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/safe-agent-actions/schema-validation.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "safe-agent-actions",
+      "url": "https://arxiv.org/pdf/2503.18813v1",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/safe-agent-actions/camel-paper.pdf",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/safe-agent-actions/camel-paper.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "semantic-constraints",
+      "url": "https://www.w3.org/TR/shacl/",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/semantic-constraints/shacl.html",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/semantic-constraints/shacl.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "semantic-constraints",
+      "url": "https://www.w3.org/TR/json-ld11/",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/semantic-constraints/jsonld11.html",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/semantic-constraints/jsonld11.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "semantic-constraints",
+      "url": "https://www.w3.org/TR/json-ld11-api/",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/semantic-constraints/jsonld11-api.html",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/semantic-constraints/jsonld11-api.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "semantic-constraints",
+      "url": "https://www.w3.org/TR/owl2-primer/",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/semantic-constraints/owl2-primer.html",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/semantic-constraints/owl2-primer.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "semantic-constraints",
+      "url": "https://ucum.org/ucum",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/semantic-constraints/ucum.html",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/semantic-constraints/ucum.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "semantic-constraints",
+      "url": "https://www.qudt.org/doc/2025/01/DOC_SCHEMA-QUDT.html",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/semantic-constraints/qudt-schema.html",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/semantic-constraints/qudt-schema.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "semantic-constraints",
+      "url": "https://json-schema.org/draft/2020-12/json-schema-validation",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/semantic-constraints/json-schema-validation.html",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/semantic-constraints/json-schema-validation.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/http",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/rpc-http.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/rpc-http.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/websocket",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/rpc-websocket.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/rpc-websocket.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/json-structures",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/rpc-structures.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/rpc-structures.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/core/accounts",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/accounts.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/accounts.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/core/transactions",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/transactions.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/transactions.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/core/cpi",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/cpi.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/cpi.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/developers/guides/advanced/confirmation",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/confirmation.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/confirmation.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/developers/guides/advanced/introduction-to-durable-nonces",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/durable-nonce.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/durable-nonce.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://www.solana-program.com/docs/token",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/tokens.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/tokens.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://www.solana-program.com/docs/token-2022",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/token-2022.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/token-2022.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://www.solana-program.com/docs/token-2022/extensions",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/token-extensions.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/token-extensions.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://www.solana-program.com/docs/associated-token-account",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/associated-token.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/associated-token.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://raw.githubusercontent.com/wallet-standard/wallet-standard/master/extensions/solana.md",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/wallet-standard.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/wallet-standard.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://developers.metaplex.com/core",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/metaplex-core.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/metaplex-core.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://wormhole.com/docs/products/messaging/guides/solana-shim/",
+      "status": 404,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/wormhole-solana.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/wormhole-solana.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://dev.jup.ag/docs/swap-api",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/jupiter-swap.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/jupiter-swap.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/http/getaccountinfo",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/getaccountinfo.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/getaccountinfo.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/http/getprogramaccounts",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/getprogramaccounts.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/getprogramaccounts.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/http/getbalance",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/getbalance.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/getbalance.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/http/gettokenaccountbalance",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/gettokenaccountbalance.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/gettokenaccountbalance.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/http/gettokenaccountsbyowner",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/gettokenaccountsbyowner.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/gettokenaccountsbyowner.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/http/gettokensupply",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/gettokensupply.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/gettokensupply.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/http/gettransaction",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/gettransaction.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/gettransaction.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/http/getblock",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/getblock.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/getblock.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/http/getsignaturestatuses",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/getsignaturestatuses.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/getsignaturestatuses.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/http/getsignaturesforaddress",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/getsignaturesforaddress.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/getsignaturesforaddress.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/http/sendtransaction",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/sendtransaction.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/sendtransaction.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/http/simulatetransaction",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/simulatetransaction.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/simulatetransaction.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/http/getlatestblockhash",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/getlatestblockhash.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/getlatestblockhash.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/http/isblockhashvalid",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/isblockhashvalid.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/isblockhashvalid.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/http/getgenesishash",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/getgenesishash.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/getgenesishash.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/http/getversion",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/getversion.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/getversion.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/http/getepochinfo",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/getepochinfo.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/getepochinfo.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/http/getstakeactivation",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/getstakeactivation.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/getstakeactivation.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/websocket/accountsubscribe",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/accountsubscribe.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/accountsubscribe.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/websocket/programsubscribe",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/programsubscribe.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/programsubscribe.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/websocket/logssubscribe",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/logssubscribe.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/logssubscribe.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/websocket/signaturesubscribe",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/signaturesubscribe.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/signaturesubscribe.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/websocket/slotsubscribe",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/slotsubscribe.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/slotsubscribe.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/websocket/rootsubscribe",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/rootsubscribe.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/rootsubscribe.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/websocket/blocksubscribe",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/blocksubscribe.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/blocksubscribe.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/websocket/slotsupdatessubscribe",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/slotsupdatessubscribe.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/slotsupdatessubscribe.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/rpc/websocket/votesubscribe",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/votesubscribe.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/votesubscribe.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://raw.githubusercontent.com/anza-xyz/wallet-adapter/master/packages/core/base/src/signer.ts",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/wallet-signers.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/wallet-signers.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/core/transactions/durable-nonces",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/nonce-runtime.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/nonce-runtime.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/core/transactions/versions",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/versioned-transactions.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/versioned-transactions.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/core/accounts/account-structure",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/account-structure.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/account-structure.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://solana.com/docs/core/transactions/transaction-pipeline",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/transaction-pipeline.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/transaction-pipeline.txt",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "study": "solana",
+      "url": "https://docs.wormhole.com/products/messaging/reference/core-contract-solana/",
+      "status": 200,
+      "checks": [
+        {
+          "file": "catalog/data-model/solana/wormhole-core-solana.raw",
+          "matches": true
+        },
+        {
+          "file": "catalog/data-model/solana/wormhole-core-solana.txt",
+          "matches": true
+        }
+      ]
+    }
+  ]
+}

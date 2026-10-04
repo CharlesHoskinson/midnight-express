@@ -1,0 +1,102 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/main/packages/circuits/src/semaphore.circom",
+    "tool": "Scrapling Fetcher",
+    "retrieved_utc": "2026-10-04T03:17:24.366593+00:00",
+    "status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/main/packages/circuits/src/semaphore.circom",
+    "file": "335556d05453.snapshot",
+    "text_file": "335556d05453.txt",
+    "sha256": "d67fbae4504476569c03ce7beb23bacf4c4ebb9cbd8f49888f57ed14b288e486"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/main/packages/contracts/contracts/Semaphore.sol",
+    "tool": "Scrapling Fetcher",
+    "retrieved_utc": "2026-10-04T03:17:24.367111+00:00",
+    "status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/main/packages/contracts/contracts/Semaphore.sol",
+    "file": "5c821957193f.snapshot",
+    "text_file": "5c821957193f.txt",
+    "sha256": "bb6d92d9d4796bb43c48586366c7971fe63df35f01cb1ba27015a40116ded885"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/main/packages/contracts/contracts/base/SemaphoreGroups.sol",
+    "tool": "Scrapling Fetcher",
+    "retrieved_utc": "2026-10-04T03:17:24.367644+00:00",
+    "status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/main/packages/contracts/contracts/base/SemaphoreGroups.sol",
+    "file": "a9a3ba85833a.snapshot",
+    "text_file": "a9a3ba85833a.txt",
+    "sha256": "1e78a9eae7fc001ed7ea7bd0008f89832485fcc89befc1055bfbfa70abaf677f"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/main/packages/identity/src/index.ts",
+    "tool": "Scrapling Fetcher",
+    "retrieved_utc": "2026-10-04T03:17:24.368691+00:00",
+    "status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/main/packages/identity/src/index.ts",
+    "file": "824c7a47e2e8.snapshot",
+    "text_file": "824c7a47e2e8.txt",
+    "sha256": "910b431dd57f62ed087521b3af08a6b0389d923b4059e86641cfa92f85027d31"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/main/packages/proof/src/generate-proof.ts",
+    "tool": "Scrapling Fetcher",
+    "retrieved_utc": "2026-10-04T03:17:25.174172+00:00",
+    "status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/main/packages/proof/src/generate-proof.ts",
+    "file": "0e4b3a16f711.snapshot",
+    "text_file": "0e4b3a16f711.txt",
+    "sha256": "6db2d11a78c225a9bfa89120e352a56faece952302b0c1f82d3baea83c6cc342"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/main/packages/proof/src/verify-proof.ts",
+    "tool": "Scrapling Fetcher",
+    "retrieved_utc": "2026-10-04T03:17:25.177748+00:00",
+    "status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/main/packages/proof/src/verify-proof.ts",
+    "file": "07753c340030.snapshot",
+    "text_file": "07753c340030.txt",
+    "sha256": "2f72a3610bf2fcc1867ecf5d48363ce802d459bb2d6edc58b7238ca54a2b375a"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/main/LICENSE",
+    "tool": "Scrapling Fetcher",
+    "retrieved_utc": "2026-10-04T03:17:25.181997+00:00",
+    "status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/semaphore-protocol/semaphore/main/LICENSE",
+    "file": "a285e163c5c4.snapshot",
+    "text_file": "a285e163c5c4.txt",
+    "sha256": "cfcf88f57e7bdeeae0a02b1ed1c2e320b88ebfe527fd25b5237b7dc829c7620c"
+  },
+  {
+    "url": "https://docs.semaphore.pse.dev/",
+    "tool": "Scrapling Fetcher",
+    "retrieved_utc": "2026-10-04T03:17:25.626655+00:00",
+    "status": 200,
+    "resolved_url": "https://docs.semaphore.pse.dev/",
+    "file": "526a5280eafd.snapshot",
+    "text_file": "526a5280eafd.txt",
+    "sha256": "b7f7795ad86302f857e30177a1f2b36b6985883d6b702c473725f5e129dc1935"
+  },
+  {
+    "url": "https://semaphore.pse.dev/learn",
+    "tool": "Scrapling Fetcher",
+    "retrieved_utc": "2026-10-04T03:17:25.979171+00:00",
+    "status": 200,
+    "resolved_url": "https://semaphore.pse.dev/learn",
+    "file": "5b40a18ee8c0.snapshot",
+    "text_file": "5b40a18ee8c0.txt",
+    "sha256": "742b1185fdc867f92855a30b169901cf302dbd9641657a31d449c62a2166d186"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/privacy-ethereum/zkspecs/main/specs/3/README.md",
+    "tool": "Scrapling Fetcher",
+    "retrieved_utc": "2026-10-04T03:17:25.998891+00:00",
+    "status": 200,
+    "resolved_url": "https://raw.githubusercontent.com/privacy-ethereum/zkspecs/main/specs/3/README.md",
+    "file": "885aea9f666b.snapshot",
+    "text_file": "885aea9f666b.txt",
+    "sha256": "4ab17378b1dc306104a8c881c707b4263d777651ccbb30d8f073f0ed79d589e5"
+  }
+]

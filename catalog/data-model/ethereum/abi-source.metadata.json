@@ -1,0 +1,13 @@
+{
+  "id": "abi-source",
+  "url": "https://raw.githubusercontent.com/ethereum/solidity/develop/docs/abi-spec.rst",
+  "resolved_url": "https://raw.githubusercontent.com/ethereum/solidity/develop/docs/abi-spec.rst",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:28:25.755637+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "abi-source.raw",
+  "text_path": "abi-source.txt",
+  "raw_sha256": "bda1c34bf57f3c63e426486e688bf24feda1c8fe439209df1cb4dec8c884eb79",
+  "text_sha256": "e7d03bef03e1df283413b5c9ba89d0c74bdb038fff5d9691c7b6801b851a2cc1",
+  "text_chars": 41198
+}

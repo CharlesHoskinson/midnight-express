@@ -1,0 +1,11 @@
+{
+  "status": "real-postgres-fixture-sandbox",
+  "checks": 56,
+  "postgres": "PostgreSQL 17.11 (Debian 17.11-1.pgdg13+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit",
+  "umbraCheckout": "f662822765247f0da553347c9819f958a1992d28",
+  "processKills": 4,
+  "publicTransactionComposition": true,
+  "productionAuthentication": false,
+  "remoteService": "separate-transaction-fixture",
+  "effects": "database-report-rows-only"
+}

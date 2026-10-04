@@ -1,0 +1,14 @@
+{
+  "id": "wormhole-core-solana",
+  "url": "https://docs.wormhole.com/products/messaging/reference/core-contract-solana/",
+  "resolved_url": "https://docs.wormhole.com/products/messaging/reference/core-contract-solana/",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:26:59.292020+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "wormhole-core-solana.raw",
+  "text_path": "wormhole-core-solana.txt",
+  "raw_sha256": "5796ae4c21bcb7c2d97937e9d55d4f2ccc4919147b70c3ac051f402af5fc4f95",
+  "text_sha256": "5b24abbede5e8a002e3b5cddc79a95ac5e6d26ce4706d1618107a41b6eba0520",
+  "text_chars": 17555,
+  "evidence_usable": true
+}

@@ -1,0 +1,278 @@
+Business Model | ISO20022
+
+      Skip to main content
+    
+ISO 20022
+ISO 20022
+Universal financial industry message scheme
+
+              About ISO 20022
+            
+
+      About ISO 20022
+    
+
+      ISO 20022 is a multi part International Standard prepared by ISO Technical Committee TC68 Financial Services
+    
+
+                          Governance
+                        
+
+                          APIs and ISO 20022
+                        
+
+                          Intellectual property rights
+                        
+
+              Catalogue
+            
+
+                          Business Domain Catalogues
+                        
+
+                                  Payments
+                                
+
+                                  Securities
+                                
+
+                                  Trade Finance
+                                
+
+                                  Cards
+                                
+
+                                  FX
+                                
+
+                          API Resources
+                        
+
+                          Additional Content for the Messages
+                        
+
+                                  Business application header (BAH)
+                                
+
+                                  Business file envelope
+                                
+
+                                  Business message envelope
+                                
+
+                                  Data Source Scheme
+                                
+
+                                  External Code Sets
+                                
+
+                                  ISO 20022 Real-Time Payments Group
+                                
+
+                                  Supplementary Data Extension
+                                
+
+                                  Variants
+                                
+
+                          Message archive
+                        
+
+              ISO20022 repository
+            
+
+      ISO 20022 Repository
+    
+
+      The ISO 20022 Repository consists of two major parts:
+
+
+	the Data Dictionary
+	the Business Process Catalogue
+    
+
+                          ISO 20022 Repository Online Search
+                        
+
+                          Download the e-Repository
+                        
+
+                          Business Model
+                        
+
+              Development
+            
+
+                          List of Submissions
+                        
+
+                                  Catalogue of Business Justifications for message development
+                                
+
+                                  Catalogue of Business Justifications for API resource development
+                                
+
+                                  Catalogue of Business Justifications for Supplementary Data Extension development
+                                
+
+                                  Catalogue of Business Justifications for variants development
+                                
+
+              Maintenance
+            
+
+                          Catalogue of Change Requests
+                        
+
+                                  Catalogue of message definitions change requests
+                                
+
+                                  Catalogue of API Resources change requests
+                                
+
+                                  Catalogue of change requests related to external code sets
+                                
+
+                                  Catalogue of change requests related to data sources schemes
+                                
+
+                                  Catalogue of change requests related to Supplementary Data
+                                
+
+                                  Catalogue of change requests related to the business model
+                                
+
+              eRequests
+            
+
+              FAQ & Search
+            
+
+                          FAQ
+                        
+
+                          Search
+                        
+Contact us
+
+              Home
+            
+•
+
+              ISO20022 repository
+            
+•
+
+              Business Model
+            
+
+            Business Model
+      
+One of the most important ingredients of the ISO 20022 recipe
+
+            Providing industry-agreed definitions of all financial services concepts
+      
+The Business Model is used to derive the data elements used in ISO 20022 message definitions (the ISO 20022 Message Concepts), thereby ensuring a common understanding across all messages used to support the various business domains. As such, it is one of the most important ingredients of the ISO 20022 recipe. Besides the ISO 20022 messaging, the Business Model offers a lot of potential for other applications.
+
+            Benefits
+      
+standardized business concepts across all ISO 20022 message definitions 
+clear definitions of industry business concepts and their relationships
+strong foundation for communication between industry players
+easy mapping with other standards
+Business Transactions
+Discover graphical representations of the business transactions supported by the Business Model
+The Business Model includes completely defined business components and elements and the relationship among these components
+Business Domains
+
+      Common
+          
+
+      Securities
+          
+
+      Payments
+          
+
+      Trade Services
+          
+
+      Forex
+          
+
+      Cards and Related Services
+          
+Business Concepts
+The Business Model is part of the ISO 20022 Data Dictionary which includes detailed information about every business concept
+
+      Discover the available business concepts
+          
+
+            Updating the Business Model
+      
+The Business Model includes the business concepts that are used in the ISO 20022 messages. As such, it is usually enriched at the occasion of the development or maintenance of ISO 20022 messages. It is however possible to update and complement the ISO 20022 Business Model independently of the message development, provided that the updates can be made without impacting the existing ISO 20022 messages.
+The business model update process includes the following steps
+
+            1. The RA collects change requests from users
+      
+Show more
+Show less
+Actual or potential users of the ISO 20022 Business Model submit their requests for changes to the Business Model based on the specific 
+Business Model change request
+ to the 
+Registration Authority (RA)
+. Each Business Model change request must describe the scope of the change, the business concepts to be changed, the proposed name, definition, etc.
+The RA checks each Business Model change request for completeness and conformance to the Business Model change request template. When the change request is valid (that is, conforming to the change request template), the RA returns a positive acknowledgement to the submitter and posts the change request in the 
+Catalogue of change requests
+.
+
+            2. The RA performs the evaluation of the change requests
+      
+Show more
+Show less
+Change requests to the Business Model are evaluated by the RA, as well as the impact that the changes could have on existing ISO 20022 messages.
+If the changes can be made without impacting the existing ISO 20022 messages, the RA updates the Business Model and prepares the documentation necessary for the submission of the updated model to the relevant 
+SEG
+ or the Cross-SEG Harmonisation team (CSH) if the changes related to 'common' business concepts that are used by several business domains.
+If the changes require an update of existing ISO 20022 messages, the RA contacts the submitter with the request to prepare required message change requests as per the regular 
+ISO 20022 maintenance process
+.
+
+            3. The SEG reviews the business model change request
+      
+Show more
+Show less
+The 
+SEG
+ or the CSH reviews the updated Business Model and approves the proposed implementation of each Business Model update.
+The submitter is invited to participate in the evaluation to give any further clarification regarding the proposed updates.
+The result of the review is an agreement regarding which changes will be implemented. The RA updates the Business Model change request with the SEG or CSH decision for each of the proposed changes, informs the submitter and updates the status of the change request in the 
+Catalogue of change requests
+.
+
+            4. The RA publishes the new version of the ISO 20022 Business Model
+      
+Show more
+Show less
+The RA publishes the updates to the Business Model on the ISO 20022 website. This may include:
+An update of the 
+Business Model diagrams and definitions
+An update of the 
+e-Repository
+An update of ISO 20022 Repository extract accessible through the Repository search.
+ISO 20022
+
+                  © Copyright ISO 20022
+              
+
+        Contact
+      
+
+        Privacy statement
+      
+
+        Cookie policy
+      
+
+        Terms of use
+      

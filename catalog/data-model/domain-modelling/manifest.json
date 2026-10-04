@@ -1,0 +1,167 @@
+[
+  {
+    "id": "ddd-reference-page",
+    "url": "https://www.domainlanguage.com/ddd/reference/",
+    "status": 200,
+    "fetched_utc": "2026-10-04T05:03:40.742227+00:00",
+    "raw_file": "ddd-reference-page.html",
+    "raw_sha256": "6bd03d0a2dba8aaa829407550714a9b8e84645fc927e94e2f06f30faa942b70f",
+    "text_file": "ddd-reference-page.txt",
+    "text_sha256": "afcca7c1c22106f39c36c93c38af48860a501b25d8b3f0ecba567933c8ac4ab7",
+    "text_bytes": 2149
+  },
+  {
+    "id": "ddd-reference",
+    "url": "https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf",
+    "status": 200,
+    "fetched_utc": "2026-10-04T05:03:41.579546+00:00",
+    "raw_file": "ddd-reference.pdf",
+    "raw_sha256": "cf82dc7b4736bb24f4a1b69a3213c25cbd38aa98e37b99c2facfb94ff5cacb99",
+    "text_file": "ddd-reference.txt",
+    "text_sha256": "3d4d4ce3468d7c631c216aec063b8f23ec2d2c6e8d7a0aefb5ce613a006ba715",
+    "text_bytes": 134913
+  },
+  {
+    "id": "canonical-data-model",
+    "url": "https://www.enterpriseintegrationpatterns.com/patterns/messaging/CanonicalDataModel.html",
+    "status": 200,
+    "fetched_utc": "2026-10-04T05:03:40.465124+00:00",
+    "raw_file": "canonical-data-model.html",
+    "raw_sha256": "02992f61d7529d80300b901e152622f0e876669b52f49d035dba00745a2405f8",
+    "text_file": "canonical-data-model.txt",
+    "text_sha256": "b717e917780430866a42c5e0228bab46bf314d2aa85a0c6babdbe4dcb848945a",
+    "text_bytes": 5950
+  },
+  {
+    "id": "format-indicator",
+    "url": "https://www.enterpriseintegrationpatterns.com/patterns/messaging/FormatIndicator.html",
+    "status": 200,
+    "fetched_utc": "2026-10-04T05:03:40.466795+00:00",
+    "raw_file": "format-indicator.html",
+    "raw_sha256": "54fd70b7f96611bc8e639462761098b2ae2f6624ab4bd279699cca1308436683",
+    "text_file": "format-indicator.txt",
+    "text_sha256": "7da9151cf25007b7f951ffa8b026a1c97b190fbc4260ebba9a5dea0bbec6ed77",
+    "text_bytes": 5683
+  },
+  {
+    "id": "ubl-customization",
+    "url": "https://docs.oasis-open.org/ubl/guidelines/UBL2-Customization1.0cs01.html",
+    "status": 200,
+    "fetched_utc": "2026-10-04T05:03:41.702079+00:00",
+    "raw_file": "ubl-customization.html",
+    "raw_sha256": "7aa1605a6ea06d56eb6905fdf539bbed9869d392f0d6c581e4f25814b0063d5c",
+    "text_file": "ubl-customization.txt",
+    "text_sha256": "231489c6fdd5b231b2dbdf88632dbbabbf03632a0aa716efd7f1165ce456f45e",
+    "text_bytes": 83731
+  },
+  {
+    "id": "ubl-2.4",
+    "url": "https://docs.oasis-open.org/ubl/UBL-2.4.html",
+    "status": 200,
+    "fetched_utc": "2026-10-04T05:03:42.293292+00:00",
+    "raw_file": "ubl-2.4.html",
+    "raw_sha256": "49be7272bc280257525cf9e1ec069003ce25e2b25a5c4edb8b199860efe0247b",
+    "text_file": "ubl-2.4.txt",
+    "text_sha256": "eec5097674497fe8376913282fd7cd52638d17e7fb02180f471e2a9ec5651c9e",
+    "text_bytes": 381929
+  },
+  {
+    "id": "ccts-2.01",
+    "url": "https://unece.org/fileadmin/DAM/cefact/codesfortrade/CCTS/CCTS_V2-01_Final.pdf",
+    "status": 403,
+    "fetched_utc": "2026-10-04T05:03:41.742132+00:00",
+    "raw_file": "ccts-2.01.html",
+    "raw_sha256": "4391984b6bff7108e23ee17c88c45857e91b3a413dd24271f83b4ecfa66bb35d",
+    "text_file": "ccts-2.01.txt",
+    "text_sha256": "05f8bdf19ca64ec98ac31c13061fb810966197580390f0688c67e092c21b5a3f",
+    "text_bytes": 58
+  },
+  {
+    "id": "iso20022-business-model",
+    "url": "https://www.iso20022.org/iso20022-repository/business-model",
+    "status": 200,
+    "fetched_utc": "2026-10-04T05:03:48.301938+00:00",
+    "raw_file": "iso20022-business-model.html",
+    "raw_sha256": "dea16e26bb3a82ccc523c9dc52114ce466dd6a5f87d50c7d01da2a723f90bb57",
+    "text_file": "iso20022-business-model.txt",
+    "text_sha256": "9d03b6f3f06a3dafc23d0f787edfc0f95ff20d0a3487208b3e9ba2e8e041832c",
+    "text_bytes": 9100
+  },
+  {
+    "id": "iso20022-dictionary",
+    "url": "https://www.iso20022.org/understanding-data-dictionary",
+    "status": 200,
+    "fetched_utc": "2026-10-04T05:03:48.250070+00:00",
+    "raw_file": "iso20022-dictionary.html",
+    "raw_sha256": "5af3a0bdf99c292e85a09f6559990c239cac5b8f53beb8856551b8ddfdc3e73c",
+    "text_file": "iso20022-dictionary.txt",
+    "text_sha256": "357c60a50083dac1f9a092729f4b56a9bb61161c2868adc6687fe3b89866b482",
+    "text_bytes": 15892
+  },
+  {
+    "id": "iso20022-faq",
+    "url": "https://www.iso20022.org/faq",
+    "status": 200,
+    "fetched_utc": "2026-10-04T05:03:48.395897+00:00",
+    "raw_file": "iso20022-faq.html",
+    "raw_sha256": "dca900df3c6d75dbff7b1f5faf3720464590868a19703ce4e6034ab5a6beb8d0",
+    "text_file": "iso20022-faq.txt",
+    "text_sha256": "6228dc5562dd4a05f1be57e0a7369d0587b1a5704e15fbb96054f3d0ea058e53",
+    "text_bytes": 36182
+  },
+  {
+    "id": "iso20022-terms",
+    "url": "https://www.iso20022.org/terms-use",
+    "status": 200,
+    "fetched_utc": "2026-10-04T05:03:48.050606+00:00",
+    "raw_file": "iso20022-terms.html",
+    "raw_sha256": "daca15170b5123ea9e67afbee851b2d113a98eb3c0e5bcb45be4f234429f6559",
+    "text_file": "iso20022-terms.txt",
+    "text_sha256": "0440f3daa97b2c153aee30108217a0d04847377b97fc003fa9c82abea6f2986b",
+    "text_bytes": 5997
+  },
+  {
+    "id": "iso20022-about",
+    "url": "https://www.iso20022.org/about-iso-20022",
+    "status": 200,
+    "fetched_utc": "2026-10-04T05:04:52.482872+00:00",
+    "raw_file": "iso20022-about.html",
+    "raw_sha256": "688bfdae4080e4fab6c32e758aa801b533bc4a8da28b8f337191bcbc529d5d7e",
+    "text_file": "iso20022-about.txt",
+    "text_sha256": "fe1104b5344c129adc4bc578525ba5601329855bb42a66ab17d5784d56db097d",
+    "text_bytes": 7047
+  },
+  {
+    "id": "iso20022-ipr",
+    "url": "https://www.iso20022.org/intellectual-property-rights",
+    "status": 200,
+    "fetched_utc": "2026-10-04T05:04:53.422871+00:00",
+    "raw_file": "iso20022-ipr.html",
+    "raw_sha256": "9faaf5864a7d866ef580794f2d7870cd7db87e28bcd02d61c2315d08368e0ec1",
+    "text_file": "iso20022-ipr.txt",
+    "text_sha256": "166107dbcf0f1443165b08f156923a113b30c9b8f11f7cab2947c13a6dc8d253",
+    "text_bytes": 6226
+  },
+  {
+    "id": "oasis-business-document-ndr",
+    "url": "https://docs.oasis-open.org/ubl/Business-Document-NDR/v1.0/os/Business-Document-NDR-v1.0-os.html",
+    "status": 200,
+    "fetched_utc": "2026-10-04T05:04:54.429686+00:00",
+    "raw_file": "oasis-business-document-ndr.html",
+    "raw_sha256": "8bcfecdf95bd9f8b39577cedce6ba57480b9f93f17516cf1ade38c112fe65ed5",
+    "text_file": "oasis-business-document-ndr.txt",
+    "text_sha256": "c470a5c2cb3338a48380cc13e4413b0476df0e85cc29f2245f8314cc0ec4ed4a",
+    "text_bytes": 96352
+  },
+  {
+    "id": "ccts-oasis-mirror",
+    "url": "https://www.oasis-open.org/committees/download.php/6232/CEFACT-CCTS-Version-2pt01.zip",
+    "status": 200,
+    "fetched_utc": "2026-10-04T05:05:01.298168+00:00",
+    "raw_file": "ccts-oasis-mirror.zip",
+    "raw_sha256": "cc373f1b798a1b00ff9204f14faeceb55f57f1f31d3fe6fcf20c344d59223512",
+    "text_file": "ccts-oasis-mirror.txt",
+    "text_sha256": "c3f6eb5c27b3ca8149128d04f70d3cc4a073656de148fa7ca1793d999c9e4f04",
+    "text_bytes": 297851
+  }
+]

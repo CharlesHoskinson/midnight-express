@@ -1,0 +1,151 @@
+{
+  "type": "object",
+  "properties": {
+    "specversion": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^event:[a-z0-9][a-z0-9._/-]{0,63}$",
+      "maxLength": 80
+    },
+    "source": {
+      "type": "string",
+      "pattern": "^urn:mpe:source:[a-z0-9][a-z0-9-]{0,31}$"
+    },
+    "type": {
+      "const": "mpe.agent.approval.v0.1"
+    },
+    "time": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.000Z$"
+    },
+    "datacontenttype": {
+      "const": "application/json"
+    },
+    "dataschema": {
+      "const": "urn:mpe:model:agent.v0.1"
+    },
+    "mpeprofile": {
+      "const": "agent.v0.1"
+    },
+    "mpecontract": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "actionId": {
+          "type": "string",
+          "pattern": "^action:[a-z0-9][a-z0-9._/-]{0,63}$",
+          "maxLength": 80
+        },
+        "proposal": {
+          "type": "object",
+          "properties": {
+            "environment": {
+              "const": "Sandbox"
+            },
+            "operation": {
+              "const": "WriteReport"
+            },
+            "target": {
+              "type": "string",
+              "pattern": "^sandbox:[a-z0-9][a-z0-9._/-]{0,63}$",
+              "maxLength": 80
+            },
+            "inputDigest": {
+              "type": "string",
+              "pattern": "^sha256:[0-9a-f]{64}$"
+            },
+            "budget": {
+              "type": "object",
+              "properties": {
+                "coefficient": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]{0,17}$"
+                },
+                "scale": {
+                  "const": 0
+                },
+                "unit": {
+                  "const": "Step"
+                }
+              },
+              "required": [
+                "coefficient",
+                "scale",
+                "unit"
+              ],
+              "additionalProperties": false
+            },
+            "expires": {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.000Z$"
+            }
+          },
+          "required": [
+            "environment",
+            "operation",
+            "target",
+            "inputDigest",
+            "budget",
+            "expires"
+          ],
+          "additionalProperties": false
+        },
+        "proposalDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "policyDigest": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "human": {
+          "type": "string",
+          "pattern": "^human:[a-z0-9][a-z0-9._/-]{0,63}$",
+          "maxLength": 80
+        },
+        "validFrom": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.000Z$"
+        },
+        "validUntil": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.000Z$"
+        },
+        "maxEffects": {
+          "const": 1
+        }
+      },
+      "required": [
+        "actionId",
+        "proposal",
+        "proposalDigest",
+        "policyDigest",
+        "human",
+        "validFrom",
+        "validUntil",
+        "maxEffects"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "specversion",
+    "id",
+    "source",
+    "type",
+    "time",
+    "datacontenttype",
+    "dataschema",
+    "mpeprofile",
+    "mpecontract",
+    "data"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mpe:model:agent.v0.1"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "json-rpc",
+  "url": "https://ethereum.org/developers/docs/apis/json-rpc/",
+  "resolved_url": "https://ethereum.org/developers/docs/apis/json-rpc/",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:47.306783+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "json-rpc.raw",
+  "text_path": "json-rpc.txt",
+  "raw_sha256": "3effc3b850bf0b0e38c355d95d98c91df51219d78c5ab0137887fd8a19180f03",
+  "text_sha256": "1af60deb2fd11e54885081da0300b94ff12d2df096c65eceec4b7487d1b54d6e",
+  "text_chars": 74804
+}

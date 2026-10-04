@@ -1,0 +1,14 @@
+{
+  "id": "associated-token",
+  "url": "https://www.solana-program.com/docs/associated-token-account",
+  "resolved_url": "https://www.solana-program.com/docs/associated-token-account",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:52.629642+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "associated-token.raw",
+  "text_path": "associated-token.txt",
+  "raw_sha256": "882daa95daa06dbc416c4f223bd68d3b9273b099db2a89005e152782fec96ec4",
+  "text_sha256": "9b1ecc0eeb089a727087598ada07280d650464d000c6c489f5e9f587dbb46b0d",
+  "text_chars": 3644,
+  "evidence_usable": true
+}

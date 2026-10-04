@@ -1,0 +1,79 @@
+[
+  {
+    "id": "shacl",
+    "url": "https://www.w3.org/TR/shacl/",
+    "status": 200,
+    "fetched_at": "2026-10-04T05:09:11.260026+00:00",
+    "html": "shacl.html",
+    "text": "shacl.txt",
+    "html_sha256": "ccca77caed771f42ea649c03d190b9c7ea0b82286c22c457b9edc8087c9ad0f8",
+    "text_sha256": "29cb8ab70ad675d817ff90bc0637d6b14fd2d9eac164e8219864f6b160363af4",
+    "text_chars": 174606
+  },
+  {
+    "id": "jsonld11",
+    "url": "https://www.w3.org/TR/json-ld11/",
+    "status": 200,
+    "fetched_at": "2026-10-04T05:09:12.730501+00:00",
+    "html": "jsonld11.html",
+    "text": "jsonld11.txt",
+    "html_sha256": "9e2c9972d0f60bc744e975731643a9a63d410afc6b682eb8898ad2720e452866",
+    "text_sha256": "5d61054e5a8c6b475ed35ccd58eca2268d54da08683532dd6f01f21927187796",
+    "text_chars": 377291
+  },
+  {
+    "id": "jsonld11-api",
+    "url": "https://www.w3.org/TR/json-ld11-api/",
+    "status": 200,
+    "fetched_at": "2026-10-04T05:09:13.858550+00:00",
+    "html": "jsonld11-api.html",
+    "text": "jsonld11-api.txt",
+    "html_sha256": "380ddb64232c701a8ff969e22646451e20fe66d264e34a5bc4c5b018e8c77f55",
+    "text_sha256": "521685bd6c0daf7ee4c03ae9b9ae5417d5f2ce15543e8cd42d7079adc7130bb9",
+    "text_chars": 266484
+  },
+  {
+    "id": "owl2-primer",
+    "url": "https://www.w3.org/TR/owl2-primer/",
+    "status": 200,
+    "fetched_at": "2026-10-04T05:09:14.826506+00:00",
+    "html": "owl2-primer.html",
+    "text": "owl2-primer.txt",
+    "html_sha256": "e64c94d2900e24142940cd45126651082f8e9a23e23396899f39ce4be9543630",
+    "text_sha256": "b1b2faf6593dd0155f9ad6b25258d3f5653cd440f2a856a7883ad661374c0a36",
+    "text_chars": 179769
+  },
+  {
+    "id": "ucum",
+    "url": "https://ucum.org/ucum",
+    "status": 200,
+    "fetched_at": "2026-10-04T05:09:16.372386+00:00",
+    "html": "ucum.html",
+    "text": "ucum.txt",
+    "html_sha256": "6bcf017c304a9b85adfddd7abfcf353162f556fcd1ddb13d98a23a8555b65dd2",
+    "text_sha256": "00aae10b7c13ea1c74f53a6f4b7d5e519231228de15f5ad5f0ab5d118349b118",
+    "text_chars": 241370
+  },
+  {
+    "id": "qudt-schema",
+    "url": "https://www.qudt.org/doc/2025/01/DOC_SCHEMA-QUDT.html",
+    "status": 200,
+    "fetched_at": "2026-10-04T05:09:17.718122+00:00",
+    "html": "qudt-schema.html",
+    "text": "qudt-schema.txt",
+    "html_sha256": "2d440c411ccd6876457af60cce8d7945e017ae56583af5a13fd9101916312e34",
+    "text_sha256": "e1e4f1d1d6cbf337825465476047c195a3a4af580278897024b77dd473fcead4",
+    "text_chars": 124162
+  },
+  {
+    "id": "json-schema-validation",
+    "url": "https://json-schema.org/draft/2020-12/json-schema-validation",
+    "status": 200,
+    "fetched_at": "2026-10-04T05:09:18.916595+00:00",
+    "html": "json-schema-validation.html",
+    "text": "json-schema-validation.txt",
+    "html_sha256": "e8095cd0b6611406c990f76486150f39ea65e0a331dd2e9d17afab52de61d3e3",
+    "text_sha256": "53d90aa74fd9f04e7e65692e4760b18bab8904470dfac4a9022daa7a71e4396b",
+    "text_chars": 61257
+  }
+]

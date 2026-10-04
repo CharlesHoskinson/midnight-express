@@ -1,0 +1,195 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "chain",
+    "network",
+    "factId",
+    "location",
+    "asset",
+    "rawAmount",
+    "sender",
+    "receiver",
+    "decoder",
+    "sourceDigest",
+    "execution",
+    "effectAuthority",
+    "fragmentDigest",
+    "contextDigest"
+  ],
+  "properties": {
+    "chain": {
+      "enum": [
+        "ethereum",
+        "solana"
+      ]
+    },
+    "network": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 8,
+      "additionalProperties": {
+        "type": "string",
+        "maxLength": 128
+      }
+    },
+    "factId": {
+      "type": "string",
+      "maxLength": 512
+    },
+    "location": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 8,
+      "additionalProperties": {
+        "type": "string",
+        "maxLength": 128
+      }
+    },
+    "asset": {
+      "type": "string",
+      "maxLength": 512
+    },
+    "rawAmount": {
+      "type": "string",
+      "pattern": "^(?:0|[1-9][0-9]{0,77})(?![\\s\\S])"
+    },
+    "sender": {
+      "type": "string",
+      "maxLength": 512
+    },
+    "receiver": {
+      "type": "string",
+      "maxLength": 512
+    },
+    "decoder": {
+      "type": "string",
+      "maxLength": 512
+    },
+    "sourceDigest": {
+      "type": "string",
+      "maxLength": 512
+    },
+    "execution": {
+      "const": "Succeeded"
+    },
+    "effectAuthority": {
+      "const": false
+    },
+    "fragmentDigest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+    },
+    "contextDigest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}(?![\\s\\S])"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "chain": {
+            "const": "ethereum"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "network": {
+            "type": "object",
+            "required": [
+              "chainId",
+              "genesis"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "chainId": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "genesis": {
+                "type": "string",
+                "maxLength": 128
+              }
+            }
+          },
+          "location": {
+            "type": "object",
+            "required": [
+              "blockHash",
+              "blockNumber",
+              "transactionHash",
+              "logIndex"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "blockHash": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "blockNumber": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "transactionHash": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "logIndex": {
+                "type": "string",
+                "maxLength": 128
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "network": {
+            "type": "object",
+            "required": [
+              "genesis"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "genesis": {
+                "type": "string",
+                "maxLength": 128
+              }
+            }
+          },
+          "location": {
+            "type": "object",
+            "required": [
+              "branchHash",
+              "slot",
+              "signature",
+              "instructionPath"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "branchHash": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "slot": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "signature": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "instructionPath": {
+                "type": "string",
+                "maxLength": 128
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

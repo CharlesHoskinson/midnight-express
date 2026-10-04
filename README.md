@@ -48,7 +48,26 @@ in Compact and compiled and costed against the ledger cost model, but nothing ha
 | `design/ears/`, `design/rounds/r5/` | The requirement register. |
 | `experiments/` | Exploratory Rust code and the Compact ledger-interface study (`experiments/registry`). Not a proof of concept; see its README. |
 | `catalog/`, `notes/`, `graph/` | The research corpus catalog, notes and graph tooling. |
+| [`reviews/competitive-event-systems/`](reviews/competitive-event-systems/README.md) | Three independent reviews of each of 26 blockchain, enterprise messaging and listener designs, with extraction decisions. |
+| [`catalog/event-systems/`](catalog/event-systems/README.md) | Scrapling primary-source snapshots, retrieval records and hashes for the comparative study. |
+| [`docs/product-requirements/`](docs/product-requirements/README.md) | Ten business use cases, feature considerations and candidate EARS extensions for product scope review. |
 
 ## License
 
 Apache License 2.0. See [LICENSE](LICENSE).
+
+Recommended implementation direction and ranked product portfolio: [stack and use cases](docs/product-requirements/recommended-stack-and-use-cases.md).
+
+## Architecture showcase
+
+The [interactive architecture page](website/README.md) presents the recommended stack, event journey and ten product priorities. Its [ten-agent study](reviews/architecture-page/README.md) and GPT visual prompts are preserved for review.
+
+## Unified meaning and prototype validation
+
+The [unified model proposal](docs/product-requirements/unified-data-model.md) synthesizes five Scrapling literature studies. The [reference model](model/README.md) supplies closed schemas and unsigned conformance fixtures. The [three-sprint plan](docs/product-requirements/prototype-sprints.md) synthesizes ten design reviews. The static Implementation tab is `website/dist/implementation.html`; it works without JavaScript. These are design/reference artifacts, not completed runtime sprints.
+
+Application domains: [Ethereum](docs/product-requirements/ethereum-application-domain.md), [Solana](docs/product-requirements/solana-application-domain.md) and [machine-readable proposed event catalog](model/domains/README.md). Chain observations and signing/broadcast intents retain separate contracts and authority boundaries.
+
+The [five-role format review](docs/product-requirements/data-format-review.md) records concrete reference defects and a prioritized interoperability/evidence backlog. Its [counterexamples](reviews/data-format/observed-counterexamples.json) reproduce against unchanged pinned artifacts; passing baseline checks are not full semantic acceptance.
+
+The [v0.2 implementation](docs/product-requirements/data-format-implementation.md) adds strict contracts, independent RFQ interpretation/adapters, immutable history, read-only chain lineage and real Umbra/PostgreSQL sandbox crash/reconciliation tests. Reproduction commands and explicit deployment gates are in [model/README.md](model/README.md).

@@ -1,0 +1,14 @@
+{
+  "id": "votesubscribe",
+  "url": "https://solana.com/docs/rpc/websocket/votesubscribe",
+  "resolved_url": "https://solana.com/docs/rpc/websocket/votesubscribe",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:26:02.638384+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "votesubscribe.raw",
+  "text_path": "votesubscribe.txt",
+  "raw_sha256": "19da09a36e54010512aed53b48f673ed57bd0d3cc43f62ab001fbc87ddff44df",
+  "text_sha256": "1278c63cc4adf7495527c923663e44ad1d05b2211f888c5e3c955d59eef5f994",
+  "text_chars": 2942,
+  "evidence_usable": true
+}

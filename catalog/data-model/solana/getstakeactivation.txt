@@ -1,0 +1,138 @@
+getStakeActivation (removed) | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+Websocket Methods
+Removed Methods
+Removed RPC Methods
+confirmTransaction (removed)
+getConfirmedBlock (removed)
+getConfirmedBlocks (removed)
+getConfirmedBlocksWithLimit (removed)
+getConfirmedSignaturesForAddress2 (removed)
+getConfirmedTransaction (removed)
+getFeeCalculatorForBlockhash (removed)
+getFeeRateGovernor (removed)
+getFees (removed)
+getRecentBlockhash (removed)
+getSignatureConfirmation (removed)
+getSignatureStatus (removed)
+getSnapshotSlot (removed)
+getStakeActivation (removed)
+Table of Contents
+Solana RPC Methods
+Removed Methods
+getStakeActivation (removed)
+Copy Markdown
+Open
+getStakeActivation
+ calculated the active, inactive, and activating or
+deactivating stake for one stake account. Its final implementation accepted an
+optional epoch field but supported only the current epoch.
+Removed RPC method
+This method was removed in Agave v2.0 and has no single-method replacement.
+Migration
+Fetch and decode both the stake account and the StakeHistory sysvar account at
+
+SysvarStakeHistory1111111111111111111111111
+ with
+
+getAccountInfo
+. Obtain the current epoch with
+
+getEpochInfo
+, then derive activation from the
+stake delegation and decoded stake-history entries. The calculation must account
+for warmup and cooldown rather than comparing activation epochs alone.
+To reproduce the legacy balances, keep the stake account's total lamports and
+the decoded 
+Meta.rent_exempt_reserve
+ in addition to the delegation. Set
+
+active
+ to the effective stake returned by the activation calculation, then
+derive 
+inactive
+ with saturating subtraction:
+inactive = account lamports - active - rent-exempt reserve
+This includes undelegated lamports while excluding the reserve. For an
+initialized stake account with no delegation, set 
+active
+ to zero and use the
+same subtraction. Do not calculate 
+inactive
+ as only delegated stake minus
+effective stake.
+If a legacy caller supplied 
+epoch
+, require it to equal the current epoch; the
+final legacy RPC implementation rejected other values. Reconstructing activation
+at an older epoch requires archived stake-account and sysvar state from that
+epoch, which current 
+getAccountInfo
+ responses do not provide.
+The
+
+stake activation reference implementation
+
+shows this multi-step replacement. If you expose the result through an API,
+cache epoch-level inputs rather than recomputing them for every account.
+Is this page helpful?
+Previous
+getSnapshotSlot (removed)
+Table of Contents
+Migration
+Edit Page
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.

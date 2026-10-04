@@ -1,0 +1,14 @@
+{
+  "id": "getversion",
+  "url": "https://solana.com/docs/rpc/http/getversion",
+  "resolved_url": "https://solana.com/docs/rpc/http/getversion",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:59.586169+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "getversion.raw",
+  "text_path": "getversion.txt",
+  "raw_sha256": "dada3b2d2a9c5d4ee409888bb7f53106e85dd6b2dfbb65272a9b1b08d04bb9b8",
+  "text_sha256": "2646d18a3075432fa8f301e3769edaa91f505f551ead4f7f7084a3631974dc64",
+  "text_chars": 2679,
+  "evidence_usable": true
+}

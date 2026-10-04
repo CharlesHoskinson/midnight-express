@@ -1,0 +1,47 @@
+{
+  "specversion": "1.0",
+  "id": "event:rfq",
+  "source": "urn:mpe:source:dealer",
+  "type": "mpe.rfq.quote.v0.2",
+  "time": "2026-10-04T11:00:00.000Z",
+  "datacontenttype": "application/json",
+  "dataschema": "https://evil.invalid/schema",
+  "mpeprofile": "rfq.v0.2",
+  "mpecontract": "sha256:8b5c6b89f6019fcb06b479e92f1b3bea340ac500cc218341e368e1ed2093071c",
+  "data": {
+    "rfqId": "rfq:demo",
+    "quoteId": "quote:demo",
+    "requester": "party:buyer",
+    "dealer": "party:dealer",
+    "requesterSide": "BuyAsset",
+    "buyer": "party:buyer",
+    "seller": "party:dealer",
+    "asset": "asset:pilot-share-42",
+    "quantity": {
+      "coefficient": "100",
+      "scale": 0,
+      "unit": "Share"
+    },
+    "currency": "iso4217:USD",
+    "price": {
+      "kind": "AbsolutePerUnit",
+      "value": {
+        "coefficient": "12345",
+        "scale": 2
+      },
+      "currency": "iso4217:USD",
+      "assetRef": "asset:pilot-share-42",
+      "unit": "Share",
+      "baseQuantity": "1",
+      "fees": "None"
+    },
+    "cash": {
+      "coefficient": "1234500",
+      "scale": 2
+    },
+    "quoteKind": "Firm",
+    "validFrom": "2026-10-04T11:00:00.000Z",
+    "validUntil": "2026-10-04T13:00:00.000Z",
+    "settlement": "OffchainCoordinationOnly"
+  }
+}

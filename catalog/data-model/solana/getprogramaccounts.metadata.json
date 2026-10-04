@@ -1,0 +1,14 @@
+{
+  "id": "getprogramaccounts",
+  "url": "https://solana.com/docs/rpc/http/getprogramaccounts",
+  "resolved_url": "https://solana.com/docs/rpc/http/getprogramaccounts",
+  "status": 200,
+  "retrieved_at_utc": "2026-10-04T05:25:54.575651+00:00",
+  "fetcher": "Scrapling Fetcher.get(timeout=35); TLS verification enabled",
+  "raw_path": "getprogramaccounts.raw",
+  "text_path": "getprogramaccounts.txt",
+  "raw_sha256": "66ca74018dded90c583b348bf14a8d48180ef51c4b0c30fc42b982ae52d4a048",
+  "text_sha256": "d16566940ef7032141f34a4963811e3d1cf00553b573480ea853d6c8f16e5f6f",
+  "text_chars": 4780,
+  "evidence_usable": true
+}

@@ -1,0 +1,3762 @@
+Solana RPC JSON Structures | Solana
+Use Solana
+Build
+Enterprise
+Products
+Ecosystem
+Search
+⌘ K
+en
+Start here
+Concepts
+API
+Finance
+Resources
+Choosing an RPC Provider
+JSON Reference
+HTTP Methods
+Websocket Methods
+Removed Methods
+Table of Contents
+Solana RPC Methods
+Solana RPC JSON Structures
+Copy Markdown
+Open
+Overview
+Various Solana RPC methods return structured JSON objects with well-defined
+fields and nested data.
+This page documents the shared JSON data structures reused across Solana RPC
+responses.
+Start with the top-level structure returned by the RPC method you are using,
+then follow the linked sections for any nested objects it contains.
+Reference
+Details
+Type definitions
+transaction-status-client-types
+; 
+rpc-client-types
+; 
+account-decoder-client-types
+Serialization behavior
+transaction-status
+; 
+rpc
+The sections below are grouped into top-level response objects and shared
+structures. Each section begins with a reference table that links the structure
+to the RPC method or parent structure, response path, and type definition.
+Top-Level Response Objects
+Confirmed Blocks
+Block-oriented RPC methods such as 
+getBlock
+ return confirmed blocks in this
+structure:
+Reference
+Details
+Returned by
+getBlock
+; the 
+block
+ field in 
+blockSubscribe
+ notifications
+Response path
+result
+ in 
+getBlock
+; 
+params.result.value.block
+ in 
+blockSubscribe
+Type Definition
+UiConfirmedBlock
+{
+"previousBlockhash"
+:
+"9gAzd1Mv43CptYG8cjy5bE7uNq6P9SFNZFTKToHcQHGD"
+,
+"blockhash"
+:
+"J8mfvgG5xJ1hfGVxcrJ9f3BwdYPuXNfY3cJzKMwHyFTe"
+,
+"parentSlot"
+:
+408671999
+,
+"transactions"
+: [
+{
+"transaction"
+: {
+"signatures"
+: [
+"2sZrnsqbiPqTznPsnU33CBb1LVeqaMCxE1vsn4YGVnvFzkS684YAMFYFVZAQuQqhiEQNoNSpdMe54v1ppsBG7HCj"
+],
+"message"
+: {
+"accountKeys"
+: [
+"9GHvMeJ4ZWuAX6sDGscFL1TBMszx2EehnrcTVUy4MZJQ"
+,
+"GVYt3tbokX7mH4i86AA6Nh5hPiHEekercNZyNevviotL"
+,
+"Vote111111111111111111111111111111111111111"
+],
+"header"
+: {
+"numReadonlySignedAccounts"
+:
+0
+,
+"numReadonlyUnsignedAccounts"
+:
+1
+,
+"numRequiredSignatures"
+:
+1
+},
+"instructions"
+: [
+{
+"accounts"
+: [
+1
+,
+0
+],
+"data"
+:
+"67MGnCUMzh8M6jYY5veq8MTkdaEKoxtaNUYE5m2uWtdMh4r9TSV22JarEohoXJtLZUCLR2bsuWxZcPstBTaf5fc72ceL3RAhWXLmMJeGgqdkUosgbpKw6yRWipuMWmsW34dm8vm868Fz3R3LXnQVJoVkUGxjQ5JsFSyRQQsK2woykd5dHoeCd38cniefmTjWgbhgt88UBm"
+,
+"programIdIndex"
+:
+2
+,
+"stackHeight"
+:
+1
+}
+],
+"recentBlockhash"
+:
+"B7YsL7tnAhMLCZsThdgK2iVEH6gajo6fueSrwtGTGd9K"
+}
+},
+"meta"
+: {
+"err"
+:
+null
+,
+"fee"
+:
+5000
+,
+"innerInstructions"
+: [],
+"logMessages"
+: [
+"Program Vote111111111111111111111111111111111111111 invoke [1]"
+,
+"Program Vote111111111111111111111111111111111111111 success"
+],
+"postBalances"
+: [
+83925018422
+,
+321677325
+,
+1
+],
+"postTokenBalances"
+: [],
+"preBalances"
+: [
+83925023422
+,
+321677325
+,
+1
+],
+"preTokenBalances"
+: [],
+"rewards"
+: [],
+"loadedAddresses"
+: {
+"readonly"
+: [],
+"writable"
+: []
+},
+"computeUnitsConsumed"
+:
+2100
+,
+"costUnits"
+:
+3428
+,
+"status"
+: {
+"Ok"
+:
+null
+}
+},
+"version"
+:
+"legacy"
+}
+],
+"rewards"
+: [
+{
+"commission"
+:
+0
+,
+"lamports"
+:
+0
+,
+"postBalance"
+:
+637848765
+,
+"pubkey"
+:
+"7PmWxxiTneGteGxEYvzj5pGDVMQ4nuN9DfUypEXmaA8o"
+,
+"rewardType"
+:
+"Voting"
+}
+],
+"numRewardPartitions"
+:
+312
+,
+"blockTime"
+:
+1774404960
+,
+"blockHeight"
+:
+386774297
+}
+previousBlockhash
+string
+The previous block's blockhash, as a base-58 encoded string.
+blockhash
+string
+This block's blockhash, as a base-58 encoded string.
+parentSlot
+u64
+Slot index of this block's parent.
+transactions
+array[object] | undefined
+Transactions included in the block. Each entry uses the structure documented in
+
+Encoded Transaction Responses
+. Present when
+
+transactionDetails
+ is 
+"full"
+ or 
+"accounts"
+.
+transaction
+object | string | [string, "base58" | "base64"]
+meta
+object | null
+version
+"legacy" | number | undefined
+rewards
+array[object] | undefined
+Rewards recorded for the block. Present when block rewards are requested;
+omitted otherwise. Uses the structure documented in 
+Rewards
+.
+numRewardPartitions
+u64 | undefined
+Number of reward partitions in the block, when available.
+blockTime
+i64 | null
+Estimated production time of the block as a Unix timestamp.
+blockHeight
+u64 | null
+Block height of this block, if available.
+signatures
+array[string] | undefined
+Transaction signatures only. Present when 
+transactionDetails
+ is
+
+"signatures"
+.
+Confirmed Transaction Responses
+getTransaction
+ returns a confirmed transaction in this structure:
+Reference
+Details
+Returned by
+getTransaction
+Response path
+result
+Type Definition
+EncodedConfirmedTransactionWithStatusMeta
+{
+"slot"
+:
+408830360
+,
+"transaction"
+: {
+"signatures"
+: [
+"4fqGV381e6h87Hn5vGm7W5MGivHFtTisS9G2UpbsuritcTmXPsPtU32BWF2Bw4yMxH1NAFgGtpWbuVfXbZt8xTBw"
+,
+"3KYwzbzs2oupAv2A4qMCLpPQusXazJRSxzT99UE3rfoejStBbDnBFeZRUt8et3LTSVBXncCqTXzBVWqxNSrK4J41"
+],
+"message"
+: {
+"accountKeys"
+: [
+"44ZsKstjBY52Zz1iB9Q9HqVPbpK4d6BqAJgqshz1bXPs"
+,
+"BhRYqZJfASkDVaKPtU8NLoPyXAbJFAWSsMujzRn1wFRV"
+,
+"D3XSB6m2ZjNjTspKVd8hXdmi19CbjmtKabBLLzgf9x6B"
+,
+"5eHy2DQ7cQjEw2PoEfxvUd5rttzr2NydmGhKpQHk2TdM"
+,
+"8YFbpsQqUkzmcLHrSDR44LN9DeGrV47rtwETN4sM6V4i"
+,
+"HTi6JahmSzq2s1B2zg7GG6Ev6cQEpoGRDRxKWATYpump"
+,
+"DocSpnPnyffShXENq9xKSuL68GeScV7HsQnZw5X65LSb"
+,
+"mKLWCKDeHeym4egVLMTLNV661E1FsHarXvYr6pwAFPz"
+],
+"addressTableLookups"
+: [
+{
+"accountKey"
+:
+"buDnget76BvfyDQQgUKN6npRixeir9K59jBVP9QMqZq"
+,
+"readonlyIndexes"
+: [
+140
+,
+144
+,
+141
+,
+33
+,
+26
+,
+20
+,
+3
+,
+34
+,
+143
+,
+142
+],
+"writableIndexes"
+: [
+4
+]
+}
+],
+"header"
+: {
+"numReadonlySignedAccounts"
+:
+1
+,
+"numReadonlyUnsignedAccounts"
+:
+5
+,
+"numRequiredSignatures"
+:
+2
+},
+"instructions"
+: [
+{
+"accounts"
+: [
+2
+,
+20
+,
+1
+],
+"data"
+:
+"6vx8P"
+,
+"programIdIndex"
+:
+15
+,
+"stackHeight"
+:
+1
+},
+{
+"accounts"
+: [
+21
+],
+"data"
+:
+"2fX7imjEaEwy"
+,
+"programIdIndex"
+:
+18
+,
+"stackHeight"
+:
+1
+},
+{
+"accounts"
+: [],
+"data"
+:
+"3Sby4Ya7yebR"
+,
+"programIdIndex"
+:
+18
+,
+"stackHeight"
+:
+1
+}
+],
+"recentBlockhash"
+:
+"5D7W1x5zbqBn67kPDz62L5ZF1McxnhajiRGrhh3Y3wKb"
+}
+},
+"meta"
+: {
+"err"
+:
+null
+,
+"fee"
+:
+2010000
+,
+"innerInstructions"
+: [
+{
+"index"
+:
+5
+,
+"instructions"
+: [
+{
+"accounts"
+: [
+28
+,
+16
+],
+"data"
+:
+"2BfZXS1GQrCLZ1vzWVcaYz6Kpzd9QSStQWUgg9fK2UEsEo"
+,
+"programIdIndex"
+:
+29
+,
+"stackHeight"
+:
+2
+}
+]
+}
+],
+"logMessages"
+: [
+"Program 11111111111111111111111111111111 invoke [1]"
+,
+"Program 11111111111111111111111111111111 success"
+,
+"Program ComputeBudget111111111111111111111111111111 invoke [1]"
+,
+"Program ComputeBudget111111111111111111111111111111 success"
+,
+"Program ComputeBudget111111111111111111111111111111 invoke [1]"
+,
+"Program ComputeBudget111111111111111111111111111111 success"
+],
+"postBalances"
+: [
+232434298
+,
+100440447
+,
+1447680
+,
+0
+,
+2985840
+,
+3821040
+,
+2074080
+,
+2074080
+],
+"postTokenBalances"
+: [
+{
+"accountIndex"
+:
+6
+,
+"mint"
+:
+"HTi6JahmSzq2s1B2zg7GG6Ev6cQEpoGRDRxKWATYpump"
+,
+"owner"
+:
+"44ZsKstjBY52Zz1iB9Q9HqVPbpK4d6BqAJgqshz1bXPs"
+,
+"programId"
+:
+"TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"0"
+,
+"decimals"
+:
+6
+,
+"uiAmount"
+:
+null
+,
+"uiAmountString"
+:
+"0"
+}
+},
+{
+"accountIndex"
+:
+7
+,
+"mint"
+:
+"HTi6JahmSzq2s1B2zg7GG6Ev6cQEpoGRDRxKWATYpump"
+,
+"owner"
+:
+"8YFbpsQqUkzmcLHrSDR44LN9DeGrV47rtwETN4sM6V4i"
+,
+"programId"
+:
+"TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"170620656370954"
+,
+"decimals"
+:
+6
+,
+"uiAmount"
+:
+170620656.370954
+,
+"uiAmountString"
+:
+"170620656.370954"
+}
+}
+],
+"preBalances"
+: [
+131202493
+,
+100440447
+,
+1447680
+,
+0
+,
+2985840
+,
+3821040
+,
+2074080
+,
+2074080
+],
+"preTokenBalances"
+: [
+{
+"accountIndex"
+:
+6
+,
+"mint"
+:
+"HTi6JahmSzq2s1B2zg7GG6Ev6cQEpoGRDRxKWATYpump"
+,
+"owner"
+:
+"44ZsKstjBY52Zz1iB9Q9HqVPbpK4d6BqAJgqshz1bXPs"
+,
+"programId"
+:
+"TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"175173728464"
+,
+"decimals"
+:
+6
+,
+"uiAmount"
+:
+175173.728464
+,
+"uiAmountString"
+:
+"175173.728464"
+}
+},
+{
+"accountIndex"
+:
+7
+,
+"mint"
+:
+"HTi6JahmSzq2s1B2zg7GG6Ev6cQEpoGRDRxKWATYpump"
+,
+"owner"
+:
+"8YFbpsQqUkzmcLHrSDR44LN9DeGrV47rtwETN4sM6V4i"
+,
+"programId"
+:
+"TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"170445482642490"
+,
+"decimals"
+:
+6
+,
+"uiAmount"
+:
+170445482.64249
+,
+"uiAmountString"
+:
+"170445482.64249"
+}
+}
+],
+"rewards"
+: [],
+"loadedAddresses"
+: {
+"readonly"
+: [
+"SysvarRecentB1ockHashes11111111111111111111"
+,
+"jitodontfront1111111111111111111111tradewiz"
+,
+"SysvarRent111111111111111111111111111111111"
+,
+"ADyA8hdefvWN2dbGGWFotbzWxrAvLW83WG6QCVXvJKqw"
+],
+"writable"
+: [
+"So11111111111111111111111111111111111111112"
+]
+},
+"returnData"
+:
+null
+,
+"computeUnitsConsumed"
+:
+98924
+,
+"costUnits"
+:
+107709
+,
+"status"
+: {
+"Ok"
+:
+null
+}
+},
+"version"
+:
+0
+,
+"blockTime"
+:
+1774467439
+}
+slot
+u64
+Slot that contains this transaction.
+transaction
+object | string | [string, "base58" | "base64"]
+Encoded transaction payload. Uses the structure documented in
+
+Encoded Transaction Responses
+.
+meta
+object | null
+Transaction metadata, or 
+null
+ if metadata is unavailable. Uses the structure
+documented in 
+Transaction Status Metadata
+.
+version
+"legacy" | number | undefined
+Transaction version. Omitted when version information is not available,
+including legacy transactions when 
+maxSupportedTransactionVersion
+ is not set.
+Versioned transactions serialize as a numeric version.
+blockTime
+i64 | null
+Estimated production time of the block that contains this transaction, as a Unix
+timestamp.
+Simulation Results
+simulateTransaction
+ returns this object inside 
+result.value
+.
+
+sendTransaction
+ preflight failures use the same structure inside 
+error.data
+.
+Preflight failures return a sparser subset of fields, with several fields set to
+
+null
+:
+Reference
+Details
+Returned by
+simulateTransaction
+; 
+sendTransaction
+ preflight failures in 
+error.data
+Response path
+result.value
+ in 
+simulateTransaction
+; 
+error.data
+ in 
+sendTransaction
+ preflight failures
+Type Definitions
+RpcSimulateTransactionResult
+, 
+RpcBlockhash
+, 
+UiAccount
+{
+"accounts"
+:
+null
+,
+"err"
+:
+null
+,
+"innerInstructions"
+:
+null
+,
+"loadedAccountsDataSize"
+:
+711749
+,
+"logs"
+: [
+"Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb invoke [1]"
+,
+"Program log: Instruction: Transfer"
+,
+"Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb consumed 1824 of 200000 compute units"
+,
+"Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb success"
+],
+"replacementBlockhash"
+: {
+"blockhash"
+:
+"CDK7TP7iVFdqwMhdrG3kZUhLcNUS9KQ3d7MsGQyUyfKx"
+,
+"lastValidBlockHeight"
+:
+438875965
+},
+"returnData"
+:
+null
+,
+"unitsConsumed"
+:
+1824
+,
+"fee"
+:
+5000
+,
+"preBalances"
+: [
+994375240
+,
+2074080
+,
+2074080
+,
+1159846
+],
+"postBalances"
+: [
+994370240
+,
+2074080
+,
+2074080
+,
+1159846
+],
+"postTokenBalances"
+: [
+{
+"accountIndex"
+:
+1
+,
+"mint"
+:
+"72p1XsRo7KRptf8ZhPoHvVFneLPpUT4rpTYRu5EnKB8A"
+,
+"owner"
+:
+"GzKdGsAgBBz7ekBnVmiaoq1QV43J9fu6tTexJMmygQUS"
+,
+"programId"
+:
+"TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"200"
+,
+"decimals"
+:
+2
+,
+"uiAmount"
+:
+2.0
+,
+"uiAmountString"
+:
+"2"
+}
+},
+{
+"accountIndex"
+:
+2
+,
+"mint"
+:
+"72p1XsRo7KRptf8ZhPoHvVFneLPpUT4rpTYRu5EnKB8A"
+,
+"owner"
+:
+"AUpUPTU4dUGJmGSk6TbWDua2EzLr4oV8VtQ9vd6t6mqc"
+,
+"programId"
+:
+"TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"999999999999800"
+,
+"decimals"
+:
+2
+,
+"uiAmount"
+:
+9999999999998.0
+,
+"uiAmountString"
+:
+"9999999999998"
+}
+}
+],
+"preTokenBalances"
+: [
+{
+"accountIndex"
+:
+1
+,
+"mint"
+:
+"72p1XsRo7KRptf8ZhPoHvVFneLPpUT4rpTYRu5EnKB8A"
+,
+"owner"
+:
+"GzKdGsAgBBz7ekBnVmiaoq1QV43J9fu6tTexJMmygQUS"
+,
+"programId"
+:
+"TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"100"
+,
+"decimals"
+:
+2
+,
+"uiAmount"
+:
+1.0
+,
+"uiAmountString"
+:
+"1"
+}
+},
+{
+"accountIndex"
+:
+2
+,
+"mint"
+:
+"72p1XsRo7KRptf8ZhPoHvVFneLPpUT4rpTYRu5EnKB8A"
+,
+"owner"
+:
+"AUpUPTU4dUGJmGSk6TbWDua2EzLr4oV8VtQ9vd6t6mqc"
+,
+"programId"
+:
+"TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"999999999999900"
+,
+"decimals"
+:
+2
+,
+"uiAmount"
+:
+9999999999999.0
+,
+"uiAmountString"
+:
+"9999999999999"
+}
+}
+],
+"loadedAddresses"
+: {
+"readonly"
+: [],
+"writable"
+: []
+}
+}
+accounts
+array[object | null] | null
+Post-simulation snapshots for the addresses requested in
+
+simulateTransaction.accounts.addresses
+. Each element corresponds to the same
+index in the request and is either 
+null
+ or an account object using the same
+schema documented in 
+Account Data
+. The 
+data
+ field depends on
+the requested account encoding.
+err
+string | object | null
+Simulation error. Uses the structure documented in
+
+Transaction Errors
+. 
+null
+ indicates success.
+innerInstructions
+array[object] | null
+Inner instructions captured during simulation. 
+null
+ unless CPI recording was
+requested. Uses the structure documented in
+
+Inner Instructions
+, always in the JSON Parsed form: each
+instruction is either fully parsed or partially decoded, never a compiled
+instruction with account indexes.
+loadedAccountsDataSize
+u32
+Total number of account-data bytes loaded while simulating the transaction.
+logs
+array[string] | null
+Program log output captured during simulation. This field is 
+null
+ if the
+simulation failed before execution began; otherwise, it is an array that may be
+empty.
+replacementBlockhash
+object | null
+Replacement blockhash the RPC node used when 
+replaceRecentBlockhash
+ was
+enabled.
+blockhash
+string
+lastValidBlockHeight
+u64
+returnData
+object | null
+Most recent instruction return data captured during simulation. Uses the
+structure documented in 
+Return Data
+.
+unitsConsumed
+u64
+Compute units consumed during simulation.
+fee
+u64 | null
+Fee charged for the simulated transaction. 
+null
+ if simulation failed before
+fee calculation completed.
+preBalances
+array[u64] | null
+Lamport balances before simulation, indexed to the transaction account list.
+postBalances
+array[u64] | null
+Lamport balances after simulation, indexed to the transaction account list.
+postTokenBalances
+array[object] | null
+Token balances after simulation. Uses the structure documented in
+
+Token Balances
+.
+preTokenBalances
+array[object] | null
+Token balances before simulation. Uses the structure documented in
+
+Token Balances
+.
+loadedAddresses
+object | null
+Loaded account addresses resolved from lookup tables. 
+simulateTransaction
+
+currently serializes this field as an object, using empty arrays when no
+addresses were loaded. 
+sendTransaction
+ preflight failures may return 
+null
+
+for this field in 
+error.data
+. Uses the structure documented in
+
+Loaded Addresses
+.
+Shared Structures
+Encoded Transaction Responses
+Transaction-oriented RPC methods embed transactions in an encoded wrapper using
+this structure:
+Reference
+Details
+Included in
+transactions[]
+ in 
+Confirmed Blocks
+; the shared 
+transaction
+, 
+meta
+, and 
+version
+ fields in 
+Confirmed Transaction Responses
+Response path
+transactions[]
+ in confirmed blocks; 
+result.transaction
+, 
+result.meta
+, and 
+result.version
+ in confirmed transaction responses
+Type Definition
+EncodedTransactionWithStatusMeta
+{
+"transaction"
+: {
+"signatures"
+: [
+"4fqGV381e6h87Hn5vGm7W5MGivHFtTisS9G2UpbsuritcTmXPsPtU32BWF2Bw4yMxH1NAFgGtpWbuVfXbZt8xTBw"
+,
+"3KYwzbzs2oupAv2A4qMCLpPQusXazJRSxzT99UE3rfoejStBbDnBFeZRUt8et3LTSVBXncCqTXzBVWqxNSrK4J41"
+],
+"message"
+: {
+"accountKeys"
+: [
+"44ZsKstjBY52Zz1iB9Q9HqVPbpK4d6BqAJgqshz1bXPs"
+,
+"BhRYqZJfASkDVaKPtU8NLoPyXAbJFAWSsMujzRn1wFRV"
+,
+"D3XSB6m2ZjNjTspKVd8hXdmi19CbjmtKabBLLzgf9x6B"
+,
+"5eHy2DQ7cQjEw2PoEfxvUd5rttzr2NydmGhKpQHk2TdM"
+,
+"8YFbpsQqUkzmcLHrSDR44LN9DeGrV47rtwETN4sM6V4i"
+,
+"HTi6JahmSzq2s1B2zg7GG6Ev6cQEpoGRDRxKWATYpump"
+,
+"DocSpnPnyffShXENq9xKSuL68GeScV7HsQnZw5X65LSb"
+,
+"mKLWCKDeHeym4egVLMTLNV661E1FsHarXvYr6pwAFPz"
+],
+"addressTableLookups"
+: [
+{
+"accountKey"
+:
+"buDnget76BvfyDQQgUKN6npRixeir9K59jBVP9QMqZq"
+,
+"readonlyIndexes"
+: [
+140
+,
+144
+,
+141
+,
+33
+,
+26
+,
+20
+,
+3
+,
+34
+,
+143
+,
+142
+],
+"writableIndexes"
+: [
+4
+]
+}
+],
+"header"
+: {
+"numReadonlySignedAccounts"
+:
+1
+,
+"numReadonlyUnsignedAccounts"
+:
+5
+,
+"numRequiredSignatures"
+:
+2
+},
+"instructions"
+: [
+{
+"accounts"
+: [
+2
+,
+20
+,
+1
+],
+"data"
+:
+"6vx8P"
+,
+"programIdIndex"
+:
+15
+,
+"stackHeight"
+:
+1
+},
+{
+"accounts"
+: [
+21
+],
+"data"
+:
+"2fX7imjEaEwy"
+,
+"programIdIndex"
+:
+18
+,
+"stackHeight"
+:
+1
+},
+{
+"accounts"
+: [],
+"data"
+:
+"3Sby4Ya7yebR"
+,
+"programIdIndex"
+:
+18
+,
+"stackHeight"
+:
+1
+}
+],
+"recentBlockhash"
+:
+"5D7W1x5zbqBn67kPDz62L5ZF1McxnhajiRGrhh3Y3wKb"
+}
+},
+"meta"
+: {
+"err"
+:
+null
+,
+"fee"
+:
+2010000
+,
+"innerInstructions"
+: [
+{
+"index"
+:
+5
+,
+"instructions"
+: [
+{
+"accounts"
+: [
+28
+,
+16
+],
+"data"
+:
+"2BfZXS1GQrCLZ1vzWVcaYz6Kpzd9QSStQWUgg9fK2UEsEo"
+,
+"programIdIndex"
+:
+29
+,
+"stackHeight"
+:
+2
+}
+]
+}
+],
+"logMessages"
+: [
+"Program 11111111111111111111111111111111 invoke [1]"
+,
+"Program 11111111111111111111111111111111 success"
+,
+"Program ComputeBudget111111111111111111111111111111 invoke [1]"
+,
+"Program ComputeBudget111111111111111111111111111111 success"
+,
+"Program ComputeBudget111111111111111111111111111111 invoke [1]"
+,
+"Program ComputeBudget111111111111111111111111111111 success"
+],
+"postBalances"
+: [
+232434298
+,
+100440447
+,
+1447680
+,
+0
+,
+2985840
+,
+3821040
+,
+2074080
+,
+2074080
+],
+"postTokenBalances"
+: [
+{
+"accountIndex"
+:
+6
+,
+"mint"
+:
+"HTi6JahmSzq2s1B2zg7GG6Ev6cQEpoGRDRxKWATYpump"
+,
+"owner"
+:
+"44ZsKstjBY52Zz1iB9Q9HqVPbpK4d6BqAJgqshz1bXPs"
+,
+"programId"
+:
+"TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"0"
+,
+"decimals"
+:
+6
+,
+"uiAmount"
+:
+null
+,
+"uiAmountString"
+:
+"0"
+}
+},
+{
+"accountIndex"
+:
+7
+,
+"mint"
+:
+"HTi6JahmSzq2s1B2zg7GG6Ev6cQEpoGRDRxKWATYpump"
+,
+"owner"
+:
+"8YFbpsQqUkzmcLHrSDR44LN9DeGrV47rtwETN4sM6V4i"
+,
+"programId"
+:
+"TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"170620656370954"
+,
+"decimals"
+:
+6
+,
+"uiAmount"
+:
+170620656.370954
+,
+"uiAmountString"
+:
+"170620656.370954"
+}
+}
+],
+"preBalances"
+: [
+131202493
+,
+100440447
+,
+1447680
+,
+0
+,
+2985840
+,
+3821040
+,
+2074080
+,
+2074080
+],
+"preTokenBalances"
+: [
+{
+"accountIndex"
+:
+6
+,
+"mint"
+:
+"HTi6JahmSzq2s1B2zg7GG6Ev6cQEpoGRDRxKWATYpump"
+,
+"owner"
+:
+"44ZsKstjBY52Zz1iB9Q9HqVPbpK4d6BqAJgqshz1bXPs"
+,
+"programId"
+:
+"TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"175173728464"
+,
+"decimals"
+:
+6
+,
+"uiAmount"
+:
+175173.728464
+,
+"uiAmountString"
+:
+"175173.728464"
+}
+},
+{
+"accountIndex"
+:
+7
+,
+"mint"
+:
+"HTi6JahmSzq2s1B2zg7GG6Ev6cQEpoGRDRxKWATYpump"
+,
+"owner"
+:
+"8YFbpsQqUkzmcLHrSDR44LN9DeGrV47rtwETN4sM6V4i"
+,
+"programId"
+:
+"TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"170445482642490"
+,
+"decimals"
+:
+6
+,
+"uiAmount"
+:
+170445482.64249
+,
+"uiAmountString"
+:
+"170445482.64249"
+}
+}
+],
+"rewards"
+: [],
+"loadedAddresses"
+: {
+"readonly"
+: [
+"SysvarRecentB1ockHashes11111111111111111111"
+,
+"jitodontfront1111111111111111111111tradewiz"
+,
+"SysvarRent111111111111111111111111111111111"
+,
+"ADyA8hdefvWN2dbGGWFotbzWxrAvLW83WG6QCVXvJKqw"
+],
+"writable"
+: [
+"So11111111111111111111111111111111111111112"
+]
+},
+"returnData"
+:
+null
+,
+"computeUnitsConsumed"
+:
+98924
+,
+"costUnits"
+:
+107709
+,
+"status"
+: {
+"Ok"
+:
+null
+}
+},
+"version"
+:
+0
+}
+transaction
+object | string | [string, "base58" | "base64"]
+Encoded transaction payload. For JSON encodings, this uses the structures
+documented in 
+Transactions
+ or
+
+Accounts Only Transaction Responses
+. For
+binary encodings, this is a base-58/base-64 string or a 
+[string, encoding]
+
+tuple.
+meta
+object | null
+Transaction metadata, or 
+null
+ if metadata is unavailable. Uses the structure
+documented in 
+Transaction Status Metadata
+. In
+
+accounts
+ mode block responses, some metadata fields are intentionally omitted,
+including 
+innerInstructions
+, 
+logMessages
+, 
+loadedAddresses
+, 
+returnData
+,
+
+computeUnitsConsumed
+, and 
+costUnits
+.
+version
+"legacy" | number | undefined
+Transaction version. Omitted when version information is not available,
+including legacy transactions when 
+maxSupportedTransactionVersion
+ is not set.
+Versioned transactions serialize as a numeric version.
+Transactions
+Transactions are quite different from those on other blockchains. Be sure to
+review 
+Anatomy of a Transaction
+ to learn about
+transactions on Solana.
+Reference
+Details
+Included in
+Encoded Transaction Responses
+; the 
+transaction
+ field in 
+Confirmed Transaction Responses
+Response path
+transaction
+Type Definitions
+UiTransaction
+, 
+UiMessage
+, 
+UiRawMessage
+, 
+UiParsedMessage
+Encoding
+Message shape
+Instruction shape
+Notes
+json
+UiRawMessage
+Compiled instructions
+accountKeys
+ are base-58 strings. Versioned messages describe lookup tables in 
+addressTableLookups
+, with resolved loaded addresses reported separately in metadata.
+jsonParsed
+UiParsedMessage
+Parsed or partially decoded instructions
+accountKeys
+ are objects, and parsed versioned responses include lookup-table accounts.
+In the
+
+v1 transaction format
+,
+v1 messages additionally carry a 
+transactionConfig
+ object holding the
+transaction's resource limits (requests must set
+
+maxSupportedTransactionVersion: 1
+ to receive v1 transactions):
+"message"
+: {
+// ... standard message fields ...
+"transactionConfig"
+: {
+"computeUnitLimit"
+:
+30000
+,
+"heapSize"
+:
+null
+,
+"loadedAccountsDataSizeLimit"
+:
+200000
+,
+"priorityFee"
+:
+null
+}
+}
+transactionConfig
+ is present only for v1 messages — it is absent entirely
+(never 
+null
+) for legacy and v0.
+Unset inner fields are explicit 
+null
+, not omitted.
+priorityFee
+ is a total in lamports, not micro-lamports per compute unit.
+addressTableLookups
+ is omitted for v1 messages, which do not support address
+lookup tables.
+JSON
+The JSON structure of a transaction is defined as follows:
+{
+"message"
+: {
+"accountKeys"
+: [
+"44ZsKstjBY52Zz1iB9Q9HqVPbpK4d6BqAJgqshz1bXPs"
+,
+"BhRYqZJfASkDVaKPtU8NLoPyXAbJFAWSsMujzRn1wFRV"
+,
+"D3XSB6m2ZjNjTspKVd8hXdmi19CbjmtKabBLLzgf9x6B"
+,
+"5eHy2DQ7cQjEw2PoEfxvUd5rttzr2NydmGhKpQHk2TdM"
+,
+"8YFbpsQqUkzmcLHrSDR44LN9DeGrV47rtwETN4sM6V4i"
+,
+"HTi6JahmSzq2s1B2zg7GG6Ev6cQEpoGRDRxKWATYpump"
+,
+"DocSpnPnyffShXENq9xKSuL68GeScV7HsQnZw5X65LSb"
+,
+"mKLWCKDeHeym4egVLMTLNV661E1FsHarXvYr6pwAFPz"
+],
+"addressTableLookups"
+: [
+{
+"accountKey"
+:
+"buDnget76BvfyDQQgUKN6npRixeir9K59jBVP9QMqZq"
+,
+"readonlyIndexes"
+: [
+140
+,
+144
+,
+141
+,
+33
+,
+26
+,
+20
+,
+3
+,
+34
+,
+143
+,
+142
+],
+"writableIndexes"
+: [
+4
+]
+}
+],
+"header"
+: {
+"numReadonlySignedAccounts"
+:
+1
+,
+"numReadonlyUnsignedAccounts"
+:
+5
+,
+"numRequiredSignatures"
+:
+2
+},
+"instructions"
+: [
+{
+"accounts"
+: [
+2
+,
+20
+,
+1
+],
+"data"
+:
+"6vx8P"
+,
+"programIdIndex"
+:
+15
+,
+"stackHeight"
+:
+1
+},
+{
+"accounts"
+: [
+21
+],
+"data"
+:
+"2fX7imjEaEwy"
+,
+"programIdIndex"
+:
+18
+,
+"stackHeight"
+:
+1
+},
+{
+"accounts"
+: [],
+"data"
+:
+"3Sby4Ya7yebR"
+,
+"programIdIndex"
+:
+18
+,
+"stackHeight"
+:
+1
+}
+],
+"recentBlockhash"
+:
+"5D7W1x5zbqBn67kPDz62L5ZF1McxnhajiRGrhh3Y3wKb"
+},
+"signatures"
+: [
+"4fqGV381e6h87Hn5vGm7W5MGivHFtTisS9G2UpbsuritcTmXPsPtU32BWF2Bw4yMxH1NAFgGtpWbuVfXbZt8xTBw"
+,
+"3KYwzbzs2oupAv2A4qMCLpPQusXazJRSxzT99UE3rfoejStBbDnBFeZRUt8et3LTSVBXncCqTXzBVWqxNSrK4J41"
+]
+}
+message
+object
+Defines the content of the transaction.
+accountKeys
+array[string]
+addressTableLookups
+array[object] | undefined
+header
+object
+instructions
+array[object]
+recentBlockhash
+string
+transactionConfig
+object | undefined
+signatures
+array[string]
+A list of base-58 encoded signatures applied to the transaction. The list is
+always of length 
+message.header.numRequiredSignatures
+ and not empty. The
+signature at index 
+i
+ corresponds to the public key at index 
+i
+ in
+
+message.accountKeys
+. The first one is used as the
+
+transaction id
+.
+JSON Parsed
+The JSON parsed structure of a transaction follows a similar structure to the
+regular JSON format, with additional parsing of account and instruction
+information:
+{
+"message"
+: {
+"accountKeys"
+: [
+{
+"pubkey"
+:
+"44ZsKstjBY52Zz1iB9Q9HqVPbpK4d6BqAJgqshz1bXPs"
+,
+"signer"
+:
+true
+,
+"source"
+:
+"transaction"
+,
+"writable"
+:
+true
+},
+{
+"pubkey"
+:
+"BhRYqZJfASkDVaKPtU8NLoPyXAbJFAWSsMujzRn1wFRV"
+,
+"signer"
+:
+true
+,
+"source"
+:
+"transaction"
+,
+"writable"
+:
+false
+},
+{
+"pubkey"
+:
+"D3XSB6m2ZjNjTspKVd8hXdmi19CbjmtKabBLLzgf9x6B"
+,
+"signer"
+:
+false
+,
+"source"
+:
+"transaction"
+,
+"writable"
+:
+true
+},
+{
+"pubkey"
+:
+"5eHy2DQ7cQjEw2PoEfxvUd5rttzr2NydmGhKpQHk2TdM"
+,
+"signer"
+:
+false
+,
+"source"
+:
+"transaction"
+,
+"writable"
+:
+true
+},
+{
+"pubkey"
+:
+"8sjV1AqBFvFuADBCQHhotaRq5DFFYSjjg1jMyVWMqXvZ"
+,
+"signer"
+:
+false
+,
+"source"
+:
+"lookupTable"
+,
+"writable"
+:
+true
+}
+],
+"addressTableLookups"
+: [
+{
+"accountKey"
+:
+"buDnget76BvfyDQQgUKN6npRixeir9K59jBVP9QMqZq"
+,
+"readonlyIndexes"
+: [
+140
+,
+144
+,
+141
+,
+33
+,
+26
+,
+20
+,
+3
+,
+34
+,
+143
+,
+142
+],
+"writableIndexes"
+: [
+4
+]
+}
+],
+"instructions"
+: [
+{
+"parsed"
+: {
+"info"
+: {
+"nonceAccount"
+:
+"D3XSB6m2ZjNjTspKVd8hXdmi19CbjmtKabBLLzgf9x6B"
+,
+"nonceAuthority"
+:
+"BhRYqZJfASkDVaKPtU8NLoPyXAbJFAWSsMujzRn1wFRV"
+,
+"recentBlockhashesSysvar"
+:
+"SysvarRecentB1ockHashes11111111111111111111"
+},
+"type"
+:
+"advanceNonce"
+},
+"program"
+:
+"system"
+,
+"programId"
+:
+"11111111111111111111111111111111"
+,
+"stackHeight"
+:
+1
+},
+{
+"accounts"
+: [
+"jitodontfront1111111111111111111111tradewiz"
+],
+"data"
+:
+"2fX7imjEaEwy"
+,
+"programId"
+:
+"ComputeBudget111111111111111111111111111111"
+,
+"stackHeight"
+:
+1
+},
+{
+"accounts"
+: [],
+"data"
+:
+"3Sby4Ya7yebR"
+,
+"programId"
+:
+"ComputeBudget111111111111111111111111111111"
+,
+"stackHeight"
+:
+1
+}
+],
+"recentBlockhash"
+:
+"5D7W1x5zbqBn67kPDz62L5ZF1McxnhajiRGrhh3Y3wKb"
+},
+"signatures"
+: [
+"4fqGV381e6h87Hn5vGm7W5MGivHFtTisS9G2UpbsuritcTmXPsPtU32BWF2Bw4yMxH1NAFgGtpWbuVfXbZt8xTBw"
+,
+"3KYwzbzs2oupAv2A4qMCLpPQusXazJRSxzT99UE3rfoejStBbDnBFeZRUt8et3LTSVBXncCqTXzBVWqxNSrK4J41"
+]
+}
+message
+object
+Defines the content of the transaction.
+accountKeys
+array[object]
+addressTableLookups
+array[object] | undefined
+instructions
+array[object]
+recentBlockhash
+string
+transactionConfig
+object | undefined
+signatures
+array[string]
+A list of base-58 encoded signatures applied to the transaction.
+Accounts Only Transaction Responses
+When a block is requested with 
+transactionDetails: "accounts"
+, the response
+returns transaction account metadata in this structure:
+Reference
+Details
+Included in
+Encoded Transaction Responses
+ when 
+transactionDetails: "accounts"
+Response path
+transaction
+Type Definition
+UiAccountsList
+{
+"signatures"
+: [
+"bciv6kPHkXFqBWGnWoHvQ4Tcv6gFZXajipE8x7Aty5VSCz4U7F3jK2yaFZvFUDDRWxf2i38r2WRoM8oGHqwUJaK"
+],
+"accountKeys"
+: [
+{
+"pubkey"
+:
+"a1Xnxu7n1Rmeph9KP4Q1Cx7o8EPUN16fwPZHQ8ncVLa"
+,
+"signer"
+:
+true
+,
+"source"
+:
+"transaction"
+,
+"writable"
+:
+true
+},
+{
+"pubkey"
+:
+"AT9SNJB3RmrJ5MERohWQHc6HGbtCJHWkFCUVb1rUUyb6"
+,
+"signer"
+:
+false
+,
+"source"
+:
+"transaction"
+,
+"writable"
+:
+true
+},
+{
+"pubkey"
+:
+"BFAXnehgs9BPSH8GVAzUvjXLCqUrxm3RqK6YBzTdoxuX"
+,
+"signer"
+:
+false
+,
+"source"
+:
+"transaction"
+,
+"writable"
+:
+true
+},
+{
+"pubkey"
+:
+"Cw8CFyM9FkoMi7K7Crf6HNQqf4uEMzpKw6QNghXLvLkY"
+,
+"signer"
+:
+false
+,
+"source"
+:
+"transaction"
+,
+"writable"
+:
+true
+},
+{
+"pubkey"
+:
+"11111111111111111111111111111111"
+,
+"signer"
+:
+false
+,
+"source"
+:
+"transaction"
+,
+"writable"
+:
+false
+},
+{
+"pubkey"
+:
+"JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4"
+,
+"signer"
+:
+false
+,
+"source"
+:
+"transaction"
+,
+"writable"
+:
+false
+},
+{
+"pubkey"
+:
+"8sjV1AqBFvFuADBCQHhotaRq5DFFYSjjg1jMyVWMqXvZ"
+,
+"signer"
+:
+false
+,
+"source"
+:
+"lookupTable"
+,
+"writable"
+:
+true
+},
+{
+"pubkey"
+:
+"MNFSTqtC93rEfYHB6hF82sKdZpUDFWkViLByLd1k1Ms"
+,
+"signer"
+:
+false
+,
+"source"
+:
+"lookupTable"
+,
+"writable"
+:
+false
+}
+]
+}
+signatures
+array[string]
+Transaction signatures in wire order.
+accountKeys
+array[object]
+Parsed account metadata for each transaction account. Uses the structure
+documented in 
+Parsed Accounts
+.
+Account Data
+RPC methods and subscriptions that return account data use this structure:
+Reference
+Details
+Returned by
+getAccountInfo
+; 
+getMultipleAccounts
+; the 
+value
+ field in 
+accountSubscribe
+ notifications
+Response path
+result.value
+; 
+result.value[]
+; 
+params.result.value
+Type Definitions
+UiAccount
+, 
+UiAccountData
+, 
+UiAccountEncoding
+, 
+ParsedAccount
+Account data also appears in these nested response objects:
+Reference
+Details
+Included in
+Simulation Results
+; the 
+account
+ field in response objects returned by 
+getProgramAccounts
+, 
+getTokenAccountsByOwner
+, 
+getTokenAccountsByDelegate
+, and 
+programSubscribe
+Response path
+result.value.accounts[]
+; 
+result[].account
+; 
+result.value[].account
+; 
+params.result.value.account
+JSON
+{
+"data"
+: [
+""
+,
+"base64"
+],
+"executable"
+:
+false
+,
+"lamports"
+:
+88867121550052
+,
+"owner"
+:
+"11111111111111111111111111111111"
+,
+"rentEpoch"
+:
+18446744073709551615
+,
+"space"
+:
+0
+}
+data
+string | [string, "base58" | "base64" | "base64+zstd"]
+Account data. If the requested encoding is 
+binary
+, this is a plain base-58
+string. If the encoding is 
+base58
+, 
+base64
+, or 
+base64+zstd
+, this is
+
+[data, encoding]
+.
+executable
+boolean
+Whether the account contains a program and is therefore read-only.
+lamports
+u64
+Lamports assigned to this account.
+owner
+string
+Program owner pubkey, as a base-58 encoded string.
+rentEpoch
+u64
+Epoch at which this account next owes rent.
+space
+u64 | null
+Account data size in bytes. Current Solana RPC responses populate this field for
+encoded account responses.
+JSON Parsed
+When 
+jsonParsed
+ encoding is requested, the 
+data
+ field uses this parsed
+wrapper when a parser is available:
+{
+"data"
+: {
+"parsed"
+: {
+"info"
+: {
+"isNative"
+:
+false
+,
+"mint"
+:
+"4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU"
+,
+"owner"
+:
+"DBD8hAwLDRQkTsu6EqviaYNGKPnsAMmQonxf7AH8ZcFY"
+,
+"state"
+:
+"initialized"
+,
+"tokenAmount"
+: {
+"amount"
+:
+"3482803892164901945"
+,
+"decimals"
+:
+6
+,
+"uiAmount"
+:
+3482803892164.902
+,
+"uiAmountString"
+:
+"3482803892164.901945"
+}
+},
+"type"
+:
+"account"
+},
+"program"
+:
+"spl-token"
+,
+"space"
+:
+165
+},
+"executable"
+:
+false
+,
+"lamports"
+:
+2039280
+,
+"owner"
+:
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+,
+"rentEpoch"
+:
+18446744073709551615
+,
+"space"
+:
+165
+}
+data
+object | [string, "base64"]
+Parsed account data wrapper. When a parser is available, this is
+
+{program, parsed, space}
+. If 
+jsonParsed
+ is requested but no parser is
+available, the RPC node falls back to 
+[data, "base64"]
+.
+parsed
+object
+program
+string
+space
+u64
+executable
+boolean
+Whether the account contains a program and is therefore read-only.
+lamports
+u64
+Lamports assigned to this account.
+owner
+string
+Program owner pubkey, as a base-58 encoded string.
+rentEpoch
+u64
+Epoch at which this account next owes rent.
+space
+u64 | null
+Account data size in bytes. Current Solana RPC responses populate this field for
+encoded account responses.
+Parsed Accounts
+Parsed transaction and accounts only responses represent account keys in this
+structure:
+Reference
+Details
+Included in
+Transactions
+; 
+Accounts Only Transaction Responses
+Response path
+message.accountKeys[]
+ in parsed transactions; 
+accountKeys[]
+ in accounts only responses
+Type Definitions
+ParsedAccount
+, 
+ParsedAccountSource
+{
+"pubkey"
+:
+"8sjV1AqBFvFuADBCQHhotaRq5DFFYSjjg1jMyVWMqXvZ"
+,
+"signer"
+:
+false
+,
+"source"
+:
+"lookupTable"
+,
+"writable"
+:
+true
+}
+pubkey
+string
+Account address, as a base-58 encoded string.
+signer
+boolean
+Whether this account signed the transaction.
+source
+"transaction" | "lookupTable"
+Source of the account metadata. This field is 
+transaction
+ for static message
+accounts and 
+lookupTable
+ for loaded lookup-table accounts in
+transaction/accounts responses.
+writable
+boolean
+Whether the transaction marks this account writable.
+Address Table Lookups
+Versioned transaction messages may include address table lookups:
+Reference
+Details
+Included in
+Transactions
+Response path
+message.addressTableLookups[]
+Type Definition
+UiAddressTableLookup
+"addressTableLookups"
+: [
+{
+"accountKey"
+:
+"4m25Bu6JhCFLzbPKJm8usuxr1yjJBnWNEe4u8PUgcpaU"
+,
+"writableIndexes"
+: [
+143
+,
+141
+,
+134
+,
+139
+,
+137
+],
+"readonlyIndexes"
+: [
+57
+,
+13
+,
+60
+,
+31
+]
+}
+]
+addressTableLookups
+array[object]
+List of address table lookups used by a versioned transaction to dynamically
+load account addresses.
+accountKey
+string
+writableIndexes
+array[u8]
+readonlyIndexes
+array[u8]
+Transaction Status Metadata
+Transaction execution metadata is returned in this structure:
+Reference
+Details
+Included in
+Encoded Transaction Responses
+; 
+Confirmed Transaction Responses
+Response path
+meta
+Type Definition
+UiTransactionStatusMeta
+The table below highlights fields whose presence changes across transaction
+response modes. Fields not listed here serialize the same way whenever metadata
+is available.
+json / full
+ covers full metadata responses in raw JSON form, including
+
+getTransaction
+ responses with 
+encoding: "json"
+ and block responses with
+
+transactionDetails: "full"
+. 
+jsonParsed
+ covers parsed transaction responses,
+and 
+accounts
+ covers block responses with 
+transactionDetails: "accounts"
+.
+Field
+json / full
+jsonParsed
+accounts
+innerInstructions
+array | null
+array | null
+omitted
+logMessages
+array | null
+array | null
+omitted
+loadedAddresses
+object
+omitted
+omitted
+returnData
+object | undefined
+object | undefined
+omitted
+computeUnitsConsumed
+u64 | undefined
+u64 | undefined
+omitted
+costUnits
+u64 | undefined
+u64 | undefined
+omitted
+rewards
+array | null
+array | null
+array | null | omitted
+In 
+accounts
+ responses, 
+rewards
+ is omitted when 
+showRewards
+ is 
+false
+.
+Otherwise it serializes as an array or 
+null
+.
+{
+"meta"
+: {
+"err"
+:
+null
+,
+"fee"
+:
+8772
+,
+"innerInstructions"
+: [
+{
+"index"
+:
+2
+,
+"instructions"
+: [
+{
+"accounts"
+: [
+0
+,
+0
+,
+10
+,
+4
+,
+2
+,
+1
+,
+12
+,
+13
+,
+16
+,
+18
+,
+16
+,
+17
+,
+14
+,
+11
+],
+"data"
+:
+"3UnF8KPv9rbpD1e4dSEq3QqVZa"
+,
+"programIdIndex"
+:
+15
+,
+"stackHeight"
+:
+2
+}
+]
+}
+],
+"logMessages"
+: [
+"Program ComputeBudget111111111111111111111111111111 invoke [1]"
+,
+"Program ComputeBudget111111111111111111111111111111 success"
+,
+"Program ComputeBudget111111111111111111111111111111 invoke [1]"
+,
+"Program ComputeBudget111111111111111111111111111111 success"
+,
+"Program JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4 invoke [1]"
+,
+"Program log: Instruction: Route"
+],
+"postBalances"
+: [
+435302465
+,
+2039280
+,
+2039280
+,
+946560
+,
+1
+,
+1
+,
+6184956904
+,
+0
+],
+"postTokenBalances"
+: [
+{
+"accountIndex"
+:
+1
+,
+"mint"
+:
+"EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+,
+"owner"
+:
+"a1Xnxu7n1Rmeph9KP4Q1Cx7o8EPUN16fwPZHQ8ncVLa"
+,
+"programId"
+:
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"0"
+,
+"decimals"
+:
+6
+,
+"uiAmount"
+:
+null
+,
+"uiAmountString"
+:
+"0"
+}
+},
+{
+"accountIndex"
+:
+2
+,
+"mint"
+:
+"Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB"
+,
+"owner"
+:
+"a1Xnxu7n1Rmeph9KP4Q1Cx7o8EPUN16fwPZHQ8ncVLa"
+,
+"programId"
+:
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"466231747"
+,
+"decimals"
+:
+6
+,
+"uiAmount"
+:
+466.231747
+,
+"uiAmountString"
+:
+"466.231747"
+}
+}
+],
+"preBalances"
+: [
+435311237
+,
+2039280
+,
+2039280
+,
+946560
+,
+1
+,
+1
+,
+6184956904
+,
+0
+],
+"preTokenBalances"
+: [
+{
+"accountIndex"
+:
+1
+,
+"mint"
+:
+"EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+,
+"owner"
+:
+"a1Xnxu7n1Rmeph9KP4Q1Cx7o8EPUN16fwPZHQ8ncVLa"
+,
+"programId"
+:
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"466190218"
+,
+"decimals"
+:
+6
+,
+"uiAmount"
+:
+466.190218
+,
+"uiAmountString"
+:
+"466.190218"
+}
+},
+{
+"accountIndex"
+:
+2
+,
+"mint"
+:
+"Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB"
+,
+"owner"
+:
+"a1Xnxu7n1Rmeph9KP4Q1Cx7o8EPUN16fwPZHQ8ncVLa"
+,
+"programId"
+:
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"0"
+,
+"decimals"
+:
+6
+,
+"uiAmount"
+:
+null
+,
+"uiAmountString"
+:
+"0"
+}
+}
+],
+"rewards"
+:
+null
+,
+"loadedAddresses"
+: {
+"readonly"
+: [
+"MNFSTqtC93rEfYHB6hF82sKdZpUDFWkViLByLd1k1Ms"
+,
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+,
+"EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+,
+"Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB"
+],
+"writable"
+: [
+"8sjV1AqBFvFuADBCQHhotaRq5DFFYSjjg1jMyVWMqXvZ"
+,
+"9x85APtURYxxxosTmJhvZWBmPSoTMqhYHz4tBnJ7N4T8"
+,
+"CNRQ2Q5YURFcQrATzYeKUWgKUoBDfqzkDrRWf21UXCVo"
+]
+},
+"returnData"
+: {
+"programId"
+:
+"JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4"
+,
+"data"
+: [
+"wyHKGwAAAAA="
+,
+"base64"
+]
+},
+"computeUnitsConsumed"
+:
+35804
+,
+"costUnits"
+:
+40132
+,
+"status"
+: {
+"Ok"
+:
+null
+}
+}
+}
+meta
+object
+err
+string | object | null
+fee
+u64
+innerInstructions
+array[object] | null | undefined
+logMessages
+array[string] | null | undefined
+postBalances
+array[u64]
+postTokenBalances
+array[object] | null
+preBalances
+array[u64]
+preTokenBalances
+array[object] | null
+rewards
+array[object] | null | undefined
+loadedAddresses
+object
+returnData
+object | undefined
+computeUnitsConsumed
+u64 | undefined
+costUnits
+u64 | undefined
+status
+object
+Transaction Errors
+Transaction errors serialize as a string or a variant-tagged object:
+Reference
+Details
+Included in
+Transaction Status Metadata
+; 
+Simulation Results
+Response path
+err
+Type Definition
+UiTransactionError
+Simple variants appear as a string:
+"BlockhashNotFound"
+transactionError
+string | object
+Serialized transaction error value.
+string
+string
+Variants with additional data appear as an object, for example:
+{
+"InstructionError"
+: [
+0
+,
+{
+"Custom"
+:
+1
+}
+]
+}
+transactionError
+string | object
+Serialized transaction error value.
+object
+object
+Inner Instructions
+When an instruction in a transaction makes a
+
+cross-program invocation
+ (CPI), the invoked instructions are
+detailed under 
+innerInstructions
+.
+Reference
+Details
+Included in
+Transaction Status Metadata
+; 
+Simulation Results
+Response path
+innerInstructions
+Type Definitions
+UiCompiledInstruction
+, 
+UiInstruction
+, 
+UiParsedInstruction
+, 
+UiPartiallyDecodedInstruction
+, 
+UiInnerInstructions
+index: u8
+ – Index of the instruction at
+
+transaction.message.instructions[index]
+ that made the CPI.
+instructions: array[object]
+ – List of CPI instructions invoked by the
+instruction at 
+index
+, encoded as Json or JsonParsed objects.
+Transaction responses use the form matching the requested transaction encoding:
+
+json
+ returns compiled instructions with account indexes, while 
+jsonParsed
+
+returns parsed or partially decoded instructions with base-58 encoded addresses.
+
+Simulation Results
+ always use the JSON Parsed form.
+JSON Parsed
+"innerInstructions"
+: [
+{
+"index"
+:
+5
+,
+"instructions"
+: [
+{
+"accounts"
+: [
+"5PHirr8joyTMp9JMm6nW7hNDVyEYdkzDqazxPD7RaTjx"
+,
+"pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA"
+],
+"data"
+:
+"2BfZXS1GQrCLZ1vzWVcaYz6Kpzd9QSStQWUgg9fK2UEsEo"
+,
+"programId"
+:
+"pfeeUxB6jkeY1Hxd7CsFCAjcbHA9rWtchMGdZ6VojVZ"
+,
+"stackHeight"
+:
+2
+},
+{
+"parsed"
+: {
+"info"
+: {
+"authority"
+:
+"44ZsKstjBY52Zz1iB9Q9HqVPbpK4d6BqAJgqshz1bXPs"
+,
+"destination"
+:
+"mKLWCKDeHeym4egVLMTLNV661E1FsHarXvYr6pwAFPz"
+,
+"mint"
+:
+"HTi6JahmSzq2s1B2zg7GG6Ev6cQEpoGRDRxKWATYpump"
+,
+"source"
+:
+"DocSpnPnyffShXENq9xKSuL68GeScV7HsQnZw5X65LSb"
+,
+"tokenAmount"
+: {
+"amount"
+:
+"175173728464"
+,
+"decimals"
+:
+6
+,
+"uiAmount"
+:
+175173.728464
+,
+"uiAmountString"
+:
+"175173.728464"
+}
+},
+"type"
+:
+"transferChecked"
+},
+"program"
+:
+"spl-token"
+,
+"programId"
+:
+"TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+,
+"stackHeight"
+:
+2
+},
+{
+"parsed"
+: {
+"info"
+: {
+"authority"
+:
+"8YFbpsQqUkzmcLHrSDR44LN9DeGrV47rtwETN4sM6V4i"
+,
+"destination"
+:
+"5eHy2DQ7cQjEw2PoEfxvUd5rttzr2NydmGhKpQHk2TdM"
+,
+"mint"
+:
+"So11111111111111111111111111111111111111112"
+,
+"source"
+:
+"2vu4YeTiCp5qfqDLAfAS5fPUGp7o24borXCGctbzR5Uc"
+,
+"tokenAmount"
+: {
+"amount"
+:
+"106318851"
+,
+"decimals"
+:
+9
+,
+"uiAmount"
+:
+0.106318851
+,
+"uiAmountString"
+:
+"0.106318851"
+}
+},
+"type"
+:
+"transferChecked"
+},
+"program"
+:
+"spl-token"
+,
+"programId"
+:
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+,
+"stackHeight"
+:
+2
+}
+]
+}
+]
+innerInstructions
+array[object]
+index
+u8
+instructions
+array[object]
+JSON
+"innerInstructions"
+: [
+{
+"index"
+:
+5
+,
+"instructions"
+: [
+{
+"accounts"
+: [
+28
+,
+16
+],
+"data"
+:
+"2BfZXS1GQrCLZ1vzWVcaYz6Kpzd9QSStQWUgg9fK2UEsEo"
+,
+"programIdIndex"
+:
+29
+,
+"stackHeight"
+:
+2
+},
+{
+"accounts"
+: [
+6
+,
+5
+,
+7
+,
+0
+],
+"data"
+:
+"imDtMm9P2f2U5"
+,
+"programIdIndex"
+:
+25
+,
+"stackHeight"
+:
+2
+},
+{
+"accounts"
+: [
+8
+,
+19
+,
+3
+,
+4
+],
+"data"
+:
+"g9PBeEKHUSc7i"
+,
+"programIdIndex"
+:
+14
+,
+"stackHeight"
+:
+2
+},
+{
+"accounts"
+: [
+8
+,
+19
+,
+9
+,
+4
+],
+"data"
+:
+"ghWmjs5Cndrfz"
+,
+"programIdIndex"
+:
+14
+,
+"stackHeight"
+:
+2
+}
+]
+}
+]
+innerInstructions
+array[object]
+index
+u8
+instructions
+array[object]
+Token Balances
+The JSON structure of token balances is defined as a list of objects in the
+following structure:
+Reference
+Details
+Included in
+Transaction Status Metadata
+; 
+Simulation Results
+Response path
+preTokenBalances[]
+, 
+postTokenBalances[]
+Type Definitions
+UiTransactionTokenBalance
+, 
+UiTokenAmount
+"postTokenBalances"
+: [
+{
+"accountIndex"
+:
+1
+,
+"mint"
+:
+"EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+,
+"owner"
+:
+"a1Xnxu7n1Rmeph9KP4Q1Cx7o8EPUN16fwPZHQ8ncVLa"
+,
+"programId"
+:
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"0"
+,
+"decimals"
+:
+6
+,
+"uiAmount"
+:
+null
+,
+"uiAmountString"
+:
+"0"
+}
+},
+{
+"accountIndex"
+:
+2
+,
+"mint"
+:
+"Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB"
+,
+"owner"
+:
+"a1Xnxu7n1Rmeph9KP4Q1Cx7o8EPUN16fwPZHQ8ncVLa"
+,
+"programId"
+:
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"466231747"
+,
+"decimals"
+:
+6
+,
+"uiAmount"
+:
+466.231747
+,
+"uiAmountString"
+:
+"466.231747"
+}
+}
+],
+"preTokenBalances"
+: [
+{
+"accountIndex"
+:
+1
+,
+"mint"
+:
+"EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+,
+"owner"
+:
+"a1Xnxu7n1Rmeph9KP4Q1Cx7o8EPUN16fwPZHQ8ncVLa"
+,
+"programId"
+:
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"466190218"
+,
+"decimals"
+:
+6
+,
+"uiAmount"
+:
+466.190218
+,
+"uiAmountString"
+:
+"466.190218"
+}
+},
+{
+"accountIndex"
+:
+2
+,
+"mint"
+:
+"Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB"
+,
+"owner"
+:
+"a1Xnxu7n1Rmeph9KP4Q1Cx7o8EPUN16fwPZHQ8ncVLa"
+,
+"programId"
+:
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+,
+"uiTokenAmount"
+: {
+"amount"
+:
+"0"
+,
+"decimals"
+:
+6
+,
+"uiAmount"
+:
+null
+,
+"uiAmountString"
+:
+"0"
+}
+}
+]
+postTokenBalances
+array[object]
+accountIndex
+u8
+mint
+string
+owner
+string | undefined
+programId
+string | undefined
+uiTokenAmount
+object
+preTokenBalances
+array[object]
+accountIndex
+u8
+mint
+string
+owner
+string | undefined
+programId
+string | undefined
+uiTokenAmount
+object
+Rewards
+Transaction and block metadata may include rewards:
+Reference
+Details
+Included in
+Confirmed Blocks
+; 
+Transaction Status Metadata
+Response path
+rewards[]
+Type Definition
+Reward
+"rewards"
+: [
+{
+"pubkey"
+:
+"7PmWxxiTneGteGxEYvzj5pGDVMQ4nuN9DfUypEXmaA8o"
+,
+"lamports"
+:
+0
+,
+"postBalance"
+:
+637848765
+,
+"rewardType"
+:
+"Voting"
+,
+"commission"
+:
+0
+}
+]
+rewards
+array[object]
+Rewards applied while processing a transaction or block.
+pubkey
+string
+lamports
+i64
+postBalance
+u64
+rewardType
+string | null
+commission
+u8 | null
+Loaded Addresses
+Transaction metadata may include loaded addresses resolved from lookup tables:
+Reference
+Details
+Included in
+Transaction Status Metadata
+; 
+Simulation Results
+Response path
+loadedAddresses
+Type Definition
+UiLoadedAddresses
+"loadedAddresses"
+: {
+"writable"
+: [
+"8sjV1AqBFvFuADBCQHhotaRq5DFFYSjjg1jMyVWMqXvZ"
+,
+"9x85APtURYxxxosTmJhvZWBmPSoTMqhYHz4tBnJ7N4T8"
+,
+"CNRQ2Q5YURFcQrATzYeKUWgKUoBDfqzkDrRWf21UXCVo"
+],
+"readonly"
+: [
+"MNFSTqtC93rEfYHB6hF82sKdZpUDFWkViLByLd1k1Ms"
+,
+"TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+,
+"EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+,
+"Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB"
+]
+}
+loadedAddresses
+object
+Loaded account addresses resolved from lookup tables.
+writable
+array[string]
+readonly
+array[string]
+Return Data
+Transaction metadata may include return data from the most recent instruction
+that generated it:
+Reference
+Details
+Included in
+Transaction Status Metadata
+; 
+Simulation Results
+Response path
+returnData
+Type Definitions
+UiTransactionReturnData
+, 
+UiReturnDataEncoding
+"returnData"
+: {
+"programId"
+:
+"JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4"
+,
+"data"
+: [
+"wyHKGwAAAAA="
+,
+"base64"
+]
+}
+returnData
+object
+Most recent return data generated by an instruction in the transaction.
+programId
+string
+data
+[string, "base64"]
+Is this page helpful?
+Previous
+Choosing an RPC Provider
+Next
+Solana RPC HTTP Methods
+Table of Contents
+Overview
+Top-Level Response Objects
+Confirmed Blocks
+Confirmed Transaction Responses
+Simulation Results
+Shared Structures
+Encoded Transaction Responses
+Transactions
+JSON
+JSON Parsed
+Accounts Only Transaction Responses
+Account Data
+JSON
+JSON Parsed
+Parsed Accounts
+Address Table Lookups
+Transaction Status Metadata
+Transaction Errors
+Inner Instructions
+JSON Parsed
+JSON
+Token Balances
+Rewards
+Loaded Addresses
+Return Data
+Edit Page
+Ask AI
+en
+Use Solana
+Use Solana
+Wallets
+Learn
+Staking
+Build
+Developer hub
+Docs
+Templates
+Enterprise
+Enterprise
+Institutional payments
+Tokenization
+Reports
+Products
+Products
+Solana Developer Platform
+x402
+Agent Registry
+Skills
+Ecosystem
+Ecosystem
+Network
+Events
+Community
+News
+Newsletter
+AI agents
+llms.txt
+llms-full.txt
+SKILL.md
+Agent skills
+Grants
+Media Kit
+Careers
+Disclaimer
+Privacy Policy
+© 2026 Solana Foundation. All rights reserved.
