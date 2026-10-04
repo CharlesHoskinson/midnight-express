@@ -55,3 +55,5 @@ in Compact and compiled and costed against the ledger cost model, but nothing ha
 ## License
 
 Apache License 2.0. See [LICENSE](LICENSE).
+
+Recommended implementation direction and ranked product portfolio: [stack and use cases](docs/product-requirements/recommended-stack-and-use-cases.md).

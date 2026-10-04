@@ -8,10 +8,12 @@ This is the working architecture for the first backend/desktop implementation, i
 | Recognition and launch confidentiality | Original MPE symmetric profile | Local recognition; no broadcast forward-secrecy claim |
 | Membership | Semaphore-derived identity/group/witness lifecycle | One authoritative Midnight Registry root per selected admission profile; exact compatible libraries chosen after profile conformance |
 | Publication admission | RLN-style proof, evaluate Zerokit | Anonymous membership plus committed class credits, envelope-bound shares and recoverable double-use evidence |
-| Durable state | SQLite initially; RocksDB if workload requires | Transactional outbox, duplicate/effect/cursor state, retained envelopes and signed persistence receipts |
+| Durable state | UmbraDB/Postgres backend workflow recovery; SQLite standalone Rust/client tier | Umbra MPE composition is a future release; one trusted Node writer. Recovery, retained-envelope protocol and persistence receipts remain distinct responsibilities. |
 | Ledger/business authority | Midnight Registry, Anchor and consumer adapters | Finalized roots, independent signed instructions, replay protection and anchored-message binding |
-| Optional session security | Choose pairwise Signal or group-first MLS | Dedicated integration experiment, identity binding and durable ratchet/epoch recovery |
+| Optional session security | OpenMLS group-first extension; Signal deferred | Dedicated integration experiment, identity binding and durable ratchet/epoch recovery |
 | Private mobile reception | Deferred PIR/OMR experiment | Discovery, authenticated retrieval and query scheduling must meet complete budget |
+
+The [consolidated recommendation](recommended-stack-and-use-cases.md) selects OpenMLS for the group-first security extension and ranks the ten use cases. The interfaces below remain the membership integration contract.
 
 ## Pull from Semaphore
 

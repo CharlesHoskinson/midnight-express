@@ -17,3 +17,5 @@ The follow-up [GossipSub + Signal feasibility assessment](../../docs/product-req
 The subsequent [original-requirements fit study](requirements-fit/README.md) covers all twelve requirement areas and three independent assessments of each of fourteen open-source components. It inventories all 625 consolidated records while distinguishing 510 live obligations from aliases and withdrawals.
 
 - [Semaphore: three independent studies and membership extraction](semaphore/README.md).
+
+- [UmbraDB: three independent SQL recovery studies](umbradb/README.md).

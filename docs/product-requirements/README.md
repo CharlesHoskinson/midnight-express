@@ -2,10 +2,12 @@
 
 This is a **candidate portfolio**, informed by three independent reviews of each competing/traditional design. It does not replace the consolidated protocol requirement register or approve an implementation roadmap.
 
+- [Recommended stack and ranked use cases](recommended-stack-and-use-cases.md): consolidated technology choices, business fit and delivery gates.
 - [Top ten use cases](top-ten-use-cases.md): ranked business scenarios, actors, triggers, value hypotheses, acceptance scenarios and dependencies.
 - [Machine-readable use-case register](use-cases.json): ten candidate records linked to existing and proposed requirements.
 - [Candidate EARS extensions](candidate-ears.md): sixteen product/API obligations with acceptance checks and an open product decision.
 - [Machine-readable candidate requirement register](candidate-requirements.json).
+- [UmbraDB recovery and future release](umbradb-recovery.md): source/API checks, backend integration boundary and acceptance requirements.
 - [Working stack and Semaphore extraction](proposed-stack.md): adopted membership lifecycle, admission boundaries and module interfaces.
 - [Semaphore membership option](semaphore-membership-option.md): scoped nullifiers, quota gaps and three-agent findings.
 - [Original requirement fit and open-source stack](requirements-fit-and-open-source.md): all twelve areas, remaining components and build sequence.

@@ -1,0 +1,11 @@
+{
+  "component": "CharlesHoskinson/UmbraDB",
+  "source_commit": "3c0c68b3d0397ee2e8344b77e9ed715132fef6ca",
+  "package_version": "0.9.5",
+  "reviews": {
+    "architecture": "architecture.md",
+    "privacy": "privacy.md",
+    "product": "product.md"
+  },
+  "disposition": "backend recovery foundation; MPE future-release capability unimplemented"
+}

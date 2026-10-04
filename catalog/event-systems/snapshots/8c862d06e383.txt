@@ -1,0 +1,308 @@
+CloudEvents |
+cloudevents
+Specification
+
+Primer
+
+Project
+Code of conduct
+
+Governance
+
+Contributors
+
+SDKs
+Go
+
+JavaScript
+
+Java
+
+C#
+
+Ruby
+
+PHP
+
+Python
+
+Rust
+
+PowerShell
+
+English
+简体中文
+Blog
+GitHub
+X
+cloudevents
+A specification for describing event data in a common way
+Why CloudEvents?
+Events are everywhere, yet event publishers tend to describe events differently.
+Consistency
+The lack of a common way of describing events means developers have to write new event handling logic for each event source.
+Accessibility
+No common event format means no common libraries, tooling, and infrastructure for delivering event data across environments. CloudEvents provides SDKs for
+Go
+,
+JavaScript
+,
+Java
+,
+C#
+,
+Ruby
+,
+PHP
+,
+PowerShell
+,
+Rust
+, and
+Python
+ that can be used to build event routers, tracing systems, and other tools.
+Portability
+The portability and productivity we can achieve from event data is hindered overall.
+What is CloudEvents?
+CloudEvents is a
+specification
+ for describing event data in a common way. CloudEvents seeks to dramatically simplify event declaration and delivery across services, platforms, and beyond!
+The CloudEvents working group has received a large amount of industry interest, ranging from major cloud providers to popular SaaS companies. The specification is now under the
+Cloud Native Computing Foundation
+.
+Contribute to the CloudEvents project
+CloudEvents is organized via the CNCF's
+Serverless Working Group
+ and everyone is encouraged to join us. If you're interested in contributing, please collaborate with us in the
+CloudEvents Github org
+, join our weekly call every Thursday at
+9AM PT
+ via
+Zoom
+, check the
+meeting notes
+, and review our
+Governance
+ model to familiarize yourself with our process.
+CloudEvents SQL Reached V1!
+On June 13, 2024 the CloudEvents SQL spec was approved for V1. This release is the first major release of the specification, and provides developers with a standardized way to query and filter CloudEvents.
+CloudEvents has Graduated!
+On January 25, 2024 CloudEvents was approved as a ‘Graduated’ project in the CNCF. Thank you to everyone who helped build the CloudEvents project (specifications and SDKs) into what it is today. We couldn't have done it without each and every one of you!
+CloudEvents 1.0.2 release
+On February 5, 2022 the CloudEvents project released v1.0.2 of its specifications. Aside from minor clarifications to the specifications, there were a few noteworthy additions made to the set of deliverables:
+a new Powershell SDK was introduced
+batching support was added to the Protobuf format
+work was started to translate the specifications to Chinese
+See the
+release notes
+ for more details. Additionally, the ‘specs’ github repository was reorganized to accommodate the newer specifications that are under development. Note that this release is compatible with the existing CloudEvents v1.0 specification.
+CloudEvents 1.0.1 release
+On Decemeber 10, 2020 the CloudEvents project released v1.0.1 of its specifications. This release addresses several clarifications to the v1.0 specification, as well as adding some new features such as a WebSocket protocol binding. Please see the
+release note
+ for the complete list of changes. Note that this release is compatible with the existing CloudEvents v1.0 specification.
+CloudEvents 1.0 release
+On October 24, 2019 the CloudEvents project had two significant achievements. First, the CNCF's
+Technical Oversight Committee
+ approved the project as an “incubator” project (thus graduating it from the CNCF “sandbox”). Second, the CloudEvents specification released version 1.0!
+This is the first major release of the specification and represents two years’ worth of hard work by a truly great team of people from across the entire serverless community. We've had just about every major cloud provider participate, several “end user” companies as well as many individual participants all working diligently on producing a specification that will hopefully continue to see increased adoption now that this milestone has been reached.
+Aside from the
+core CloudEvents specification
+, there's also the
+Primer
+ and protocol and format specifications, all of which can be found in the
+GitHub repo
+. Additionally, there are many
+SDKs
+—
+Go
+,
+JavaScript
+,
+Java
+,
+C#
+,
+Ruby
+,
+PHP
+,
+PowerShell
+,
+Rust
+, and
+Python
+—to help people produce and consume CloudEvents.
+The CNCF Serverless Working Group will be deciding what to focus on next (e.g. additional CloudEvents related activities, or perhaps address some other interoperability pain-point the community is experiencing). So, if you're interested please join the regular
+weekly calls
+. Additionally, there is the work being done on the
+workflow specification
+.
+Thanks and congratulations to everyone who has participated in the CloudEvents project!
+CloudEvents Adopters
+Adobe I/O Events
+Adobe I/O Events embrace event-driven architecture to streamline workflows, improve marketing performance, and more, by allowing developers to programmatically respond to user behavior, resulting in near real-time customer experiences that are targeted, effective and personalized
+Alibaba Cloud EventBridge
+A serverless event bus that receives CloudEvents compliant events from cloud services, SaaS/custom apps, and routes to various targets
+Amazon EventBridge
+Amazon EventBridge supports sending CloudEvents to targets in the
+JSON implementation of CloudEvents v1.0
+ and the
+HTTP protocol binding
+ in EventBridge API destinations
+Argo Events
+Argo Events is a CloudEvents compliant event-driven workflow automation framework for Kubernetes
+Awakari
+Subscription-based instant messaging. Broadcast to everyone. Receive only what is relevant. Uses CloudEvents for both publishing and receiving
+Azure Event Grid
+Event Grid natively supports events in the
+JSON implementation of CloudEvents v1.0
+ and the
+HTTP protocol binding
+Choria
+All Life Cycle and Autonomous Agent events emitted by the Choria orchestration system are CloudEvents compliant
+Cloud Shapes
+Cloud Shapes is an event-driven database designed for real-time projection materialization based on CloudEvents
+Cloud Streams
+Cloud Streams is a powerful cloud-native solution that captures, processes, and routes real-time events at scale, creating flexible and fault-tolerant event-driven architectures.
+commercetools
+All services of the commercetools platform can emit CloudEvents compliant events
+Debezium
+Debezium, a distributed open-source change data capture platform, can emit change data events
+in the CloudEvents format
+Direktiv
+Direktiv, a serverless workflow engine, which can take in
+CloudEvents
+ to trigger workflows
+EEP (Entity Engagement Protocol)
+EEP, the Entity Engagement Protocol, is an open standard for push-based, signed event delivery between digital entities and the agents that follow them. EEP uses
+CloudEvents
+ as its event envelope and adds HMAC-signed webhooks, SSE delivery, and optional access gates
+European Commission
+A CloudEvents validation service
+Falco
+Falco is a threat detection engine for Kubernetes that can emit CloudEvents for security policy violations at runtime
+Flyte
+Flyte is a cloud-native workflow orchestration platform built on top of Kubernetes. An LF AI & Data Foundation graduated project, Flyte provides an abstraction layer for guaranteed scalability and reproducibility of data and machine learning workflows. Progress of workflows and tasks is delimited by a series of events that Flyte can emit using CloudEvents
+Golioth
+Golioth is an IoT device management platform that uses CloudEvents for handling events coming from IoT-specific protocol gateways to internal services. Golioth also publishes IoT data “Output Streams” as CloudEvents
+Google Cloud Eventarc
+Eventarc is a managed infrastructure that allows you to build event-driven architectures with loosely coupled services that react to state changes
+Harbor
+Harbor is an open source registry and CNCF Graduated project that secures artifacts with policies and role-based access control,
+ensures images are scanned and free from vulnerabilities, and signs images as trusted
+IBM Cloud Code Engine
+Code Engine is a fully managed, serverless platform designed to run container images, batch jobs, or source code. Code Engine allows you to build event driven workloads that react to CloudEvents
+Keptn
+Keptn builds upon CloudEvents for continuous delivery and automated operations and has its
+specification
+ based on CloudEvents
+Knative Eventing
+All event data produced and consumed by Knative Eventing services is CloudEvents compliant
+Kogito
+All events emitted and consumed by Kogito business automation applications are CloudEvents compliant
+Kubewatch
+A Kubernetes watcher that publishes notification to available collaboration hubs/notification channels
+OpenFaaS
+CloudEvent events are one of the many available triggers for OpenFaaS functions
+Oracle Cloud
+The Oracle Cloud Infrastructure Events service implements CloudEvents
+SAP
+Many SAP applications publish events complying with the CloudEvents specification. A list of events can be found in the
+SAP Business Accelerator Hub
+. Furthermore, many SAP products support CloudEvents and you can find the details
+here
+.
+Serverless.com Event Gateway
+All event data that functions receive from the Event Gateway is CloudEvents compliant
+Serverless Workflow
+All event definitions in the Serverless Workflow JSON/YAML model are CloudEvents compliant
+Synapse
+Synapse is a vendor-neutral, open-source Workflow Management System that empowers businesses to orchestrate serverless workflows with ease, thanks to its intuitive DSL and seamless event-driven design.
+Tekton Pipelines
+Tekton is a cloud native framework for creating CI/CD systems that can emit CloudEvents as pipelines and tasks execute
+Tencent Cloud EventBridge
+EventBridge is a secure, stable, and efficient serverless event management platform that supports Tencent Cloud services, custom applications, and SaaS applications are connected in a standardized and centralized manner
+TriggerMesh
+TriggerMesh makes use of CloudEvents in all its event sources and targets to build application flows
+VMware Event Broker Appliance
+VMware Event Broker Appliance (VEBA) publishes CloudEvents for changes in a vSphere cluster
+Voxie
+Voxie is a conversational messaging platform using SMS to help businesses engage 1:1 with their customers at scale
+wasmCloud
+wasmCloud, a cloud native WebAssembly host runtime (CNCF), uses CloudEvents for all event publication and monitoring on its control interface
+Resources
+Videos
+Title
+Speakers
+Event
+CNCF CloudEvents Project: A Step Towards Serverless Interop
+Doug Davis, IBM
+KubeCon China 2019
+Intro: CNCF Serverless WG / CloudEvents
+Scott Nichols, Google and Klaus Deissner, SAP
+KubeCon Europe 2019
+Deep Dive: CNCF Serverless WG/CloudEvents
+Clemens Vasters, Microsoft and Vlad Ionescu, Independent
+KubeCon Europe 2019
+Intro: CNCF Serverless WG / CloudEvents
+Doug Davis, IBM & Cathy Zhang, Huawei
+KubeCon North America 2018
+The Serverless and Event-Driven Future
+Austen Collins, Serverless
+KubeCon Europe 2018
+CloudEvents
+A specification for describing event data in a common way
+Specification
+Primer
+Project
+SDKs
+Go
+JavaScript
+Java
+C#
+Ruby
+PHP
+Python
+Rust
+PowerShell
+CloudEvents Adopters
+Adobe I/O Events
+Alibaba Cloud EventBridge
+Amazon EventBridge
+Argo Events
+Awakari
+Azure Event Grid
+Choria
+Cloud Shapes
+Cloud Streams
+commercetools
+Debezium
+Direktiv
+EEP (Entity Engagement Protocol)
+European Commission
+Falco
+Flyte
+Golioth
+Google Cloud Eventarc
+Harbor
+IBM Cloud Code Engine
+Keptn
+Knative Eventing
+Kogito
+Kubewatch
+OpenFaaS
+Oracle Cloud
+SAP
+Serverless.com Event Gateway
+Serverless Workflow
+Synapse
+Tekton Pipelines
+Tencent Cloud EventBridge
+TriggerMesh
+VMware Event Broker Appliance
+Voxie
+wasmCloud
+© CloudEvents Authors 2026 | Documentation Distributed under CC-BY-4.0
+© 2026 The Linux Foundation. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our
+Trademark Usage
+ page.
