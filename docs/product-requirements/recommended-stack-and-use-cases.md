@@ -1,10 +1,12 @@
 # Recommended stack and top ten use cases
 
-## Executive recommendation
+## Product and first customers
 
-Build Midnight Express as a **private event and workflow coordination layer for organizations, agents, wallets and Midnight applications**. Its business value is to reduce manual handoffs and reconciliation while keeping event contents and subscription interests away from delivery infrastructure under the selected privacy profile. Use decentralized transport for distribution, private local recognition for reception, anonymous accountable admission for spam resistance, durable processing for recovery, and Midnight proofs for authorized ledger effects.
+Midnight Express is proposed infrastructure for exchanging confidential business updates between applications. It addresses work that crosses organizational boundaries: a buyer requests a quote, a finance team matches a payment, or an agent asks a person to approve a purchase. Each participant needs a reliable record of the current terms and the authority to act on them.
 
-Start with **backend/desktop institutional RFQ coordination**, reuse that foundation for **invoice reconciliation and human-approved agent workflows**, and measure those pilots against customers' current processes. These are recommended product priorities; demand, savings and operator economics remain unvalidated. The repository remains at the design/exploratory stage.
+The proposed network carries signed, encrypted events. Recipients recognize relevant messages locally, so delivery operators do not need their business subscription filters. Applications check permissions and retain processing state to recover after interruptions. Midnight supplies finalized membership and batch inclusion evidence; an action that changes a contract requires an additional proof of authority, message binding and replay protection. Connections, shard participation, timing and message sizes may remain visible under the selected profile.
+
+Start with **backend/desktop institutional RFQ coordination**, reuse that foundation for **invoice reconciliation and human-approved agent workflows**, and measure those pilots against customers' current processes. The pilots would test whether this approach reduces staff handoffs and reconciliation effort. Demand, savings and operator economics remain unvalidated. The repository contains design work and bounded local reference implementations; production protocol integration remains proposed.
 
 ## Selected stack
 
@@ -21,7 +23,7 @@ Start with **backend/desktop institutional RFQ coordination**, reuse that founda
 | Enterprise/chain integration | **Explicit application-owned adapters** | Map source identity, version, snapshot/delta and finality. First adapters serve RFQ applications, ERP/payment status and bounded agent approvals. Connector evidence authenticates source claims; application policy authorizes effects. |
 | Operations | **Privacy-preserving health metrics and encrypted local quarantine** | Distinguish admission, persistence, anchoring/finality, processing and business completion. Budget retries, preserve message identity/expiry, authorize redrive and fund storage/relay operators before production. |
 
-These selections are architectural judgments based on the [three-agent extraction](../../reviews/competitive-event-systems/extraction.md), [original requirement fit](requirements-fit-and-open-source.md), [Semaphore study](semaphore-membership-option.md) and [UmbraDB recovery study](umbradb-recovery.md), not evidence of integration acceptance. Primary implementations: [rust-libp2p](https://github.com/libp2p/rust-libp2p), [Zerokit](https://github.com/vacp2p/zerokit), [OpenMLS](https://github.com/openmls/openmls), [Semaphore](https://github.com/semaphore-protocol/semaphore), [SQLite](https://www.sqlite.org/atomiccommit.html). Event contracts: [CloudEvents](https://cloudevents.io/) and [AsyncAPI](https://www.asyncapi.com/docs/concepts/asyncapi-document).
+These selections are architectural judgments based on the [comparative event-systems research](../../reviews/competitive-event-systems/extraction.md), [original requirement fit](requirements-fit-and-open-source.md), [Semaphore study](semaphore-membership-option.md) and [UmbraDB recovery study](umbradb-recovery.md), not evidence of integration acceptance. Primary implementations: [rust-libp2p](https://github.com/libp2p/rust-libp2p), [Zerokit](https://github.com/vacp2p/zerokit), [OpenMLS](https://github.com/openmls/openmls), [Semaphore](https://github.com/semaphore-protocol/semaphore), [SQLite](https://www.sqlite.org/atomiccommit.html). Event contracts: [CloudEvents](https://cloudevents.io/) and [AsyncAPI](https://www.asyncapi.com/docs/concepts/asyncapi-document).
 
 ### How the layers compose
 
@@ -60,7 +62,7 @@ A normal notification or coordination message does not need a contract effect or
 - **XMTP/Sui:** membership updates, installation/role identity, rekeying and explicit history policy. Remove members from future epochs without claiming deletion of past plaintext.
 - **Waku/Semaphore:** modular relay/store roles, genuine anonymous admission and maintainable identity/witness lifecycle. Preserve a single authoritative membership profile.
 
-These are semantics and patterns to adapt. Kafka, NATS, Signal and every studied blockchain are not mandatory extra services in the recommended deployment.
+These studies inform the delivery and application rules. They do not require deploying Kafka, NATS, Signal or every studied blockchain alongside MPE.
 
 ## Ranked use cases against this stack
 
@@ -91,4 +93,4 @@ The [use-case register](use-cases.json) and [detailed product requirements](top-
 
 Do not put Signal in the first dependency set alongside OpenMLS. Keep Signal as a documented alternative if customer evidence favors a dedicated pairwise product. Tor/Arti is an optional later origin-privacy profile; PIR engines are research candidates. RocksDB and additional chain/ERP connectors follow measured workload or customer needs.
 
-No selected library completes a whole requirement area. The critical custom work remains the MPE admission profile, store protocol, privacy-preserving SDK semantics and Midnight authority/binding circuits. The original PDF/register remains authoritative; this document consolidates the recommended product direction and explicit gates.
+The selected libraries still need to be integrated with the custom MPE admission profile, store protocol, SDK privacy rules and Midnight authority/binding circuits. The original PDF/register remains authoritative for protocol requirements.

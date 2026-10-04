@@ -1,6 +1,8 @@
-# Working stack and Semaphore extraction
+# Working stack and membership integration
 
-This is the working architecture for the first backend/desktop implementation, incorporating the requested Semaphore study. It selects responsibilities and interfaces; it does not claim that a running implementation exists or silently amend the original protocol obligations.
+The first backend/desktop architecture combines opaque message transport, local recognition and interpretation, anonymous publication admission, durable workflow state and separate business authority. GossipSub carries envelopes; each recipient decides locally which ones it can recognize. Admission limits publication, while the recipient’s application checks what an event means and whether it may cause an effect. UmbraDB holds backend workflow progress so a restart can preserve that decision.
+
+The table assigns these responsibilities to the working stack. A bounded local reference and recovery sandbox exist; the complete protocol integration remains proposed. The original protocol obligations still govern implementation.
 
 | Layer | Working choice | Implementation boundary |
 |---|---|---|
@@ -8,14 +10,14 @@ This is the working architecture for the first backend/desktop implementation, i
 | Recognition and launch confidentiality | Original MPE symmetric profile | Local recognition; no broadcast forward-secrecy claim |
 | Membership | Semaphore-derived identity/group/witness lifecycle | One authoritative Midnight Registry root per selected admission profile; exact compatible libraries chosen after profile conformance |
 | Publication admission | RLN-style proof, evaluate Zerokit | Anonymous membership plus committed class credits, envelope-bound shares and recoverable double-use evidence |
-| Durable state | UmbraDB/Postgres backend workflow recovery; SQLite standalone Rust/client tier | Umbra MPE composition is a future release; one trusted Node writer. Recovery, retained-envelope protocol and persistence receipts remain distinct responsibilities. |
+| Durable state | UmbraDB/Postgres backend workflow recovery; SQLite standalone Rust/client tier | Public-API local composition is demonstrated in a bounded sandbox; complete MPE recovery support remains a future release. One trusted Node writer; retained envelopes and persistence receipts require separate protocols. |
 | Ledger/business authority | Midnight Registry, Anchor and consumer adapters | Finalized roots, independent signed instructions, replay protection and anchored-message binding |
 | Optional session security | OpenMLS group-first extension; Signal deferred | Dedicated integration experiment, identity binding and durable ratchet/epoch recovery |
 | Private mobile reception | Deferred PIR/OMR experiment | Discovery, authenticated retrieval and query scheduling must meet complete budget |
 
-The [consolidated recommendation](recommended-stack-and-use-cases.md) selects OpenMLS for the group-first security extension and ranks the ten use cases. The interfaces below remain the membership integration contract.
+The [consolidated recommendation](recommended-stack-and-use-cases.md) selects OpenMLS for the group-first security extension and ranks the ten use cases. Membership integration follows the interfaces below.
 
-## Pull from Semaphore
+## Membership mechanisms to adopt
 
 Adopt these mechanisms in the membership module:
 
@@ -25,13 +27,13 @@ Adopt these mechanisms in the membership module:
 4. **Explicit verification versus consumption.** Cryptographic verification is stateless; Bus Nodes own durable local duplicate/equivocation state. Preserve idempotent same-envelope handling and conflict evidence without a ledger write for each envelope (`MPE-PUB-028`, `MPE-ECO-020/030/031`).
 5. **Clear version/parameter boundary.** Pin identity, commitment, tree/hash/field, codec, proving/verifying keys and witness APIs as one admission profile. Reject mixed profiles rather than attempting implicit conversion.
 
-These are adopted architecture patterns. **Do not install Semaphore's standalone membership circuit beside RLN on every publication.** RLN already proves membership as part of admission. Two independent proofs, secrets or trees would increase cost and complicate registration/revocation without satisfying an additional requirement.
+The selected architecture reuses Semaphore’s membership lifecycle patterns within the RLN-style admission relation. RLN already proves membership, so each publication should carry one combined proof. A standalone Semaphore membership circuit beside it would add proofs, secrets or trees and complicate registration and revocation without satisfying another requirement.
 
 Semaphore v4's BabyJubjub-derived identity commitment and Poseidon/LeanIMT tree are not presumed identical to an RLN or Midnight commitment/tree. Actual reuse of a Semaphore library requires byte-for-byte shared commitment/hash/field/tree semantics under the selected profile. If those differ, reuse its lifecycle and API patterns with an adapter or profile-native witness engine; never accept a Semaphore proof as membership in a different root. The Midnight finalized Registry remains authoritative.
 
 ## Membership module interfaces
 
-These signatures describe responsibilities, not language-specific bindings:
+Each interface assigns ownership of a step. The signatures describe responsibilities; language-specific bindings remain to be chosen:
 
 | Operation | Input/output | Required invariant |
 |---|---|---|
@@ -57,4 +59,4 @@ Retain the committed class-credit bounds, content-bound share, recovery of an of
 - Encoded Admission Slot <= 4096 bytes and verification <= 10 ms on the specified VM; proof generation and witness updates measured separately.
 - Secret/witness trust boundary and crash-safe local admission state; no per-envelope Registry write.
 
-[Semaphore assessment](semaphore-membership-option.md), [original requirement fit](requirements-fit-and-open-source.md), and [three independent reviews](../../reviews/competitive-event-systems/semaphore/README.md) provide source evidence. Cryptographic profile compatibility and production performance remain unverified.
+[Semaphore assessment](semaphore-membership-option.md), [original requirement fit](requirements-fit-and-open-source.md), and [source reviews](../../reviews/competitive-event-systems/semaphore/README.md) provide source evidence. Cryptographic profile compatibility and production performance remain unverified.

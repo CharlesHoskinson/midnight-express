@@ -1,12 +1,14 @@
 # UmbraDB recovery foundation and future release
 
-**Recommend CharlesHoskinson/UmbraDB as the backend workflow recovery foundation.** It already models Midnight temporal state, content-addressed snapshots, transaction history and sync cursors. Extend it for Midnight Express in a future additive release; use SQLite for minimal standalone Rust nodes/clients. This is the [Midnight UmbraDB library](https://github.com/CharlesHoskinson/UmbraDB), not the unrelated TUM research database.
+Use [CharlesHoskinson/UmbraDB](https://github.com/CharlesHoskinson/UmbraDB) to hold backend workflow progress. Its Midnight temporal state, content-addressed snapshots, transaction history and sync cursors provide the foundation for recovery after a host failure. A bounded MPE sandbox now demonstrates local transaction composition; complete recovery support still requires the additive release described below. Minimal standalone Rust nodes and clients can use SQLite. This assessment concerns the Midnight library, not the unrelated TUM research database.
 
-## Inspected baseline and evidence
+## Original source assessment and later sandbox
 
-Pulled `/home/hoskinson/Projects/UmbraDB`, commit `3c0c68b3d0397ee2e8344b77e9ed715132fef6ca`, package **0.9.5**, Apache-2.0, Node >=24, PostgreSQL 17 tested. Three independent source studies: [architecture](../../reviews/competitive-event-systems/umbradb/architecture.md), [privacy](../../reviews/competitive-event-systems/umbradb/privacy.md), [product](../../reviews/competitive-event-systems/umbradb/product.md). Eight commit-pinned source snapshots were retrieved with Scrapling into the [catalog](../../catalog/event-systems/README.md).
+The original assessment inspected `/home/hoskinson/Projects/UmbraDB` at commit `3c0c68b3d0397ee2e8344b77e9ed715132fef6ca`, package **0.9.5**, Apache-2.0, Node >=24, with PostgreSQL 17 tested. Source studies cover [architecture](../../reviews/competitive-event-systems/umbradb/architecture.md), [privacy](../../reviews/competitive-event-systems/umbradb/privacy.md), [product](../../reviews/competitive-event-systems/umbradb/product.md). Commit-pinned source snapshots are retained in the [catalog](../../catalog/event-systems/README.md).
 
-Local `npm run build`, `npm run typecheck` and **38 API-surface tests across eight files passed**. Runtime-only npm audit reported zero findings; this is a dependency advisory check, not a security audit. The exact baseline [conformance CI run](https://github.com/CharlesHoskinson/UmbraDB/actions/runs/30213426351) succeeded. Its existing PostgreSQL crash tests were reviewed but **not rerun locally**: the current user cannot access the Docker socket. No MPE integration or workload benchmark ran.
+Local `npm run build`, `npm run typecheck` and API-surface tests passed at that baseline. Runtime-only npm audit reported zero findings; that was a dependency advisory check, not a security audit. The pinned [conformance CI run](https://github.com/CharlesHoskinson/UmbraDB/actions/runs/30213426351) succeeded. PostgreSQL crash tests were reviewed during the original assessment but were not rerun locally because Docker socket access was unavailable. It ran no MPE integration or workload benchmark.
+
+The later [MPE sandbox](data-format-implementation.md) uses Umbra commit `f662822765247f0da553347c9819f958a1992d28` with PostgreSQL 17.11. It demonstrates atomic report-row processing and recovery after actual worker termination, including reconciliation with an acknowledgement fixture. Source and authority remain trusted fixtures; the result does not establish financial execution, production authorization or complete recovery support.
 
 ## What fits now
 
@@ -23,13 +25,13 @@ For a bounded current prototype, compose `PgTemporalKV`, checkpoint `save` and w
 
 ## Integration placement
 
-The Rust sidecar still handles MPE transport, proof validation and local recognition. Each trusted Node workflow host uses UmbraDB/Postgres for its own application state. No public shared plaintext recovery service is implied. Backend endpoints can reuse Midnight-aware records for RFQ, invoice and bounded agent workflows; Rust-native/client deployment may retain SQLite rather than requiring Node/Postgres everywhere.
+The proposed Rust sidecar handles MPE transport, proof validation and local recognition. Each trusted Node workflow host uses UmbraDB/Postgres for its own application state within its trust domain. Backend endpoints can reuse Midnight-aware records for RFQ, invoice and bounded agent workflows; Rust-native/client deployment may retain SQLite rather than requiring Node/Postgres everywhere.
 
-Network retention, replicated stores, signed persistence receipts, ledger finality and contract proof binding remain MPE work. A database or checkpoint does not implement them.
+MPE must separately implement network retention, replicated stores, signed persistence receipts, ledger finality and contract proof binding. Local recovery depends on those services when it needs missing messages or authoritative chain evidence.
 
 ## Future release requirements
 
-The [UmbraDB future-release draft PR](https://github.com/CharlesHoskinson/UmbraDB/pull/5) contains the audited requirements. The requested UmbraDB proposal is on branch `design/midnight-express-recovery`: [integration summary](https://github.com/CharlesHoskinson/UmbraDB/blob/design/midnight-express-recovery/docs/integrations/midnight-express-recovery.md) and [OpenSpec requirement set](https://github.com/CharlesHoskinson/UmbraDB/blob/design/midnight-express-recovery/openspec/changes/midnight-express-recovery/specs/mpe-recovery/spec.md). Exact release version/schedule is unset; the work coordinates with post-1.0/1.1 tracks without modifying current API/package behavior.
+The [UmbraDB future-release draft PR](https://github.com/CharlesHoskinson/UmbraDB/pull/5) contains the reviewed requirements. The proposal is on branch `design/midnight-express-recovery`: [integration summary](https://github.com/CharlesHoskinson/UmbraDB/blob/design/midnight-express-recovery/docs/integrations/midnight-express-recovery.md) and [OpenSpec requirement set](https://github.com/CharlesHoskinson/UmbraDB/blob/design/midnight-express-recovery/openspec/changes/midnight-express-recovery/specs/mpe-recovery/spec.md). Exact release version/schedule is unset; the work coordinates with post-1.0/1.1 tracks without modifying current API/package behavior.
 
 The fourteen proposed requirements cover:
 
@@ -48,7 +50,7 @@ The fourteen proposed requirements cover:
 13. No automatic recognition/processing acknowledgement in the strongest profile.
 14. Supported APIs/errors and required non-skipping recovery tests.
 
-**Important current detail:** `runMigrations` intentionally swallows exceptions from `onDurabilityWarning`. Throwing inside that callback cannot reject `synchronous_commit=off`. A supported current adapter can capture warnings synchronously, await migrations, then fail before use; production enforcement also needs actual pooled-session/transaction policy. The future strict profile addresses that gap.
+`runMigrations` intentionally swallows exceptions from `onDurabilityWarning` in the inspected API. Throwing inside that callback cannot reject `synchronous_commit=off`. A supported current adapter can capture warnings synchronously, await migrations, then fail before use; production enforcement also needs actual pooled-session/transaction policy. The future strict profile addresses that gap.
 
 UmbraDB has no built-in at-rest encryption and assumes one trusted writer/domain. Encrypt secret-bearing bytes before the raw checkpoint store or use a reviewed cipher decorator; protect database metadata, WAL, backups and replicas as the threat model requires. Retaining obsolete session secrets in historical snapshots defeats erasure. Wrong-domain/key/corrupt/stale restore must fail explicitly; trusted freshness/anti-rollback evidence remains a design decision. Do not infer tenant isolation from schemas or secure erasure from expiry.
 
@@ -56,4 +58,4 @@ UmbraDB has no built-in at-rest encryption and assumes one trusted writer/domain
 
 Before production adoption run MPE fixtures for RFQ local acceptance, invoice reconciliation and human-approved agent actions through duplicate, conflicting intent, mid-batch process death, unclean Postgres recovery, lease loss, unsafe durability, stale/expired state and wrong-key/domain restore. Test the complete state vector, not merely checkpoint round-trip. Keep contract settlement gated on MPE authority/replay/anchored-message proof and mobile delivery gated on private retrieval.
 
-The recommendation is to **evolve UmbraDB into this role**, preserving its Midnight data model and public boundaries. It is not a claim that current 0.9.5 already satisfies all MPE recovery requirements.
+Adoption depends on those recovery and authority checks. Preserve UmbraDB’s Midnight data model and public API boundaries while completing the proposed support; the inspected 0.9.5 release alone does not satisfy all MPE recovery requirements.

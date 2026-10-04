@@ -1,8 +1,8 @@
-# GossipSub + Signal: feasible composition for consideration
+# GossipSub and Signal: pairwise session experiment
 
-**Recommendation: proceed with a backend, single-device, one-to-one experiment.** GossipSub can disseminate opaque envelopes, while Signal-family session cryptography protects their application payloads. Midnight Express remains responsible for recipient recognition, admission, retention, recovery, invitations and Midnight-verifiable business authorization. This is a feasibility recommendation, not an implemented protocol or production assurance.
+This option tests pairwise session security for a backend participant using one device. GossipSub would disseminate opaque envelopes, and Signal-family cryptography would protect the application payload inside each envelope. Midnight Express would still supply recipient recognition, admission, retention, recovery, invitations and Midnight-verifiable business authorization. The composition is proposed; its acceptance gates have not run.
 
-Three independent agents studied **both components** before this option was added: [architecture](../../reviews/competitive-event-systems/gossipsub-signal/architecture.md), [privacy](../../reviews/competitive-event-systems/gossipsub-signal/privacy.md), [product](../../reviews/competitive-event-systems/gossipsub-signal/product.md), and [coverage](../../reviews/competitive-event-systems/gossipsub-signal/coverage.json). Primary-source text and hashes are in the [Scrapling catalog](../../catalog/event-systems/README.md).
+Source studies assess [architecture](../../reviews/competitive-event-systems/gossipsub-signal/architecture.md), [privacy](../../reviews/competitive-event-systems/gossipsub-signal/privacy.md), [product](../../reviews/competitive-event-systems/gossipsub-signal/product.md), and [coverage](../../reviews/competitive-event-systems/gossipsub-signal/coverage.json). Primary-source text and hashes are in the [Scrapling catalog](../../catalog/event-systems/README.md).
 
 ## What each layer supplies
 
@@ -34,13 +34,13 @@ flowchart TD
     F --> J[Batch ciphertext commitment on Midnight]
 ```
 
-This is our integration proposal, not a protocol already specified by Signal. It can use locally generated identities and authenticated invitations without Signal accounts, phone-number identifiers or Signal Messenger's servers. It does not provide interoperability with the Signal app. Signal's specifications separate reusable cryptographic ideas from deployment infrastructure. [Signal technical documentation](https://signal.org/docs/), [three-agent product assessment](../../reviews/competitive-event-systems/gossipsub-signal/product.md).
+The proposed integration uses locally generated identities and authenticated invitations. It requires no Signal accounts, phone-number identifiers or Signal Messenger servers, and provides no interoperability with the Signal app. Signal’s specifications describe reusable cryptographic mechanisms; this MPE composition needs its own implementation and validation. [Signal technical documentation](https://signal.org/docs/), [product assessment](../../reviews/competitive-event-systems/gossipsub-signal/product.md).
 
 For the pilot, exchange authenticated device/prekey material through the invitation channel. A general prekey directory is a later component with identity verification, allocation, revocation and lookup-privacy requirements. Do not copy per-recipient service mailboxes into the strongest private-reception mode.
 
 ## Business authority and contract binding
 
-There are two distinct signed objects in the proposed nested profile:
+A recipient must authenticate both the publisher’s container and the business instruction it decrypts. The proposed profile therefore contains two signed objects:
 
 1. The ordinary MPE publisher statement authenticates its payload: the serialized Signal ciphertext container.
 2. An inner canonical business instruction binds the actual effect inputs, recipient/target, chain/domain, logical identity, action and expiry to an authorized business key.
@@ -67,7 +67,7 @@ Signal's upstream `libsignal` uses Rust with Java, Swift and TypeScript bindings
 
 ## Proposed acceptance gates
 
-No gate has been executed. These are experiment requirements for a future implementation decision.
+The following gates determine whether to adopt the proposed composition. None has been executed for this experiment.
 
 1. **Transport:** demonstrate negotiated GossipSub 1.2 with agreed scoring, malformed-proof limits, loss, duplicates and recovery. Inspect actual default/custom protocol configuration in the pinned crate.
 2. **Bootstrap:** reject altered wallet/device identities and prekeys; test initialization replay, one-time-prekey races and expiry. Record any directory-lookup leakage.
@@ -79,8 +79,8 @@ No gate has been executed. These are experiment requirements for a future implem
 8. **Contract consumption:** for any later nested on-chain action, reject a valid instruction paired with another envelope/inclusion path; measure actual proof generation and verification with every consumed field bound.
 9. **Integration viability:** pin the dependency and record supported API/suite, license/distribution disposition, maintenance owner and migration/backup policy.
 
-Go forward with the off-chain experiment if gates 1–7 and 9 can be met under the chosen profile. Gate 8 is mandatory before marketing or implementing nested-profile contract authorization. Groups, multi-device management, broad mobile delivery and production service targets remain separate scope decisions. The first applicable product use cases are [RFQ coordination, invoice workflows and delegated agent approval](top-ten-use-cases.md).
+Adopt the off-chain composition only after gates 1–7 and 9 pass under the chosen profile. Gate 8 is mandatory before marketing or implementing nested-profile contract authorization. Groups, multi-device management, broad mobile delivery and production service targets remain separate scope decisions. The first applicable product use cases are [RFQ coordination, invoice workflows and delegated agent approval](top-ten-use-cases.md).
 
-## Follow-up requirements audit
+## Relationship to the working stack
 
-The [original requirement fit study](requirements-fit-and-open-source.md) distinguishes mandatory admission/storage/ledger work from optional ratcheting, groups and mobile retrieval. For a group-first product, compare MLS as an alternative session layer before adopting both Signal and MLS.
+The [original requirement fit study](requirements-fit-and-open-source.md) distinguishes mandatory admission/storage/ledger work from optional ratcheting, groups and mobile retrieval. For the group-first extension, the working stack selects OpenMLS under a separate gate and defers Signal. This pairwise option remains a comparison for that decision.

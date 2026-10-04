@@ -1,10 +1,10 @@
 # Semaphore membership option
 
-**Semaphore v4 is a credible anonymous-membership foundation. Stock Semaphore does not implement the PDF's complete rate-limit and recoverable-abuse admission relation.** This option remains for consideration; it does not replace the current protocol register.
+Semaphore v4 supplies anonymous membership proofs and useful identity, group and witness tooling. Midnight Express also requires committed publication quotas and evidence that identifies a member responsible for allowance abuse. Stock Semaphore leaves those parts of the admission relation to another construction. This assessment explains what to reuse while preserving the current protocol requirements.
 
-Three independent studies: [architecture](../../reviews/competitive-event-systems/semaphore/architecture.md), [privacy](../../reviews/competitive-event-systems/semaphore/privacy.md), [product](../../reviews/competitive-event-systems/semaphore/product.md). Sources were collected with Scrapling and are indexed in the [source catalog](../../catalog/event-systems/README.md).
+The source assessments cover [architecture](../../reviews/competitive-event-systems/semaphore/architecture.md), [privacy](../../reviews/competitive-event-systems/semaphore/privacy.md), [product](../../reviews/competitive-event-systems/semaphore/product.md). Sources were collected with Scrapling and are indexed in the [source catalog](../../catalog/event-systems/README.md).
 
-## What we can borrow
+## Reusable membership mechanisms
 
 Semaphore v4 proves that the holder of a private identity secret belongs to a Merkle group. A proof binds a public message and scope and outputs a scope-specific nullifier. A verifier that records consumed nullifiers can reject repeated use in that scope; stateless proof verification alone does not consume an allowance. The official Solidity contract distinguishes `verifyProof` from state-changing `validateProof`. [Overview](https://docs.semaphore.pse.dev/), [circuit](https://github.com/semaphore-protocol/semaphore/blob/main/packages/circuits/src/semaphore.circom), [contract](https://github.com/semaphore-protocol/semaphore/blob/main/packages/contracts/contracts/Semaphore.sol).
 
@@ -36,4 +36,4 @@ Repeated proofs by one member within one scope share a nullifier, so those actio
 3. **Preserve the existing target unless deliberately revised:** RLN-style evidence remains the closer match for `MPE-ECO-018/028/052`. If we keep it, reuse compatible membership tooling where helpful without stacking two membership proofs on every message by default.
 4. **Benchmark and review before selection:** pin versions and proving parameters, reconcile BabyJubjub/Poseidon/field/tree assumptions with the Midnight Registry, measure proof generation and verification plus actual slot size, exercise malicious scopes/range checks, boundary replay, root updates and concurrent ingress double-use. Solidity contracts and audit reports do not automatically transfer to a Midnight verifier or custom circuit.
 
-Semaphore is therefore worth adding to the shortlist. It could be the membership foundation; deciding whether it replaces RLN depends on whether accountable rate-limit abuse remains a product/protocol requirement.
+The [working stack](proposed-stack.md) adopts the membership lifecycle patterns and retains RLN-style abuse evidence. Replacing RLN with stock Semaphore would require an explicit decision to change the accountable rate-limit requirement.

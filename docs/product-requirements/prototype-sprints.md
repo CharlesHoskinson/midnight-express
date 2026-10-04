@@ -1,12 +1,12 @@
 # First three prototype sprints
 
-Status: proposed validation plan, synthesized from ten independent design reviews. Two weeks per sprint is a planning assumption; staffing and start dates are not established. These are dependency gates, not a six-week launch promise.
+This proposed plan tests whether participants can agree on a business event, recover its accepted outcome after failure and reuse that processing path in another workflow. Each sprint must supply the evidence needed for the next. Two weeks per sprint is a planning assumption; staffing and start dates are not established.
 
-Shared meaning is the first hypothesis. See [unified data model](unified-data-model.md) and [reference conformance slice](../../model/README.md).
+The [unified data model](unified-data-model.md) defines the proposed shared meaning. Its [reference conformance slice](../../model/README.md) already checks unsigned v0.2 events and independent RFQ interpretations, while a separate Umbra/PostgreSQL sandbox demonstrates fixture-authorized report-row recovery. These results give the sprints a starting point. The complete protocol sprints, including genuine admission and sealed transport, remain uncompleted.
 
 ## Sprint 1 — Agree on meaning. Exchange a quote.
 
-Hypothesis: Two independently specified participant formats can mean exactly the same trade, without guessed defaults.
+Start with a quote because an unstated price convention can change the value of a trade. This sprint asks whether two independently specified participant formats preserve the same economics and complete intent when exchanged over the proposed transport.
 
 Build:
 
@@ -24,7 +24,7 @@ Required evidence:
 
 ## Sprint 2 — Recover without changing the outcome.
 
-Hypothesis: The same accepted meaning and durable progress survive duplicate delivery, crashes and reconnect.
+Once participants agree on a quote, the next risk is losing or repeating its accepted outcome. This sprint tests whether duplicate delivery, crashes and reconnect preserve both the agreed meaning and the committed processing progress.
 
 Build:
 
@@ -42,7 +42,7 @@ Required evidence:
 
 ## Sprint 3 — Reuse the core. Test the investment case.
 
-Hypothesis: Invoices and human-approved agents can reuse the core without a universal business schema or unsafe inferred authority.
+If recovery holds, test whether invoices and human-approved agents can use the same processing core. Each workflow keeps its own meaning and authorization rules; reuse succeeds only if the shared mechanism preserves those differences.
 
 Build:
 
@@ -66,18 +66,18 @@ MPE-ECO-048 is a **prototype measurement gate**: encoded slot `roundUp64(104 + p
 
 ## Decision protocol
 
-Continue only the claims supported by evidence. Revise when independently mapped meanings differ, atomic transaction composition fails, domain extensions contaminate unrelated profiles, or admission compatibility is unresolved. Stop automatic execution where authority, expiry, finality or destination outcome is uncertain. Blocked durability is repaired before Sprint 3 breadth; a functional mocked demo may proceed while its genuine admission verdict remains red.
+Advance when the preceding sprint supports the next experiment. Revise the design if independent mappings disagree, transaction composition fails, a domain extension changes unrelated profiles or admission compatibility remains unresolved. Repair durability before adding Sprint 3 workflows. A demo may use explicitly mocked admission, but its genuine-proof gate stays unmet. Stop automatic execution whenever authority, expiry, finality or the destination outcome is uncertain.
 
 Every run records commit, dependency lock, host/runtime, exact configs, fixture identities, seeds, commands, expected outcomes, full failures and trace inventory. Measure sample counts and missing/late events as well as percentiles. Synthetic turnaround and integration observations are not customer ROI. Obtain participant baselines and comprehension feedback when a partner is available.
 
 ## Present evidence and remaining work
 
-The repository has a Python-only unsigned three-event reference conformance slice. It does not have the three completed sprints. Adapters, Rust/TypeScript agreement, cryptography, real permissions/finality, durable processing and destination reconciliation remain work. Current exploratory transport/admission/ledger experiments are not a maintained production prototype.
+The v0.2 reference covers unsigned quotes, payment observations and sandbox approvals. Python, Rust and TypeScript agree on the finite RFQ corpus; two source-format adapters preserve the same complete fixture intent. The separate PostgreSQL sandbox commits a report row with its inbox, action, budget, outbox, checkpoint and cursor, and reconciles uncertain acknowledgement against a destination fixture. See [implementation evidence](data-format-implementation.md) for exact scope and reproduction commands. Production cryptography, real authority and finality, transport integration and destination-specific reconciliation remain work. Exploratory transport/admission/ledger experiments are not a maintained production prototype.
 
-Umbra's existing checkpoint/cursor helper alone does not provide the proposed atomic composition: test public transaction-handle composition, with no nested transaction. One writer and a local opaque replay fixture do not establish HA fencing or replicated retention.
+The sandbox demonstrates composition through Umbra's public transaction handle. Keep the existing checkpoint/cursor helper outside the composed transaction: the helper alone cannot supply this behavior and must not open a nested transaction. One writer and a local opaque replay fixture leave HA fencing and replicated retention untested.
 
 After these sprints: authoritative finalized Midnight Registry integration, exact wire/security review, replicated opaque availability with independent receipts, WAN/load/operator-cost evidence, hardened keys and restore, and operational/security audits. Settlement additionally requires signed authority, atomic replay and CON-060 anchored-message binding. OpenMLS, mobile discovery and broad chain/ERP adapters remain separately gated. Ethereum/Solana application-domain coverage is a contract inventory first, not a promise of full RPC execution or indexer correctness.
 
 ## Design reviews
 
-Ten reviewers covered sequencing, transport, admission, recovery, SDK/model, privacy, RFQ product value, workflow reuse, evidence decisions and page experience. Their original reviews are in [reviews/prototype-sprints](../../reviews/prototype-sprints/README.md). Machine-readable plan: [prototype-sprints.json](prototype-sprints.json).
+The [design reviews](../../reviews/prototype-sprints/README.md) explain the sequencing, transport, admission, recovery, SDK/model, privacy, RFQ value, workflow reuse and evidence decisions behind this plan. Proposed sprint tasks and gates are recorded in the [machine-readable plan](prototype-sprints.json).

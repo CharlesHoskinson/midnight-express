@@ -3,7 +3,7 @@ window.MPE_PRODUCT = {
     "quotes": {
       "label": "PROPOSED FIRST DEMONSTRATION / QUOTE COORDINATION",
       "title": "A buyer asks two approved dealers for prices.",
-      "context": "A request for quote (RFQ) asks a dealer for terms on a specified transaction. In this illustration, the buyer compares offers and hands an accepted quote to settlement.",
+      "context": "A request for quote (RFQ) asks a dealer for terms on a specified transaction. The buyer needs to compare valid offers and pass the accepted terms to settlement without losing track of which version was agreed.",
       "who": "Buyer · approved dealers · compliance reviewer · operations team",
       "steps": [
         [
@@ -21,13 +21,13 @@ window.MPE_PRODUCT = {
       ],
       "value": "Test whether the team spends less time checking versions and reconstructing the accepted terms.",
       "measure": "Quote turnaround, staff reconciliation effort, manual handoffs and recovery after a simulated outage.",
-      "scope": "Backend and desktop requests, signed quotes, expiry and off-chain acceptance. Acceptance is a business decision; automatic settlement needs the separate authority, replay and anchored-message proof path.",
+      "scope": "Backend and desktop requests, signed quotes, expiry and off-chain acceptance. The buyer decides which offer to accept. Automatic settlement would also require proof of authority, replay protection and binding to an anchored message.",
       "component": "sdk"
     },
     "invoices": {
       "label": "PROPOSED FOLLOW-ON PILOT / INVOICE MATCHING",
       "title": "A finance team connects an invoice to verified payment status.",
-      "context": "Reconciliation means checking that invoice, payment and accounting records agree. A company finance system (ERP) remains its system of record.",
+      "context": "Finance staff reconcile an invoice by checking that its payment and accounting records agree. The company’s existing finance system (ERP) remains the system of record; Express would carry the updates needed to match those records.",
       "who": "Supplier finance team · customer treasury · bank/payment integration",
       "steps": [
         [
@@ -51,7 +51,7 @@ window.MPE_PRODUCT = {
     "agents": {
       "label": "PROPOSED FOLLOW-ON PILOT / BOUNDED AGENT WORK",
       "title": "A person approves the limits of an agent’s proposed action.",
-      "context": "An approval should identify a target, a budget and a deadline. The agent’s message is a proposal; the application must verify what the person actually authorized.",
+      "context": "The person reviewing a proposed purchase needs to see the supplier, budget and deadline. Their signed approval would bind those limits to the action, and the application would check them before execution.",
       "who": "Enterprise worker · software agent · approval officer · sandbox executor",
       "steps": [
         [
@@ -69,7 +69,7 @@ window.MPE_PRODUCT = {
       ],
       "value": "Test whether explicit scoped approvals reduce manual handoffs and clarify who authorized each action.",
       "measure": "Proposal-to-decision time, staff handoffs and rejection of unauthorized, expired or replayed actions.",
-      "scope": "Bounded proposals, signed human approval and a sandbox enforcing target and budget. Application capability enforcement and a trusted approval interface are required. Contract effects have a separate consumer-proof gate.",
+      "scope": "Bounded proposals, signed human approval and a sandbox enforcing target and budget. The application must enforce the permission through a trusted approval interface and executor. A contract effect would also require the consumer proof.",
       "component": "authority"
     }
   },
@@ -99,7 +99,7 @@ window.MPE_PRODUCT = {
       "title": "Keep credential and access status current",
       "summary": "An issuer or employer sends authenticated changes so verifiers can update their access decisions.",
       "who": "Credential issuer, subject wallet and service or employer verifier.",
-      "example": "A contractor’s credential is revoked. Services receive a newer authenticated issuer version that overrides a delayed earlier grant. A service with outdated evidence reports stale status and blocks high-risk access.",
+      "example": "A contractor’s credential is revoked. Services receive a newer authenticated issuer version that overrides a delayed earlier grant. A service with outdated evidence would report stale status and block high-risk access.",
       "boundary": "Receiving a notice is not completed revocation. Tested enforcement and rekeying govern future access; past copies remain possible."
     },
     "UC-07": {
@@ -113,14 +113,14 @@ window.MPE_PRODUCT = {
       "title": "Follow contract milestones privately",
       "summary": "A desktop application distinguishes a received notice from a verified contract milestone.",
       "who": "Application user, desktop wallet or application and contract observer.",
-      "example": "A user is waiting for an escrow milestone. The application shows an update as pending, then confirms it only after checking the exact ledger event and successful application. Retained notices can support catch-up after a disconnect.",
+      "example": "A user is waiting for an escrow milestone. The application shows an update as pending, then confirms it only after checking the exact ledger event and successful application. Retained notices would let the application catch up after a disconnect.",
       "boundary": "Start with public-event or signed-application notices. Private carried events and private mobile reception require further platform work."
     },
     "UC-10": {
       "title": "Coordinate sensitive incident response",
       "summary": "Authorized responders exchange incident updates and record who owns the next investigation step.",
       "who": "Operations lead, service owner, chain or service integration and response team.",
-      "example": "A settlement service stops progressing. Responders exchange private status updates and assign a human-reviewed investigation step. A returning responder recovers retained notices to catch up on the handoff.",
+      "example": "A settlement service stops progressing. Responders exchange private status updates and assign a human-reviewed investigation step. A returning responder would recover retained notices to catch up on the handoff.",
       "boundary": "Keep an independent emergency channel. Delivery, source trust, funding and failure isolation must be validated."
     },
     "UC-09": {

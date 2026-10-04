@@ -1,0 +1,21 @@
+[
+  {
+    "file": "/tmp/inkwell-implementation/after.md",
+    "words": 7819,
+    "sentences": 543,
+    "flesch_reading_ease": 20.4,
+    "flesch_kincaid_grade": 14.0,
+    "gunning_fog": 17.7,
+    "smog_approx": 15.0,
+    "coleman_liau": 17.7,
+    "automated_readability_index": 14.2,
+    "sentence_length_mean": 14.4,
+    "sentence_length_variance": 40.8,
+    "passive_voice_ratio": 0.081,
+    "adverb_density": 0.009,
+    "adverb_per_10000_words": 90.8,
+    "em_dash_per_1000_words": 0.0,
+    "hedge_word_density": 0.001,
+    "type_token_ratio": 0.235
+  }
+]

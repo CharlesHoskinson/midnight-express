@@ -1,0 +1,179 @@
+{
+  "baseline": "04a2dc0043ffc007c030e021d69bf053c997de63",
+  "profile": null,
+  "files": [
+    {
+      "path": "README.md",
+      "before_sha256": "bb122db68c030399ec4ff27296512904b9ac6508da197b08954325e018fe0b98",
+      "after_sha256": "69216e656d342eb63a3c6460989eed4e00d274a56a55e7173dd375b256aedc51",
+      "edited": true
+    },
+    {
+      "path": "website/README.md",
+      "before_sha256": "056f18d1ef1372b62d9a95533dcf329b3fa23876b478bc47ca7e5b7cc7afc78a",
+      "after_sha256": "2780691115543feb707632b6efd473eb9808491b7320e3a3ab834767f113e1c2",
+      "edited": true
+    },
+    {
+      "path": "website/dist/data-model.html",
+      "before_sha256": "53252df5ef83116c55eb84e805876517ced768a1e1e1665de1e5f5f5f70e5378",
+      "after_sha256": "fee38cc0c5b35e1180ee5b5b7f38bf9d5c1330ff1cc08eb31d7e86082e6e7651",
+      "edited": true
+    },
+    {
+      "path": "website/dist/implementation.html",
+      "before_sha256": "f8cdb74e71fa3cdf42ceed9cb5e392af40b58c0015743e8c01fc796c61ec05fa",
+      "after_sha256": "69ec0279fcc94454011016d79fab6b2f6dcb7cd27c8a455eeea9f0f25430ffff",
+      "edited": true
+    },
+    {
+      "path": "website/dist/index.html",
+      "before_sha256": "4b935d1e498c736d9f4f53726a646db9e66a2d99846ac061d5d94f942e8977dc",
+      "after_sha256": "f4939d4e8792d1cf5e3aa8140f41e3c3aa6e8c5e14cd160f0c194ff8d2420247",
+      "edited": true
+    },
+    {
+      "path": "website/dist/product-content.js",
+      "before_sha256": "04f52a9a8236765855379a983d79b687d4ad55a16f0828005328126b1d43b486",
+      "after_sha256": "89bf7d27d81132461f4e4bace478b7faa9eedc400af483d74ee1b12bf66401a8",
+      "edited": true
+    },
+    {
+      "path": "website/dist/app.js",
+      "before_sha256": "04b2eb5a27c7b3c6e52d17645a3bb97ef044e17ee7ba37c98441e3e9280153d9",
+      "after_sha256": "4e2bab79129cdf2947c10572eecbf94076f0f494c2cd6c8b97f974a747b67273",
+      "edited": true
+    },
+    {
+      "path": "docs/product-requirements/README.md",
+      "before_sha256": "0e9e6ca8f2a04ec97d5cbff2e49e709d3bf2b8fbf752327f47913461a03d829c",
+      "after_sha256": "eb7ef486bf799a7504286c2ad8060d708d273ca62daaec14e63469927adc525c",
+      "edited": true
+    },
+    {
+      "path": "docs/product-requirements/data-format-implementation.md",
+      "before_sha256": "047d92d79362079b841ae3dfe53faaa3c5ce82fc423e99d064f994a8977139b0",
+      "after_sha256": "ee1e3fcbb914502405d4cce8176857be806569e3a641a8e0cf91538583067195",
+      "edited": true
+    },
+    {
+      "path": "docs/product-requirements/data-format-review.md",
+      "before_sha256": "c0f932cad41fc1a1ca9f0e8432b06b753ac483fcff9bc774dd9c15bfcab36679",
+      "after_sha256": "a6af097ad1f11f51fd26671881c578b503f07e8c21dd3bad23a108e9ba26175f",
+      "edited": true
+    },
+    {
+      "path": "docs/product-requirements/ethereum-application-domain.md",
+      "before_sha256": "0e4151c414537b1d7f9f836010ddbd6fcb4459b8aff2027786ded0098e430315",
+      "after_sha256": "c8be24836f373c0b5f91c0d8d253a0068fd13139f0c7b65372d8c4380fd8979f",
+      "edited": true
+    },
+    {
+      "path": "docs/product-requirements/feature-considerations.md",
+      "before_sha256": "c615fc364ac7bc46a68481a07254e44abe4243d5bb9d4f907c5b57738c3ed287",
+      "after_sha256": "0fee8dbafbe2733e0d1a3c962f289c0898473930aacf6d3af5ab7558193c11f0",
+      "edited": true
+    },
+    {
+      "path": "docs/product-requirements/gossipsub-signal-option.md",
+      "before_sha256": "aca974ce7c56347b8d319f816cfd7062746b0091001317e828a2433504140af2",
+      "after_sha256": "04883a2ff15f8556f93a8817febbe5a05c28c4594461eb1ea88438b9eead4f1e",
+      "edited": true
+    },
+    {
+      "path": "docs/product-requirements/proposed-stack.md",
+      "before_sha256": "649e17c26d75782f9fe1eca567106399ea8c3f865b8f82d6da51fdeb578b7c8a",
+      "after_sha256": "d51d0ffe0c95fcbf3c0b0b108acf7ed8bbec19b16bceec8bcb55f8d708fb03c8",
+      "edited": true
+    },
+    {
+      "path": "docs/product-requirements/prototype-sprints.md",
+      "before_sha256": "cbad330f870c7c307b2341c1113a3ea89c020134d9eb929028ae9ae4968e4133",
+      "after_sha256": "551013b24962cc6fa2a99cc12ed80c726cdf59b00e5fa1b3407ffa1e8b8725dd",
+      "edited": true
+    },
+    {
+      "path": "docs/product-requirements/recommended-stack-and-use-cases.md",
+      "before_sha256": "feef766dd748d79b46dabe47d14e09739ca633a55625a20a5d94970d880b9d26",
+      "after_sha256": "2f25b64f795ede46940ef7eb1c701366a77b1c4e4f7b31b6445c96c8478f5e1f",
+      "edited": true
+    },
+    {
+      "path": "docs/product-requirements/requirements-fit-and-open-source.md",
+      "before_sha256": "fb7b6bdde6b4444502103962b01d97e8f70df89333a47a8bcddc09cd851dc555",
+      "after_sha256": "bdf6f3b20593c615e5ad6bd4046de8011f0ab5286e2e0f5f0036675467ca8853",
+      "edited": true
+    },
+    {
+      "path": "docs/product-requirements/semaphore-membership-option.md",
+      "before_sha256": "083badde2aba0fbf4dde87af4a0648f5b68f30be98d66344a245ff7228e250c7",
+      "after_sha256": "b606c9062ddaf94cbae72d67b65700909f161980a86c3d38b607fd83c8a2c7f5",
+      "edited": true
+    },
+    {
+      "path": "docs/product-requirements/solana-application-domain.md",
+      "before_sha256": "cb3655e615312cd5384fc8ca5abe2c1ef79451d2dc0a7335df996f0bb5915691",
+      "after_sha256": "7fc77a1690ca3c25660bcfb7793db6252749711b524b262d6ec6a0e38e9a33f4",
+      "edited": true
+    },
+    {
+      "path": "docs/product-requirements/top-ten-use-cases.md",
+      "before_sha256": "d30b376477ec6748537b21690a741c735e3a509e11d2ada6cc1ef49087f78f41",
+      "after_sha256": "e84b54bf16a1891c719fd81140d499581febc03fc6390d7ab0e2dc5a5d060d10",
+      "edited": true
+    },
+    {
+      "path": "docs/product-requirements/umbradb-recovery.md",
+      "before_sha256": "8f64f67723f84801df4bb91439dabb601280299cfa8ddc800216a5a2c16f7781",
+      "after_sha256": "e08a79baf28e38580877f9bedab375d41b0784b058295c63a0beb5f205881ca8",
+      "edited": true
+    },
+    {
+      "path": "docs/product-requirements/unified-data-model.md",
+      "before_sha256": "c6012a964489eb46c27089294fda015083b7fe2b873a04fd890d03d912b7ca6d",
+      "after_sha256": "48141a6713ce7a38debe5d761c3e9ffff6c34a43ca4ac88b7a0221dd72bd9d7f",
+      "edited": true
+    },
+    {
+      "path": "model/README.md",
+      "before_sha256": "cf9b9e652e51001db09a425b56bc02f6beb108dd6576fb33d1db309685302bea",
+      "after_sha256": "4528eb02763b06a61b2510ce35ea6924b11e3ca4b087843110ec5bf0c94d2dca",
+      "edited": true
+    },
+    {
+      "path": "model/domains/README.md",
+      "before_sha256": "f53007f991ec94cb731d5b8c0de73b70d66df2dd8ba5d62c36f409d812787a50",
+      "after_sha256": "4151d92e96efe8b893199b9270427eafde55bbfcf768b17c4170f50215c47379",
+      "edited": true
+    }
+  ],
+  "preserved_records": [
+    "original PDF and design-document sources",
+    "normative requirement registers and candidate EARS obligations",
+    "canonical use-case JSON",
+    "runtime contracts and evidence",
+    "source archives and historical reviews"
+  ],
+  "inkwell_path": "/home/hoskinson/Projects/inkwell/skills/writing/SKILL.md",
+  "agents": [
+    {
+      "task": "astra_product_prose",
+      "model": "gpt-6-astra",
+      "focus": "product definition, workflows and business value"
+    },
+    {
+      "task": "astra_data_prose",
+      "model": "gpt-6-astra",
+      "focus": "data meaning, integration and reference scope"
+    },
+    {
+      "task": "astra_delivery_prose",
+      "model": "gpt-6-astra",
+      "focus": "component roles, sprint dependencies and delivery evidence"
+    }
+  ],
+  "supporting_change": {
+    "path": "website/dist/styles.css",
+    "purpose": "Allow revised overview heading to wrap at enlarged mobile text size"
+  }
+}

@@ -1,8 +1,10 @@
 # Ten use cases ranked against the recommended stack
 
-Status: **recommended portfolio for consideration**. Ranking balances confidentiality value, reuse of the selected backend stack, measurable pilot outcomes and remaining dependency burden. It is product judgment, not validated demand or forecast revenue. Stable UC identifiers are preserved; ranks supersede the earlier exploratory ordering.
+Start with confidential quote coordination on backend and desktop applications. Invoice matching and human-approved agent work would reuse its signed events, permission checks and recovery. The remaining candidates need additional integrations or security capabilities.
 
-See the [consolidated recommendation](recommended-stack-and-use-cases.md), [working stack and interfaces](proposed-stack.md), [three-agent research](../../reviews/competitive-event-systems/README.md), and [candidate requirements](candidate-ears.md).
+This is a proposed portfolio. Ranking weighs confidentiality, reuse of the selected stack, measurable customer outcomes and remaining dependencies. Demand and revenue have not been validated. UC identifiers remain stable; the ranks replace the earlier exploratory order.
+
+See the [consolidated recommendation](recommended-stack-and-use-cases.md), [working stack and interfaces](proposed-stack.md), [comparative event-systems research](../../reviews/competitive-event-systems/README.md), and [candidate requirements](candidate-ears.md).
 
 | Rank | Use case | Stage |
 |---|---|---|
@@ -20,11 +22,7 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 <a id="uc-01"></a>
 ## UC-01: Institutional RFQ and negotiated quote coordination
 
-**Actors:** buyer, authorized dealers, compliance reviewer, settlement agent.
-
-**Trigger:** buyer requests a priced offer; dealers reply; buyer accepts one signed offer.
-
-**Business value hypothesis:** Less disclosure of trade intent and counterparties; shorter reconciliation and settlement handoff.
+A buyer asks authorized dealers for a price. The dealers return signed offers, and the buyer accepts one before its expiry. Compliance reviewers and settlement staff need the accepted terms and a record of who approved them. The pilot would test whether confidential quote exchange reduces disclosure of trade intent and counterparty relationships while shortening reconciliation and the settlement handoff.
 
 **Stack fit:** MPE coordination + private schemas + signed roles + local recovery
 
@@ -38,7 +36,7 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 
 **Product requirements to consider:** Versioned RFQ/offer/accept/expire state machine, correlation policy, role/history permissions and explicit settlement handoff.
 
-**Full acceptance scenario:** Two dealers return independently signed offers; expired/altered/replayed acceptance cannot settle, authorized acceptance settles once; crash recovery preserves accepted offer, unauthorized party cannot read content. Transcript analysis assesses interest privacy without claiming global timing anonymity.
+**Acceptance scenario for the full workflow:** Two dealers return independently signed offers; expired/altered/replayed acceptance cannot settle, authorized acceptance settles once; crash recovery preserves accepted offer, unauthorized party cannot read content. Transcript analysis assesses interest privacy without claiming global timing anonymity.
 
 **Dependencies:** Proof-capable signed-consumption implementation, role/key management, contract adapter, pilot dealer workflows. Start on backend/desktop.
 
@@ -47,11 +45,7 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 <a id="uc-03"></a>
 ## UC-03: Invoice, payment-status and reconciliation workflows
 
-**Actors:** supplier finance system, purchaser treasury, bank/payment or Midnight settlement adapter.
-
-**Trigger:** invoice issued, approved, paid, disputed or refunded.
-
-**Business value hypothesis:** Reduce manual matching while protecting amounts, account relationships and invoice contents.
+A supplier’s finance system and a purchaser’s treasury team need to agree whether an invoice has been issued, approved, paid, disputed or refunded. Signed invoice updates and authenticated notices from a bank, payment service or Midnight settlement adapter would give them records to match. The proposed benefit is less manual matching while keeping amounts, account relationships and invoice contents private.
 
 **Stack fit:** MPE coordination + durable processing + ERP/payment adapter
 
@@ -65,7 +59,7 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 
 **Product requirements to consider:** Invoice/payment/receipt identifiers, ERP connector and signed reconciliation schema; invoice attachment remains explicit fetch.
 
-**Full acceptance scenario:** Same invoice emitted through retries is posted once; wrong-amount payment never marks paid; disconnect/restart catches up; failure receipt never executes payment; sensitive invoice data absent from broker logs.
+**Acceptance scenario for the full workflow:** Same invoice emitted through retries is posted once; wrong-amount payment never marks paid; disconnect/restart catches up; failure receipt never executes payment; sensitive invoice data absent from broker logs.
 
 **Dependencies:** ERP/treasury connector, payment-origin evidence, customer authorization policy and deployment funding.
 
@@ -74,11 +68,7 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 <a id="uc-05"></a>
 ## UC-05: Agent coordination with bounded human approvals
 
-**Actors:** enterprise worker, AI/business agent, approval officer, effect executor.
-
-**Trigger:** agent proposes purchase, settlement, access grant or other bounded action.
-
-**Business value hypothesis:** Automate multi-party work with accountable approvals and protected instructions.
+An enterprise worker’s agent proposes a purchase, settlement, access grant or other bounded action. An approval officer reviews the proposal and signs the permitted target, budget and expiry; the executor must enforce those limits. The pilot would test whether protected instructions and explicit approvals let teams automate this work with fewer manual handoffs.
 
 **Stack fit:** MPE coordination + signed action policy + durable processing
 
@@ -92,7 +82,7 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 
 **Product requirements to consider:** Capability-scoped delegation, signed approval schema, action budgets and approval expiry.
 
-**Full acceptance scenario:** Agent requests action outside budget or to different target; reject despite valid message seal; approved in-scope action happens once; no arbitrary payload command execution.
+**Acceptance scenario for the full workflow:** Agent requests action outside budget or to different target; reject despite valid message seal; approved in-scope action happens once; no arbitrary payload command execution.
 
 **Dependencies:** Authority registry, application enforcement, human approval UI. MPE delivery itself cannot make AI output trustworthy.
 
@@ -101,11 +91,7 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 <a id="uc-06"></a>
 ## UC-06: Credential and access-revocation coordination
 
-**Actors:** issuer, subject wallet, employer/service verifier.
-
-**Trigger:** credential issued/expired/revoked or staff/partner removed.
-
-**Business value hypothesis:** Reduce stale authorization while avoiding public subscription graph.
+An issuer updates a credential when it is issued, expires or is revoked. Employers and service verifiers also need to respond when a staff member or partner loses access. Authenticated updates would help the subject’s wallet and each verifier maintain current status without publishing their subscription relationships. The proposed benefit is a shorter interval in which stale evidence can support an access decision.
 
 **Stack fit:** MPE coordination + issuer adapter + group/rekey policy
 
@@ -119,7 +105,7 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 
 **Product requirements to consider:** Versioned issuer lifecycle events and freshness/epoch semantics for verifier caches.
 
-**Full acceptance scenario:** Revocation arrives after a delayed grant; higher authenticated issuer epoch wins; removed user cannot decrypt future stream generation; offline verifier reports stale rather than granting high-risk access silently.
+**Acceptance scenario for the full workflow:** Revocation arrives after a delayed grant; higher authenticated issuer epoch wins; removed user cannot decrypt future stream generation; offline verifier reports stale rather than granting high-risk access silently.
 
 **Dependencies:** Issuer-origin verification, onboarding policy, group rekey; identity records and legal effect remain application-owned.
 
@@ -128,11 +114,7 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 <a id="uc-07"></a>
 ## UC-07: Procurement and supply-chain exception coordination
 
-**Actors:** buyer, supplier, logistics provider, insurer/auditor.
-
-**Trigger:** purchase order accepted, delivery milestone reached, delay/temperature anomaly detected.
-
-**Business value hypothesis:** Faster exception resolution with limited sharing of commercial counterparties and terms.
+A buyer, supplier and logistics provider exchange milestones when an order is accepted or a delivery progresses. A delay or temperature anomaly may require a decision from the buyer and information for an authorized insurer or auditor. Restricted notices would let those participants resolve the exception while limiting disclosure of commercial counterparties and terms.
 
 **Stack fit:** MPE coordination + group roles + connector schemas + history policy
 
@@ -146,7 +128,7 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 
 **Product requirements to consider:** Role-scoped milestone schema, selective disclosure and signed sensor/operator provenance.
 
-**Full acceptance scenario:** Authorized members recover milestones after outage within retention; unrelated member cannot read restricted events; sensor report is attributed but not falsely treated as proof the physical shipment occurred.
+**Acceptance scenario for the full workflow:** Authorized members recover milestones after outage within retention; unrelated member cannot read restricted events; sensor report is attributed but not falsely treated as proof the physical shipment occurred.
 
 **Dependencies:** Enterprise/IoT gateway authentication, archived history policy if retention needed beyond ordinary window; commercially sensitive timestamps still require threat model.
 
@@ -155,11 +137,7 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 <a id="uc-02"></a>
 ## UC-02: Private contract lifecycle notifications
 
-**Actors:** dapp user, wallet, contract observer.
-
-**Trigger:** contract event such as settlement completion, escrow milestone or authorization change.
-
-**Business value hypothesis:** Timely useful notifications without publishing subscription interests or exposing private business data.
+A wallet user waits for a settlement, escrow milestone or authorization change. A contract observer sends an update that the application can check against ledger evidence before showing it as confirmed. The proposed benefit is useful, timely status without publishing the user’s subscription interests or private business data.
 
 **Stack fit:** MPE coordination + finalized Midnight adapter + listener SDK
 
@@ -173,7 +151,7 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 
 **Product requirements to consider:** Wallet UX templates and app-permission manifest; explicit delivery-state UI.
 
-**Full acceptance scenario:** Delivered event remains provisional until exact bytes/position and successful applied phase are confirmed; failed fallible phase never final; revoked wallet app cannot decrypt future epochs after rekeying; previously readable messages remain readable.
+**Acceptance scenario for the full workflow:** Delivered event remains provisional until exact bytes/position and successful applied phase are confirmed; failed fallible phase never final; revoked wallet app cannot decrypt future epochs after rekeying; previously readable messages remain readable.
 
 **Dependencies:** Private event feature MPS-0005 Part 2 for private carried events, finalized-chain verification, mobile-efficient privacy profile for broad adoption. Public events can pilot earlier.
 
@@ -182,11 +160,7 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 <a id="uc-10"></a>
 ## UC-10: Confidential incident and cross-chain operations coordination
 
-**Actors:** security/operations teams, service owner, chain adapter, authorized responders.
-
-**Trigger:** service degradation, key compromise, delayed settlement or chain interruption.
-
-**Business value hypothesis:** Faster coordinated response with protected incident details and less dependence on one public notification provider.
+A service interruption, key compromise or delayed settlement brings operations staff, service owners and authorized responders into the same investigation. Chain adapters provide updates whose source and finality the team must assess. Confidential notices could speed response handoffs and reduce dependence on a single public notification provider, with an independent emergency channel available if MPE fails.
 
 **Stack fit:** MPE coordination + failure isolation + encrypted quarantine + connector trust
 
@@ -200,7 +174,7 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 
 **Product requirements to consider:** Encrypted failure queue, scoped incident actions, cross-system adapters and private operational dashboard.
 
-**Full acceptance scenario:** Simulated ledger outage keeps gossip notices flowing while reaction returns typed failure; operator redrive cannot execute stale/unauthorized command; handler crash does not silence other incident streams.
+**Acceptance scenario for the full workflow:** Simulated ledger outage keeps gossip notices flowing while reaction returns typed failure; operator redrive cannot execute stale/unauthorized command; handler crash does not silence other incident streams.
 
 **Dependencies:** Out-of-band emergency recovery route, operator funding and SLOs. Do not position unproven overlay as sole safety-critical incident path or millisecond industrial control.
 
@@ -209,11 +183,7 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 <a id="uc-09"></a>
 ## UC-09: Private governance review and approval workflows
 
-**Actors:** board/DAO committee, reviewers, execution agent.
-
-**Trigger:** proposal submitted, confidential review requested, approval threshold met.
-
-**Business value hypothesis:** Coordinate sensitive deliberation and auditable authorization without exposing reviewer watchlists.
+A board or DAO committee circulates a proposal for confidential review. Reviewers submit explicit approvals, and an execution agent checks whether the committee’s threshold has been met. The proposed workflow would give the committee auditable authorization evidence while protecting deliberations and reviewer subscription interests.
 
 **Stack fit:** MPE coordination + group roles + signed threshold policy
 
@@ -227,7 +197,7 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 
 **Product requirements to consider:** Threshold approval/evidence schema, participant role policy and narrow disclosure package.
 
-**Full acceptance scenario:** Insufficient/expired approvals cannot authorize action; authorized threshold effect commits once; evidence disclosed to auditor excludes unrelated deliberation; receipt of proposal is not approval.
+**Acceptance scenario for the full workflow:** Insufficient/expired approvals cannot authorize action; authorized threshold effect commits once; evidence disclosed to auditor excludes unrelated deliberation; receipt of proposal is not approval.
 
 **Dependencies:** Application multisig/threshold authorization and governance policy; no implicit private voting anonymity guarantee.
 
@@ -236,11 +206,7 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 <a id="uc-04"></a>
 ## UC-04: Portfolio and collateral risk alerts
 
-**Actors:** account owner, risk engine, delegated agent.
-
-**Trigger:** margin breach, liquidation risk, expiring order or abnormal exposure.
-
-**Business value hypothesis:** Earlier intervention without broadcasting portfolio/watchlist to notification infrastructure.
+An account owner needs to know about a margin breach, liquidation risk, expiring order or abnormal exposure. A risk engine would send advisory updates to the owner or an explicitly delegated agent, showing whether its underlying data is current. The candidate aims to support earlier intervention without broadcasting the portfolio or watchlist to notification infrastructure.
 
 **Stack fit:** MPE coordination + source snapshot/delta adapters + freshness guards
 
@@ -254,7 +220,7 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 
 **Product requirements to consider:** Snapshot/delta risk schema, freshness policy, authenticated source connectors and bounded delegation.
 
-**Full acceptance scenario:** Stale or gapped feed displays degraded status and blocks automated high-risk effect; replayed warning cannot trigger repeated action; timely processing measured under reference workload, no hard-real-time liquidation guarantee.
+**Acceptance scenario for the full workflow:** Stale or gapped feed displays degraded status and blocks automated high-risk effect; replayed warning cannot trigger repeated action; timely processing measured under reference workload, no hard-real-time liquidation guarantee.
 
 **Dependencies:** Hyperliquid/Solana/Ethereum adapters with declared trust/finality; mobile private delivery; external market data reliability.
 
@@ -263,11 +229,7 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 <a id="uc-08"></a>
 ## UC-08: Insurance claim handoffs and milestones
 
-**Actors:** claimant, insurer, adjuster, payment/reinsurance partner.
-
-**Trigger:** claim submitted, evidence requested, assessment completed or payment approved.
-
-**Business value hypothesis:** Faster multi-party processing with narrowed exposure of claimant facts.
+A claimant, insurer and adjuster exchange updates as a claim is submitted, evidence is requested and an assessment is completed. Authorized payment or reinsurance partners join the relevant handoffs when payment is approved. Restricting evidence to the assigned roles could reduce repeated document requests and processing delays while limiting exposure of claimant information.
 
 **Stack fit:** MPE coordination + role-scoped attachments + long-history policy
 
@@ -281,7 +243,7 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 
 **Product requirements to consider:** Claims-state schemas, attachment grants and retention/data-handling policy; large documents live in authorized encrypted storage.
 
-**Full acceptance scenario:** Wrong role cannot open sensitive evidence; withdrawal blocks future access but does not promise deleting obtained copies; approval is authenticated and duplicate message cannot duplicate payment.
+**Acceptance scenario for the full workflow:** Wrong role cannot open sensitive evidence; withdrawal blocks future access but does not promise deleting obtained copies; approval is authenticated and duplicate message cannot duplicate payment.
 
 **Dependencies:** Sector-specific governance/privacy/legal review by customer, encrypted object service, long-history requirements. Do not assume protocol expiry erases copies.
 
@@ -289,10 +251,10 @@ See the [consolidated recommendation](recommended-stack-and-use-cases.md), [work
 
 ## Shared recovery choice
 
-All ten workflows use UmbraDB/PostgreSQL in a trusted Node backend host for Midnight-aware temporal state, checkpoints and cursor recovery; standalone Rust/client deployments may use SQLite. The MPE atomic processing/protected-restore capability is a future UmbraDB release, not current 0.9.5 behavior. See [integration requirements](umbradb-recovery.md).
+The proposed backend for these workflows uses UmbraDB/PostgreSQL in a trusted Node backend host for Midnight-aware temporal state, checkpoints and cursor recovery; standalone Rust/client deployments may use SQLite. The MPE atomic processing/protected-restore capability is a future UmbraDB release, not current 0.9.5 behavior. See [integration requirements](umbradb-recovery.md).
 
 ## Portfolio acceptance
 
-The first three pilots share the same private event SDK, durable handling and authenticated workflow layer. Prove business value with off-chain coordination before enabling automatic contract effects. All production uses require real admission, finalized membership state, funded storage/operators, measured recovery and independent security evidence. Group security and on-chain effect authorization each retain their own gates.
+The first three pilots share the same private event SDK, durable handling and authenticated workflow layer. Measure the value of off-chain coordination before enabling automatic contract effects. All production uses require real admission, finalized membership state, funded storage/operators, measured recovery and independent security evidence. Group security and on-chain effect authorization each retain their own gates.
 
 For each pilot record the customer/owner, current process/cost, threat model, baseline measurement, numeric target agreed with the customer, engineering estimate and adoption decision. Large attachments remain authorized encrypted references. Delivery, persistence, anchoring, processing and business completion are distinct states; no transport-only exactly-once claim.

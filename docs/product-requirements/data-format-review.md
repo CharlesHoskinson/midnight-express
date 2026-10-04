@@ -1,12 +1,12 @@
-# Data format review — recommendations from five roles
+# Data format review: original findings and recommendations
 
-Status: original review and backlog, retained as evidence. The subsequent [v0.2 implementation](data-format-implementation.md) records implemented corrections, prototypes and remaining gates. Two data scientists and three principal engineers studied the actual unified model, three pinned reference profiles and 267-entry Ethereum/Solana catalog. Their independent reports are in [reviews/data-format](../../reviews/data-format/README.md).
+This is the original review of the unified model, its three pinned workflow profiles and the then-current 267-entry Ethereum/Solana catalog. It records the defects and recommendations that led to v0.2. For implemented corrections, local prototypes and remaining deployment requirements, read the [v0.2 implementation status](data-format-implementation.md). The independent reports by two data scientists and three principal engineers remain in [reviews/data-format](../../reviews/data-format/README.md).
 
 ## Decision
 
-Keep the small shared core and closed domain profiles. Do not freeze the present reference as the interoperable contract yet. Correct the reproducible parsing and identity defects, then prove independent agreement on a complete RFQ slice. Promote narrow chain observation slices with replay and explicit evidence before turning the broad vocabulary into supported runtime contracts.
+The review recommended keeping the small shared core and closed domain profiles: each workflow specifies its own permitted fields and rules. Freezing that reference for interoperability required corrections to the reproducible parsing and identity defects, followed by independent agreement on a complete RFQ slice. Chain support should begin with narrow observations, replay and explicit evidence; the broader vocabulary needs that work before it can become supported runtime contracts.
 
-The chain catalog is useful discovery coverage, not 267 validated event payloads. It contains 127 Ethereum and 140 Solana entries, with 67 native, 94 decoded, 27 derived and 79 intent classifications. All 40 chain/family cells are populated, but that does not establish complete request/result/failure lifecycles. Existing reference and catalog checks pass while additional adversarial examples contradict some stated rules.
+The catalog identifies candidate chain messages for future contract design. Its 267 entries did not define validated event payloads. It contains 127 Ethereum and 140 Solana entries, with 67 native, 94 decoded, 27 derived and 79 intent classifications. All 40 chain/family cells are populated, but that does not establish complete request/result/failure lifecycles. The reference and catalog checks passed at review time, yet the additional adversarial examples below contradicted some stated rules.
 
 ## Reproduced reference defects
 
@@ -19,9 +19,9 @@ The [independent counterexample script](../../reviews/data-format/reproduce-find
 | New occurrence of an already-known action, followed by changed occurrence time under that same new ID | Record immutable `(source,id)` even when action is duplicate | Both returns are `duplicate-action`; new occurrence never enters the occurrence map |
 | Raw `maxEffects:1.0000000000000001` | No fractional coercion into the permitted constant | Binary float parsing rounds to 1.0; accepted as `sandbox-candidate-only` |
 
-These are defects in a simulated, unsigned reference that always returns `executes:false`, not evidence of unauthorized production execution. The current 51 checks do not contain these complete counterexamples. The parser/identity accepted language changes when corrected, so review new commitments and preserve historic bundles rather than silently replacing meanings.
+These are defects in a simulated, unsigned reference that always returns `executes:false`, not evidence of unauthorized production execution. The 51 reference checks available at review time did not contain these complete counterexamples. The parser/identity accepted language changes when corrected, so review new commitments and preserve historic bundles rather than silently replacing meanings.
 
-Two additional specification decisions matter. Overpayment is rejected only for Final payment observations, despite the README's general exclusion; matching trusted Pending evidence above payable remains accepted. The event occurrence time has no declared relationship to payment observation time. Decide the intended representation and clock semantics before enforcing an arbitrary restriction or calculating latency.
+The review also found two specification gaps. Overpayment is rejected only for Final payment observations, despite the README's general exclusion; matching trusted Pending evidence above payable remains accepted. The event occurrence time has no declared relationship to payment observation time. Decide the intended representation and clock semantics before enforcing an arbitrary restriction or calculating latency.
 
 ## Prioritized recommendations
 
@@ -55,10 +55,10 @@ Do not expand the shared core with every field requested by a chain or finance a
 3. **Durable reuse:** carry pinned contract and stable action state through real UmbraDB/PostgreSQL crash/replay tests before invoice and sandbox-approval breadth. Test destination reconciliation separately from local transactions.
 4. **Read-only chain promotion:** choose one customer-relevant chain first, then implement the other as a separate gated slice. The target is one complete Ethereum and one complete Solana transfer observation/recovery slice. Define physical identity, native evidence, projection loss and invalidation. Keep signing, transaction submission and broader program-specific economics separately gated.
 
-The five reviewers agree on the bounded design direction and the need for independent evidence. They emphasize different priorities: chain science proposes complete read-only datasets, while interoperability proposes RFQ as the first conformance release. This synthesis keeps RFQ as the primary product path and chain observations as narrowly scoped subsequent or separately staffed work; it does not add both full tracks to an unchanged sprint budget.
+The reviews support the bounded design but propose different starting points. Chain science prioritizes complete read-only datasets; interoperability prioritizes an RFQ conformance release. The recommended product path begins with RFQ. Narrow chain observations follow, or proceed with separate staffing; both full tracks would require a revised sprint budget.
 
 ## Evidence and limits
 
-The existing Python suite reports 51 reference checks plus three schema self-checks; the catalog suite reports 12 metadata tests. Reviewers inspected actual records, ran local checks and added counterexamples. No real partner corpus, live chain adapter, authenticated capability service, finality verifier, cross-language interpreter or durable effect executor was tested. Dependency hashes and file commitments do not alone prove implementation semantics or trusted installation. Catalog metadata checks cannot establish native chain truth or prevent all semantic reclassification by a maintainer.
+The reviewed Python suite reported 51 reference checks plus three schema self-checks; the catalog suite reported 12 metadata tests. The counterexamples above identify behavior those passing suites missed. No real partner corpus, live chain adapter, authenticated capability service, finality verifier, cross-language interpreter or durable effect executor was tested. Dependency hashes and file commitments do not alone prove implementation semantics or trusted installation. Catalog metadata checks cannot establish native chain truth or prevent all semantic reclassification by a maintainer.
 
-Full role-specific reasoning, source links, effort estimates and adversarial chain sequences are retained in the five reports. These recommendations are saved for implementation consideration; pinned format artifacts and the published website remain unchanged by this review.
+Full role-specific reasoning, source links, effort estimates and adversarial chain sequences are retained in the five reports. The review itself changed neither pinned format artifacts nor the published website. Subsequent implementation is recorded separately.

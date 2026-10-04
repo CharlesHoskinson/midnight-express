@@ -1,14 +1,14 @@
 # Original requirements: GossipSub, Signal and the remaining stack
 
-**GossipSub and Signal can supply transport and optional session security. They cannot, by themselves, satisfy the complete Midnight Express requirements.** The most important additional cryptographic component for production is anonymous membership/quota admission. RLN is a promising candidate. Durable storage, private recognition, ledger integration, business authority and operations remain separate work; no universal third messaging protocol supplies them all.
+GossipSub supplies message dissemination; Signal is an option for pairwise session security. A complete Midnight Express implementation also needs anonymous publication admission, local recognition, durable recovery, Midnight integration and business authorization. RLN is the leading candidate for the admission relation. The sections below map each responsibility to the original requirements and identify what a selected library would leave to implement.
 
-Three independent agents re-read the original design and assessed every requirement area and each open-source component: [architecture](../../reviews/competitive-event-systems/requirements-fit/architecture.md), [privacy](../../reviews/competitive-event-systems/requirements-fit/privacy.md), [product](../../reviews/competitive-event-systems/requirements-fit/product.md), and [component coverage](../../reviews/competitive-event-systems/requirements-fit/coverage.json). This is a documentary feasibility assessment. No integration, benchmark or cryptographic acceptance check has run.
+Source assessments map each requirement to [architecture](../../reviews/competitive-event-systems/requirements-fit/architecture.md), [privacy](../../reviews/competitive-event-systems/requirements-fit/privacy.md), [product](../../reviews/competitive-event-systems/requirements-fit/product.md), and [component coverage](../../reviews/competitive-event-systems/requirements-fit/coverage.json). This is a documentary feasibility assessment. Its source reviews did not run an integration, benchmark or cryptographic acceptance check.
 
-## What the original PDF actually requires
+## Original requirements and launch profile
 
-The Downloads PDF and repository PDF are byte-identical: SHA-256 `5ce38c65b5bbfd1409d61cac0e3a294f2ba16370fd8a857e1d5d4fb6c573e0ed`, 464 pages. The consolidated register contains 625 records: **510 live obligations**, 113 same-obligation references and two withdrawn tag-lookahead records. [Complete inventory and alias resolution](../../reviews/competitive-event-systems/requirements-fit/requirements-inventory.json).
+The Downloads PDF and repository PDF are byte-identical: SHA-256 `5ce38c65b5bbfd1409d61cac0e3a294f2ba16370fd8a857e1d5d4fb6c573e0ed`, 464 pages. Its consolidated register contains 625 records: **510 live obligations**, 113 same-obligation references and two withdrawn tag-lookahead records. [Complete inventory and alias resolution](../../reviews/competitive-event-systems/requirements-fit/requirements-inventory.json).
 
-The launch cryptographic profile is already defined: symmetric stream secrets, salted local recognition, ChaCha20-Poly1305 sealing and signed publisher statements. The PDF explicitly makes ratcheting an **optional pairwise profile**, with no forward-secrecy claim for launch broadcast streams. Signal is therefore an extension to that scope rather than a prerequisite for all messages. See printed pages 64–65, 87–89 and 134, DEC-002/020/021, and `MPE-CRY-001/026` in [the PDF](../design-document/Midnight-Express-Design-Document.pdf).
+The launch cryptographic profile is already defined: symmetric stream secrets, salted local recognition, ChaCha20-Poly1305 sealing and signed publisher statements. Ratcheting is an **optional pairwise profile**, with no forward-secrecy claim for launch broadcast streams. Signal is therefore an extension to that scope rather than a prerequisite for all messages. See printed pages 64–65, 87–89 and 134, DEC-002/020/021, and `MPE-CRY-001/026` in [the PDF](../design-document/Midnight-Express-Design-Document.pdf).
 
 The salt, nonce and Recognition Tag are a clear prefix structurally **inside the Sealed Body**. “Inside the body” must not be mistaken for encrypted. Infrastructure can read those values, while matching is local and keyed. Existing requirements, not Signal, define their privacy behavior (`MPE-FMT-051`, `MPE-CRY-013/015`).
 
@@ -31,21 +31,21 @@ The salt, nonce and Recognition Tag are a clear prefix structurally **inside the
 | SEC: security | 20 | Partial | Admission/parser/state abuse defenses and business-policy enforcement |
 | VER: verification | 37 | Outside | Actual interoperability, proof, workload, adversarial and deployment evidence |
 
-Sources: [Appendix A](../design-document/build/appendix-a.md), [consolidated register](../design-document/build/ears-consolidated.json), and the three independent fit reviews above.
+Sources: [Appendix A](../design-document/build/appendix-a.md), [consolidated register](../design-document/build/ears-consolidated.json), and the source assessments above.
 
 ## The missing pieces and useful open-source options
 
-### 1. Anonymous admission is the first additional protocol candidate
+### 1. Anonymous admission limits publication
 
 Neither Signal session authentication nor GossipSub peer scoring proves that an anonymous publisher holds a valid membership and remaining allowance under a finalized Midnight root. Evaluate **Waku RLN with Zerokit** as a proof engine. Zerokit implements RLNv2 in Rust with Circom/Groth16 support, FFI/WASM and multi-message-ID allowance consumption. [Zerokit](https://github.com/vacp2p/zerokit), [Waku protocols](https://docs.waku.org/learn/concepts/protocols).
 
-It is not a drop-in proof for the MPE statement. Bind the network/genesis, Registry, membership root, admission window, size class, credit and envelope identity; reconcile hash/field/circuit choices with Midnight. Measure the actual serialized proof package and verification time against the PDF's **4,096-byte encoded Admission Slot and 10-ms verification prototype measurement gates** (`MPE-ECO-048`); the slot is `roundUp64(104 + proof_length)`, not just the raw proof. Implement replay retention, root freshness, equivocation evidence and Registry revocation. An Ethereum-backed Waku registration path is not automatically a Midnight adapter.
+The MPE proof must bind the network/genesis, Registry, membership root, admission window, size class, credit and envelope identity. Adapting the proof engine requires compatible hash, field and circuit choices with Midnight. Measure the actual serialized proof package and verification time against the PDF's **4,096-byte encoded Admission Slot and 10-ms verification prototype measurement gates** (`MPE-ECO-048`); the slot is `roundUp64(104 + proof_length)`, not just the raw proof. Implement replay retention, root freshness, equivocation evidence and Registry revocation. An Ethereum-backed Waku registration path is not automatically a Midnight adapter.
 
 RLN detects repeated allowance use when conflicting publications meet; it does not guarantee a globally serialized admission count before propagation. Several ingress nodes can initially accept conflicts. Preserve the PDF's explicit measurement of that exposure and domain-separate the relation to prevent cross-network accidental secret disclosure. See printed page 88 and `MPE-ECO-017/018/019/021/022/048`.
 
-### 2. Durable recovery needs storage and an MPE protocol
+### 2. Durable recovery separates local state from retained messages
 
-GossipSub's duplicate cache is not the required 48-hour store. Signal session persistence is not replicated message availability. Use **SQLite** for a modest pilot/client store or **RocksDB** where measured node workloads justify it, then implement MPE's whole-window backfill, signed persistence receipts, replica selection, pruning and gap reporting. A database engine does not supply that network protocol. [SQLite atomic commit](https://www.sqlite.org/atomiccommit.html), [RocksDB](https://github.com/facebook/rocksdb).
+Messages must remain available for the required 48-hour retention period, beyond GossipSub's duplicate cache. Replicated availability also requires storage outside a participant's Signal session state. Use **SQLite** for a modest pilot/client store or **RocksDB** where measured node workloads justify it, then implement MPE's whole-window backfill, signed persistence receipts, replica selection, pruning and gap reporting. A database engine does not supply that network protocol. [SQLite atomic commit](https://www.sqlite.org/atomiccommit.html), [RocksDB](https://github.com/facebook/rocksdb).
 
 Test receipt-after-persistence and crash recovery, including atomic cursor/effect/dedup updates and ratchet/outbox state (`MPE-STO-004/011/017/025/039/042`, `MPE-CON-033`). Core SQLite and ordinary RocksDB are not a complete encrypted key-storage solution; application keys/index metadata need a selected protection scheme. RocksDB offers an Apache-2.0 or GPLv2 license choice with retained third-party notices; core SQLite is public domain. Record the chosen integration and bindings rather than treating a storage brand as replication or confidentiality.
 
@@ -63,7 +63,7 @@ An exploratory thin salt/tag inventory plus PIR could reduce discovery bytes, bu
 
 For pairwise conversations, the Signal-derived experiment is plausible. For business groups with frequent membership changes, compare **MLS** using [OpenMLS](https://github.com/openmls/openmls) or [mls-rs](https://github.com/awslabs/mls-rs). MLS defines authenticated group epochs and membership updates, with conditional forward secrecy and compromise recovery. The standard is transport-independent and supports groups with two members as well as larger groups. [RFC 9420](https://www.rfc-editor.org/rfc/rfc9420.html).
 
-This suggests a genuine alternative: a group-first product may use **GossipSub + MLS + anonymous admission**, instead of adopting Signal and MLS together by default. Compare that option against a pairwise Signal profile before taking on two independent session-state, codec, recovery and maintenance systems. Neither architecture supplies private discovery or contract authority automatically.
+A group-first product may use **GossipSub + MLS + anonymous admission**. Compare it with the pairwise Signal profile before taking on both session-state, codec, recovery and maintenance systems. Either choice still requires private discovery and independent contract authority.
 
 Hide group/epoch/credential/Welcome metadata under the MPE profile; verify wallet/device credentials; define concurrent commit/fork, removal/rekey and offline recovery behavior. Ordinary MLS credentials/signatures do not automatically authorize a business effect. OpenMLS is MIT licensed; mls-rs offers MIT/Apache-2.0 and currently states it has not received a full third-party security audit. Current library/provider/version review is still required. Default classical MLS suites are not a post-quantum security claim. [OpenMLS security scope](https://github.com/openmls/openmls/security), [mls-rs README](https://github.com/awslabs/mls-rs/blob/main/mls-rs/README.md).
 
@@ -75,9 +75,9 @@ If hiding the client's direct address from ingress is a requirement for a select
 
 Complete Registry/Anchor/finalized-ledger adapters, carried-event exact-byte and applied-phase checks, independent signed instructions, stable consumption nullifiers and effect binding. Stock Signal authentication cannot discharge `MPE-CON-043/044a/044b/060`. In the nested Signal payload option, the outer MPE signature authenticates ciphertext; proving that the authorized plaintext is inside the anchored envelope is additional circuit work. An off-chain decryption or a valid inclusion path does not prove that relation. [Composition assessment](gossipsub-signal-option.md), [Appendix A](../design-document/build/appendix-a.md).
 
-### 7. Some gaps require a patch, not another protocol
+### 7. Expiry must be enforced on every send path
 
-`MPE-FMT-032` forbids forwarding expired envelopes, including queued sends and IWANT responses. Initial ingress validation does not guarantee that stock GossipSub's internal cached response or delayed queue drain rechecks application expiry. Identify supported hooks or a scoped router patch and test deadline crossings on all send paths; a generic wrapper cannot be assumed to intercept them. Also verify the pinned version's anonymous message fields, custom protocol negotiation and peer-score/mesh constraints. These are concrete implementation/conformance gaps already discussed by the PDF, not reasons to add another messaging protocol.
+`MPE-FMT-032` forbids forwarding expired envelopes, including queued sends and IWANT responses. Initial ingress validation does not guarantee that stock GossipSub's internal cached response or delayed queue drain rechecks application expiry. Identify supported hooks or a scoped router patch and test deadline crossings on all send paths; a generic wrapper cannot be assumed to intercept them. Also verify the pinned version's anonymous message fields, custom protocol negotiation and peer-score/mesh constraints. The PDF identifies these as implementation and conformance obligations.
 
 ## Recommended build sequence
 
@@ -87,8 +87,8 @@ Complete Registry/Anchor/finalized-ledger adapters, carried-event exact-byte and
 4. **Private mobile experiment:** jointly solve discovery, query scheduling, authenticated mutable inventories and private retrieval, measuring the complete client/server budget.
 5. **Production gates:** deploy measured workload/security tests, independent review, funded operators, costed service targets and profile-specific privacy evidence. Neither open-source availability nor documentation conformance proves these gates.
 
-The missing pieces are mostly acknowledged by the original PDF. New composition-specific questions are nested proof binding, exact library/profile compatibility, session-state persistence and whether stable recognition keys preserve metadata exposure after inner ratchet recovery. The practical decision is which narrow profile to deliver first, with its remaining requirements made explicit.
+For the first pilot, choose a narrow profile and record its outstanding requirements. The composition introduces particular questions: how to bind nested plaintext to an anchored envelope, which library and wire profiles are compatible, how to persist session state and what metadata stable recognition keys expose after an inner ratchet recovers.
 
-## Semaphore extraction into the working stack
+## Membership integration decision
 
-The subsequent three-agent Semaphore study adopts its identity/group/witness lifecycle patterns while retaining the original RLN-style publication relation. Actual library reuse requires compatible commitment, hash, field and tree semantics; no second membership proof is added per message. See [working stack](proposed-stack.md) and [membership assessment](semaphore-membership-option.md).
+The working stack adopts Semaphore’s identity, group and witness lifecycle patterns while retaining the original RLN-style publication relation. Actual library reuse requires compatible commitment, hash, field and tree semantics; no second membership proof is added per message. See [working stack](proposed-stack.md) and [membership assessment](semaphore-membership-option.md).

@@ -1,73 +1,43 @@
 # Midnight Express
 
-A private event delivery system for the [Midnight](https://midnight.network) network, built on
-[GossipSub](https://github.com/libp2p/specs/tree/master/pubsub/gossipsub) with ledger anchoring.
+Midnight Express is a proposed delivery system for confidential messages between applications, organizations, wallets and software agents on [Midnight](https://midnight.network). It combines a private messaging overlay with rules for interpreting business updates and recovering unfinished work.
 
-Midnight Express carries confidential messages between agents, smart contracts and wallets without
-showing the infrastructure what the messages say, who is waiting for them, or how the parties relate.
-It is designed as a complement to on-chain private events, and, under stated conditions, as a transport
-for them.
+Consider a buyer asking several dealers for a quote. Each dealer may use a different price convention. The buyer needs to receive the replies privately, compare their meaning and reject expired offers. If its application disconnects, it needs to resume without treating a repeated reply as a new instruction. Midnight Express brings these responsibilities into one design, while the participating applications retain control over business decisions.
 
-## Why
+The intended value is less custom integration and manual reconciliation across organizations. The first proposed pilots cover quote coordination, invoice payment observations and human-approved software actions. Partner integration costs, turnaround improvements and customer savings still need to be measured.
 
-A Midnight contract can emit an event, but the event is public: it records who reacted, when, and to
-what. The ledger also limits what an event can be: a 32-byte name, a 256-byte payload, a block-level
-byte budget, and about 18 seconds to finality. Parties that need to signal each other privately, at
-higher rates and larger sizes than the ledger allows, have no layer for it today. The Midnight node
-runs libp2p for consensus but has no publish/subscribe layer for applications.
+## How it fits together
 
-## Design in brief
+The delivery overlay uses [GossipSub](https://github.com/libp2p/specs/tree/master/pubsub/gossipsub) beside the Midnight node. Publishers seal messages into envelopes. Receivers take a whole shard of traffic and recognize their messages locally, so delivery operators do not need business subscription filters. Encryption protects content; connections, timing, shard participation and envelope size classes can remain visible. The design makes no general claim of relationship privacy against a global observer.
 
-- **Sidecar overlay.** Bus Nodes run GossipSub (v1.2: the v1.1 mesh and scoring rules plus
-  IDONTWANT) beside the Midnight node, not inside it. Nothing in the node needs to change.
-- **Sealed, fixed-size envelopes.** Four body classes (256, 1,024, 4,096 and 16,384 bytes) behind an
-  8-byte header and a 512-byte admission slot, so length reveals only a class.
-- **Receiver privacy by recognition.** Subscribers receive a whole Shard and recognise their own
-  messages locally with salted 16-byte Recognition Tags. The network never learns which messages a
-  subscriber wanted.
-- **Rate-limited admission.** Each publication carries an admission proof from a registered
-  membership, which bounds spam without identifying the publisher.
-- **Ledger anchoring.** A Bus Registry contract on Midnight holds memberships, parameters and the
-  relay list. Every 60 seconds an Anchor commits to the envelope identifiers seen in that window.
-- **Bounded retention.** Store Nodes keep envelopes for 48 hours. A ledger lane carries messages
-  through `Misc` contract events when the overlay is not available.
+Membership and rate-limited admission control publication. The recommended membership module adopts Semaphore's identity and witness lifecycle patterns within one compatible RLN-style admission proof. Midnight's proposed Bus Registry provides the authoritative membership state. Ledger anchors commit to batches of envelope identifiers. A publication proof or anchor does not authorize a trade, payment or other business action.
 
-## Status
+Applications agree on a small shared data core and a precise contract for each workflow. An adapter translates a participant's declared format into that contract and refuses missing or contradictory meaning. The current reference covers a quote, a payment observation and an approval. Each keeps its own terms and authority rules.
 
-Midnight Express is at the design stage. There is no proof of concept yet; building one is the next step.
-The design document specifies the system and the experimental design that a proof of concept must run.
-Exploratory runs guided the design, and the design does not rely on them. The ledger interface was written
-in Compact and compiled and costed against the ledger cost model, but nothing has run on a Midnight network.
+Recovery records the accepted message, logical action, local effect and processing progress together. The recommended backend uses UmbraDB with PostgreSQL; standalone clients use SQLite. Remote effects also need the destination's idempotency and reconciliation rules. The local sandbox demonstrates one database report-row operation, with fixture authority, rather than financial execution.
 
-## Contents
+## What exists today
 
-| Path | What it holds |
+The full Midnight Express protocol remains a design. Its [design document](docs/design-document/Midnight-Express-Design-Document.pdf) defines the wire format, privacy requirements, operating assumptions and proposed experiments. Exploratory transport code and a compiled Compact ledger-interface study are available under `experiments/`; they do not establish a deployed protocol or completed proof of concept.
+
+The [v0.2 reference implementation](model/README.md) checks bounded business contracts and compares RFQ interpretations across Python, Rust and TypeScript. It also projects supplied Ethereum and Solana transfer fixtures and exercises Umbra/PostgreSQL recovery through worker crashes. These checks cover local behavior under declared fixture assumptions. Genuine admission proofs, finalized Registry integration, live source authentication, replicated retention and production operations remain work for the [prototype plan](docs/product-requirements/prototype-sprints.md).
+
+## Read and explore
+
+The [website](https://charleshoskinson.github.io/midnight-express/) explains the product, its workflows and recommended stack. Its [Data Model guide](https://charleshoskinson.github.io/midnight-express/data-model.html) shows how participants agree on meaning, and its [Implementation page](https://charleshoskinson.github.io/midnight-express/implementation.html) describes the first three proposed sprints.
+
+Repository material is organized by purpose:
+
+| Material | Where to start |
 |---|---|
-| [`docs/design-document/Midnight-Express-Design-Document.pdf`](docs/design-document/Midnight-Express-Design-Document.pdf) | The design document: Midnight and the need for private events, the options and requirements, the experimental design, the problem statement, the improvement proposal, the requirements in EARS form (Appendix A) and an annotated reading list (Appendix B). |
-| `docs/design-document/draft-final/` | The document source in Markdown; `build/` holds the scripts that assemble it and build the PDF. |
-| `design/ears/`, `design/rounds/r5/` | The requirement register. |
-| `experiments/` | Exploratory Rust code and the Compact ledger-interface study (`experiments/registry`). Not a proof of concept; see its README. |
-| `catalog/`, `notes/`, `graph/` | The research corpus catalog, notes and graph tooling. |
-| [`reviews/competitive-event-systems/`](reviews/competitive-event-systems/README.md) | Three independent reviews of each of 26 blockchain, enterprise messaging and listener designs, with extraction decisions. |
-| [`catalog/event-systems/`](catalog/event-systems/README.md) | Scrapling primary-source snapshots, retrieval records and hashes for the comparative study. |
-| [`docs/product-requirements/`](docs/product-requirements/README.md) | Ten business use cases, feature considerations and candidate EARS extensions for product scope review. |
+| Product direction and ten candidate use cases | [Recommended stack and use cases](docs/product-requirements/recommended-stack-and-use-cases.md) |
+| Business meaning and integration rules | [Unified data model](docs/product-requirements/unified-data-model.md) |
+| Reference behavior, reproduction and deployment gates | [Model guide](model/README.md) and [implementation assessment](docs/product-requirements/data-format-implementation.md) |
+| Ethereum and Solana application domains | [Ethereum](docs/product-requirements/ethereum-application-domain.md), [Solana](docs/product-requirements/solana-application-domain.md) and [proposed vocabulary](model/domains/README.md) |
+| Protocol specification and document sources | [Design document](docs/design-document/Midnight-Express-Design-Document.pdf), `docs/design-document/draft-final/` and `design/ears/` |
+| Literature and comparisons | `catalog/`, `notes/` and [comparative design assessments](reviews/competitive-event-systems/README.md) |
+| Local website maintenance and publishing | [Website guide](website/README.md) |
 
 ## License
 
-Apache License 2.0. See [LICENSE](LICENSE).
-
-Recommended implementation direction and ranked product portfolio: [stack and use cases](docs/product-requirements/recommended-stack-and-use-cases.md).
-
-## Architecture showcase
-
-The [interactive architecture page](website/README.md) presents the recommended stack, event journey and ten product priorities. Its [ten-agent study](reviews/architecture-page/README.md) and GPT visual prompts are preserved for review.
-
-## Unified meaning and prototype validation
-
-The [unified model proposal](docs/product-requirements/unified-data-model.md) synthesizes five Scrapling literature studies. The [reference model](model/README.md) supplies closed schemas and unsigned conformance fixtures. The [three-sprint plan](docs/product-requirements/prototype-sprints.md) synthesizes ten design reviews. The static Implementation tab is `website/dist/implementation.html`; it works without JavaScript. These are design/reference artifacts, not completed runtime sprints.
-
-Application domains: [Ethereum](docs/product-requirements/ethereum-application-domain.md), [Solana](docs/product-requirements/solana-application-domain.md) and [machine-readable proposed event catalog](model/domains/README.md). Chain observations and signing/broadcast intents retain separate contracts and authority boundaries.
-
-The [five-role format review](docs/product-requirements/data-format-review.md) records concrete reference defects and a prioritized interoperability/evidence backlog. Its [counterexamples](reviews/data-format/observed-counterexamples.json) reproduce against unchanged pinned artifacts; passing baseline checks are not full semantic acceptance.
-
-The [v0.2 implementation](docs/product-requirements/data-format-implementation.md) adds strict contracts, independent RFQ interpretation/adapters, immutable history, read-only chain lineage and real Umbra/PostgreSQL sandbox crash/reconciliation tests. Reproduction commands and explicit deployment gates are in [model/README.md](model/README.md).
+The project is released under Apache License 2.0; see [LICENSE](LICENSE).

@@ -1,15 +1,17 @@
 # Midnight Express model v0.2
 
-This release implements the five-role review as a **conformance and local prototype**, with three strict event profiles, independent RFQ interpreters/adapters, immutable offline bundles, read-only chain projections and a fixture-authorized database sandbox. It is not a deployed MPE protocol, production capability service, consensus verifier or financial executor. Protocol signing/sealing, genuine admission, authenticated contract distribution and live partner evidence remain separate gates.
+Use this local reference to check how applications interpret quotes, payment observations and approvals to write a report. Each workflow has a strict profile defining its fields and rules. RFQ adapters translate two declared quote formats, while independent interpreters compare their meaning across Python, Rust and TypeScript. Reviewed definitions are stored in immutable offline bundles. Separate prototypes exercise read-only chain observations and recovery of a database report write.
 
-## What changed
+The source and permission evidence is supplied by test fixtures. Production use still requires protocol signing/sealing, genuine admission, authenticated contract distribution, a current permission service and live partner evidence. This release does not deploy the MPE protocol, verify consensus or execute financial transactions.
+
+## Rules enforced by v0.2
 
 - Raw parsing rejects duplicate decoded keys, floats/exponents, negative/unsafe integer tokens, invalid UTF-8/surrogates and oversized/deep input. IDs and coefficients use exact portable grammar checks; whitespace is never trimmed.
-- Every valid occurrence is recorded, including duplicate actions. Same occurrence + changed complete content conflicts; a new occurrence/EID cannot renew an action.
-- Invoice amount cannot exceed payable for Pending, Final or Reversed. `effectiveAt <= observedAt <= event.time <= trustedNow`; event time is observation-record creation. No payment allocation or execution is implied.
+- Every valid occurrence is recorded, including duplicate actions. Reusing an occurrence identity with changed content creates a conflict. A new occurrence/EID cannot renew an action.
+- A payment observation’s amount cannot exceed the invoice payable for Pending, Final or Reversed. `effectiveAt <= observedAt <= event.time <= trustedNow`; event time is observation-record creation. No payment allocation or execution is implied.
 - Approval commits authority domain, execution scope, budget window and full proposal. Stable action identity is `(authorityDomain, executionScope, actionId)`; target/contract changes conflict rather than silently re-keying a consumed action.
 - Per-profile schema/rules + common primitive/canonicalization definition determine immutable semantic commitments. Python implementation bytes no longer determine every domain's contract. Implementation/dependency evidence is recorded separately.
-- The corrected vocabulary has 291 proposed entries and a lifecycle support matrix; semantic reclassification under a released ID is checked against a reviewed semantic index. These remain vocabulary, not 291 runtime payload contracts.
+- The chain vocabulary proposes 291 entries and records lifecycle support in a matrix. A reviewed semantic index checks for reclassification under an existing released ID. Runtime payload contracts still need to be defined for these entries.
 
 ## Run the checks
 
@@ -30,7 +32,7 @@ TypeScript runs directly on Node >=24 with type stripping. For strict type check
 
 The RFQ campaign compares independently implemented Python, Rust and TypeScript parsing, schema checks, semantics, canonical bytes and intent digests. The Rust cents-per-hundred adapter and TypeScript dollars-per-share adapter represent the same complete attested fixture intent; price-basis, perspective and unknown-field negatives refuse. Different genuine dealers retain distinct source-bound intent hashes even when economics match.
 
-Current evidence files in [evidence/](evidence/) record finite synthetic cases, not operational error rates or customer savings. `test_interoperability.py` deliberately regenerates local evidence after executing all interpreters; it never silently replaces an immutable bundle.
+The files in [evidence/](evidence/) record outcomes for finite synthetic cases. Operational error rates and customer savings remain unmeasured. `test_interoperability.py` deliberately regenerates local evidence after executing all interpreters; it never silently replaces an immutable bundle.
 
 ## Exact profiles and primitives
 
@@ -46,13 +48,13 @@ IDs are bounded scoped ASCII strings with exact equality. Instants are real Greg
 
 Decimals are `coefficient × 10^-scale`: positive canonical coefficient strings of 1–18 digits; quantity/Step scale 0 and USD scale 2. Zero/fractional Shares, multi-currency, arbitrary fees/assets/tools and broad invoice accounting are outside these pilot profiles. Chain uint256/u64 zero-inclusive quantities use their own primitives.
 
-The intent candidate is SHA-256 of JCS `{domain:"mpe.model.intent.v0.2",source,type,profile,contract,data}`. Proposal candidate uses `{domain:"mpe.model.proposal.v0.2",contract,proposal}`. No occurrence ID/time or outer EID enters the business intent. These are unsigned commitments; origin authentication and permission are not inferred from a digest. Every Python/Rust/TypeScript validation success has `executes:false`.
+An intent candidate is an unsigned fingerprint of the source and complete business terms, allowing implementations to compare their interpretation. It is SHA-256 of JCS `{domain:"mpe.model.intent.v0.2",source,type,profile,contract,data}`. Proposal candidate uses `{domain:"mpe.model.proposal.v0.2",contract,proposal}`. No occurrence ID/time or outer EID enters the business intent. These are unsigned commitments; origin authentication and permission are not inferred from a digest. Every Python/Rust/TypeScript validation success has `executes:false`.
 
-## Immutable bundles and history
+## Install exact rules and preserve history
 
-`bundles/<manifest-sha256>/` contains `manifest.json`, `schema.json`, `core.json`, `rules.json`. The manifest commits raw resource bytes; the contract commits its JCS manifest. Schema and rule resources never contain their own contract digest, avoiding cycles. The offline `profiles/installed.json` allowlist selects exact installed contracts; `profiles/lock.json` is the current alias set. Unknown contracts refuse, with no downgrade/default insertion.
+A bundle packages one contract’s exact definitions for offline use. `bundles/<manifest-sha256>/` contains `manifest.json`, `schema.json`, `core.json`, `rules.json`. The manifest commits raw resource bytes; the contract commits its JCS manifest. Schema and rule resources never contain their own contract digest, avoiding cycles. The offline `profiles/installed.json` allowlist selects exact installed contracts; `profiles/lock.json` is the current alias set. Unknown contracts refuse, with no downgrade/default insertion.
 
-The loader closes manifest metadata, bounds reads, rejects symlink/path escape and every reference keyword, verifies resource bytes once and validates from that same snapshot. The pure `negotiate` helper intersects exact installed commitments; it does not provide authentication or perform a network handshake. Operator-reviewed allowlists are a fixture trust assumption; authenticated atomic installation and live workflow migration are not demonstrated.
+The loader closes manifest metadata, bounds reads, rejects symlink/path escape and every reference keyword, verifies resource bytes once and validates from that same snapshot. The pure `negotiate` helper finds exact commitments installed on both sides. Authentication and a network handshake require separate mechanisms. Operator-reviewed allowlists are a fixture trust assumption; authenticated atomic installation and live workflow migration are not demonstrated.
 
 The original [v0.1 release](releases/v0.1/README.md) preserves exact schemas, validator, manifests, fixtures and known defects. Its archived interpreter retains historical behavior:
 
@@ -72,9 +74,9 @@ The Solana branch hash is separately supplied fixture evidence, never inferred f
 
 The SQLite journal keeps observer deliveries, physical facts, native commitment assertions, invalidations and gaps append-only. A supplied known-at clock is trusted local intake context and must not regress; it is not sender event time. Duplicates from polling/subscription/backfill aggregate once, repeated CPI transfers stay distinct, re-inclusion has a new physical location, historical cutoff views remain separate, and conflicting commitment assertions expose a gap instead of a total. Finality assertions are explicitly source fixtures, not consensus proofs.
 
-## Durable sandbox and Umbra
+## Recover a report write with Umbra
 
-[recovery/umbradb-host.mjs](recovery/umbradb-host.mjs) uses only Umbra's public root API and one `withTransaction` handle for inbox, action/dedup, sandbox report row, Step accounting, outbox, checkpoint and cursor. There is no nested `saveAndAdvance`. The host clones intent, checks scope, verifies current fixture capability before and inside the transaction, reserves the declared maximum, charges one Step for one report-row write and releases unused capacity. Stable action/occurrence conflicts, aggregate budget, revocation, concurrent replay and cursor behavior are tested.
+[recovery/umbradb-host.mjs](recovery/umbradb-host.mjs) uses only Umbra's public root API and one `withTransaction` handle for inbox, action/dedup, sandbox report row, Step accounting, outbox, checkpoint and cursor. It does not nest `saveAndAdvance`. The host prepares the write by cloning intent, checking scope and verifying current fixture permission. It checks that permission again inside the transaction, reserves the declared maximum budget, charges one Step for the report-row write and releases unused capacity. Stable action/occurrence conflicts, aggregate budget, revocation, concurrent replay and cursor behavior are tested.
 
 Run against an isolated PostgreSQL 17 database and the built reviewed Umbra checkout. The measured checkout is `f662822765247f0da553347c9819f958a1992d28` (package metadata 0.9.5); the original research's earlier checkout is not silently substituted.
 
@@ -89,6 +91,6 @@ The test creates a fresh `mpe_format_<pid>` schema. It kills four actual worker 
 
 ## Literature and implementation status
 
-Original narrow concepts draw from [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md), [JSON Schema](https://json-schema.org/draft/2020-12/json-schema-core), [JCS](https://www.rfc-editor.org/rfc/rfc8785), [FINOS CDM](https://cdm.finos.org/docs/product-model/) and [UBL](https://docs.oasis-open.org/ubl/os-UBL-2.3/mod/summary/reports/UBL-Invoice-2.3.html). This is not full CDM/UBL/ISO/FIX conformance. Research sources and five independent reviews remain in the repo.
+Original narrow concepts draw from [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md), [JSON Schema](https://json-schema.org/draft/2020-12/json-schema-core), [JCS](https://www.rfc-editor.org/rfc/rfc8785), [FINOS CDM](https://cdm.finos.org/docs/product-model/) and [UBL](https://docs.oasis-open.org/ubl/os-UBL-2.3/mod/summary/reports/UBL-Invoice-2.3.html). These are selectively adapted concepts; full CDM/UBL/ISO/FIX conformance is not claimed. The repository retains the research sources and five independent reviews.
 
 See [recommendation implementation status](../docs/product-requirements/data-format-implementation.md) for artifact-by-artifact evidence and remaining deployment/customer gates. The three website sprints remain a proposed protocol-validation plan; these components do not establish their entire completion.

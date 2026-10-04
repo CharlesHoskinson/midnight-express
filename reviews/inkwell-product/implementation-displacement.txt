@@ -1,0 +1,21 @@
+before: 7,497 words in /tmp/inkwell-implementation/before
+after : 7,578 words in /tmp/inkwell-implementation/after  (+1%)
+
+habit                                before    after    change   per
+repeated sentence openers              35.1     25.8      -26% dn  1,000 sentences
+fronted participles                    27.7     27.6       -0%     1,000 sentences
+fronted prepositional phrases          11.1      9.2      -17%     1,000 sentences
+expletive openers (it/there is)         7.4      0.0     -100% dn  1,000 sentences
+semicolons                            138.7    137.2       -1%     10,000 words
+-ly adverbs                           102.7     83.1      -19%     10,000 words
+paragraph-final aphorisms              29.7     27.9       -6%     100 paragraphs
+polysyndeton (3+ ands)                 11.1      9.2      -17%     1,000 sentences
+very short sentences                   55.4     51.6       -7%     1,000 sentences
+sentence length stdev                   6.4      6.1       -5%     words
+mean sentence length                   13.5     13.7       +1%     words
+
+Habits fell with none rising. That is what a revision should look like:
+  down repeated sentence openers: 35.1 -> 25.8 (-26%)
+  down expletive openers (it/there is): 7.4 -> 0.0 (-100%)
+
+Exit: 0

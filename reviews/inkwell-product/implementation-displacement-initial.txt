@@ -1,0 +1,26 @@
+before: 7,497 words in /tmp/inkwell-implementation/before
+after : 7,574 words in /tmp/inkwell-implementation/after  (+1%)
+
+habit                                before    after    change   per
+repeated sentence openers              35.1     55.2      +58% UP  1,000 sentences
+fronted participles                    27.7     25.8       -7%     1,000 sentences
+fronted prepositional phrases          11.1     18.4      +66% UP  1,000 sentences
+expletive openers (it/there is)         7.4      0.0     -100% dn  1,000 sentences
+semicolons                            138.7    136.0       -2%     10,000 words
+-ly adverbs                           102.7     84.5      -18%     10,000 words
+paragraph-final aphorisms              29.7     27.9       -6%     100 paragraphs
+polysyndeton (3+ ands)                 11.1     11.0       -0%     1,000 sentences
+very short sentences                   55.4     51.6       -7%     1,000 sentences
+sentence length stdev                   6.4      6.1       -5%     words
+mean sentence length                   13.5     13.7       +1%     words
+
+DISPLACEMENT: 1 habit(s) fell and 2 rose.
+  up   repeated sentence openers: 35.1 -> 55.2 (+58%)
+  up   fronted prepositional phrases: 11.1 -> 18.4 (+66%)
+  down expletive openers (it/there is): 7.4 -> 0.0 (-100%)
+
+A pass that removes one habit and raises another has renamed
+it, not removed it. Check the risen habits against the
+instruction that was given.
+
+Exit: 1
