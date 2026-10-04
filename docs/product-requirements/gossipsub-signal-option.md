@@ -80,3 +80,7 @@ No gate has been executed. These are experiment requirements for a future implem
 9. **Integration viability:** pin the dependency and record supported API/suite, license/distribution disposition, maintenance owner and migration/backup policy.
 
 Go forward with the off-chain experiment if gates 1–7 and 9 can be met under the chosen profile. Gate 8 is mandatory before marketing or implementing nested-profile contract authorization. Groups, multi-device management, broad mobile delivery and production service targets remain separate scope decisions. The first applicable product use cases are [RFQ coordination, invoice workflows and delegated agent approval](top-ten-use-cases.md).
+
+## Follow-up requirements audit
+
+The [original requirement fit study](requirements-fit-and-open-source.md) distinguishes mandatory admission/storage/ledger work from optional ratcheting, groups and mobile retrieval. For a group-first product, compare MLS as an alternative session layer before adopting both Signal and MLS.

@@ -1,0 +1,61 @@
+Getting started with Arti | Arti
+Skip to main content
+About Arti
+Blog
+FAQs
+GitLab
+Getting Started with Arti
+Guides
+Censorship
+Integrating Arti
+Contributing to Arti
+Changelog
+Arti Rustdoc
+Arti Coverage Reports
+Related Projects
+Resources
+Getting Started with Arti
+On this page
+Introduction
+Arti
+ is a complete rewrite of the
+C Tor
+ codebase, and it is currently under active development. It is written in Rust, and it is designed to be modular, reusable, and easy to audit.
+info
+If you are interested in the old Arti website, please have a look
+
+here
+.
+info
+Arti's proxy and onion service support are ready for use,
+but not all features of C Tor are available in Arti.
+Getting started
+​
+Compiling Arti
+Starting Arti as a SOCKS proxy
+Configuring applications to use Arti
+Connecting to Onion Services
+CLI Reference
+Migrating from Tor?
+​
+Using Arti with Tor Browser
+Protocol support and compatibility
+Capability and limitations
+On censorship circumvention with Arti
+​
+Using Arti with bridges
+Pluggable transports
+Contribute to Arti
+​
+How to contribute
+Code of conduct
+Support policy
+Last updated on
+Jul 22, 2026
+Next
+Overview
+Getting started
+Migrating from Tor?
+On censorship circumvention with Arti
+Contribute to Arti
+Copyright © 2026 Arti, TorProject.org.

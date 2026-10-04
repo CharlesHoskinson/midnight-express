@@ -13,3 +13,5 @@ Three independent agents studied **each of 26 systems**, giving **78 reviewer/sy
 Research date: 3 October 2026, America/Denver. Comparisons describe documented mechanisms, with maturity and trust boundaries recorded. “No equivalent identified” applies only to reviewed sources. Repository additions are research and candidate product scope; implementation guarantees require the named acceptance checks.
 
 The follow-up [GossipSub + Signal feasibility assessment](../../docs/product-requirements/gossipsub-signal-option.md) has a further three-agent study of each component ([coverage](gossipsub-signal/coverage.json)), for six additional reviewer/component studies.
+
+The subsequent [original-requirements fit study](requirements-fit/README.md) covers all twelve requirement areas and three independent assessments of each of fourteen open-source components. It inventories all 625 consolidated records while distinguishing 510 live obligations from aliases and withdrawals.
