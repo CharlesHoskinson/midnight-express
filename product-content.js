@@ -3,7 +3,7 @@ window.MPE_PRODUCT = {
     "quotes": {
       "label": "PROPOSED FIRST DEMONSTRATION / QUOTE COORDINATION",
       "title": "A buyer asks two approved dealers for prices.",
-      "context": "A request for quote (RFQ) asks what price a dealer will offer for a specified transaction. The illustration coordinates the agreement and its handoff.",
+      "context": "A request for quote (RFQ) asks a dealer for terms on a specified transaction. In this illustration, the buyer compares offers and hands an accepted quote to settlement.",
       "who": "Buyer · approved dealers · compliance reviewer · operations team",
       "steps": [
         [
@@ -50,7 +50,7 @@ window.MPE_PRODUCT = {
     },
     "agents": {
       "label": "PROPOSED FOLLOW-ON PILOT / BOUNDED AGENT WORK",
-      "title": "An agent proposes an action. A person approves its exact limits.",
+      "title": "A person approves the limits of an agent’s proposed action.",
       "context": "An approval should identify a target, a budget and a deadline. The agent’s message is a proposal; the application must verify what the person actually authorized.",
       "who": "Enterprise worker · software agent · approval officer · sandbox executor",
       "steps": [
@@ -93,13 +93,13 @@ window.MPE_PRODUCT = {
       "summary": "An agent proposes a bounded action; a person approves a specific target, budget and expiry.",
       "who": "Enterprise worker, AI or business agent, approval officer and sandbox executor.",
       "example": "A procurement agent requests a purchase from one supplier within a budget. A person signs that exact scope. The executor rejects a different supplier, an excessive amount or an expired approval, even when the message is authentic.",
-      "boundary": "Message delivery does not make agent output trustworthy or grant permission. Application enforcement remains essential."
+      "boundary": "The application must verify agent output and enforce permission before acting on a delivered message."
     },
     "UC-06": {
       "title": "Keep credential and access status current",
       "summary": "An issuer or employer sends authenticated changes so verifiers can update their access decisions.",
       "who": "Credential issuer, subject wallet and service or employer verifier.",
-      "example": "A contractor’s credential is revoked. Services receive a newer authenticated issuer version that overrides a delayed earlier grant. A service with outdated evidence reports stale status rather than silently allowing high-risk access.",
+      "example": "A contractor’s credential is revoked. Services receive a newer authenticated issuer version that overrides a delayed earlier grant. A service with outdated evidence reports stale status and blocks high-risk access.",
       "boundary": "Receiving a notice is not completed revocation. Tested enforcement and rekeying govern future access; past copies remain possible."
     },
     "UC-07": {
@@ -107,20 +107,20 @@ window.MPE_PRODUCT = {
       "summary": "A buyer, supplier and logistics team share restricted milestones and agree the next step after a delay.",
       "who": "Purchasing manager, supplier, logistics provider and authorized insurer or auditor.",
       "example": "A supplier reports that required parts will arrive late. The logistics team shares a revised estimate with the people handling the order. The buyer records an acknowledged next step without spreading unrelated commercial terms.",
-      "boundary": "A signed report identifies its source; it does not prove a physical shipment occurred. Partner integrations and history policies need validation."
+      "boundary": "A signature identifies the report’s source. Physical shipment evidence, partner integrations and history policies need separate validation."
     },
     "UC-02": {
       "title": "Follow contract milestones privately",
       "summary": "A desktop application distinguishes a received notice from a verified contract milestone.",
       "who": "Application user, desktop wallet or application and contract observer.",
       "example": "A user is waiting for an escrow milestone. The application shows an update as pending, then confirms it only after checking the exact ledger event and successful application. Retained notices can support catch-up after a disconnect.",
-      "boundary": "Start with public-event or signed-application notices. Private carried events and private mobile reception have separate platform gates."
+      "boundary": "Start with public-event or signed-application notices. Private carried events and private mobile reception require further platform work."
     },
     "UC-10": {
       "title": "Coordinate sensitive incident response",
       "summary": "Authorized responders exchange incident updates and record who owns the next investigation step.",
       "who": "Operations lead, service owner, chain or service integration and response team.",
-      "example": "A settlement service stops progressing. Responders exchange private status updates and assign a human-reviewed investigation step. A returning responder can recover retained notices rather than reconstructing the handoff from scratch.",
+      "example": "A settlement service stops progressing. Responders exchange private status updates and assign a human-reviewed investigation step. A returning responder recovers retained notices to catch up on the handoff.",
       "boundary": "Keep an independent emergency channel. Delivery, source trust, funding and failure isolation must be validated."
     },
     "UC-09": {
@@ -128,7 +128,7 @@ window.MPE_PRODUCT = {
       "summary": "A board or committee coordinates confidential review and records explicit approvals under its own rules.",
       "who": "Board or DAO committee, authorized reviewers and execution agent.",
       "example": "A committee reviews a vendor proposal under an illustrative three-approval policy. Two approvals, an expired approval or a delivery receipt cannot satisfy that policy. The application checks valid authority before execution and prepares narrowly scoped audit evidence.",
-      "boundary": "The customer defines and enforces the approval threshold. Private deliberation does not establish anonymous voting; ledger execution remains proof-gated."
+      "boundary": "The customer defines and enforces the approval threshold. Anonymous voting and ledger execution require separate evidence; ledger execution also needs consumer proof."
     },
     "UC-04": {
       "title": "Review portfolio and collateral warnings",
