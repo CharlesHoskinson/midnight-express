@@ -15,3 +15,7 @@ The dedicated static page is [data-model.html](../../website/dist/data-model.htm
 A static two-format quote comparison and a native expandable stack sequence explain the model without new decorative assets. Scope is explicit: three pilot profiles; independent RFQ interpretation; 291 proposed vocabulary entries versus two read-only chain fixture slices; one fixture-authorized report-row effect in the Umbra prototype. Review recommendations were reconciled against current artifacts rather than copied as new capability promises.
 
 Validation passed: primary-navigation routes from Overview and Implementation, eight section anchors, one current-page indicator, native disclosures, desktop/tablet/mobile widths from 320 to 1440 pixels, 200% text with disclosures open and no horizontal overflow, no script exceptions, and JavaScript-disabled access to the three workflows, two chain slices and evidence. Existing product interactions and Implementation sprint navigation checks also passed. Static assets, local links, anchor targets, unique IDs and review/documentation links resolve. These checks validate the website presentation, not the protocol or customer value.
+
+## Second review round
+
+The [nine-model expansion review](round-2/README.md) records the requested Gemini 3.1 Pro / Grok 4.7 / GPT-6.1 perspectives, local provenance and an editorial synthesis. It adds connected explanations and worked examples to the same Data Model tab rather than changing the runtime or enlarging the supported workflow contracts.

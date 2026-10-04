@@ -1,0 +1,110 @@
+{
+  "purpose": "editorial recommendations, not runtime acceptance or customer validation",
+  "baselineCommit": "f0e3fc679d80cdd222fab0e2e3dac0853fc8bc7f",
+  "baselineSourceSHA256": {
+    "website/dist/data-model.html": "97bcc6b72fbc69ae4c2689c50a4c7604bebb782d9b99a8867d918306a3d014a6",
+    "model/README.md": "cf9b9e652e51001db09a425b56bc02f6beb108dd6576fb33d1db309685302bea",
+    "docs/product-requirements/data-format-implementation.md": "047d92d79362079b841ae3dfe53faaa3c5ce82fc423e99d064f994a8977139b0"
+  },
+  "reviews": [
+    {
+      "artifact": "gemini31-teaching.md",
+      "selectedModel": "gemini-3.1-pro-high",
+      "execution": "agy CLI",
+      "exitCode": 0,
+      "seconds": 53.0,
+      "artifactSHA256": "c66726f2c06cdc3e8a7c03e95b1600ed60a6616d3a0e6326b626135f6a1b55aa"
+    },
+    {
+      "artifact": "gemini31-workflows.md",
+      "selectedModel": "gemini-3.1-pro-high",
+      "execution": "agy CLI",
+      "exitCode": 0,
+      "seconds": 53.0,
+      "artifactSHA256": "200fce5c2306f9020ae4bf72dc7a698a990e44d6860411c8f15b53284684dc47"
+    },
+    {
+      "artifact": "gemini31-positioning.md",
+      "selectedModel": "gemini-3.1-pro-high",
+      "execution": "agy CLI",
+      "exitCode": 0,
+      "seconds": 55.0,
+      "artifactSHA256": "cbbd0c466f4f8250eb8405a56449fe668de53d00331e984add40fe6253741fb0"
+    },
+    {
+      "artifact": "grok47-trust.md",
+      "selectedModel": "grok-4.7",
+      "execution": "Grok CLI",
+      "exitCode": 0,
+      "seconds": 346.1,
+      "artifactSHA256": "10aaa28ce5f75143117bb274de062cf91f230bf0215d58f3fa4842200fbb0f42"
+    },
+    {
+      "artifact": "grok47-business.md",
+      "selectedModel": "grok-4.7",
+      "execution": "Grok CLI (explicit single-turn retry)",
+      "exitCode": 0,
+      "seconds": 284.0,
+      "artifactSHA256": "16b5e363fa1e101fdd51a95e5a0a9ab842f88f8235ce3e0cce31697b1e5c6a21"
+    },
+    {
+      "artifact": "grok47-developer.md",
+      "selectedModel": "grok-4.7",
+      "execution": "Grok CLI (explicit single-turn retry)",
+      "exitCode": 0,
+      "seconds": 400.1,
+      "artifactSHA256": "f5711fc4bbcaebe0f343fb10a7b8a9d4a6f90e644a4be5ccd54c5bb6de1c723a"
+    },
+    {
+      "artifact": "gpt61-architecture.md",
+      "selectedModel": "gpt-6.1-sol",
+      "execution": "collaboration.spawn_agent",
+      "agentTask": "gpt61_model_architecture",
+      "status": "completed",
+      "artifactSHA256": "4a54f70516068b3bd6219247e39556772e8fc49c4e4a41df2ca62a76bd6de52c"
+    },
+    {
+      "artifact": "gpt61-reader.md",
+      "selectedModel": "gpt-6.1-sol",
+      "execution": "collaboration.spawn_agent",
+      "agentTask": "gpt61_model_editorial",
+      "status": "completed",
+      "artifactSHA256": "792a7682f5ecfa2bd4716a15c6ac3c75d4c3666afbbed27e9c0de23b451cfe65"
+    },
+    {
+      "artifact": "gpt61-authority.md",
+      "selectedModel": "gpt-6.1-sol",
+      "execution": "collaboration.spawn_agent",
+      "agentTask": "gpt61_model_authority",
+      "status": "completed",
+      "artifactSHA256": "32f07f657545c2b392c858c64696dbdf1bbb7d04882bf5bcdc014ddc16ff9d20"
+    }
+  ],
+  "restartedAttempts": [
+    {
+      "review": "grok47-business",
+      "provider": "grok",
+      "model": "grok-4.7",
+      "exitCode": 143,
+      "stdoutBytes": 0,
+      "seconds": 363.1
+    },
+    {
+      "review": "grok47-developer",
+      "provider": "grok",
+      "model": "grok-4.7",
+      "exitCode": 143,
+      "stdoutBytes": 0,
+      "seconds": 363.1
+    }
+  ],
+  "humanizer": {
+    "repository": "https://github.com/blader/humanizer",
+    "commit": "225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8",
+    "skillVersion": "3.1.0",
+    "installedPath": "/home/hoskinson/.codex/skills/humanizer",
+    "skillSHA256": "0612f1dfb1672b0ea9b97e139bf1f06cabe98d8b27424fe8ff01e1fb4cc99cad",
+    "scope": "public website prose, including dynamic editorial content; raw review reports preserved"
+  },
+  "captureNormalization": "ANSI removed; provenance header added to CLI reviews; trailing whitespace normalized; recommendation text retained"
+}

@@ -51,3 +51,9 @@ The Implementation tab now distinguishes implemented conformance/local component
 Main-navigation links on Overview and Implementation reach the new tab. Quote cards, stack sequence and native disclosures remain readable without JavaScript or private repository access. The public page distinguishes the three v0.2 profiles, RFQ-only independent interpreters, 291 proposed vocabulary entries, two read-only chain fixture slices and tested fixture-authorized Umbra report-row recovery. Intended business benefits require partner measurements.
 
 Validation: Data Model navigation from both existing pages, eight section targets, native disclosures, 320–1440px layouts, 200% text without horizontal overflow and JavaScript-disabled reading passed in Chromium. Existing product interactions and Implementation navigation/details still pass. Local assets/anchors/IDs and review/documentation links resolve.
+
+## Expanded reader guidance
+
+A second [nine-model editorial review](../reviews/data-model-page/round-2/README.md) uses three Gemini 3.1 Pro agents through `agy`, three Grok 4.7 CLI agents and three GPT-6.1 agents. The Data Model guide now includes a reader route, worked quote conversion/refusal, model/schema/protocol definitions, interpretation/evidence/permission/effect decisions, payment clock examples, exact contract versioning, lost-reply recovery, transfer lineage, partner review questions and an expandable glossary. The v0.2 runtime and its measured scope are unchanged; review suggestions were checked against the implementation before adoption.
+
+Humanizer 3.1.0 was installed locally and applied to public page prose and dynamic editorial copy. The pass preserves the canonical use-case register, technical literals and current implementation boundaries; generated static cards remain synchronized with their editorial source. Raw review artifacts are preserved separately.
