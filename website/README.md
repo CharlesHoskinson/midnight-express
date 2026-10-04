@@ -1,8 +1,8 @@
 # Midnight Express architecture page
 
-Static architecture showcase assembled from ten agent assignments: system map, message journey, membership/admission, endpoint privacy, recovery/storage, ledger authority, developer experience, use-case portfolio, editorial/accessibility, and GPT visual generation.
+Static product and architecture showcase, first assembled from ten agent assignments: system map, message journey, membership/admission, endpoint privacy, recovery/storage, ledger authority, developer experience, use-case portfolio, editorial/accessibility, and GPT visual generation.
 
-Open `dist/index.html` or serve `dist` with any static HTTP server. The page requires no build. Use-case content in `dist/use-cases.js` is a snapshot of the canonical product register, sorted by recommended rank. Regenerate it when requirements change.
+Open `dist/index.html` or serve `dist` with any static HTTP server. The page requires no build. Use-case cards are static HTML, so all ten remain readable without JavaScript. `dist/use-cases.js` preserves a snapshot of the canonical register. `dist/product-content.js` holds illustrative editorial scenarios and the three interactive business walkthroughs. After changing the register or editorial card copy, run `python3 website/build-content.py` from the repository root to regenerate the cards and canonical snapshot. There is no framework build or dependency installation.
 
 The interactive component map, event journey and ten expandable use cases distinguish existing primitives from proposed integrations and future-release capabilities. All technical diagrams and controls use HTML/CSS/JavaScript; generated visuals are conceptual metaphors.
 
@@ -12,9 +12,9 @@ Built-in GPT image generation produced exactly two illustrations, with no retrie
 
 ## Review and validation
 
-Nine written reviews are saved under `../reviews/architecture-page`; the tenth assignment produced the two visuals and prompt manifest. All review suggestions affecting factual correctness and control accessibility were incorporated. JavaScript syntax, local asset references, metadata, and ten-case canonical data ordering were checked. An attempted local headless browser capture did not complete; browser rendering and interaction QA remain unverified. No throughput, privacy or production-integration performance is claimed by this page.
+Nine written reviews are saved under `../reviews/architecture-page`; the tenth assignment produced the two visuals and prompt manifest. All review suggestions affecting factual correctness and control accessibility were incorporated. JavaScript syntax, local asset references, metadata, and ten-case canonical data ordering were checked. The first capture attempt did not complete. During the eight-agent product rewrite, headless Chromium checks subsequently passed for desktop/mobile rendering, three workflow controls, nine component selectors, journey focus, ten native cards, 200% text without horizontal overflow or clipping, no script exceptions and core content with JavaScript disabled. No throughput, privacy or production-integration performance is claimed by this page.
 
-Hosted source is maintained in a separate Sites checkout at `/home/hoskinson/Projects/midnight-express-architecture`. This directory preserves a reviewable copy in the research repository; future edits should synchronize both copies.
+GitHub Pages is now the publishing target requested by the user. The earlier Sites deployment is a historical architecture edition; its local checkout at `/home/hoskinson/Projects/midnight-express-architecture` can be synchronized for development, but GitHub Pages publishes this repository’s `website/dist`.
 
 ## GitHub Pages
 
@@ -27,3 +27,7 @@ git subtree push --prefix=website/dist origin gh-pages
 ```
 
 GitHub Pages deploys pushes to `gh-pages`. Changes on the research branch alone do not update the hosted page.
+
+## Product explanation review
+
+[Eight product-manager reviews](../reviews/product-page/README.md) informed the product-first reading order, three business scenarios, expanded actor/trigger/example information across ten use cases, glossary, FAQ and clearer stage boundaries. These are editorial improvements, not customer validation.
