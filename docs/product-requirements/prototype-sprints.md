@@ -1,10 +1,10 @@
-# First three prototype sprints
+# Prototype validation plan
 
 This proposed plan tests whether participants can agree on a business event, recover its accepted outcome after failure and reuse that processing path in another workflow. Each sprint must supply the evidence needed for the next. Two weeks per sprint is a planning assumption; staffing and start dates are not established.
 
 The [unified data model](unified-data-model.md) defines the proposed shared meaning. Its [reference conformance slice](../../model/README.md) already checks unsigned v0.2 events and independent RFQ interpretations, while a separate Umbra/PostgreSQL sandbox demonstrates fixture-authorized report-row recovery. These results give the sprints a starting point. The complete protocol sprints, including genuine admission and sealed transport, remain uncompleted.
 
-## Sprint 1 — Agree on meaning. Exchange a quote.
+## Quote exchange
 
 Start with a quote because an unstated price convention can change the value of a trade. This sprint asks whether two independently specified participant formats preserve the same economics and complete intent when exchanged over the proposed transport.
 
@@ -22,7 +22,7 @@ Required evidence:
 - Independent wire vectors; trace inspection finds no RFQ topics or upstream business selectors.
 - Candidate proof compatibility and actual encoded size/verification report, or a named blocking mismatch.
 
-## Sprint 2 — Recover without changing the outcome.
+## Recovery
 
 Once participants agree on a quote, the next risk is losing or repeating its accepted outcome. This sprint tests whether duplicate delivery, crashes and reconnect preserve both the agreed meaning and the committed processing progress.
 
@@ -40,7 +40,7 @@ Required evidence:
 - Expired redrive, wrong restore context and unsupported contract cannot become actionable.
 - Paired recognition traces show no subscription-dependent acknowledgements or schema fetches.
 
-## Sprint 3 — Reuse the core. Test the investment case.
+## Workflow reuse
 
 If recovery holds, test whether invoices and human-approved agents can use the same processing core. Each workflow keeps its own meaning and authorization rules; reuse succeeds only if the shared mechanism preserves those differences.
 

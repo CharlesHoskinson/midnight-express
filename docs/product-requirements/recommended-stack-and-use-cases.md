@@ -1,6 +1,6 @@
-# Recommended stack and top ten use cases
+# Recommended stack and business workflows
 
-## Product and first customers
+## Product and audience
 
 Midnight Express is proposed infrastructure for exchanging confidential business updates between applications. It addresses work that crosses organizational boundaries: a buyer requests a quote, a finance team matches a payment, or an agent asks a person to approve a purchase. Each participant needs a reliable record of the current terms and the authority to act on them.
 
@@ -85,11 +85,11 @@ The [use-case register](use-cases.json) and [detailed product requirements](top-
 
 ## Delivery order and acceptance gates
 
-1. **RFQ coordination demonstration.** Existing envelopes, listener SDK, authenticated role invitations, UmbraDB/Postgres recovery in the trusted Node workflow host (SQLite for standalone Rust) and a quote state machine. Use clearly labeled mocked Registry/admission only for an internal demonstration. Measure quote turnaround, manual handoffs, crash recovery, expiry and duplicate handling. No automatic settlement claim.
-2. **Reusable coordination pilot.** Validate invoice reconciliation and bounded human-approved agent workflows. Keep external effects idempotent/reconciled, cancellation local, semantic headers encrypted and failure isolation tested. Obtain customer baselines before setting targets.
-3. **Production coordination core and group extension.** Real Midnight registration/finalized roots, genuine RLN relation, actual slot/verification measurements, durable replicated retention, signed persistence receipts, funded operators and independent security evidence. Backend recovery requires the proposed UmbraDB MPE capability or equivalently verified caller composition; current `saveAndAdvance` covers checkpoint/cursor only. Add OpenMLS only after its separate credential/epoch/rekey/wire/recovery gates; initial pilot success does not establish these gates.
-4. **Authorized ledger effects and private carried events.** Complete signed authority, atomic replay protection and CON-060 anchored-message binding before settlement. Exact carried-event/applied-phase checks and underlying private-event support gate contract-origin notifications. These tracks can proceed alongside coordination work but are required before their respective product promises.
-5. **Private mobile reception.** Separate PIR/OMR private discovery/retrieval experiment with complete bandwidth, energy, authenticity and access-pattern measurements. No filtered webhooks or generic push workaround inherits the strongest privacy claim.
+- **RFQ coordination demonstration.** Existing envelopes, listener SDK, authenticated role invitations, UmbraDB/Postgres recovery in the trusted Node workflow host (SQLite for standalone Rust) and a quote state machine. Use clearly labeled mocked Registry/admission only for an internal demonstration. Measure quote turnaround, manual handoffs, crash recovery, expiry and duplicate handling. No automatic settlement claim.
+- **Reusable coordination pilot.** Validate invoice reconciliation and bounded human-approved agent workflows. Keep external effects idempotent/reconciled, cancellation local, semantic headers encrypted and failure isolation tested. Obtain customer baselines before setting targets.
+- **Production coordination core and group extension.** Real Midnight registration/finalized roots, genuine RLN relation, actual slot/verification measurements, durable replicated retention, signed persistence receipts, funded operators and independent security evidence. Backend recovery requires the proposed UmbraDB MPE capability or equivalently verified caller composition; current `saveAndAdvance` covers checkpoint/cursor only. Add OpenMLS only after its separate credential/epoch/rekey/wire/recovery gates; initial pilot success does not establish these gates.
+- **Authorized ledger effects and private carried events.** Complete signed authority, atomic replay protection and CON-060 anchored-message binding before settlement. Exact carried-event/applied-phase checks and underlying private-event support gate contract-origin notifications. These tracks can proceed alongside coordination work but are required before their respective product promises.
+- **Private mobile reception.** Separate PIR/OMR private discovery/retrieval experiment with complete bandwidth, energy, authenticity and access-pattern measurements. No filtered webhooks or generic push workaround inherits the strongest privacy claim.
 
 Do not put Signal in the first dependency set alongside OpenMLS. Keep Signal as a documented alternative if customer evidence favors a dedicated pairwise product. Tor/Arti is an optional later origin-privacy profile; PIR engines are research candidates. RocksDB and additional chain/ERP connectors follow measured workload or customer needs.
 

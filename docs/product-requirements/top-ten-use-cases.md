@@ -1,4 +1,4 @@
-# Ten use cases ranked against the recommended stack
+# Candidate business workflows
 
 Start with confidential quote coordination on backend and desktop applications. Invoice matching and human-approved agent work would reuse its signed events, permission checks and recovery. The remaining candidates need additional integrations or security capabilities.
 

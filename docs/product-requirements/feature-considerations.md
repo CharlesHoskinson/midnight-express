@@ -1,4 +1,4 @@
-# Ten enabling features to consider
+# Capabilities to consider
 
 These proposed capabilities support the [business use cases](top-ten-use-cases.md). Some complete existing protocol obligations; others extend the product or require research. The table retains the earlier feature priority order and maps each proposal to its requirements. Implementation status is unverified. See the [comparative research and design limits](../../reviews/competitive-event-systems/extraction.md).
 

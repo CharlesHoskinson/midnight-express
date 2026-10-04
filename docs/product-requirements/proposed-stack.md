@@ -15,17 +15,17 @@ The table assigns these responsibilities to the working stack. A bounded local r
 | Optional session security | OpenMLS group-first extension; Signal deferred | Dedicated integration experiment, identity binding and durable ratchet/epoch recovery |
 | Private mobile reception | Deferred PIR/OMR experiment | Discovery, authenticated retrieval and query scheduling must meet complete budget |
 
-The [consolidated recommendation](recommended-stack-and-use-cases.md) selects OpenMLS for the group-first security extension and ranks the ten use cases. Membership integration follows the interfaces below.
+The [consolidated recommendation](recommended-stack-and-use-cases.md) selects OpenMLS for the group-first security extension and orders the candidate use cases. Membership integration follows the interfaces below.
 
 ## Membership mechanisms to adopt
 
 Adopt these mechanisms in the membership module:
 
-1. **Dedicated private identity and public commitment.** Generate admission identity material independently of wallet/session keys. Only the selected profile's commitment leaves the client; do not publish the private scalar or seed. Preserve sponsored registration and shielded fee rules (`MPE-ECO-004/005/006/007/054`).
-2. **Incremental group and witness lifecycle.** Maintain membership insertion/removal, client-side Merkle witnesses and updates from authenticated Registry state. Reject mismatched tree profiles or a witness whose root does not match a permitted finalized snapshot (`MPE-ECO-004/026/029`).
-3. **Scoped nullifier discipline.** Bind network, Registry, window, class and credit index. Keep envelope identity in the content-binding relation, outside the quota scope. Membership root changes must not renew spent credits (`MPE-ECO-016/017/018`).
-4. **Explicit verification versus consumption.** Cryptographic verification is stateless; Bus Nodes own durable local duplicate/equivocation state. Preserve idempotent same-envelope handling and conflict evidence without a ledger write for each envelope (`MPE-PUB-028`, `MPE-ECO-020/030/031`).
-5. **Clear version/parameter boundary.** Pin identity, commitment, tree/hash/field, codec, proving/verifying keys and witness APIs as one admission profile. Reject mixed profiles rather than attempting implicit conversion.
+- **Dedicated private identity and public commitment.** Generate admission identity material independently of wallet/session keys. Only the selected profile's commitment leaves the client; do not publish the private scalar or seed. Preserve sponsored registration and shielded fee rules (`MPE-ECO-004/005/006/007/054`).
+- **Incremental group and witness lifecycle.** Maintain membership insertion/removal, client-side Merkle witnesses and updates from authenticated Registry state. Reject mismatched tree profiles or a witness whose root does not match a permitted finalized snapshot (`MPE-ECO-004/026/029`).
+- **Scoped nullifier discipline.** Bind network, Registry, window, class and credit index. Keep envelope identity in the content-binding relation, outside the quota scope. Membership root changes must not renew spent credits (`MPE-ECO-016/017/018`).
+- **Explicit verification versus consumption.** Cryptographic verification is stateless; Bus Nodes own durable local duplicate/equivocation state. Preserve idempotent same-envelope handling and conflict evidence without a ledger write for each envelope (`MPE-PUB-028`, `MPE-ECO-020/030/031`).
+- **Clear version/parameter boundary.** Pin identity, commitment, tree/hash/field, codec, proving/verifying keys and witness APIs as one admission profile. Reject mixed profiles rather than attempting implicit conversion.
 
 The selected architecture reuses Semaphore’s membership lifecycle patterns within the RLN-style admission relation. RLN already proves membership, so each publication should carry one combined proof. A standalone Semaphore membership circuit beside it would add proofs, secrets or trees and complicate registration and revocation without satisfying another requirement.
 

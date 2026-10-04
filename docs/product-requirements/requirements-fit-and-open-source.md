@@ -35,7 +35,7 @@ Sources: [Appendix A](../design-document/build/appendix-a.md), [consolidated reg
 
 ## The missing pieces and useful open-source options
 
-### 1. Anonymous admission limits publication
+### Anonymous admission limits publication
 
 Neither Signal session authentication nor GossipSub peer scoring proves that an anonymous publisher holds a valid membership and remaining allowance under a finalized Midnight root. Evaluate **Waku RLN with Zerokit** as a proof engine. Zerokit implements RLNv2 in Rust with Circom/Groth16 support, FFI/WASM and multi-message-ID allowance consumption. [Zerokit](https://github.com/vacp2p/zerokit), [Waku protocols](https://docs.waku.org/learn/concepts/protocols).
 
@@ -43,13 +43,13 @@ The MPE proof must bind the network/genesis, Registry, membership root, admissio
 
 RLN detects repeated allowance use when conflicting publications meet; it does not guarantee a globally serialized admission count before propagation. Several ingress nodes can initially accept conflicts. Preserve the PDF's explicit measurement of that exposure and domain-separate the relation to prevent cross-network accidental secret disclosure. See printed page 88 and `MPE-ECO-017/018/019/021/022/048`.
 
-### 2. Durable recovery separates local state from retained messages
+### Durable recovery separates local state from retained messages
 
 Messages must remain available for the required 48-hour retention period, beyond GossipSub's duplicate cache. Replicated availability also requires storage outside a participant's Signal session state. Use **SQLite** for a modest pilot/client store or **RocksDB** where measured node workloads justify it, then implement MPE's whole-window backfill, signed persistence receipts, replica selection, pruning and gap reporting. A database engine does not supply that network protocol. [SQLite atomic commit](https://www.sqlite.org/atomiccommit.html), [RocksDB](https://github.com/facebook/rocksdb).
 
 Test receipt-after-persistence and crash recovery, including atomic cursor/effect/dedup updates and ratchet/outbox state (`MPE-STO-004/011/017/025/039/042`, `MPE-CON-033`). Core SQLite and ordinary RocksDB are not a complete encrypted key-storage solution; application keys/index metadata need a selected protection scheme. RocksDB offers an Apache-2.0 or GPLv2 license choice with retained third-party notices; core SQLite is public domain. Record the chosen integration and bindings rather than treating a storage brand as replication or confidentiality.
 
-### 3. Private mobile reception remains an unsolved integration target
+### Private mobile reception remains an unsolved integration target
 
 Signal encrypts content but does not reduce whole-shard bandwidth. At the PDF's byte ceiling, full reception is approximately **5.7 GB/day**; its baseline mix is about **1.86 GB/day**, compared with a **56–60 MB/day** mobile budget. The original document explicitly does not claim private mobile reception at launch. See printed pages 64 and 134, DEC-021 and `MPE-PRF-021`.
 
@@ -59,7 +59,7 @@ These have material adoption limits: SealPIR explicitly says not to use it in pr
 
 An exploratory thin salt/tag inventory plus PIR could reduce discovery bytes, but it is **not a selected or proven design**. At 10 envelopes/s, a 32-byte salt/tag entry costs 27.648 decimal MB/day; adding a 32-byte envelope ID reaches 55.296 MB/day before framing, proof/authenticity, hints, updates, payload retrieval or cover queries. Existing envelope commitments do not alone prove that an isolated advertised salt/tag inventory is correct and complete. Private discovery, authenticated inventory/data binding and recognition-independent query schedules need a separate experiment.
 
-### 4. Group-first messaging may favor MLS instead of Signal
+### Group-first messaging may favor MLS instead of Signal
 
 For pairwise conversations, the Signal-derived experiment is plausible. For business groups with frequent membership changes, compare **MLS** using [OpenMLS](https://github.com/openmls/openmls) or [mls-rs](https://github.com/awslabs/mls-rs). MLS defines authenticated group epochs and membership updates, with conditional forward secrecy and compromise recovery. The standard is transport-independent and supports groups with two members as well as larger groups. [RFC 9420](https://www.rfc-editor.org/rfc/rfc9420.html).
 
@@ -67,15 +67,15 @@ A group-first product may use **GossipSub + MLS + anonymous admission**. Compare
 
 Hide group/epoch/credential/Welcome metadata under the MPE profile; verify wallet/device credentials; define concurrent commit/fork, removal/rekey and offline recovery behavior. Ordinary MLS credentials/signatures do not automatically authorize a business effect. OpenMLS is MIT licensed; mls-rs offers MIT/Apache-2.0 and currently states it has not received a full third-party security audit. Current library/provider/version review is still required. Default classical MLS suites are not a post-quantum security claim. [OpenMLS security scope](https://github.com/openmls/openmls/security), [mls-rs README](https://github.com/awslabs/mls-rs/blob/main/mls-rs/README.md).
 
-### 5. Origin privacy is an optional, separate transport profile
+### Origin privacy is an optional, separate transport profile
 
 If hiding the client's direct address from ingress is a requirement for a selected profile, investigate **Tor/Arti** for eligible connections. That does not give global timing/volume privacy, anonymous GossipSub participation or general UDP/QUIC anonymization. Handle circuit isolation, DNS, failures and direct fallback explicitly; do not silently downgrade a chosen privacy profile. The original launch design claims no ingress anonymity. [Arti](https://arti.torproject.org/about/), [arti-client](https://docs.rs/arti-client/latest/arti_client/), `MPE-PRV-024` and DEC-023.
 
-### 6. Midnight authority and ledger integration remain custom work
+### Midnight authority and ledger integration remain custom work
 
 Complete Registry/Anchor/finalized-ledger adapters, carried-event exact-byte and applied-phase checks, independent signed instructions, stable consumption nullifiers and effect binding. Stock Signal authentication cannot discharge `MPE-CON-043/044a/044b/060`. In the nested Signal payload option, the outer MPE signature authenticates ciphertext; proving that the authorized plaintext is inside the anchored envelope is additional circuit work. An off-chain decryption or a valid inclusion path does not prove that relation. [Composition assessment](gossipsub-signal-option.md), [Appendix A](../design-document/build/appendix-a.md).
 
-### 7. Expiry must be enforced on every send path
+### Expiry must be enforced on every send path
 
 `MPE-FMT-032` forbids forwarding expired envelopes, including queued sends and IWANT responses. Initial ingress validation does not guarantee that stock GossipSub's internal cached response or delayed queue drain rechecks application expiry. Identify supported hooks or a scoped router patch and test deadline crossings on all send paths; a generic wrapper cannot be assumed to intercept them. Also verify the pinned version's anonymous message fields, custom protocol negotiation and peer-score/mesh constraints. The PDF identifies these as implementation and conformance obligations.
 

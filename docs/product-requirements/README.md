@@ -3,7 +3,7 @@
 These documents propose workflows, technology choices and acceptance gates for Midnight Express. Start with the stack recommendation to understand the intended product, then use the requirement and component studies to assess a pilot. The portfolio is still a set of candidates; adoption requires a decision against the existing protocol obligations.
 
 - [Recommended stack and ranked use cases](recommended-stack-and-use-cases.md): consolidated technology choices, business fit and delivery gates.
-- [Top ten use cases](top-ten-use-cases.md): ranked business scenarios, actors, triggers, value hypotheses, acceptance scenarios and dependencies.
+- [Business use cases](top-ten-use-cases.md): ranked business scenarios, actors, triggers, value hypotheses, acceptance scenarios and dependencies.
 - [Machine-readable use-case register](use-cases.json): ten candidate records linked to existing and proposed requirements.
 - [Candidate EARS extensions](candidate-ears.md): sixteen product/API obligations with acceptance checks and an open product decision.
 - [Machine-readable candidate requirement register](candidate-requirements.json).

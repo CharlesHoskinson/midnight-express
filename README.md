@@ -24,13 +24,13 @@ The [v0.2 reference implementation](model/README.md) checks bounded business con
 
 ## Read and explore
 
-The [website](https://charleshoskinson.github.io/midnight-express/) explains the product, its workflows and recommended stack. Its [Data Model guide](https://charleshoskinson.github.io/midnight-express/data-model.html) shows how participants agree on meaning, and its [Implementation page](https://charleshoskinson.github.io/midnight-express/implementation.html) describes the first three proposed sprints.
+The [website](https://charleshoskinson.github.io/midnight-express/) explains the product, its workflows and recommended stack. Its [Data Model guide](https://charleshoskinson.github.io/midnight-express/data-model.html) shows how participants agree on meaning, and its [Implementation page](https://charleshoskinson.github.io/midnight-express/implementation.html) describes the proposed validation stages.
 
 Repository material is organized by purpose:
 
 | Material | Where to start |
 |---|---|
-| Product direction and ten candidate use cases | [Recommended stack and use cases](docs/product-requirements/recommended-stack-and-use-cases.md) |
+| Product direction and candidate use cases | [Recommended stack and use cases](docs/product-requirements/recommended-stack-and-use-cases.md) |
 | Business meaning and integration rules | [Unified data model](docs/product-requirements/unified-data-model.md) |
 | Reference behavior, reproduction and deployment gates | [Model guide](model/README.md) and [implementation assessment](docs/product-requirements/data-format-implementation.md) |
 | Ethereum and Solana application domains | [Ethereum](docs/product-requirements/ethereum-application-domain.md), [Solana](docs/product-requirements/solana-application-domain.md) and [proposed vocabulary](model/domains/README.md) |

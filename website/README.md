@@ -20,6 +20,8 @@ Technical diagrams and controls use HTML, CSS and JavaScript. The generated illu
 
 ## Check meaning and behavior
 
+Name sections, components and prototype stages by their subject. Omit decorative numbering, numbered badges, counted portfolios and review/test totals from product copy. Explain the behavior observed and link its technical evidence. Keep quantities when they define arithmetic, limits, versions, identities or business rules. These conventions also apply to generated cards and interactive labels.
+
 Keep current implementation evidence distinct from proposed capabilities. The [reference model](../model/README.md) implements bounded conformance and local prototypes. The [unified model proposal](../docs/product-requirements/unified-data-model.md) defines the intended interpretation layer; the [sprint plan](../docs/product-requirements/prototype-sprints.md) describes protocol work still to complete. Ethereum/Solana domain coverage remains a proposed inventory. Existing read-only chain projections consume supplied fixtures, and the Umbra sandbox performs a fixture-authorized database report-row write.
 
 Verify navigation, section anchors, native disclosures, workflow controls, component selection and journey focus after an edit. Check desktop and mobile layouts, enlarged text and core reading with JavaScript disabled. Look for horizontal overflow, clipping and script exceptions; also check JavaScript syntax, local assets, IDs, metadata and canonical use-case ordering. Prior Chromium checks covered those behaviors, but each change needs appropriate verification.
