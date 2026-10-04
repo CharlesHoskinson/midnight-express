@@ -43,3 +43,11 @@ Validation for this update: original workflow/component interaction checks and I
 ## v0.2 reference release
 
 The Implementation tab now distinguishes implemented conformance/local components from the proposed full protocol sprints: 80 Python checks, 35 independent RFQ vectors, 14 corrected-catalog checks, 28 read-only chain cases, nine immutable-bundle checks and 56 real PostgreSQL sandbox/recovery checks. Review defects reject under v0.2; the original v0.1 remains historical read-only. Source/authority are fixtures, not production authentication or consensus verification.
+
+## Dedicated Data Model guide
+
+`dist/data-model.html` explains the business interpretation layer independently of the implementation sprint plan. [Five product-manager reviews](../reviews/data-model-page/README.md) shaped the reading order: business ambiguity, concrete two-format quote, shared core/contracts/adapters, three pilot workflows, replay/versioning, Ethereum/Solana scope, finite implementation evidence and partner onboarding/FAQ.
+
+Main-navigation links on Overview and Implementation reach the new tab. Quote cards, stack sequence and native disclosures remain readable without JavaScript or private repository access. The public page distinguishes the three v0.2 profiles, RFQ-only independent interpreters, 291 proposed vocabulary entries, two read-only chain fixture slices and tested fixture-authorized Umbra report-row recovery. Intended business benefits require partner measurements.
+
+Validation: Data Model navigation from both existing pages, eight section targets, native disclosures, 320–1440px layouts, 200% text without horizontal overflow and JavaScript-disabled reading passed in Chromium. Existing product interactions and Implementation navigation/details still pass. Local assets/anchors/IDs and review/documentation links resolve.
