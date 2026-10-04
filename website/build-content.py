@@ -26,6 +26,6 @@ for marker,ranks in [('pilot-grid',range(1,4)),('case-grid',range(4,11))]:
         pattern=rf'(<div id="{marker}" class="[^"]+">)\s*(</div>)'
         html,count=re.subn(pattern,lambda m:m[1]+'\n'+replacement+'\n'+m[2],html)
         assert count==1,marker
-p.write_text(html)
+p.write_text(html.rstrip()+"\n")
 (root/'dist/use-cases.js').write_text('window.MPE_USE_CASES = '+json.dumps(sorted(canonical,key=lambda c:c['rank']),ensure_ascii=False)+';\n')
 print('Refreshed ten static cards; canonical IDs, ranks, scopes and gates preserved.')
