@@ -1,7 +1,7 @@
 'use strict';
 const assert=require('node:assert/strict'),http=require('node:http'),fs=require('node:fs/promises'),path=require('node:path');
 let playwright;try{playwright=require('playwright');}catch{playwright=require('/home/hoskinson/.local/share/mise/installs/npm-playwright/1.63.0/node_modules/playwright');}
-const dist=path.resolve(__dirname,'../dist'),out=path.resolve(__dirname,'../../reviews/subscription-workspace');
+const dist=path.resolve(__dirname,'../dist'),out=path.resolve(process.env.MPE_AUDIT_DIR||path.join(__dirname,'../../reviews/subscription-workspace'));
 (async()=>{
  await fs.mkdir(out,{recursive:true});
  const server=http.createServer(async(req,res)=>{try{const name=decodeURIComponent(new URL(req.url,'http://localhost').pathname).slice(1),file=path.resolve(dist,name);assert.ok(file.startsWith(dist+path.sep));const body=await fs.readFile(file);res.setHeader('Content-Type',name.endsWith('.json')?'application/json':name.endsWith('.js')?'text/javascript':name.endsWith('.css')?'text/css':name.endsWith('.woff2')?'font/woff2':'text/html');res.end(body);}catch{res.statusCode=404;res.end();}});

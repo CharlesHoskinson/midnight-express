@@ -1,0 +1,37 @@
+{
+  "browser": "153.0.8010.12",
+  "platform": "linux",
+  "viewport": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "name": "reflow",
+      "width": 320,
+      "scroll": 320
+    },
+    {
+      "name": "enlarged",
+      "width": 390,
+      "scroll": 390
+    }
+  ],
+  "settledQueryMs": [
+    126.98336200000085,
+    127.93182200000047,
+    131.649719,
+    131.8373529999999,
+    133.38524899999993,
+    134.663458
+  ],
+  "p95": 134.663458,
+  "errors": [],
+  "notes": "Local headless Chromium; query timing includes 120ms debounce, IndexedDB commit and Playwright observation. Synthetic scopes only."
+}

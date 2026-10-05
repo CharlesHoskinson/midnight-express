@@ -1,0 +1,16 @@
+{
+  "brandSource": "https://midnight.network/brand-hub",
+  "homepage": "https://midnight.network/",
+  "officialPalette": {
+    "black": "#0A0A0A",
+    "white": "#FFFFFF",
+    "blue": "#0000FE"
+  },
+  "typeface": "Outfit",
+  "directRetrieval": {
+    "tool": "Scrapling Fetcher and StealthyFetcher",
+    "status": 429,
+    "result": "Rate limit and browser verification; rendered challenge was not treated as brand evidence."
+  },
+  "fallback": "Official Brand Hub content retrieved by web tool; palette and typeface verified there. Font and license retrieved successfully with Scrapling from Google Fonts upstream."
+}

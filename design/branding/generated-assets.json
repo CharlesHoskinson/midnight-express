@@ -1,0 +1,33 @@
+{
+  "generator": "Built-in GPT image generation via image_gen",
+  "outputPreparation": "ImageMagick WebP encoding only; no semantic raster edits",
+  "assets": [
+    {
+      "file": "website/dist/assets/midnight-express-network-v2.webp",
+      "prompt": "Use case: stylized-concept. Asset type: wide website hero artwork for Midnight Express, a proposed private event coordination protocol. Create a premium, restrained architectural visualization on an almost-black #0A0A0A background. Obsidian-black translucent sealed rectangular data capsules flow along fine electric-blue #0000FE paths through a sparse distributed network, with a central sculptural glass junction and small cool-white highlights. A precise studio-rendered composition, deep dark negative space, sharp material detail, quiet blue refraction; no cyan, teal, mint, purple, gold or rainbow. Wide landscape 16:9, primarily black, readable silhouettes; the luminous blue occupies small areas. The imagery suggests confidential event distribution between applications, not financial execution. No text, logos, people, coin symbols, charts, numbers, badges, watermarks or interface screenshots. Suitable as a large editorial hero artwork; all edges fade naturally to near-black.",
+      "sha256": "260cd51bef6c3f1e06e37d4f49369c8a631550711b8542171909c43b7eccf67c",
+      "dimensions": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "file": "website/dist/assets/midnight-express-stack-v2.webp",
+      "prompt": "Use case: infographic-diagram. Asset type: wide editorial architecture diagram for Midnight Express. On a near-black #0A0A0A background, draw a precise readable flat engineering diagram in white text, subtle gray boxes and thin electric-blue #0000FE directional lines. Outfit-like clean sans-serif. Landscape 16:9. Title exactly: 'Proposed Midnight Express stack'. Show this topology accurately: 'Applications' -> 'SDK + OpenMLS' -> 'GossipSub'. Above the arrow into GossipSub, a small connected gate labelled 'Membership + RLN' with subtitle 'Publication admission'. GossipSub then fans out in parallel, not in series, into three branches labelled 'Opaque stores', 'Whole-shard receivers', 'Midnight anchor'. From Opaque stores a dotted arrow labelled 'Backfill' goes to Whole-shard receivers. Only the Whole-shard receivers branch continues down through 'Local recognition' -> 'Business checks' -> 'UmbraDB / SQLite'. The Midnight anchor stays an independent branch with subtitle 'Inclusion evidence'. Under UmbraDB / SQLite put 'Consumer progress'. Footer exactly: 'Private selectors stay at endpoints. Delivery does not authorize an effect.' Favor generous spacing and large accurate type; crisp vector-like lines rendered as a polished raster. No numbered steps, official logos, claims of production readiness, coins, charts, teal, mint, purple, neon haze or sci-fi ornament. Keep all labels legible and arrows unambiguous. This is a proposed protocol, not a deployed system.",
+      "sha256": "31fa241acfa7c29cd646c71b92b5d7836f2130c7a790de48f465a54e7cba16b2",
+      "dimensions": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "file": "website/dist/assets/midnight-express-recovery-v2.webp",
+      "prompt": "Use case: infographic-diagram. Asset type: recovery and consumer-state diagram for Midnight Express, wide landscape 16:9. Near-black #0A0A0A background, white clean Outfit-like typography, restrained electric-blue #0000FE arrows, gray dividers, minimal flat technical design. Title exactly 'Receipt and processing are separate'. Main horizontal path: 'Retained history' -> 'Local journal' -> 'Delivered receipts'. Delivered receipts branches into two clearly separate paths: upper 'Read / saved' ending with subtitle 'Presentation only'; lower 'Review / quarantine' -> 'Contiguous checkpoint' ending with subtitle 'Decided work only'. A small clearly bounded bottom note labelled 'Resume and recovery' says 'Recheck current authority. Preserve pause. Handle unavailable intervals explicitly.' Footer exactly 'Reading never advances processing. No effect is authorized here.' Make the hierarchy and branching immediately understandable. Accurate typography, large labels, plenty of negative space, clean publication-quality diagram. No numbers or numbered headers, no charts, no official logos, no wallet keys, no fabricated performance claims, no gradients, teal, mint, purple, coins, people or glowing decorative orbits.",
+      "sha256": "363b022279762f4964729f772f9567fc703c40cb5273d38cc0b2cac4ee2f0648",
+      "dimensions": {
+        "width": 1672,
+        "height": 941
+      }
+    }
+  ]
+}

@@ -22,7 +22,7 @@ A category is local organization, not a network business topic. Delivery, proces
 
 ## Brand Commitments
 
-The product is Midnight Express. The user requires clear explanations and rejects artificial counting in headings and prose. Original project code and documentation use Apache License 2.0; imported references and fonts retain their own licenses.
+The product is Midnight Express. Its visual identity follows Midnight’s official near-black, white and electric-blue palette and Outfit typography. Readable blue tints are used for small text and focus indicators. The user requires clear explanations and rejects artificial counting in headings and prose. Original project code and documentation use Apache License 2.0; imported references and fonts retain their own licenses.
 
 ## Evidence on Hand
 

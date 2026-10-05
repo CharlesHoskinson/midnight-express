@@ -1,0 +1,57 @@
+{
+  "zoom": 2,
+  "baseline": 1440,
+  "geometry": {
+    "width": 720,
+    "scroll": 720
+  },
+  "task": "Search and independently follow at actual Chrome tab zoom 200%",
+  "contrast": [
+    {
+      "key": "body",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(10, 10, 10)",
+      "fontSize": "16px",
+      "ratio": 19.79814571052481
+    },
+    {
+      "key": ".notice",
+      "color": "rgb(210, 210, 210)",
+      "background": "rgb(10, 10, 10)",
+      "fontSize": "14.4px",
+      "ratio": 13.094676130145253
+    },
+    {
+      "key": ".feed-row p",
+      "color": "rgb(210, 210, 210)",
+      "background": "rgb(10, 10, 10)",
+      "fontSize": "14.08px",
+      "ratio": 13.094676130145253
+    },
+    {
+      "key": "button",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(0, 0, 254)",
+      "fontSize": "14px",
+      "ratio": 8.637882345020596
+    },
+    {
+      "key": "input",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(20, 20, 20)",
+      "fontSize": "16px",
+      "ratio": 18.422536070011546
+    },
+    {
+      "key": "header nav a",
+      "color": "rgb(255, 255, 255)",
+      "background": "rgb(10, 10, 10)",
+      "fontSize": "14px",
+      "ratio": 19.79814571052481
+    }
+  ],
+  "hover": {
+    "color": "rgb(255, 255, 255)",
+    "background": "rgb(36, 36, 36)"
+  }
+}

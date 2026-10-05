@@ -7,11 +7,13 @@
 <meta name="description" content="The mathematical rules behind Midnight Express v0.2 quotes, payment observations and sandbox approvals, with Lean proof coverage and explicit assumptions.">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="specification.css">
+<link rel="stylesheet" href="brand.css">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
 <body class="spec-page">
 <a class="skip" href="#main-content">Skip to main content</a>
 <header>
-<a class="brand" href="index.html"><span class="mark">M∕E</span> MIDNIGHT EXPRESS</a>
+<a class="brand" href="index.html"><span class="mark" aria-hidden="true">M/E</span><span class="brand-name">Midnight <strong>Express</strong></span></a>
 <nav aria-label="Main navigation">
 <a href="index.html#overview">Overview</a>
 <a href="index.html#example">Workflows</a>
@@ -24,7 +26,7 @@
 </header>
 <main id="main-content" tabindex="-1">
 <section class="impl-intro">
-<p class="eyebrow">FORMAL SPECIFICATION / MODEL v0.2</p>
+
 <h1>Make the rules<br>precise<span>.</span></h1>
 <p class="lead">A quote must add up. A payment observation must preserve what its source claimed. An approval must stay bound to the work a person reviewed. The formal model expresses those requirements as mathematical conditions that Lean can check.</p>
 <p>Lean is a programming language and proof assistant. It checks that a proof follows from the definitions and assumptions in its source. This specification covers a typed model of the local reference software; a successful validation returns <code>executes:false</code>.</p>
@@ -35,7 +37,7 @@
 </section>
 
 <section id="agreement">
-<p class="eyebrow">THE AGREEMENT</p>
+
 <h2>Choose an exact meaning.</h2>
 <p class="spec-lead">An event names a profile and an exact contract commitment. The receiver uses a reviewed, installed contract to interpret its business data. Unknown contracts are refused.</p>
 <dl class="spec-terms">
@@ -55,7 +57,7 @@
 </section>
 
 <section id="quote">
-<p class="eyebrow">RFQ / EXACT ARITHMETIC</p>
+
 <h2>A quote must add up.</h2>
 <p class="spec-lead">A buyer requests 100 shares at $123.45 per share. The contract records price and cash as integer cents, so the cash check has no floating-point rounding step.</p>
 <div class="spec-equation"><p class="equation-label">Cash in USD cents</p><p class="equation">cash = quantity × price</p><p class="equation-example">1,234,500 = 100 × 12,345</p><p>Here, <var>quantity</var> is a positive whole number of Shares and <var>price</var> is a positive number of cents per Share. The cash amount is $12,345.</p></div>
@@ -65,7 +67,7 @@
 </section>
 
 <section id="payment">
-<p class="eyebrow">INVOICE / REPORTED EVIDENCE</p>
+
 <h2>Preserve the payment claim.</h2>
 <p class="spec-lead">A source reports a $250 payment against a $500 invoice. The observation identifies the payment, carries its status and matches the complete evidence supplied in the validation context.</p>
 <div class="spec-equation"><p class="equation-label">Amount admitted for every status</p><p class="equation">0 &lt; observedAmount ≤ invoicePayable</p><p class="equation-example">0 &lt; 25,000 ≤ 50,000 cents</p><p>The same amount bound applies to Pending, Final and Reversed. A reversal remains an observation of what the source reported.</p></div>
@@ -74,7 +76,7 @@
 </section>
 
 <section id="approval">
-<p class="eyebrow">AGENT / BOUNDED APPROVAL</p>
+
 <h2>Keep permission attached<br>to the reviewed work.</h2>
 <p class="spec-lead">The approval profile covers one sandbox operation: writing a report. The proposal fixes its input and target, with an authority domain, execution scope, budget window, policy and expiry.</p>
 <div class="spec-prose"><p>Suppose a human approves a report for one sandbox target. Changing the target or input changes the proposal being checked. A matching action label cannot carry that approval to different work. The model compares the approval against the supplied proposal and authority context.</p></div>
@@ -83,7 +85,7 @@
 </section>
 
 <section id="identity">
-<p class="eyebrow">IDENTITY / RETRIES &amp; HISTORY</p>
+
 <h2>Know what has repeated.</h2>
 <dl class="spec-terms">
 <dt>Occurrence identity</dt><dd>Identifies one event occurrence. Reusing it with changed content must expose a conflict.</dd>
@@ -97,7 +99,7 @@
 </section>
 
 <section id="watch">
-<p class="eyebrow">SUBSCRIPTIONS / PROPOSED LOCAL CONTROL PLANE</p>
+
 <h2>A watch records what<br>a consumer wants to receive.</h2>
 <p class="spec-lead">The <a href="subscriptions.html">local subscription demo</a> explores selectors, pauses, cursors and retention gaps. A watch's intent and delivery state are separate from the v0.2 business-event profiles above.</p>
 <div class="spec-prose"><p>A delivery cursor describes local receipt. A processing cursor describes contiguous decisions about received items, including reviewed or quarantined dispositions. Neither establishes that an action executed. A pause records the consumer's request; permission expiry or revocation still prevents delivery.</p><p>Selectors are proposed to run locally after authorized decryption. They cannot restrict what an authorized reader of the whole shard can see. The browser workspace retains bounded synthetic history in IndexedDB. Reload leaves delivery unchecked; a fresh simulation check establishes no production authority. There is no protocol transport or production permission service.</p></div>
@@ -105,7 +107,7 @@
 </section>
 
 <section id="proofs">
-<p class="eyebrow">PROOF COVERAGE</p>
+
 <h2>Read each guarantee<br>with its assumptions.</h2>
 <p class="spec-lead">A soundness theorem connects a successful modeled check to a stated condition. For example, accepting a modeled quote implies that its cash amount equals quantity multiplied by price.</p>
 <div class="spec-equation"><p class="equation-label">The shape of a validator guarantee</p><p class="equation">validate(event, context) = accepted<br>⇒ requiredConditions(event, context)</p><p>This implication quantifies over the typed values in Lean. It depends on the supplied context. Tests against real JSON provide a separate, finite comparison with the reference implementation.</p></div>
@@ -132,7 +134,7 @@
 </section>
 
 <section id="sources">
-<p class="eyebrow">SOURCES &amp; REPRODUCTION</p>
+
 <h2>Inspect the definitions.</h2>
 <p class="spec-lead">The equations and examples on this page are readable without repository access. The published Lean source files provide the exact definitions behind the proof claims.</p>
 <div id="lean-source-links" class="spec-prose"><ul>

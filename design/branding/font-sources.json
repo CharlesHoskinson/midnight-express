@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/outfit/Outfit%5Bwght%5D.ttf",
+    "file": "outfit-variable.ttf",
+    "sha256": "fc7287273e66929776e2ba54f144fe699080bec29f61bf649d70d871468aeade",
+    "retrieval": "Scrapling Fetcher"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/outfit/OFL.txt",
+    "file": "outfit-OFL.txt",
+    "sha256": "c676351bf8576b9aba743cd5eaa8c0e7ee0d51f805d720447b4df4ddb6a2e416",
+    "retrieval": "Scrapling Fetcher"
+  }
+]
