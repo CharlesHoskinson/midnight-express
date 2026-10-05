@@ -1,0 +1,20 @@
+Midnight Express
+
+Original project code and documentation are licensed under Apache License 2.0.
+See LICENSE for the terms.
+
+Third-party materials retain their original copyright and license terms.
+The project license does not relicense archived papers, specifications,
+webpages, screenshots, fonts, or source extracts.
+
+The research archives under catalog/, notes/, and wiki-llm/ contain references
+and source captures. Source URLs, retrieval metadata, versions, and available
+license notices accompany those materials.
+
+The FINOS Common Domain Model reference carries the Community Specification
+License 1.0 in catalog/data-model/financial-semantics/cdm-license.txt.
+Reference versions and source attribution are recorded in that catalog.
+
+The website's DM Sans and Space Grotesk fonts use the SIL Open Font License.
+Their license texts and retrieval metadata are in website/dist/assets/fonts/.
+Design-document font attribution is in docs/design-document/fonts/LICENSES.txt.

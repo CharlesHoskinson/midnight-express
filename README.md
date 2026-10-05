@@ -48,4 +48,4 @@ The [Lean specification](formal/lean/README.md) makes the installed v0.2 semanti
 
 ## License
 
-The project is released under Apache License 2.0; see [LICENSE](LICENSE).
+Original project code and documentation are released under Apache License 2.0; see [LICENSE](LICENSE). Imported reference materials and fonts retain their own licenses and attribution; see [NOTICE](NOTICE).

@@ -32,7 +32,7 @@ These website checks establish presentation behavior. They do not establish thro
 
 ## Publish to GitHub Pages
 
-GitHub Pages serves the root of the dedicated `gh-pages` branch. That branch contains only `website/dist`, including `.nojekyll`; it excludes the research documents and original PDF. The site is public and the repository remains private, so public readers cannot follow repository links without access.
+GitHub Pages serves the root of the dedicated `gh-pages` branch. That branch contains only `website/dist`, including `.nojekyll`; it excludes the research documents and original PDF. The site and repository are public. Original project material uses Apache License 2.0; archived references and fonts retain their own licenses and attribution.
 
 After committing website updates on the research branch, publish the committed static files from the repository root:
 
