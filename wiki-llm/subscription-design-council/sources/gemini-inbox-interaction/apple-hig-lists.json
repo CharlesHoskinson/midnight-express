@@ -1,0 +1,24 @@
+{
+  "url": "https://developer.apple.com/design/human-interface-guidelines/lists-and-tables",
+  "retrieved_utc": "2026-10-05T20:36:57.363749+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "6da58f1c9615ca92466345c2564b761dd81db574aafb89f7f3e9b07352f882f9",
+  "text_sha256": "1e19aca964c7939fb5f8d1344f640977494752f521169660ee076576f1185c54",
+  "bytes": 17599,
+  "text_bytes": 163,
+  "final_url": "https://developer.apple.com/design/human-interface-guidelines/lists-and-tables",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/gemini-inbox-interaction/apple-hig-lists-tiles/developer.apple.com_design_human-interface-guidelines_lists-and-tables.png.tiles/tile_0000.jpg",
+        "sha256": "226e551f6809777f86f82f6d7e09669abf01cb156a57f6f598ea34ee000e1290"
+      }
+    ],
+    "stderr": "2026-10-05 14:36:58,778 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:37:09,114 INFO pixelrag_render.backends.cdp: [w0] https://developer.apple.com/design/human-interface-guidelines/lists-and-tables \u2192 1 tiles (7.3s)\n2026-10-05 14:37:09,132 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 14:37:09,133 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

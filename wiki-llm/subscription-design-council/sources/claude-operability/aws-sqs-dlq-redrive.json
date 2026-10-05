@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-dead-letter-queue-redrive.html",
+  "retrieved_utc": "2026-10-05T20:24:40.187219+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "4f49146de66f947a2fbf27fab72889d46d6ba72170336c8718d783f49ff8030d",
+  "text_sha256": "e9c8e455a9e7217ee1f88e47220a14bfa41db7b10d9149816405b258be9b78d9",
+  "bytes": 41404,
+  "text_bytes": 15996,
+  "final_url": "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-dead-letter-queue-redrive.html",
+  "accepted_source": true
+}

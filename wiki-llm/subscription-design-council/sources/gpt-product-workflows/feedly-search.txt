@@ -1,0 +1,62 @@
+How can I search within my Feedly? - Feedly Documentation
+Toggle Navigation
+Home 
+New to Feedly?  
+New to Feedly Threat Intelligence?  
+Collect  
+Analyze  
+Share  
+Contact Us  
+Search  
+Manage  
+Integrations  
+Apps and Extensions  
+Industry Add-Ons  
+Old - Getting Started  
+Old - Leo  
+Old - Feedly Business  
+How can I search within my Feedly?
+When you need to find any article in your feeds, Boards, Feedly AI Feeds or outside your Feedly, you can use Power Search via the search icon in the left navigation bar or directly via 
+https://feedly.com/i/powerSearch/in/
+Refine your search results with search operators
+You can type a search operator into the search bar to modify your search results. Using these search operators can further refine your search results. You can specify exactly what you’re looking for and look for specific terms in your search results.
+The search setup screen contains the AND, OR, and NOT operators, which allow you to narrow your search results:
+  
+“
+AND
+” searches for stories that include two different topics.
+“
+OR
+” searches for stories related to one topic or another.
+“
+NOT
+” searches for one topic but prevents another related topic from appearing in your search results.
+You can use the dropdown on the right to limit the search to Everything or Title only.
+You can use the dropdown options on the right of the search bar to limit your search by:
+  
+Date Published (Today, Last 7 days, Last 30 days, Forever, Custom Range)
+sort
+ (Newest, Popularity)
+embed
+ (Any Content, Video, Audio, Documents)
+.
+To specify the search, you can also choose from the dropdown menu on the right to search within All Feeds, All Boards, Annotated, Recently Read, Beyond Your Feedly, Feedly AI Feeds, or specific Feeds and Boards.
+Did this answer your question?
+Thanks for the feedback
+There was a problem submitting your feedback. Please try again later.
+Yes
+No
+Last updated on May 9, 2024
+Toggle Search
+Categories
+Within Your Feedly  
+No results found
+©
+    
+        
+Feedly
+
+    
+    2026. 
+Powered by 
+Help Scout

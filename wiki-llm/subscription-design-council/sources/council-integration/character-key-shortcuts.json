@@ -1,0 +1,36 @@
+{
+  "url": "https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts.html",
+  "retrieved_utc": "2026-10-05T20:35:36.811830+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "53d9dc5260337c5bd2146f764d0bdb7e169acf9b78cf43cbf13686c35cfe4146",
+  "text_sha256": "6f0a41e2269c5e22d3ac24e05ed2837c39661a2ab6d27d49526faecd2794d909",
+  "bytes": 48570,
+  "text_bytes": 16674,
+  "final_url": "https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts.html",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/council-integration/character-key-shortcuts-tiles/www.w3.org_WAI_WCAG22_Understanding_character-key-shortcuts.html.png.tiles/tile_0000.jpg",
+        "sha256": "8768e90ea23812cbae50e34044573165a6dcb37e96d56d3a441a0f575786aa4d"
+      },
+      {
+        "path": "sources/council-integration/character-key-shortcuts-tiles/www.w3.org_WAI_WCAG22_Understanding_character-key-shortcuts.html.png.tiles/tile_0001.jpg",
+        "sha256": "1451a1c176371a0261aabd0d5e825288c394b8a530d2b347705abc72c3daf214"
+      },
+      {
+        "path": "sources/council-integration/character-key-shortcuts-tiles/www.w3.org_WAI_WCAG22_Understanding_character-key-shortcuts.html.png.tiles/tile_0002.jpg",
+        "sha256": "71e8b5746b7ae1d5998e08282b823acaa8413b7e90f1386a2018ff79d38ce158"
+      },
+      {
+        "path": "sources/council-integration/character-key-shortcuts-tiles/www.w3.org_WAI_WCAG22_Understanding_character-key-shortcuts.html.png.tiles/tile_0003.jpg",
+        "sha256": "a58d057705b2d79994ff358e1eab9097aa77cd78fe47dff8bb2fe38d12f73f76"
+      }
+    ],
+    "stderr": "2026-10-05 14:35:37,856 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:35:43,937 INFO pixelrag_render.backends.cdp: [w0] https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts.html \u2192 4 tiles (3.0s)\n2026-10-05 14:35:43,955 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 14:35:43,955 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

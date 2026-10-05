@@ -1,0 +1,385 @@
+IDBDatabase: versionchange event - Web APIs | MDN
+Skip to main content
+Skip to search
+MDN
+HTML
+HTML: Markup language
+HTML reference
+Elements
+Global attributes
+Attributes
+See all…
+HTML guides
+Responsive images
+HTML cheatsheet
+Date & time formats
+See all…
+Markup languages
+SVG
+MathML
+XML
+CSS
+CSS: Styling language
+CSS reference
+Properties
+Selectors
+At-rules
+Values
+See all…
+CSS guides
+Box model
+Animations
+Flexbox
+Colors
+See all…
+Layout cookbook
+Column layouts
+Centering an element
+Card component
+See all…
+JavaScript
+JS
+JavaScript: Scripting language
+JS reference
+Standard built-in objects
+Expressions & operators
+Statements & declarations
+Functions
+See all…
+JS guides
+Control flow & error handling
+Loops and iteration
+Working with objects
+Using classes
+See all…
+Web APIs
+Web APIs: Programming interfaces
+Web API reference
+File system API
+Fetch API
+Geolocation API
+HTML DOM API
+Push API
+Service worker API
+See all…
+Web API guides
+Using the Web animation API
+Using the Fetch API
+Working with the History API
+Using the Web speech API
+Using web workers
+All
+All web technology
+Technologies
+Accessibility
+HTTP
+URI
+Web extensions
+WebAssembly
+WebDriver
+See all…
+Topics
+Media
+Performance
+Privacy
+Security
+Progressive web apps
+Learn
+Learn web development
+Frontend developer course
+Getting started modules
+Core modules
+MDN Curriculum
+Check out the video course from Scrimba, our partner
+Learn HTML
+Structuring content with HTML module
+Learn CSS
+CSS styling basics module
+CSS layout module
+Learn JavaScript
+Dynamic scripting with JavaScript module
+Tools
+
+                        Discover our tools
+                      
+Playground
+HTTP Observatory
+Border-image generator
+Border-radius generator
+Box-shadow generator
+Color format converter
+Color mixer
+Shape generator
+About
+
+                        Get to know MDN better
+                      
+About MDN
+Advertise with us
+Community
+MDN on GitHub
+Blog
+Toggle sidebar
+    
+Web
+Web APIs
+IDBDatabase
+versionchange
+Theme
+
+                    OS default
+                  
+
+                    Light
+                  
+
+                    Dark
+                  
+English (US)
+Remember language
+Learn more
+Deutsch
+English (US)
+Français
+日本語
+中文 (简体)
+IDBDatabase: versionchange event
+
+          Baseline
+        
+Widely available
+This feature is well established and works across many devices and browser versions. It’s been available across browsers since July 2015.
+
+              See full compatibility
+            
+
+              Learn more
+            
+The 
+versionchange
+ event is fired when a database structure change (
+upgradeneeded
+ event send on an 
+IDBOpenDBRequest
+ or 
+IDBFactory.deleteDatabase
+) was requested elsewhere (most probably in
+another window/tab on the same computer).
+In this article
+Syntax
+Event type
+Examples
+Specifications
+Browser compatibility
+See also
+Syntax
+Use the event name in methods like 
+addEventListener()
+, or set an event handler property.
+js
+addEventListener("versionchange", (event) => { })
+
+onversionchange = (event) => { }
+
+Event type
+A generic 
+Event
+.
+Examples
+This example opens a database and, on success, adds a listener to 
+versionchange
+:
+js
+// Open the database
+const dBOpenRequest = window.indexedDB.open("Nonexistent", 4);
+
+dBOpenRequest.onupgradeneeded = (event) => {
+  const db = event.target.result;
+  // Create an objectStore for this database
+  const objectStore = db.createObjectStore("toDoList", {
+    keyPath: "taskTitle",
+  });
+
+  // define what data items the objectStore will contain
+  objectStore.createIndex("hours", "hours", { unique: false });
+  objectStore.createIndex("minutes", "minutes", { unique: false });
+  objectStore.createIndex("day", "day", { unique: false });
+  objectStore.createIndex("month", "month", { unique: false });
+  objectStore.createIndex("year", "year", { unique: false });
+};
+
+dBOpenRequest.addEventListener("success", (event) => {
+  const db = event.target.result;
+  db.addEventListener("versionchange", (event) => {
+    console.log("The version of this database has changed");
+  });
+});
+
+The same example, using the 
+onversionchange
+ event handler property:
+js
+// Open the database
+const dBOpenRequest = window.indexedDB.open("Nonexistent", 4);
+
+dBOpenRequest.onupgradeneeded = (event) => {
+  const db = event.target.result;
+  // Create an objectStore for this database
+  const objectStore = db.createObjectStore("toDoList", {
+    keyPath: "taskTitle",
+  });
+
+  // define what data items the objectStore will contain
+  objectStore.createIndex("hours", "hours", { unique: false });
+  objectStore.createIndex("minutes", "minutes", { unique: false });
+  objectStore.createIndex("day", "day", { unique: false });
+  objectStore.createIndex("month", "month", { unique: false });
+  objectStore.createIndex("year", "year", { unique: false });
+};
+
+dBOpenRequest.onsuccess = (event) => {
+  const db = event.target.result;
+  db.onversionchange = (event) => {
+    console.log("The version of this database has changed");
+  };
+};
+
+Specifications
+
+            Specification
+          
+Indexed Database API 3.0
+# eventdef-idbdatabase-versionchange
+Indexed Database API 3.0
+# dom-idbdatabase-onversionchange
+Browser compatibility
+Enable JavaScript to view this browser compatibility table.
+See also
+Using IndexedDB
+
+            Help improve MDN
+          
+Was this page helpful to you?
+      
+Yes
+        
+No
+        
+Learn how to contribute
+
+    This page was last modified on 
+May 2, 2025
+ by 
+MDN contributors
+.
+  
+View this page on GitHub
+ • 
+Report a problem with this content
+Filter sidebar
+Clear filter input
+IndexedDB API
+IDBDatabase
+Instance properties
+name
+objectStoreNames
+version
+Instance methods
+close()
+createObjectStore()
+deleteObjectStore()
+transaction()
+Events
+close
+versionchange
+Inheritance
+EventTarget
+Related pages for IndexedDB
+IDBCursor
+IDBCursorWithValue
+IDBFactory
+IDBIndex
+IDBKeyRange
+IDBObjectStore
+IDBOpenDBRequest
+IDBRecord
+IDBRequest
+IDBTransaction
+IDBVersionChangeEvent
+Window
+.indexedDB
+WorkerGlobalScope
+.indexedDB
+Guides
+Using IndexedDB
+IndexedDB key characteristics and basic terminology
+Storage quotas and eviction criteria
+Checking when a deadline is due
+MDN
+
+              Your blueprint for a better internet.
+            
+MDN
+
+                            About
+                          
+
+                            Blog
+                          
+
+                            Mozilla careers
+                          
+
+                            Advertise with us
+                          
+
+                            MDN Plus
+                          
+
+                            Product help
+                          
+Contribute
+
+                            MDN Community
+                          
+
+                            Community resources
+                          
+
+                            Writing guidelines
+                          
+
+                            MDN Discord
+                          
+
+                            MDN on GitHub
+                          
+Developers
+
+                            Web technologies
+                          
+
+                            Learn web development
+                          
+
+                            Guides
+                          
+
+                            Tutorials
+                          
+
+                            Glossary
+                          
+
+                            Hacks blog
+                          
+Mozilla
+Website Privacy Notice
+Telemetry Settings
+Legal
+Community Participation Guidelines
+
+            Portions of this content are ©1998–2026 by individual mozilla.org contributors. Content available under 
+a Creative Commons license
+.
+          

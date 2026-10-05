@@ -1,0 +1,1864 @@
+Notification banner – GOV.UK Design System
+
+          Cookies on GOV.UK Design System
+        
+We’d like to use analytics cookies so we can understand how you use the Design System and make improvements.
+We also use essential cookies to remember if you’ve accepted analytics cookies.
+
+        Accept analytics cookies
+      
+
+        Reject analytics cookies
+      
+View cookies
+You’ve accepted analytics cookies. You can 
+change your cookie settings
+ at any time.
+
+        Hide cookie message
+      
+You’ve rejected analytics cookies. You can 
+change your cookie settings
+ at any time.
+
+        Hide cookie message
+      
+Skip to main content
+GOV.UK
+
+          Design System
+        
+Search Design system
+Sitemap
+
+            Menu
+          
+
+                                    
+Get started      
+
+      Get started overview
+    
+Setup guides
+
+      Prototyping
+    
+
+      Production
+    
+How to guides
+
+      Making labels and legends headings
+    
+
+      Extending and modifying components in production
+    
+
+      Understanding focus state styles
+    
+
+      Using the updated type scale
+    
+
+                                    
+Styles      
+
+      Styles overview
+    
+Page structure
+
+      Page template
+    
+
+      Layout
+    
+
+      Spacing
+    
+
+      Section break
+    
+Typography
+
+      Typeface
+    
+
+      Type scale
+    
+
+      Headings
+    
+
+      Paragraphs
+    
+
+      Links
+    
+
+      Lists
+    
+
+      Font override classes
+    
+Visual elements
+
+      Colour
+    
+
+      Images
+    
+Components      
+
+      Components overview
+    
+
+      Accordion
+    
+
+      Back link
+    
+
+      Breadcrumbs
+    
+
+      Button
+    
+
+      Character count
+    
+
+      Checkboxes
+    
+
+      Cookie banner
+    
+
+      Date input
+    
+
+      Details
+    
+
+      Error message
+    
+
+      Error summary
+    
+
+      Exit this page
+    
+
+      Feedback
+    
+
+      Fieldset
+    
+
+      File upload
+    
+
+      Generic header
+    
+
+      GOV.UK footer
+    
+
+      GOV.UK header
+    
+
+      Inset text
+    
+
+      Language navigation
+    
+
+      Notification banner
+    
+
+      Pagination
+    
+
+      Panel
+    
+
+      Password input
+    
+
+      Phase banner
+    
+
+      Radios
+    
+
+      Select
+    
+
+      Service navigation
+    
+
+      Skip link
+    
+
+      Summary list
+    
+
+      Table
+    
+
+      Tabs
+    
+
+      Tag
+    
+
+      Task list
+    
+
+      Text input
+    
+
+      Textarea
+    
+
+      Warning text
+    
+
+                                    
+Patterns      
+
+      Patterns overview
+    
+Ask users for…
+
+      Addresses
+    
+
+      Bank details
+    
+
+      Dates
+    
+
+      Email addresses
+    
+
+      Equality information
+    
+
+      Names
+    
+
+      National Insurance numbers
+    
+
+      Passwords
+    
+
+      Payment card details
+    
+
+      Phone numbers
+    
+Help users to…
+
+      Check a service is suitable
+    
+
+      Check answers
+    
+
+      Complete multiple tasks
+    
+
+      Confirm a phone number
+    
+
+      Confirm an email address
+    
+
+      Contact a department or service team
+    
+
+      Create a username
+    
+
+      Create accounts
+    
+
+      Exit a page quickly
+    
+
+      Navigate a service
+    
+
+      Recover from validation errors
+    
+
+      Start using a service
+    
+Pages
+
+      Confirmation pages
+    
+
+      Cookies page
+    
+
+      Interruption pages
+    
+
+      Page not found pages
+    
+
+      Question pages
+    
+
+      Service unavailable pages
+    
+
+      Step by step navigation
+    
+
+      There is a problem with the service pages
+    
+
+                                    
+Community      
+
+      Community overview
+    
+What we’re working on
+
+      Upcoming components and patterns
+    
+
+      Roadmap
+    
+
+      What's new
+    
+Ways to get involved
+
+      Take part in our research
+    
+
+      Share findings about your users
+    
+
+      Propose a component or pattern
+    
+
+      Develop a component or pattern
+    
+
+      Propose a content change using GitHub
+    
+How we work
+
+      Community principles
+    
+
+      Contribution criteria
+    
+
+      Blog posts, videos and podcasts
+    
+
+      Component lifecycle statuses
+    
+Resources
+
+      Resources and tools
+    
+Events and workshops
+
+      Design System Day events
+    
+
+      Code of Conduct
+    
+
+                                    
+Accessibility      
+
+      Accessibility overview
+    
+
+      Accessibility strategy
+    
+Pages in this section
+
+              Accordion
+            
+
+              Back link
+            
+
+              Breadcrumbs
+            
+
+              Button
+            
+
+              Character count
+            
+
+              Checkboxes
+            
+
+              Cookie banner
+            
+
+              Date input
+            
+
+              Details
+            
+
+              Error message
+            
+
+              Error summary
+            
+
+              Exit this page
+            
+
+              Feedback
+            
+
+              Fieldset
+            
+
+              File upload
+            
+
+              Generic header
+            
+
+              GOV.UK footer
+            
+
+              GOV.UK header
+            
+
+              Inset text
+            
+
+              Language navigation
+            
+
+              Notification banner
+            
+
+                        History
+ for Notification banner
+
+              Pagination
+            
+
+              Panel
+            
+
+              Password input
+            
+
+              Phase banner
+            
+
+              Radios
+            
+
+              Select
+            
+
+              Service navigation
+            
+
+              Skip link
+            
+
+              Summary list
+            
+
+              Table
+            
+
+              Tabs
+            
+
+              Tag
+            
+
+              Task list
+            
+
+              Text input
+            
+
+              Textarea
+            
+
+              Warning text
+            
+Home
+Components
+
+        Notification banner
+      
+
+                  History
+ for 
+Use a notification banner to tell the user about something they need to know about, but that’s not directly related to the page content.
+
+          Open this example in a new tab
+: notification banner
+HTML
+Nunjucks
+HTML
+<
+div
+class
+=
+"govuk-notification-banner"
+role
+=
+"region"
+aria-labelledby
+=
+"govuk-notification-banner-title"
+data-module
+=
+"govuk-notification-banner"
+>
+<
+div
+class
+=
+"govuk-notification-banner__header"
+>
+<
+h2
+class
+=
+"govuk-notification-banner__title"
+id
+=
+"govuk-notification-banner-title"
+>
+
+      Important
+    
+</
+h2
+>
+</
+div
+>
+<
+div
+class
+=
+"govuk-notification-banner__content"
+>
+<
+p
+class
+=
+"govuk-notification-banner__heading"
+>
+
+      You have 7 days left to send your application.
+      
+<
+a
+class
+=
+"govuk-notification-banner__link"
+href
+=
+"#"
+>
+View application
+</
+a
+>
+.
+    
+</
+p
+>
+</
+div
+>
+</
+div
+>
+Nunjucks
+Nunjucks macro options
+
+          Use options to customise the appearance, content and behaviour of a component when using a macro, for example, changing the text.
+          
+
+          Some options are required for the macro to work; these are marked as “Required” in the option description. Deprecated options are marked as “Deprecated”.
+          
+
+          If you’re using Nunjucks macros in production with “html” options, or ones ending with “html”, you must sanitise the HTML to protect against  
+cross-site scripting exploits
+.
+          
+Primary options
+Name
+Type
+Description
+text
+string
+Required.
+
+                      The text that displays in the notification banner. You can use any string with this option. If you set 
+html
+, this option is not required and is ignored.
+                    
+html
+string
+Required.
+
+                      The HTML to use within the notification banner. You can use any string with this option. If you set 
+html
+, 
+text
+ is not required and is ignored.
+                    
+caller
+nunjucks-block
+
+                      Not strictly a parameter but 
+Nunjucks code convention
+. Using a 
+call
+ block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire notification banner component in a 
+call
+ block.
+                    
+title
+Text
+string
+
+                      The title text that displays in the notification banner. You can use any string with this option. Use this option to set text that does not contain HTML. The available default values are ‘Important’, ‘Success’, and null:
+if you do not set 
+type
+, 
+titleText
+ defaults to 
+"Important"
+if you set 
+type
+ to 
+success
+, 
+titleText
+ defaults to 
+"Success"
+if you set 
+titleHtml
+, this option is ignored
+title
+Html
+string
+
+                      The title HTML to use within the notification banner. You can use any string with this option. Use this option to set text that contains HTML. If you set 
+titleHtml
+, the 
+titleText
+ option is ignored.
+                    
+title
+Heading
+Level
+string
+
+                      Sets heading level for the title only. You can only use values between 
+1
+ and 
+6
+ with this option. The default is 
+2
+.
+                    
+type
+string
+
+                      The type of notification to render. You can use only 
+"success"
+ or 
+null
+ values with this option. If you set 
+type
+ to 
+"success"
+, the notification banner sets 
+role
+ to 
+"alert"
+. JavaScript then moves the keyboard focus to the notification banner when the page loads. If you do not set 
+type
+, the notification banner sets 
+role
+ to 
+"region"
+.
+                    
+role
+string
+
+                      Overrides the value of the 
+role
+ attribute for the notification banner. Defaults to 
+"region"
+. If you set 
+type
+ to 
+"success"
+, 
+role
+ defaults to 
+"alert"
+.
+                    
+title
+Id
+string
+
+                      The 
+id
+ for the banner title, and the 
+aria-labelledby
+ attribute in the banner. Defaults to 
+"govuk-notification-banner-title"
+.
+                    
+disable
+Auto
+Focus
+boolean
+
+                      If you set 
+type
+ to 
+"success"
+, or 
+role
+ to 
+"alert"
+, JavaScript moves the keyboard focus to the notification banner when the page loads. To disable this behaviour, set 
+disableAutoFocus
+ to 
+true
+.
+                    
+classes
+string
+
+                      The classes that you want to add to the notification banner.
+                    
+attributes
+object
+
+                      The HTML attributes that you want to add to the notification banner, for example, data attributes.
+                    
+{% 
+from
+"govuk/components/notification-banner/macro.njk"
+import
+govukNotificationBanner
+ %}
+{% 
+call
+govukNotificationBanner
+() %}
+<
+p
+class
+=
+"govuk-notification-banner__heading"
+>
+
+    You have 7 days left to send your application.
+    
+<
+a
+class
+=
+"govuk-notification-banner__link"
+href
+=
+"#"
+>
+View application
+</
+a
+>
+.
+  
+</
+p
+>
+{% 
+endcall
+ %}
+When to use this component
+A notification banner lets you tell the user about something that’s not directly relevant to the thing they’re trying to do on that page of the service. For example:
+telling the user about a problem that’s affecting the service as a whole (for example, delays in processing applications because of an emergency)
+telling the user about something that affects them in particular (for example, an approaching deadline they need to meet)
+telling the user about the outcome of something they’ve just done on a previous page (for example, confirming that an email has been sent)
+When not to use this component
+Use notification banners sparingly. There’s 
+evidence that people often miss them
+, and using them too often is likely to make this problem worse.
+If the information is directly relevant to the thing the user is doing on that page, put the information in the main page content instead. Use an 
+Inset text component
+ or 
+Warning text component
+ if it needs to stand out.
+Do not:
+use a notification banner to tell the user about validation errors - use an 
+Error message component
+ and 
+Error summary component
+ instead
+show a notification banner and an 
+Error summary component
+ on the same page - just show the error summary
+How it works
+Position a notification banner immediately before the page 
+h1
+. The notification banner should be the same width as the page’s other content, such as components, headings and body text. For example, if the other content takes up two-thirds of the screen on desktop devices, then the notification banner should also take up two-thirds. 
+Read about how to lay out pages
+.
+Use 
+role="region"
+ and 
+aria-labelledby="govuk-notification-banner-title"
+ (with 
+id="govuk-notification-banner-title"
+ on 
+<govuk-notification-banner__title>
+) so that screen reader users can navigate to the notification banner.
+Avoid showing more than one notification banner on the same page. Instead, combine the messages in a single notification banner. If the messages are too different to combine, only show the highest priority notification banner.
+Notification banner headings
+You can use 
+<h3>
+ headings in the 
+govuk-notification-banner__content
+ to help structure your content.
+Avoid using headings for single-line notifications that do not need them.
+Telling the user about a problem that affects the whole service
+Use a ‘neutral’ blue notification banner if the user needs to know about a problem with the service as a whole.
+For example:
+in a service that lets the user register or apply for something, they might need to know that it’s taking longer than usual to process applications because of an emergency
+in an account-type service, the user might need to know that the service will be down for scheduled maintenance
+
+          Open this example in a new tab
+: whole service – notification banner
+HTML
+Nunjucks
+HTML
+<
+div
+class
+=
+"govuk-notification-banner"
+role
+=
+"region"
+aria-labelledby
+=
+"govuk-notification-banner-title"
+data-module
+=
+"govuk-notification-banner"
+>
+<
+div
+class
+=
+"govuk-notification-banner__header"
+>
+<
+h2
+class
+=
+"govuk-notification-banner__title"
+id
+=
+"govuk-notification-banner-title"
+>
+
+      Important
+    
+</
+h2
+>
+</
+div
+>
+<
+div
+class
+=
+"govuk-notification-banner__content"
+>
+
+    There may be a delay in processing your application because of the coronavirus outbreak.
+  
+</
+div
+>
+</
+div
+>
+Nunjucks
+Nunjucks macro options
+
+          Use options to customise the appearance, content and behaviour of a component when using a macro, for example, changing the text.
+          
+
+          Some options are required for the macro to work; these are marked as “Required” in the option description. Deprecated options are marked as “Deprecated”.
+          
+
+          If you’re using Nunjucks macros in production with “html” options, or ones ending with “html”, you must sanitise the HTML to protect against  
+cross-site scripting exploits
+.
+          
+Primary options
+Name
+Type
+Description
+text
+string
+Required.
+
+                      The text that displays in the notification banner. You can use any string with this option. If you set 
+html
+, this option is not required and is ignored.
+                    
+html
+string
+Required.
+
+                      The HTML to use within the notification banner. You can use any string with this option. If you set 
+html
+, 
+text
+ is not required and is ignored.
+                    
+caller
+nunjucks-block
+
+                      Not strictly a parameter but 
+Nunjucks code convention
+. Using a 
+call
+ block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire notification banner component in a 
+call
+ block.
+                    
+title
+Text
+string
+
+                      The title text that displays in the notification banner. You can use any string with this option. Use this option to set text that does not contain HTML. The available default values are ‘Important’, ‘Success’, and null:
+if you do not set 
+type
+, 
+titleText
+ defaults to 
+"Important"
+if you set 
+type
+ to 
+success
+, 
+titleText
+ defaults to 
+"Success"
+if you set 
+titleHtml
+, this option is ignored
+title
+Html
+string
+
+                      The title HTML to use within the notification banner. You can use any string with this option. Use this option to set text that contains HTML. If you set 
+titleHtml
+, the 
+titleText
+ option is ignored.
+                    
+title
+Heading
+Level
+string
+
+                      Sets heading level for the title only. You can only use values between 
+1
+ and 
+6
+ with this option. The default is 
+2
+.
+                    
+type
+string
+
+                      The type of notification to render. You can use only 
+"success"
+ or 
+null
+ values with this option. If you set 
+type
+ to 
+"success"
+, the notification banner sets 
+role
+ to 
+"alert"
+. JavaScript then moves the keyboard focus to the notification banner when the page loads. If you do not set 
+type
+, the notification banner sets 
+role
+ to 
+"region"
+.
+                    
+role
+string
+
+                      Overrides the value of the 
+role
+ attribute for the notification banner. Defaults to 
+"region"
+. If you set 
+type
+ to 
+"success"
+, 
+role
+ defaults to 
+"alert"
+.
+                    
+title
+Id
+string
+
+                      The 
+id
+ for the banner title, and the 
+aria-labelledby
+ attribute in the banner. Defaults to 
+"govuk-notification-banner-title"
+.
+                    
+disable
+Auto
+Focus
+boolean
+
+                      If you set 
+type
+ to 
+"success"
+, or 
+role
+ to 
+"alert"
+, JavaScript moves the keyboard focus to the notification banner when the page loads. To disable this behaviour, set 
+disableAutoFocus
+ to 
+true
+.
+                    
+classes
+string
+
+                      The classes that you want to add to the notification banner.
+                    
+attributes
+object
+
+                      The HTML attributes that you want to add to the notification banner, for example, data attributes.
+                    
+{% 
+from
+"govuk/components/notification-banner/macro.njk"
+import
+govukNotificationBanner
+ %}
+{% 
+call
+govukNotificationBanner
+() %}
+
+  There may be a delay in processing your application because of the coronavirus outbreak.
+
+{% 
+endcall
+ %}
+If your service is on GOV.UK and it’s affected by an emergency, ask your department’s content team to 
+make a request to add a downtime message on GOV.UK content that links to it
+.
+If your service is getting more demand than usual, check that you’ve set up 
+There is a problem with the service pages
+ and 
+Service unavailable pages
+, and the wording is up to date.
+Telling the user about something that’s happening elsewhere
+Use a ‘neutral’ notification banner if the user needs to know about something that’s happening elsewhere in the service. For example:
+in a case working system, the user might need to know that there are new cases waiting for their attention
+in an account-type service, you might need to tell the user that there’s a deadline approaching or that a payment is overdue
+
+          Open this example in a new tab
+: notification banner second
+HTML
+Nunjucks
+HTML
+<
+div
+class
+=
+"govuk-notification-banner"
+role
+=
+"region"
+aria-labelledby
+=
+"govuk-notification-banner-title"
+data-module
+=
+"govuk-notification-banner"
+>
+<
+div
+class
+=
+"govuk-notification-banner__header"
+>
+<
+h2
+class
+=
+"govuk-notification-banner__title"
+id
+=
+"govuk-notification-banner-title"
+>
+
+      Important
+    
+</
+h2
+>
+</
+div
+>
+<
+div
+class
+=
+"govuk-notification-banner__content"
+>
+<
+p
+class
+=
+"govuk-notification-banner__heading"
+>
+
+      You have 7 days left to send your application.
+      
+<
+a
+class
+=
+"govuk-notification-banner__link"
+href
+=
+"#"
+>
+View application
+</
+a
+>
+.
+    
+</
+p
+>
+</
+div
+>
+</
+div
+>
+Nunjucks
+Nunjucks macro options
+
+          Use options to customise the appearance, content and behaviour of a component when using a macro, for example, changing the text.
+          
+
+          Some options are required for the macro to work; these are marked as “Required” in the option description. Deprecated options are marked as “Deprecated”.
+          
+
+          If you’re using Nunjucks macros in production with “html” options, or ones ending with “html”, you must sanitise the HTML to protect against  
+cross-site scripting exploits
+.
+          
+Primary options
+Name
+Type
+Description
+text
+string
+Required.
+
+                      The text that displays in the notification banner. You can use any string with this option. If you set 
+html
+, this option is not required and is ignored.
+                    
+html
+string
+Required.
+
+                      The HTML to use within the notification banner. You can use any string with this option. If you set 
+html
+, 
+text
+ is not required and is ignored.
+                    
+caller
+nunjucks-block
+
+                      Not strictly a parameter but 
+Nunjucks code convention
+. Using a 
+call
+ block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire notification banner component in a 
+call
+ block.
+                    
+title
+Text
+string
+
+                      The title text that displays in the notification banner. You can use any string with this option. Use this option to set text that does not contain HTML. The available default values are ‘Important’, ‘Success’, and null:
+if you do not set 
+type
+, 
+titleText
+ defaults to 
+"Important"
+if you set 
+type
+ to 
+success
+, 
+titleText
+ defaults to 
+"Success"
+if you set 
+titleHtml
+, this option is ignored
+title
+Html
+string
+
+                      The title HTML to use within the notification banner. You can use any string with this option. Use this option to set text that contains HTML. If you set 
+titleHtml
+, the 
+titleText
+ option is ignored.
+                    
+title
+Heading
+Level
+string
+
+                      Sets heading level for the title only. You can only use values between 
+1
+ and 
+6
+ with this option. The default is 
+2
+.
+                    
+type
+string
+
+                      The type of notification to render. You can use only 
+"success"
+ or 
+null
+ values with this option. If you set 
+type
+ to 
+"success"
+, the notification banner sets 
+role
+ to 
+"alert"
+. JavaScript then moves the keyboard focus to the notification banner when the page loads. If you do not set 
+type
+, the notification banner sets 
+role
+ to 
+"region"
+.
+                    
+role
+string
+
+                      Overrides the value of the 
+role
+ attribute for the notification banner. Defaults to 
+"region"
+. If you set 
+type
+ to 
+"success"
+, 
+role
+ defaults to 
+"alert"
+.
+                    
+title
+Id
+string
+
+                      The 
+id
+ for the banner title, and the 
+aria-labelledby
+ attribute in the banner. Defaults to 
+"govuk-notification-banner-title"
+.
+                    
+disable
+Auto
+Focus
+boolean
+
+                      If you set 
+type
+ to 
+"success"
+, or 
+role
+ to 
+"alert"
+, JavaScript moves the keyboard focus to the notification banner when the page loads. To disable this behaviour, set 
+disableAutoFocus
+ to 
+true
+.
+                    
+classes
+string
+
+                      The classes that you want to add to the notification banner.
+                    
+attributes
+object
+
+                      The HTML attributes that you want to add to the notification banner, for example, data attributes.
+                    
+{% 
+from
+"govuk/components/notification-banner/macro.njk"
+import
+govukNotificationBanner
+ %}
+{% 
+call
+govukNotificationBanner
+() %}
+<
+p
+class
+=
+"govuk-notification-banner__heading"
+>
+
+    You have 7 days left to send your application.
+    
+<
+a
+class
+=
+"govuk-notification-banner__link"
+href
+=
+"#"
+>
+View application
+</
+a
+>
+.
+  
+</
+p
+>
+{% 
+endcall
+ %}
+Reacting to something the user has done
+You can also use a notification banner to tell the user about the outcome of something they’ve just done - but they have not finished the current journey, so it does not make sense to use a 
+Confirmation page at this point in your service
+.
+Using a notification banner is unlikely to be the right approach in a linear service - for example, a service that lets the user register or apply for a thing. For a linear service, it will usually make sense to stick to the 
+‘one thing per page’ approach
+, and avoid using a notification banner.
+Use a 
+Confirmation page in a linear service
+ to tell users that they’ve finished using the service instead of a notification banner.
+Use the green version of the notification banner to confirm that something they’re expecting to happen has happened.
+
+          Open this example in a new tab
+: success banner – notification banner
+HTML
+Nunjucks
+HTML
+<
+div
+class
+=
+"govuk-notification-banner govuk-notification-banner--success"
+role
+=
+"alert"
+aria-labelledby
+=
+"govuk-notification-banner-title"
+data-module
+=
+"govuk-notification-banner"
+>
+<
+div
+class
+=
+"govuk-notification-banner__header"
+>
+<
+h2
+class
+=
+"govuk-notification-banner__title"
+id
+=
+"govuk-notification-banner-title"
+>
+
+      Success
+    
+</
+h2
+>
+</
+div
+>
+<
+div
+class
+=
+"govuk-notification-banner__content"
+>
+<
+h3
+class
+=
+"govuk-notification-banner__heading"
+>
+
+      Training outcome recorded and trainee withdrawn
+    
+</
+h3
+>
+<
+p
+class
+=
+"govuk-body"
+>
+Contact 
+<
+a
+class
+=
+"govuk-notification-banner__link"
+href
+=
+"#"
+>
+example@department.gov.uk
+</
+a
+>
+ if you think there’s a problem.
+</
+p
+>
+</
+div
+>
+</
+div
+>
+Nunjucks
+Nunjucks macro options
+
+          Use options to customise the appearance, content and behaviour of a component when using a macro, for example, changing the text.
+          
+
+          Some options are required for the macro to work; these are marked as “Required” in the option description. Deprecated options are marked as “Deprecated”.
+          
+
+          If you’re using Nunjucks macros in production with “html” options, or ones ending with “html”, you must sanitise the HTML to protect against  
+cross-site scripting exploits
+.
+          
+Primary options
+Name
+Type
+Description
+text
+string
+Required.
+
+                      The text that displays in the notification banner. You can use any string with this option. If you set 
+html
+, this option is not required and is ignored.
+                    
+html
+string
+Required.
+
+                      The HTML to use within the notification banner. You can use any string with this option. If you set 
+html
+, 
+text
+ is not required and is ignored.
+                    
+caller
+nunjucks-block
+
+                      Not strictly a parameter but 
+Nunjucks code convention
+. Using a 
+call
+ block enables you to call a macro with all the text inside the tag. This is helpful if you want to pass a lot of content into a macro. To use it, you will need to wrap the entire notification banner component in a 
+call
+ block.
+                    
+title
+Text
+string
+
+                      The title text that displays in the notification banner. You can use any string with this option. Use this option to set text that does not contain HTML. The available default values are ‘Important’, ‘Success’, and null:
+if you do not set 
+type
+, 
+titleText
+ defaults to 
+"Important"
+if you set 
+type
+ to 
+success
+, 
+titleText
+ defaults to 
+"Success"
+if you set 
+titleHtml
+, this option is ignored
+title
+Html
+string
+
+                      The title HTML to use within the notification banner. You can use any string with this option. Use this option to set text that contains HTML. If you set 
+titleHtml
+, the 
+titleText
+ option is ignored.
+                    
+title
+Heading
+Level
+string
+
+                      Sets heading level for the title only. You can only use values between 
+1
+ and 
+6
+ with this option. The default is 
+2
+.
+                    
+type
+string
+
+                      The type of notification to render. You can use only 
+"success"
+ or 
+null
+ values with this option. If you set 
+type
+ to 
+"success"
+, the notification banner sets 
+role
+ to 
+"alert"
+. JavaScript then moves the keyboard focus to the notification banner when the page loads. If you do not set 
+type
+, the notification banner sets 
+role
+ to 
+"region"
+.
+                    
+role
+string
+
+                      Overrides the value of the 
+role
+ attribute for the notification banner. Defaults to 
+"region"
+. If you set 
+type
+ to 
+"success"
+, 
+role
+ defaults to 
+"alert"
+.
+                    
+title
+Id
+string
+
+                      The 
+id
+ for the banner title, and the 
+aria-labelledby
+ attribute in the banner. Defaults to 
+"govuk-notification-banner-title"
+.
+                    
+disable
+Auto
+Focus
+boolean
+
+                      If you set 
+type
+ to 
+"success"
+, or 
+role
+ to 
+"alert"
+, JavaScript moves the keyboard focus to the notification banner when the page loads. To disable this behaviour, set 
+disableAutoFocus
+ to 
+true
+.
+                    
+classes
+string
+
+                      The classes that you want to add to the notification banner.
+                    
+attributes
+object
+
+                      The HTML attributes that you want to add to the notification banner, for example, data attributes.
+                    
+{% 
+from
+"govuk/components/notification-banner/macro.njk"
+import
+govukNotificationBanner
+ %}
+{% 
+call
+govukNotificationBanner
+({
+  
+type
+: 
+"success"
+
+}) %}
+<
+h3
+class
+=
+"govuk-notification-banner__heading"
+>
+
+    Training outcome recorded and trainee withdrawn
+  
+</
+h3
+>
+<
+p
+class
+=
+"govuk-body"
+>
+Contact 
+<
+a
+class
+=
+"govuk-notification-banner__link"
+href
+=
+"#"
+>
+example@department.gov.uk
+</
+a
+>
+ if you think there’s a problem.
+</
+p
+>
+{% 
+endcall
+ %}
+Since you’re using the notification banner to tell the user about the outcome of something they’ve just done, add 
+role="alert"
+ so focus shifts to the notification banner on page load.
+Remove a green notification banner when the user moves to a new page.
+To make the green version of the notification banner accessible:
+use headings like ‘Success’ - so that you’re not relying on colour alone to convey meaning – to 
+meet WCAG 2.2 success criterion 1.4.1 Use of colour
+use the same heading for green notification banners within the same service - so that you’re identifying components that work in the same way consistently – this is to 
+meet WCAG 2.2 success criterion 3.2.4 Consistent identification
+Research on this component
+We need more research to understand:
+how common it is for users to miss important information in notification banners (including users of assistive technology, who might skip straight to the 
+h1
+)
+whether it’s sometimes helpful to allow users to dismiss notifications, and how to do this
+Recent changes
+Date
+Changed
+Description
+
+            Aug 2022
+          
+GOV.UK Frontend
+
+                  v4.3.0
+                
+Added the ability to pass the 
+html
+ parameter using 
+Nunjucks call syntax
+.
+
+            Sept 2021
+          
+                Guidance            
+Added more detailed guidance on where to position the notification banner on a page.
+
+            Feb 2021
+          
+                Guidance            
+Added advice on how and when to use heading HTML tags in the component.
+
+            Dec 2020
+          
+GOV.UK Frontend
+
+                  v3.10.1
+                
+Fixed small gap between header and outer border.
+Explicitly set component’s text colour.
+Updated component to wrap text at two thirds of 
+width-container
+ width.
+
+            Nov 2020
+          
+GOV.UK Frontend
+
+                  v3.10.0
+                
+Component introduced.
+View full change history
+Help improve this component
+
+      To help make sure that this page is useful, relevant and up to date, you can:
+    
+
+        take part in the
+        
+
+          ‘Notification banner’ discussion on GitHub
+        
+
+        and share your research
+      
+propose a change on GitHub
+
+        – read more about
+        
+
+          how to propose changes in GitHub
+        
+Need help?
+
+    If you’ve got a question about the GOV.UK Design System, 
+contact the team
+.
+  
+Back to top
+  
+Support links
+
+              Accessibility statement
+            
+
+              Sitemap
+            
+
+              Cookies
+            
+
+              Privacy
+            
+
+              Contact the team
+            
+
+          Built by the 
+GOV.UK Design System team
+
+            All content is available under the
+            
+Open Government Licence v3.0
+, except where otherwise stated
+          
+
+          © Crown copyright
+        

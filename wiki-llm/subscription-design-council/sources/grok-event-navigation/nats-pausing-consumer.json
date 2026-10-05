@@ -1,0 +1,24 @@
+{
+  "url": "https://docs.nats.io/learn/jetstream/pausing",
+  "retrieved_utc": "2026-10-05T20:25:27.114666+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "7c60d1222606e1a09d89f799f27aaeb0d084e85021ebd322f9ce0f357ee8bbbe",
+  "text_sha256": "f26c52e21e6dc12400499d183d4d6334b876c922e45645469850e330ec9635b2",
+  "bytes": 80935,
+  "text_bytes": 10894,
+  "final_url": "https://docs.nats.io/learn/jetstream/pausing",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/grok-event-navigation/nats-pausing-consumer-tiles/docs.nats.io_learn_jetstream_pausing.png.tiles/tile_0000.jpg",
+        "sha256": "a8bf7f4c42f8d29948a86dbb778306b266ae7979690dad83c31b9f21e1470f8a"
+      }
+    ],
+    "stderr": "2026-10-05 14:25:28,410 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:25:37,348 INFO pixelrag_render.backends.cdp: [w0] https://docs.nats.io/learn/jetstream/pausing \u2192 1 tiles (5.9s)\n2026-10-05 14:25:37,366 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 14:25:37,367 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

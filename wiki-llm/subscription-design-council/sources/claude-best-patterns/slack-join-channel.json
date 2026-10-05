@@ -1,0 +1,13 @@
+{
+  "url": "https://slack.com/help/articles/205239967-Join-a-channel",
+  "retrieved_utc": "2026-10-05T20:34:48.964134+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "4db2f46dcbf5658cb617805d3c75a088ac18814baa8d451e62b19f482525e23d",
+  "text_sha256": "080f633d8fa85750e20bd7bc34068a919edea37adca87dedd31179f9eef3155f",
+  "bytes": 91444,
+  "text_bytes": 7808,
+  "final_url": "https://slack.com/help/articles/205239967-Join-a-channel",
+  "accepted_source": true
+}

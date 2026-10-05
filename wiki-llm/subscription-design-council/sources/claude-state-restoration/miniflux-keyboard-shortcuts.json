@@ -1,0 +1,28 @@
+{
+  "url": "https://miniflux.app/docs/keyboard_shortcuts.html",
+  "retrieved_utc": "2026-10-05T20:18:51.479636+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "1fdde12f040d66d1d5526fcf9d6fb63862f0bfd2ed515eb91999320f07343e45",
+  "text_sha256": "74d67232db3bcc3566e0c01fbf388545910e8c628fb20e1c99340cf3fb5b105e",
+  "bytes": 3059,
+  "text_bytes": 1444,
+  "final_url": "https://miniflux.app/docs/keyboard_shortcuts.html",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/claude-state-restoration/miniflux-keyboard-shortcuts-tiles/miniflux.app_docs_keyboard_shortcuts.html.png.tiles/tile_0000.jpg",
+        "sha256": "33709f602ef07274c1977bbfbbe9487f01ebea50ed5dae7a56aeeedc8df81727"
+      },
+      {
+        "path": "sources/claude-state-restoration/miniflux-keyboard-shortcuts-tiles/miniflux.app_docs_keyboard_shortcuts.html.png.tiles/tile_0001.jpg",
+        "sha256": "49780a03af8870bee55d6ccfe2b1de59cdb545ee2131635eb9b07b2797f3dfb5"
+      }
+    ],
+    "stderr": "2026-10-05 14:18:52,769 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:18:57,542 INFO pixelrag_render.backends.cdp: [w0] https://miniflux.app/docs/keyboard_shortcuts.html \u2192 2 tiles (1.7s)\n2026-10-05 14:18:57,559 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 14:18:57,560 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

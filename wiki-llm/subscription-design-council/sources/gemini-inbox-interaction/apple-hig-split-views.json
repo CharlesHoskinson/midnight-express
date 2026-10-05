@@ -1,0 +1,24 @@
+{
+  "url": "https://developer.apple.com/design/human-interface-guidelines/split-views",
+  "retrieved_utc": "2026-10-05T20:14:42.196286+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "432627b08791261203a8deef161b4a9b2ddb4ece852350b12a99598e8b51086b",
+  "text_sha256": "8be7026d631f3d2d37e657ef833bf5611b45111ecb0d0498dd0990d7565df826",
+  "bytes": 17918,
+  "text_bytes": 158,
+  "final_url": "https://developer.apple.com/design/human-interface-guidelines/split-views",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/gemini-inbox-interaction/apple-hig-split-views-tiles/developer.apple.com_design_human-interface-guidelines_split-views.png.tiles/tile_0000.jpg",
+        "sha256": "98f00000bf9a3c78f476dba55683bca105635c39e98d264e88275e43e7c868fd"
+      }
+    ],
+    "stderr": "2026-10-05 14:14:44,023 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:14:54,149 INFO pixelrag_render.backends.cdp: [w0] https://developer.apple.com/design/human-interface-guidelines/split-views \u2192 1 tiles (7.1s)\n2026-10-05 14:14:54,167 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 14:14:54,168 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

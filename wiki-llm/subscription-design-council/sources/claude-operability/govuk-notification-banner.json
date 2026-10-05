@@ -1,0 +1,40 @@
+{
+  "url": "https://design-system.service.gov.uk/components/notification-banner/",
+  "retrieved_utc": "2026-10-05T20:24:18.409194+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "6a86809886c2ca0e0a2a52198724854cb4e7cc81d2d187dd87b985a3d17a36a5",
+  "text_sha256": "26d4e2b3fcb9157f12526d4cca4cfd09882b2e43e67d4cd98f58c507b9850c80",
+  "bytes": 123952,
+  "text_bytes": 32431,
+  "final_url": "https://design-system.service.gov.uk/components/notification-banner/",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/claude-operability/govuk-notification-banner-tiles/design-system.service.gov.uk_components_notification-banner.png.tiles/tile_0000.jpg",
+        "sha256": "0791602f2a68b1fb5b93a0d79ce8175acca84586934bc170573c6d17a6be9e5b"
+      },
+      {
+        "path": "sources/claude-operability/govuk-notification-banner-tiles/design-system.service.gov.uk_components_notification-banner.png.tiles/tile_0001.jpg",
+        "sha256": "f1d2d888ed3b6e43865ed5a036dcd54aa1a2074e47bc7e2de34252e83a898e9e"
+      },
+      {
+        "path": "sources/claude-operability/govuk-notification-banner-tiles/design-system.service.gov.uk_components_notification-banner.png.tiles/tile_0002.jpg",
+        "sha256": "325c29fd259e2fdbdfea397f41fa51e1272a6c51bea9be0788a4f67d0bec4334"
+      },
+      {
+        "path": "sources/claude-operability/govuk-notification-banner-tiles/design-system.service.gov.uk_components_notification-banner.png.tiles/tile_0003.jpg",
+        "sha256": "62b8b2c32e46242165ce91ebe857bdf2342668b355b03bc57e5242e5bda273b7"
+      },
+      {
+        "path": "sources/claude-operability/govuk-notification-banner-tiles/design-system.service.gov.uk_components_notification-banner.png.tiles/tile_0004.jpg",
+        "sha256": "64fe195b0b8df2effb73afd1bd87cfcb6eeef9b7935f00034fa65d887e5097cd"
+      }
+    ],
+    "stderr": "2026-10-05 14:24:19,848 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:24:26,841 INFO pixelrag_render.backends.cdp: [w0] https://design-system.service.gov.uk/components/notification-banner/ \u2192 5 tiles (3.1s)\n2026-10-05 14:24:26,859 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 14:24:26,860 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

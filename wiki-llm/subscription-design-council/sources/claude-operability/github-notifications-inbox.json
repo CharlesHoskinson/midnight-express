@@ -1,0 +1,19 @@
+{
+  "url": "https://docs.github.com/en/subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/managing-notifications-from-your-inbox",
+  "retrieved_utc": "2026-10-05T20:24:18.402126+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "c6d642caaf6de84688029a58b663c6b7c39097d4120c11fc350609261e7897d9",
+  "text_sha256": "cda0ddeb61d7d0383564ca0525a5be00db79e76e63e4593cbada2d725d66c90c",
+  "bytes": 126409,
+  "text_bytes": 4923,
+  "final_url": "https://docs.github.com/en/subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/managing-notifications-from-your-inbox",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 1,
+    "tiles": [],
+    "stderr": "2026-10-05 14:24:19,715 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:24:26,850 WARNING pixelrag_render.backends.cdp: [w0] FAIL https://docs.github.com/en/subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/managing-notifications-from-your-inbox: no close frame received or sent\n2026-10-05 14:24:26,867 INFO pixelrag_render.backends.cdp: Batch complete: done=0 failed=1\n2026-10-05 14:24:26,868 WARNING pixelrag_render.render: No outputs produced.\n",
+    "verified_capture": false
+  }
+}

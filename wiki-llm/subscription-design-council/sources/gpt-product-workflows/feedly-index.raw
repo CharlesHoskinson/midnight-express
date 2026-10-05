@@ -1,0 +1,1071 @@
+
+
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="utf-8"/>
+    <title>Feedly Documentation</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Feedly FAQs"/>
+    <meta name="author" content="Feedly"/>
+    <link rel="canonical" href="https://docs.feedly.com"/>
+    
+
+    
+        <link rel="stylesheet" href="//d3eto7onm69fcz.cloudfront.net/assets/stylesheets/launch-1790673831894.css">
+    
+    <style>
+        body { background: #ffffff; }
+        .navbar .navbar-inner { background: #ffffff; }
+        .navbar .nav li a, 
+        .navbar .icon-private-w  { color: #b8b8b8; }
+        .navbar .brand, 
+        .navbar .nav li a:hover, 
+        .navbar .nav li a:focus, 
+        .navbar .nav .active a, 
+        .navbar .nav .active a:hover, 
+        .navbar .nav .active a:focus  { color: #b8b8b8; }
+        .navbar a:hover .icon-private-w, 
+        .navbar a:focus .icon-private-w, 
+        .navbar .active a .icon-private-w, 
+        .navbar .active a:hover .icon-private-w, 
+        .navbar .active a:focus .icon-private-w { color: #b8b8b8; }
+        #serp-dd .result a:hover,
+        #serp-dd .result > li.active,
+        #fullArticle strong a,
+        #fullArticle a strong,
+        .collection a,
+        .contentWrapper a,
+        .most-pop-articles .popArticles a,
+        .most-pop-articles .popArticles a:hover span,
+        .category-list .category .article-count,
+        .category-list .category:hover .article-count { color: #2bb24c; }
+        #fullArticle, 
+        #fullArticle p, 
+        #fullArticle ul, 
+        #fullArticle ol, 
+        #fullArticle li, 
+        #fullArticle div, 
+        #fullArticle blockquote, 
+        #fullArticle dd, 
+        #fullArticle table { color:#585858; }
+    </style>
+    
+        <link rel="stylesheet" href="//s1.feedly.com/helpscout/FeedlyKnowledgeBase.css">
+    
+    <link rel="apple-touch-icon-precomposed" href="//d33v4339jhl8k0.cloudfront.net/docs/assets/5abc898d2c7d3a0e9366d6c3/images/693c55db35862f03fd1c4a69/Frame-1073714196-(1).png">
+    <link rel="shortcut icon" type="image/png" href="//d33v4339jhl8k0.cloudfront.net/docs/assets/5abc898d2c7d3a0e9366d6c3/images/693c55dbcb9d3b0ea8ed81be/Frame-1073714196-(1).png">
+    <!--[if lt IE 9]>
+    
+        <script src="//d3eto7onm69fcz.cloudfront.net/assets/javascripts/html5shiv.min.js"></script>
+    
+    <![endif]-->
+    
+        <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"WebSite","url":"https://docs.feedly.com","potentialAction":{"@type":"SearchAction","target":"https://docs.feedly.com/search?query={query}","query-input":"required name=query"}}
+        </script>
+    
+    
+        <script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
+<script type="text/javascript">window.Beacon('init', '7dbc0d3a-e0eb-460b-8207-b72f0c11abd4')</script>
+    
+</head>
+    <body>
+        <script>
+            window.onload = function() {
+                $("#searchBar input.search-query" ).focus();
+            };
+        </script>
+        
+<header id="mainNav" class="navbar">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="https://docs.feedly.com">
+            
+                
+                    <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5abc898d2c7d3a0e9366d6c3/images/64d0c434ccffa67e9b0842a7/logo.png" alt="Feedly Documentation" width="300" height="42">
+                
+
+            
+            </a>
+            
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            
+            <div class="nav-collapse collapse">
+                <nav role="navigation"><!-- added for accessibility -->
+                <ul class="nav">
+                    
+                        <li id="home" class="active"><a href="/">Home <b class="caret"></b></a></li>
+                    
+                    
+                        
+                            <li  id="new-to-feedly"><a href="/collection/519-new-to-feedly">New to Feedly?  <b class="caret"></b></a></li>
+                        
+                            <li  id="new-to-feedly-threat-intelligence"><a href="/collection/760-new-to-feedly-threat-intelligence">New to Feedly Threat Intelligence?  <b class="caret"></b></a></li>
+                        
+                            <li  id="collect"><a href="/collection/408-collect">Collect  <b class="caret"></b></a></li>
+                        
+                            <li  id="analyze"><a href="/collection/411-analyze">Analyze  <b class="caret"></b></a></li>
+                        
+                            <li  id="share"><a href="/collection/414-share">Share  <b class="caret"></b></a></li>
+                        
+                            <li  id="contact-us"><a href="/collection/525-contact-us">Contact Us  <b class="caret"></b></a></li>
+                        
+                            <li  id="search"><a href="/collection/417-search">Search  <b class="caret"></b></a></li>
+                        
+                            <li  id="manage"><a href="/collection/423-manage">Manage  <b class="caret"></b></a></li>
+                        
+                            <li  id="integrations"><a href="/collection/420-integrations">Integrations  <b class="caret"></b></a></li>
+                        
+                            <li  id="apps-and-extensions"><a href="/collection/426-apps-and-extensions">Apps and Extensions  <b class="caret"></b></a></li>
+                        
+                            <li  id="industry-add-ons"><a href="/collection/429-industry-add-ons">Industry Add-Ons  <b class="caret"></b></a></li>
+                        
+                            <li  id="old---getting-started"><a href="/collection/405-old---getting-started">Old - Getting Started  <b class="caret"></b></a></li>
+                        
+                            <li  id="old---leo"><a href="/collection/219-old---leo">Old - Leo  <b class="caret"></b></a></li>
+                        
+                            <li  id="old---feedly-business"><a href="/collection/10-old---feedly-business">Old - Feedly Business  <b class="caret"></b></a></li>
+                        
+                    
+                    
+                    
+                </ul>
+                </nav>
+            </div><!--/.nav-collapse -->
+        </div><!--/container-->
+    </div><!--/navbar-inner-->
+</header>
+        <section id="docsSearch">
+            
+                <h1>Feedly Documentation</h1>
+            
+             
+
+<form action="/search" method="GET" id="searchBar" autocomplete="off">
+    
+                <input type="text" name="query" title="search-query" class="search-query" placeholder="Search docs" aria-label="Search docs" value="">
+                <button type="submit" aria-label="Search"><i class="icon-search lp"></i><span>Search</span></button>
+                <div id="serp-dd" style="display:none;">
+                    <ul class="result"></ul>
+                </div>
+            
+</form>
+
+        </section><!--/docsSearch-->
+        <section id="contentArea" class="container-fluid">
+            
+
+    <div id="noResults" style="display:none;">No results found</div>
+    
+        
+            
+                <section class="collection-category" id="collection-category-760">
+                    <h2 id="collection-760"><a href="/collection/760-new-to-feedly-threat-intelligence">New to Feedly Threat Intelligence?</a></h2>
+                    <section class="category-list">
+                    
+                        
+                            <a class="category" id="category-763" href="/category/763-ai-feeds">
+                                <h3>AI Feeds</h3>
+                                <p>Everything you need to know about Feedly Threat Intelligence AI Feeds.</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">7</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-833" href="/category/833-cyberattack-agent">
+                                <h3>Cyberattack Intel Agent</h3>
+                                <p>Filter cyberattack intel to identify attack chains, victims, attributions, and more.</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">6</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-832" href="/category/832-vulnerability-agent">
+                                <h3>Vulnerability Intel Agent</h3>
+                                <p>Discover, triage, research, and document high-risk CVEs faster with Feedly AI.</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">5</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-824" href="/category/824-ttp-ai-agent">
+                                <h3>TTP Intel Agent</h3>
+                                <p>Plan effective threat hunts or red-blue exercises with complete context.</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">7</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-819" href="/category/819-mcp-server">
+                                <h3>MCP Server</h3>
+                                <p>How to automate CTI workflows with AI Assistants and the Feedly Threat Graph</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">4</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-825" href="/category/825-cyberattack-insights-cards">
+                                <h3>Cyberattack Insights Cards</h3>
+                                <p>Everything you need to know about Cyberattack Insights Cards.</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">5</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-783" href="/category/783-cve-insights-cards">
+                                <h3>CVE Insights Cards</h3>
+                                <p>Everything you need to know about Feedly Threat Intelligence CVE Insights Cards.</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">5</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-789" href="/category/789-malware-insights-cards">
+                                <h3>Malware Insights Cards</h3>
+                                <p>Everything you need to know about Feedly Threat Intelligence Malware Insights Cards.</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">5</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-856" href="/category/856-microsoft-teams-integration">
+                                <h3>Microsoft Teams Integration</h3>
+                                <p>Everything you need to know about Feedly Threat Intelligence MS Teams integration.</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">1</span> article
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-858" href="/category/858-slack">
+                                <h3>Slack Integration</h3>
+                                <p>Everything you need to know about Feedly Threat Intelligence Slack integration.</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">1</span> article
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-771" href="/category/771-api">
+                                <h3>API</h3>
+                                <p>Everything you need to know about Feedly Threat Intelligence&#x27;s API.</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">1</span> article
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                    </section><!-- /category-list -->
+                </section><!-- /collection -->
+            
+                <section class="collection-category" id="collection-category-519">
+                    <h2 id="collection-519"><a href="/collection/519-new-to-feedly">New to Feedly?</a></h2>
+                    <section class="category-list two-col">
+                    
+                        
+                            <a class="category" id="category-673" href="/category/673-new-to-feedly-2">
+                                <h3>New to Feedly?</h3>
+                                <p>Everything you need to know about getting started.</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">1</span> article
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                    </section><!-- /category-list -->
+                </section><!-- /collection -->
+            
+                <section class="collection-category" id="collection-category-408">
+                    <h2 id="collection-408"><a href="/collection/408-collect">Collect</a></h2>
+                    <section class="category-list">
+                    
+                        
+                            <a class="category" id="category-560" href="/category/560-web-alerts">
+                                <h3>Feedly AI Feeds</h3>
+                                <p>How to find relevant info across the web</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">28</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-439" href="/category/439-websites">
+                                <h3>Websites</h3>
+                                <p>How to follow RSS feeds, Youtube, Medium, ...</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">18</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-592" href="/category/592-rss-builder">
+                                <h3>RSS Builder</h3>
+                                <p>How to follow websites that don’t support RSS</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">10</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-445" href="/category/445-newsletter-feeds">
+                                <h3>Newsletter Feeds</h3>
+                                <p>How to follow Newsletters in Feedly</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">12</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-706" href="/category/706-mute-filters">
+                                <h3>Mute Filters</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">21</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-704" href="/category/704-summarization">
+                                <h3>Summarization</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">3</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-708" href="/category/708-deduplication">
+                                <h3>Deduplication</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">5</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-703" href="/category/703-strategic-moves">
+                                <h3>Strategic Moves</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">14</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-440" href="/category/440-twitter">
+                                <h3>Twitter</h3>
+                                <p>How to follow Twitter feeds</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">3</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-484" href="/category/484-reddit">
+                                <h3>Reddit</h3>
+                                <p>How to follow Reddit sources</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">7</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-482" href="/category/482-organizing-feeds-add-remove">
+                                <h3>Managing Feeds</h3>
+                                <p>How to manage your feeds</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">39</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-494" href="/category/494-team-feeds">
+                                <h3>Team Feeds</h3>
+                                <p>How to organize and manage Team Feeds</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">11</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-493" href="/category/493-export-import">
+                                <h3>Export, Import</h3>
+                                <p>How to export and import your feeds and sources</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">4</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-443" href="/category/443-web-alertskeyword-alerts">
+                                <h3>Google News searches</h3>
+                                <p>How to create and manage Google News searches</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">9</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-657" href="/category/657-mastodon">
+                                <h3>Mastodon</h3>
+                                <p>How to share articles and follow Mastodon feeds</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">2</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-659" href="/category/659-facebook">
+                                <h3>Facebook</h3>
+                                <p>Following Facebook feeds in Feedly</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">1</span> article
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-662" href="/category/662-telegram">
+                                <h3>Telegram</h3>
+                                <p>Following Telegram feeds in Feedly</p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">1</span> article
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                    </section><!-- /category-list -->
+                </section><!-- /collection -->
+            
+                <section class="collection-category" id="collection-category-411">
+                    <h2 id="collection-411"><a href="/collection/411-analyze">Analyze</a></h2>
+                    <section class="category-list">
+                    
+                        
+                            <a class="category" id="category-743" href="/category/743-ai-actions-market-intelligence">
+                                <h3>Ask AI Market Intelligence</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">4</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-742" href="/category/742-ai-actions-threat-intelligence">
+                                <h3>Ask AI Threat Intelligence</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">3</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-711" href="/category/711-boards">
+                                <h3>Boards</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">16</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-712" href="/category/712-team-boards">
+                                <h3>Team Boards</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">12</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-710" href="/category/710-notes-and-highlights">
+                                <h3>Notes and Highlights</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">5</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                    </section><!-- /category-list -->
+                </section><!-- /collection -->
+            
+                <section class="collection-category" id="collection-category-414">
+                    <h2 id="collection-414"><a href="/collection/414-share">Share</a></h2>
+                    <section class="category-list">
+                    
+                        
+                            <a class="category" id="category-719" href="/category/719-bluesky">
+                                <h3>Bluesky</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">1</span> article
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-721" href="/category/721-threads">
+                                <h3>Threads</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">1</span> article
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-691" href="/category/691-automated-newsletters">
+                                <h3>Automated Newsletters</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">10</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-458" href="/category/458-team-newsletters">
+                                <h3>Legacy Newsletters</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">21</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-459" href="/category/459-slack">
+                                <h3>Slack</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">6</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-460" href="/category/460-microsoft-teams">
+                                <h3>Microsoft Teams</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">5</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-461" href="/category/461-buffer">
+                                <h3>Buffer</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">9</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-462" href="/category/462-pocket">
+                                <h3>Pocket</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">4</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-463" href="/category/463-evernote">
+                                <h3>Evernote</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">4</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-464" href="/category/464-onenote">
+                                <h3>OneNote</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">5</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-486" href="/category/486-custom-sharing">
+                                <h3>Custom Sharing</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">2</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-488" href="/category/488-email">
+                                <h3>Email</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">3</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-489" href="/category/489-linkedin">
+                                <h3>LinkedIn</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">2</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-490" href="/category/490-twitter">
+                                <h3>Twitter</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">1</span> article
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                    </section><!-- /category-list -->
+                </section><!-- /collection -->
+            
+                <section class="collection-category" id="collection-category-525">
+                    <h2 id="collection-525"><a href="/collection/525-contact-us">Contact Us</a></h2>
+                    <section class="category-list two-col">
+                    
+                        
+                            <a class="category" id="category-528" href="/category/528-contact">
+                                <h3>Contact</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">1</span> article
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                    </section><!-- /category-list -->
+                </section><!-- /collection -->
+            
+                <section class="collection-category" id="collection-category-417">
+                    <h2 id="collection-417"><a href="/collection/417-search">Search</a></h2>
+                    <section class="category-list two-col">
+                    
+                        
+                            <a class="category" id="category-466" href="/category/466-within-your-feedly">
+                                <h3>Within Your Feedly</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">4</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                    </section><!-- /category-list -->
+                </section><!-- /collection -->
+            
+                <section class="collection-category" id="collection-category-423">
+                    <h2 id="collection-423"><a href="/collection/423-manage">Manage</a></h2>
+                    <section class="category-list">
+                    
+                        
+                            <a class="category" id="category-468" href="/category/468-team-users-addremoveinvite">
+                                <h3>Team Users</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">10</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-469" href="/category/469-billing">
+                                <h3>Billing</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">15</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-470" href="/category/470-logins">
+                                <h3>Logins</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">9</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-471" href="/category/471-preferences">
+                                <h3>Preferences</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">6</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-481" href="/category/481-privacy">
+                                <h3>Privacy</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">4</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-502" href="/category/502-plans">
+                                <h3>Plans</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">5</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                    </section><!-- /category-list -->
+                </section><!-- /collection -->
+            
+                <section class="collection-category" id="collection-category-420">
+                    <h2 id="collection-420"><a href="/collection/420-integrations">Integrations</a></h2>
+                    <section class="category-list">
+                    
+                        
+                            <a class="category" id="category-437" href="/category/437-zapier">
+                                <h3>Zapier</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">4</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-436" href="/category/436-ifttt">
+                                <h3>IFTTT</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">4</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-435" href="/category/435-dropbox">
+                                <h3>Dropbox</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">8</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-495" href="/category/495-business-integrations">
+                                <h3>Enterprise Integrations</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">12</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                    </section><!-- /category-list -->
+                </section><!-- /collection -->
+            
+                <section class="collection-category" id="collection-category-426">
+                    <h2 id="collection-426"><a href="/collection/426-apps-and-extensions">Apps and Extensions</a></h2>
+                    <section class="category-list">
+                    
+                        
+                            <a class="category" id="category-472" href="/category/472-web-application">
+                                <h3>Web Application</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">3</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-473" href="/category/473-ios-application">
+                                <h3>iOS Application</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">8</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-474" href="/category/474-android-application">
+                                <h3>Android Application</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">7</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                    </section><!-- /category-list -->
+                </section><!-- /collection -->
+            
+                <section class="collection-category" id="collection-category-429">
+                    <h2 id="collection-429"><a href="/collection/429-industry-add-ons">Industry Add-Ons</a></h2>
+                    <section class="category-list two-col">
+                    
+                        
+                            <a class="category" id="category-728" href="/category/728-market-intelligence">
+                                <h3>Market Intelligence</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">13</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                        
+                            <a class="category" id="category-476" href="/category/476-cybersecurity">
+                                <h3>Threat Intelligence</h3>
+                                <p></p>
+                                <p class="article-count">                                    
+                                    
+                                        <span class="notranslate">12</span> articles
+                                                                        
+                                </p>
+                            </a><!-- /category -->
+                        
+                    
+                    </section><!-- /category-list -->
+                </section><!-- /collection -->
+            
+        
+    
+
+            <footer class="center">
+                
+
+<p>&copy;
+    
+        <a href="https://docs.feedly.com">Feedly</a>
+    
+    2026. <span>Powered by <a rel="nofollow noopener noreferrer" href="https://www.helpscout.com/docs-refer/?co=Feedly&utm_source=docs&utm_medium=footerlink&utm_campaign=Docs+Branding" target="_blank">Help Scout</a></span>
+    
+        
+    
+    
+</p>
+
+            </footer>
+        </section><!--/.fluid-container-->
+        
+        
+    <script src="//d3eto7onm69fcz.cloudfront.net/assets/javascripts/app4.min.js"></script>
+
+<script>
+// keep iOS links from opening safari
+if(("standalone" in window.navigator) && window.navigator.standalone){
+// If you want to prevent remote links in standalone web apps opening Mobile Safari, change 'remotes' to true
+var noddy, remotes = false;
+document.addEventListener('click', function(event) {
+noddy = event.target;
+while(noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
+noddy = noddy.parentNode;
+}
+
+if('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes)){
+event.preventDefault();
+document.location.href = noddy.href;
+}
+
+},false);
+}
+</script>
+    </body>
+</html>

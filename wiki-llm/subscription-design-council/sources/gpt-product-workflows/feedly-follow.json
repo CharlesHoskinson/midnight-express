@@ -1,0 +1,32 @@
+{
+  "url": "https://docs.feedly.com/article/288-how-to-follow-a-feed-in-your-feedly-account",
+  "retrieved_utc": "2026-10-05T20:08:25.558731+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "3222138bed1a10ba4c0644e6fac44f528d6e85c94ea31b1342757904f028ab41",
+  "text_sha256": "82552cce110247bebb1d92d3e5595abf6cc1d4d2927f39ff82da80e122ab9099",
+  "bytes": 22132,
+  "text_bytes": 3725,
+  "final_url": "https://docs.feedly.com/article/288-how-to-follow-a-feed-in-your-feedly-account",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/gpt-product-workflows/feedly-follow-tiles/docs.feedly.com_article_288-how-to-follow-a-feed-in-your-feedly-account.png.tiles/tile_0000.jpg",
+        "sha256": "ce4574d1dfb5c517bc077b71daaae57dafa8b86bdad506002904bf9011ec1b70"
+      },
+      {
+        "path": "sources/gpt-product-workflows/feedly-follow-tiles/docs.feedly.com_article_288-how-to-follow-a-feed-in-your-feedly-account.png.tiles/tile_0001.jpg",
+        "sha256": "6b70a1ef3b7b7fbf05ce8ab6751433d35a1ad4e0173aa7885aa1d205aec94c5f"
+      },
+      {
+        "path": "sources/gpt-product-workflows/feedly-follow-tiles/docs.feedly.com_article_288-how-to-follow-a-feed-in-your-feedly-account.png.tiles/tile_0002.jpg",
+        "sha256": "064742ca03fb3e1569a0c57e7ff0d4fc55509333cf2f280516eaf9b37169f8de"
+      }
+    ],
+    "stderr": "2026-10-05 14:08:26,615 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:08:55,000 INFO pixelrag_render.backends.cdp: [w0] https://docs.feedly.com/article/288-how-to-follow-a-feed-in-your-feedly-account \u2192 3 tiles (25.3s)\n2026-10-05 14:08:55,018 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 14:08:55,018 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

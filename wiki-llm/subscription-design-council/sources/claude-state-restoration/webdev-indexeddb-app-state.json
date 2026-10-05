@@ -1,0 +1,13 @@
+{
+  "url": "https://web.dev/articles/indexeddb-best-practices-app-state",
+  "retrieved_utc": "2026-10-05T20:17:49.119319+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "2068bc43839087770a9567b58242783ecf3497f42fbb102178e37e56bcac8557",
+  "text_sha256": "ebef496d4e0b9342346866c099a2460e6907eb6b161e90286272580bf41158e2",
+  "bytes": 93521,
+  "text_bytes": 11815,
+  "final_url": "https://web.dev/articles/indexeddb-best-practices-app-state",
+  "accepted_source": true
+}

@@ -1,0 +1,13 @@
+{
+  "url": "https://carbondesignsystem.com/components/data-table/usage/",
+  "retrieved_utc": "2026-10-05T20:34:48.977365+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "1a208786da4bd660e9d31dae627a3eb81c3e644f894ab9e876a1ac10d2addf1f",
+  "text_sha256": "1b3f5373082de7f1b75b19970d6fb792c51b6798be414562fd59443e2910f551",
+  "bytes": 448028,
+  "text_bytes": 17549,
+  "final_url": "https://www.carbondesignsystem.com/building-blocks/core/components/data-table/guidelines",
+  "accepted_source": true
+}

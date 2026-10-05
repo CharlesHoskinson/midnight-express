@@ -1,0 +1,13 @@
+{
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB",
+  "retrieved_utc": "2026-10-05T20:17:49.145103+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "07421a9514a0bad598f04bc61fc6f7c4677a731b6d7f7b727f198809e5d1098b",
+  "text_sha256": "99556a6adacdc60e9be5a9a8075f340eb5b95410fd6f349aff13fc18dc26b7d3",
+  "bytes": 204817,
+  "text_bytes": 44754,
+  "final_url": "https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB",
+  "accepted_source": true
+}

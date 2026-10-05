@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="awa-expId" content="tv-downloadv2:1227265;" />
+	<meta name="awa-env" content="prod" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="google-site-verification" content="hNs7DXrTySP_X-0P_AC0WulAXvUwgSXEmgfcO2r79dw" />
+
+	<!-- Twitter and Facebook OpenGraph Metadata-->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@code" />
+
+	<meta name="keywords" content="vscode API" />
+
+<meta name="description" content="UX guidelines for views in a Visual Studio Code extension." />
+
+<meta name="ms.prod" content="vs-code" />
+<meta name="ms.TOCTitle" content="Views" />
+<meta name="ms.ContentId" content="1e37b895-d0b3-45b8-a071-107bd665248e" />
+<meta name="ms.topic" content="conceptual" />
+<meta name="ms.date" content="9/30/2026" />
+<!-- Twitter and Facebook OpenGraph Metadata-->
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:url" content="https://code.visualstudio.com/api/ux-guidelines/views" />
+
+<meta property="og:description" content="UX guidelines for views in a Visual Studio Code extension." />
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Views" />
+
+<meta property="og:image" content="https://code.visualstudio.com/opengraphimg/generated/api/ux-guidelines/views.webp" />
+
+
+
+	<link rel="shortcut icon" href="/assets/favicon.ico" sizes="128x128" />
+	<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+	<title>Views | Visual Studio Code Extension
+API</title>
+
+	<link rel="stylesheet" href="/dist/style.css">
+
+	<script src="https://consentdeliveryfd.azurefd.net/mscc/lib/v2/wcp-consent.js"></script>
+	<script type="text/javascript" src="https://js.monitor.azure.com/scripts/c/ms.analytics-web-4.min.js"></script>
+	
+	<script type="text/javascript">
+	// Leave as var; siteConsent is initialized and referenced elsewhere.
+	var siteConsent = null;
+	
+	const GPC_DataSharingOptIn = false;
+	WcpConsent.onInitCallback(function () {
+		window.appInsights = new oneDS.ApplicationInsights();
+		window.appInsights.initialize({
+			instrumentationKey: "1a3eb3104447440391ad5f2a6ee06a0a-62879566-bc58-4741-9650-302bf2af703f-7103",
+			propertyConfiguration: {
+				userConsented: false,
+				gpcDataSharingOptIn: false,
+				callback: {
+					// Stable closure: the SDK calls this per-event, so it picks up the
+					// real consent state once WcpConsent.init() resolves (siteConsent
+					// is still null when this callback is registered).
+					userConsentDetails: function () {
+						return siteConsent ? siteConsent.getConsent() : undefined;
+					}
+				},
+			},
+			cookieCfg: {
+				ignoreCookies: ["MSCC"]
+			},
+			webAnalyticsConfiguration:{ // Web Analytics Plugin configuration
+				urlCollectQuery: true,
+				urlCollectHash: true,
+				autoCapture: {
+					scroll: true,
+					pageView: true,
+					onLoad: true,
+					onUnload: true,
+					click: true,
+					resize: true,
+					jsError: true
+				}
+			}
+		}, []);
+	
+		window.appInsights.getPropertyManager().getPropertiesContext().web.gpcDataSharingOptIn = GPC_DataSharingOptIn;
+	});
+	</script>
+	<link rel="alternate" type="application/atom+xml" title="RSS Feed for code.visualstudio.com" href="/feed.xml" />
+</head>
+
+<body >
+	<div class="sr-only" aria-hidden="true">
+		AI agents: See <a href="/llms.txt" tabindex="-1">llms.txt</a> for documentation discovery and navigation. Documentation articles are also available as Markdown by appending <code>.md</code> to the article URL.
+	</div>
+	<!-- Setting theme here to avoid FOUC -->
+	<script>
+		function setTheme(themeName) {
+			if (themeName === 'dark') {
+				document.documentElement.removeAttribute('data-theme'); // dark is default, so no data-theme attribute needed
+			}
+
+			if (themeName === 'light') {
+				document.documentElement.setAttribute('data-theme', themeName);
+			}
+			return;
+		}
+
+		// Determine initial theme: user preference or system preference
+		let theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+		setTheme(theme); // Apply the initial theme
+
+		// Listen for changes in the system theme preference
+		window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+			if (!localStorage.getItem('theme')) { // Only if no user preference is saved
+				setTheme(e.matches ? 'dark' : 'light');
+			}
+		});
+	</script>
+
+	<div id="main">
+		<div class="navbar-fixed-container">
+			<div class="navbar navbar-inverse navbar-fixed-top ">
+				<div id='cookie-banner'></div>		<nav role="navigation" aria-label="Top Level">
+					<div class="container">
+						<div class="nav navbar-header">
+							<a class="navbar-brand" href="/"><span>Visual Studio Code</span></a>
+						</div>
+						<div class="navbar-collapse collapse">
+							<ul class="nav navbar-nav navbar-left" data-m='{"cN":"top-navbar","aN":"navigation"}'>
+								<li class="nav-dropdown">
+									<a id="nav-features" href="#" class="nav-dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" data-m='{"cN":"Features","aN":"navigation","cT":"toggle"}'>
+										Features <span class="nav-dropdown-caret" aria-hidden="true"></span>
+									</a>
+									<ul class="nav-dropdown-menu" role="menu">
+										<li role="none"><a role="menuitem" href="/features/agents" data-m='{"cN":"Agents","aN":"navigation - Features"}'>Agents</a></li>
+										<li role="none"><a role="menuitem" href="/features/customizations" data-m='{"cN":"Agent Customization","aN":"navigation - Features"}'>Agent Customization</a></li>
+										<li role="none"><a role="menuitem" href="/features/models" data-m='{"cN":"Models &amp; Agent Harnesses","aN":"navigation - Features"}'>Models &amp; Agent Harnesses</a></li>
+										<li role="none"><a role="menuitem" href="/features/enterprise" data-m='{"cN":"Enterprise","aN":"navigation - Features"}'>Enterprise</a></li>
+										<li role="none"><a role="menuitem" href="/features/extensibility" data-m='{"cN":"Extensibility","aN":"navigation - Features"}'>Extensibility</a></li>
+									</ul>
+								</li>
+								<li class="nav-dropdown active">
+									<a id="nav-docs" href="#" class="nav-dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" data-m='{"cN":"Docs","aN":"navigation","cT":"toggle"}'>
+										Docs <span class="nav-dropdown-caret" aria-hidden="true"></span>
+									</a>
+									<ul class="nav-dropdown-menu" role="menu">
+										<li role="none"><a role="menuitem" href="/docs" data-m='{"cN":"Documentation","aN":"navigation - Docs"}'>Documentation</a></li>
+										<li role="none"><a role="menuitem" href="/api" data-m='{"cN":"API","aN":"navigation - Docs"}'>API</a></li>
+										<li role="none"><a role="menuitem" id="nav-faqs" href="/docs/supporting/faq" data-m='{"cN":"FAQ","aN":"navigation - Docs"}'>FAQ</a></li>
+									</ul>
+								</li>
+								<li ><a id="nav-updates" href="/updates" data-m='{"cN":"Release Notes"}'>Release Notes</a>
+								</li>
+								<li ><a id="nav-blogs" href="/blogs" data-m='{"cN":"Blog"}'>Blog</a></li>
+								<li ><a id="nav-learn" href="/learn" data-m='{"cN":"Learn"}'>Learn</a></li>
+								<li><a id="nav-events" href="https://aka.ms/vscode/live" target="_blank" rel="noopener" data-m='{"cN":"Events"}'>Events<span class="codicon codicon-link-external nav-external-icon" aria-hidden="true"></span></a></li>
+								<li class="nav-dropdown">
+									<a id="nav-resources" href="#" class="nav-dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" data-m='{"cN":"Resources","aN":"navigation","cT":"toggle"}'>
+										Resources <span class="nav-dropdown-caret" aria-hidden="true"></span>
+									</a>
+									<ul class="nav-dropdown-menu" role="menu">
+										<li role="none"><a role="menuitem" href="https://marketplace.visualstudio.com/VSCode" target="_blank" rel="noopener"
+												id="nav-extensions" data-m='{"cN":"Extensions","aN":"navigation - Resources"}'>Extensions<span class="codicon codicon-link-external nav-external-icon" aria-hidden="true"></span></a></li>
+										<li role="none"><a role="menuitem" id="nav-mcp" href="/mcp" target="_blank" rel="noopener" data-m='{"cN":"MCP","aN":"navigation - Resources"}'>MCP<span class="codicon codicon-link-external nav-external-icon" aria-hidden="true"></span></a></li>
+									</ul>
+								</li>
+							</ul>
+							<ul class="nav navbar-nav navbar-right" role="presentation">
+								<li>
+									<a class="link-button" href="/download" id="nav-download">
+										<span>Download</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="navbar-actions">
+							<div class="search" role="presentation">
+								<div class="nav-search search-control" role="button" tabindex="0" aria-label="Open search dialog">
+									<div class="input-group" role="presentation">
+										<span class="input-group-btn">
+											<span class="btn search-icon-container" aria-hidden="true">
+												<img class="search-icon-dark" src="/assets/icons/search-dark.svg" alt="" />
+												<img class="search-icon-light" src="/assets/icons/search.svg" alt="" />
+											</span>
+										</span>
+										<span class="search-box form-control" aria-hidden="true" role="presentation"></span>
+										<span class="search-shortcut-placeholder">Search</span>
+										<span class="search-shortcut-overlay"></span>
+									</div>
+								</div>					</div>
+							<button type="button" class="theme-switch" id="theme-toggle">
+								<img class="theme-icon-light" src="/assets/icons/theme-light.svg" alt="Switch to the dark theme" />
+								<img class="theme-icon-dark" src="/assets/icons/theme-dark.svg" alt="Switch to the light theme" />
+							</button>
+							<a class="link-button navbar-actions-download" href="/Download">
+								<span>Download</span>
+							</a>
+						</div>
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"
+							aria-label="Expand and Collapse Menu">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+				</nav>
+			</div>
+		</div>		<div data-announcement-version="2026-09-09-vscode-documentary-agent-host" data-rotation-interval-seconds="8" class="updates-banner ">
+			<div class="container banner-messages">
+				<p class="message active" data-banner-message aria-hidden="false" ><a href="https://aka.ms/the-story-of-vs-code?source=vsc-website-banner" target="_blank" rel="noopener">🎬 Watch The Story of VS Code!</a></p>
+				<p class="message " data-banner-message aria-hidden="true" inert><a href="https://aka.ms/VSCode/IG?source=vsc-website-banner" target="_blank" rel="noopener">VS Code is now on Instagram, follow @vscode.ig for updates, tips, and more.</a></p>
+				<p class="message " data-banner-message aria-hidden="true" inert><a href="https://gh.io/githubcopilotday?source=vsc-website-banner" target="_blank" rel="noopener">Rewatch GitHub Copilot Day.</a></p>
+			</div>
+			<button type="button" title="Dismiss this update" class="dismiss-btn" id="banner-dismiss-btn"><span class="sr-only">Dismiss this update</span><span aria-hidden="true" class="glyph-icon"></span></button>
+		</div>
+		<script>
+			// Restore dismissal and the session's random starting message before first paint.
+			(function () {
+				var banner = document.currentScript.previousElementSibling;
+				if (!banner) {
+					return;
+				}
+		
+				var version = banner.getAttribute('data-announcement-version');
+				try {
+					if (localStorage.getItem('dismissedAnnouncementVersion') === version) {
+						banner.classList.add('js-hidden');
+					}
+				} catch (error) {
+					console.warn('Unable to restore banner dismissal state.', error);
+				}
+		
+				var messages = banner.querySelectorAll('[data-banner-message]');
+				if (messages.length < 2) {
+					return;
+				}
+		
+				var storageKey = 'initialAnnouncementMessage:' + version;
+				var activeIndex;
+				try {
+					var storedIndex = sessionStorage.getItem(storageKey);
+					if (storedIndex !== null) {
+						activeIndex = Number(storedIndex);
+					}
+				} catch (error) {
+					console.warn('Unable to restore the initial banner message.', error);
+				}
+				if (!Number.isInteger(activeIndex) || activeIndex < 0 || activeIndex >= messages.length) {
+					activeIndex = Math.floor(Math.random() * messages.length);
+					try {
+						sessionStorage.setItem(storageKey, String(activeIndex));
+					} catch (error) {
+						console.warn('Unable to remember the initial banner message.', error);
+					}
+				}
+		
+				for (var index = 0; index < messages.length; index++) {
+					var isActive = index === activeIndex;
+					messages[index].classList.toggle('active', isActive);
+					messages[index].setAttribute('aria-hidden', String(!isActive));
+					messages[index].toggleAttribute('inert', !isActive);
+				}
+				banner.setAttribute('data-active-message-index', String(activeIndex));
+			})();
+		</script>
+		<!-- This div wraps around the entire site -->
+		<!-- The body itself should already have a main tag -->
+		<main id="main-content">
+			<div class="body-content docs docs-github-layout">
+	<div class="docs-layout-wrapper">
+		<!-- Left sidebar - Table of Contents -->
+		<aside class="docs-left-sidebar">
+			<nav id="docs-navbar" aria-label="Topics" class="docs-nav visible-md visible-lg">
+			  <h4>Extension API</h4>
+			  <ul class="nav" id="main-nav">
+			  <li >
+			    <a href="/api" >Overview</a>
+			  </li>
+			  
+			<li class="panel collapsed">
+			  <a class="area" role="button" href="#get-started-articles" data-parent="#main-nav" data-toggle="collapse">Get Started</a>
+			  <ul id="get-started-articles" class="collapse ">
+			
+			        <li >
+			          <a href="/api/get-started/your-first-extension" >Your First Extension</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/get-started/extension-anatomy" >Extension Anatomy</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/get-started/wrapping-up" >Wrapping Up</a>
+			        </li>
+			          
+			  </ul>
+			</li>
+			    
+			<li class="panel collapsed">
+			  <a class="area" role="button" href="#extension-capabilities-articles" data-parent="#main-nav" data-toggle="collapse">Extension Capabilities</a>
+			  <ul id="extension-capabilities-articles" class="collapse ">
+			
+			        <li >
+			          <a href="/api/extension-capabilities/overview" >Overview</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-capabilities/common-capabilities" >Common Capabilities</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-capabilities/theming" >Theming</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-capabilities/extending-workbench" >Extending Workbench</a>
+			        </li>
+			          
+			  </ul>
+			</li>
+			    
+			<li class="panel collapsed">
+			  <a class="area" role="button" href="#extension-guides-articles" data-parent="#main-nav" data-toggle="collapse">Extension Guides</a>
+			  <ul id="extension-guides-articles" class="collapse ">
+			
+			        <li >
+			          <a href="/api/extension-guides/overview" >Overview</a>
+			        </li>
+			          
+			<li class="panel collapsed">
+			  <a class="area" role="button" href="#extension-guides-ai-articles" data-parent="#extension-guides-articles" data-toggle="collapse">AI</a>
+			  <ul id="extension-guides-ai-articles" class="collapse ">
+			
+			        <li >
+			          <a href="/api/extension-guides/ai/ai-extensibility-overview" >AI Extensibility</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/ai/tools" >Language Model Tool</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/ai/mcp" >MCP Dev Guide</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/ai/chat" >Chat Participant</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/ai/chat-tutorial" >Chat Tutorial</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/ai/language-model" >Language Model</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/ai/language-model-tutorial" >Language Model Tutorial</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/ai/language-model-chat-provider" >Language Model Chat Provider</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/ai/prompt-tsx" >Prompt TSX</a>
+			        </li>
+			          
+			  </ul>
+			</li>
+			        
+			        <li >
+			          <a href="/api/extension-guides/command" >Command</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/color-theme" >Color Theme</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/file-icon-theme" >File Icon Theme</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/product-icon-theme" >Product Icon Theme</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/tree-view" >Tree View</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/webview" >Webview</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/notebook" >Notebook</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/custom-editors" >Custom Editors</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/virtual-documents" >Virtual Documents</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/virtual-workspaces" >Virtual Workspaces</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/web-extensions" >Web Extensions</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/workspace-trust" >Workspace Trust</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/task-provider" >Task Provider</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/scm-provider" >Source Control</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/debugger-extension" >Debugger Extension</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/markdown-extension" >Markdown Extension</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/testing" >Test Extension</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/custom-data-extension" >Custom Data Extension</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/extension-guides/telemetry" >Telemetry</a>
+			        </li>
+			          
+			  </ul>
+			</li>
+			    
+			<li class="panel active expanded">
+			  <a class="area" role="button" href="#ux-guidelines-articles" data-parent="#main-nav" data-toggle="collapse">UX Guidelines</a>
+			  <ul id="ux-guidelines-articles" class="collapse in">
+			
+			        <li >
+			          <a href="/api/ux-guidelines/overview" >Overview</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/ux-guidelines/activity-bar" >Activity Bar</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/ux-guidelines/sidebars" >Sidebars</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/ux-guidelines/panel" >Panel</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/ux-guidelines/status-bar" >Status Bar</a>
+			        </li>
+			          
+			        <li class="active">
+			          <a href="/api/ux-guidelines/views" aria-label="Current Page: Views">Views</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/ux-guidelines/editor-actions" >Editor Actions</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/ux-guidelines/quick-picks" >Quick Picks</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/ux-guidelines/command-palette" >Command Palette</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/ux-guidelines/notifications" >Notifications</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/ux-guidelines/webviews" >Webviews</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/ux-guidelines/context-menus" >Context Menus</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/ux-guidelines/walkthroughs" >Walkthroughs</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/ux-guidelines/settings" >Settings</a>
+			        </li>
+			          
+			  </ul>
+			</li>
+			    
+			<li class="panel collapsed">
+			  <a class="area" role="button" href="#language-extensions-articles" data-parent="#main-nav" data-toggle="collapse">Language Extensions</a>
+			  <ul id="language-extensions-articles" class="collapse ">
+			
+			        <li >
+			          <a href="/api/language-extensions/overview" >Overview</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/language-extensions/syntax-highlight-guide" >Syntax Highlight Guide</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/language-extensions/semantic-highlight-guide" >Semantic Highlight Guide</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/language-extensions/snippet-guide" >Snippet Guide</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/language-extensions/language-configuration-guide" >Language Configuration Guide</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/language-extensions/programmatic-language-features" >Programmatic Language Features</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/language-extensions/language-server-extension-guide" >Language Server Extension Guide</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/language-extensions/embedded-languages" >Embedded Languages</a>
+			        </li>
+			          
+			  </ul>
+			</li>
+			    
+			<li class="panel collapsed">
+			  <a class="area" role="button" href="#working-with-extensions-articles" data-parent="#main-nav" data-toggle="collapse">Testing and Publishing</a>
+			  <ul id="working-with-extensions-articles" class="collapse ">
+			
+			        <li >
+			          <a href="/api/working-with-extensions/testing-extension" >Testing Extensions</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/working-with-extensions/publishing-extension" >Publishing Extensions</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/working-with-extensions/bundling-extension" >Bundling Extensions</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/working-with-extensions/continuous-integration" >Continuous Integration</a>
+			        </li>
+			          
+			  </ul>
+			</li>
+			    
+			<li class="panel collapsed">
+			  <a class="area" role="button" href="#advanced-topics-articles" data-parent="#main-nav" data-toggle="collapse">Advanced Topics</a>
+			  <ul id="advanced-topics-articles" class="collapse ">
+			
+			        <li >
+			          <a href="/api/advanced-topics/extension-host" >Extension Host</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/advanced-topics/remote-extensions" >Remote Development and Codespaces</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/advanced-topics/using-proposed-api" >Using Proposed API</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/advanced-topics/tslint-eslint-migration" >Migrate from TSLint to ESLint</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/advanced-topics/python-extension-template" >Python Extension Template</a>
+			        </li>
+			          
+			  </ul>
+			</li>
+			    
+			<li class="panel collapsed">
+			  <a class="area" role="button" href="#references-articles" data-parent="#main-nav" data-toggle="collapse">References</a>
+			  <ul id="references-articles" class="collapse ">
+			
+			        <li >
+			          <a href="/api/references/vscode-api" >VS Code API</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/references/contribution-points" >Contribution Points</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/references/activation-events" >Activation Events</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/references/extension-manifest" >Extension Manifest</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/references/commands" >Built-In Commands</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/references/when-clause-contexts" >When Clause Contexts</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/references/theme-color" >Theme Color</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/references/icons-in-labels" >Product Icon Reference</a>
+			        </li>
+			          
+			        <li >
+			          <a href="/api/references/document-selector" >Document Selector</a>
+			        </li>
+			          
+			  </ul>
+			</li>
+			    
+			  </ul>
+			</nav>
+			
+			<nav id="small-nav" aria-label="Topics" class="docs-nav hidden-md hidden-lg">
+				<label class="faux-h4" for="small-nav-dropdown">Topics</label>
+				<select id="small-nav-dropdown" aria-label="topics">
+			    <option value="/api" >Overview</option>
+			
+			  <optgroup label="Get Started">
+			
+			        <option value="/api/get-started/your-first-extension" >Your First Extension</option>
+			        
+			        <option value="/api/get-started/extension-anatomy" >Extension Anatomy</option>
+			        
+			        <option value="/api/get-started/wrapping-up" >Wrapping Up</option>
+			        
+			  </optgroup>
+			  
+			  <optgroup label="Extension Capabilities">
+			
+			        <option value="/api/extension-capabilities/overview" >Overview</option>
+			        
+			        <option value="/api/extension-capabilities/common-capabilities" >Common Capabilities</option>
+			        
+			        <option value="/api/extension-capabilities/theming" >Theming</option>
+			        
+			        <option value="/api/extension-capabilities/extending-workbench" >Extending Workbench</option>
+			        
+			  </optgroup>
+			  
+			  <optgroup label="Extension Guides">
+			
+			        <option value="/api/extension-guides/overview" >Overview</option>
+			        
+			        <optgroup label="Extension Guides - AI">
+			
+			          <option value="/api/extension-guides/ai/ai-extensibility-overview" >AI Extensibility</option>
+			          
+			          <option value="/api/extension-guides/ai/tools" >Language Model Tool</option>
+			          
+			          <option value="/api/extension-guides/ai/mcp" >MCP Dev Guide</option>
+			          
+			          <option value="/api/extension-guides/ai/chat" >Chat Participant</option>
+			          
+			          <option value="/api/extension-guides/ai/chat-tutorial" >Chat Tutorial</option>
+			          
+			          <option value="/api/extension-guides/ai/language-model" >Language Model</option>
+			          
+			          <option value="/api/extension-guides/ai/language-model-tutorial" >Language Model Tutorial</option>
+			          
+			          <option value="/api/extension-guides/ai/language-model-chat-provider" >Language Model Chat Provider</option>
+			          
+			          <option value="/api/extension-guides/ai/prompt-tsx" >Prompt TSX</option>
+			          
+			        </optgroup>
+			
+			        <option value="/api/extension-guides/command" >Command</option>
+			        
+			        <option value="/api/extension-guides/color-theme" >Color Theme</option>
+			        
+			        <option value="/api/extension-guides/file-icon-theme" >File Icon Theme</option>
+			        
+			        <option value="/api/extension-guides/product-icon-theme" >Product Icon Theme</option>
+			        
+			        <option value="/api/extension-guides/tree-view" >Tree View</option>
+			        
+			        <option value="/api/extension-guides/webview" >Webview</option>
+			        
+			        <option value="/api/extension-guides/notebook" >Notebook</option>
+			        
+			        <option value="/api/extension-guides/custom-editors" >Custom Editors</option>
+			        
+			        <option value="/api/extension-guides/virtual-documents" >Virtual Documents</option>
+			        
+			        <option value="/api/extension-guides/virtual-workspaces" >Virtual Workspaces</option>
+			        
+			        <option value="/api/extension-guides/web-extensions" >Web Extensions</option>
+			        
+			        <option value="/api/extension-guides/workspace-trust" >Workspace Trust</option>
+			        
+			        <option value="/api/extension-guides/task-provider" >Task Provider</option>
+			        
+			        <option value="/api/extension-guides/scm-provider" >Source Control</option>
+			        
+			        <option value="/api/extension-guides/debugger-extension" >Debugger Extension</option>
+			        
+			        <option value="/api/extension-guides/markdown-extension" >Markdown Extension</option>
+			        
+			        <option value="/api/extension-guides/testing" >Test Extension</option>
+			        
+			        <option value="/api/extension-guides/custom-data-extension" >Custom Data Extension</option>
+			        
+			        <option value="/api/extension-guides/telemetry" >Telemetry</option>
+			        
+			  </optgroup>
+			  
+			  <optgroup label="UX Guidelines">
+			
+			        <option value="/api/ux-guidelines/overview" >Overview</option>
+			        
+			        <option value="/api/ux-guidelines/activity-bar" >Activity Bar</option>
+			        
+			        <option value="/api/ux-guidelines/sidebars" >Sidebars</option>
+			        
+			        <option value="/api/ux-guidelines/panel" >Panel</option>
+			        
+			        <option value="/api/ux-guidelines/status-bar" >Status Bar</option>
+			        
+			        <option value="/api/ux-guidelines/views" selected>Views</option>
+			        
+			        <option value="/api/ux-guidelines/editor-actions" >Editor Actions</option>
+			        
+			        <option value="/api/ux-guidelines/quick-picks" >Quick Picks</option>
+			        
+			        <option value="/api/ux-guidelines/command-palette" >Command Palette</option>
+			        
+			        <option value="/api/ux-guidelines/notifications" >Notifications</option>
+			        
+			        <option value="/api/ux-guidelines/webviews" >Webviews</option>
+			        
+			        <option value="/api/ux-guidelines/context-menus" >Context Menus</option>
+			        
+			        <option value="/api/ux-guidelines/walkthroughs" >Walkthroughs</option>
+			        
+			        <option value="/api/ux-guidelines/settings" >Settings</option>
+			        
+			  </optgroup>
+			  
+			  <optgroup label="Language Extensions">
+			
+			        <option value="/api/language-extensions/overview" >Overview</option>
+			        
+			        <option value="/api/language-extensions/syntax-highlight-guide" >Syntax Highlight Guide</option>
+			        
+			        <option value="/api/language-extensions/semantic-highlight-guide" >Semantic Highlight Guide</option>
+			        
+			        <option value="/api/language-extensions/snippet-guide" >Snippet Guide</option>
+			        
+			        <option value="/api/language-extensions/language-configuration-guide" >Language Configuration Guide</option>
+			        
+			        <option value="/api/language-extensions/programmatic-language-features" >Programmatic Language Features</option>
+			        
+			        <option value="/api/language-extensions/language-server-extension-guide" >Language Server Extension Guide</option>
+			        
+			        <option value="/api/language-extensions/embedded-languages" >Embedded Languages</option>
+			        
+			  </optgroup>
+			  
+			  <optgroup label="Testing and Publishing">
+			
+			        <option value="/api/working-with-extensions/testing-extension" >Testing Extensions</option>
+			        
+			        <option value="/api/working-with-extensions/publishing-extension" >Publishing Extensions</option>
+			        
+			        <option value="/api/working-with-extensions/bundling-extension" >Bundling Extensions</option>
+			        
+			        <option value="/api/working-with-extensions/continuous-integration" >Continuous Integration</option>
+			        
+			  </optgroup>
+			  
+			  <optgroup label="Advanced Topics">
+			
+			        <option value="/api/advanced-topics/extension-host" >Extension Host</option>
+			        
+			        <option value="/api/advanced-topics/remote-extensions" >Remote Development and Codespaces</option>
+			        
+			        <option value="/api/advanced-topics/using-proposed-api" >Using Proposed API</option>
+			        
+			        <option value="/api/advanced-topics/tslint-eslint-migration" >Migrate from TSLint to ESLint</option>
+			        
+			        <option value="/api/advanced-topics/python-extension-template" >Python Extension Template</option>
+			        
+			  </optgroup>
+			  
+			  <optgroup label="References">
+			
+			        <option value="/api/references/vscode-api" >VS Code API</option>
+			        
+			        <option value="/api/references/contribution-points" >Contribution Points</option>
+			        
+			        <option value="/api/references/activation-events" >Activation Events</option>
+			        
+			        <option value="/api/references/extension-manifest" >Extension Manifest</option>
+			        
+			        <option value="/api/references/commands" >Built-In Commands</option>
+			        
+			        <option value="/api/references/when-clause-contexts" >When Clause Contexts</option>
+			        
+			        <option value="/api/references/theme-color" >Theme Color</option>
+			        
+			        <option value="/api/references/icons-in-labels" >Product Icon Reference</option>
+			        
+			        <option value="/api/references/document-selector" >Document Selector</option>
+			        
+			  </optgroup>
+			  
+				</select>
+			</nav>		</aside>
+		
+		<!-- Content wrapper contains main content + right sidebar -->
+		<div class="docs-content-wrapper">
+			<!-- Main article content -->
+			<main class="docs-main-content body">
+				
+				<h1>Views</h1>
+				
+				
+
+
+
+
+<div class="docs-markdown-actions">
+	<div class="docs-markdown-dropdown" data-markdown-url="/api/ux-guidelines/views.md">
+		<button type="button" class="docs-markdown-btn-main" data-action="copy-markdown" aria-label="Copy as Markdown">
+			<span class="codicon codicon-copy" aria-hidden="true"></span>
+			<span>Copy as Markdown</span>
+		</button>
+		<button type="button" class="docs-markdown-btn-trigger" aria-haspopup="menu" aria-expanded="false" aria-label="More page actions">
+			<span class="codicon codicon-chevron-down docs-markdown-chevron" aria-hidden="true"></span>
+		</button>
+		<ul class="docs-markdown-menu" role="menu" aria-label="Page actions">
+			<li role="none">
+				<button type="button" role="menuitem" data-action="copy-markdown">
+					<span class="codicon codicon-copy" aria-hidden="true"></span>
+					<span>Copy as Markdown</span>
+				</button>
+			</li>
+			<li role="none">
+				<a role="menuitem" data-action="view-markdown" href="/api/ux-guidelines/views.md" target="_blank" rel="noopener noreferrer">
+					<span class="codicon codicon-file" aria-hidden="true"></span>
+					<span>View as Markdown</span>
+					<span class="codicon codicon-link-external" aria-hidden="true"></span>
+				</a>
+			</li>
+			<li class="docs-markdown-menu-separator" role="separator"></li>
+			<li role="none">
+				<a role="menuitem" data-action="ask-vscode" data-version="stable" href="vscode://GitHub.Copilot-Chat/chat?prompt=Read%20https%3A%2F%2Fcode.visualstudio.com%2Fapi%2Fux-guidelines%2Fviews%20and%20answer%20questions%20about%20the%20content.&amp;windowId=_blank">
+					<span class="codicon codicon-chat-sparkle" aria-hidden="true"></span>
+					<span>Ask in VS Code</span>
+				</a>
+			</li>
+			<li role="none">
+				<a role="menuitem" data-action="ask-vscode" data-version="insiders" href="vscode-insiders://GitHub.Copilot-Chat/chat?prompt=Read%20https%3A%2F%2Fcode.visualstudio.com%2Fapi%2Fux-guidelines%2Fviews%20and%20answer%20questions%20about%20the%20content.&amp;windowId=_blank">
+					<span class="codicon codicon-chat-sparkle" aria-hidden="true"></span>
+					<span>Ask in VS Code Insiders</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<noscript>
+		<a class="docs-page-actions-noscript" href="vscode://GitHub.Copilot-Chat/chat?prompt=Read%20https%3A%2F%2Fcode.visualstudio.com%2Fapi%2Fux-guidelines%2Fviews%20and%20answer%20questions%20about%20the%20content.&amp;windowId=_blank">
+			<span class="codicon codicon-chat-sparkle" aria-hidden="true"></span>
+			<span>Ask in VS Code</span>
+		</a>
+	</noscript>
+</div>
+
+				<hr class="docs-article-header-divider" aria-hidden="true">
+				
+				
+<p><a href="/api/references/contribution-points#contributes.views">Views</a> are containers of content that can appear in the Sidebar or Panel. Views can contain Tree Views, Welcome Views, or Webview Views and can also display View Actions. Views can also be rearranged by the user or moved to another View Container (for example, from the Primary Sidebar to the Secondary Sidebar). Limit the number of Views created as other extensions can contribute in the same View Container.</p>
+<p><strong>✔️ Do</strong></p>
+<ul>
+<li>Use existing icons when possible</li>
+<li>Use file icons for language files</li>
+<li>Use a Tree View for displaying data</li>
+<li>Add an icon to every View (in case it is moved to the Activity Bar or Secondary Sidebar—both of which use icons to represent the View)</li>
+<li>Keep the number of Views to a minimum</li>
+<li>Keep the length of names to a minimum</li>
+<li>Limit the use of custom Webview Views</li>
+</ul>
+<p><strong>❌ Don't</strong></p>
+<ul>
+<li>Repeat existing functionality</li>
+<li>Use tree items as single action items (for example, firing a Command on click)</li>
+<li>Use custom Webview Views if not necessary</li>
+<li>Use a Activity Bar Item (View Container) to open a Webview in the Editor</li>
+</ul>
+<p><img src="/assets/api/ux-guidelines/examples/view.png" alt="Views example" loading="lazy"></p>
+<p><em>This example uses a Tree View to display a flat list of Tree View Items.</em></p>
+<h2 id="view-locations" data-needslink="view-locations">View Locations</h2>
+<p>Views can be placed in <a href="/api/references/contribution-points#contributes.views">existing View Containers</a>, such as the File Explorer, Source Control (SCM) and Debug View Containers. They can also be added to a custom <a href="/api/ux-guidelines/views#view-containers">View Container</a> via the Activity Bar. In addition, Views can be added to any View Container in the Panel. They can also be dragged to the Secondary Sidebar.</p>
+<p><img src="/assets/api/ux-guidelines/examples/view-locations.png" alt="View locations" loading="lazy"></p>
+<h2 id="view-containers" data-needslink="view-containers">View Containers</h2>
+<p>View Containers, as the name implies, are the &quot;parent&quot; container in which Views are rendered. Extensions can contribute custom View Containers to the <a href="/api/ux-guidelines/activity-bar">Activity Bar</a>/<a href="/api/ux-guidelines/sidebars">Primary Sidebar</a> or to the Panel. Users can drag an entire View Container from the Activity Bar to the Panel (or vice versa) and can also move individual Views.</p>
+<p><img src="/assets/api/ux-guidelines/examples/view-container.png" alt="Example of a View Container" loading="lazy"></p>
+<p><em>This is an example of a View Container placed in the Activity Bar/Primary Sidebar</em></p>
+<p><img src="/assets/api/ux-guidelines/examples/view-container-panel.png" alt="Example of a View Container in a Panel" loading="lazy"></p>
+<p><em>This is an example of a View Container placed in the Panel</em></p>
+<h2 id="tree-views" data-needslink="tree-views">Tree Views</h2>
+<p>Tree Views are a powerful and flexible format to display content in a View. Extensions can add everything from simple flat lists to deeply nested trees.</p>
+<ul>
+<li>Use descriptive labels to give context to items (if applicable)</li>
+<li>Use product icons to distinguish between item types (if applicable)</li>
+</ul>
+<p><strong>❌ Don't</strong></p>
+<ul>
+<li>Use Tree View Items as buttons to fire Commands</li>
+<li>Avoid deep nesting unless necessary. A few levels of folders/items is a good balance for most situations.</li>
+<li>Add more than three actions to an item</li>
+</ul>
+<p><img src="/assets/api/ux-guidelines/examples/tree-view.png" alt="Example of a Tree View" loading="lazy"></p>
+<h2 id="welcome-views" data-needslink="welcome-views">Welcome Views</h2>
+<p>When a view is empty, you can <a href="/api/references/contribution-points#contributes.viewsWelcome">add content to guide users</a> on how to use your extension or get started. Links and icons are supported in Welcome views.</p>
+<p><strong>✔️ Do</strong></p>
+<ul>
+<li>Use Welcome views only when necessary</li>
+<li>Use links instead of buttons when possible</li>
+<li>Use buttons only for primary actions</li>
+<li>Use clear link text to indicate the link destination</li>
+<li>Limit the length of the content</li>
+<li>Limit the number of Welcome views</li>
+<li>Limit the number of buttons in views</li>
+</ul>
+<p><strong>❌ Don't</strong></p>
+<ul>
+<li>Use buttons if not necessary</li>
+<li>Use Welcome views for promotions</li>
+<li>Use generic &quot;read more&quot; as link text</li>
+</ul>
+<p><img src="/assets/api/ux-guidelines/examples/welcome-view.png" alt="Welcome Views" loading="lazy"></p>
+<p><em>This example shows one primary action for the extension with an additional link to documentation.</em></p>
+<h2 id="views-with-progress" data-needslink="views-with-progress">Views With Progress</h2>
+<p>You can also <a href="/api/references/vscode-api#ProgressLocation">show progress in a view</a> by referencing the view's ID.</p>
+<p><img src="/assets/api/ux-guidelines/examples/view-with-progress.png" alt="View with progress" loading="lazy"></p>
+<h2 id="view-actions" data-needslink="view-actions">View Actions</h2>
+<p>Views can expose <a href="/api/extension-guides/tree-view#view-actions">View Actions</a> on the View Toolbar. Be careful not to add too many actions to avoid noise and confusion. Using the built-in product icons helps an extension fit in alongside the native UI. However, an SVG icon can be supplied if a custom icon is needed.</p>
+<p><img src="/assets/api/ux-guidelines/examples/view-toolbar.png" alt="Example of View Actions" loading="lazy"></p>
+<h2 id="links" data-needslink="links">Links</h2>
+<ul>
+<li><a href="/api/references/contribution-points#contributes.viewsContainers">View Container API reference</a></li>
+<li><a href="/api/references/contribution-points#contributes.views">View API reference</a></li>
+<li><a href="/api/extension-guides/tree-view#view-actions">View Actions extension guide</a></li>
+<li><a href="https://github.com/microsoft/vscode-extension-samples/tree/main/tree-view-sample" class="external-link" target="_blank">Tree View extension sample</a></li>
+<li><a href="https://github.com/microsoft/vscode-extension-samples/tree/main/welcome-view-content-sample" class="external-link" target="_blank">Welcome View extension sample</a></li>
+<li><a href="https://github.com/microsoft/vscode-extension-samples/tree/main/webview-view-sample" class="external-link" target="_blank">Webview View extension sample</a></li>
+</ul>
+
+				<div class="feedback" data-edit-url="https://vscode.dev/github/microsoft/vscode-docs/blob/main/api/ux-guidelines/views.md"></div>
+				
+				<div class="body-footer">9/30/2026</div>
+				
+            </main>
+            
+            <!-- Right sidebar - On This Page -->
+            <aside class="docs-right-sidebar hidden-xs">
+                <nav id="docs-subnavbar" aria-label="On Page">
+                    
+                    <h4><span class="sr-only">On this page there are 7 sections</span><span
+                            aria-hidden="true">On this page</span></h4>
+                    <ul class="nav">
+                        
+                        <li><a href="#view-locations">View Locations</a></li>
+                        
+                        <li><a href="#view-containers">View Containers</a></li>
+                        
+                        <li><a href="#tree-views">Tree Views</a></li>
+                        
+                        <li><a href="#welcome-views">Welcome Views</a></li>
+                        
+                        <li><a href="#views-with-progress">Views With Progress</a></li>
+                        
+                        <li><a href="#view-actions">View Actions</a></li>
+                        
+                        <li><a href="#links">Links</a></li>
+                        
+                    </ul>
+                    
+                </nav>
+            </aside>
+		</div>
+		<div class="docs-mobile-widgets visible-xs">
+			<div class="connect-widget"></div>
+		</div>
+	</div>
+</div>
+		</main>
+	</div>
+
+	<div id="search-popup-overlay" class="search-popup-overlay" role="dialog" aria-modal="true" aria-label="Search">
+		<div class="search-popup-container">
+			<div class="search-popup-header">
+				<form class="search-popup-form">
+					<div class="input-group">
+						<input type="text" name="q" class="search-box form-control" placeholder="Search the website"
+							aria-label="Search text" role="combobox" aria-expanded="false"
+							aria-autocomplete="list" aria-controls="search-results-listbox"
+							aria-activedescendant="" />
+						<span class="input-group-btn">
+							<button tabindex="0" class="btn" type="submit" aria-label="Search">
+								<img class="search-icon-dark" src="/assets/icons/search-dark.svg" alt="Search" />
+								<img class="search-icon-light" src="/assets/icons/search.svg" alt="Search" />
+							</button>
+						</span>
+					</div>
+				</form>
+				<button class="search-popup-close" type="button" aria-label="Close search"><i class="codicon codicon-close" aria-hidden="true"></i></button>
+			</div>
+			<div class="search-popup-results">
+				<ul class="search-popup-results-list" id="search-results-listbox" role="listbox" aria-label="Search results"></ul>
+			</div>
+			<div class="sr-only" role="status" aria-live="polite" aria-atomic="true" id="search-popup-status"></div>
+		</div>
+	</div>
+
+
+	<footer role="contentinfo" class="container">
+		<div class="footer-container">
+			<div class="footer-row">
+				<div class="footer-social">
+					<ul class="links">
+						<li>
+							<a href="https://github.com/microsoft/vscode"><img src="/assets/icons/github-icon.svg" alt="VS Code on Github"></a>
+						</li>
+						<li>
+							<a href="https://go.microsoft.com/fwlink/?LinkID=533687"><img src="/assets/icons/x-icon.svg" class="x-icon" alt="Follow us on X"></a>
+						</li>
+						<li>
+							<a href="https://www.linkedin.com/showcase/vs-code"><img src="/assets/icons/linkedin-icon.svg" alt="VS Code on LinkedIn"></a>
+						</li>
+						<li>
+							<a href="https://bsky.app/profile/vscode.dev"><img src="/assets/icons/bluesky-icon.svg" alt="VS Code on Bluesky"></a>
+						</li>
+						<li>
+							<a href="https://www.reddit.com/r/vscode/"><img src="/assets/icons/reddit-icon.svg" alt="Join the VS Code community on Reddit"></a>
+						</li>
+						<li>
+							<a href="https://www.vscodepodcast.com"><img src="/assets/icons/podcast-icon.svg" alt="The VS Code Insiders Podcast"></a>
+						</li>
+						<li>
+							<a href="https://www.instagram.com/vscode.ig"><img src="/assets/icons/instagram-icon.svg" alt="VS Code on Instagram"></a>
+						</li>
+						<li>
+							<a href="https://www.tiktok.com/@vscode"><img src="/assets/icons/tiktok-icon.svg" alt="VS Code on TikTok"></a>
+						</li>
+						<li>
+							<a href="https://www.youtube.com/@code"><img src="/assets/icons/youtube-icon.svg" alt="VS Code on YouTube"></a>
+						</li>
+						<script>
+							function manageConsent() {
+								if (siteConsent && siteConsent.isConsentRequired) {
+									siteConsent.manageConsent();
+								}
+							}
+						</script>
+					</ul>
+					<a id="footer-microsoft-link" class="microsoft-logo" href="https://www.microsoft.com">
+						<img src="/assets/icons/microsoft.svg" alt="Microsoft homepage" />
+					</a>
+				</div>
+			</div>
+			<div class="footer-row">
+				<ul class="links">
+					<li><a id="footer-support-link" href="https://support.serviceshub.microsoft.com/supportforbusiness/create?sapId=d66407ed-3967-b000-4cfb-2c318cad363d"
+						target="_blank" rel="noopener" title="Get support for VS Code"
+						aria-label="Get support for VS Code (opens in new tab)">Support</a></li>
+					<li><a id="footer-privacy-link" href="https://go.microsoft.com/fwlink/?LinkId=521839"
+						target="_blank" rel="noopener" title="View the Microsoft privacy statement"
+						aria-label="Microsoft privacy statement (opens in new tab)">Privacy</a></li>
+					<li style="display: none;"><a id="footer-cookie-link" style="cursor: pointer;" onclick="manageConsent()"
+						target="_blank" rel="noopener">Manage Cookies</a></li>
+					<li><a id="footer-terms-link" href="https://www.microsoft.com/legal/terms-of-use"
+						target="_blank" rel="noopener" title="View the Microsoft Terms of Use"
+						aria-label="Microsoft Terms of Use (opens in new tab)">Terms of Use</a></li>
+					<li><a id="footer-license-link" href="/License"
+						target="_blank" rel="noopener" title="View the Visual Studio Code license"
+						aria-label="Visual Studio Code license (opens in new tab)">License</a></li>
+				</ul>
+			</div>
+			<div class="footer-row">
+				<ul class="links">
+					<li>
+						<svg class="privacy-choices" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 14" xml:space="preserve" height="16" width="43">
+							<title>Your Privacy Choices Opt-Out Icon</title>
+							<path d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z" style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"></path>
+							<path d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z" style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"></path>
+							<path d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z" style="fill:#fff"></path>
+							<path d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z" style="fill:#06f"></path>
+						</svg>
+						<a id="footer-privacy-choices-link" href="https://aka.ms/YourCaliforniaPrivacyChoices"
+						target="_blank" rel="noopener" title="View Your Privacy Choices"
+						aria-label="Your Privacy Choices (opens in new tab)">Your Privacy Choices</a></li>
+					<li><a id="footer-consumer-health-privacy-link" href="https://go.microsoft.com/fwlink/?linkid=2259814"
+						target="_blank" rel="noopener" title="View the Microsoft Consumer Health Privacy policy"
+						aria-label="Microsoft Consumer Health Privacy policy (opens in new tab)">Consumer Health Privacy</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+	<script type="module">
+		document.addEventListener('DOMContentLoaded', () => {
+			const copilotDeepLinks = document.querySelectorAll('.copilot-deep-link');
+			if (copilotDeepLinks.length === 0) {
+				return;
+			}
+			if (window.innerWidth < 992) {
+				for (const link of copilotDeepLinks) {
+					link.href = 'https://aka.ms/vscode-activatecopilotfree';
+				}
+			}
+		});
+	</script>
+
+	<script src="/dist/index.js"></script>
+
+	
+
+	<script type="application/ld+json">
+		{
+			"@context" : "http://schema.org",
+			"@type" : "SoftwareApplication",
+			"name" : "Visual Studio Code",
+			"softwareVersion": "1.140",
+			"offers": {
+				"@type": "Offer",
+				"price": "0",
+				"priceCurrency": "USD"
+			},
+			"applicationCategory": "DeveloperApplication",
+			"applicationSubCategory": "AI Code Editor",
+			"description": "Visual Studio Code is a free, open source AI code editor for agent-first development. Build with AI agents, manage multi-agent workflows, and code across any environment.",
+			"alternateName": "VS Code",
+			"datePublished": "2021-11-03",
+			"operatingSystem": "Mac, Linux, Windows",
+			"logo": "https://code.visualstudio.com/assets/apple-touch-icon.png",
+			"screenshot": "https://code.visualstudio.com/assets/images/product-screenshot.png",
+			"releaseNotes": "https://code.visualstudio.com/updates",
+			"downloadUrl": "https://code.visualstudio.com/download",
+			"license": "https://code.visualstudio.com/license",
+			"softwareRequirements": "https://code.visualstudio.com/docs/supporting/requirements",
+			"url" : "https://code.visualstudio.com",
+			"author": {
+				"@type": "Organization",
+				"name": "Microsoft"
+			},
+			"publisher": {
+				"@type": "Organization",
+				"name": "Microsoft"
+			},
+			"maintainer": {
+				"@type": "Organization",
+				"name": "Microsoft"
+			},
+			"potentialAction": {
+				"@type": "SearchAction",
+				"target": "https://code.visualstudio.com/Search?q={search_term_string}",
+				"query-input": "required name=search_term_string"
+			},
+			"sameAs" : [
+				"https://en.wikipedia.org/wiki/Visual_Studio_Code",
+				"https://twitter.com/code",
+				"https://www.youtube.com/code",
+				"https://www.tiktok.com/@vscode",
+				"https://github.com/microsoft/vscode"
+			]
+		}
+	</script>
+</body>
+
+</html>

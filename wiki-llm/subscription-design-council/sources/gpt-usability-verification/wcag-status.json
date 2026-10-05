@@ -1,0 +1,13 @@
+{
+  "url": "https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html",
+  "retrieved_utc": "2026-10-05T20:14:23.725204+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "d5a085f7be8814e4f01520db08d41d09b62491f40dc0fb6fb4941ec762cf3746",
+  "text_sha256": "24993c07e7f992fd5ad8a3898b6e7e724189b1de688560ba185413bdf6b08f53",
+  "bytes": 60299,
+  "text_bytes": 25458,
+  "final_url": "https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html",
+  "accepted_source": true
+}

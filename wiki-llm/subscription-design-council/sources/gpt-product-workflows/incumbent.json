@@ -1,0 +1,32 @@
+{
+  "url": "http://127.0.0.1:8876/subscriptions.html",
+  "retrieved_utc": "2026-10-05T20:06:46.710028+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "3eb81bf4f770b078b47326b386bc482c73ee2e21243b953a89066a2d001d5e79",
+  "text_sha256": "4e565663b6cf3bab95199fd31723a040ad840336521cea195a012d7d8ac9104c",
+  "bytes": 5502,
+  "text_bytes": 2686,
+  "final_url": "http://127.0.0.1:8876/subscriptions.html",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/gpt-product-workflows/incumbent-tiles/127.0.0.1_8876_subscriptions.html.png.tiles/tile_0000.jpg",
+        "sha256": "eba3c9b96e559a54b95fa831fa7aa85dd837cb9508851c72739f19beefa77bd7"
+      },
+      {
+        "path": "sources/gpt-product-workflows/incumbent-tiles/127.0.0.1_8876_subscriptions.html.png.tiles/tile_0001.jpg",
+        "sha256": "da1d9c7eb0ef119545af50be2f30d738c2d05e021fc0ac1d0da4176aec0c1c8a"
+      },
+      {
+        "path": "sources/gpt-product-workflows/incumbent-tiles/127.0.0.1_8876_subscriptions.html.png.tiles/tile_0002.jpg",
+        "sha256": "d50c17afadbbbc01e86f340deb8f7e422361271da6f9828fb0e90b27cc599193"
+      }
+    ],
+    "stderr": "2026-10-05 14:06:46,750 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:06:50,581 INFO pixelrag_render.backends.cdp: [w0] http://127.0.0.1:8876/subscriptions.html \u2192 3 tiles (0.8s)\n2026-10-05 14:06:50,598 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 14:06:50,599 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

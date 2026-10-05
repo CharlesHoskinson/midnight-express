@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.nats.io/robots.txt",
+  "retrieved_utc": "2026-10-05T20:22:22.617721+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 404,
+  "raw_sha256": "55af579973e714d28750f5b93738bd13bff10f48586cba715c0b01b99d9f28f5",
+  "text_sha256": "6c004c7458029848a9f4c3da219bfed5c4430053ebf61ed5dfb7c6f74e301f99",
+  "bytes": 13956,
+  "text_bytes": 563,
+  "final_url": "https://docs.nats.io/robots.txt",
+  "accepted_source": false
+}

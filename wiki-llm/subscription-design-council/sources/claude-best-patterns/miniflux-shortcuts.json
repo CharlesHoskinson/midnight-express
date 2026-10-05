@@ -1,0 +1,13 @@
+{
+  "url": "https://miniflux.app/docs/keyboard_shortcuts.html",
+  "retrieved_utc": "2026-10-05T20:32:48.568977+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "1fdde12f040d66d1d5526fcf9d6fb63862f0bfd2ed515eb91999320f07343e45",
+  "text_sha256": "74d67232db3bcc3566e0c01fbf388545910e8c628fb20e1c99340cf3fb5b105e",
+  "bytes": 3059,
+  "text_bytes": 1444,
+  "final_url": "https://miniflux.app/docs/keyboard_shortcuts.html",
+  "accepted_source": true
+}

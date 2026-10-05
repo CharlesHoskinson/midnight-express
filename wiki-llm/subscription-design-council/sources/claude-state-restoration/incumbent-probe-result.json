@@ -1,0 +1,29 @@
+{
+  "probe": "incumbent-probe.cjs (Playwright 1.63.0, headless Chromium 153, fresh ephemeral context)",
+  "target": "http://127.0.0.1:8876/subscriptions.html",
+  "served_html_sha256": "3eb81bf4f770b078b47326b386bc482c73ee2e21243b953a89066a2d001d5e79",
+  "repo_head": "7b728b7",
+  "retrieved_local": "2026-10-05",
+  "result": {
+    "streamCount": 9,
+    "subscribeButtons": ["Subscribe to quotes", "Subscribe to payments", "Subscribe to payments", "Subscribe to payments", "Subscribe to approvals", "Subscribe to contracts", "Subscribe to credentials", "Subscribe to ops"],
+    "domNodes": 154,
+    "docHeight1440": 4370,
+    "streamsTopY1440": 1413.7,
+    "subscriptionsTopY1440": 3778.7,
+    "inboxTopY1440": 4114.9,
+    "docHeight390": 7294,
+    "streamsTopY390": 2190.1,
+    "inboxTopY390": 7039.0,
+    "searchPaymentHits": 3,
+    "urlAfterSearch": "http://127.0.0.1:8876/subscriptions.html",
+    "beforeReload": {"subs": 1, "inbox": 2, "search": "payment", "consumer": "dapp"},
+    "storageAfterSubscribing": {"localStorageKeys": [], "sessionStorageKeys": [], "indexedDBDatabases": [], "estimateUsage": 0, "persisted": false},
+    "inboxItemLabelBeforeOpen": "Payment pending · duplicate suppressed · cursor 2",
+    "inboxItemLabelAfterOpen": "Payment pending · duplicate suppressed · cursor 2",
+    "afterReload": {"subs": 0, "inbox": 0, "search": "", "consumer": "human"},
+    "secondTabSeesFirstTabSubscription": false,
+    "focusableIndexOfSimulateIntake": 42,
+    "emptyAnnouncementBar": {"heightPx": 40, "position": "sticky", "background": "rgb(20, 44, 53)", "empty": true}
+  }
+}

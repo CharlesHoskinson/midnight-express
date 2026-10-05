@@ -1,0 +1,13 @@
+{
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/storage_event",
+  "retrieved_utc": "2026-10-05T20:18:53.482582+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "9541c6c0d3b4677a5964e70d2f774243980e0f4ed585b72a649c7d70d4c1b1dc",
+  "text_sha256": "0a1ee9112318e91db53b8d2b394cdce1191ff4f0033fbb4a9632db8e2bdffa03",
+  "bytes": 183365,
+  "text_bytes": 10268,
+  "final_url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/storage_event",
+  "accepted_source": true
+}

@@ -1,0 +1,13 @@
+{
+  "url": "https://www.w3.org/TR/privacy-principles/",
+  "retrieved_utc": "2026-10-05T20:28:24.243464+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "5fb936c3336a38e34198c0d62a974a41377d11e517213add531f56e53c761ce5",
+  "text_sha256": "bf4644385ea14ef7a508d309e9665f4fcd5bebbd0197fadb7df78aabf260cb7f",
+  "bytes": 400942,
+  "text_bytes": 123454,
+  "final_url": "https://www.w3.org/TR/privacy-principles/",
+  "accepted_source": true
+}

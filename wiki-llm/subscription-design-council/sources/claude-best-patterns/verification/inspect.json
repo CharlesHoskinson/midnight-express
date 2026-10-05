@@ -1,0 +1,130 @@
+{
+ "desktop": {
+  "initial": {
+   "firstFeedTop": 1414,
+   "viewportH": 900,
+   "docH": 4370,
+   "buttons": 39,
+   "streamButtons": 26,
+   "tabStopsBeforeFirstFeedAction": 15,
+   "h1Px": "80px",
+   "announcementEmptyVisible": true,
+   "announcementH": 40,
+   "localStorageKeys": [],
+   "sessionStorageKeys": [],
+   "urlParamsUsed": "",
+   "headings": [
+    "Your local inbox.",
+    "Optional Moth wallet",
+    "Browse streams",
+    "Subscriptions",
+    "Inbox and quarantine"
+   ],
+   "searchHasRoleCount": true,
+   "resultCountShown": false
+  },
+  "after": {
+   "subsText": "payments · active\n\nLocal predicate all. Revision 1. Delivered cursor 3; processing cursor 0. In flight 2/2; queue 1/4 (8509/16384 bytes).\n\nPause\nUnsubscribe\nSave scope revision\nLocal category scope\nquotes\npayments\napprovals\ncontracts\ncredentials\nops\nLocal payment predicate\nAll payment assertions\nFinal assertions only\nquotes · active\n\nLocal predicate all. Revision 1. Delivered cursor 4; processing cursor 0. In flight 2/2; queue 1/4 (8766/16384 bytes).\n\nPause\nUnsubscribe\nSave scope revision\nLocal category scope\nquotes\npayments\napprovals\ncontracts\ncredentials\nops",
+   "inboxItems": 4,
+   "inboxText": "Shares / USD quote · duplicate suppressed · cursor 4\nPayment pending · duplicate suppressed · cursor 3\nShares / USD quote · awaiting review: offline reference only · cursor 2\nPayment pending · awaiting review: offline reference only · cursor 1",
+   "streamsShown": 3,
+   "subsTop": 2571,
+   "inboxTop": 3458,
+   "announcement": "Simulated intake. Offline-checked references can be reviewed locally; live source and permission are not verified.",
+   "overflow": false
+  },
+  "noRes": {
+   "streamsShown": 0,
+   "streamsText": ""
+  },
+  "invoiceRes": 0,
+  "srcRes": 0,
+  "reload": {
+   "subsText": "Choose a stream to create a local subscription.",
+   "inbox": "No local receipts yet. Subscribe and simulate intake.",
+   "search": ""
+  },
+  "requestsAfterLoad": [
+   "/subscriptions.html",
+   "/styles.css",
+   "/subscriptions.css",
+   "/moth-connector.js",
+   "/subscriptions.js",
+   "/subscriptions-fixtures.json",
+   "/assets/fonts/dm-sans.ttf",
+   "/assets/fonts/space-grotesk.ttf",
+   "/subscriptions.html",
+   "/styles.css",
+   "/subscriptions.css",
+   "/moth-connector.js",
+   "/subscriptions.js",
+   "/subscriptions-fixtures.json",
+   "/assets/fonts/dm-sans.ttf",
+   "/assets/fonts/space-grotesk.ttf"
+  ]
+ },
+ "mobile": {
+  "initial": {
+   "firstFeedTop": 2190,
+   "viewportH": 844,
+   "docH": 7294,
+   "buttons": 39,
+   "streamButtons": 26,
+   "tabStopsBeforeFirstFeedAction": 15,
+   "h1Px": "40px",
+   "announcementEmptyVisible": true,
+   "announcementH": 40,
+   "localStorageKeys": [],
+   "sessionStorageKeys": [],
+   "urlParamsUsed": "",
+   "headings": [
+    "Your local inbox.",
+    "Optional Moth wallet",
+    "Browse streams",
+    "Subscriptions",
+    "Inbox and quarantine"
+   ],
+   "searchHasRoleCount": true,
+   "resultCountShown": false
+  },
+  "after": {
+   "subsText": "payments · active\n\nLocal predicate all. Revision 1. Delivered cursor 3; processing cursor 0. In flight 2/2; queue 1/4 (8509/16384 bytes).\n\nPause\nUnsubscribe\nSave scope revision\nLocal category scope\nquotes\npayments\napprovals\ncontracts\ncredentials\nops\nLocal payment predicate\nAll payment assertions\nFinal assertions only\nquotes · active\n\nLocal predicate all. Revision 1. Delivered cursor 4; processing cursor 0. In flight 2/2; queue 1/4 (8766/16384 bytes).\n\nPause\nUnsubscribe\nSave scope revision\nLocal category scope\nquotes\npayments\napprovals\ncontracts\ncredentials\nops",
+   "inboxItems": 4,
+   "inboxText": "Shares / USD quote · duplicate suppressed · cursor 4\nPayment pending · duplicate suppressed · cursor 3\nShares / USD quote · awaiting review: offline reference only · cursor 2\nPayment pending · awaiting review: offline reference only · cursor 1",
+   "streamsShown": 3,
+   "subsTop": 4376,
+   "inboxTop": 5566,
+   "announcement": "Simulated intake. Offline-checked references can be reviewed locally; live source and permission are not verified.",
+   "overflow": false
+  },
+  "noRes": {
+   "streamsShown": 0,
+   "streamsText": ""
+  },
+  "invoiceRes": 0,
+  "srcRes": 0,
+  "reload": {
+   "subsText": "Choose a stream to create a local subscription.",
+   "inbox": "No local receipts yet. Subscribe and simulate intake.",
+   "search": ""
+  },
+  "requestsAfterLoad": [
+   "/subscriptions.html",
+   "/styles.css",
+   "/subscriptions.css",
+   "/moth-connector.js",
+   "/subscriptions.js",
+   "/subscriptions-fixtures.json",
+   "/assets/fonts/dm-sans.ttf",
+   "/assets/fonts/space-grotesk.ttf",
+   "/subscriptions.html",
+   "/styles.css",
+   "/subscriptions.css",
+   "/moth-connector.js",
+   "/subscriptions.js",
+   "/subscriptions-fixtures.json",
+   "/assets/fonts/dm-sans.ttf",
+   "/assets/fonts/space-grotesk.ttf"
+  ]
+ }
+}

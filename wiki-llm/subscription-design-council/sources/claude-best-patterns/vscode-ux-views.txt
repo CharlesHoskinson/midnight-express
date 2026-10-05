@@ -1,0 +1,297 @@
+Views | Visual Studio Code Extension
+API
+
+		AI agents: See 
+llms.txt
+ for documentation discovery and navigation. Documentation articles are also available as Markdown by appending 
+.md
+ to the article URL.
+	
+Visual Studio Code
+
+										Features 
+Agents
+Agent Customization
+Models & Agent Harnesses
+Enterprise
+Extensibility
+
+										Docs 
+Documentation
+API
+FAQ
+Release Notes
+Blog
+Learn
+Events
+
+										Resources 
+Extensions
+MCP
+Download
+Search
+Download
+🎬 Watch The Story of VS Code!
+VS Code is now on Instagram, follow @vscode.ig for updates, tips, and more.
+Rewatch GitHub Copilot Day.
+Dismiss this update
+Extension API
+Overview
+Get Started
+Your First Extension
+Extension Anatomy
+Wrapping Up
+Extension Capabilities
+Overview
+Common Capabilities
+Theming
+Extending Workbench
+Extension Guides
+Overview
+AI
+AI Extensibility
+Language Model Tool
+MCP Dev Guide
+Chat Participant
+Chat Tutorial
+Language Model
+Language Model Tutorial
+Language Model Chat Provider
+Prompt TSX
+Command
+Color Theme
+File Icon Theme
+Product Icon Theme
+Tree View
+Webview
+Notebook
+Custom Editors
+Virtual Documents
+Virtual Workspaces
+Web Extensions
+Workspace Trust
+Task Provider
+Source Control
+Debugger Extension
+Markdown Extension
+Test Extension
+Custom Data Extension
+Telemetry
+UX Guidelines
+Overview
+Activity Bar
+Sidebars
+Panel
+Status Bar
+Views
+Editor Actions
+Quick Picks
+Command Palette
+Notifications
+Webviews
+Context Menus
+Walkthroughs
+Settings
+Language Extensions
+Overview
+Syntax Highlight Guide
+Semantic Highlight Guide
+Snippet Guide
+Language Configuration Guide
+Programmatic Language Features
+Language Server Extension Guide
+Embedded Languages
+Testing and Publishing
+Testing Extensions
+Publishing Extensions
+Bundling Extensions
+Continuous Integration
+Advanced Topics
+Extension Host
+Remote Development and Codespaces
+Using Proposed API
+Migrate from TSLint to ESLint
+Python Extension Template
+References
+VS Code API
+Contribution Points
+Activation Events
+Extension Manifest
+Built-In Commands
+When Clause Contexts
+Theme Color
+Product Icon Reference
+Document Selector
+Topics
+Overview
+Your First Extension
+Extension Anatomy
+Wrapping Up
+Overview
+Common Capabilities
+Theming
+Extending Workbench
+Overview
+AI Extensibility
+Language Model Tool
+MCP Dev Guide
+Chat Participant
+Chat Tutorial
+Language Model
+Language Model Tutorial
+Language Model Chat Provider
+Prompt TSX
+Command
+Color Theme
+File Icon Theme
+Product Icon Theme
+Tree View
+Webview
+Notebook
+Custom Editors
+Virtual Documents
+Virtual Workspaces
+Web Extensions
+Workspace Trust
+Task Provider
+Source Control
+Debugger Extension
+Markdown Extension
+Test Extension
+Custom Data Extension
+Telemetry
+Overview
+Activity Bar
+Sidebars
+Panel
+Status Bar
+Views
+Editor Actions
+Quick Picks
+Command Palette
+Notifications
+Webviews
+Context Menus
+Walkthroughs
+Settings
+Overview
+Syntax Highlight Guide
+Semantic Highlight Guide
+Snippet Guide
+Language Configuration Guide
+Programmatic Language Features
+Language Server Extension Guide
+Embedded Languages
+Testing Extensions
+Publishing Extensions
+Bundling Extensions
+Continuous Integration
+Extension Host
+Remote Development and Codespaces
+Using Proposed API
+Migrate from TSLint to ESLint
+Python Extension Template
+VS Code API
+Contribution Points
+Activation Events
+Extension Manifest
+Built-In Commands
+When Clause Contexts
+Theme Color
+Product Icon Reference
+Document Selector
+Views
+Copy as Markdown
+Copy as Markdown
+View as Markdown
+Ask in VS Code
+Ask in VS Code Insiders
+Ask in VS Code
+Views
+ are containers of content that can appear in the Sidebar or Panel. Views can contain Tree Views, Welcome Views, or Webview Views and can also display View Actions. Views can also be rearranged by the user or moved to another View Container (for example, from the Primary Sidebar to the Secondary Sidebar). Limit the number of Views created as other extensions can contribute in the same View Container.
+✔️ Do
+Use existing icons when possible
+Use file icons for language files
+Use a Tree View for displaying data
+Add an icon to every View (in case it is moved to the Activity Bar or Secondary Sidebar—both of which use icons to represent the View)
+Keep the number of Views to a minimum
+Keep the length of names to a minimum
+Limit the use of custom Webview Views
+❌ Don't
+Repeat existing functionality
+Use tree items as single action items (for example, firing a Command on click)
+Use custom Webview Views if not necessary
+Use a Activity Bar Item (View Container) to open a Webview in the Editor
+This example uses a Tree View to display a flat list of Tree View Items.
+View Locations
+Views can be placed in 
+existing View Containers
+, such as the File Explorer, Source Control (SCM) and Debug View Containers. They can also be added to a custom 
+View Container
+ via the Activity Bar. In addition, Views can be added to any View Container in the Panel. They can also be dragged to the Secondary Sidebar.
+View Containers
+View Containers, as the name implies, are the "parent" container in which Views are rendered. Extensions can contribute custom View Containers to the 
+Activity Bar
+/
+Primary Sidebar
+ or to the Panel. Users can drag an entire View Container from the Activity Bar to the Panel (or vice versa) and can also move individual Views.
+This is an example of a View Container placed in the Activity Bar/Primary Sidebar
+This is an example of a View Container placed in the Panel
+Tree Views
+Tree Views are a powerful and flexible format to display content in a View. Extensions can add everything from simple flat lists to deeply nested trees.
+Use descriptive labels to give context to items (if applicable)
+Use product icons to distinguish between item types (if applicable)
+❌ Don't
+Use Tree View Items as buttons to fire Commands
+Avoid deep nesting unless necessary. A few levels of folders/items is a good balance for most situations.
+Add more than three actions to an item
+Welcome Views
+When a view is empty, you can 
+add content to guide users
+ on how to use your extension or get started. Links and icons are supported in Welcome views.
+✔️ Do
+Use Welcome views only when necessary
+Use links instead of buttons when possible
+Use buttons only for primary actions
+Use clear link text to indicate the link destination
+Limit the length of the content
+Limit the number of Welcome views
+Limit the number of buttons in views
+❌ Don't
+Use buttons if not necessary
+Use Welcome views for promotions
+Use generic "read more" as link text
+This example shows one primary action for the extension with an additional link to documentation.
+Views With Progress
+You can also 
+show progress in a view
+ by referencing the view's ID.
+View Actions
+Views can expose 
+View Actions
+ on the View Toolbar. Be careful not to add too many actions to avoid noise and confusion. Using the built-in product icons helps an extension fit in alongside the native UI. However, an SVG icon can be supplied if a custom icon is needed.
+Links
+View Container API reference
+View API reference
+View Actions extension guide
+Tree View extension sample
+Welcome View extension sample
+Webview View extension sample
+9/30/2026
+On this page there are 7 sections
+On this page
+View Locations
+View Containers
+Tree Views
+Welcome Views
+Views With Progress
+View Actions
+Links
+Support
+Privacy
+Manage Cookies
+Terms of Use
+License
+Your Privacy Choices Opt-Out Icon
+Your Privacy Choices
+Consumer Health Privacy

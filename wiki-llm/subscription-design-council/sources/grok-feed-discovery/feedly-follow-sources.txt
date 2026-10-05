@@ -1,0 +1,121 @@
+Follow sources in Feedly - Feedly Documentation
+Toggle Navigation
+Home 
+New to Feedly?  
+New to Feedly Threat Intelligence?  
+Collect  
+Analyze  
+Share  
+Contact Us  
+Search  
+Manage  
+Integrations  
+Apps and Extensions  
+Industry Add-Ons  
+Old - Getting Started  
+Old - Leo  
+Old - Feedly Business  
+Follow sources in Feedly
+Feedly gives you multiple ways to find and follow sources that matter to your research or threat intelligence workflows. You can search by keyword, paste a specific website URL, or explore curated bundles created by the Feedly team.
+You’ll find all source discovery options under the 
+“
+Follow Sources
+”
+ section in the left-hand menu.
+You can:
+Search for topics like “Malware” or “CyberSecurity” to discover relevant feeds
+Use hashtags for trend-based discovery (e.g., 
+#cybersecurity
+ )
+Paste a URL to follow a specific website or blog
+Browse curated bundles grouped by themes like cybersecurity, CSO publications, or vulnerabilities
+These bundles are dynamic and updated regularly, offering a quick way to follow dozens or even thousands of sources at once.
+Using RSS feeds and Feedly’s RSS builder
+Feedly automatically detects RSS feeds for most websites. Simply paste the website URL, and Feedly will offer any available RSS feeds, including sub-feeds (e.g., a feed just for data breaches).
+If a site doesn’t offer an RSS feed, Feedly can create one using the 
+RSS builder
+. This tool analyzes pages with structured lists of links (like blog archives or news pages) and builds a usable feed from them.
+Once generated, you can follow the new feed and save it to a folder just like any other source.
+Curating sources with folders
+A good practice is to create folders that separate raw source feeds from your AI feeds. For example:
+sources - cybersecurity
+sources - foreign policy
+ai - threat intel
+ai - geopolitics
+This structure keeps unfiltered sources organized and avoids clutter in your AI Feeds. When you add sources to AI Feeds, you’ll be able to easily identify and include only those with relevant, high-quality content.
+Following non-traditional sources
+Newsletters
+Feedly can ingest email newsletters directly into your feeds. You’ll be provided with a custom Feedly email address, which you can:
+Use to subscribe to new newsletters
+Forward existing newsletter emails
+Feedly will convert each email into a readable article format and treat it like any other source in your account.
+Reddit
+You can follow subreddits by pasting the subreddit URL or simply entering the name (e.g., 
+r/cybersecurity
+ ) into the source search. Reddit content will appear as a stream of articles in your Feedly feeds.
+X (formerly Twitter)
+Feedly supports ingesting tweets from X via the official API. This requires an API key, which typically costs $100–200 per month. Once authenticated, you can follow X accounts or hashtags and display tweets alongside your other sources.
+Adding sources to AI Feeds
+Once you’ve curated your source folders, you can use them as the foundation for your AI Feeds.
+To do this:
+Open any AI Feed
+Click the pencil icon → 
+refine AI Feed
+Add sources from your folders using the search bar
+Thanks to consistent naming conventions (e.g., folders that start with 
+sources -
+ ), it’s easy to find and reuse relevant content across feeds.
+Filtering and refining content
+Top sources only
+This filter narrows your results to only the most trusted, high-quality sources. Feedly uses a three-tier ranking system based on popularity and editorial credibility. With this option enabled, only the top third of sources are used in the feed.
+Top stories only
+This filter surfaces only stories that appear in at least five different publications—helping you focus on what’s gaining traction across the web. It’s especially useful for identifying signals of emerging trends or high-impact incidents.
+You can combine both filters for maximum precision.
+Using curated bundles for specialized use cases
+In addition to building your own source sets, you can lean on Feedly’s curated bundles. These include:
+Cybersecurity
+Vulnerability intelligence
+National newspapers
+Foreign affairs
+Threat intelligence
+Tech and innovation
+Bundles are especially useful for jumpstarting new use cases or quickly aligning to a new research focus. You can preview the top sources in each bundle by hovering over the tooltips and clicking 
+“view feeds.”
+Best practices for source curation
+Keep sources and AI feeds separate:
+ This prevents unfiltered RSS content from muddying your AI feed results.
+Use consistent naming:
+ Prefix folders with “sources -” or “ai -” so they’re easy to identify and reuse.
+Layer bundles with custom sources:
+ You can mix Feedly-curated bundles with your own hand-picked websites or newsletters to tailor feeds to your unique requirements.
+Regularly audit sources:
+ Remove outdated, inactive, or overly noisy sources to keep your feeds focused and actionable.
+Did this answer your question?
+Thanks for the feedback
+There was a problem submitting your feedback. Please try again later.
+Yes
+No
+Last updated on July 31, 2025
+Toggle Search
+Categories
+AI Feeds  
+Cyberattack Intel Agent  
+Vulnerability Intel Agent  
+TTP Intel Agent  
+MCP Server  
+Cyberattack Insights Cards  
+CVE Insights Cards  
+Malware Insights Cards  
+Microsoft Teams Integration  
+Slack Integration  
+API  
+No results found
+©
+    
+        
+Feedly
+
+    
+    2026. 
+Powered by 
+Help Scout

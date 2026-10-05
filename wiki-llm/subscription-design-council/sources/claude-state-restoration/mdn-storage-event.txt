@@ -1,0 +1,606 @@
+Window: storage event - Web APIs | MDN
+Skip to main content
+Skip to search
+MDN
+HTML
+HTML: Markup language
+HTML reference
+Elements
+Global attributes
+Attributes
+See all…
+HTML guides
+Responsive images
+HTML cheatsheet
+Date & time formats
+See all…
+Markup languages
+SVG
+MathML
+XML
+CSS
+CSS: Styling language
+CSS reference
+Properties
+Selectors
+At-rules
+Values
+See all…
+CSS guides
+Box model
+Animations
+Flexbox
+Colors
+See all…
+Layout cookbook
+Column layouts
+Centering an element
+Card component
+See all…
+JavaScript
+JS
+JavaScript: Scripting language
+JS reference
+Standard built-in objects
+Expressions & operators
+Statements & declarations
+Functions
+See all…
+JS guides
+Control flow & error handling
+Loops and iteration
+Working with objects
+Using classes
+See all…
+Web APIs
+Web APIs: Programming interfaces
+Web API reference
+File system API
+Fetch API
+Geolocation API
+HTML DOM API
+Push API
+Service worker API
+See all…
+Web API guides
+Using the Web animation API
+Using the Fetch API
+Working with the History API
+Using the Web speech API
+Using web workers
+All
+All web technology
+Technologies
+Accessibility
+HTTP
+URI
+Web extensions
+WebAssembly
+WebDriver
+See all…
+Topics
+Media
+Performance
+Privacy
+Security
+Progressive web apps
+Learn
+Learn web development
+Frontend developer course
+Getting started modules
+Core modules
+MDN Curriculum
+Check out the video course from Scrimba, our partner
+Learn HTML
+Structuring content with HTML module
+Learn CSS
+CSS styling basics module
+CSS layout module
+Learn JavaScript
+Dynamic scripting with JavaScript module
+Tools
+
+                        Discover our tools
+                      
+Playground
+HTTP Observatory
+Border-image generator
+Border-radius generator
+Box-shadow generator
+Color format converter
+Color mixer
+Shape generator
+About
+
+                        Get to know MDN better
+                      
+About MDN
+Advertise with us
+Community
+MDN on GitHub
+Blog
+Toggle sidebar
+    
+Web
+Web APIs
+Window
+storage
+Theme
+
+                    OS default
+                  
+
+                    Light
+                  
+
+                    Dark
+                  
+English (US)
+Remember language
+Learn more
+Deutsch
+English (US)
+Français
+日本語
+Português (do Brasil)
+Русский
+中文 (简体)
+Window: storage event
+
+          Baseline
+        
+Widely available
+This feature is well established and works across many devices and browser versions. It’s been available across browsers since April 2017.
+
+              See full compatibility
+            
+
+              Learn more
+            
+The 
+storage
+ event of the 
+Window
+ interface fires when another document that shares the same storage area (either 
+localStorage
+ or 
+sessionStorage
+) as the current window updates that storage area. The event is 
+not
+ fired on the window that made the change.
+For 
+localStorage
+, the event is fired in all other 
+browsing contexts
+ that are in the same origin as the initiating document. This includes other tabs with the same origin.
+For 
+sessionStorage
+, the event is fired in all other 
+browsing contexts
+ that are in the same origin and the same top-level browsing context as the initiating document. This only includes embedded iframes, if any, in the same tab, and not other tabs.
+This event is not cancelable and does not bubble.
+In this article
+Syntax
+Event type
+Event handler aliases
+Examples
+Specifications
+Browser compatibility
+See also
+Syntax
+Use the event name in methods like 
+addEventListener()
+, or set an event handler property.
+js
+addEventListener("storage", (event) => { })
+
+onstorage = (event) => { }
+
+Event type
+A 
+StorageEvent
+. Inherits from 
+Event
+.
+
+          Event
+        
+
+          StorageEvent
+        
+Event handler aliases
+In addition to the 
+Window
+ interface, the event handler property 
+onstorage
+ is also available on the following targets:
+HTMLBodyElement
+HTMLFrameSetElement
+SVGSVGElement
+Examples
+Log the 
+sampleList
+ item to the console when the 
+storage
+ event fires:
+js
+window.addEventListener("storage", () => {
+  // When local storage changes, dump the list to
+  // the console.
+  console.log(JSON.parse(window.localStorage.getItem("sampleList")));
+});
+
+The same action can be achieved using the 
+onstorage
+ event handler property:
+js
+window.onstorage = () => {
+  // When local storage changes, dump the list to
+  // the console.
+  console.log(JSON.parse(window.localStorage.getItem("sampleList")));
+};
+
+Specifications
+
+            Specification
+          
+HTML
+# event-storage
+HTML
+# handler-window-onstorage
+Browser compatibility
+Enable JavaScript to view this browser compatibility table.
+See also
+Web Storage API
+Using the Web Storage API
+Responding to storage changes with the StorageEvent
+
+            Help improve MDN
+          
+Was this page helpful to you?
+      
+Yes
+        
+No
+        
+Learn how to contribute
+
+    This page was last modified on 
+Aug 21, 2026
+ by 
+MDN contributors
+.
+  
+View this page on GitHub
+ • 
+Report a problem with this content
+Filter sidebar
+Clear filter input
+HTML DOM API
+Window
+Instance properties
+caches
+closed
+cookieStore
+crashReport
+credentialless
+crossOriginIsolated
+crypto
+customElements
+devicePixelRatio
+document
+documentPictureInPicture
+event
+external
+fence
+frameElement
+frames
+fullScreen
+history
+indexedDB
+innerHeight
+innerWidth
+isSecureContext
+launchQueue
+length
+localStorage
+location
+locationbar
+menubar
+mozInnerScreenX
+mozInnerScreenY
+name
+navigation
+navigator
+opener
+orientation
+origin
+originAgentCluster
+outerHeight
+outerWidth
+parent
+performance
+personalbar
+scheduler
+screen
+screenLeft
+screenTop
+screenX
+screenY
+scrollbars
+scrollMaxX
+scrollMaxY
+scrollX
+scrollY
+self
+sessionStorage
+sharedStorage
+speechSynthesis
+status
+statusbar
+toolbar
+top
+trustedTypes
+viewport
+visualViewport
+window
+Instance methods
+alert()
+atob()
+blur()
+btoa()
+cancelAnimationFrame()
+cancelIdleCallback()
+captureEvents()
+clearImmediate()
+clearInterval()
+clearTimeout()
+close()
+confirm()
+createImageBitmap()
+dump()
+fetch()
+fetchLater()
+find()
+focus()
+getComputedStyle()
+getDefaultComputedStyle()
+getScreenDetails()
+getSelection()
+matchMedia()
+moveBy()
+moveTo()
+open()
+postMessage()
+print()
+prompt()
+queryLocalFonts()
+queueMicrotask()
+releaseEvents()
+reportError()
+requestAnimationFrame()
+requestFileSystem()
+requestIdleCallback()
+requestResize()
+resizeBy()
+resizeTo()
+scroll()
+scrollBy()
+scrollByLines()
+scrollByPages()
+scrollTo()
+setImmediate()
+setInterval()
+setResizable()
+setTimeout()
+showDirectoryPicker()
+showOpenFilePicker()
+showSaveFilePicker()
+sizeToContent()
+stop()
+structuredClone()
+webkitConvertPointFromNodeToPage()
+webkitConvertPointFromPageToNode()
+Events
+afterprint
+appinstalled
+beforeinstallprompt
+beforeprint
+beforeunload
+blur
+devicemotion
+deviceorientation
+deviceorientationabsolute
+error
+focus
+gamepadconnected
+gamepaddisconnected
+hashchange
+languagechange
+load
+message
+messageerror
+offline
+online
+orientationchange
+pagehide
+pagereveal
+pageshow
+pageswap
+popstate
+rejectionhandled
+resize
+scrollsnapchange
+scrollsnapchanging
+storage
+unhandledrejection
+unload
+vrdisplayactivate
+vrdisplayconnect
+vrdisplaydeactivate
+vrdisplaydisconnect
+vrdisplaypresentchange
+Inheritance
+EventTarget
+Related pages for HTML DOM
+BeforeUnloadEvent
+DOMStringMap
+ErrorEvent
+HTMLAnchorElement
+HTMLAreaElement
+HTMLAudioElement
+HTMLBRElement
+HTMLBaseElement
+HTMLBodyElement
+HTMLButtonElement
+HTMLCanvasElement
+HTMLDListElement
+HTMLDataElement
+HTMLDataListElement
+HTMLDialogElement
+HTMLDivElement
+HTMLDocument
+HTMLElement
+HTMLEmbedElement
+HTMLFieldSetElement
+HTMLFormControlsCollection
+HTMLFormElement
+HTMLFrameSetElement
+HTMLGeolocationElement
+HTMLHRElement
+HTMLHeadElement
+HTMLHeadingElement
+HTMLHtmlElement
+HTMLIFrameElement
+HTMLImageElement
+HTMLInputElement
+HTMLLIElement
+HTMLLabelElement
+HTMLLegendElement
+HTMLLinkElement
+HTMLMapElement
+HTMLMediaElement
+HTMLMenuElement
+HTMLMetaElement
+HTMLMeterElement
+HTMLModElement
+HTMLOListElement
+HTMLObjectElement
+HTMLOptGroupElement
+HTMLOptionElement
+HTMLOptionsCollection
+HTMLOutputElement
+HTMLParagraphElement
+HTMLPictureElement
+HTMLPreElement
+HTMLProgressElement
+HTMLQuoteElement
+HTMLScriptElement
+HTMLSelectElement
+HTMLSourceElement
+HTMLSpanElement
+HTMLStyleElement
+HTMLTableCaptionElement
+HTMLTableCellElement
+HTMLTableColElement
+HTMLTableElement
+HTMLTableRowElement
+HTMLTableSectionElement
+HTMLTemplateElement
+HTMLTextAreaElement
+HTMLTimeElement
+HTMLTitleElement
+HTMLTrackElement
+HTMLUListElement
+HTMLUnknownElement
+HTMLVideoElement
+HashChangeEvent
+History
+ImageData
+Location
+MessageChannel
+MessageEvent
+MessagePort
+Navigator
+PageRevealEvent
+PageSwapEvent
+PageTransitionEvent
+Plugin
+PluginArray
+PromiseRejectionEvent
+RadioNodeList
+TimeRanges
+UserActivation
+ValidityState
+WorkletGlobalScope
+Guides
+Using microtasks in JavaScript with queueMicrotask()
+In depth: Microtasks and the JavaScript runtime environment
+MDN
+
+              Your blueprint for a better internet.
+            
+MDN
+
+                            About
+                          
+
+                            Blog
+                          
+
+                            Mozilla careers
+                          
+
+                            Advertise with us
+                          
+
+                            MDN Plus
+                          
+
+                            Product help
+                          
+Contribute
+
+                            MDN Community
+                          
+
+                            Community resources
+                          
+
+                            Writing guidelines
+                          
+
+                            MDN Discord
+                          
+
+                            MDN on GitHub
+                          
+Developers
+
+                            Web technologies
+                          
+
+                            Learn web development
+                          
+
+                            Guides
+                          
+
+                            Tutorials
+                          
+
+                            Glossary
+                          
+
+                            Hacks blog
+                          
+Mozilla
+Website Privacy Notice
+Telemetry Settings
+Legal
+Community Participation Guidelines
+
+            Portions of this content are ©1998–2026 by individual mozilla.org contributors. Content available under 
+a Creative Commons license
+.
+          

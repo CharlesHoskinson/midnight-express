@@ -1,0 +1,13 @@
+{
+  "url": "https://www.w3.org/WAI/ARIA/apg/patterns/feed/",
+  "retrieved_utc": "2026-10-05T20:32:48.572417+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "3a438b03a06bcbc2ca61aa698f238ff2833b572e95cdfb97323444d77a30d1ea",
+  "text_sha256": "56b462fd3f90c9f87c50a8eeff1271d2057ebb8ec3c41d57edcf1743696d8df6",
+  "bytes": 41947,
+  "text_bytes": 7998,
+  "final_url": "https://www.w3.org/WAI/ARIA/apg/patterns/feed/",
+  "accepted_source": true
+}

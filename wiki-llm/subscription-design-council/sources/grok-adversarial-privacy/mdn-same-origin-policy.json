@@ -1,0 +1,13 @@
+{
+  "url": "https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy",
+  "retrieved_utc": "2026-10-05T20:28:27.138204+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "16c13b75342439ed1018f4b0efab106e616a065919f8de30beff4fbfceda1e87",
+  "text_sha256": "5f1c7bc157ac428861b00d33dbc00979d9aa41b296fbbc2885d3f8fe69523530",
+  "bytes": 167206,
+  "text_bytes": 14601,
+  "final_url": "https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Same-origin_policy",
+  "accepted_source": true
+}

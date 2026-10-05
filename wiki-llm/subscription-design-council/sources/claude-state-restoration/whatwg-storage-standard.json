@@ -1,0 +1,13 @@
+{
+  "url": "https://storage.spec.whatwg.org/",
+  "retrieved_utc": "2026-10-05T20:17:33.389663+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "bab62b870d9d5458405729ec870dddb48da07ca4858ba5315d139077aad9b338",
+  "text_sha256": "45adfe63e47b490417cdead764e2b7d0bc10c7c71acfc5a42ef18d2e6a4eb2f1",
+  "bytes": 202328,
+  "text_bytes": 27485,
+  "final_url": "https://storage.spec.whatwg.org/",
+  "accepted_source": true
+}

@@ -1,0 +1,19 @@
+{
+  "url": "https://code.visualstudio.com/api/ux-guidelines/views",
+  "retrieved_utc": "2026-10-05T20:20:08.830340+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "d1b5757ccf0834b01bd7a53c174059e5d4b66e59b56efd32fbbd7cbc98858ad6",
+  "text_sha256": "0eedd117154e757202a82c6a6ec91bf810446362489edd901d9b2ab46d692cca",
+  "bytes": 54032,
+  "text_bytes": 7313,
+  "final_url": "https://code.visualstudio.com/api/ux-guidelines/views",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 1,
+    "tiles": [],
+    "stderr": "2026-10-05 14:20:10,439 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:20:15,825 WARNING pixelrag_render.backends.cdp: [w0] FAIL https://code.visualstudio.com/api/ux-guidelines/views: no close frame received or sent\n2026-10-05 14:20:15,842 INFO pixelrag_render.backends.cdp: Batch complete: done=0 failed=1\n2026-10-05 14:20:15,843 WARNING pixelrag_render.render: No outputs produced.\n",
+    "verified_capture": false
+  }
+}

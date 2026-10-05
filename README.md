@@ -40,7 +40,7 @@ Repository material is organized by purpose:
 
 ## Private subscriptions
 
-The [subscription design](docs/product-requirements/pubsub-subscription-experience.md) explains how humans, wallets, DApps and agents follow supported workflows. Try the [dashboard](https://charleshoskinson.github.io/midnight-express/subscriptions.html), or inspect the [research record](wiki-llm/pubsub/README.md). The dashboard uses mock delivery, offline-checked reference fixtures and optional explicit Moth connection controls.
+The [subscription design](docs/product-requirements/pubsub-subscription-experience.md) explains how humans, wallets, DApps and agents follow supported workflows. Try the [dashboard](https://charleshoskinson.github.io/midnight-express/subscriptions.html), or inspect the [research record](wiki-llm/pubsub/README.md). The dashboard uses mock delivery, offline-checked reference fixtures and optional explicit Moth connection controls. The [directory workspace recommendation](design/subscriptions/directory-workspace.md) defines the proposed replacement, with independently scoped feeds, search and retained historical information. Its [design council](wiki-llm/subscription-design-council/README.md) records the primary-source research and resolved disagreements.
 
 ## Formal data model
 

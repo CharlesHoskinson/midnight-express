@@ -1,0 +1,32 @@
+[
+  {
+    "path": "wiki-llm/subscription-design-council/sources/gpt-usability-verification/verification/verify.cjs",
+    "sha256": "551ba9e78a0748f610ec1e9dad5b87db39178bb2e4817c7fec0a7fe08c6c341e",
+    "scope": "local synthetic browser probe; results and environment are described in reviewer report"
+  },
+  {
+    "path": "wiki-llm/subscription-design-council/sources/claude-operability/verification/probe.cjs",
+    "sha256": "0a4fa95b6281519236e87d1e2c1606a24bc9f96626424fce9ab58e00f0ef2543",
+    "scope": "local synthetic browser probe; results and environment are described in reviewer report"
+  },
+  {
+    "path": "wiki-llm/subscription-design-council/sources/claude-operability/verification/probe2.cjs",
+    "sha256": "d261ce50ffbe3d002854f716754c2b018cc046aab209763dc70563e0581a252a",
+    "scope": "local synthetic browser probe; results and environment are described in reviewer report"
+  },
+  {
+    "path": "wiki-llm/subscription-design-council/sources/claude-best-patterns/verification/inspect.cjs",
+    "sha256": "ac23bdeb163cc817c7e6b92e74135f5770c2ae9a1876a1a08894cff03a08bf29",
+    "scope": "local synthetic browser probe; results and environment are described in reviewer report"
+  },
+  {
+    "path": "wiki-llm/subscription-design-council/sources/claude-best-patterns/verification/inspect.json",
+    "sha256": "3bb64485f6fd29472279b1b9b8574251dbdf4e085229fb0b01dad6bcd6069195",
+    "scope": "local synthetic browser probe; results and environment are described in reviewer report"
+  },
+  {
+    "path": "wiki-llm/subscription-design-council/sources/claude-best-patterns/verification/focus.cjs",
+    "sha256": "0bce834b6f2667914993a568d61a094141230dab3cbebc5b5cbe3afbf83e9ee4",
+    "scope": "local synthetic browser probe; results and environment are described in reviewer report"
+  }
+]

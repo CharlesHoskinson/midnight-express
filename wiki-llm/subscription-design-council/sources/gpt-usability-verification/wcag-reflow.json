@@ -1,0 +1,84 @@
+{
+  "url": "https://www.w3.org/WAI/WCAG22/Understanding/reflow.html",
+  "retrieved_utc": "2026-10-05T20:13:41.917846+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "bc0b7f0afa54f9f3817026aa3e070251174ccf6db1244c927a1e83e9819a6183",
+  "text_sha256": "c7c579806b9ff1bcabfb9132007d7836dc0f22415079c2071d4bba050c2edcf5",
+  "bytes": 85770,
+  "text_bytes": 41176,
+  "final_url": "https://www.w3.org/WAI/WCAG22/Understanding/reflow.html",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/gpt-usability-verification/wcag-reflow-tiles/www.w3.org_WAI_WCAG22_Understanding_reflow.html.png.tiles/tile_0000.jpg",
+        "sha256": "fa507fda4e5d1b3aafba9569eb2574c5e3af2bb8e5702635c1a8a50aa14aa879"
+      },
+      {
+        "path": "sources/gpt-usability-verification/wcag-reflow-tiles/www.w3.org_WAI_WCAG22_Understanding_reflow.html.png.tiles/tile_0001.jpg",
+        "sha256": "36598b3d775426980b6a06264c3bb31ef06601916991ac0244283175cff4567a"
+      },
+      {
+        "path": "sources/gpt-usability-verification/wcag-reflow-tiles/www.w3.org_WAI_WCAG22_Understanding_reflow.html.png.tiles/tile_0002.jpg",
+        "sha256": "3c0db1c7276004c9cfe2eefd962ed24edebc094af367fe5bfa0ff0fcc316d687"
+      },
+      {
+        "path": "sources/gpt-usability-verification/wcag-reflow-tiles/www.w3.org_WAI_WCAG22_Understanding_reflow.html.png.tiles/tile_0003.jpg",
+        "sha256": "697b8611a1a1bca572af8ec8ab38969676f7e33263b78269e60858c08fa83abd"
+      },
+      {
+        "path": "sources/gpt-usability-verification/wcag-reflow-tiles/www.w3.org_WAI_WCAG22_Understanding_reflow.html.png.tiles/tile_0004.jpg",
+        "sha256": "5fceb865b5604e8b5c1a4ed2f8fcfd77a71e053b02fd8bd47c9628fe85d5ed42"
+      },
+      {
+        "path": "sources/gpt-usability-verification/wcag-reflow-tiles/www.w3.org_WAI_WCAG22_Understanding_reflow.html.png.tiles/tile_0005.jpg",
+        "sha256": "f8c882d8148b7c9018e2006aa8ab574207f89ae03970beb5bda0410752a7f6e9"
+      },
+      {
+        "path": "sources/gpt-usability-verification/wcag-reflow-tiles/www.w3.org_WAI_WCAG22_Understanding_reflow.html.png.tiles/tile_0006.jpg",
+        "sha256": "15857152d9c9d812d36458ed0dd1f437ed89173dc687af55464baec72553b20e"
+      },
+      {
+        "path": "sources/gpt-usability-verification/wcag-reflow-tiles/www.w3.org_WAI_WCAG22_Understanding_reflow.html.png.tiles/tile_0007.jpg",
+        "sha256": "8e512944d17d8b1e1df55e64af1a572d0a19104160b6a284223321d1cdb5275f"
+      },
+      {
+        "path": "sources/gpt-usability-verification/wcag-reflow-tiles/www.w3.org_WAI_WCAG22_Understanding_reflow.html.png.tiles/tile_0008.jpg",
+        "sha256": "ebb630e9ae472bc3c448f030f4653f26eac568b2381be7dfeb16a1dc0892e463"
+      },
+      {
+        "path": "sources/gpt-usability-verification/wcag-reflow-tiles/www.w3.org_WAI_WCAG22_Understanding_reflow.html.png.tiles/tile_0009.jpg",
+        "sha256": "b7aa381b41536020c660458801bdb78765911a8be63927b6ca53c1da2edaf339"
+      },
+      {
+        "path": "sources/gpt-usability-verification/wcag-reflow-tiles/www.w3.org_WAI_WCAG22_Understanding_reflow.html.png.tiles/tile_0010.jpg",
+        "sha256": "701cd4f4c308a13ef6e8b67f30bed7b0936674a36000d25c2d6c109da57913a4"
+      },
+      {
+        "path": "sources/gpt-usability-verification/wcag-reflow-tiles/www.w3.org_WAI_WCAG22_Understanding_reflow.html.png.tiles/tile_0011.jpg",
+        "sha256": "b18a27176a3e6dbe202ad08613c8128c05692d5d91469c788a3cbf19e3e8cfb3"
+      },
+      {
+        "path": "sources/gpt-usability-verification/wcag-reflow-tiles/www.w3.org_WAI_WCAG22_Understanding_reflow.html.png.tiles/tile_0012.jpg",
+        "sha256": "071300fadfb0b894e662ba0aa15f8299eba298ef9c1b7a1aee6981cc75360d36"
+      },
+      {
+        "path": "sources/gpt-usability-verification/wcag-reflow-tiles/www.w3.org_WAI_WCAG22_Understanding_reflow.html.png.tiles/tile_0013.jpg",
+        "sha256": "09fc584c71befd0bb52e4d41e3ad838a5372ed4d154f2b768dcb280847d6e50c"
+      },
+      {
+        "path": "sources/gpt-usability-verification/wcag-reflow-tiles/www.w3.org_WAI_WCAG22_Understanding_reflow.html.png.tiles/tile_0014.jpg",
+        "sha256": "1d27e81436f6ae6fb2b62196b4befd5825bfa2f1b9d286da71f661455ee65b93"
+      },
+      {
+        "path": "sources/gpt-usability-verification/wcag-reflow-tiles/www.w3.org_WAI_WCAG22_Understanding_reflow.html.png.tiles/tile_0015.jpg",
+        "sha256": "cfea30f009be0cb974423a30551b7cd6e94d12dcde83b42a001e5f78990390cf"
+      }
+    ],
+    "stderr": "2026-10-05 14:13:43,320 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:13:53,074 INFO pixelrag_render.backends.cdp: [w0] https://www.w3.org/WAI/WCAG22/Understanding/reflow.html \u2192 16 tiles (6.7s)\n2026-10-05 14:13:53,091 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 14:13:53,092 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

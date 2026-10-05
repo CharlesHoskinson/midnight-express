@@ -1,0 +1,44 @@
+{
+  "url": "https://www.inoreader.com/",
+  "retrieved_utc": "2026-10-05T20:06:50.833702+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "67f8d14ca30ea62ea652409b783dfebb146aa6e89bffafab0ca9833d0df1396c",
+  "text_sha256": "cee045a8d9889e3a53a0e72f6725cb42db1772ce09d4c8a67f54e7e7497c2c10",
+  "bytes": 179016,
+  "text_bytes": 14237,
+  "final_url": "https://www.inoreader.com/",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/gpt-consensus-architecture/inoreader-product-tiles/www.inoreader.com.png.tiles/tile_0000.jpg",
+        "sha256": "cfbe977e9b9a27fdffeca4cd8456bc0a99c4f1bbed2d8215e8078f6187ddbca8"
+      },
+      {
+        "path": "sources/gpt-consensus-architecture/inoreader-product-tiles/www.inoreader.com.png.tiles/tile_0001.jpg",
+        "sha256": "737aea460fc2e1927367dbe06ef3b2dd46f212d8d40ccfe691953ccdf94b06de"
+      },
+      {
+        "path": "sources/gpt-consensus-architecture/inoreader-product-tiles/www.inoreader.com.png.tiles/tile_0002.jpg",
+        "sha256": "e8552db1dbdd2a920eddb1995edf3fc91ab423e3675a8764a418c786dc705d4a"
+      },
+      {
+        "path": "sources/gpt-consensus-architecture/inoreader-product-tiles/www.inoreader.com.png.tiles/tile_0003.jpg",
+        "sha256": "af76046922124fbe3d01c08636a64488c794d626e7f1898165dbcb5aaab72e66"
+      },
+      {
+        "path": "sources/gpt-consensus-architecture/inoreader-product-tiles/www.inoreader.com.png.tiles/tile_0004.jpg",
+        "sha256": "7dece4b1aab8ac200b9b85e3533f786d26ab2dd14e1116f2e6deb98a7a3b8cd2"
+      },
+      {
+        "path": "sources/gpt-consensus-architecture/inoreader-product-tiles/www.inoreader.com.png.tiles/tile_0005.jpg",
+        "sha256": "4d5a65aa874da7b66fd98a1b6c96340b2d4ad1f9260666e4001735e167269efa"
+      }
+    ],
+    "stderr": "2026-10-05 14:06:52,169 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:07:07,188 INFO pixelrag_render.backends.cdp: [w0] https://www.inoreader.com/ \u2192 6 tiles (12.0s)\n2026-10-05 14:07:07,206 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 14:07:07,207 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

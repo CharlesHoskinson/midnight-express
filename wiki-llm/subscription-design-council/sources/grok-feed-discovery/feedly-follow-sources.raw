@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="utf-8"/>
+    <title>Follow sources in Feedly - Feedly Documentation</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Feedly gives you multiple ways to find and follow sources that matter to your research or threat intelligence workflows. You can search by keyword, paste a spec"/>
+    <meta name="author" content="Feedly"/>
+    <link rel="canonical" href="https://docs.feedly.com/article/768-follow-sources-in-feedly"/>
+    
+        
+   
+            <meta name="twitter:card" content="summary"/>
+            <meta name="twitter:title" content="Follow sources in Feedly" />
+            <meta name="twitter:description" content="Feedly gives you multiple ways to find and follow sources that matter to your research or threat intelligence workflows. You can search by keyword, paste a spec"/>
+
+
+    
+
+    
+        <link rel="stylesheet" href="//d3eto7onm69fcz.cloudfront.net/assets/stylesheets/launch-1790672811641.css">
+    
+    <style>
+        body { background: #ffffff; }
+        .navbar .navbar-inner { background: #ffffff; }
+        .navbar .nav li a, 
+        .navbar .icon-private-w  { color: #b8b8b8; }
+        .navbar .brand, 
+        .navbar .nav li a:hover, 
+        .navbar .nav li a:focus, 
+        .navbar .nav .active a, 
+        .navbar .nav .active a:hover, 
+        .navbar .nav .active a:focus  { color: #b8b8b8; }
+        .navbar a:hover .icon-private-w, 
+        .navbar a:focus .icon-private-w, 
+        .navbar .active a .icon-private-w, 
+        .navbar .active a:hover .icon-private-w, 
+        .navbar .active a:focus .icon-private-w { color: #b8b8b8; }
+        #serp-dd .result a:hover,
+        #serp-dd .result > li.active,
+        #fullArticle strong a,
+        #fullArticle a strong,
+        .collection a,
+        .contentWrapper a,
+        .most-pop-articles .popArticles a,
+        .most-pop-articles .popArticles a:hover span,
+        .category-list .category .article-count,
+        .category-list .category:hover .article-count { color: #2bb24c; }
+        #fullArticle, 
+        #fullArticle p, 
+        #fullArticle ul, 
+        #fullArticle ol, 
+        #fullArticle li, 
+        #fullArticle div, 
+        #fullArticle blockquote, 
+        #fullArticle dd, 
+        #fullArticle table { color:#585858; }
+    </style>
+    
+        <link rel="stylesheet" href="//s1.feedly.com/helpscout/FeedlyKnowledgeBase.css">
+    
+    <link rel="apple-touch-icon-precomposed" href="//d33v4339jhl8k0.cloudfront.net/docs/assets/5abc898d2c7d3a0e9366d6c3/images/693c55db35862f03fd1c4a69/Frame-1073714196-(1).png">
+    <link rel="shortcut icon" type="image/png" href="//d33v4339jhl8k0.cloudfront.net/docs/assets/5abc898d2c7d3a0e9366d6c3/images/693c55dbcb9d3b0ea8ed81be/Frame-1073714196-(1).png">
+    <!--[if lt IE 9]>
+    
+        <script src="//d3eto7onm69fcz.cloudfront.net/assets/javascripts/html5shiv.min.js"></script>
+    
+    <![endif]-->
+    
+        <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"WebSite","url":"https://docs.feedly.com","potentialAction":{"@type":"SearchAction","target":"https://docs.feedly.com/search?query={query}","query-input":"required name=query"}}
+        </script>
+    
+        <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Feedly Documentation","item":"https://docs.feedly.com"},{"@type":"ListItem","position":2,"name":"New to Feedly Threat Intelligence?","item":"https://docs.feedly.com/collection/760-new-to-feedly-threat-intelligence"},{"@type":"ListItem","position":3,"name":"Follow sources in Feedly","item":"https://docs.feedly.com/article/768-follow-sources-in-feedly"}]}
+        </script>
+    
+    
+        <script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
+<script type="text/javascript">window.Beacon('init', '7dbc0d3a-e0eb-460b-8207-b72f0c11abd4')</script>
+    
+</head>
+    
+    <body>
+        
+<header id="mainNav" class="navbar">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="https://docs.feedly.com">
+            
+                
+                    <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5abc898d2c7d3a0e9366d6c3/images/64d0c434ccffa67e9b0842a7/logo.png" alt="Feedly Documentation" width="300" height="42">
+                
+
+            
+            </a>
+            
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            
+            <div class="nav-collapse collapse">
+                <nav role="navigation"><!-- added for accessibility -->
+                <ul class="nav">
+                    
+                        <li id="home"><a href="/">Home <b class="caret"></b></a></li>
+                    
+                    
+                        
+                            <li  id="new-to-feedly"><a href="/collection/519-new-to-feedly">New to Feedly?  <b class="caret"></b></a></li>
+                        
+                            <li  class="active"  id="new-to-feedly-threat-intelligence"><a href="/collection/760-new-to-feedly-threat-intelligence">New to Feedly Threat Intelligence?  <b class="caret"></b></a></li>
+                        
+                            <li  id="collect"><a href="/collection/408-collect">Collect  <b class="caret"></b></a></li>
+                        
+                            <li  id="analyze"><a href="/collection/411-analyze">Analyze  <b class="caret"></b></a></li>
+                        
+                            <li  id="share"><a href="/collection/414-share">Share  <b class="caret"></b></a></li>
+                        
+                            <li  id="contact-us"><a href="/collection/525-contact-us">Contact Us  <b class="caret"></b></a></li>
+                        
+                            <li  id="search"><a href="/collection/417-search">Search  <b class="caret"></b></a></li>
+                        
+                            <li  id="manage"><a href="/collection/423-manage">Manage  <b class="caret"></b></a></li>
+                        
+                            <li  id="integrations"><a href="/collection/420-integrations">Integrations  <b class="caret"></b></a></li>
+                        
+                            <li  id="apps-and-extensions"><a href="/collection/426-apps-and-extensions">Apps and Extensions  <b class="caret"></b></a></li>
+                        
+                            <li  id="industry-add-ons"><a href="/collection/429-industry-add-ons">Industry Add-Ons  <b class="caret"></b></a></li>
+                        
+                            <li  id="old---getting-started"><a href="/collection/405-old---getting-started">Old - Getting Started  <b class="caret"></b></a></li>
+                        
+                            <li  id="old---leo"><a href="/collection/219-old---leo">Old - Leo  <b class="caret"></b></a></li>
+                        
+                            <li  id="old---feedly-business"><a href="/collection/10-old---feedly-business">Old - Feedly Business  <b class="caret"></b></a></li>
+                        
+                    
+                    
+                    
+                </ul>
+                </nav>
+            </div><!--/.nav-collapse -->
+        </div><!--/container-->
+    </div><!--/navbar-inner-->
+</header>
+        <section id="contentArea" class="container-fluid">
+            <div class="row-fluid">
+                <section id="main-content" class="span9">
+                    <div class="contentWrapper">
+                        
+    
+    <article id="fullArticle">
+        <h1 class="title">Follow sources in Feedly</h1>
+    
+        <a href="javascript:window.print()" class="printArticle" title="Print this article" aria-label="Print this Article"><i class="icon-print"></i></a>
+        <div class="video video-vimeo video-responsive" style="aspect-ratio:16 / 9;">
+ <iframe width="100%" height="100%" frameborder="0" allowfullscreen allow="autoplay; fullscreen; picture-in-picture" src="https://player.vimeo.com/video/1105279884?title=0&amp;byline=0&amp;portrait=0" title="Vimeo video player"></iframe>
+</div>
+<p>Feedly gives you multiple ways to find and follow sources that matter to your research or threat intelligence workflows. You can search by keyword, paste a specific website URL, or explore curated bundles created by the Feedly team.</p>
+<p>You’ll find all source discovery options under the <strong>“</strong><a href="https://feedly.com/i/discover"><strong>Follow Sources</strong></a><strong>”</strong> section in the left-hand menu.</p>
+<p>You can:</p>
+<ul>
+ <li>Search for topics like “Malware” or “CyberSecurity” to discover relevant feeds</li>
+ <li>Use hashtags for trend-based discovery (e.g., <code class="inline-code">#cybersecurity</code> )</li>
+ <li>Paste a URL to follow a specific website or blog</li>
+ <li>Browse curated bundles grouped by themes like cybersecurity, CSO publications, or vulnerabilities</li>
+</ul>
+<p>These bundles are dynamic and updated regularly, offering a quick way to follow dozens or even thousands of sources at once.</p>
+<h1>Using RSS feeds and Feedly’s RSS builder</h1>
+<p>Feedly automatically detects RSS feeds for most websites. Simply paste the website URL, and Feedly will offer any available RSS feeds, including sub-feeds (e.g., a feed just for data breaches).</p>
+<p>If a site doesn’t offer an RSS feed, Feedly can create one using the <strong>RSS builder</strong>. This tool analyzes pages with structured lists of links (like blog archives or news pages) and builds a usable feed from them.</p>
+<p>Once generated, you can follow the new feed and save it to a folder just like any other source.</p>
+<h1>Curating sources with folders</h1>
+<p>A good practice is to create folders that separate raw source feeds from your AI feeds. For example:</p>
+<ul>
+ <li><code class="inline-code">sources - cybersecurity</code></li>
+ <li><code class="inline-code">sources - foreign policy</code></li>
+ <li><code class="inline-code">ai - threat intel</code></li>
+ <li><code class="inline-code">ai - geopolitics</code></li>
+</ul>
+<p>This structure keeps unfiltered sources organized and avoids clutter in your AI Feeds. When you add sources to AI Feeds, you’ll be able to easily identify and include only those with relevant, high-quality content.</p>
+<h1>Following non-traditional sources</h1>
+<h2>Newsletters</h2>
+<p>Feedly can ingest email newsletters directly into your feeds. You’ll be provided with a custom Feedly email address, which you can:</p>
+<ul>
+ <li>Use to subscribe to new newsletters</li>
+ <li>Forward existing newsletter emails</li>
+</ul>
+<p>Feedly will convert each email into a readable article format and treat it like any other source in your account.</p>
+<h2>Reddit</h2>
+<p>You can follow subreddits by pasting the subreddit URL or simply entering the name (e.g., <code class="inline-code">r/cybersecurity</code> ) into the source search. Reddit content will appear as a stream of articles in your Feedly feeds.</p>
+<h2>X (formerly Twitter)</h2>
+<p>Feedly supports ingesting tweets from X via the official API. This requires an API key, which typically costs $100–200 per month. Once authenticated, you can follow X accounts or hashtags and display tweets alongside your other sources.</p>
+<h1>Adding sources to AI Feeds</h1>
+<p>Once you’ve curated your source folders, you can use them as the foundation for your AI Feeds.</p>
+<p>To do this:</p>
+<ul>
+ <li>Open any AI Feed</li>
+ <li>Click the pencil icon → <strong>refine AI Feed</strong></li>
+ <li>Add sources from your folders using the search bar</li>
+</ul>
+<p>Thanks to consistent naming conventions (e.g., folders that start with <code class="inline-code">sources -</code> ), it’s easy to find and reuse relevant content across feeds.</p>
+<h1>Filtering and refining content</h1>
+<h2>Top sources only</h2>
+<p>This filter narrows your results to only the most trusted, high-quality sources. Feedly uses a three-tier ranking system based on popularity and editorial credibility. With this option enabled, only the top third of sources are used in the feed.</p>
+<h2>Top stories only</h2>
+<p>This filter surfaces only stories that appear in at least five different publications—helping you focus on what’s gaining traction across the web. It’s especially useful for identifying signals of emerging trends or high-impact incidents.</p>
+<p>You can combine both filters for maximum precision.</p>
+<h1>Using curated bundles for specialized use cases</h1>
+<p>In addition to building your own source sets, you can lean on Feedly’s curated bundles. These include:</p>
+<ul>
+ <li>Cybersecurity</li>
+ <li>Vulnerability intelligence</li>
+ <li>National newspapers</li>
+ <li>Foreign affairs</li>
+ <li>Threat intelligence</li>
+ <li>Tech and innovation</li>
+</ul>
+<p>Bundles are especially useful for jumpstarting new use cases or quickly aligning to a new research focus. You can preview the top sources in each bundle by hovering over the tooltips and clicking <strong>“view feeds.”</strong></p>
+<h1>Best practices for source curation</h1>
+<ul>
+ <li><strong>Keep sources and AI feeds separate:</strong> This prevents unfiltered RSS content from muddying your AI feed results.</li>
+ <li><strong>Use consistent naming:</strong> Prefix folders with “sources -” or “ai -” so they’re easy to identify and reuse.</li>
+ <li><strong>Layer bundles with custom sources:</strong> You can mix Feedly-curated bundles with your own hand-picked websites or newsletters to tailor feeds to your unique requirements.</li>
+ <li><strong>Regularly audit sources:</strong> Remove outdated, inactive, or overly noisy sources to keep your feeds focused and actionable.</li>
+</ul>
+    </article>
+    
+        <div class="articleRatings" data-article-url="https://docs.feedly.com/article/768-follow-sources-in-feedly">
+            <span class="articleRatings-question">Did this answer your question?</span>
+            <span class="articleRatings-feedback">
+                <span class="articleRatings-feedback-tick">
+                    <svg height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m8 14a.997.997 0 0 1 -.707-.293l-2-2a.999.999 0 1 1 1.414-1.414l1.293 1.293 4.293-4.293a.999.999 0 1 1 1.414 1.414l-5 5a.997.997 0 0 1 -.707.293" fill="#2CC683" fill-rule="evenodd"/>
+                    </svg>
+                </span>
+                <span class="articleRatings-feedback-message">Thanks for the feedback</span>
+            </span>
+            <span class="articleRatings-failure">There was a problem submitting your feedback. Please try again later.</span>
+            <div class="articleRatings-actions">
+                <button class="rateAction rateAction--positive" data-rating="positive">
+                    <span class="sr-only">Yes</span>
+                    <span class="rating-face">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                            <path fill-rule="evenodd" d="M5.538 14.026A19.392 19.392 0 0 1 12 12.923c2.26 0 4.432.388 6.462 1.103-1.087 2.61-3.571 4.436-6.462 4.436-2.891 0-5.375-1.825-6.462-4.436zm1.847-3.872a1.846 1.846 0 1 1 0-3.692 1.846 1.846 0 0 1 0 3.692zm9.23 0a1.846 1.846 0 1 1 0-3.692 1.846 1.846 0 0 1 0 3.692z"/>
+                        </svg>
+                    </span>
+                </button>
+                <button class="rateAction rateAction--negative" data-rating="negative">
+                    <span class="sr-only">No</span>
+                    <span class="rating-face">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                            <path fill-rule="evenodd" d="M7.385 13.846a1.846 1.846 0 1 1 0-3.692 1.846 1.846 0 0 1 0 3.692zm9.23 0a1.846 1.846 0 1 1 0-3.692 1.846 1.846 0 0 1 0 3.692zm-.967 4.95a.992.992 0 0 1-.615-.212c-1.701-1.349-4.364-1.349-6.065 0a.998.998 0 0 1-1.36-.123.895.895 0 0 1 .127-1.3A6.897 6.897 0 0 1 12 15.692c1.555 0 3.069.521 4.266 1.467.41.326.467.909.127 1.3a.982.982 0 0 1-.745.335z"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+     
+
+    <section class="articleFoot">
+    
+
+    <time class="lu" datetime=2025-07-31 >Last updated on July 31, 2025</time>
+    </section>
+
+                    </div><!--/contentWrapper-->
+                    
+                </section><!--/content-->
+                <aside id="sidebar" class="span3">
+                 
+
+<form action="/search" method="GET" id="searchBar" class="sm" autocomplete="off">
+    
+                    <input type="hidden" name="collectionId" value="68759115c525ff1e1167e7e3"/>
+                    <input type="text" name="query" title="search-query" class="search-query" placeholder="Search" value="" aria-label="Search" />
+                    <button type="submit">
+                        <span class="sr-only">Toggle Search</span>
+                        <i class="icon-search"></i>
+                    </button>
+                    <div id="serp-dd" style="display: none;" class="sb">
+                        <ul class="result">
+                        </ul>
+                    </div>
+                
+</form>
+
+                
+                    <h3>Categories</h3>
+                    <ul class="nav nav-list">
+                    
+                        
+                            <li  class="active" ><a href="/category/763-ai-feeds">AI Feeds  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/833-cyberattack-agent">Cyberattack Intel Agent  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/832-vulnerability-agent">Vulnerability Intel Agent  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/824-ttp-ai-agent">TTP Intel Agent  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/819-mcp-server">MCP Server  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/825-cyberattack-insights-cards">Cyberattack Insights Cards  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/783-cve-insights-cards">CVE Insights Cards  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/789-malware-insights-cards">Malware Insights Cards  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/856-microsoft-teams-integration">Microsoft Teams Integration  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/858-slack">Slack Integration  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                        
+                            <li ><a href="/category/771-api">API  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                    </ul>
+                
+                </aside><!--/span-->
+            </div><!--/row-->
+            <div id="noResults" style="display:none;">No results found</div>
+            <footer>
+                
+
+<p>&copy;
+    
+        <a href="https://docs.feedly.com">Feedly</a>
+    
+    2026. <span>Powered by <a rel="nofollow noopener noreferrer" href="https://www.helpscout.com/docs-refer/?co=Feedly&utm_source=docs&utm_medium=footerlink&utm_campaign=Docs+Branding" target="_blank">Help Scout</a></span>
+    
+        
+    
+    
+</p>
+
+            </footer>
+        </section><!--/.fluid-container-->
+        
+        
+    <script src="//d3eto7onm69fcz.cloudfront.net/assets/javascripts/app4.min.js"></script>
+
+<script>
+// keep iOS links from opening safari
+if(("standalone" in window.navigator) && window.navigator.standalone){
+// If you want to prevent remote links in standalone web apps opening Mobile Safari, change 'remotes' to true
+var noddy, remotes = false;
+document.addEventListener('click', function(event) {
+noddy = event.target;
+while(noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
+noddy = noddy.parentNode;
+}
+
+if('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes)){
+event.preventDefault();
+document.location.href = noddy.href;
+}
+
+},false);
+}
+</script>
+        
+    </body>
+</html>
+
+

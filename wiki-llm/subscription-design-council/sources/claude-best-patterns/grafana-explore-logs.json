@@ -1,0 +1,48 @@
+{
+  "url": "https://grafana.com/docs/grafana/latest/explore/logs-integration/",
+  "retrieved_utc": "2026-10-05T20:34:48.961653+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "b5111ce56e03ea812354ca8b01fceacf1aef8a035f630f82177fc64e1cb2a086",
+  "text_sha256": "cdb6a15c7a9dc78b8a925c532eae9d25101df3f70664543161fd90cb41859db1",
+  "bytes": 344993,
+  "text_bytes": 33197,
+  "final_url": "https://grafana.com/docs/grafana/latest/visualizations/explore/logs-integration/",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/claude-best-patterns/grafana-explore-logs-tiles/grafana.com_docs_grafana_latest_explore_logs-integration.png.tiles/tile_0000.jpg",
+        "sha256": "3f74217248a1bf38d06d515f7fb7685fc08c25e6c8984bcf2c707b82245168fb"
+      },
+      {
+        "path": "sources/claude-best-patterns/grafana-explore-logs-tiles/grafana.com_docs_grafana_latest_explore_logs-integration.png.tiles/tile_0001.jpg",
+        "sha256": "85a50fe7723970ba3a7245dbc5ee414b8d13ce238aa2a61da9249ca0bdf979f1"
+      },
+      {
+        "path": "sources/claude-best-patterns/grafana-explore-logs-tiles/grafana.com_docs_grafana_latest_explore_logs-integration.png.tiles/tile_0002.jpg",
+        "sha256": "adba31b994e493c7a22509062ee53055e21b373f52cfba65c1e918fa569b7350"
+      },
+      {
+        "path": "sources/claude-best-patterns/grafana-explore-logs-tiles/grafana.com_docs_grafana_latest_explore_logs-integration.png.tiles/tile_0003.jpg",
+        "sha256": "714014734bdb03f24e92d1b833f9661968a7ca455887ee790bacd2747d802e81"
+      },
+      {
+        "path": "sources/claude-best-patterns/grafana-explore-logs-tiles/grafana.com_docs_grafana_latest_explore_logs-integration.png.tiles/tile_0004.jpg",
+        "sha256": "408f1bceb572fdf92121c50148cdaf0cf9b288316b16e66fcfba1beb017e65fd"
+      },
+      {
+        "path": "sources/claude-best-patterns/grafana-explore-logs-tiles/grafana.com_docs_grafana_latest_explore_logs-integration.png.tiles/tile_0005.jpg",
+        "sha256": "fe7d2faff223d2303169bc534706b9c5a5abf655630dafc442b6f470d783b37a"
+      },
+      {
+        "path": "sources/claude-best-patterns/grafana-explore-logs-tiles/grafana.com_docs_grafana_latest_explore_logs-integration.png.tiles/tile_0006.jpg",
+        "sha256": "f3961cfefb7bcad4750ea0ae62fe6e3f44b14075e4f63eb6f1044b6cf499ce36"
+      }
+    ],
+    "stderr": "2026-10-05 14:34:51,324 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:35:00,797 INFO pixelrag_render.backends.cdp: [w0] https://grafana.com/docs/grafana/latest/explore/logs-integration/ \u2192 7 tiles (6.4s)\n2026-10-05 14:35:00,830 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 14:35:00,830 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

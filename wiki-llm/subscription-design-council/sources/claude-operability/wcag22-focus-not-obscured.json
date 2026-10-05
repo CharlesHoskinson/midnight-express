@@ -1,0 +1,13 @@
+{
+  "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html",
+  "retrieved_utc": "2026-10-05T20:24:18.406468+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "9515bdd0faab14d62528c5b1af1ea03383409c651b551c4e9b708c6f5bc8b607",
+  "text_sha256": "2c928552665b6cd7e6fb84c18dae96f2fe6b56fccb666b31f5d9a5fb1fa35716",
+  "bytes": 49534,
+  "text_bytes": 18513,
+  "final_url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html",
+  "accepted_source": true
+}

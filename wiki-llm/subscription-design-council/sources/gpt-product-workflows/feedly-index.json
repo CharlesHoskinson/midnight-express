@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.feedly.com/",
+  "retrieved_utc": "2026-10-05T20:07:28.714953+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "72474faf76c243ed419bde53c170dd0863263c116866d03c9f21800acf54ecaf",
+  "text_sha256": "cbf2853619ec6bc3daef27cc0c002fd697d0e88f99d405c78b344c3acbb00bcd",
+  "bytes": 56718,
+  "text_bytes": 10497,
+  "final_url": "https://docs.feedly.com/",
+  "accepted_source": true
+}

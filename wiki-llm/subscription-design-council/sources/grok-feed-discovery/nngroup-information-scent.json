@@ -1,0 +1,13 @@
+{
+  "url": "https://www.nngroup.com/articles/information-scent/",
+  "retrieved_utc": "2026-10-05T20:08:43.284490+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "d394d873fc2111d89d5aa38689fb5e0b20d07954351ed3d273ed895784205712",
+  "text_sha256": "cf00122fdfc661ec50f5ea04c9f961c130940a4aead7191051f8436a400442cf",
+  "bytes": 132921,
+  "text_bytes": 24030,
+  "final_url": "https://www.nngroup.com/articles/information-scent/",
+  "accepted_source": true
+}

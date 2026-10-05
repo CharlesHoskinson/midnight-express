@@ -1,0 +1,18 @@
+{
+  "url": "https://www.carbondesignsystem.com/building-blocks/core/patterns/notifications",
+  "retrieved_utc": "2026-10-05T20:24:40.186902+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "ea601a688c7c7596b965824dcec87cfee6e32be2e8f58ddeded20e4abb13db94",
+  "text_sha256": "8c914096ff412ee4a8bb5a9363aca1d4499c3263e1678f3e687c23173bb44253",
+  "bytes": 358348,
+  "text_bytes": 18828,
+  "final_url": "https://www.carbondesignsystem.com/building-blocks/core/patterns/notifications",
+  "accepted_source": false,
+  "visual": {
+    "verified_capture": false,
+    "rejected": "client-rendered page captured as blank grey tile; tile deleted; text from carbon-notification-pattern used instead"
+  },
+  "note": "duplicate text of carbon-notification-pattern removed"
+}

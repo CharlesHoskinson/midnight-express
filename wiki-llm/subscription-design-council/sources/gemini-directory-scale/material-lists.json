@@ -1,0 +1,24 @@
+{
+  "url": "https://m3.material.io/components/lists/overview",
+  "retrieved_utc": "2026-10-05T20:20:30.787027+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "d45fefe8c7c236069aaec0af1a05ac806d450cd7c82ac978c3778cd65100979c",
+  "text_sha256": "e4d64b5c82bcf2a2682f6273e7621cd7e8595fb01c3313a155bd8c155c88f349",
+  "bytes": 61683,
+  "text_bytes": 69,
+  "final_url": "https://m3.material.io/components/lists/overview",
+  "accepted_source": false,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/gemini-directory-scale/material-lists-tiles/m3.material.io_components_lists_overview.png.tiles/tile_0000.jpg",
+        "sha256": "ae78bb6ae813b3bc3cb980a08a410dd7b906625130ed5fbae58d1cad8ffcb8f0"
+      }
+    ],
+    "stderr": "2026-10-05 14:20:32,466 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:20:42,384 INFO pixelrag_render.backends.cdp: [w0] https://m3.material.io/components/lists/overview \u2192 1 tiles (6.9s)\n2026-10-05 14:20:42,401 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 14:20:42,402 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

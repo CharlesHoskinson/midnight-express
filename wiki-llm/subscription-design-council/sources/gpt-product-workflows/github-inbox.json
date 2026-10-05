@@ -1,0 +1,32 @@
+{
+  "url": "https://docs.github.com/en/subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/managing-notifications-from-your-inbox",
+  "retrieved_utc": "2026-10-05T20:07:03.279493+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "c6d642caaf6de84688029a58b663c6b7c39097d4120c11fc350609261e7897d9",
+  "text_sha256": "cda0ddeb61d7d0383564ca0525a5be00db79e76e63e4593cbada2d725d66c90c",
+  "bytes": 126409,
+  "text_bytes": 4923,
+  "final_url": "https://docs.github.com/en/subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/managing-notifications-from-your-inbox",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/gpt-product-workflows/github-inbox-tiles/docs.github.com_en_subscriptions-and-notifications_how-tos_viewing-and-triaging-notifications_managing-notifications-from-your-inbox.png.tiles/tile_0000.jpg",
+        "sha256": "d1e0fc28e039c2e9a3b81ead3babb7f677c3a971d1c7b8ecae1facdbb18f0150"
+      },
+      {
+        "path": "sources/gpt-product-workflows/github-inbox-tiles/docs.github.com_en_subscriptions-and-notifications_how-tos_viewing-and-triaging-notifications_managing-notifications-from-your-inbox.png.tiles/tile_0001.jpg",
+        "sha256": "9578c4c2d08fab6deb042400812c44c6802d12d6559b6c7c5f814bdeea0a243a"
+      },
+      {
+        "path": "sources/gpt-product-workflows/github-inbox-tiles/docs.github.com_en_subscriptions-and-notifications_how-tos_viewing-and-triaging-notifications_managing-notifications-from-your-inbox.png.tiles/tile_0002.jpg",
+        "sha256": "c8fa8e2e09e451c592dc5bcce3914353bae8dea2571cfc308f16257165986e52"
+      }
+    ],
+    "stderr": "2026-10-05 14:07:04,599 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:07:10,975 INFO pixelrag_render.backends.cdp: [w0] https://docs.github.com/en/subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/managing-notifications-from-your-inbox \u2192 3 tiles (3.3s)\n2026-10-05 14:07:10,993 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 14:07:10,993 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

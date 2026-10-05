@@ -1,0 +1,19 @@
+{
+  "url": "https://slack.com/help/articles/360043207674-Organize-your-sidebar-with-custom-sections",
+  "retrieved_utc": "2026-10-05T20:32:48.577940+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "878270182c5ff91c635d2db431664e53214d9a498138cc729c51cc8d3805cf79",
+  "text_sha256": "818cb244468cfa4820252db4a4ee02a0fea1c0700f36e13848c1125f73c32d88",
+  "bytes": 104656,
+  "text_bytes": 11661,
+  "final_url": "https://slack.com/help/articles/360043207674-Organize-your-sidebar-with-custom-sections",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 1,
+    "tiles": [],
+    "stderr": "2026-10-05 14:32:50,213 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:33:06,380 WARNING pixelrag_render.backends.cdp: [w0] FAIL https://slack.com/help/articles/360043207674-Organize-your-sidebar-with-custom-sections: no close frame received or sent\n2026-10-05 14:33:06,397 INFO pixelrag_render.backends.cdp: Batch complete: done=0 failed=1\n2026-10-05 14:33:06,398 WARNING pixelrag_render.render: No outputs produced.\n",
+    "verified_capture": false
+  }
+}

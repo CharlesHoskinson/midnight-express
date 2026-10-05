@@ -1,0 +1,13 @@
+{
+  "url": "https://developer.chrome.com/docs/web-platform/page-lifecycle-api",
+  "retrieved_utc": "2026-10-05T20:18:51.479630+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "4ad19aac0d20f6863d42f6c07ec6484e388da87d2248de0b33e54432683a2667",
+  "text_sha256": "f5eab9ac57261d8e02be0270fbb9bc9b58eccf4614314325e53bb40268a92fb2",
+  "bytes": 204535,
+  "text_bytes": 35369,
+  "final_url": "https://developer.chrome.com/docs/web-platform/page-lifecycle-api",
+  "accepted_source": true
+}

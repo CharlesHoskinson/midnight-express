@@ -1,0 +1,13 @@
+{
+  "url": "https://miniflux.app/docs/ui.html",
+  "retrieved_utc": "2026-10-05T20:19:00.741546+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "2cfa03f0f4029dd0c1fb18f8f44699b668e2f97b7785d06c19a8fa7f8ecb311c",
+  "text_sha256": "159304c0b2b029c8f7c1049863b1af790daf5ae5a896978d00c18826de86872e",
+  "bytes": 2074,
+  "text_bytes": 868,
+  "final_url": "https://miniflux.app/docs/ui.html",
+  "accepted_source": true
+}

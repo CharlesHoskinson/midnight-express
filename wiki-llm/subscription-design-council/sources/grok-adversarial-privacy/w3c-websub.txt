@@ -1,0 +1,1581 @@
+WebSub
+WebSub
+W3C Recommendation
+02 June 2026
+More details about this document
+This version:
+https://www.w3.org/TR/2026/REC-websub-20260602/
+Latest published version:
+https://www.w3.org/TR/websub/
+Latest editor's draft:
+https://w3c.github.io/websub/
+History:
+https://www.w3.org/standards/history/websub/
+Test suite:
+https://websub.rocks/
+Implementation report:
+https://websub.net/implementation-reports
+
+                Editors:
+              
+Julien Genestoux
+ (
+Invited Expert
+)
+  
+Aaron Parecki
+ (
+Invited Expert
+)
+  
+
+                Author:
+              
+Julien Genestoux
+Feedback:
+public-socialweb@w3.org
+ with subject line 
+[websub] 
+… message topic …
+ (
+archives
+)
+Errata:
+Errata exists
+.
+Past Authors
+Brad Fitzpatrick
+Brett Slatkin
+Martin Atkins
+Repository
+GitHub
+Issues
+Commits
+
+          See also
+          
+translations
+.
+        
+Copyright
+
+    ©
+    2026
+    
+    
+World Wide Web Consortium
+.
+    
+W3C
+®
+liability
+,
+    
+trademark
+ and
+    
+permissive document license
+ rules apply.
+  
+Abstract
+WebSub provides a common mechanism for communication between publishers of any kind of Web content and their subscribers, based on HTTP web hooks. Subscription requests are relayed through hubs, which validate and verify the request. Hubs then distribute new and updated content to subscribers when it becomes available. WebSub was previously known as PubSubHubbub.
+Status of This Document
+This section describes the status of this
+      document at the time of its publication. A list of current 
+W3C
+
+      publications and the latest revision of this technical report can be found
+      in the
+      
+W3C
+ standards and drafts index
+.
+This updated specification contains mitigations related to cross-site scripting (XSS) risk have been added to the Security Considerations section, along with acknowledgments of those who reported it.
+
+    This document was published by the 
+Social Web Working Group
+ as
+    a Recommendation using the
+        
+Recommendation
+          track
+. 
+  
+W3C
+ recommends the wide deployment of this specification as a standard for
+      the Web.
+    
+
+      A 
+W3C
+ Recommendation is a specification that, after extensive
+      consensus-building, is endorsed by
+      
+W3C
+ and its Members, and
+      has commitments from Working Group members to
+      
+royalty-free licensing
+
+      for implementations.
+      
+    
+
+    
+        This document was produced by a group
+        operating under the
+        
+W3C
+ Patent
+          Policy
+.
+      
+    
+                
+W3C
+ maintains a
+                
+public list of any patent disclosures
+
+          made in connection with the deliverables of
+          the group; that page also includes
+          instructions for disclosing a patent. An individual who has actual
+          knowledge of a patent that the individual believes contains
+          
+Essential Claim(s)
+
+          must disclose the information in accordance with
+          
+section 6 of the 
+W3C
+ Patent Policy
+.
+        
+  
+
+                      This document is governed by the
+                      
+18 August 2025 
+W3C
+ Process Document
+.
+                    
+Table of Contents
+Abstract
+Status of This Document
+1. 
+Definitions
+2. 
+High-level protocol flow
+3. 
+Conformance
+3.1 
+Conformance
+3.1.1 
+Conformance Classes
+3.1.1.1 
+Publishers
+3.1.1.2 
+Subscribers
+3.1.1.3 
+Hubs
+3.2 
+Candidate Recommendation Exit Criteria
+3.2.1 
+Publisher
+3.2.2 
+Subscriber
+3.2.3 
+Hub
+3.2.4 
+Independent
+3.2.5 
+Interoperable
+3.2.6 
+Feature
+4. 
+Discovery
+4.1 
+Content Negotiation
+5. 
+Subscribing and Unsubscribing
+5.1 
+Subscriber Sends Subscription Request
+5.1.1 
+Subscription Parameter Details
+5.1.2 
+Subscription Response Details
+5.2 
+Subscription Validation
+5.3 
+Hub Verifies Intent of the Subscriber
+5.3.1 
+Verification Details
+6. 
+Publishing
+6.1 
+Subscription Migration
+7. 
+Content Distribution
+7.1 
+Authenticated Content Distribution
+7.1.1 
+Recognized algorithm names
+7.1.2 
+Signature validation
+8. 
+Security Considerations
+8.1 
+Discovery
+8.2 
+Subscriptions
+8.3 
+Distribution
+8.4 
+Security and Privacy Review
+A. 
+Acknowledgements
+B. 
+Change Log
+B.1 
+Changes from 03 October 2017 PR to this version
+B.2 
+Changes from 11 April 2017 CR to 03 October 2017 PR
+B.3 
+Changes from 24 November WD to 11 April 2017 CR
+B.4 
+Changes from 20 October FPWD to 24 November 2016
+C. 
+References
+C.1 
+Normative references
+1. 
+Definitions
+Topic
+An HTTP [
+RFC7230
+] (or HTTPS [
+RFC2818
+]) resource URL. The unit to which one can subscribe to changes.
+Hub ("the hub")
+The server (URL [
+URL
+]) which implements both sides of this protocol. Any hub 
+MAY
+ implement its own policies on who can use it.
+Publisher
+An owner of a topic. Notifies the hub when the topic feed has been updated. As in almost all pubsub systems, the publisher is unaware of the subscribers, if any. Other pubsub systems might call the publisher the "source".
+Subscriber
+An entity (person or program) that wants to be notified of changes on a topic. The subscriber must be directly network-accessible and is identified by its Subscriber Callback URL. 
+Subscription
+A unique relation to a topic by a subscriber that indicates it should receive updates for that topic. A subscription's unique key is the tuple (Topic URL, Subscriber Callback URL). Subscriptions may (at the hub's decision) have expiration times akin to DHCP leases which must be periodically renewed. 
+Subscriber Callback URL
+The URL [
+URL
+] at which a subscriber wishes to receive content distribution requests. 
+Event
+An event that causes updates to multiple topics. For each event that happens (e.g. "Brad posted to the Linux Community."), multiple topics could be affected (e.g. "Brad posted." and "Linux community has new post"). Publisher events cause topics to be updated and the hub looks up all subscriptions for affected topics, delivering the content to subscribers. 
+Content Distribution Notification
+ / 
+(Content Distribution Request)
+A payload describing how a topic's contents have changed, or the full updated content. Depending on the topic's content type, the difference (or "delta") may be computed by the hub and sent to all subscribers. 
+2. 
+High-level protocol flow
+(This section is non-normative.)
+  WebSub Flow Diagram
+  Subscriber
+  Publisher
+  Hub
+  Subscriber discovers the 
+  hub
+  advertised by publisher's 
+  topic
+  Subscriber makes a POST to the 
+hub
+to subscribe to updates about 
+topic
+  Hub verifies the subscription attempt with a GET
+  Publisher notifies the 
+  hub
+  of new content
+  Hub delivers the contents of 
+  topic
+to each subscriber with a POST
+Subscribers discover the hub of a topic URL, and makes a POST to one or more of the advertised hubs in order to receive updates when the topic changes.
+Publishers notify their hub(s) URLs when their topic(s) change.
+When the hub identifies a change in the topic, it sends a content distribution notification to all registered subscribers.
+Earlier versions of this protocol were called PubSubHubbub:
+Working Draft 0.3 [
+PubSubHubbub-Core-0.3
+]
+Working Draft 0.4 [
+PubSubHubbub-Core-0.4
+]
+3. 
+Conformance
+The key words "
+MUST
+", "
+MUST NOT
+", "
+REQUIRED
+", "
+SHALL
+", "
+SHALL NOT
+",
+    "
+SHOULD
+", "
+SHOULD NOT
+", "
+RECOMMENDED
+", "
+MAY
+", and "
+OPTIONAL
+" in this
+    document are to be interpreted as described in [
+RFC2119
+].
+3.1 
+Conformance
+As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.
+
+        The key words 
+MAY
+, 
+MUST
+, 
+MUST NOT
+, 
+OPTIONAL
+, 
+RECOMMENDED
+, 
+REQUIRED
+, 
+SHALL
+, 
+SHALL NOT
+, 
+SHOULD
+, and 
+SHOULD NOT
+ in this document
+        are to be interpreted as described in
+        
+BCP 14
+
+        [
+RFC2119
+] [
+RFC8174
+]
+        when, and only when, they appear in all
+        capitals, as shown here.
+      
+3.1.1 
+Conformance Classes
+WebSub describes three roles: publishers, subscribers and hubs. This section describes the conformance criteria for each role.
+3.1.1.1 
+Publishers
+A conforming publisher 
+MUST
+ advertise topic and hub URLs for a given resource URL as described in 
+Discovery
+.
+3.1.1.2 
+Subscribers
+A conforming subscriber:
+MUST
+ support each discovery mechanism in the specified order to discover the topic and hub URLs as described in 
+Discovery
+.
+MUST
+ send a subscription request as described in 
+Subscriber Sends Subscription Request
+.
+MAY
+ request a specific lease duration
+MAY
+ include a secret in the subscription request, and if it does, then 
+MUST
+ use the secret to verify the signature in the 
+content distribution request
+.
+MUST
+ acknowledge a content distribution request with an HTTP 2xx status code.
+MAY
+ request that a subscription is deactivated using the "unsubscribe" mechanism.
+3.1.1.3 
+Hubs
+A conforming hub:
+MUST
+ accept a subscription request with the parameters 
+hub.callback
+, 
+hub.mode
+ and 
+hub.topic
+.
+MUST
+ accept a subscription request with a 
+hub.secret
+ parameter.
+MAY
+ respect the requested lease duration in subscription requests.
+MUST
+ allow subscribers to re-request already active subscriptions.
+MUST
+ support unsubscription requests.
+MUST
+ send content distribution requests with a matching content type of the topic URL. (See 
+Content Negotiation
+)
+MAY
+ reduce the payload of the content distribution to a diff of the contents for supported formats as described in 
+Content Distribution
+.
+MUST
+ send a 
+X-Hub-Signature
+ header if the subscription was made with a 
+hub.secret
+ as described in 
+Authenticated Content Distribution
+.
+3.2 
+Candidate Recommendation Exit Criteria
+This specification exited the CR stage with at least two independent, interoperable implementations of each feature. Each feature may have been implemented by a different set of products. There was no requirement that all features be implemented by a single product. For the purposes of this criterion, we define the following terms:
+3.2.1 
+Publisher
+A WebSub Publisher is an implementation that advertises a topic and hub URL on one or more resource URLs. The conformance criteria are described in 
+Conformance Classes
+ above.
+3.2.2 
+Subscriber
+A WebSub Subscriber is an implementation that discovers the hub and topic URL given a resource URL, subscribes to updates at the hub, and accepts content distribution requests from the hub. The subscriber 
+MAY
+ support 
+authenticated content distribution
+. The conformance criteria are described in 
+Conformance Classes
+ above.
+3.2.3 
+Hub
+A WebSub Hub is an implementation that handles subscription requests and distributes the content to subscribers when the corresponding topic URL has been updated. Hubs 
+MUST
+ support subscription requests with a secret and deliver 
+authenticated requests
+ when requested. Hubs 
+MUST
+ deliver the full contents of the topic URL in the request, and 
+MAY
+ reduce the payload to a diff if the content type supports it. The conformance criteria are described in 
+Conformance Classes
+ above.
+3.2.4 
+Independent
+Each implementation must be developed by a different party and cannot share, reuse, or derive from code used by another qualifying implementation. Sections of code that have no bearing on the implementation of this specification are exempt from this requirement.
+3.2.5 
+Interoperable
+A Subscriber and Hub implementation are considered interoperable for a specific feature when the Hub takes the defined action that the Subscriber requests, the Subscriber gets the expected response from a Hub according to the feature, and the Hub sends the expected response to the Subscriber.
+3.2.6 
+Feature
+For the purposes of evaluating exit criteria, each of the following is considered a feature:
+Discovering the hub and topic URLs by looking at the HTTP headers of the resource URL.
+Discovering the hub and topic URLs by looking at the contents of the resource URL as an XML document.
+Discovering the hub and topic URLs by looking at the contents of the resource URL as an HTML document.
+Subscribing to the hub with a callback URL.
+Subscribing to the hub and requesting a specific lease duration.
+Subscribing to the hub with a secret and handling authenticated content distribution.
+Requesting that a subscription is deactivated by sending an unsubscribe request.
+The Subscriber acknowledges a pending subscription on a validation request.
+The Subscriber rejects a subscription validation request for an invalid topic URL.
+The Subscriber returns an HTTP 2xx response when the payload is delivered.
+The Subscriber verifies the signature for authenticated content distribution requests.
+The Subscriber rejects the distribution request if the signature does not validate.
+The Subscriber rejects the distribution request when no signature is present if the subscription was made with a secret.
+The Hub respects the requested lease duration during a subscription request.
+The Hub allows Subscribers to re-request already active subscriptions, extending the lease duration.
+The Hub sends the full contents of the topic URL in the distribution request.
+The Hub sends a diff of the topic URL for the formats that support it.
+The Hub sends a valid signature for subscriptions that were made with a secret.
+4. 
+Discovery
+The discovery mechanism aims at identifying at least 2 URLs.
+The URL of one or more hubs designated by the publisher. If more than one hub URL is specified, it is expected that the publisher notifies each hub, so the subscriber may subscribe to one or more of them.
+The canonical URL for the topic to which subscribers are expected to use for subscriptions.
+Note
+Publishers may wish to advertise and publish to more than one hub for fault tolerance and redundancy. If one hub fails to propagate an update to the document, then using multiple independent hubs is a way to increase the likelihood of delivery to subscribers. As such, subscribers may subscribe to one or more of the advertised hubs.
+The protocol currently supports the following discovery mechanisms. Publishers 
+MUST
+ implement at least one of them:
+Link Headers [
+RFC5988
+]: the publisher 
+SHOULD
+ include at least one Link Header [
+RFC5988
+] with 
+rel=hub
+ (a hub link header) as well as exactly one Link Header [
+RFC5988
+] with 
+rel=self
+ (the self link header)
+If the topic is an XML based feed, publishers 
+SHOULD
+ use embedded link elements as described in Appendix B of Web Linking [
+RFC5988
+]. Similarly, for HTML pages, publishers 
+SHOULD
+ use embedded link elements as described in Appendix A of Web Linking [
+RFC5988
+].
+Note
+Since 
+<link>
+ has been limited to being placed in the 
+<head>
+ for many years, some consuming code might only check the 
+<head>
+. Therefore it is more robust to place the 
+<link>
+ tags only in the HTML 
+<head>
+ rather than in the 
+<body>
+.
+Example
+ 1
+GET
+/feed
+HTTP/1.1
+Host
+: 
+example.com
+
+
+HTTP/1.1
+200
+ Ok
+
+Content-type
+: 
+text/html
+
+Link
+: 
+<https://hub.example.com/>; rel="hub"
+
+Link
+: 
+<http://example.com/feed>; rel="self"
+
+
+<!doctype 
+html
+>
+<
+html
+>
+<
+head
+>
+<
+link
+rel
+=
+"hub"
+href
+=
+"https://hub.example.com/"
+>
+<
+link
+rel
+=
+"self"
+href
+=
+"http://example.com/feed"
+>
+</
+head
+>
+<
+body
+>
+
+    ...
+  
+</
+body
+>
+</
+html
+>
+When perfoming discovery, subscribers 
+MUST
+ implement all two discovery mechanisms in the following order, stopping at the first match:
+Issue a GET or HEAD request to retrieve the topic URL. Subscribers 
+MUST
+ check for HTTP Link headers first.
+In the absence of HTTP Link headers, and if the topic is an XML based feed or an HTML page, subscribers 
+MUST
+ check for embedded link elements.
+4.1 
+Content Negotiation
+
+        For practical purposes, it is important that the 
+rel=self
+ URL only offers a single representation. As the hub has no way of knowing what Media Type ([
+RFC6838
+]) or language may have been requested by the subscriber upon discovery, it would not be able to deliver the content using the appropriate representation of the document.
+      
+
+        It is, however, possible to perform content negotiation by returning an appropriate 
+rel=self
+ URL according to the HTTP headers used in the initial discovery request. For example, a request to 
+/feed
+ with an 
+Accept
+ header containing 
+application/json
+ could return a 
+rel=self
+ value of 
+/feed.json
+.
+      
+The example below illustrates how a topic URL can return different 
+Link
+ headers depending on the 
+Accept
+ header that was sent.
+Example
+ 2
+GET
+/feed
+HTTP/1.1
+Host
+: 
+example.com
+
+Accept
+: 
+application/json
+
+
+HTTP/1.1
+200
+ Ok
+
+Content-type
+: 
+application/json
+
+Link
+: 
+</feed.json>; rel="self"
+
+Link
+: 
+<https://hub.example.com/>; rel="hub"
+
+
+{
+  "items": [...]
+}
+Example
+ 3
+GET
+/feed
+HTTP/1.1
+Host
+: 
+example.com
+
+Accept
+: 
+text/html
+
+
+HTTP/1.1
+200
+ Ok
+
+Content-type
+: 
+text/html
+
+Link
+: 
+</feed.html>; rel="self"
+
+Link
+: 
+<https://hub.example.com/>; rel="hub"
+
+
+<
+html
+>
+...
+Similarly, the technique can also be used to return a different 
+rel=self
+ URL depending on the language requested by the 
+Accept-Language
+ header.
+Example
+ 4
+GET
+/feed
+HTTP/1.1
+Host
+: 
+example.com
+
+Accept-Language
+: 
+de-DE
+
+
+HTTP/1.1
+200
+ Ok
+
+Content-type
+: 
+application/json
+
+
+Link
+: </feed-de.
+json
+>; rel=
+"self"
+Link
+: 
+<https://hub.example.com/>
+; rel=
+"hub"
+
+
+{
+  
+"items"
+: [...]
+}
+5. 
+Subscribing and Unsubscribing
+Subscribing to a topic URL consists of four parts that may occur immediately in sequence or have a delay.
+Subscriber requests a subscription at the hub
+The hub validates the subscription with the publisher (
+OPTIONAL
+)
+The hub confirms the subscription was actually requested by the subscriber
+The hub periodically reconfirms the subscription is still active (
+OPTIONAL
+)
+Unsubscribing works in the same way, except with a single parameter changed to indicate the desire to unsubscribe. Also, the Hub will not validate unsubscription requests with the publisher.
+5.1 
+Subscriber Sends Subscription Request
+Subscription is initiated by the subscriber making an HTTPS or HTTP POST [
+RFC7231
+] request to the hub URL. This request 
+MUST
+ have a Content-Type header of 
+application/x-www-form-urlencoded
+ (described in Section 4.10.22.6 [
+HTML5
+]), 
+MUST
+ use UTF-8 [
+Encoding
+] as the document character encoding, and 
+MUST
+ use the following parameters in its body, formatted accordingly:
+hub.callback
+REQUIRED
+. The subscriber's callback URL where content distribution notifications should be delivered. The callback URL 
+SHOULD
+ be an unguessable URL that is unique per subscription. ([
+capability-urls
+])
+hub.mode
+REQUIRED
+. The literal string "subscribe" or "unsubscribe", depending on the goal of the request.
+hub.topic
+REQUIRED
+. The topic URL that the subscriber wishes to subscribe to or unsubscribe from. Note that this 
+MUST
+ be the "self" URL found during the discovery step, which may be different from the URL that was used to make the discovery request.
+hub.lease_seconds
+OPTIONAL
+. Number of seconds for which the subscriber would like to have the subscription active, given as a positive decimal integer. Hubs 
+MAY
+ choose to respect this value or not, depending on their own policies, and 
+MAY
+ set a default value if the subscriber omits the parameter. This parameter 
+MAY
+ be present for unsubscription requests and 
+MUST
+ be ignored by the hub in that case.
+hub.secret
+OPTIONAL
+. A subscriber-provided cryptographically random unique secret string that will be used to compute an HMAC digest for 
+authorized content distribution
+. If not supplied, the HMAC digest will not be present for content distribution requests. This parameter 
+SHOULD
+ only be specified when the request was made over HTTPS [
+RFC2818
+]. This parameter 
+MUST
+ be less than 200 bytes in length.
+Subscribers 
+MAY
+ also include additional HTTP [
+RFC7230
+] request parameters, as well as HTTP [
+RFC7230
+] Headers if they are required by the hub.
+Hubs 
+MUST
+ ignore additional request parameters they do not understand.
+Hubs 
+MUST
+ allow subscribers to re-request subscriptions that are already activated. Each subsequent request to a hub to subscribe or unsubscribe 
+MUST
+ override the previous subscription state for a specific topic URL and callback URL combination, but only once the action is verified (
+Section 4.3
+). If verification fails, the subscription state 
+MUST
+ be left unchanged. This is required so subscribers can renew their subscriptions before the lease seconds period is over without any interruption. The subscriber 
+MAY
+ use a new hub.secret value in a future subscription, and 
+MAY
+ make a new subscription without a hub.secret.
+5.1.1 
+Subscription Parameter Details
+The topic and callback URLs 
+MAY
+ use HTTP [
+RFC7230
+] or HTTPS [
+RFC2818
+] schemes. The topic URL 
+MUST
+ be the one advertised by the publisher in a Self Link Header during the discovery phase. (See 
+Section 3 
+). Hubs 
+MAY
+ refuse subscriptions if the topic URL does not correspond to the one advertised by the publisher. The topic URL can otherwise be free-form following the URL spec [
+URL
+]. Hubs 
+MUST
+ always decode non-reserved characters for these URL parameters; see section 1.2 on 
+"Percent-encoded bytes"
+ in [
+URL
+].
+The callback URL 
+SHOULD
+ be an unguessable unique URL ([
+capability-urls
+]) and 
+SHOULD
+ use HTTPS [
+RFC7230
+]. The callback URL acts as authentication from the hub to the subscriber when confirming subscriptions and delivering the content. Additionally, the callback 
+SHOULD
+ be unique (not re-used for multiple hubs) and changed when subscriptions are renewed.
+The callback URL 
+MAY
+ contain arbitrary query string parameters (e.g., 
+?foo=bar&red=fish
+). Hubs 
+MUST
+ preserve the query string during subscription verification by appending new parameters to the end of the list using the 
+&
+ (ampersand) character to join. Existing parameters with names that overlap with those used by verification requests will not be overwritten. When sending the content distribution request, the hub will make a POST request to the callback URL including any query string parameters in the URL portion of the request, not as POST body parameters.
+5.1.2 
+Subscription Response Details
+If the hub URL supports WebSub and is able to handle the subscription or unsubscription request, it 
+MUST
+ respond to a subscription request with an HTTP [
+RFC7231
+] 202 "Accepted" response to indicate that the request was received and will now be verified (
+Section 5.3
+) and validated (
+Section 5.2
+) by the hub. The hub 
+SHOULD
+ perform the verification and validation of intent as soon as possible.
+If a hub finds any errors in the subscription request, an appropriate HTTP [
+RFC7231
+] error response code (4xx or 5xx) 
+MUST
+ be returned. In the event of an error, hubs 
+SHOULD
+ return a description of the error in the response body as plain text, used to assist the client developer in understanding the error. This is not meant to be shown to the end user. Hubs 
+MAY
+ decide to reject some callback URLs or topic URLs based on their own policies (e.g., domain authorization, topic URL port numbers). However, since verification and validation of intent are asynchronous steps that logically begin after the HTTP response has been returned, the HTTP response 
+MUST NOT
+ depend on the process or outcome of verification or validation.
+If the hub URL is not able to handle subscription or unsubscription requests, it 
+MAY
+ redirect to another hub which supports WebSub. It does so by yielding an HTTP [
+RFC7231
+] 307 (temporary redirect) or 308 (permanent redirect) response. It 
+MUST
+ also include at least a HTTP [
+RFC7230
+] Location Header containing a preferred URL reference for the hub to use by the subscriber. The subscriber is expected to retry the subscription or unsubscription at the new hub URL.
+5.2 
+Subscription Validation
+Subscriptions 
+MAY
+ be validated by the Hubs who may require more details to accept or refuse a subscription. The Hub 
+MAY
+ also check with the publisher whether the subscription should be accepted.
+If (and when) the subscription is accepted, the hub 
+MUST
+ perform the 
+verification of intent 
+ of the subscriber.
+If (and when) the subscription is denied, the hub 
+MUST
+ inform the subscriber by sending an HTTP [
+RFC7231
+] (or HTTPS [
+RFC2818
+]) GET request to the subscriber's callback URL as given in the subscription request. This request has the following query string arguments appended (format described in Section 4 of [
+URL
+]):
+hub.mode
+REQUIRED
+. The literal string "denied".
+hub.topic
+REQUIRED
+. The topic URL given in the corresponding subscription request.
+hub.reason
+OPTIONAL
+. The hub may include a reason for which the subscription has been denied.
+The subscription 
+MAY
+ be denied by the hub at any point (even if it was previously accepted). The Subscriber 
+SHOULD
+ then consider that the subscription is not possible anymore.
+5.3 
+Hub Verifies Intent of the Subscriber
+In order to prevent an attacker from creating unwanted subscriptions on behalf of a subscriber (or unsubscribing desired ones), a hub must ensure that the subscriber did indeed send the subscription request.
+The hub verifies a subscription request by sending an HTTP [
+RFC7231
+] (or HTTPS [
+RFC2818
+]) GET request to the subscriber's callback URL as given in the subscription request. This request has the following query string arguments appended (format described in Section 4 of [
+URL
+]):
+hub.mode
+REQUIRED
+. The literal string "
+subscribe
+" or "
+unsubscribe
+", which matches the original request to the hub from the subscriber.
+hub.topic
+REQUIRED
+. The topic URL given in the corresponding subscription request.
+hub.challenge
+REQUIRED
+. A hub-generated, random string that 
+MUST
+ be echoed by the subscriber to verify the subscription. This random string 
+MUST
+ only consist of characters in the set 
+[#x2B] | [#2D-#x39] | [#x3D] | [#41-#x5A] | [#x5F] | [#x61-#x7A]
+.
+hub.lease_seconds
+REQUIRED
+/
+OPTIONAL
+. The hub-determined number of seconds that the subscription will stay active before expiring, measured from the time the verification request was made from the hub to the subscriber. Hubs 
+MUST
+ supply this parameter when 
+hub.mode
+ is set to "subscribe". This parameter 
+MAY
+ be present when 
+hub.mode
+ is "unsubscribe" and 
+MUST
+ be ignored by subscribers in that case.
+5.3.1 
+Verification Details
+The subscriber 
+MUST
+ confirm that the 
+hub.topic
+ corresponds to a pending subscription or unsubscription that it wishes to carry out. If so, the subscriber 
+MUST
+ respond with an HTTP success (2xx) code with a response body equal to the 
+hub.challenge
+ parameter. If the subscriber does not agree with the action, the subscriber 
+MUST
+ respond with a 404 "Not Found" response.
+The subscriber 
+MUST
+ use a safe Media Type for the subscription confirmation response in order to prevent reflected code injection (reflected XSS) attacks.
+The hub 
+MUST
+ consider other server response codes (3xx, 4xx, 5xx) to mean that the verification request has failed. If the subscriber returns an HTTP [
+RFC7231
+] success (2xx) but the content body does not match the 
+hub.challenge
+ parameter, the hub 
+MUST
+ also consider verification to have failed.
+Hubs 
+MAY
+ make the 
+hub.lease_seconds
+ equal to the value the subscriber passed in their subscription request but 
+MAY
+ change the value depending on the hub's policies. To sustain a subscription, the subscriber 
+MUST
+ re-request the subscription on the hub before 
+hub.lease_seconds
+ seconds has elapsed.
+Hubs 
+MUST
+ enforce lease expirations, and 
+MUST NOT
+ issue perpetual lease durations.
+Note
+The spec uses GET vs POST to differentiate between the confirmation/denial of the subscription request and delivering the content. While this is not considered "best practice" from a web architecture perspective, it does make implementation of the callback URL simpler. Since the POST body of the content distribution request may be any arbitrary content type and only includes the actual content of the document, using the GET vs POST distinction to switch between handling these two modes makes implementations simpler.
+6. 
+Publishing
+The publisher 
+MUST
+ inform the hubs it previously designated when a topic has been updated. The hub and the publisher can agree on any mechanism, as long as the hub is eventually able send the updated payload to the subscribers.
+Note
+The specific mechanism for the publisher to inform the hub is left unspecified. For example, some existing public hubs 
+[1]
+[2]
+[3]
+ ask publishers to send a POST request with the keys 
+hub.mode="publish"
+ and 
+hub.url=(the URL of the resource that was updated)
+.
+6.1 
+Subscription Migration
+If the publisher wishes to migrate existing subscriptions to a new topic URL, it can do so using HTTP redirects.
+The previous topic URL should send a redirect to the new topic URL. This will provide a seamless transition for any HTTP client that did not use WebSub but instead was polling the topic URL.
+When existing WebSub subscriptions expire, subscribers will attempt to renew the subscription. The first step of renewing a subscription is to fetch the topic URL, which means the subscriber will encounter the redirect and end up at the new topic URL.
+At the new topic URL, the subscriber will see the new 
+rel=self
+ URL and the new hub, and will subscribe to the new topic URL at the new hub.
+This does not require any participation on the part of the previous hub, and works whether or not the publisher changes hubs as well.
+7. 
+Content Distribution
+A content distribution request is sent from the Hub to the Subscriber when new content is available for a topic URL. The request is an HTTP [
+RFC7231
+] (or HTTPS [
+RFC2818
+]) POST request from the hub to the subscriber's callback URL. The HTTP body of the POST request 
+MUST
+ include the payload of the content distribution notification. The content distribution request 
+MUST
+ have a 
+Content-Type
+ Header corresponding to the 
+Content-Type
+ of the topic, and 
+MUST
+ contain the full contents of the topic URL, with an exception allowed as described below.
+    
+For Atom ([
+RFC4287
+]) and RSS ([
+RSS-2.0
+]) feeds, the hub 
+MAY
+ remove already-delivered 
+atom:entry
+ or 
+rss:item
+ elements from the feed.
+    
+The request 
+MUST
+ include at least one Link Header [
+RFC5988
+] with 
+rel=hub
+ pointing to a Hub associated with the topic being updated. It 
+MUST
+ also include one Link Header [
+RFC5988
+] with 
+rel=self
+ set to the canonical URL of the topic being updated. The Hub 
+SHOULD
+ combine these headers into a single Link Header [
+RFC5988
+]. All these URLs are those resulting from the discovery process (
+Section 3
+). The subscriber 
+MUST NOT
+ use these Link headers to identify the subscription corresponding to the content distribution request, because the Link headers are metadata associated with the topic content, not with any particular subscription. For example, the topic URL in the content distribution request may be different from the topic URL that was originally subscribed to.
+    
+The subscriber's callback URL 
+MUST
+ return an HTTP [
+RFC7231
+] 2xx response code to indicate a success. The subscriber's callback URL 
+MAY
+ return an HTTP 410 code to indicate that the subscription has been deleted, and the hub 
+MAY
+ terminate the subscription if it receives that code as a response. The hub 
+MUST
+ consider all other subscriber response codes as failures; that means subscribers 
+MUST NOT
+ use HTTP redirects for moving subscriptions. Subscribers 
+SHOULD
+ respond to content distribution requests as quickly as possible; their success response code 
+SHOULD
+ only indicate receipt of the message, not acknowledgment that it was successfully processed by the subscriber. The response body from the subscriber 
+MUST
+ be ignored by the hub. Hubs 
+SHOULD
+ retry content distribution requests up to self-imposed limits on the number of times and the overall time period to retry. When the failing delivery exceeds the hub's limits, the hub stops attempting to deliver that nofication. The hub 
+MUST
+ keep the subscription active until the end of the lease duration, and if a new update is published to the topic, 
+MUST
+ continue to retry delivery to the previously-failing subscriber.
+    
+7.1 
+Authenticated Content Distribution
+If the subscriber supplied a value for 
+hub.secret
+ in their subscription request, the hub 
+MUST
+ generate an HMAC signature of the payload and include that signature in the request headers of the content distribution request. The 
+X-Hub-Signature
+ header's value 
+MUST
+ be in the form 
+method=signature
+ where 
+method
+ is one of the recognized algorithm names and 
+signature
+ is the hexadecimal representation of the signature. The signature 
+MUST
+ be computed using the HMAC algorithm [
+RFC6151
+] with the request body as the data and the 
+hub.secret
+ as the key.
+7.1.1 
+Recognized algorithm names
+The following algorithms are the initially registered algorithm names, based on the contents of the [
+FIPS-PUB-180-4
+] registry at the time of publishing.
+sha1
+The SHA-1 algorithm as specified in Section 6.1 of [
+FIPS-PUB-180-4
+]
+sha256
+The SHA-256 algorithm as specified in Section 6.2 of [
+FIPS-PUB-180-4
+]
+sha384
+The SHA-384 algorithm as specified in Section 6.5 of [
+FIPS-PUB-180-4
+]
+sha512
+The SHA-512 algorithm as specified in Section 6.4 of [
+FIPS-PUB-180-4
+]
+In the future, an extension may be specified allowing subscribers to indicate which algorithms they can use for validation. As of this writing, most hubs sign with SHA-1, despite its known cryptographic weakness, in order to be interoperable with older subscribers.
+7.1.2 
+Signature validation
+When subscribers receive a content distribution request with the 
+X-Hub-Signature
+ header specified, they 
+SHOULD
+ recompute the signature with the shared secret using the same method (provided in the 
+X-Hub-Signature
+ header) as the hub. If the signature does not match, subscribers 
+MUST
+ locally ignore the message as invalid. Subscribers 
+MAY
+ still acknowledge this request with a 2xx response code in order to be able to process the message asynchronously and/or prevent brute-force attempts of the signature. Using this technique along with HTTPS [
+RFC2818
+] for subscription requests enables simple subscribers to receive authenticated content distribution requests from hubs without the need for subscribers to run an HTTPS [
+RFC2818
+] server.
+Please note however that this signature only ensures that the payload was not forged. Since the request also includes headers, these should not be considered as safe by the subscriber, unless of course the subscriber uses HTTPS [
+RFC2818
+] callbacks.
+8. 
+Security Considerations
+Here is a summary of security considerations. It is important to note that WebSub is a server-to-server protocol which relies only on HTTP. It is strongly recommended to use HTTPS for all requests.
+8.1 
+Discovery
+The decision about whether a subscriber should look for 
+<link>
+ elements inside a page's 
+<body>
+ (as well as the 
+<head>
+) is not straightforward, and there is currently no clear consensus. One reason to ignore the 
+<body>
+ during discovery is that some web sites might (perhaps accidentally) allow users to post content containing 
+<link>
+ elements, though the working group does not know of any specific examples of such sites. If WebSub discovery uses such 
+<link>
+ elements, a user contributing to such sites could potentially maliciously cause all subscribers to use an alternate hub which later delivers malicious content. Given this potential attack, it may be prudent to do discovery only in the 
+<head>
+ of HTML documents.
+8.2 
+Subscriptions
+First, subscribers 
+SHOULD
+ always favor the HTTPS URL for hubs (even if the URL is advertised as HTTP). Second, subscribers 
+SHOULD
+ use unique unguessable capability URLs for the callbacks, as well as make them available via HTTPS. Finally, subscribers 
+SHOULD
+ use a 
+hub.secret
+ when subscribing to allow signature of the content distribution.
+Hubs 
+SHOULD
+ enforce short lived 
+hub.lease_seconds
+ (10 days is a good default). When performing intent verification, the hub 
+SHOULD
+ use a random, single-use 
+hub.challenge
+.
+The intent verification procedure introduces a risk of reflected code injection (reflected XSS) attack. Subscribers 
+MUST
+ serve the intent verification response using a safe Media Type such as 
+application/octet-stream
+ in order to protect against this type of attack. Moreover, the intent verification response could be exploited to bypass 
+Content-Security-Policy
+ restrictions: subscribers 
+MUST
+ serve the intent verification response with 
+X-Content-Type-Options: nosniff
+ to mitigate this.
+The intent verification procedure could be used to trick users into downloading a malicious resource from a trusted subscriber. Subscribers 
+SHOULD
+ impose restrictions on the 
+hub.challenge
+ parameter such as limiting its length and rejecting binary data.
+8.3 
+Distribution
+The Hub 
+MUST
+ use the exact callback used by the subscriber (including the use of HTTPS). Hubs 
+MUST
+ sign their requests using the 
+hub.secret
+ supplied by subscribers if requested.
+If the subscriber included a hub.secret in the subscription request, the subscriber 
+SHOULD
+ validate the hub's provided signature, and if they do so, they 
+MUST
+ use the server's stated signature mechanism, and discard requests which fail the test.
+If a subscriber does not use a secure callback URL (HTTPS), or if it is suspected that the TLS transport between the hub and subscriber may be compromised, then the integrity of the content delivery notification is only protected by the 
+hub.secret
+ and the hashing algorithm used. In this case, an appropriate hashing algorithm should be used based on the security requirements of the application. As SHA-1 has been demonstrated to be compromised as of the date of this publication, a minimum of SHA-256 should be used.
+8.4 
+Security and Privacy Review
+These questions provide an overview of security and privacy considerations for this specification as guided by Self-Review Questionnaire: Security and Privacy ([
+security-privacy-questionnaire
+]).
+Does this specification deal with personally-identifiable information?
+The only potentially personally-identifiable information involved are topic and callback URLs.
+Does this specification deal with high-value data?
+No, there is no authentication or other credentials involved.
+Does this specification introduce new state for an origin that persists across browsing sessions?
+No.
+Does this specification expose persistent, cross-origin state to the web?
+The WebSub subscriber should create a resource with information about the topic to which it subscribes.
+Does this specification expose any other data to an origin that it doesn't currently have access to?
+No.
+Does this specification enable new script execution/loading mechanisms?
+No.
+Does this specification allow an origin access to a user's location?
+No.
+Does this specification allow an origin access to sensors on a user's device?
+No.
+Does this specification allow an origin access to aspects of a user's local computing environment?
+No.
+Does this specification allow an origin access to other devices?
+No.
+Does this specification allow an origin some measure of control over a user agent's native UI?
+No.
+Does this specification expose temporary identifiers to the web?
+No.
+Does this specification distinguish between behavior in first-party and third-party contexts?
+No.
+How should this specification work in the context of a user agent's "incognito" mode?
+WebSub is a server to server protocol, in which "incognito" mode does not have a meaning.
+Does this specification persist data to a user's local device?
+No.
+Does this specification allow downgrading default security characteristics?
+No.
+A. 
+Acknowledgements
+This section is non-normative.
+The editors wish to thank the authors of PubSubHubbub, the IndieWeb community, and other implementers for their support, encouragement and enthusiasm. In particular, the editors wish to thank 
+      
+Brad Fitzpatrick
+, 
+      
+Brett Slatkin
+, 
+      
+Martin Atkins
+, 
+      
+Amy Guy
+, 
+      
+Barry Frost
+, 
+      
+Benjamin Roberts
+, 
+      
+Eugen Rochko
+,
+      
+Jordan Potter
+,
+      
+Matthias Pfefferle
+,
+      
+Malcolm Blaney
+,
+      
+Marten de Vries
+,
+      
+Sandro Hawke
+,
+      
+Tantek Çelik
+,
+      and
+      
+Tony Garnock-Jones
+.
+      
+The 
+W3C
+ Team wish to thank 
+Gabriel Corona
+, for reporting the XSS
+B. 
+Change Log
+This section is non-normative.
+B.1 
+Changes from 03 October 2017 PR to this version
+Added link to content negotiation section from corresponding item in conformance criteria
+Updated reference name from "WHATWG-URL" to "[
+URL
+]", but does not change the actual reference.
+Rephrase sentence on hub URL discovery to better clarify which URLs are being talked about, and use "notify" instead of "ping"
+Correct "mime-type" to "Media Type" and add informative reference to RFC.
+Rephrase summary of "subscribing and unsubscribing" to explicitly mention the actor of each step
+Clarify sending the POST request to the subscriber's callback URL
+Add reference to HTTPS when previously only HTTP was mentioned in cases where an HTTPS URL may be used
+Clarify when hub.lease_seconds parameter is required or optional
+Reword section on subscription migration to make it more clear
+Move note about publisher->hub notification outside of the subscription migration section
+Remove references to "notification" as a standalone term, replaced by "content distribution request" or "content distribution notification" as appropriate
+Update CR exit criteria text to past tense
+Added explanatory text about why a publisher may advertise multiple hubs
+Replaced sentence in section 8 to better describe the situation "the topic URL in the content distribution request may be different from the topic URL that was originally subscribed to"
+Dropped at-risk limitation of the link tag in the head
+Added security consideration for discovery related to link rel discovery in body vs head
+Dropped unused feature of the hub rejecting the subscription and providing an alternate topic URL
+Added sequence diagram in high-level overview section, and minor updates to phrasing of that section
+Added acknowledgements
+Note that hubs may set a default value for lease_seconds
+B.2 
+Changes from 11 April 2017 CR to 03 October 2017 PR
+Adds informative guidelines for how publishers can migrate subscribers to a new topic URL
+Allow subscribers to reject invalid signatures with response codes other than 2xx
+Suggest subscribers return HTTP 410 if a subscription has been deleted
+Add informative note about the lack of specification of publisher-hub relationship
+Drop at-risk 
+.host-meta
+ discovery feature due to lack of implementations (
+Issue #97
+)
+Add text to note the subscriber's 
+hub.secret
+ should be cryptographically random and unique
+Clarify that failed delivery of notifications should not delete the subscription before the lease duration ends (
+Issue #119
+)
+Replaced note about referring to FIPS document for algorithm extensions with a note that says a proper WebSub extension should be defined in the future that enables negotiation of the hashing algorithm between subscribers and hubs
+Add example of returning a different rel=self URL depending on the HTTP 
+Accept-Language
+ header
+Add a note in Security Considerations about the hashing algorithm protecting against a compromised TLS channel
+Clarify security consideration section regarding signature validation
+Moved "at risk" section out of the "sotd" section which was causing a respec error
+Replaced hyperlink to FIPS PUB 180-4 with an in-page reference
+B.3 
+Changes from 24 November WD to 11 April 2017 CR
+Clarified wording on supported algorithms for authenticated distribution
+Only allow 
+<link>
+ tags in the HTML <head> element
+Added conformance criteria and CR exit criteria
+Added examples of discovery request and response
+Added example of using different 
+rel=self
+ URLs to support content negotiation
+Added a security considerations section
+Updated references to WHATWG-URL instead of HTML 4
+Replaced abstract with updated description
+B.4 
+Changes from 20 October FPWD to 24 November 2016
+Added informative reference to previous versions of the spec, PubSubHubbub 0.3 and 0.4
+Split discovery section into separate publisher and subscriber sections
+Clarify that publishers can use any available discovery method, and subscribers must support all
+Marked host-meta discovery method At Risk due to no known implementations, and fixed reference to Host Meta spec instead of the previous reference to Well-Known
+Recommend using Capability URLs as the subscriber's callback URLs for security and authenticating the notification delivery
+Recommend not reusing callback URLs on subscription renewals
+Clarify that the 
+hub.topic
+ must be the 
+self
+ URL that was discovered
+Dropped the recommendation of including the 
+From
+ header on subscription requests
+Clarify that the hub response to subscription requests must not depend on the verification or validation
+Hubs must enforce lease expirations
+Clarify that the notification payload should contain the full contents of the topic URL
+Recommend that hubs should retry failed notification delivery up to self-imposed limits
+Clarify that future defined signature methods in FIPS PUB 180-4 are allowed
+Added informative note about the use of GET vs POST at the callback URL
+Renamed the spec to WebSub
+Permalink
+Referenced in:
+Not referenced in this document.
+Permalink
+Referenced in:
+Not referenced in this document.
+Permalink
+Referenced in:
+Not referenced in this document.
+Permalink
+Referenced in:
+Not referenced in this document.
+Permalink
+Referenced in:
+Not referenced in this document.
+Permalink
+Referenced in:
+Not referenced in this document.
+Permalink
+Referenced in:
+Not referenced in this document.
+Permalink
+Referenced in:
+Not referenced in this document.
+Permalink
+Referenced in:
+Not referenced in this document.
+C. 
+References
+C.1 
+Normative references
+[capability-urls]
+Good Practices for Capability URLs
+. Jeni Tennison.  W3C. 18 February 2014. FPWD. URL: 
+https://www.w3.org/TR/capability-urls/
+[Encoding]
+Encoding Standard
+. Anne van Kesteren.  WHATWG. Living Standard. URL: 
+https://encoding.spec.whatwg.org/
+[FIPS-PUB-180-4]
+Secure Hash Standard (SHS)
+. National Institute of Standards and Technology.  U.S. Department of Commerce. URL: 
+http://dx.doi.org/10.6028/NIST.FIPS.180-4
+[HTML5]
+HTML5
+. Ian Hickson; Robin Berjon; Steve Faulkner; Travis Leithead; Erika Doyle Navara; Theresa O'Connor; Silvia Pfeiffer.  W3C. 27 March 2018. W3C Recommendation. URL: 
+https://www.w3.org/TR/html5/
+[PubSubHubbub-Core-0.3]
+PubSubHubbub Core 0.3 -- Working Draft
+. B. Fitzpatrick; B. Slatkin; M. Atkins. URL: 
+https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.3.html
+[PubSubHubbub-Core-0.4]
+PubSubHubbub Core 0.4 -- Working Draft
+. B. Fitzpatrick; B. Slatkin; M. Atkins; J. Genestoux. URL: 
+https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html
+[RFC2119]
+Key words for use in RFCs to Indicate Requirement Levels
+. S. Bradner.  IETF. March 1997. Best Current Practice. URL: 
+https://www.rfc-editor.org/rfc/rfc2119
+[RFC2818]
+HTTP Over TLS
+. E. Rescorla.  IETF. May 2000. Informational. URL: 
+https://httpwg.org/specs/rfc2818.html
+[RFC4287]
+The Atom Syndication Format
+. M. Nottingham, Ed.; R. Sayre, Ed. IETF. December 2005. Proposed Standard. URL: 
+https://www.rfc-editor.org/rfc/rfc4287
+[RFC5988]
+Web Linking
+. M. Nottingham.  IETF. October 2010. Proposed Standard. URL: 
+https://www.rfc-editor.org/rfc/rfc5988
+[RFC6151]
+Updated Security Considerations for the MD5 Message-Digest and the HMAC-MD5 Algorithms
+. S. Turner; L. Chen.  IETF. March 2011. Informational. URL: 
+https://www.rfc-editor.org/rfc/rfc6151
+[RFC6838]
+Media Type Specifications and Registration Procedures
+. N. Freed; J. Klensin; T. Hansen.  IETF. January 2013. Best Current Practice. URL: 
+https://www.rfc-editor.org/rfc/rfc6838
+[RFC7230]
+Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing
+. R. Fielding, Ed.; J. Reschke, Ed. IETF. June 2014. Proposed Standard. URL: 
+https://httpwg.org/specs/rfc7230.html
+[RFC7231]
+Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content
+. R. Fielding, Ed.; J. Reschke, Ed. IETF. June 2014. Proposed Standard. URL: 
+https://httpwg.org/specs/rfc7231.html
+[RFC8174]
+Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words
+. B. Leiba.  IETF. May 2017. Best Current Practice. URL: 
+https://www.rfc-editor.org/rfc/rfc8174
+[RSS-2.0]
+RSS 2.0
+. Dave Winer.  RSS Board. Stable. URL: 
+http://www.rssboard.org/rss-specification
+[security-privacy-questionnaire]
+Self-Review Questionnaire: Security and Privacy
+. Theresa O'Connor; Peter Snyder; Simone Onofri.  W3C. 18 April 2025. W3C Working Group Note. URL: 
+https://www.w3.org/TR/security-privacy-questionnaire/
+[URL]
+URL Standard
+. Anne van Kesteren.  WHATWG. Living Standard. URL: 
+https://url.spec.whatwg.org/
+↑

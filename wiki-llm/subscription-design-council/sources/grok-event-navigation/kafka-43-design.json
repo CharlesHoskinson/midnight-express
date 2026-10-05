@@ -1,0 +1,13 @@
+{
+  "url": "https://kafka.apache.org/43/design/design/",
+  "retrieved_utc": "2026-10-05T20:27:25.790504+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "bcca1c2a60856d1be95d7774beb60e7ff5531ede367529becb787e5772531ef4",
+  "text_sha256": "7ffdce973cc498a79907c728069c31e57aecfef67425c694d1ad54612b48f617",
+  "bytes": 146232,
+  "text_bytes": 76683,
+  "final_url": "https://kafka.apache.org/43/design/design/",
+  "accepted_source": true
+}

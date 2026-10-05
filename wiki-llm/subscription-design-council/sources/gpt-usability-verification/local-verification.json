@@ -1,0 +1,53 @@
+{
+  "retrieved_utc": "2026-10-05T20:15:00.516Z",
+  "browser": "153.0.8010.12",
+  "method": "Playwright local-only behavior verification; no external retrieval",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "initial": {
+    "rows": 9,
+    "dom": 154,
+    "searchY": 1304.5625,
+    "bodyHeight": 4370
+  },
+  "timing": {
+    "samples": 30,
+    "handler_ms": {
+      "min": 0.09999999403953552,
+      "median": 0.20000001788139343,
+      "p95": 0.30000001192092896,
+      "max": 0.30000001192092896
+    },
+    "input_to_second_raf_ms": {
+      "min": 28.900000005960464,
+      "median": 33.30000001192093,
+      "p95": 33.5,
+      "max": 33.5
+    },
+    "note": "Local 9-record incumbent only; second rAF proxy is not INP or production latency."
+  },
+  "emptyResultsText": "",
+  "focusAfterFollow": {
+    "tag": "BODY",
+    "id": "",
+    "text": "BODY"
+  },
+  "followSubscriptionText": "payments · activeLocal predicate all. Revision 1. Delivered cursor 0; processing cursor 0. In flight 0/2; queue 0/4 (0/16384 bytes).PauseUnsubscribeSave scope revisionLocal category scopequotespaymentsapprovalscontractscredentialsopsLocal payment predicateAll payment assertionsFinal assertions only",
+  "reloadSubscriptionText": "Choose a stream to create a local subscription.",
+  "mobileFont200": [
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "searchY": 7734.5,
+      "bodyHeight": 28020
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "searchY": 6252.578125,
+      "bodyHeight": 23411
+    }
+  ]
+}

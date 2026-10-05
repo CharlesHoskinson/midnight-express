@@ -1,0 +1,44 @@
+{
+  "url": "https://www.inoreader.com/blog/2026/09/introducing-mentions-redesigned-search-and-smarter-monitoring-feeds.html",
+  "retrieved_utc": "2026-10-05T20:08:04.223165+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "1b35de3975c0e568c5da66adbc5ba88dfcd935e5de0ad73432c5a81e9eef6610",
+  "text_sha256": "ef9407a7b0514c8e4c5ed35d91ff3e9dbcdcb429ee61adebd5cb7fb967997012",
+  "bytes": 132782,
+  "text_bytes": 12651,
+  "final_url": "https://www.inoreader.com/blog/2026/09/introducing-mentions-redesigned-search-and-smarter-monitoring-feeds.html",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/gpt-consensus-architecture/inoreader-search-2026-tiles/www.inoreader.com_blog_2026_09_introducing-mentions-redesigned-search-and-smarter-monitoring-feeds.html.png.tiles/tile_0000.jpg",
+        "sha256": "08e3c13f8e8adea4684f199a65d468433a0794260fbfbd0a8938d54015fba1ed"
+      },
+      {
+        "path": "sources/gpt-consensus-architecture/inoreader-search-2026-tiles/www.inoreader.com_blog_2026_09_introducing-mentions-redesigned-search-and-smarter-monitoring-feeds.html.png.tiles/tile_0001.jpg",
+        "sha256": "de7b2038e4ce86070e050e1d8cdf22fdf8acf26fba7225cafc3781861123dda4"
+      },
+      {
+        "path": "sources/gpt-consensus-architecture/inoreader-search-2026-tiles/www.inoreader.com_blog_2026_09_introducing-mentions-redesigned-search-and-smarter-monitoring-feeds.html.png.tiles/tile_0002.jpg",
+        "sha256": "3f7a675daa315cedf2bda3857d853ab13b4005fe5601c251ffd53b14adedf3e2"
+      },
+      {
+        "path": "sources/gpt-consensus-architecture/inoreader-search-2026-tiles/www.inoreader.com_blog_2026_09_introducing-mentions-redesigned-search-and-smarter-monitoring-feeds.html.png.tiles/tile_0003.jpg",
+        "sha256": "1be335594acefd8c96c4834bc35d58ca4364d001d597d327a3a215b867f85e88"
+      },
+      {
+        "path": "sources/gpt-consensus-architecture/inoreader-search-2026-tiles/www.inoreader.com_blog_2026_09_introducing-mentions-redesigned-search-and-smarter-monitoring-feeds.html.png.tiles/tile_0004.jpg",
+        "sha256": "a572c2b00bf34633da208cfbc6f2a03f890c1a57a93c8148872fe7d0c2685822"
+      },
+      {
+        "path": "sources/gpt-consensus-architecture/inoreader-search-2026-tiles/www.inoreader.com_blog_2026_09_introducing-mentions-redesigned-search-and-smarter-monitoring-feeds.html.png.tiles/tile_0005.jpg",
+        "sha256": "0d9eb56efd0245b205d7a8b30fe6df6a6a4dd92dbaf2e5744a65ab6b932170dd"
+      }
+    ],
+    "stderr": "2026-10-05 14:08:05,774 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:08:17,024 INFO pixelrag_render.backends.cdp: [w0] https://www.inoreader.com/blog/2026/09/introducing-mentions-redesigned-search-and-smarter-monitoring-feeds.html \u2192 6 tiles (8.2s)\n2026-10-05 14:08:17,042 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 14:08:17,043 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

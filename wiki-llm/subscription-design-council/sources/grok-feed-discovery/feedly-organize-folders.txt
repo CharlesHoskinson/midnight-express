@@ -1,0 +1,64 @@
+Best Practices: How to Organize your Team Feeds and Folders - Feedly Documentation
+Toggle Navigation
+Home 
+New to Feedly?  
+New to Feedly Threat Intelligence?  
+Collect  
+Analyze  
+Share  
+Contact Us  
+Search  
+Manage  
+Integrations  
+Apps and Extensions  
+Industry Add-Ons  
+Old - Getting Started  
+Old - Leo  
+Old - Feedly Business  
+Best Practices: How to Organize your Team Feeds and Folders
+One of the most frequent questions we hear from enterprise teams is 'How should I organize my Team Feeds section of our Feedly account?'
+While each team may have different needs, we’ve found a few universal themes and best practices we see across our users.
+Separate your AI Feeds from your Sources
+One of the most common pitfalls we see teams make is adding AI Feeds to a folder that is filled with sources.
+The goal of an AI Feed is to leverage Feedly AI Models to surface the most relevant and actionable insights from a group of sources. When you create an AI Feed inside a folder that is filled with noisy sources, you are making it more challenging for yourself to reduce the noise.
+Instead of adding AI Feeds to your Team Folders that are filled with sources, we recommend you create new Team Folders with a specific intelligence purpose.
+Finding your AI Feeds in a massive folder like this can be challenging. Keeping your AI Feeds in separate folders will help immensely.
+Create Team Folders with Purpose
+The best way to leverage Feedly’s AI Feeds is to create Team Folders that match a research need or audience. While this may differ from team to team, here are a few best practices we’ve seen:
+Create a folder for each Intelligence Requirement
+If your team leverages Priority Intelligence Requirements, you can create a Team Folder for each Intelligence Requirement. For example, you may have an intelligence requirement to track the latest articles about Malware Families. Inside this Intelligence Requirement folder, you could include your Priority Intelligence Requirements for malware such as “What new malware could impact our industry?” or “Which TTPs are being used during ransomware attacks?”
+Teams that leverage specific intelligence requirements such as this can find create very specific Intelligence Requirements and update their stakeholders when new articles match their specific Intelligence Requirements.
+Team Feeds organized by Intelligence Requirement
+Create a folder for an intended audience or stakeholder
+A good example of this would be creating a folder for your Threat Hunting team that you fill with AI Feeds to track the latest Detection Rules, or create a folder for your Vulnerability Management team that contains AI Feeds to track the latest Proof of Exploits in your tech stack.
+When you create a folder for a specific team or stakeholder, you can make AI Feeds that will continuously scour the open web for actionable insights that each team needs. You can also leverage Newsletters or our Slack or Teams integrations to automate sharing these insights with your intended audience.
+Team Feeds organized by stakeholder or audience
+Intelligence Type
+One of the most common ways to organize Team Feeds is by Intelligence type. In this example, teams create a folder titled “Vulnerabilities” and create AI Feeds for High Vulnerability and their Tech Stack, or create a folder titled “Threat Actors” and create AI Feeds to track the latest TTPs associated with the Lazarus group.
+Team Feeds organized by Intelligence Type
+Add or remove Team Feeds from your account
+Whichever way you decide to set up your Team Feeds section of your account, you should also know that you have the ability to add or remove Team Folders from your personal Feedly login, without removing the Team Folder from the rest of your team users.
+To remove a Team Folder from your log in, you can simply right click on the folder, and click ‘Unfollow’. When you unfollow a Team Folder, the rest of your team will still have access to this folder. (Note: If you click ‘Archive’, this will remove the Team Folder from all users, so use this cautiously)
+If you would like to add a Team Folder to your login that you aren’t currently following, you can click ‘More Feeds’ to find other Team Folders that the rest of your team have created. Simply click ‘Follow’ for any of the Team Feeds you see onscreen.
+Summary
+In summary, Feedly has made customizing your Team Feed section open to the needs of your team. Whether you choose to organize by stakeholder, intelligence requirement, intelligence type, or another method not listed here, the teams that get the most out of Feedly have a clear plan and structure to their account set up.
+Did this answer your question?
+Thanks for the feedback
+There was a problem submitting your feedback. Please try again later.
+Yes
+No
+Last updated on April 17, 2026
+Toggle Search
+Categories
+Market Intelligence  
+Threat Intelligence  
+No results found
+©
+    
+        
+Feedly
+
+    
+    2026. 
+Powered by 
+Help Scout

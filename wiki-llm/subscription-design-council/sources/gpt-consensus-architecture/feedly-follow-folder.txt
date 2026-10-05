@@ -1,0 +1,95 @@
+How to follow a feed in your Feedly account - Feedly Documentation
+Toggle Navigation
+Home 
+New to Feedly?  
+New to Feedly Threat Intelligence?  
+Collect  
+Analyze  
+Share  
+Contact Us  
+Search  
+Manage  
+Integrations  
+Apps and Extensions  
+Industry Add-Ons  
+Old - Getting Started  
+Old - Leo  
+Old - Feedly Business  
+How to follow a feed in your Feedly account
+Do you prefer to learn by watching? If so, 
+click here to skip to the video
+.
+1. The Discover page (desktop and mobile)
+Type in any blog/site/topic name in the search box on the top of the 
+discover page
+ (The RSS button in the left navigation)
+You can search for any topic, keyword, blog name, or URL here
+Tap the "Follow" button next to any feed
+Choose the folder to add your feed into
+2. Feedly Mini (desktop)
+https://blog.feedly.com/feedly-mini-for-chrome-gets-smarter-in-version-5/
+Feedly Mini is a Chrome and Firefox 
+extension
+. It automatically detects the RSS feed of the site/blog you are browsing to open and gives you the option to open it in Feedly and add it to your Folders. Note that you can also save articles to your Boards with Feedly Mini.
+3. RSS Builder - Pro+ feature
+When a website does not have an RSS Feed, you may see an RSS Builder option to create a feed. This can be a quick and easy way to build a feed from a website that does not have an RSS feed!
+Troubleshooting 
+When you can't find the Feed directly:
+Search for the site’s name (as opposed to the URL)
+If you search for a site’s URL (e.g. 
+http://www.interviewmagazine.com/
+) we might return: “No feeds found”
+Try to remove 
+http://
+ and 
+.com
+ and simply search for the website’s name (e.g. interviewmagazine)
+We should be able to find the site’s feed or multiple feeds from the site if they have more than
+3 ways to find and add a feed:
+If the previous methods didn’t work, then you will have to find the site’s feed. 
+You can look for the RSS button on the site’s page. Copy and paste this .xml URL in Feedly discover page (see above).
+Try adding /feed, /feeds or /rss at the end of the site’s URL. That will either return a 404 page (fail) or the feed itself (success!). Once you have found the feed’s URL add it to the discover page (see above)
+Open the source of the website and search for ".rss" or ".xml" or ".atom" in the source, sometimes the source is there and you can copy and paste it to Feedly.
+If none of these methods work, please don’t hesitate to contact us back with the feed’s URL and we can try to find the feeds you are missing together. We can also ask the publisher to add the RSS feed or let us know what their RSS feed is - you can ask them too :) 
+Other options to consider if you can't find an RSS feed for the site:
+You can also follow Newsletters in Feedly: 
+https://blog.feedly.com/get-newsletters-in-feedly/
+You can use the RSS Builder in Feedly to build an RSS feed from the site. Just paste the URL into the discover page (see above). 
+https://blog.feedly.com/easily-follow-websites-that-dont-have-rss-feeds/
+Note: If you're a publisher and want your website available in Feedly, just make sure the RSS URL is public. Anyone can add it to Feedly with the public RSS link.
+Video Example:
+Did this answer your question?
+Thanks for the feedback
+There was a problem submitting your feedback. Please try again later.
+Yes
+No
+Last updated on November 4, 2024
+Toggle Search
+Categories
+Feedly AI Feeds  
+Websites  
+RSS Builder  
+Newsletter Feeds  
+Mute Filters  
+Summarization  
+Deduplication  
+Strategic Moves  
+Twitter  
+Reddit  
+Managing Feeds  
+Team Feeds  
+Export, Import  
+Google News searches  
+Mastodon  
+Facebook  
+Telegram  
+No results found
+©
+    
+        
+Feedly
+
+    
+    2026. 
+Powered by 
+Help Scout

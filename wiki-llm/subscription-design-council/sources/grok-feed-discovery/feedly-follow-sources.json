@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.feedly.com/article/768-follow-sources-in-feedly",
+  "retrieved_utc": "2026-10-05T20:09:14.735283+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "4e4a20f5523c634e3d6b1ac44f7aff34da31e014d87bb0f1345c324483cf64fb",
+  "text_sha256": "da15530ed92ad580b38aea1c4417fef9f216cf09340bb4bd56e4bdf6c36ed327",
+  "bytes": 21966,
+  "text_bytes": 5444,
+  "final_url": "https://docs.feedly.com/article/768-follow-sources-in-feedly",
+  "accepted_source": true
+}

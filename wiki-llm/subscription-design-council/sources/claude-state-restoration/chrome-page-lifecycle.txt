@@ -1,0 +1,1798 @@
+Page Lifecycle API  |  Web Platform  |  Chrome for Developers
+
+      
+      Skip to main content
+    
+
+    Docs
+  
+    
+Build with Chrome
+Learn how Chrome works, participate in origin trials, and build with Chrome everywhere.
+
+
+                      Web Platform
+                    
+
+                      Isolated Web Apps (IWA)
+                    
+
+                      Capabilities
+                    
+
+                      Automation and testing
+                    
+
+                      ChromeDriver
+                    
+
+                      Extensions
+                    
+
+                      Chrome Web Store
+                    
+
+                      Chromium
+                    
+
+                      Web on Android
+                    
+
+                      Origin trials
+                    
+
+                      Release notes
+                    
+Productivity
+Create the best experience for your users with the web's best tools.
+
+                      DevTools
+                    
+
+                      Lighthouse
+                    
+
+                      Chrome UX Report
+                    
+
+                      Accessibility
+                    
+
+                      Modern Web Guidance
+                    
+Get things done quicker and neater, with our ready-made libraries.
+
+
+                      Workbox
+                    
+
+                      Puppeteer
+                    
+Experience
+Design a beautiful and performant web with Chrome.
+
+
+                      AI
+                    
+
+                      Performance
+                    
+
+                      CSS and UI
+                    
+
+                      Identity
+                    
+
+                      Payments
+                    
+
+                      Privacy and security
+                    
+
+                      Ads
+                    
+Resources
+More from Chrome and Google.
+
+
+                      All documentation
+                    
+
+                      Baseline 
+open_in_new
+
+                      web.dev 
+open_in_new
+
+                      PageSpeed Insights audit 
+open_in_new
+
+    Case studies
+  
+    
+
+    Blog
+  
+    
+
+    New in Chrome
+  
+    
+/
+English
+Deutsch
+Español – América Latina
+Français
+Indonesia
+Italiano
+Nederlands
+Polski
+Português – Brasil
+Tiếng Việt
+Türkçe
+Русский
+עברית
+العربيّة
+فارسی
+हिंदी
+বাংলা
+ภาษาไทย
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+
+    
+          Docs
+        
+  
+
+    
+          Web Platform
+        
+  
+
+    Web Platform
+  
+    
+
+    New releases
+  
+    
+
+    WebGPU
+  
+    
+
+      Docs
+   
+
+      More
+   
+
+      Web Platform
+   
+
+      New releases
+   
+
+      WebGPU
+   
+
+      Case studies
+   
+
+      Blog
+   
+
+      New in Chrome
+   
+Chrome concepts
+Chrome release channels
+Chrome flags
+Chrome variations
+Understand origin trials
+Third-party origin trials
+Troubleshoot origin trials
+Feature deprecation and removal
+Browser development
+Chrome and Chromium
+Blink rendering engine
+Blink Intents
+Features and APIs
+Shipped to the web platform
+Back/forward cache notRestoredReasons API
+Compute Pressure API
+Conditional focus API
+Declarative Partial Updates
+Device Bound Session Credentials
+Early Hints
+Handwriting Recognition API
+Heavy Ads Intervention
+Launch Handler API
+Long Animation Frames API (LoAF)
+Navigation API
+Page Lifecycle API
+Picture-in-Picture for any Element
+Prerender with the Speculation Rules API
+Privacy-preserving screen sharing controls
+Region Capture
+Soft navigations measurement
+Element Capture
+Captured Surface Control
+Tab sharing with Capture Handle
+VirtualKeyboard API
+View Transitions API
+Overview
+Same-Document View Transitions for SPA
+Cross-Document View Transitions for MPA
+WebGPU
+Deprecating
+Deprecating the unload event
+Deprecating XSLT
+No longer pursuing
+Declarative link capturing
+Storage foundation API
+Notification triggers
+Web bundles
+Best practices
+URL protocol handler registration for PWAs
+Video processing with WebCodecs
+Version History API
+Guide
+Reference
+Examples
+Sign up for origin trials
+Chrome Platform status
+Chromium projects
+
+      Build with Chrome
+   
+
+      Web Platform
+   
+
+      Isolated Web Apps (IWA)
+   
+
+      Capabilities
+   
+
+      Automation and testing
+   
+
+      ChromeDriver
+   
+
+      Extensions
+   
+
+      Chrome Web Store
+   
+
+      Chromium
+   
+
+      Web on Android
+   
+
+      Origin trials
+   
+
+      Release notes
+   
+
+      Productivity
+   
+
+      DevTools
+   
+
+      Lighthouse
+   
+
+      Chrome UX Report
+   
+
+      Accessibility
+   
+
+      Modern Web Guidance
+   
+
+      Workbox
+   
+
+      Puppeteer
+   
+
+      Experience
+   
+
+      AI
+   
+
+      Performance
+   
+
+      CSS and UI
+   
+
+      Identity
+   
+
+      Payments
+   
+
+      Privacy and security
+   
+
+      Ads
+   
+
+      Resources
+   
+
+      All documentation
+   
+
+      Baseline <span class="material-icons" style="font-size: 12px;" aria-hidden="true" translate="no">open_in_new</span>
+   
+
+      web.dev <span class="material-icons" style="font-size: 12px;" aria-hidden="true" translate="no">open_in_new</span>
+   
+
+      PageSpeed Insights audit <span class="material-icons" style="font-size: 12px;" aria-hidden="true" translate="no">open_in_new</span>
+   
+
+    
+          Home
+        
+  
+
+    
+          Docs
+        
+  
+
+    
+          Web Platform
+        
+  
+
+      Page Lifecycle API
+
+      
+      Stay organized with collections
+    
+
+      
+      Save and categorize content based on your preferences.
+    
+ 
+            Philip Walton
+          
+X
+GitHub
+LinkedIn
+Mastodon
+Bluesky
+Homepage
+Browser Support
+
+      
+        68
+      
+    
+
+      
+        79
+      
+    
+
+      
+        x
+      
+    
+
+      
+        x
+      
+    
+Modern browsers today will sometimes suspend pages or discard them entirely when
+system resources are constrained. In the future, browsers want to do this
+proactively, so they consume less power and memory. The 
+Page Lifecycle API
+
+provides lifecycle hooks so your pages can safely handle these browser
+interventions without affecting the user experience. Take a look at the API to
+see whether you should be implementing these features in your application.
+Background
+Application lifecycle is a key way that modern operating systems manage
+resources. On Android, iOS, and recent Windows versions, apps can be started and
+stopped at any time by the OS. This allows these platforms to streamline and
+reallocate resources where they best benefit the user.
+On the web, there has historically been no such lifecycle, and apps can be kept
+alive indefinitely. With large numbers of web pages running, critical system
+resources such as memory, CPU, battery, and network can be oversubscribed,
+leading to a bad end-user experience.
+While the web platform has long had events that related to lifecycle states
+— like 
+load
+,
+
+unload
+, and
+
+visibilitychange
+
+— these events only allow developers
+to respond to user-initiated lifecycle state changes. For the web to work
+reliably on low-powered devices (and be more resource conscious in general on
+all platforms) browsers need a way to proactively reclaim and re-allocate system
+resources.
+In fact, browsers today already do 
+take active measures to conserve resources
+
+for pages in background tabs, and many browsers (especially Chrome) would like
+to do a lot more of this — to lessen their overall resource footprint.
+The problem is developers have no way to prepare for these types of
+system-initiated interventions or even know that they're happening. This means
+browsers need to be conservative or risk breaking web pages.
+The 
+Page Lifecycle API
+
+attempts to solve this problem by:
+Introducing and standardizing the concept of lifecycle states on the web.
+Defining new, system-initiated states that allow browsers to limit the
+resources that can be consumed by hidden or inactive tabs.
+Creating new APIs and events that allow web developers to respond to
+transitions to and from these new system-initiated states.
+This solution provides the predictability web developers need to build
+applications resilient to system interventions, and it allows browsers to more
+aggressively optimize system resources, ultimately benefiting all web users.
+The rest of this post will introduce the new Page Lifecycle features
+and explore how they relate to all the existing web platform states
+and events. It will also give recommendations and best-practices for the types
+of work developers should (and should not) be doing in each state.
+Overview of Page Lifecycle states and events
+All Page Lifecycle states are discrete and mutually exclusive, meaning a page
+can only be in one state at a time. And most changes to a page's lifecycle state
+are generally observable via DOM events (see 
+developer recommendations for each state
+ for the exceptions).
+Perhaps the easiest way to explain the Page Lifecycle states — as well as
+the events that signal transitions between them — is with a diagram:
+Page Lifecycle API state and event flow.
+States
+The following table explains each state in detail. It also lists the possible
+states that can come before and after as well as the events developers can
+use to observe changes.
+State
+Description
+Active
+A page is in the 
+active
+ state if it is visible and has
+        input focus.
+Possible previous states:
+passive
+(via the 
+focus
+ event)
+frozen
+(via the 
+resume
+ event, then the
+            
+pageshow
+ event)
+Possible next states:
+passive
+(via the
+blur
+ event)
+Passive
+A page is in the 
+passive
+ state if it is visible and does
+        not have input focus.
+Possible previous states:
+active
+(via the 
+blur
+ event)
+hidden
+(via the 
+visibilitychange
+ event)
+frozen
+(via the 
+resume
+ event, then the
+            
+pageshow
+ event)
+Possible next states:
+active
+(via the 
+focus
+ event)
+hidden
+(via the 
+visibilitychange
+ event)
+Hidden
+A page is in the 
+hidden
+ state if it is not visible (and has not
+        been frozen, discarded, or terminated).
+Possible previous states:
+passive
+(via the 
+visibilitychange
+ event)
+frozen
+(via the 
+resume
+ event, then the
+            
+pageshow
+ event)
+Possible next states:
+passive
+(via the 
+visibilitychange
+ event)
+frozen
+(via the 
+freeze
+ event)
+discarded
+(no events fired)
+terminated
+(no events fired)
+Frozen
+In the 
+frozen
+ state the browser suspends execution of
+        
+
+        freezable
+
+        tasks
+ in the page's
+        
+
+        task queues
+ until the page is unfrozen. This means things like
+        JavaScript timers and fetch callbacks don't run. Already-running
+        tasks can finish (most importantly the 
+freeze
+ callback), but they may be limited in what they
+        can do and how long they can run.
+Browsers freeze pages as a way to preserve CPU/battery/data usage; they
+        also do it as a way to enable faster
+        
+
+        back/forward navigations
+ — avoiding the need for a full page
+        reload.
+Possible previous states:
+hidden
+(via the 
+freeze
+ event)
+Possible next states:
+active
+(via the 
+resume
+ event, then the
+            
+pageshow
+ event)
+passive
+(via the 
+resume
+ event, then the
+            
+pageshow
+ event)
+hidden
+(via the 
+resume
+ event)
+discarded
+(no events fired)
+Terminated
+A page is in the 
+terminated
+ state once it has started being
+        unloaded and cleared from memory by the browser. No
+        
+
+        new tasks
+ can start in this state, and in-progress tasks may be
+        killed if they run too long.
+Possible previous states:
+hidden
+(via the 
+pagehide
+ event)
+Possible next states:
+
+          NONE
+        
+Discarded
+A page is in the 
+discarded
+ state when it is unloaded by the
+        browser in order to conserve resources. No tasks, event callbacks, or
+        JavaScript of any kind can run in this state, as discards typically
+        occur under resource constraints, where starting new processes is
+        impossible.
+In the 
+discarded
+ state the tab itself
+        (including the tab title and favicon) is usually visible to the user
+        even though the page is gone.
+Possible previous states:
+hidden
+(no events fired)
+frozen
+(no events fired)
+Possible next states:
+
+          NONE
+        
+Events
+Browsers dispatch a lot of events, but only a small portion of them signal a
+possible change in Page Lifecycle state. The following table outlines all events
+that pertain to lifecycle and lists what states they may transition to and from.
+Name
+Details
+focus
+A DOM element has received focus.
+Note:
+ a 
+focus
+ event does not
+          necessarily signal a state change. It only signals a state change if
+          the page did not previously have input focus.
+Possible previous states:
+passive
+Possible current states:
+active
+blur
+A DOM element has lost focus.
+Note:
+ a 
+blur
+ event does not
+          necessarily signal a state change. It only signals a state change if
+          the page no longer has input focus (i.e. the page did not just switch
+          focus from one element to another).
+Possible previous states:
+active
+Possible current states:
+passive
+visibilitychange
+The document's
+        
+visibilityState
+ value has changed. This can
+        happen when a user navigates to a new page, switches tabs, closes a tab,
+        minimizes or closes the browser, or switches apps on mobile operating
+        systems.
+Possible previous states:
+passive
+hidden
+Possible current states:
+passive
+hidden
+freeze
+*
+The page has just been frozen. Any
+        
+
+        freezable
+ task in the page's task queues won't be started.
+Possible previous states:
+hidden
+Possible current states:
+frozen
+resume
+*
+The browser has resumed a 
+frozen
+ page.
+Possible previous states:
+frozen
+Possible current states:
+active
+(if followed by the
+            
+pageshow
+ event)
+passive
+(if followed by the
+            
+pageshow
+ event)
+hidden
+pageshow
+A session history entry is being traversed to.
+This could be either a brand new page load or a page taken from the
+          
+back/forward cache
+. If the page
+          was taken from the back/forward cache, the event's
+          
+persisted
+ property is 
+true
+, otherwise it is
+          
+false
+.
+        
+Possible previous states:
+frozen
+(a 
+resume
+
+            event would have also fired)
+Possible current states:
+active
+passive
+hidden
+pagehide
+A session history entry is being traversed from.
+If the user is navigating to another page and the browser is able to add
+        the current page to the 
+back/forward
+        cache
+ to be reused later, the event's 
+persisted
+ property
+        is 
+true
+. When 
+true
+, the page is entering the
+        
+frozen
+ state, otherwise it is entering the 
+terminated
+ state.
+Possible previous states:
+hidden
+Possible current states:
+frozen
+(
+event.persisted
+ is true, 
+freeze
+ event follows)
+terminated
+(
+event.persisted
+ is false,
+            
+unload
+ event follows)
+beforeunload
+The window, the document and its resources are about to be unloaded.
+        The document is still visible and the event is still cancelable at this
+        point.
+Important:
+ the 
+beforeunload
+ event
+          should only be used to alert the user of unsaved changes. Once those
+          changes are saved, the event should be removed. It should never be
+          added unconditionally to the page, as doing so can hurt performance in
+          some cases. See the 
+legacy
+          APIs section
+ for details.
+Possible previous states:
+hidden
+Possible current states:
+terminated
+unload
+The page is being unloaded.
+Warning:
+
+          using the 
+unload
+ event is never recommended because it's
+          unreliable and can hurt performance in some cases. See the
+          
+legacy APIs section
+
+          for more details.
+Possible previous states:
+hidden
+Possible current states:
+terminated
+*
+ Indicates a new event defined by the Page Lifecycle API
+New features added in Chrome 68
+The previous chart shows two states that are system-initiated rather than
+user-initiated: 
+frozen
+ and 
+discarded
+.
+As mentioned previously, browsers today already occasionally freeze and discard
+hidden tabs (at their discretion), but developers have no way of knowing when
+this is happening.
+In Chrome 68, developers can now observe when a hidden tab is frozen and
+unfrozen by listening for the 
+freeze
+
+and 
+resume
+ events on 
+document
+.
+document
+.
+addEventListener
+(
+'freeze'
+,
+(
+event
+)
+=
+>
+{
+// The page is now frozen.
+});
+document
+.
+addEventListener
+(
+'resume'
+,
+(
+event
+)
+=
+>
+{
+// The page has been unfrozen.
+});
+From Chrome 68 the 
+document
+ object now includes a
+
+wasDiscarded
+
+property on desktop Chrome (
+Android support is being tracked in this issue
+). To determine whether a page was discarded while in a hidden
+tab, you can inspect the value of this property at page load time (note:
+discarded pages must be reloaded to use again).
+if
+(
+document
+.
+wasDiscarded
+)
+{
+// Page was previously discarded by the browser while in a hidden tab.
+}
+For advice on what things are important to do in the 
+freeze
+ and 
+resume
+
+events, as well as how to handle and prepare for pages being discarded, see
+
+developer recommendations for each state
+.
+The next several sections offer an overview of how these new features fit into
+the existing web platform states and events.
+How to observe Page Lifecycle states in code
+In the 
+active
+, 
+passive
+, and 
+hidden
+
+states, it's possible to run JavaScript code that determines the current
+Page Lifecycle state from existing web platform APIs.
+const
+getState
+=
+()
+=
+>
+{
+if
+(
+document
+.
+visibilityState
+===
+'hidden'
+)
+{
+return
+'hidden'
+;
+}
+if
+(
+document
+.
+hasFocus
+())
+{
+return
+'active'
+;
+}
+return
+'passive'
+;
+};
+The 
+frozen
+ and 
+terminated
+ states, on the
+other hand, can only be detected in their respective event listener
+(
+freeze
+ and 
+pagehide
+) as the state is
+changing.
+How to observe state changes
+Building on the 
+getState()
+ function defined previously, you can observe all Page
+Lifecycle state changes with the following code.
+// Stores the initial state using the `getState()` function (defined above).
+let
+state
+=
+getState
+();
+// Accepts a next state and, if there's been a state change, logs the
+// change to the console. It also updates the `state` value defined above.
+const
+logStateChange
+=
+(
+nextState
+)
+=
+>
+{
+const
+prevState
+=
+state
+;
+if
+(
+nextState
+!==
+prevState
+)
+{
+console
+.
+log
+(
+`State change: 
+${
+prevState
+}
+ >>> 
+${
+nextState
+}
+`
+);
+state
+=
+nextState
+;
+}
+};
+// Options used for all event listeners.
+const
+opts
+=
+{
+capture
+:
+true
+};
+// These lifecycle events can all use the same listener to observe state
+// changes (they call the `getState()` function to determine the next state).
+[
+'pageshow'
+,
+'focus'
+,
+'blur'
+,
+'visibilitychange'
+,
+'resume'
+].
+forEach
+((
+type
+)
+=
+>
+{
+window
+.
+addEventListener
+(
+type
+,
+()
+=
+>
+logStateChange
+(
+getState
+()),
+opts
+);
+});
+// The next two listeners, on the other hand, can determine the next
+// state from the event itself.
+window
+.
+addEventListener
+(
+'freeze'
+,
+()
+=
+>
+{
+// In the freeze event, the next state is always frozen.
+logStateChange
+(
+'frozen'
+);
+},
+opts
+);
+window
+.
+addEventListener
+(
+'pagehide'
+,
+(
+event
+)
+=
+>
+{
+// If the event's persisted property is `true` the page is about
+// to enter the back/forward cache, which is also in the frozen state.
+// If the event's persisted property is not `true` the page is
+// about to be unloaded.
+logStateChange
+(
+event
+.
+persisted
+?
+'frozen'
+:
+'terminated'
+);
+},
+opts
+);
+This code does three things:
+Sets the initial state using the 
+getState()
+ function.
+Defines a function that accepts a next state and, if there's a change,
+logs the state changes to the console.
+Adds
+
+capturing
+
+event listeners for all necessary lifecycle events, which in turn call
+
+logStateChange()
+, passing in the next state.
+One thing to note about the code is that all the event listeners are added
+to 
+window
+ and they all pass
+
+{capture: true}
+.
+There are a few reasons for this:
+Not all Page Lifecycle events have the same target. 
+pagehide
+, and
+
+pageshow
+ are fired on 
+window
+; 
+visibilitychange
+, 
+freeze
+, and
+
+resume
+ are fired on 
+document
+, and 
+focus
+ and 
+blur
+ are fired on their
+respective DOM elements.
+Most of these events don't bubble, which means it's impossible to add
+non-capturing event listeners to a common ancestor element and observe all
+of them.
+The capture phase executes before the target or bubble phases, so adding
+listeners there helps ensure they run before other code can cancel them.
+Developer recommendations for each state
+As developers, it's important to both understand Page Lifecycle states 
+and
+
+know how to observe them in code because the type of work you should (and should
+not) be doing depends largely on what state your page is in.
+For example, it clearly doesn't make sense to display a transient notification
+to the user if the page is in the hidden state. While this example is pretty
+obvious, there are other recommendations that aren't so obvious that are worth
+enumerating.
+State
+Developer recommendations
+Active
+The 
+active
+ state is the most critical time for the user and thus
+      the most important time for your page to be
+      
+
+      responsive to user input
+.
+Any non-UI work that may block the main thread should be deprioritized
+      to 
+
+      idle periods
+ or 
+
+      offloaded to a web worker
+.
+Passive
+In the 
+passive
+ state the user is not interacting with the page,
+      but they can still see it. This means UI updates and animations should still
+      be smooth, but the timing of when these updates occur is less critical.
+When the page changes from 
+active
+ to 
+passive
+, it's a
+      good time to persist unsaved application state.
+Hidden
+When the page changes from 
+passive
+ to 
+hidden
+, it's
+      possible the user won't interact with it again until it's reloaded.
+The transition to 
+hidden
+ is also often the last state change
+      that's reliably observable by developers (this is especially true on
+      mobile, as users can close tabs or the browser app itself, and the
+      
+beforeunload
+, 
+pagehide
+, and 
+unload
+
+      events are not fired in those cases).
+This means you should treat the 
+hidden
+ state as the likely end to the
+      user's session. In other words, persist any unsaved application state
+      and send any unsent analytics data.
+You should also stop making UI updates (since they won't be seen
+      by the user), and you should stop any tasks that a user wouldn't want
+      running in the background.
+Frozen
+In the 
+frozen
+ state,
+      
+
+      freezable tasks
+ in the
+      
+
+      task queues
+ are suspended until the page is unfrozen — which may
+      never happen (e.g. if the page is discarded).
+This means when the page changes from 
+hidden
+ to 
+frozen
+
+      it's essential that you stop any timers or tear down any connections that,
+      if frozen, could affect other open tabs in the same origin, or affect the
+      browser's ability to put the page in the 
+
+      back/forward cache
+.
+In particular, it's important that you:
+Close all open
+          
+
+          IndexedDB
+ connections.
+Close open
+          
+
+          BroadcastChannel
+ connections.
+Close active 
+
+          WebRTC
+ connections.
+Stop any network polling or close any open
+          
+
+          Web Socket
+ connections.
+Release any held 
+
+          Web Locks
+.
+You should also persist any dynamic view state (e.g. scroll position
+      in an infinite list view) to
+      
+sessionStorage
+ (or
+      
+IndexedDB via
+      
+commit()
+) that you'd want restored if the page were
+      discarded and reloaded later.
+If the page transitions from 
+frozen
+ back to 
+hidden
+,
+      you can reopen any closed connections or restart any polling you
+      stopped when the page was initially frozen.
+Terminated
+You generally don't need to take any action when a page transitions
+      to the 
+terminated
+ state.
+Since pages being unloaded as a result of user action always go
+      through the 
+hidden
+ state before entering the 
+terminated
+
+      state, the 
+hidden
+ state is where session-ending logic (e.g.
+      persisting application state and reporting to analytics) should be
+      performed.
+Also (as mentioned in the 
+recommendations for
+      the 
+hidden
+ state
+), it's very important for developers to realize
+      that the transition to the 
+terminated
+ state cannot be reliably
+      detected in many cases (especially on mobile), so developers who depend
+      on termination events (e.g. 
+beforeunload
+,
+      
+pagehide
+, and 
+unload
+) are likely losing data.
+Discarded
+The 
+discarded
+ state is not observable by developers at the
+      time a page is being discarded. This is because pages are typically
+      discarded under resource constraints, and unfreezing a page just to allow
+      script to run in response to a discard event is simply not possible in
+      most cases.
+As a result, you should prepare for the possibility of a discard in
+      the change from 
+hidden
+ to 
+frozen
+, and then you can
+      react to the restoration of a discarded page at page load time by
+      checking 
+document.wasDiscarded
+.
+Once again, since reliability and ordering of lifecycle events is not
+consistently implemented in all browsers, the easiest way to follow the advice
+in the table is to use
+
+PageLifecycle.js
+.
+Legacy lifecycle APIs to avoid
+The following events should be avoided where at all possible.
+The unload event
+Warning:
+ Never use the 
+unload
+ event on modern browsers.
+Many developers treat the 
+unload
+ event as a guaranteed callback and use it as
+an end-of-session signal to save state and send analytics data, but doing this
+is 
+extremely unreliable
+, especially on mobile! The 
+unload
+ event does not
+fire in many typical unload situations, including closing a tab from the tab
+switcher on mobile or closing the browser app from the app switcher.
+For this reason, it's always better to rely on the
+
+visibilitychange
+ event to determine when a session
+ends, and consider the hidden state the
+
+last reliable time to save app and user data
+.
+Furthermore, the mere presence of a registered 
+unload
+ event handler (via
+either 
+onunload
+ or 
+addEventListener()
+) can prevent browsers from being able
+to put pages in the 
+back/forward cache
+ for faster
+back and forward loads.
+In all modern browsers, it's recommended to always use the
+
+pagehide
+ event to detect possible page unloads (a.k.a the
+
+terminated
+ state) rather than the 
+unload
+ event. If you
+need to support Internet Explorer versions 10 and lower, you should feature
+detect the 
+pagehide
+ event and only use 
+unload
+ if the browser doesn't support
+
+pagehide
+:
+const
+terminationEvent
+=
+'onpagehide'
+in
+self
+?
+'pagehide'
+:
+'unload'
+;
+window
+.
+addEventListener
+(
+terminationEvent
+,
+(
+event
+)
+=
+>
+{
+// Note: if the browser is able to cache the page, `event.persisted`
+// is `true`, and the state is frozen rather than terminated.
+});
+The beforeunload event
+Caution:
+ Never add a 
+beforeunload
+ listener unconditionally or use it as an
+end-of-session signal. Only add it when a user has unsaved work, and remove
+it as soon as that work has been saved.
+The 
+beforeunload
+ event has a similar problem to the 
+unload
+ event, in that,
+historically, the presence of a 
+beforeunload
+ event could prevent pages from
+being eligible for 
+back/forward cache
+. Modern browsers
+don't have this restriction. Though some browsers, as a precaution, won't fire
+the 
+beforeunload
+ event when attempting to put a page into the back/forward
+cache, which means the event is not reliable as an end-of-session signal.
+Additionally, some browsers (including 
+Chrome
+)
+require a user-interaction on the page before allowing the 
+beforeunload
+ event
+to fire, further affecting its reliability.
+One difference between 
+beforeunload
+ and 
+unload
+ is that there are
+legitimate uses of 
+beforeunload
+. For example, when you want to warn the user
+that they have unsaved changes they'll lose if they continue unloading the page.
+Since there are valid reasons to use 
+beforeunload
+, it's recommended that you
+
+only
+ add 
+beforeunload
+ listeners when a user has unsaved changes and then
+remove them immediately after they are saved.
+In other words, don't do this (since it adds a 
+beforeunload
+ listener
+unconditionally):
+addEventListener
+(
+'beforeunload'
+,
+(
+event
+)
+=
+>
+{
+// A function that returns `true` if the page has unsaved changes.
+if
+(
+pageHasUnsavedChanges
+())
+{
+event
+.
+preventDefault
+();
+// Legacy support for older browsers.
+event
+.
+returnValue
+=
+true
+;
+}
+});
+Instead do this (since it only adds the 
+beforeunload
+ listener when it's
+needed, and removes it when it's not):
+const
+beforeUnloadListener
+=
+(
+event
+)
+=
+>
+{
+event
+.
+preventDefault
+();
+// Legacy support for older browsers.
+event
+.
+returnValue
+=
+true
+;
+};
+// A function that adds a `beforeunload` listener if there are unsaved changes.
+onPageHasUnsavedChanges
+(()
+=
+>
+{
+addEventListener
+(
+'beforeunload'
+,
+beforeUnloadListener
+);
+});
+// A function that removes the `beforeunload` listener when the page's unsaved
+// changes are resolved.
+onAllChangesSaved
+(()
+=
+>
+{
+removeEventListener
+(
+'beforeunload'
+,
+beforeUnloadListener
+);
+});
+FAQs
+Why isn't there a "loading" state?
+The Page Lifecycle API defines states to be discrete and mutually exclusive.
+Since a page can be loaded in either the active, passive, or hidden state, and
+since it can change states—or even be terminated—before it finishes loading, a
+separate loading state does not make sense within this paradigm.
+My page does important work when it's hidden, how can I stop it from being frozen or discarded?
+There are lots of legitimate reasons web pages shouldn't be frozen while running
+in the hidden state. The most obvious example is an app that plays music.
+There are also situations where it would be risky for Chrome to discard a page,
+like if it contains a form with unsubmitted user input, or if it has a
+
+beforeunload
+ handler that warns when the page is unloading.
+For the moment, Chrome is going to be conservative when discarding pages and
+only do so when it's confident it won't affect users. For example, pages that
+have been observed to do any of the following while in the hidden state won't
+be discarded unless under extreme resource constraints:
+Playing audio
+Using WebRTC
+Updating the table title or favicon
+Showing alerts
+Sending push notifications
+For the current list features used to determine whether a tab can be safely
+frozen or discarded, see: 
+Heuristics for Freezing & Discarding
+
+in Chrome.
+Note:
+ In the case of pages that update the title or favicon to alert users of unread
+notifications, we have a
+
+proposal to enable
+these kinds of updates from service worker
+, which would allow Chrome to
+freeze or discard the page but still show changes to the tab title or favicon.
+What is the back/forward cache?
+The 
+back/forward cache
+ is a term used to describe a
+navigation optimization some browsers implement that makes using the back and
+forward buttons faster.
+When a user navigates away from a page, these browsers freeze a version of that
+page so that it can be quickly resumed in case the user navigates back using
+the back or forward buttons. Remember that adding an 
+unload
+
+event handler 
+prevents this optimization from being possible
+.
+For all intents and purposes, this freezing is functionally the same as
+the freezing browsers perform to conserve CPU/battery; for that reason it's
+considered part of the 
+frozen
+ lifecycle state.
+If I can't run asynchronous APIs in the frozen or terminated states, how can I save data to IndexedDB?
+In frozen and terminated states,
+
+freezable tasks
+
+in a page's 
+task queues
+
+are suspended, which means asynchronous and callback-based APIs cannot be
+reliably used.
+While most IndexedDB APIs are callback-based, the
+
+commit()
+
+method on the
+
+IDBTransaction
+
+interface provides a way to initiate the commit process on an active
+transaction without waiting for events from outstanding requests to be
+dispatched. This
+provides a reliable way to save data to an IndexedDB database in a 
+freeze
+ or
+
+visibilitychange
+ event listener because the commit is run right away rather
+than being queued in a separate task.
+Note:
+ when using the 
+commit()
+ method in situations where the browser has
+already begun to freeze or terminate a page, the transaction's 
+onsuccess
+
+callback may not run—
+even if the transaction has committed successfully
+.
+This means that tests using the 
+commit()
+ method in these situations will
+generally need to reload the page to assert that the data was saved.
+Testing your app in the frozen and discarded states
+To test how your app behaves in the frozen and discarded states, you can visit
+
+chrome://discards
+ to actually freeze or discard any of your
+open tabs.
+Chrome Discards UI
+This allows you to ensure your page correctly handles the 
+freeze
+ and 
+resume
+
+events as well as the 
+document.wasDiscarded
+ flag when pages are reloaded after
+a discard.
+Summary
+Developers who want to respect the system resources of their user's devices
+should build their apps with Page Lifecycle states in mind. It's critical that
+web pages are not consuming excessive system resources in situations that the
+user wouldn't expect
+The more developers start implementing the new Page Lifecycle APIs, the safer it
+will be for browsers to freeze and discard pages that aren't being used. This
+means browsers will consume less memory, CPU, battery, and network resources,
+which is a win for users.
+Except as otherwise noted, the content of this page is licensed under the 
+Creative Commons Attribution 4.0 License
+, and code samples are licensed under the 
+Apache 2.0 License
+. For details, see the 
+Google Developers Site Policies
+. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2023-12-01 UTC.
+
+      [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2023-12-01 UTC."],[],[]]
+    
+Contribute
+
+            
+          
+            File a bug
+          
+          
+
+            
+              
+              
+            
+          
+            See open issues
+          
+          
+Related content
+
+            
+          
+            Chromium updates
+          
+          
+
+            
+          
+            Case studies
+          
+          
+
+            
+          
+            Archive
+          
+          
+
+            
+              
+              
+            
+          
+            Podcasts & shows
+          
+          
+Follow
+
+            
+          
+            @ChromiumDev on X
+          
+          
+
+            
+          
+            YouTube
+          
+          
+
+            
+          
+            Chrome for Developers on LinkedIn
+          
+          
+
+            
+              
+              
+            
+          
+            RSS
+          
+          
+
+          Terms
+        
+
+          Privacy
+        
+
+          Manage cookies
+        
+English
+Deutsch
+Español – América Latina
+Français
+Indonesia
+Italiano
+Nederlands
+Polski
+Português – Brasil
+Tiếng Việt
+Türkçe
+Русский
+עברית
+العربيّة
+فارسی
+हिंदी
+বাংলা
+ภาษาไทย
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

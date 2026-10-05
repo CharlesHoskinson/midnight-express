@@ -1,0 +1,13 @@
+{
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/versionchange_event",
+  "retrieved_utc": "2026-10-05T20:18:03.315979+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "c99360784932ab01ca18a9905b2f9affe28a5f790589a7115b7ea5e06619f377",
+  "text_sha256": "bbf466979878cc2c8ca7956809064d24d3138da8192c844a111373927dc49de0",
+  "bytes": 152755,
+  "text_bytes": 7661,
+  "final_url": "https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/versionchange_event",
+  "accepted_source": true
+}

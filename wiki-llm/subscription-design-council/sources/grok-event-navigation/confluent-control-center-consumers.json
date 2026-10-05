@@ -1,0 +1,24 @@
+{
+  "url": "https://docs.confluent.io/control-center/current/clients/consumers.html",
+  "retrieved_utc": "2026-10-05T20:26:24.438293+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "155a21264a26396ff9e3b556c58987e205413020e11aa9700c7b51695e3a5589",
+  "text_sha256": "5df6a9be286fe4c601d134a57268d6ceb6f238d0e0f36872a7d31ce55944b8ac",
+  "bytes": 85563,
+  "text_bytes": 7019,
+  "final_url": "https://docs.confluent.io/control-center/current/clients/consumers.html",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/grok-event-navigation/confluent-control-center-consumers-tiles/docs.confluent.io_control-center_current_clients_consumers.html.png.tiles/tile_0000.jpg",
+        "sha256": "81bde6313acc9309d699b17c8b8b2cb420ad6f51c96d411ada79695ccaf0fd8e"
+      }
+    ],
+    "stderr": "2026-10-05 14:26:25,791 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:26:36,577 INFO pixelrag_render.backends.cdp: [w0] https://docs.confluent.io/control-center/current/clients/consumers.html \u2192 1 tiles (7.7s)\n2026-10-05 14:26:36,595 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 14:26:36,596 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

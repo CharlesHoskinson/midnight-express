@@ -1,0 +1,13 @@
+{
+  "url": "https://web.dev/articles/content-visibility",
+  "retrieved_utc": "2026-10-05T20:34:48.975810+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "662e3fc7aa71eee509d417273a83554db7675d135e5a48383cde7e9ed463d342",
+  "text_sha256": "9067c1a16d4934b961420a8338538f3a108ef11647478ed9b5a18bc0d1cff69e",
+  "bytes": 126064,
+  "text_bytes": 18817,
+  "final_url": "https://web.dev/articles/content-visibility",
+  "accepted_source": true
+}

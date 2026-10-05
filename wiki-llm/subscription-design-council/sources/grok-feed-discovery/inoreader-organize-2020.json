@@ -1,0 +1,13 @@
+{
+  "url": "https://www.inoreader.com/blog/2020/10/organize-and-customize-feeds.html",
+  "retrieved_utc": "2026-10-05T20:09:19.241243+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "f0a297e993d2a92eae52ebcde0177e8bc276449264ad8bdcfccef11928617a28",
+  "text_sha256": "13bc76b6c718edd39d4cf476d0c6cb873930914086727277c69e4204e97aa547",
+  "bytes": 125523,
+  "text_bytes": 10911,
+  "final_url": "https://www.inoreader.com/blog/2020/10/organize-and-customize-feeds.html",
+  "accepted_source": true
+}

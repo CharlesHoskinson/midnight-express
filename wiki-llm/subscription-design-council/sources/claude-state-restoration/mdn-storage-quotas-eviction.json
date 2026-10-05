@@ -1,0 +1,48 @@
+{
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria",
+  "retrieved_utc": "2026-10-05T20:17:33.389803+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "74b0fe8a261f2eba1e3a8f6a64adf2a18009315f2eb8b2e4fe4e9002d92e20b5",
+  "text_sha256": "b374e6fb0e8542a59eb03193349176b371e6ee566287604371ed1945da14f732",
+  "bytes": 164718,
+  "text_bytes": 17442,
+  "final_url": "https://developer.mozilla.org/en-US/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/claude-state-restoration/mdn-storage-quotas-eviction-tiles/developer.mozilla.org_en-US_docs_Web_API_Storage_API_Storage_quotas_and_eviction_criteria.png.tiles/tile_0000.jpg",
+        "sha256": "65cbf0bbf36a627b248f7a2b10da9b26189162d480e14b8e8390a1df8fd0c554"
+      },
+      {
+        "path": "sources/claude-state-restoration/mdn-storage-quotas-eviction-tiles/developer.mozilla.org_en-US_docs_Web_API_Storage_API_Storage_quotas_and_eviction_criteria.png.tiles/tile_0001.jpg",
+        "sha256": "0eac9cdad6b7cd14a98f1c876069f807480e85951af8f7f3f3224eeb0c2397b4"
+      },
+      {
+        "path": "sources/claude-state-restoration/mdn-storage-quotas-eviction-tiles/developer.mozilla.org_en-US_docs_Web_API_Storage_API_Storage_quotas_and_eviction_criteria.png.tiles/tile_0002.jpg",
+        "sha256": "6454e73c4af1d447587f05d8037b5db4f2298ec0138da5fb5fccc3e42ea6f1f9"
+      },
+      {
+        "path": "sources/claude-state-restoration/mdn-storage-quotas-eviction-tiles/developer.mozilla.org_en-US_docs_Web_API_Storage_API_Storage_quotas_and_eviction_criteria.png.tiles/tile_0003.jpg",
+        "sha256": "856fe901a2ce5108be1ec2d994dba591394eeb3c79f2fb1dff44283b3df5f35e"
+      },
+      {
+        "path": "sources/claude-state-restoration/mdn-storage-quotas-eviction-tiles/developer.mozilla.org_en-US_docs_Web_API_Storage_API_Storage_quotas_and_eviction_criteria.png.tiles/tile_0004.jpg",
+        "sha256": "2b65d17bed55161bd4599efbe3c6b97509386cad5303f96612663198212e470d"
+      },
+      {
+        "path": "sources/claude-state-restoration/mdn-storage-quotas-eviction-tiles/developer.mozilla.org_en-US_docs_Web_API_Storage_API_Storage_quotas_and_eviction_criteria.png.tiles/tile_0005.jpg",
+        "sha256": "46a2307a3073753259f9f467395f4673b1c513b052ed7819f77da9d36c9d405c"
+      },
+      {
+        "path": "sources/claude-state-restoration/mdn-storage-quotas-eviction-tiles/developer.mozilla.org_en-US_docs_Web_API_Storage_API_Storage_quotas_and_eviction_criteria.png.tiles/tile_0006.jpg",
+        "sha256": "e7a67a9873b7800abf333494e8bb40e893bde6543921f50791a5d8cb72a168af"
+      }
+    ],
+    "stderr": "2026-10-05 14:17:35,149 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:17:45,838 INFO pixelrag_render.backends.cdp: [w0] https://developer.mozilla.org/en-US/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria \u2192 7 tiles (6.6s)\n2026-10-05 14:17:45,856 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 14:17:45,856 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

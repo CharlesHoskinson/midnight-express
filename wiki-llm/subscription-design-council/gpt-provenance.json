@@ -1,0 +1,29 @@
+{
+  "invocation": "collaboration.spawn_agent",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "reviews": [
+    {
+      "id": "gpt-consensus-architecture",
+      "task": "/root/gpt_consensus_architecture",
+      "status": "completed",
+      "report": "wiki-llm/subscription-design-council/agents/gpt-consensus-architecture.md",
+      "report_sha256": "0869e7ccb2974dc60c24e9c0ae4e378d388f54e366ba4073280c54c38d54d1f4"
+    },
+    {
+      "id": "gpt-product-workflows",
+      "task": "/root/gpt_product_workflows",
+      "status": "completed",
+      "report": "wiki-llm/subscription-design-council/agents/gpt-product-workflows.md",
+      "report_sha256": "e768b35f24e24ff560f070843cdd56e3f03f2e2fa7d8abc91e70af7c1478a9d5"
+    },
+    {
+      "id": "gpt-usability-verification",
+      "task": "/root/gpt_usability_verification",
+      "status": "completed_report_recovered_after_restart",
+      "report": "wiki-llm/subscription-design-council/agents/gpt-usability-verification.md",
+      "report_sha256": "3a592babc5c8c6960e2edc271db8acd53aa42c9ead01bcb39250b6872f70f6de",
+      "completion_notification": "Unavailable after server restart; complete written report and archived evidence recovered"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "url": "https://design-system.service.gov.uk/components/warning-text/",
+  "retrieved_utc": "2026-10-05T20:31:10.152026+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "24bb3221f1031c4abc056cb322ac33e303c4218bec6699088dbdac3f56f291be",
+  "text_sha256": "cb6e8f7a955ffc2dd2af60e46606cdc33ebf64f20801999592aa1ba6fa24ad2a",
+  "bytes": 71785,
+  "text_bytes": 11287,
+  "final_url": "https://design-system.service.gov.uk/components/warning-text/",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/grok-adversarial-privacy/govuk-warning-text-visual-tiles/design-system.service.gov.uk_components_warning-text.png.tiles/tile_0000.jpg",
+        "sha256": "15e32f9483ba9e855695b170a7cef84c0da63900acfb06fd500da40310f87976"
+      },
+      {
+        "path": "sources/grok-adversarial-privacy/govuk-warning-text-visual-tiles/design-system.service.gov.uk_components_warning-text.png.tiles/tile_0001.jpg",
+        "sha256": "174695ddb292af2c4e2f5496f6353810e07fb096454ed0c6c297197584aad346"
+      }
+    ],
+    "stderr": "2026-10-05 14:31:11,447 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:31:17,263 INFO pixelrag_render.backends.cdp: [w0] https://design-system.service.gov.uk/components/warning-text/ \u2192 2 tiles (2.8s)\n2026-10-05 14:31:17,280 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 14:31:17,281 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

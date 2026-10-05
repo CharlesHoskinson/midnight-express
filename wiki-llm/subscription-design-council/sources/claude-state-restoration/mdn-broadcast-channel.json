@@ -1,0 +1,13 @@
+{
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API",
+  "retrieved_utc": "2026-10-05T20:17:58.546616+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "e9732c4a898cb00a04651ceef78daa091e30329dec5b23457ef2fbe9c4c4442a",
+  "text_sha256": "40de78c4ed85961245eb404959593ac02fd4763b700507b1f770250caa668a1f",
+  "bytes": 152679,
+  "text_bytes": 7835,
+  "final_url": "https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API",
+  "accepted_source": true
+}

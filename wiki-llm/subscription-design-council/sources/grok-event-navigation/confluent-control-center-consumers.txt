@@ -1,0 +1,344 @@
+Manage Consumers Groups Using Confluent Control Center | Confluent Documentation
+Documentation
+Manage Consumers Groups Using Confluent Control Center
+Search the docs or ask a question
+/
+
+          Confluent Developer
+        
+
+          Marketplace
+        
+
+          Get started
+        
+Home
+Confluent Cloud
+Confluent Platform
+Connectors
+Clients
+Home
+Monitor and Manage
+Clients for Confluent Control Center
+Ask
+Copy as markdown
+View as plain text
+Manage Consumers Groups Using Confluent Control Center
+
+Use 
+Consumers
+ to monitor consumer groups for all the topics in a cluster. 
+Consumer lag
+ enables you to monitor lag for consumers.
+Considerations:
+Consumer lag for an individual topic can be accessed from the 
+Topics
+ menu.
+Consumers
+ is enabled by default using an access control setting in the Control Center properties files. For more information, see: 
+Enabling and disabling the Consumers feature
+RBAC
+ takes precedence over access control settings.
+If 
+RBAC
+ is enabled for Control Center, the resources you can access are determined by your assigned role or roles and their corresponding privileges.
+Manage consumers groups
+
+Use 
+Consumer
+ to manage and monitor consumers and consumer groups.
+View all consumer groups for a cluster
+Search for a consumer group by ID
+View the number of consumers and number of source topics for each consumer group
+Set up a pre-populated alert for 
+consumer lag
+To access Consumer
+:
+Select a cluster from the navigation bar and select 
+Client
+, then select 
+Consumers
+.
+Monitor consumer lag
+
+Use 
+Consumer lag
+ to monitor lag for consumers.
+Considerations:
+The consumer group list displays information about your consumer groups, including the group ID, status, and protocol. You can also find values for group lag, and number of consumers, topics, and partitions.
+Control Center limits the number of consumer groups shown in 
+Consumer lag
+ if there are many.
+You can export consumer lag data as a CSV file.  For clusters with large amounts of data, you may see a placeholder value like 
+-999
+ in the 
+currentOffset
+ field. This occurs because Control Center cannot display all the data immediately, and the offsets are not yet available. For large payloads, consider exporting consumer lag data using the Confluent CLI or Confluent Cloud APIs.
+To monitor consumer lag
+Select your cluster name.
+Choose 
+Clients
+ and select 
+Consumer Lag
+. A list of consumer groups displays.
+Select a consumer group from the list to see lag details for that group.
+Set up alerts for consumer groups
+
+You can set alerts from the Consumer lag page. These options pre-populate most of
+the consumer group trigger fields.
+On the Consumer lag page, click 
+Set up an alert
+.
+For more details, see 
+Consumer lag trigger
+.
+Enabling and disabling the Consumers feature
+
+Consumers
+ is enabled by default.
+You can disable by setting the 
+confluent.controlcenter.consumers.view.enable
+ option in the Control Center
+properties file to 
+false
+.  After disabling the feature, 
+Consumer
+ is no longer visible in Control Center.
+To enable 
+Consumers
+ again, set the option back to 
+true
+ and restart Control Center with the updated properties file.
+To disable Consumers
+:
+In the 
+control-center.properties
+ file, set 
+confluent.controlcenter.consumers.view.enable
+ to 
+false
+.
+...
+confluent.controlcenter.consumers.view.enable
+=
+false
+
+...
+
+Make the change in the appropriate Control Center properties files configured for your environments, including any of the following files:
+control-center-dev.properties
+control-center-production.properties
+Find the properties files here: 
+confluent-control-center/
+ For more information, see 
+Control Center Configuration Examples for Confluent Platform
+.
+Restart Control Center and pass in the properties file for the configuration to take effect.
+Local (dev) environment:
+confluent
+local
+services
+control-center
+stop
+confluent
+local
+services
+control-center
+start
+--config
+confluent-control-center/control-center.properties
+
+Important
+Do not use 
+confluent local
+ for production use.
+Production environment:
+./bin/control-center-stop
+./bin/control-center-start
+confluent-control-center/control-center.properties
+
+
+      Ask the community
+    
+
+      Confluent Support Portal
+    
+Last published: Jan 26, 2026
+Terms & Conditions
+|
+Privacy Policy
+|
+Do Not Sell My Information
+|
+Modern Slavery Policy
+|
+Cookie Settings
+|
+Feedback
+
+      Copyright © Confluent, Inc. 2014-
+      
+
+      Apache®, Apache Kafka®, Kafka®, Apache Flink®, Flink®, Apache
+      Iceberg®, Iceberg® and associated open source project names are trademarks of the
+      Apache Software Foundation
+    
+Control Center
+Control Center
+Overview
+Quick Start
+Deploy
+Deployment Overview
+System Requirements
+Single-Node Installation
+Multi-Node Installation for Production
+High Availability
+Ansible and Confluent for Kubernetes
+Upgrade
+Migrate from Legacy
+Configure
+Properties Files
+Kafka-less Mode
+Data Retention
+Licenses
+Logs
+Auto-Update
+Configuration Reference
+Secure
+Overview
+TLS
+SASL
+HTTP Basic Authentication
+LDAP Authentication
+RBAC
+Configure RBAC
+Log in with RBAC
+Manage Roles
+View Roles
+Kafka ACLs
+Monitoring and Alerting Components
+TLS and Basic Auth
+mTLS
+Monitor and Manage
+Clusters
+Brokers
+Topics
+Overview
+Create Topics
+Topic Metrics
+View Messages
+Configure Topics
+Delete Topics
+Schemas
+Clients
+Overview
+Consumer Groups
+Share Groups
+Reset Offsets
+Configure Cluster for Client Monitoring
+Connect
+Replicator
+Flink
+ksqlDB
+Alerts
+Overview
+Manage Alerts
+Configure Alerts
+Manage Triggers
+Manage Actions
+Configure PagerDuty
+REST API
+Usage Examples
+Troubleshoot
+Troubleshoot
+Glossary
+Support Policy
+Release Notes
+
+                  Give feedback about this page
+                
+On this page:
+Manage consumers groups
+Monitor consumer lag
+Set up alerts for consumer groups
+Enabling and disabling the Consumers feature
+Manage Consumers Groups Using Confluent Control Center
+Get started
+
+      Search the docs or ask a question
+    
+Home
+Confluent Cloud
+Confluent Platform
+Connectors
+Clients
+Control Center
+Overview
+Quick Start
+Deploy
+Deployment Overview
+System Requirements
+Single-Node Installation
+Multi-Node Installation for Production
+High Availability
+Ansible and Confluent for Kubernetes
+Upgrade
+Migrate from Legacy
+Configure
+Properties Files
+Kafka-less Mode
+Data Retention
+Licenses
+Logs
+Auto-Update
+Configuration Reference
+Secure
+Overview
+TLS
+SASL
+HTTP Basic Authentication
+LDAP Authentication
+RBAC
+Configure RBAC
+Log in with RBAC
+Manage Roles
+View Roles
+Kafka ACLs
+Monitoring and Alerting Components
+TLS and Basic Auth
+mTLS
+Monitor and Manage
+Clusters
+Brokers
+Topics
+Overview
+Create Topics
+Topic Metrics
+View Messages
+Configure Topics
+Delete Topics
+Schemas
+Clients
+Overview
+Consumer Groups
+Share Groups
+Reset Offsets
+Configure Cluster for Client Monitoring
+Connect
+Replicator
+Flink
+ksqlDB
+Alerts
+Overview
+Manage Alerts
+Configure Alerts
+Manage Triggers
+Manage Actions
+Configure PagerDuty
+REST API
+Usage Examples
+Troubleshoot
+Troubleshoot
+Glossary
+Support Policy
+Release Notes

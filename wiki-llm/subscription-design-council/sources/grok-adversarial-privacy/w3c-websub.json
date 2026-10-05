@@ -1,0 +1,13 @@
+{
+  "url": "https://www.w3.org/TR/websub/",
+  "retrieved_utc": "2026-10-05T20:28:25.848243+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "75ccd70af4323efa197503c4d923b7d553b949e42992531ca7ca476820dedaef",
+  "text_sha256": "ad8bbd8a8fb72919e210dbcc05b5b9caa37110e52a61579327b4b37c7ce33313",
+  "bytes": 130140,
+  "text_bytes": 48660,
+  "final_url": "https://www.w3.org/TR/websub/",
+  "accepted_source": true
+}

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "gemini-inbox-interaction",
+    "conversation_id": "55b35961-0f61-4231-bd86-998f03deef28",
+    "started_utc": "2026-10-05T20:36:33.452231+00:00",
+    "model": "gemini-3.1-pro-high",
+    "effort": "high",
+    "initial_report": "wiki-llm/subscription-design-council/agents/initial/gemini-inbox-interaction.md",
+    "initial_sha256": "8ed2fb8b522795d336ebfbd171bc15b3ed41fbbe3c74df3ea61aa0b4ac5a1a75",
+    "exit_code": 0,
+    "finished_utc": "2026-10-05T20:38:44.385596+00:00",
+    "final_report_sha256": "d2641abb7b8e01cc5948f7ac261648b94aa90280e0a0d333c22183b67a5f7fb6",
+    "status": "revised"
+  },
+  {
+    "id": "gemini-directory-scale",
+    "conversation_id": "23746e5b-a2dd-4188-b29a-4aba4aad4327",
+    "started_utc": "2026-10-05T20:38:44.386159+00:00",
+    "model": "gemini-3.1-pro-high",
+    "effort": "high",
+    "initial_report": "wiki-llm/subscription-design-council/agents/initial/gemini-directory-scale.md",
+    "initial_sha256": "b314df9a80006eba1943b6719ad163a7dc7a430230568525cdf87f1234612de4",
+    "exit_code": 0,
+    "finished_utc": "2026-10-05T20:39:41.958232+00:00",
+    "final_report_sha256": "8aec285c1ed00729d7e7f76c81f4be714413af8e7d77e6dd3d6501e45a310895",
+    "status": "revised"
+  },
+  {
+    "id": "gemini-accessibility",
+    "conversation_id": "f1829320-5b67-4eee-9680-69ef8e9a47b7",
+    "started_utc": "2026-10-05T20:39:41.958949+00:00",
+    "model": "gemini-3.1-pro-high",
+    "effort": "high",
+    "initial_report": "wiki-llm/subscription-design-council/agents/initial/gemini-accessibility.md",
+    "initial_sha256": "3d416bea2b86bb6522feedbd7755f435e71c5b130bc0c4cf7d89e24c614e4b39",
+    "exit_code": 0,
+    "finished_utc": "2026-10-05T20:40:41.792803+00:00",
+    "final_report_sha256": "7ed839cf1e644e0bc1d79ee015f32709b6aee0a796fbff9fdaf645450b8a081c",
+    "status": "revised"
+  }
+]

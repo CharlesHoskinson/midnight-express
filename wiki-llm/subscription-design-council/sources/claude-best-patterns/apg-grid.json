@@ -1,0 +1,13 @@
+{
+  "url": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/",
+  "retrieved_utc": "2026-10-05T20:34:48.975040+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "8e28b256c8e0f9287ab5446ef8d1e6448ca1ff77898dcac2410f8aef430f9838",
+  "text_sha256": "21cf9b5370db943a84d280bddd86fc9040c81bd5858191bea9e3f7f055c2f4af",
+  "bytes": 63038,
+  "text_bytes": 23236,
+  "final_url": "https://www.w3.org/WAI/ARIA/apg/patterns/grid/",
+  "accepted_source": true
+}

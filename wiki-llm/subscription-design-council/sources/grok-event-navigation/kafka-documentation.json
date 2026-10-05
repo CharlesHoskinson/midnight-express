@@ -1,0 +1,13 @@
+{
+  "url": "https://kafka.apache.org/documentation/",
+  "retrieved_utc": "2026-10-05T20:26:24.454090+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "6ed5593a781e0363156c1ce3cbc9b498e340c1fd1f91930990fdc9db6c0ed152",
+  "text_sha256": "b898ee07b1909b9ade432e394f081195d55f289e208f4f73c921f0caa17054c7",
+  "bytes": 20029,
+  "text_bytes": 918,
+  "final_url": "https://kafka.apache.org/documentation/",
+  "accepted_source": true
+}

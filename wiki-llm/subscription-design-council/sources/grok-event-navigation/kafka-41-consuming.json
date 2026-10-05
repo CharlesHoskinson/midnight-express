@@ -1,0 +1,13 @@
+{
+  "url": "https://kafka.apache.org/41/getting-started/consuming/",
+  "retrieved_utc": "2026-10-05T20:25:27.123172+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 404,
+  "raw_sha256": "80c3fe2ae1062abf56456f52518bd670f9ec3917b7f85e152b347ac6b6faf880",
+  "text_sha256": "8dcdd5cfe58f1d1393bfa59de3e3f04ee1ff8f4e76880e92d5b6129af1eede2f",
+  "bytes": 196,
+  "text_bytes": 71,
+  "final_url": "https://kafka.apache.org/41/getting-started/consuming/",
+  "accepted_source": false
+}

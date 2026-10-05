@@ -1,0 +1,317 @@
+Introducing mentions, redesigned search and smarter monitoring feeds | Inoreader blog
+inoreader-logo
+Start 15-Day Trial                
+Home
+Features
+Enterprise
+Pricing
+Blog
+Contact
+en
+
+                                Čeština                            
+
+                                English                            
+
+                                Español                            
+
+                                Français                            
+
+                                Italiano                            
+
+                                Magyar                            
+
+                                Nederlands                            
+
+                                Polski                            
+
+                                Slovenčina                            
+
+                                Български                            
+
+                                Українська                            
+
+                                پارسی                             
+
+                                中文(简体)                            
+
+                                日本語                            
+Sign in
+Create account
+en
+
+                                Čeština                            
+
+                                English                            
+
+                                Español                            
+
+                                Français                            
+
+                                Italiano                            
+
+                                Magyar                            
+
+                                Nederlands                            
+
+                                Polski                            
+
+                                Slovenčina                            
+
+                                Български                            
+
+                                Українська                            
+
+                                پارسی                             
+
+                                中文(简体)                            
+
+                                日本語                            
+
+        Blog    
+
+                Back to Blog            
+Introducing mentions, redesigned search and smarter monitoring feeds
+Sep 14, 2026
+|
+ Intelligence                            
+ News                            
+Keeping track of companies, products, places, and public figures is now easier with 
+mentions
+ – a new Inoreader Intelligence feature that identifies real-world entities in articles and connects them to powerful discovery, search, filtering, and monitoring tools.
+Along with mentions, we’ve redesigned article search and the way you create monitoring feeds. Together, these updates make it easier to find relevant coverage, build precise queries, and follow developing stories across your own sources and the wider web.
+What are mentions?
+Mentions are companies, products, places, and public figures identified in the articles you read. Unlike ordinary keywords, they represent distinct entities, providing clearer context about who or what an article is about.
+For example, a keyword search for “Apple” may return results about both the technology company and the fruit. Selecting Apple as a mention focuses the search on the company, delivering more relevant results with less noise.
+Mentions work best with content in English, French, and German. They are generated for articles from feeds that meet certain criteria, such as being followed by Pro users or having a sufficiently large audience.
+Explore mentions in articles
+Open an article, and you’ll see a 
+Mentions
+ line at the top with a summary of the entities found, grouped by type. Select 
+See all
+ to expand the list or 
+Show less
+ to collapse it again.
+Prefer a cleaner reading view? You can move mentions to the bottom or hide them altogether from the article settings.
+Hover over a mention to see a quick overview. From there, you can search for it in Inoreader, look it up on Google, create a rule based on it, or open its dedicated details page.
+See the bigger picture with mention details
+Select 
+View details
+ to open a dedicated page for the mention, organized into two tabs: 
+Coverage
+ and 
+About
+.
+The 
+Coverage
+ tab shows how the entity is being covered, including its mention trend and the latest matching articles from your account and all public feeds. Want to keep following the story? Create a monitoring feed directly from the page, and new matching articles will appear in your account as they’re published.
+The 
+About
+ tab provides a concise overview of the entity, highlights leading sources covering it, and surfaces other mentions that frequently appear alongside it. You can follow any relevant source without leaving the page.
+Create more precise rules and filters
+Mentions are also available as conditions in rules and filters. This lets you automate workflows or refine your feeds based on a particular company, product, place, or person instead of relying solely on exact keyword matches.
+Because mentions distinguish between real-world entities and words with multiple meanings, they can reduce irrelevant matches and give you greater control over what stays in your feeds and what gets filtered out.
+Build monitoring feeds with a new guided flow
+We’ve redesigned the monitoring feed creation experience to make complex searches easier to build and understand.
+Go to 
+Add feed > Monitoring feed
+, then start typing a keyword, person, company, event, or topic. As you type, Inoreader will suggest ways to add your term as a keyword or, when a matching entity is available, as a mention.
+Choosing a mention can produce more precise results than using a keyword alone because it focuses the search on the entity itself and excludes unrelated uses of the same word.
+Continue adding terms to build your query, then choose where to search: across content in your account or all public feeds available in Inoreader. You’ll see a live preview of matching articles before saving anything. Once you’re happy with the results, select 
+Create monitoring feed
+ to start following new coverage directly in your account.
+A clearer, more intuitive search experience
+Article search has also been redesigned with a cleaner interface and the same flexible query-building experience. Search across your Newsfeed, feeds, folders, tags, saved items, annotations, uploads, and Intelligence reports, or explore all public feeds to discover coverage beyond the sources you already follow.
+Follow what matters with greater precision
+Mentions add a new layer of context to content in Inoreader. They help you understand who and what an article covers, discover related sources and entities, create smarter rules and filters, and build focused monitoring feeds with less noise.
+Mentions are available to all Pro users as part of 
+Inoreader Intelligence
+. Try them today and turn the companies, products, places, and public figures that matter to you into continuously updated sources of insight.
+Explore Inoreader Pro
+In case you missed it
+Choose your AI platform for Intelligence features
+Apr 14, 2026
+Automated Intelligence reports for insights delivered to you
+Mar 25, 2026
+Get insights with Inoreader Intelligence
+Jan 27, 2026
+With Inoreader, content comes to you the minute it's available.
+Follow websites, social media feeds, podcasts, blogs, and newsletters. Enjoy what's important to you, all in one place.
+With Inoreader, content comes to you the minute it's available.
+Follow websites, social media feeds, podcasts, blogs, and newsletters. Enjoy what's important to you, all in one place.
+Create account
+Features
+Enterprise
+Pricing
+Blog
+Help center
+About us
+Knowledge base
+Developer portal
+Contact us
+Service status
+Brand portal
+Terms of Service
+Privacy Policy
+Security commitment
+English
+
+                                Čeština                            
+
+                                English                            
+
+                                Español                            
+
+                                Français                            
+
+                                Italiano                            
+
+                                Magyar                            
+
+                                Nederlands                            
+
+                                Polski                            
+
+                                Slovenčina                            
+
+                                Български                            
+
+                                Українська                            
+
+                                پارسی                             
+
+                                中文(简体)                            
+
+                                日本語                            
+© 2026 Innologica Ltd
+English
+
+                                Čeština                            
+
+                                English                            
+
+                                Español                            
+
+                                Français                            
+
+                                Italiano                            
+
+                                Magyar                            
+
+                                Nederlands                            
+
+                                Polski                            
+
+                                Slovenčina                            
+
+                                Български                            
+
+                                Українська                            
+
+                                پارسی                             
+
+                                中文(简体)                            
+
+                                日本語                            
+We use cookies to enhance your Inoreader experience.
+By using our website, you agree to our use of cookies.
+Access cookie settings
+OK, I agree
+×
+Sign in
+Use a different account
+
+                            Sign in with a passkey                            
+ Other sign-in methods
+Change user
+
+                                    Passkey sign-in was canceled or couldn't be completed.                                
+
+                                    Don't have a passkey yet? Sign in with your password first, then add one in your account settings.                                
+Sign in
+Email address:
+
+                        Please enter Email                    
+Password
+
+                        Please enter password                    
+Remember me
+Forgot password?
+Sign in
+
+                        Sign in with a passkey                    
+
+                                Passkey sign-in was canceled or couldn't be completed                            
+
+                                Don't have a passkey yet? Sign in with your password first, then add one in your account settings.                            
+Or simply sign in with:
+
+                    New to Inoreader? 
+Create an account
+Create account
+With Inoreader, content comes to you. 
+
+                    Sign up to browse more than 5 000 000 sources and build the ultimate newsfeed!
+
+                    Create account                
+Don't have an account?
+
+                        Create one now                    
+×
+Create account
+Email address
+Please enter email
+Password
+
+                        Please enter password                    
+Create account
+Or simply sign in with:
+
+                    Already have an account? 
+Sign in.
+Sign in
+Already have an account?
+
+                    Enter your profile and access your feeds now.                
+
+                    Sign in                
+Already have an account?
+
+                        Sign in                    
+×
+Request Quote
+Name
+Please enter name
+Email
+Please provide valid email
+Company
+Optional
+Industry
+Optional
+Select from list
+Media and Publishing
+Pharmaceuticals
+Cybersecurity
+Telecommunications
+IT and Software
+Finance and Banking
+Transport and Logistics
+Marketing and PR
+Public Authorities
+International Organizations
+Research
+Education Services
+Other
+Position
+Optional
+Message
+Please enter message
+
+                            I understand and accept the 
+Inoreader Privacy
+                                Policy
+You must accept the privacy policy
+Send message
+
+                Thank you for your query. Our team will review the details and get back to you shortly.            
+Go to homepage

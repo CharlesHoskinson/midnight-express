@@ -1,0 +1,13 @@
+{
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Locks_API",
+  "retrieved_utc": "2026-10-05T20:17:53.905556+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "68a6df2e8a520f74d4cb272b31f91cbe0997a525ad743b1a9ca30f4a3dd40881",
+  "text_sha256": "fb27c805127ccb3edc1622737889f31a57f5194019bbc8b7a22ef20e651b28fd",
+  "bytes": 155717,
+  "text_bytes": 10553,
+  "final_url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Locks_API",
+  "accepted_source": true
+}

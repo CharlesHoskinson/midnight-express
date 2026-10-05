@@ -1,0 +1,13 @@
+{
+  "url": "https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html",
+  "retrieved_utc": "2026-10-05T20:15:39.134326+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "fce0a64d79be9cc4e66f5979db41370ccfc5c0ca08b60c2d29f74c63e41e32d9",
+  "text_sha256": "36bd5b7f7f7b7e49367b4e61b7648422cde43f92bd2b09a68b8e66a1a72bd861",
+  "bytes": 56223,
+  "text_bytes": 21006,
+  "final_url": "https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html",
+  "accepted_source": true
+}

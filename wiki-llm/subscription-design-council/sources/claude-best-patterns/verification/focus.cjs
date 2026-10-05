@@ -1,0 +1,22 @@
+const pw=require('/home/hoskinson/.local/share/mise/installs/npm-playwright/1.63.0/node_modules/playwright');
+(async()=>{const b=await pw.chromium.launch({executablePath:'/home/hoskinson/.cache/ms-playwright/chromium-1243/chrome-linux64/chrome'});const p=await b.newPage({viewport:{width:1440,height:900}});
+await p.goto('http://127.0.0.1:8876/subscriptions.html');await p.locator('#streams .stream').first().waitFor();
+const r={};
+await p.getByRole('button',{name:'Subscribe to payments',exact:true}).first().focus();await p.keyboard.press('Enter');
+r.afterSubscribeFocus=await p.evaluate(()=>document.activeElement.tagName+'|'+document.activeElement.textContent.slice(0,40));
+await p.locator('#subscriptions button',{hasText:'Pause'}).focus();await p.keyboard.press('Enter');
+r.afterPauseFocus=await p.evaluate(()=>document.activeElement.tagName+'|'+document.activeElement.textContent.slice(0,40));
+// unsaved select edit then type search
+await p.locator('#subscriptions select').first().selectOption('ops');await p.locator('#search').fill('q');
+r.unsavedScopeAfterSearchKeystroke=await p.locator('#subscriptions select').first().inputValue();
+await p.locator('#search').fill('');r.afterPauseInboxStateText=await p.locator('#subscriptions h3').first().textContent();await p.getByRole('button',{name:'Resume',exact:true}).click();
+for(let i=0;i<3;i++)await p.locator('#tick').click();
+await p.locator('#process').click();
+await p.locator('#inbox button').first().click();
+r.detailOpen=await p.evaluate(()=>document.querySelector('details').open);
+r.detailTop=await p.evaluate(()=>Math.round(document.getElementById('detail').getBoundingClientRect().top));
+r.detailChars=await p.evaluate(()=>document.getElementById('detail').textContent.length);
+r.inboxRowsMarkupRoles=await p.evaluate(()=>[...document.querySelectorAll('#inbox .inbox-item')].map(e=>e.innerText));
+r.readUnreadConcept=await p.evaluate(()=>/unread|read\b/i.test(document.body.innerText));
+await p.screenshot({path:'desktop-inbox-detail.png',fullPage:false});
+console.log(JSON.stringify(r,null,1));await b.close();})();

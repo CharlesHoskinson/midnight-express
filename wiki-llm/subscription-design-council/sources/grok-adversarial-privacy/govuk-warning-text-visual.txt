@@ -1,0 +1,832 @@
+Warning text – GOV.UK Design System
+
+          Cookies on GOV.UK Design System
+        
+We’d like to use analytics cookies so we can understand how you use the Design System and make improvements.
+We also use essential cookies to remember if you’ve accepted analytics cookies.
+
+        Accept analytics cookies
+      
+
+        Reject analytics cookies
+      
+View cookies
+You’ve accepted analytics cookies. You can 
+change your cookie settings
+ at any time.
+
+        Hide cookie message
+      
+You’ve rejected analytics cookies. You can 
+change your cookie settings
+ at any time.
+
+        Hide cookie message
+      
+Skip to main content
+GOV.UK
+
+          Design System
+        
+Search Design system
+Sitemap
+
+            Menu
+          
+
+                                    
+Get started      
+
+      Get started overview
+    
+Setup guides
+
+      Prototyping
+    
+
+      Production
+    
+How to guides
+
+      Making labels and legends headings
+    
+
+      Extending and modifying components in production
+    
+
+      Understanding focus state styles
+    
+
+      Using the updated type scale
+    
+
+                                    
+Styles      
+
+      Styles overview
+    
+Page structure
+
+      Page template
+    
+
+      Layout
+    
+
+      Spacing
+    
+
+      Section break
+    
+Typography
+
+      Typeface
+    
+
+      Type scale
+    
+
+      Headings
+    
+
+      Paragraphs
+    
+
+      Links
+    
+
+      Lists
+    
+
+      Font override classes
+    
+Visual elements
+
+      Colour
+    
+
+      Images
+    
+Components      
+
+      Components overview
+    
+
+      Accordion
+    
+
+      Back link
+    
+
+      Breadcrumbs
+    
+
+      Button
+    
+
+      Character count
+    
+
+      Checkboxes
+    
+
+      Cookie banner
+    
+
+      Date input
+    
+
+      Details
+    
+
+      Error message
+    
+
+      Error summary
+    
+
+      Exit this page
+    
+
+      Feedback
+    
+
+      Fieldset
+    
+
+      File upload
+    
+
+      Generic header
+    
+
+      GOV.UK footer
+    
+
+      GOV.UK header
+    
+
+      Inset text
+    
+
+      Language navigation
+    
+
+      Notification banner
+    
+
+      Pagination
+    
+
+      Panel
+    
+
+      Password input
+    
+
+      Phase banner
+    
+
+      Radios
+    
+
+      Select
+    
+
+      Service navigation
+    
+
+      Skip link
+    
+
+      Summary list
+    
+
+      Table
+    
+
+      Tabs
+    
+
+      Tag
+    
+
+      Task list
+    
+
+      Text input
+    
+
+      Textarea
+    
+
+      Warning text
+    
+
+                                    
+Patterns      
+
+      Patterns overview
+    
+Ask users for…
+
+      Addresses
+    
+
+      Bank details
+    
+
+      Dates
+    
+
+      Email addresses
+    
+
+      Equality information
+    
+
+      Names
+    
+
+      National Insurance numbers
+    
+
+      Passwords
+    
+
+      Payment card details
+    
+
+      Phone numbers
+    
+Help users to…
+
+      Check a service is suitable
+    
+
+      Check answers
+    
+
+      Complete multiple tasks
+    
+
+      Confirm a phone number
+    
+
+      Confirm an email address
+    
+
+      Contact a department or service team
+    
+
+      Create a username
+    
+
+      Create accounts
+    
+
+      Exit a page quickly
+    
+
+      Navigate a service
+    
+
+      Recover from validation errors
+    
+
+      Start using a service
+    
+Pages
+
+      Confirmation pages
+    
+
+      Cookies page
+    
+
+      Interruption pages
+    
+
+      Page not found pages
+    
+
+      Question pages
+    
+
+      Service unavailable pages
+    
+
+      Step by step navigation
+    
+
+      There is a problem with the service pages
+    
+
+                                    
+Community      
+
+      Community overview
+    
+What we’re working on
+
+      Upcoming components and patterns
+    
+
+      Roadmap
+    
+
+      What's new
+    
+Ways to get involved
+
+      Take part in our research
+    
+
+      Share findings about your users
+    
+
+      Propose a component or pattern
+    
+
+      Develop a component or pattern
+    
+
+      Propose a content change using GitHub
+    
+How we work
+
+      Community principles
+    
+
+      Contribution criteria
+    
+
+      Blog posts, videos and podcasts
+    
+
+      Component lifecycle statuses
+    
+Resources
+
+      Resources and tools
+    
+Events and workshops
+
+      Design System Day events
+    
+
+      Code of Conduct
+    
+
+                                    
+Accessibility      
+
+      Accessibility overview
+    
+
+      Accessibility strategy
+    
+Pages in this section
+
+              Accordion
+            
+
+              Back link
+            
+
+              Breadcrumbs
+            
+
+              Button
+            
+
+              Character count
+            
+
+              Checkboxes
+            
+
+              Cookie banner
+            
+
+              Date input
+            
+
+              Details
+            
+
+              Error message
+            
+
+              Error summary
+            
+
+              Exit this page
+            
+
+              Feedback
+            
+
+              Fieldset
+            
+
+              File upload
+            
+
+              Generic header
+            
+
+              GOV.UK footer
+            
+
+              GOV.UK header
+            
+
+              Inset text
+            
+
+              Language navigation
+            
+
+              Notification banner
+            
+
+              Pagination
+            
+
+              Panel
+            
+
+              Password input
+            
+
+              Phase banner
+            
+
+              Radios
+            
+
+              Select
+            
+
+              Service navigation
+            
+
+              Skip link
+            
+
+              Summary list
+            
+
+              Table
+            
+
+              Tabs
+            
+
+              Tag
+            
+
+              Task list
+            
+
+              Text input
+            
+
+              Textarea
+            
+
+              Warning text
+            
+Home
+Components
+
+        Warning text
+      
+
+          Open this example in a new tab
+: warning text
+HTML
+Nunjucks
+HTML
+<
+div
+class
+=
+"govuk-warning-text"
+>
+<
+span
+class
+=
+"govuk-warning-text__icon"
+aria-hidden
+=
+"true"
+>
+!
+</
+span
+>
+<
+strong
+class
+=
+"govuk-warning-text__text"
+>
+<
+span
+class
+=
+"govuk-visually-hidden"
+>
+Warning
+</
+span
+>
+
+    You can be fined up to £5,000 if you do not register.
+  
+</
+strong
+>
+</
+div
+>
+Nunjucks
+Nunjucks macro options
+
+          Use options to customise the appearance, content and behaviour of a component when using a macro, for example, changing the text.
+          
+
+          Some options are required for the macro to work; these are marked as “Required” in the option description. Deprecated options are marked as “Deprecated”.
+          
+
+          If you’re using Nunjucks macros in production with “html” options, or ones ending with “html”, you must sanitise the HTML to protect against  
+cross-site scripting exploits
+.
+          
+Primary options
+Name
+Type
+Description
+text
+string
+Required.
+
+                      If 
+html
+ is set, this is not required. Text to use within the warning text component. If 
+html
+ is provided, the 
+text
+ option will be ignored.
+                    
+html
+string
+Required.
+
+                      If 
+text
+ is set, this is not required. HTML to use within the warning text component. If 
+html
+ is provided, the 
+text
+ option will be ignored.
+                    
+icon
+Fallback
+Text
+string
+
+                      The fallback text for the icon. Defaults to 
+"Warning"
+.
+                    
+classes
+string
+
+                      Classes to add to the warning text.
+                    
+attributes
+object
+
+                      HTML attributes (for example data attributes) to add to the warning text.
+                    
+{% 
+from
+"govuk/components/warning-text/macro.njk"
+import
+govukWarningText
+ %}
+{{ 
+govukWarningText
+({
+  
+text
+: 
+"You can be fined up to £5,000 if you do not register."
+,
+  
+iconFallbackText
+: 
+"Warning"
+
+})
+ }}
+When to use this component
+Use the warning text component when you need to warn users about something important, such as legal consequences of an action, or lack of action, that they might take.
+How it works
+There are 2 ways to use the warning text component. You can use HTML or, if you are using 
+Nunjucks
+ or the 
+GOV.UK Prototype Kit
+, you can use the Nunjucks macro.
+
+          Open this example in a new tab
+: warning text second
+HTML
+Nunjucks
+HTML
+<
+div
+class
+=
+"govuk-warning-text"
+>
+<
+span
+class
+=
+"govuk-warning-text__icon"
+aria-hidden
+=
+"true"
+>
+!
+</
+span
+>
+<
+strong
+class
+=
+"govuk-warning-text__text"
+>
+<
+span
+class
+=
+"govuk-visually-hidden"
+>
+Warning
+</
+span
+>
+
+    You can be fined up to £5,000 if you do not register.
+  
+</
+strong
+>
+</
+div
+>
+Nunjucks
+Nunjucks macro options
+
+          Use options to customise the appearance, content and behaviour of a component when using a macro, for example, changing the text.
+          
+
+          Some options are required for the macro to work; these are marked as “Required” in the option description. Deprecated options are marked as “Deprecated”.
+          
+
+          If you’re using Nunjucks macros in production with “html” options, or ones ending with “html”, you must sanitise the HTML to protect against  
+cross-site scripting exploits
+.
+          
+Primary options
+Name
+Type
+Description
+text
+string
+Required.
+
+                      If 
+html
+ is set, this is not required. Text to use within the warning text component. If 
+html
+ is provided, the 
+text
+ option will be ignored.
+                    
+html
+string
+Required.
+
+                      If 
+text
+ is set, this is not required. HTML to use within the warning text component. If 
+html
+ is provided, the 
+text
+ option will be ignored.
+                    
+icon
+Fallback
+Text
+string
+
+                      The fallback text for the icon. Defaults to 
+"Warning"
+.
+                    
+classes
+string
+
+                      Classes to add to the warning text.
+                    
+attributes
+object
+
+                      HTML attributes (for example data attributes) to add to the warning text.
+                    
+{% 
+from
+"govuk/components/warning-text/macro.njk"
+import
+govukWarningText
+ %}
+{{ 
+govukWarningText
+({
+  
+text
+: 
+"You can be fined up to £5,000 if you do not register."
+,
+  
+iconFallbackText
+: 
+"Warning"
+
+})
+ }}
+You might need to rewrite the hidden text (‘Warning’ in the example) to make it appropriate for your context.
+Help improve this component
+
+      To help make sure that this page is useful, relevant and up to date, you can:
+    
+
+        take part in the
+        
+
+          ‘Warning text’ discussion on GitHub
+        
+
+        and share your research
+      
+propose a change on GitHub
+
+        – read more about
+        
+
+          how to propose changes in GitHub
+        
+Need help?
+
+    If you’ve got a question about the GOV.UK Design System, 
+contact the team
+.
+  
+Back to top
+  
+Support links
+
+              Accessibility statement
+            
+
+              Sitemap
+            
+
+              Cookies
+            
+
+              Privacy
+            
+
+              Contact the team
+            
+
+          Built by the 
+GOV.UK Design System team
+
+            All content is available under the
+            
+Open Government Licence v3.0
+, except where otherwise stated
+          
+
+          © Crown copyright
+        

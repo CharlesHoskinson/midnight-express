@@ -1,0 +1,56 @@
+How to find and add/follow sources? - Feedly Documentation
+Toggle Navigation
+Home 
+New to Feedly?  
+New to Feedly Threat Intelligence?  
+Collect  
+Analyze  
+Share  
+Contact Us  
+Search  
+Manage  
+Integrations  
+Apps and Extensions  
+Industry Add-Ons  
+Old - Getting Started  
+Old - Leo  
+Old - Feedly Business  
+How to find and add/follow sources?
+You can find and follow new sources in the discover page that can be reached via the RSS icon button in the laft navigation bar. 
+On top of the discover page, you will find a search box allowing you to search for any topic, hashtag, website name or URL.
+Tip: try the SIMILAR SOURCES link to find similar sources to those you like
+Did this answer your question?
+Thanks for the feedback
+There was a problem submitting your feedback. Please try again later.
+Yes
+No
+Last updated on July 16, 2022
+Toggle Search
+Categories
+Feedly AI Feeds  
+Websites  
+RSS Builder  
+Newsletter Feeds  
+Mute Filters  
+Summarization  
+Deduplication  
+Strategic Moves  
+Twitter  
+Reddit  
+Managing Feeds  
+Team Feeds  
+Export, Import  
+Google News searches  
+Mastodon  
+Facebook  
+Telegram  
+No results found
+©
+    
+        
+Feedly
+
+    
+    2026. 
+Powered by 
+Help Scout

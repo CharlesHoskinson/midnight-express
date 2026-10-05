@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/asyncapi/spec/releases/latest",
+  "retrieved_utc": "2026-10-05T20:22:24.032548+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "7932dc2d035ae40801f259840f82f311e1676cd3ea58e8cbaa55bf58f5eba4ba",
+  "text_sha256": "7932dc2d035ae40801f259840f82f311e1676cd3ea58e8cbaa55bf58f5eba4ba",
+  "bytes": 2980,
+  "text_bytes": 2980,
+  "final_url": "https://api.github.com/repos/asyncapi/spec/releases/latest",
+  "accepted_source": true
+}

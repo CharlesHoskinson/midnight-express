@@ -1,0 +1,4941 @@
+Privacy Principles
+Privacy Principles
+W3C Statement
+15 May 2025
+More details about this document
+This version:
+https://www.w3.org/TR/2025/STMT-privacy-principles-20250515/
+Latest published version:
+https://www.w3.org/TR/privacy-principles/
+Latest editor's draft:
+https://w3ctag.github.io/privacy-principles/
+History:
+https://www.w3.org/standards/history/privacy-principles/
+Commit history
+Editors:
+Robin Berjon
+ (
+Supramundane
+) (The New York Times until Sep 2022)
+  
+Jeffrey Yasskin
+ (
+Google
+)
+  
+Feedback:
+GitHub w3ctag/privacy-principles
+
+        (
+pull requests
+,
+        
+new issue
+,
+        
+open issues
+)
+      
+See also 
+translations
+.
+Copyright
+
+    ©
+    2025
+    
+    
+World Wide Web Consortium
+.
+    
+W3C
+®
+liability
+,
+    
+trademark
+ and
+    
+permissive document license
+ rules apply.
+  
+Abstract
+Privacy is an essential part of the web. This document provides definitions
+for privacy and related concepts that are applicable worldwide as well as a set of privacy
+principles that should guide the development of the web as a trustworthy platform. People using
+the web would benefit from a stronger relationship between technology and policy, and this
+document is written to work with both.
+Status of This Document
+This section describes the status of this
+      document at the time of its publication. A list of current 
+W3C
+
+      publications and the latest revision of this technical report can be found
+      in the
+      
+W3C
+ standards and drafts index
+ at
+      https://www.w3.org/TR/.
+This document was prepared by the 
+Web Privacy Principles Task Force
+,
+which was convened by the TAG.
+
+    This document was published by the 
+Technical Architecture Group
+ as
+    a Statement using the
+        
+Note track
+. 
+  
+
+        A 
+W3C
+ Statement is a document that, after extensive
+        consensus-building, is endorsed by
+        
+W3C
+ and its Members.
+      
+
+        The
+        
+W3C
+ Patent
+          Policy
+
+        does not carry any licensing requirements or commitments on this
+        document.
+      
+    
+  
+
+                      This document is governed by the
+                      
+03 November 2023 
+W3C
+ Process Document
+.
+                    
+Table of Contents
+Abstract
+Status of This Document
+How This Document Fits In
+Audiences for this Document
+List of Principles
+1. 
+An Introduction to Privacy on the Web
+1.1 
+Individual Autonomy
+1.1.1 
+Opt-in, Consent, Opt-out, Global Controls
+1.1.2 
+Privacy Labor
+1.2 
+Vulnerability
+1.2.1 
+Guardians
+1.3 
+Collective Governance
+1.3.1 
+Group Privacy
+1.3.2 
+Transparency and Research
+1.4 
+User Agents
+1.5 
+Incorporating Different Privacy Principles
+2. 
+Principles for Privacy on the Web
+2.1 
+Identity on the Web
+2.2 
+Data Minimization
+2.2.1 
+Ancillary uses
+2.2.1.1 
+Designing ancillary APIs that provide new information
+2.3 
+Information access
+2.3.1 
+Unavoidable information exposure
+2.4 
+Sensitive Information
+2.5 
+Data Rights
+2.6 
+De-identified Data
+2.7 
+Collective Privacy
+2.8 
+Device Owners and Administrators
+2.9 
+Protecting web users from abusive behaviour
+2.10 
+Purpose limitation
+2.11 
+Transparency
+2.12 
+Consent, Withdrawal of Consent, Opt-Outs, and Objections
+2.13 
+Notifications and Interruptions
+2.14 
+Non-Retaliation
+2.15 
+Support Choosing Which Information to Present
+A. 
+Common Concepts
+A.1 
+People
+A.2 
+Contexts
+A.3 
+Server-Side Actors
+A.4 
+Acting on Data
+A.5 
+Recognition
+A.5.1 
+Recognition Types
+A.5.2 
+User agent awareness of recognition
+B. 
+Conformance
+C. 
+Acknowledgements
+D. 
+Issue summary
+E. 
+References
+E.1 
+Informative references
+How This Document Fits In
+This document elaborates on the 
+privacy principle
+
+from the 
+Ethical Web Principles
+: "Security and privacy are essential." While it focuses on privacy, this should
+not be taken as an indication that privacy is always more important than other ethical web principles, and
+this document doesn't address how to balance the different ethical web principles if they come into conflict.
+Privacy on the web is primarily regulated by two forces: the architectural capabilities that the web
+platform exposes (or does not expose), and laws in the various jurisdictions where the web is used
+([
+New-Chicago-School
+], [
+Standard-Bodies-Regulators
+]). These regulatory mechanisms are separate; a law in one country does not
+(and should not) change the architecture of the whole web, and likewise web specifications cannot
+override any given law (although they can affect how easy it is to create and enforce law). The web
+is not merely an implementation of a particular legal privacy regime; it has distinct features and
+guarantees driven by shared values that often exceed legal requirements for privacy.
+However, the overall goal of privacy on the web is served best when technology and law complement
+each other. This document seeks to establish shared concepts as an aid to technical efforts to
+regulate privacy on the web. It may also be useful in pursuing alignment with and between legal
+regulatory regimes.
+Our goal for this document is not to cover all possible privacy issues, but rather to provide enough
+background to support the web community in making informed decisions about privacy and in weaving
+privacy into the architecture of the web.
+Few architectural principles are absolute, and privacy is no exception: privacy can come into tension
+with other desirable properties of an ethical architecture, including accessibility or internationalization,
+and when that happens the web community will have to work together to strike the right balance.
+Audiences for this Document
+The primary audiences for this document are
+browser developers,
+authors of web specifications,
+reviewers of web specifications, and
+web developers.
+Additional audiences include:
+policy makers and
+operators of privacy-related services.
+This document is intended to help its audiences address privacy concerns as early as possible in the life
+cycle of a new web standard or feature, or in the development of web products. Beginning with privacy in mind will help avoid the need to
+add special cases later to address unforeseen but predictable issues or
+to build systems that turn out to be unacceptable to users.
+Because this document guides privacy reviews of new standards, authors of web
+specifications should consult it early in the design to make sure their feature
+passes the review smoothly.
+List of Principles
+This section is a list of all the privacy principles,
+with links to their longer explanations in the rest of the document.
+Which audiences should be included?
+ Websites
+ User Agents
+ API Designers
+Principle 1.5.1
+: 
+When confronted with an
+apparent tradeoff, first look for ways to improve all principles at once.
+websites
+user agents
+API designers
+Principle 1.5.2
+: 
+If a service
+needs to collect extra data from its users in order to protect those or other users, it
+must take extra technical and legal measures to ensure that this data can't be then used
+for other purposes, like to grow the service.
+websites
+user agents
+Principle 2.1
+: 
+A 
+user agent
+
+should help its user present the 
+identity
+ they want in each 
+context
+
+they are in, and should prevent or support 
+recognition
+ as appropriate.
+
+user agents
+Principle 2.2.1
+: 
+Sites
+, 
+user agents
+, and other 
+actors
+
+should restrict the 
+data
+ they transfer to what's either necessary to achieve their users'
+goals or aligns with their users' wishes and interests.
+websites
+user agents
+Principle 2.2.2
+: 
+
+Web APIs should be designed to minimize the amount of data that sites need
+to request to carry out their users' goals.
+Web APIs should also provide granularity and user controls over 
+personal
+data
+ that is communicated to 
+sites
+.
+API designers
+Principle 2.2.1.1
+: 
+Specifications
+for 
+ancillary APIs computed from existing information
+ and 
+ancillary APIs that provide new information
+ should identify them as such, so that 
+user agents
+ can provide appropriate choices for their users.
+API designers
+Principle 2.2.1.1.1
+: 
+Ancillary APIs that provide new information
+ should not reveal any 
+personal data
+ that isn't already available through other APIs, without an indication
+that doing so aligns with the user's wishes and interests.
+
+API designers
+Principle 2.2.1.1.2
+: 
+
+User agents should provide a way to enable or disable 
+ancillary APIs that provide new information
+ and should set the default according to their users'
+needs.
+
+user agents
+Principle 2.3
+: 
+
+  New web APIs should guard users' information at least
+  as well as existing APIs that are expected to stay in the web platform.
+API designers
+user agents
+Principle 2.4
+: 
+
+    There is broad consensus that some categories of information such as credit card numbers
+    or precise geolocation are sensitive, but system designers should not assume that other
+    categories of information are therefore 
+not
+ sensitive. Whether information is
+    considered sensitive can vary depending on a 
+person
+'s circumstances and the 
+context
+
+    of an interaction, and it can change over time.
+  
+websites
+user agents
+API designers
+Principle 2.5
+: 
+People
+ have certain rights over 
+data
+ that is about themselves, and these rights should
+    be facilitated by their 
+user agent
+ and the 
+actors
+ that are 
+processing
+ their
+    
+data
+.
+  
+websites
+user agents
+API designers
+Principle 2.6
+: 
+
+    Whenever possible, processors should work with 
+data
+ that has been 
+de-identified
+.
+  
+websites
+user agents
+API designers
+Principle 2.7
+: 
+
+    Groups and institutions should support autonomy by making
+    decisions collectively to either prevent or enable data
+    sharing, and to set defaults for data processing rules.
+  
+websites
+user agents
+Principle 2.8
+: 
+User agents
+ should not tell an 
+administrator
+ about user behavior except
+when that disclosure is necessary to enforce reasonable constraints on use of
+the device or software.
+Even when a disclosure is reasonable, 
+user agents
+ must ensure their users
+know about this surveillance.
+
+user agents
+Principle 2.9.1
+: 
+
+      Systems that allow for communicating on the web must provide an
+      effective capability to report 
+abuse
+.
+    
+websites
+API designers
+Principle 2.9.2
+: 
+User agents
+ and 
+sites
+ must
+      take steps to protect their users from abusive behaviour, and 
+abuse
+
+      mitigation must be considered when designing web platform features.
+    
+websites
+user agents
+API designers
+Principle 2.10.1
+: 
+
+    When accessing personal data or requesting permission, 
+sites
+ and other 
+actors
+ should specify the 
+purpose
+
+    for which the data will be used.
+  
+websites
+user agents
+Principle 2.10.2
+: 
+Actors
+ should not use personal data for purposes other than those specified. (Other uses are often called
+    secondary uses [
+RFC6973
+].)
+  
+websites
+user agents
+Principle 2.11.1
+: 
+
+    When accessing data or requesting permission, 
+sites
+ (and other 
+actors
+) should provide
+    
+people
+ with relevant explanatory information about the use of data, and 
+user agents
+
+    should help present and consume that information.
+  
+websites
+user agents
+Principle 2.11.2
+: 
+
+    Information about privacy-relevant practices should be provided in both easily accessible plain
+    language form and in machine-readable form.
+  
+websites
+API designers
+Principle 2.11.3
+: 
+
+    Mechanisms that can be used for 
+recognizing
+people
+ should be designed so that
+    their operation is visible and distinguishable, to 
+user agents
+, researchers, and regulators.
+  
+websites
+API designers
+Principle 2.12.1
+: 
+
+    When any 
+actor
+ obtains 
+consent
+ for processing from a 
+person
+, the
+    actor should design the consent request so as to learn the person's intent to
+    consent or not, and not to maximize the processing consented to.
+  
+websites
+Principle 2.12.2
+: 
+
+    An 
+actor
+ should avoid interrupting a 
+person
+'s use of a site for
+          consent requests when an alternative is available.
+  
+websites
+Principle 2.12.3
+: 
+
+    It should be as easy for a 
+person
+ to check what consent they have given, to withdraw consent,
+    or to opt out or object, as to give consent.
+  
+websites
+Principle 2.12.4
+: 
+Actors
+ should provide functionality to access, correct, and remove data about
+      
+people
+ to those 
+people
+ when that data has been provided by someone else.
+    
+websites
+Principle 2.13.1
+: 
+A 
+user agent
+ should help
+    users control notifications and other interruptive UI that can be used to manipulate behavior.
+user agents
+Principle 2.13.2
+: 
+Web 
+sites
+ should use notifications
+    only for information that their users have specifically requested.
+  
+websites
+Principle 2.14
+: 
+Actors
+ must not retaliate against 
+people
+ who protect their 
+data
+ against
+    non-essential 
+processing
+ or exercise rights over their 
+data
+.
+  
+websites
+user agents
+Principle 2.15.1
+: 
+User agents
+ should support 
+people
+ in choosing which information they provide to 
+actors
+ that
+    request it, up to and including allowing users to provide arbitrary information.
+  
+user agents
+Principle 2.15.2
+: 
+
+    APIs should be designed such that data returned through an API does not assert a fact or make a
+    promise on the user's behalf about the user or their environment.
+  
+API designers
+1. 
+An Introduction to Privacy on the Web
+This is a document containing technical guidelines. However, in order to put those guidelines in context we
+must first define some terms and explain what we mean by privacy.
+The web is a social and technical system made up of 
+information flows
+. Because this document
+is specifically about 
+privacy
+ as it applies to the web, it focuses on privacy with respect to
+information flows.
+The web is for everyone ([
+For-Everyone
+]). It should be "
+a platform that helps people and provides a
+net positive social benefit
+" ([
+Ethical-Web-Principles
+]). One of the ways in which the
+web serves people is by seeking to protect them from surveillance and the types of manipulation that data can
+enable.
+Information can be used to predict and to influence people, as well as to design online
+spaces that control people's behaviour. The collection and 
+processing
+ of information in greater
+volume, with greater precision and reliability, with increasing interoperability across a growing
+variety of data types, and at intensifying speed is leading to a concentration of power that threatens
+private and public liberties. What's more, automation and the increasing computerisation of all aspects
+of our lives both increase the power of information and decrease the cost of a number of intrusive
+behaviours that would be more easily kept in check if the perpetrator had to be in the same room as
+the victim.
+When an 
+actor
+ can collect 
+data
+ about a 
+person
+ and process it automatically, and that
+
+person
+ has to take manual action to protect their 
+data
+ or control its processing, this 
+automation asymmetry
+
+creates an imbalance of power that favors that 
+actor
+ and decreases the 
+person
+'s agency.
+This document focuses on the impact that 
+data
+processing
+ can have on people, but it can also
+impact other 
+actors
+, such as companies or governments.
+It is important to keep in mind that not all people are equal in how they can resist
+an imbalance of power: some 
+people
+ are more 
+vulnerable
+ and therefore in greater
+need of protection.
+Data governance
+ is the system of principles that regulate 
+information flows
+.
+
+Data governance
+ determines
+which 
+actors
+ can collect 
+data
+, what data they can collect, how they can collect it, and how they can 
+process
+ it
+([
+GKC-Privacy
+], [
+IAD
+]). This document provides building blocks for 
+data governance
+
+that puts 
+people
+ first.
+Principles vary from 
+context
+ to 
+context
+ ([
+Understanding-Privacy
+], [
+Contextual-Integrity
+]).
+For instance, people have different expectations of 
+privacy
+ at work, at a café, or at home. Understanding and
+evaluating a privacy situation is best done by clearly identifying:
+Its 
+actors
+, which include the subject of the information as well as the sender and the recipient
+of the 
+information flow
+. (Note that recipients might not always want to be recipients.)
+The type of data involved in the 
+information flow
+.
+The principles that are in use in this context.
+There are 
+always
+ privacy principles at work. Some sets of principles may be more
+permissive, but that does not make them neutral. All privacy principles have an impact on
+
+people
+ and we must therefore determine which principles best align with ethical web values in
+web 
+contexts
+ ([
+Ethical-Web-Principles
+], [
+Why-Privacy
+]).
+Information flows
+ are information exchanged or processed by
+
+actors
+. A person's privacy can be harmed both by their information flowing from them to
+other actors and by information flowing toward them. Examples of the latter include:
+unexpected shocking images,
+loud noises while they intend to sleep, manipulative information, interruptive
+messages when their focus is on something else, or harassment when they seek social interactions.
+(In some of these cases, the information may not be 
+personal data
+.)
+On the web, 
+information flows
+ may involve a wide variety of 
+actors
+ that are not always
+recognizable or obvious to a user within a particular interaction. Visiting a website may involve
+the actors that contribute to operating that site, but also actors with network access,
+which may include: Internet service providers; other network operators; local institutions providing
+a network connection including schools, libraries, or universities; government intelligence services;
+malicious hackers who have gained access to the network or the systems of any of the other actors.
+High-level threats including surveillance may be pursued by these actors ([
+RFC6973
+]). Pervasive monitoring,
+a form of large-scale, indiscriminate surveillance, is a known attack on the privacy of users of the
+internet and the web [
+RFC7258
+].
+Information flows may also involve other people — for example, other users of a site —
+which could include friends, family members, teachers, strangers, or government officials. Some
+threats to privacy, including both disclosure and harassment, may be particular to the other
+people involved in the information flow ([
+RFC6973
+]).
+1.1 
+Individual Autonomy
+A 
+person
+'s 
+autonomy
+ is their ability to make decisions of their own personal will,
+without undue influence from other 
+actors
+. People have limited intellectual resources and
+time with which to weigh decisions, and they have to rely on shortcuts when making decisions. This makes it possible
+to manipulate their preferences, including their privacy preferences ([
+Privacy-Behavior
+], [
+Digital-Market-Manipulation
+]).
+A 
+person
+'s 
+autonomy
+ is improved by a system when that system offers a shortcut that is closer to what
+that 
+person
+ would have decided given unlimited time and intellectual ability. 
+Autonomy
+ is decreased
+when a similar shortcut goes against decisions made under these ideal conditions.
+Affordances and interactions that decrease 
+autonomy
+ are known as 
+deceptive patterns
+ (or dark patterns).
+A 
+deceptive pattern
+ does not have to be intentional ([
+Dark-Patterns
+], [
+Dark-Pattern-Dark
+]).
+When building something that may impact people's 
+autonomy
+, it is important that reviewers
+from multiple independent perspectives check that it does not introduce 
+deceptive patterns
+.
+Given the large volume of potential 
+data
+-related decisions in today's data economy,
+it is impossible for people to have detailed control over how their data is processed.
+This fact does not imply that privacy is dead. Studies show that
+
+people
+ remain concerned over how their 
+data
+ is 
+processed
+, that they feel powerless,
+and sense that they have lost agency ([
+Privacy-Concerned
+]). If we design our technological infrastructure
+carefully, we can give people greater 
+autonomy
+ with respect to their own 
+data
+. This is
+done by setting 
+appropriate
+, privacy-protective defaults and designing user-friendly choice
+architectures.
+1.1.1 
+Opt-in, Consent, Opt-out, Global Controls
+Several kinds of mechanisms exist to enable 
+people
+ to control how they interact
+with data-processing systems. Mechanisms that increase the number of 
+purposes
+ for which
+their 
+data
+ is being 
+processed
+ or the amount of their 
+data
+ that is 
+processed
+
+are referred to as 
+opt-in
+ or 
+consent
+. Mechanisms
+that decrease this number of 
+purposes
+ or the amount of 
+data
+ being 
+processed
+ are known as
+
+opt-out
+.
+When deployed thoughtfully, these mechanisms can improve 
+people
+'s 
+autonomy
+. Often,
+however, they are used as a way to avoid putting in the difficult work of deciding which
+types of 
+processing
+ are 
+appropriate
+ and which are not, offloading 
+privacy labor
+
+to the people using a system.
+People
+ should be able to 
+consent
+ to data sharing that would
+otherwise be restricted, such as granting access to their pictures or geolocation.
+
+Actors
+ need to take care that their users are 
+informed
+ when
+granting this 
+consent
+ and 
+aware
+ enough about what's going on that they can know to
+revoke their consent when they want to.
+
+Consent
+ to data processing and granting permissions to access web platform APIs are
+similar problems. Both consent and permissions should be requested in a way that lets
+people delay or avoid answering if they're trying to do something else. If the user
+grants some form of persistent access to data, there should be an indicator that lets
+people notice this ongoing access and that lets them turn it off whenever they wish to.
+In general, providing 
+consent
+ should be rare, intentional, and temporary.
+When an 
+opt-out
+ mechanism exists, it should preferably work with a
+
+global opt-out
+ mechanism. Conceptually, a 
+global opt-out
+ mechanism is an
+automaton operating as part of the 
+user agent
+. It is equivalent to a robot that would carry
+out a 
+person
+'s instructions by pressing an 
+opt-out
+ button (or a similar expression of
+the 
+person
+'s rights) with every interaction that the 
+person
+ has with a site. (For
+instance, the 
+person
+ may be objecting to 
+processing
+ based on legitimate interest,
+withdrawing 
+consent
+ to specific 
+purposes
+, or requesting that their data not be sold or
+shared.) The 
+user
+ is effectively delegating the expression of their 
+opt-out
+ to their
+
+user agent
+, which helps rectify 
+automation asymmetry
+. The 
+Global Privacy Control (GPC)
+ is a good
+example of a 
+global opt-out
+ mechanism.
+Under this model, a 
+global opt-out
+ signal should not be understood as a decision that a
+
+person
+ made a while ago when they flipped a setting or chose to use a specific
+
+user agent
+ but rather as a preference that they have chosen to automatically reaffirm with
+every interaction with the site.
+One implementation strategy for 
+opt-outs
+ or other 
+data rights
+ is
+to assign 
+people
+ stable 
+identifiers
+ and to maintain a central registry to map these
+
+identifiers
+ to 
+people
+'s preferences. 
+Actors
+ that wish to process a given person's
+data are then expected to fetch that person's preferences from the central registry and to
+configure their processing accordingly. This approach has notably been deployed to capture
+
+opt-outs
+ of marketing uses of people's phone numbers or residential addresses. This
+approach is not recommended, for multiple reasons: it offers no technical protection against
+bad actors, it creates one central point of failure, it is hard to meaningfully audit (particularly
+for the scale of processing implied by web systems), and experience with existing systems
+shows that they make it hard for 
+people
+ to exercise their rights.
+1.1.2 
+Privacy Labor
+Privacy labor
+ is the practice of having a 
+person
+ do
+the work of ensuring 
+data processing
+ of which they are the subject or recipient is
+
+appropriate
+, instead of putting the responsibility on the 
+actors
+ who are doing the processing.
+Data systems that are based on asking 
+people
+ for their 
+consent
+ tend to increase
+
+privacy labor
+.
+More generally, implementations of 
+privacy
+ often offload 
+labor
+ to 
+people
+. This is
+notably true of the regimes descended from the 
+Fair Information Practices
+
+(
+FIPs
+), a loose set of principles initially elaborated in the 1970s in support of individual
+
+autonomy
+ in the face of growing concerns with databases. The 
+FIPs
+ generally assume that
+there is sufficiently little 
+data processing
+ taking place that any 
+person
+ will be able to
+carry out sufficient diligence to be 
+autonomous
+ in their decision-making. Since they offload
+the 
+privacy labor
+ to people and assume perfect, unlimited 
+autonomy
+, the 
+FIPs
+ do not
+forbid specific types of 
+data processing
+ but only place them under different procedural
+requirements. This approach is no longer 
+appropriate
+.
+One notable issue with procedural approaches to privacy is that they tend to have the same
+requirements in situations where people find themselves in a significant asymmetry of
+power with another 
+actor
+ — for instance a 
+person
+ using an essential service provided by a
+monopolistic platform — and those where a person and the other 
+actor
+ are very much on equal
+footing, or even where the 
+person
+ may have greater power, as is the case with small
+businesses operating in a competitive environment. They also do not consider cases in
+which one 
+actor
+ may coerce other 
+actors
+ into facilitating its 
+inappropriate
+
+practices, as is often the case with dominant players in advertising or in content aggregation
+([
+Consent-Lackeys
+], [
+Content-Aggregation-Technology
+]).
+Reference to the 
+FIPs
+ survives to this day. They are often referenced as "
+transparency
+and choice
+", which, in today's digital environment, is often an indication that
+
+inappropriate
+processing
+ is being described.
+1.2 
+Vulnerability
+Sometimes particular groups of people, such as children, or the elderly,
+are classified as 
+vulnerable people
+. However, any 
+person
+ could be vulnerable in
+one or more contexts, sometimes without realizing it.
+A 
+person
+ may not realise when they disclose personal data that
+they are vulnerable or could become vulnerable, and an 
+actor
+ may have
+no way of knowing that a person is vulnerable.
+System designers should consider this in their system designs.
+Some individuals may be more vulnerable to privacy risks or harm as a result of
+collection, misuse, loss, or theft of personal data because:
+of their attributes, interests, opinions, or behaviour;
+of the situation or setting (e.g. where there is information asymmetry or other
+power imbalances);
+they lack the capacity to fully assess the risks;
+choices are not presented in an easy-to-understand meaningful way (e.g. 
+deceptive patterns
+);
+they have not been consulted about their privacy needs and expectations;
+they have not been considered in the decisions about the design of the
+product or service.
+Additional privacy protections may be needed for personal data of vulnerable
+people or 
+sensitive information
+ which could cause
+someone to become vulnerable if their personal data is collected, used, or
+shared (e.g. blocking tracking elements, sensor data, or information about
+installed software or connected devices).
+While sometimes others can help vulnerable people assess privacy risks and
+make decisions about privacy (such as parents, 
+guardians
+, and peers), everyone
+has their own right to privacy.
+1.2.1 
+Guardians
+Some 
+vulnerable people
+ need a 
+guardian
+ to help them make good
+decisions about their own web use (e.g. children, with their parents often
+acting as their 
+guardians
+). A person with a 
+guardian
+ is known as
+a 
+ward
+.
+The 
+ward
+ has a right to make informed decisions and exercise their
+autonomy regarding their right to privacy. Their 
+guardian
+ has an
+
+obligation
+ to help their 
+ward
+ do so when the 
+ward
+'s abilities aren't
+sufficient, even if that conflicts with the 
+guardian
+'s desires. In
+practice, many 
+guardians
+ do not make decisions in their 
+ward
+'s best
+interest, and it's critical that web platform technologies do not exacerbate
+the risks inherent in this situation.
+User agents
+ should balance a benevolent 
+guardian
+'s need to protect
+their 
+ward
+ from dangers, against a 
+ward
+'s need to protect themself
+if they have a malicious 
+guardian
+.
+User agents
+ can protect vulnerable 
+wards
+ by complying with the principles in
+
+2.8 
+Device Owners and Administrators
+, and may only provide information about a 
+ward
+
+to a 
+guardian
+ for the purpose of helping that 
+guardian
+ uphold their
+responsibilities to their 
+ward
+. The mechanism for doing so must include
+measures to help 
+wards
+ who realize that their 
+guardian
+ isn't acting in
+the 
+ward
+'s interest.
+Example
+ 1
+: Protective parents
+A parent might configure a small child's 
+user agent
+ to block access to violent content until the
+child is old enough to make their own decisions about it.
+Example
+ 2
+: An LGBT child
+A child may discover that they're LGBT and need to find supportive resources online. If they have a
+homophobic or transphobic parent, that parent might have configured their 
+user agent
+ to either
+block or inform the parent when the child visits web pages about LGBT-related subjects. The 
+user agent
+ needs to warn the child about how it's configured so that the child can know to ask a better
+
+guardian
+ for access to the help they need.
+1.3 
+Collective Governance
+Privacy principles are defined through social processes and, because of that, the applicable definition
+of 
+privacy
+ in a given context can be
+contested ([
+Privacy-Contested
+]). This makes privacy a problem of collective action ([
+GKC-Privacy
+]).
+Group-level 
+data processing
+ may impact populations or individuals, including in
+ways that 
+people
+ could not control even under the optimistic assumptions of 
+consent
+. For instance,
+it's possible that the only thing that a person is willing to reveal to a particular actor is that they
+are part of a given group. However, other members of the same group may be interacting with the same
+actor and revealing a lot more information, which can enable effective statistical inferences about
+people who refrain from providing information about themselves.
+What we consider is therefore not just the relation between the 
+people
+ who share data
+and the 
+actors
+ that invite that sharing ([
+Relational-Turn
+]), but also between the 
+people
+
+who may find themselves categorised indirectly as part of a group even without sharing data. One key
+understanding here is that such relations may persist even when data is 
+de-identified
+. What's
+more, such categorisation of people, voluntary or not, changes the way in which the world operates.
+This can produce self-reinforcing loops that can damage both individuals and
+groups ([
+Seeing-Like-A-State
+]).
+In general, collective issues in 
+data
+ require collective solutions.
+Web standards help with 
+data governance
+ by
+defining structural controls in 
+user agents
+,
+ensuring that researchers and regulators can discover group-level abuse,
+and establishing or delegating to institutions that can handle issues of 
+privacy
+.
+
+Governance
+ will often struggle to achieve its goals if it works primarily by
+increasing 
+individual
+ control instead of by collective action.
+Collecting data at large scales can have significant pro-social outcomes. Problems tend to
+emerge when 
+actors
+process
+data
+
+for collective benefit and for 
+disloyal
+purposes
+ at the same time.
+The 
+disloyal
+purposes
+ are often justified as bankrolling the pro-social outcomes
+but this requires collective oversight to be 
+appropriate
+.
+1.3.1 
+Group Privacy
+There are different ways for 
+people
+ to become members of a group. Either they can join it
+deliberately, making it a self-constituted group such as when joining a club, or they can be
+classified into it by an external actor, typically a bureaucracy or its computerised equivalent
+([
+Beyond-Individual
+]). In the latter case, 
+people
+ may not be aware that they are being
+grouped together, and the definition of the group may not be intelligible (for instance if it is
+created from opaque machine learning techniques).
+Protecting group privacy can take place at two different levels. The existence of a group or at
+least its activities may need to be protected even in cases in which its members are guaranteed to
+remain anonymous. We refer to this as "group privacy." Conversely, 
+people
+ may wish to protect
+knowledge that they are members of the group even though the existence of the group and its actions
+may be well known (e.g. membership in a dissidents movement under authoritarian rule), which we call
+"membership privacy". An example 
+privacy violation
+ for the former case
+is the fitness app Strava that did not reveal individual behaviour or legal identity but published heat
+maps of popular running routes. In doing so, it revealed secret US bases around which military
+personnel took frequent runs ([
+Strava-Debacle
+], [
+Strava-Reveal-Military
+]).
+People's privacy interests may also be affected when information about a small group of people is
+processed, even if no individualized data is exposed. For example, browsing activity of the students
+in a classroom may be sensitive even if their teacher doesn't learn exactly which student accessed a
+particular resource about a health issue. Targeting presentation of information to a small group may
+also be inappropriate: for example, targeting messages to people who visited a particular clinic or
+are empaneled on a particular jury may be invasive even without uniquely individual data.
+When 
+people
+ do not know that they are members of a group, when they cannot easily find other
+members of the group so as to advocate for their rights together, or when they cannot easily
+understand why they are being categorised into a given group, their ability to protect themselves
+through self-governing approaches to privacy is largely eliminated.
+One common problem in group privacy is when the actions of one member of a group reveal information
+that other members would prefer were not shared in this way (or at all). For instance, one person
+may publish a picture of an event in which they are featured alongside others while the other people
+captured in the same picture would prefer their participation not to be disclosed. Another example
+of such issues are sites that enable people to upload their contacts: the person performing the
+upload might be more open to disclosing their social networks than the people they are connected to
+are. Such issues do not necessarily admit simple, straightforward solutions, but they need to be
+carefully considered by people building websites.
+1.3.2 
+Transparency and Research
+While transparency rarely helps enough to inform the individual choices that 
+people
+ may
+make, it plays a critical role in letting researchers and reporters inform our
+collective decision-making about privacy principles. This consideration extends the
+TAG's resolution on a 
+Strong and Secure Web Platform
+
+to ensure that "
+broad testing and audit continues to be possible
+" where
+
+information flows
+ and automated decisions are involved.
+Such transparency can only function if there are strong rights of access to data (including data
+derived from one's personal data) as well as mechanisms to explain the outcomes of automated
+decisions.
+1.4 
+User Agents
+A 
+user agent
+ acts as an intermediary between a 
+person
+ (its 
+user
+) and the web.
+
+User agents
+ implement, to the extent possible, the principles that collective governance
+establishes in favour of individuals. They seek to prevent the creation of asymmetries of
+information, and serve their 
+user
+ by providing them with automation to rectify
+
+automation asymmetries
+. Where possible, they protect their 
+user
+ from receiving
+intrusive messages.
+The 
+user agent
+ is expected to align fully with the 
+person
+ using it and to operate exclusively
+in that 
+person
+'s interest. It is 
+not
+ the 
+first party
+. The 
+user agent
+ serves the
+
+person
+ as a 
+trustworthy agent
+:
+it always puts that 
+person
+'s interest first. In some occasions, this can mean protecting
+that 
+person
+ from themselves by preventing them from carrying out a dangerous decision,
+or by slowing down the person in their decision. For example, the
+
+user agent
+ will make it difficult for someone to connect to a site if it can't verify
+that the site is authentic. It will check that that 
+person
+ really intends to expose a
+sensitive device to a page. It will prevent that 
+person
+ from consenting to the permanent
+monitoring of their behaviour. Its 
+user agent duties
+ include
+([
+Taking-Trust-Seriously
+]):
+Duty of Protection
+
+    Protection requires 
+user agents
+ to actively protect their 
+user
+'s data, beyond
+    simple security measures. It is insufficient to just encrypt at rest and in transit.
+    The 
+user agent
+ must also limit retention, help ensure that only strictly
+    necessary data is collected, and require guarantees from any 
+actor
+ that the user agent can
+    reasonably be aware that data is shared to.
+  
+Duty of Discretion
+
+    Discretion requires the 
+user agent
+ to make best efforts to enforce
+    principles by taking care in the ways it discloses the 
+personal data
+
+    that it manages. Discretion is not
+    confidentiality or secrecy: trust
+    can be preserved even when the 
+user agent
+ shares some 
+personal data
+, so long as
+    it is done in an 
+appropriately
+ discreet manner.
+  
+Duty of Honesty
+
+    Honesty requires that the 
+user agent
+ give its 
+user
+
+    information of which the 
+user agent
+ can reasonably be aware, that is relevant to
+    them and that will increase their
+    autonomy, as long as they can understand it and there's an appropriate
+    time to do so. This is almost never when the 
+person
+ is trying to do something else such as
+    read a page or activate a feature. The duty of honesty goes well beyond that of
+    transparency that is often included in older privacy regimes. Unlike transparency, honesty
+    can't hide relevant information in complex legal notices and it can't rely on
+    very short summaries provided in a consent dialog.
+    If the person has provided 
+consent
+ to 
+processing
+ of their 
+personal data
+,
+    the 
+user agent
+ should inform the 
+person
+ of ongoing 
+processing
+, with a
+    level of obviousness that is proportional to the reasonably foreseeable impact of the processing.
+  
+Duty of Loyalty
+
+    Because the 
+user agent
+ is a 
+trustworthy agent
+, it is held to be loyal to the
+    
+person
+ using it in all situations, including in preference to the 
+user agent
+'s implementer.
+    When a 
+user agent
+ carries out 
+processing
+ that is detrimental to its 
+user
+'s
+    interests and instead benefits another 
+actor
+, this is 
+disloyal
+. Often this would benefit the
+    
+user agent
+ itself, in which case it is known as "self-dealing". Behaviour can be 
+disloyal
+ even
+    if it is done at the same time as 
+processing
+ that is in the 
+person
+'s interest, what matters is
+    that it potentially conflicts with that 
+person
+'s interest. Additionally, it is important to keep in
+    mind that additional 
+processing
+ almost always implies additional risk. Therefore 
+processing
+
+    that is not explicitly in a 
+user
+'s interest is likely to be disloyal.
+    
+Disloyalty
+ is always 
+inappropriate
+.
+  
+These duties ensure the 
+user agent
+ will 
+care
+ for its 
+user
+. In academic
+research, this relationship with a 
+trustworthy agent
+ is often described as "fiduciary"
+([
+Fiduciary-Law
+], [
+Fiduciary-Model
+], [
+Taking-Trust-Seriously
+];
+see [
+Fiduciary-UA
+] for a longer informal discussion). Some jurisdictions may have a distinct
+legal meaning for "fiduciary." ([
+Fiduciary-Law
+])
+Many of the principles described in the rest of this document extend the 
+user agent
+'s duties and
+make them more precise.
+1.5 
+Incorporating Different Privacy Principles
+While privacy principles are designed to work together and support each other,
+occasionally a proposal to improve how a system follows one privacy principle may reduce
+how well it follows another principle.
+Principle 1.5.1
+: 
+When confronted with an
+apparent tradeoff, first look for ways to improve all principles at once.
+Given any initial design that doesn't perfectly satisfy all principles, there are usually
+some other designs that improve the situation for some principles without sacrificing
+anything about the other principles. Work to find those designs.
+Another way to say this is to look for 
+Pareto
+improvements
+ before starting to trade
+off between principles.
+websites
+user agents
+API designers
+Once one is choosing between different designs at the Pareto frontier, the choice of which
+privacy principles to prefer is complex and depends heavily on the details of each
+particular situation. Note that people's privacy can also be in tension
+with non-privacy concerns. As discussed in the 
+Ethical Web Principles
+, "it is important to
+consider the context in which a particular technology is being applied, the expected
+audience(s) for the technology, who the technology benefits and who it may disadvantage,
+and any power dynamics involved" ([
+Ethical-Web-Principles
+]). Despite this complexity, there is a basic ground
+rule to follow:
+Principle 1.5.2
+: 
+If a service
+needs to collect extra data from its users in order to protect those or other users, it
+must take extra technical and legal measures to ensure that this data can't be then used
+for other purposes, like to grow the service.
+This is a special case of the 
+more general principle that data should not be used for more
+purposes than those specified when the data was collected
+.
+Services sometimes use people's data in order to protect those or other people.
+A service that does this should explain what data it's
+using for this purpose. It should also say how it might use or share a person's
+data if it believes that person has violated the service's rules.
+websites
+user agents
+Example
+ 3
+: Technical and Legal Measures
+A site might segregate the data it collects for safety reasons from its business data by:
+Specifying in its privacy statement that these types of data are kept separate and
+implementing policies and procedures to ensure the data is stored separately. (Legal
+and procedural/compliance measures.)
+Using multi-party computation to ensure that its business side can't learn the
+sensitive safety data unless both its safety side and a trusted independent third party
+collude. (A technical measure.)
+Hiring a trusted auditor to publicly check that the data is effectively segregated. (A
+compliance measure.)
+It is attractive to say that if someone violates the rules of a service they're using,
+then they sacrifice a proportionate amount of their privacy protections, but
+Often the service can only prevent the rule violation by also collecting data from
+innocent users. This extra collection is not always 
+appropriate
+, especially if it
+allows pervasive monitoring ([
+RFC7258
+], [
+RFC7687
+]).
+If a service operator wants to collect some extra data, it can be tempting for them to
+define rules and proportionality that allow them to do so.
+The following examples illustrate some of the tensions:
+Example
+ 4
+: Sockpuppets
+A person might want to sign up many accounts ("sockpuppets") or disguise the affiliation
+of individual-owned accounts
+("
+astroturfing
+") on a service in order to
+trick other people into thinking a belief has more support than it really has. This
+violates the other people's rights to be free from manipulation.
+On the other hand, identifying everyone with enough detail to detect these cases tends to
+violate their rights to be free from surveillance and correlation. ([
+RFC6973
+])
+Example
+ 5
+: Children's Services
+Children using a service (or their guardians) may want to ensure their interaction with
+that service is only visible to other children. To accomplish this, the service would need
+to check all of its users' ages.
+While a service can ask its users to self-assert that they are under the specified age
+(without verifying those assertions), or it might rely on trusted institutions (like
+schools) to verify people's ages, to verify people's ages directly can be
+privacy-invasive. It can require automated facial recognition, collection of live images,
+or strongly identifying the children (e.g. via [
+NIST-800-63A
+]).
+Example
+ 6
+: Account Security
+Accounts with a service need to be protected more strongly than just with a username and
+password. Since a compromised account reveals all the private information stored in the
+account, this is a privacy issue and not just a security issue. Services often store the
+historical locations and machine characteristics that have accessed an account, in order
+to make it harder to log in from an unusual place or type of machine. They might also
+store other personal data, like a phone number or address, in order to check that a
+suspicious login actually comes from the real account owner.
+Example
+ 7
+: Preventing Profiling
+Some actors on the web place a high value on building a detailed profile of each user's
+behavior, across websites. User agents are trying to enforce the principles in
+
+2.1 
+Identity on the Web
+ by blocking this profiling, but because the profiles are valuable, there's
+a large incentive to work around user agent measures, sometimes by using techniques that
+are very expensive or impossible to block. If user agent behavior causes websites to adopt
+these alternate tracking methods, the web as a whole won't respect the 
+2.1 
+Identity on the Web
+
+principles.
+User agents can reduce the incentive to develop these alternate tracking methods by
+building APIs to facilitate the most common and least harmful uses of user profiles.
+However, those APIs usually still reveal some information about a user's behavior. For
+example, even the most privacy-respecting conversion attribution API will reveal a limited
+amount of information about each user in order to replace the use of profiles to measure
+the success of advertising campaigns. Even this small amount of information is still
+
+personal data
+.
+2. 
+Principles for Privacy on the Web
+This section describes a set of principles designed to apply to the web
+
+context
+ in general. Specific 
+contexts
+ on the web may need more
+constraints or other considerations. In time, we expect to see more specialized
+privacy principles published, for more specific 
+contexts
+ on the web.
+These principles should be enforced by 
+user agents
+. When this is not possible,
+we encourage other entities to find ways to enforce them.
+2.1 
+Identity on the Web
+Principle 2.1
+: 
+A 
+user agent
+
+should help its user present the 
+identity
+ they want in each 
+context
+
+they are in, and should prevent or support 
+recognition
+ as appropriate.
+
+user agents
+A 
+person
+'s 
+identity
+ is the set of characteristics that define
+them. Their identity 
+in a 
+context
+ is the set of characteristics they
+present under particular circumstances.
+People can present different identities to different contexts, and can
+also share a single identity across several different contexts.
+People may wish to present an ephemeral or anonymous identity. This is
+a set of characteristics that is too small or unstable to be useful
+for following them through time.
+A person's 
+identities
+ may often be distinct from whatever legal identity
+or identities they hold.
+In some circumstances, the best way for a 
+user agent
+ to uphold this
+principle is to prevent 
+recognition
+ (e.g. so that one 
+site
+ can't
+learn anything about its 
+user
+'s behavior on 
+another
+ site).
+In other circumstances, the best way for a 
+user agent
+ to uphold this
+principle is to 
+support
+recognition
+ (e.g. to help its 
+user
+ prove
+to one 
+site
+ that they have a particular identity on another 
+site
+).
+Similarly, a 
+user agent
+ can help its 
+user
+ by preventing or supporting
+
+recognition
+ across 
+repeat
+ visits to the 
+same
+site
+.
+User agents
+ should do their best to distinguish 
+contexts
+ within a site
+and adjust their 
+partitions
+ to prevent or support 
+recognition
+ across those intra-site 
+contexts
+
+according to their 
+users
+' wishes.
+2.2 
+Data Minimization
+Principle 2.2.1
+: 
+Sites
+, 
+user agents
+, and other 
+actors
+
+should restrict the 
+data
+ they transfer to what's either necessary to achieve their users'
+goals or aligns with their users' wishes and interests.
+websites
+user agents
+Principle 2.2.2
+: 
+
+Web APIs should be designed to minimize the amount of data that sites need
+to request to carry out their users' goals.
+Web APIs should also provide granularity and user controls over 
+personal
+data
+ that is communicated to 
+sites
+.
+API designers
+Data minimization limits the risks of data being disclosed or misused. It also
+helps 
+user agents
+ and other 
+actors
+ more meaningfully explain the decisions their users need
+to make. For more information, see 
+Data Minimization in Web APIs
+.
+The principle of data minimization applies to all 
+personal data
+, even if it
+is not known to be identifying, sensitive, or otherwise harmful. See:
+
+2.4 
+Sensitive Information
+.
+Example
+ 8
+A simple 
+<input type="email">
+ element tends to provide two pieces of data.
+First, that its user can receive messages sent to that email address, but also
+that this is one of only a few email addresses associated with the user. The
+second piece of data makes the address useful for 
+recognizing
+
+people across contexts. One way to remove that second piece of data, minimizing
+the data exposed, is to autogenerate a new email address for each context.
+2.2.1 
+Ancillary uses
+Sites
+ sometimes use data in ways that aren't needed for the user's primary
+goals. For example, they might bill advertisers, measure site performance, or
+tell developers about bugs.
+These are examples of 
+ancillary use
+ of 
+data
+.
+An 
+ancillary use
+ is any case where 
+data processing
+
+provides direct benefit primarily to 
+actors
+
+other than the 
+person
+ who is the subject of that 
+data
+.
+Ancillary uses of 
+personal data
+ might provide benefit to that 
+person
+,
+but any benefit is indirect.
+For example, being able to charge advertisers provides benefit in that
+the site can sustain its business and remain available for future interactions,
+but this benefit is primarily realized by the site's owners.
+Sites
+ can get the data they want for 
+ancillary uses
+ from a variety of places:
+Non-ancillary APIs
+
+    Web APIs that were designed to support users' immediate goals, like 
+DOM events
+ and 
+element position
+    observers
+.
+  
+Ancillary APIs computed from existing information
+
+    APIs that filter, summarize, or time-shift information available from
+    
+non-ancillary APIs
+, like the 
+Event Timing API
+ and 
+IntersectionObserver
+. See
+    
+2.3 
+Information access
+ for restrictions on how existing non-ancillary APIs can
+    be used to justify new ancillary APIs.
+  
+Ancillary APIs that provide new information
+
+    APIs that provide new information that's primarily useful to support the
+    ancillary uses, like 
+element paint
+    timing
+, 
+memory usage
+    measurements
+, and 
+deprecation
+    reports
+.
+  
+All of these sources of data can reveal 
+personal data
+ about a person's
+configuration, device, environment, or behavior that could be 
+sensitive
+ or be used as part of 
+browser
+fingerprinting
+ to 
+recognize people
+across contexts
+. In order to uphold the principle of 
+2.2 
+Data Minimization
+, 
+sites
+ and
+
+user agents
+ should seek to understand and respect people's goals and preferences about
+use of this data.
+The task force does not have consensus about how 
+user agents
+ should handle
+
+ancillary APIs computed from existing information
+.
+Advocates of these APIs argue that they're hard to use to
+extract 
+personal data
+, they're more efficient than collecting the same
+information though 
+non-ancillary APIs
+, sites are less likely to adopt these
+APIs if a significant number of people turn them off, and that the act of
+turning them off can contribute to 
+browser fingerprinting
+.
+Opponents argue that if data's easier or cheaper to collect, more sites will
+collect it, and because there's still some risk, users should be able
+to turn off this group of APIs that probably won't directly break a site's
+functionality.
+Because different users are likely to have different preferences:
+Principle 2.2.1.1
+: 
+Specifications
+for 
+ancillary APIs computed from existing information
+ and 
+ancillary APIs that provide new information
+ should identify them as such, so that 
+user agents
+ can provide appropriate choices for their users.
+API designers
+2.2.1.1 
+Designing ancillary APIs that provide new information
+Principle 2.2.1.1.1
+: 
+Ancillary APIs that provide new information
+ should not reveal any 
+personal data
+ that isn't already available through other APIs, without an indication
+that doing so aligns with the user's wishes and interests.
+
+API designers
+Most 
+ancillary uses
+ don't require that a site learn any 
+personal data
+.
+For example, site performance measurements and ad billing involve averaging or
+summing data across many users such that any individual's contribution is
+obscured. Private aggregation techniques can often allow an API to serve its use
+case without exposing 
+personal data
+, by preventing any of the people
+involved from being identifiable.
+Note
+  There is ongoing work on this sort of private aggregation in the
+  
+IETF
+ppm
+, 
+IRTF
+pearg
+, and 
+W3C
+PATCG
+ groups.
+Some 
+ancillary uses
+ don't require their data to be related to a person, but
+the useful aggregations across many people are difficult to design into a web
+API, or they might require new technologies to be invented. Some ways API
+designers can handle this situation include:
+Sometimes an API can 
+de-identify
+ the data instead, but this is difficult
+if a web page has any input into the data that's collected.
+API designers can check carefully that the API doesn't reveal 
+new
+personal data
+, as described by 
+2.3 
+Information access
+. For example, the API might reveal
+that a person has a fast graphics card, that they click slowly, or that they
+use a certain proxy, but the fact that they click slowly is already
+
+unavoidably
+ revealed
+by 
+DOM event
+ timing.
+User agents
+ can ask their users' permission to enable this class of API.
+This risks increasing 
+privacy labor
+, but as an example, a 
+user agent
+
+could use a first-run dialog to ask the user whether they generally support
+sharing this data, rather than asking for each use of the APIs.
+If an API had to make one of these choices, and then something else about the
+API needs to change, designers should consider replacing the whole API with one
+that avoids exposing 
+personal data
+.
+Some other 
+ancillary uses
+ do require that a person be connected to their
+data. For example, a person might want to file a bug report that a website
+breaks on their particular computer, and be able to get follow-up communication
+from the developers while they fix the bug. This is an appropriate time to ask
+the person's permission.
+Principle 2.2.1.1.2
+: 
+
+User agents should provide a way to enable or disable 
+ancillary APIs that provide new information
+ and should set the default according to their users'
+needs.
+
+user agents
+Some people might know something about their
+specific situation that makes the API designers' general decisions inappropriate
+for them. Because the information provided by 
+ancillary APIs that provide new information
+ isn't
+available in any other way, 
+user agents
+ should let people turn them off,
+despite the additional risk of 
+browser fingerprinting
+.
+2.3 
+Information access
+Principle 2.3
+: 
+
+  New web APIs should guard users' information at least
+  as well as existing APIs that are expected to stay in the web platform.
+API designers
+user agents
+The many APIs available to websites expose lots of data that can be combined
+into information about people, web servers, and other things.
+User-controlled settings or permissions can 
+guard
+access
+ to data on the web. When designing a web API, use 
+access guards
+
+to ensure the API exposes information in 
+appropriate
+ ways.
+Example
+ 9
+  For example, the URLs of resources, the timing of link clicks, and the referrer chain within a
+  single origin are not guarded by anything; the scroll position is guarded by the setting to turn off
+  JavaScript; and access to the camera or geolocation are guarded by permission prompts.
+  When the 
+<img loading="lazy">
+ attribute was added, the designers realized
+  that it exposed the scroll position, so it's also guarded by the setting to turn
+  off JavaScript.
+New APIs which add new ways of getting information must be
+
+guarded
+ at least as strongly as the existing ways.
+Information that would be acceptable to expose under one set of 
+access guards
+ might be
+unacceptable under another set. When an API designer intends to explain that their new
+API is acceptable because an existing acceptable API already exposes the same information,
+they must be careful to ensure that their new API is only available under a set of guards
+that are at least as strict. Without those guards, they need to make the argument from
+scratch, without relying on the existing API.
+If existing APIs provide access to some information, but there is a plan to
+change those APIs to prevent that access, new APIs must not be added that
+provide that same information, unless they include additional
+
+access guards
+ that ensure access is 
+appropriate
+.
+For example, browsers are gradually removing the ability to join identities
+between different 
+partitions
+. It is important that new APIs do not add
+features which re-enable 
+cross-context recognition
+.
+2.3.1 
+Unavoidable information exposure
+Some functionality of the web has historically been provided using features
+that can be used to undermine people's privacy. It
+is not yet possible to remove access to all of the information that it would be
+better not to expose.
+Example
+ 10
+  Some users are disappointed that the page they're visiting can discover which link
+  they clicked to leave that page. We can't block that information
+  because the page can use 
+HTTP redirects
+ to
+  learn it, and redirection is a core feature of the web.
+  Some users are disappointed that a page with permission to run JavaScript can record
+  their pattern of interaction with that page. However, the page does this by using
+  the same events it would use to make the page interactive, so we can't block this
+  information access either.
+New APIs that unavoidably provide access to this kind of information should
+not make that information easier to access compared to existing comparable
+web platform features.
+Specifications describing these APIs should also:
+make it clear how to remove this access in the event that future web
+platform changes make it possible to remove other access to the same
+information.
+make it clear how any 
+user agent
+ which blocks access to this kind of
+information (perhaps by breaking some experiences on the web that
+other browsers don't wish to break) can prevent the new API from exposing that
+information without breaking additional sites or user experiences.
+Example
+ 11
+  Usually, these APIs will be designed to expose data that enables some
+  
+appropriate
+ information discovery, as recommended by 
+Improving the web without third-party cookies
+:
+It is better to approach [these use cases] with replacement technologies
+  that are designed-for-purpose and built to respect user privacy.
+  [
+Web-Without-3p-Cookies
+]
+  For example, they might reveal a performance metric for a website directly
+  instead of requiring it to be computed from the timing of
+  
+onload
+ events.
+  When designing an API like this, aim to ensure that the data it exposes
+  doesn't make it cheaper to compute information about people than it would
+  have been through other methods.
+2.4 
+Sensitive Information
+Principle 2.4
+: 
+
+    There is broad consensus that some categories of information such as credit card numbers
+    or precise geolocation are sensitive, but system designers should not assume that other
+    categories of information are therefore 
+not
+ sensitive. Whether information is
+    considered sensitive can vary depending on a 
+person
+'s circumstances and the 
+context
+
+    of an interaction, and it can change over time.
+  
+websites
+user agents
+API designers
+Many pieces of information about someone could cause privacy harms if disclosed.
+For example:
+Their location.
+Language preferences.
+Any 
+identifiers
+ associated with them.
+Video or audio from their camera or microphone.
+The content of certain files on their filesystem.
+Financial data.
+Contacts.
+Calendar entries.
+Whether they are using assistive technology.
+A particular piece of information may have different sensitivity for different
+people. People can become vulnerable if sensitive information about them is,
+or is likely to be, exposed; see 
+1.2 
+Vulnerability
+.
+Example
+ 12
+Precise location information can be extremely sensitive because it's
+identifying, because it allows for in-person intrusions, because it can reveal
+detailed information about a person's life; but it might also be public and not
+sensitive at all, or it might be low-enough granularity that it is less
+sensitive for many people. Beware that reducing granularity of location
+information might not hide precise location information from an 
+actor
+,
+particularly if location information is repeatedly requested over time or if the
+
+actor
+ has other relevant information about the 
+person
+ [
+RFC6772
+].
+2.5 
+Data Rights
+Principle 2.5
+: 
+People
+ have certain rights over 
+data
+ that is about themselves, and these rights should
+    be facilitated by their 
+user agent
+ and the 
+actors
+ that are 
+processing
+ their
+    
+data
+.
+  
+websites
+user agents
+API designers
+While data rights alone are not sufficient to satisfy all 
+privacy
+ principles for the web, they
+do support self-determination and help improve accountability. Such rights include:
+The 
+right to access
+data
+ about oneself.
+This right includes both being able to review what information has been collected or inferred about
+oneself and being able to discover what 
+actors
+ have collected information about oneself. As a
+result, databases containing information about 
+people
+ cannot be kept secret, and data collected about people needs to be meaningfully
+discoverable by those people.
+The 
+right to erase
+data
+ about oneself.
+A 
+person
+ has a right to erase information about themselves whether or not they are terminating use of a service altogether, though what
+
+data
+ can be erased may differ between those two cases. On the web, a 
+person
+ may wish to erase
+data on their device, on a server, or both, and the data's location may not always be clear to the person.
+The 
+right to
+port
+data
+, including data one has stored with another 
+actor
+, so it can easily be reused or
+transferred elsewhere.
+Portability is needed to support a 
+person
+'s ability to make choices about services with
+different data practices. Standards for interoperability are essential for effective re-use.
+Porting user data involves security and privacy risks described in [
+Portability-Threat-Model
+].
+The 
+right to correct
+data
+ about oneself, to ensure that one's
+
+identity
+ is properly reflected in a system.
+The 
+right to be free from automated decision-making
+ based on 
+data
+
+about oneself.
+For some kinds of decision-making with substantial consequences, there is a privacy interest in
+being able to exclude oneself from automated profiling. For example, some services may alter the
+price of products (price discrimination) or offers for credit or insurance based on 
+data
+
+collected about a person. Those alterations may be consequential (financially, say) and
+objectionable to people who believe those decisions based on data about them are inaccurate or
+unjust. As another example, some services may draw inferences about a user's identity, humanity, or
+presence based on facial recognition algorithms run on camera data. Because facial recognition
+algorithms and training sets are fallible and may exhibit certain biases, people may not wish to
+submit to decisions based on that kind of automated recognition.
+The 
+right to object,
+withdraw consent, and restrict use
+ of data about oneself.
+People
+ may change their decisions about 
+consent
+ or may object to subsequent uses of data about
+themselves. Data rights mean that a person needs to have ongoing control, not just a choice at the time of collection.
+The OECD Privacy Principles [
+OECD-Guidelines
+], [
+Records-Computers-Rights
+], and the [
+GDPR
+],
+among other places, describe many of the rights 
+people
+ have as data subjects. These participatory
+rights by people over data about themselves are inherent to 
+autonomy
+.
+2.6 
+De-identified Data
+Principle 2.6
+: 
+
+    Whenever possible, processors should work with 
+data
+ that has been 
+de-identified
+.
+  
+websites
+user agents
+API designers
+Data is 
+de-identified
+ when there exists a high level of confidence
+that no 
+person
+ described by the data can be identified, directly or indirectly
+(e.g. via association with an 
+identifier
+, user agent, or device), by that data alone or in
+combination with other available information. Many local regulations define additional requirements
+for data to be considered 
+de-identified
+, but those requirements should not be treated as a maximum
+degree of privacy protection. Note
+that further considerations relating to groups are covered in the
+
+Collective Issues in Privacy
+ section.
+We talk of 
+controlled de-identified data
+ when:
+The 
+state
+ of the data is such that the information that could be used to re-identify an
+individual has been removed or altered, and
+there is a 
+process
+ in place to prevent attempts to re-identify 
+people
+ and the inadvertent
+release of the de-identified data. ([
+De-identification-Privacy-Act
+])
+Different situations involving 
+controlled de-identified data
+ will require different controls.
+For instance, if the 
+controlled de-identified data
+ is 
+only
+ being processed by one
+
+actor
+, typical controls include making sure that the 
+identifiers
+ used in the data are unique
+to that dataset, that any person (e.g. an employee of the 
+actor
+) with access to the 
+data
+ is
+barred (e.g. based on legal terms) from sharing the 
+data
+ further, and that technical measures
+exist to prevent re-identification or the joining of different data sets involving this 
+data
+.
+In general, the goal is to ensure that 
+controlled de-identified data
+ is used in a manner that
+provides a viable degree of oversight and accountability such that technical and procedural means to
+guarantee the maintenance of pseudonymity are preserved.
+This is more difficult when the 
+controlled de-identified data
+ is shared between several
+
+actors
+. In such cases, good examples of typical controls that are representative of best
+practices would include making sure that:
+the 
+identifiers
+ used in the 
+data
+ are under the direct and exclusive control of the 
+first party
+ (the 
+actor
+ a person is directly interacting with) who is prevented by strict controls
+from matching the identifiers with the data;
+when these 
+identifiers
+ are shared with a 
+third party
+, they are made unique
+to that 
+third party
+ such that if they are shared with more than one
+
+third party
+ these cannot then match them up with one another;
+there is a strong level of confidence that no 
+third party
+ can match the 
+data
+
+with any data other than that obtained through interactions with the 
+first party
+;
+any 
+third party
+ receiving such 
+data
+ is barred (e.g. based on legal terms)
+from sharing it further;
+technical measures exist to prevent re-identification or the joining of
+different data sets involving this 
+data
+; and
+there exist contractual terms between the 
+first party
+ and 
+third party
+
+describing the limited 
+purpose
+ for which the data is being shared.
+Note that 
+controlled de-identified data
+, on its own, is not sufficient to make
+
+data processing
+appropriate
+.
+2.7 
+Collective Privacy
+Principle 2.7
+: 
+
+    Groups and institutions should support autonomy by making
+    decisions collectively to either prevent or enable data
+    sharing, and to set defaults for data processing rules.
+  
+websites
+user agents
+Privacy principles are often defined in terms of extending rights to individuals. However, there are
+cases in which deciding which principles apply is best done collectively, on behalf of a group.
+Collective decision-making should be considered:
+
+    When information is about membership in a group or about a group's behaviour.
+    As Brent Mittelstadt explains, “
+Algorithmically grouped
+    individuals have a collective interest in the creation of information about the group, and actions
+    taken on its behalf.
+” ([
+Individual-Group-Privacy
+])
+    As 
+1.3.1 
+Group Privacy
+ discusses,
+    an individual's permission isn't enough to support the 
+autonomy
+ of other members of the group.
+  
+
+    When individuals can't realistically be expected to make informed decisions.
+    This can happen when 
+data processing
+ is complex
+    or requests to process data happen very frequently.
+  
+
+    When individuals have systematically less power
+    than the organizations asking them to agree to 
+data processing
+ ([
+Relational-Turn
+]).
+  
+
+    When the 
+data processing
+ is unjust at a societal level even if an individual remains anonymous ([
+Relational-Governance
+]).
+  
+Different forms of collective decision-making are legitimate depending on what data is being processed.
+These forms might be governmental bodies at various administrative levels, standards
+organisations, worker bargaining units, or civil society fora.
+Even though collective decision-making can be better than offloading
+
+privacy labor
+ to 
+individuals
+, it is not a panacea.
+Decision-making bodies need to be designed carefully,
+for example using the 
+Institutional Analysis and Development framework
+.
+2.8 
+Device Owners and Administrators
+Principle 2.8
+: 
+User agents
+ should not tell an 
+administrator
+ about user behavior except
+when that disclosure is necessary to enforce reasonable constraints on use of
+the device or software.
+Even when a disclosure is reasonable, 
+user agents
+ must ensure their users
+know about this surveillance.
+
+user agents
+Note
+See 
+1.2.1 
+Guardians
+ for more detail on how this principle applies to vulnerable people with 
+guardians
+.
+Computing devices have 
+administrators
+, who
+have privileged access to the devices in order to install and configure the
+programs that run on them. The 
+owner
+ of a
+device can authorize an 
+administrator
+ to administer the whole device.
+Some 
+user agent
+implementations
+ can also assign an 
+administrator
+ to
+manage a particular 
+user agent
+ based on the account that's logged into it.
+Sometimes the 
+person
+ using a device doesn't own the device or have
+
+administrator
+ access to it (e.g. an employer providing a device to an
+employee; a friend loaning a device to their guest; or a parent providing a
+device to their young child). Other times, the owner and primary user of a
+device might not be the only person with 
+administrator
+ access.
+These relationships can involve power imbalances. A child may have difficulty accessing any
+computing devices other than the ones their parent provides. A victim of 
+abuse
+ might not be able to
+prevent their partner from having 
+administrator
+ access to their devices. An employee might have
+to agree to use their employer's devices in order to keep their job.
+While a 
+device owner
+ has an interest and sometimes a responsibility to make sure their device is
+used in the ways they intended, the 
+person
+using
+ the device still has a right to privacy while
+using it. This principle enforces this right to privacy in two ways:
+User agent
+ developers need to consider whether requests from 
+device owners
+ and
+
+administrators
+ are reasonable, and refuse to implement unreasonable requests, even if that
+means fewer sales. Owner/administrator needs do not supersede user needs in the 
+priority of constituencies
+.
+Even when information disclosure is reasonable, the 
+person
+ whose data is being disclosed
+needs to know about it so that they can avoid doing things that would lead to unwanted
+consequences.
+Some 
+administrator
+ requests might be reasonable for some sorts of users, like employees or
+children, but not be reasonable for other sorts, like friends or intimate partners.
+The 
+user agent
+ should explain what the 
+administrator
+ is going to learn in a way that
+helps different users to react appropriately.
+2.9 
+Protecting web users from abusive behaviour
+Principle 2.9.1
+: 
+
+      Systems that allow for communicating on the web must provide an
+      effective capability to report 
+abuse
+.
+    
+websites
+API designers
+Principle 2.9.2
+: 
+User agents
+ and 
+sites
+ must
+      take steps to protect their users from abusive behaviour, and 
+abuse
+
+      mitigation must be considered when designing web platform features.
+    
+websites
+user agents
+API designers
+Digital 
+abuse
+ is the mistreatment of a person through digital means. Online 
+harassment
+
+is the "pervasive or severe targeting of an individual or group online through harmful behavior" [
+PEN-Harassment
+]
+and constitutes a form of 
+abuse
+. Harassment is a prevalent problem on the web,
+particularly via social media. While harassment may affect any person using the web, it may be more
+severe and its consequences more impactful for LGBTQ people, women, people in racial or ethnic
+minorities, people with disabilities, 
+vulnerable people
+ and other marginalized groups.
+Harassment
+ is both a violation of privacy itself and can be enabled or
+exacerbated by other violations of privacy.
+Harassment may include: sending 
+unwanted information
+; directing others to contact
+or bother a person ("dogpiling"); disclosing 
+sensitive information
+ about a person; posting false information about a person; impersonating a person; insults; threats; and hateful or demeaning speech.
+Disclosure of identifying or contact information (including "doxxing") can often be used to cause additional attackers to send persistent 
+unwanted information
+ that amounts to harassment.
+Disclosure of location information can be used to intrude on a
+person's physical safety or space.
+Reporting mechanisms are mitigations, but may not prevent harassment, particularly in cases where
+hosts, moderators, or other intermediaries are supportive of or complicit in the 
+abuse
+.
+Effective reporting is likely to require:
+standardized mechanisms to identify 
+abuse
+ reporting contacts;
+sites and user agents to provide visible and usable ways to report 
+abuse
+;
+identifiers to refer to senders and content;
+the ability to provide context and explanation of harms;
+people responsible for promptly responding to reports;
+tools for pooling mitigation information (see 
+Example
+ 13
+).
+Note
+  Some useful research overviews of online harassment include: [
+PEW-Harassment
+],
+  [
+Addressing-Cyber-Harassment
+] and [
+Internet-of-Garbage
+].
+Unwanted information
+ covers a broad range of unsolicited communication, from messages
+that are typically harmless individually but that become a nuisance in aggregate (spam) to the
+sending of explicit, graphic, or violent images.
+System designers should take steps to make the sending of unwanted information more difficult
+or more costly, and to make the senders more accountable.
+Example
+ 13
+Examples of mitigations include:
+Restricting what new users of a service can post, e.g. limiting links and media until a user has
+interacted a sufficient number of times over a given period with a larger group. This helps to
+raise the cost of producing 
+sock puppet accounts
+ and gives new users time to understand local norms before posting.
+Only accepting communication between 
+people
+ who have an established relationship of some kind,
+such as being part of a shared group. Protocols should consider requiring a handshake between
+
+people
+ prior to enabling communication.
+Requiring a deliberate action from the recipient before rendering media coming from an
+untrusted source.
+Supporting the ability for 
+people
+ to block another 
+actor
+ such that they cannot send information
+again.
+Pooling mitigation information, for instance shared block lists, shared spam-detection
+information, or public information about misbehaving 
+actors
+.
+Enabling users to filter out or hide information or media based on tags or content warnings.
+2.10 
+Purpose limitation
+Principle 2.10.1
+: 
+
+    When accessing personal data or requesting permission, 
+sites
+ and other 
+actors
+ should specify the 
+purpose
+
+    for which the data will be used.
+  
+websites
+user agents
+Principle 2.10.2
+: 
+Actors
+ should not use personal data for purposes other than those specified. (Other uses are often called
+    secondary uses [
+RFC6973
+].)
+  
+websites
+user agents
+Features that are designed-for-purpose facilitate these principles by providing functionality that is only or primarily
+useful for a particular purpose. Designed-for-purpose features make it easier to explain the purpose to people, and may
+also limit the feasible secondary uses of data. When building a designed-for-purpose feature,
+
+consider tradeoffs between high and low-level
+APIs
+.
+Controlled de-identified data
+ may be used for additional purposes in ways that are compatible with the specified
+purpose.
+2.11 
+Transparency
+Principle 2.11.1
+: 
+
+    When accessing data or requesting permission, 
+sites
+ (and other 
+actors
+) should provide
+    
+people
+ with relevant explanatory information about the use of data, and 
+user agents
+
+    should help present and consume that information.
+  
+websites
+user agents
+Transparency is a necessary, but insufficient, condition for 
+consent
+. Relevant explanatory
+information includes who is accessing data, what data is accessed (including the potential
+inferences or combinations of such data) and how data is used. For transparency to be meaningful to
+people, explanatory information must be provided in the relevant 
+context
+.
+Note
+  In designing new web features that may involve permissions, consider whether a permission is
+  needed and how to make that permission meaningful [
+Adding-Permissions
+].
+  Past workshops have explored the needs for better permissions on the web:
+  
+2022 
+W3C
+ Workshop on
+    Permissions
+2018 
+W3C
+ Workshop on
+    Permissions and User Consent
+2014 Next steps on trust and
+    permissions for web applications
+Principle 2.11.2
+: 
+
+    Information about privacy-relevant practices should be provided in both easily accessible plain
+    language form and in machine-readable form.
+  
+websites
+API designers
+Machine-readable presentation of privacy-relevant practices is necessary for 
+user agents
+ to be
+able to help 
+people
+ make general decisions, rather than relying falsely on the idea that
+
+people
+ can or want to read documentation before every visit to a web site. Machine-readable
+presentation also facilitates 
+collective governance
+ by making it more
+feasible for researchers and regulators to discover, document, and analyze data collection and
+processing to identify cases in which it may be harmful.
+Easily accessible, plain language presentation of privacy-relevant practices is necessary for
+
+people
+ to be able to make informed decisions in specific cases when they choose to do so.
+
+Sites
+, 
+user agents
+, and other 
+actors
+ all may need to present privacy-relevant practices
+to 
+people
+ in accessible forms.
+Principle 2.11.3
+: 
+
+    Mechanisms that can be used for 
+recognizing
+people
+ should be designed so that
+    their operation is visible and distinguishable, to 
+user agents
+, researchers, and regulators.
+  
+websites
+API designers
+Non-transparent methods of 
+recognition
+ are harmful in part because they are not visible to the
+user, which undermines user control [
+Unsanctioned-Tracking
+]. Designing features that minimize
+data and make requests for data explicit can enable detectability, a kind of transparency that is an
+important mitigation for 
+browser fingerprinting
+.
+2.12 
+Consent, Withdrawal of Consent, Opt-Outs, and Objections
+Principle 2.12.1
+: 
+
+    When any 
+actor
+ obtains 
+consent
+ for processing from a 
+person
+, the
+    actor should design the consent request so as to learn the person's intent to
+    consent or not, and not to maximize the processing consented to.
+  
+websites
+Attempts to obtain consent to 
+processing
+ that is not in accordance with the person's
+true preferences result in imposing unwanted 
+privacy labor
+ on the person, and may
+result in people erroneously giving consent that they regret later.
+An 
+actor
+ should not prompt a 
+person
+ for consent if the
+person is unlikely to have sufficient information to make an informed decision to consent or not.
+In considering whether or not a person is sufficiently informed to be asked for consent,
+actors should be realistic in assessing how much time and effort would be required to understand the
+processing for which they are asking for consent.
+Simply providing a link to a complex policy is unlikely to mean that the person is informed.
+Principle 2.12.2
+: 
+
+    An 
+actor
+ should avoid interrupting a 
+person
+'s use of a site for
+          consent requests when an alternative is available.
+  
+websites
+Examples of alternatives to interrupting users with consent requests include:
+Considering the information sharing norms in the site's audience
+and category, and requesting only consent that is appropriate
+to the purpose of the site. (For example, a photo sharing site's
+users might expect to be prompted for consent to share their
+uploaded work.)  Sites should consider conducting user research on
+people's expectations for how data is processed.
+Relying on a 
+global opt-out
+ signal from the 
+user agent
+.
+Delaying a prompt for consent until a 
+user
+ does something that puts the request in context,
+ which will also help them give an informed response.
+Principle 2.12.3
+: 
+
+    It should be as easy for a 
+person
+ to check what consent they have given, to withdraw consent,
+    or to opt out or object, as to give consent.
+  
+websites
+A 
+person
+ may share data about other 
+people
+ (e.g. a picture with both that person and others). If that person consents to the processing of that data, this does not imply that those other people have consented as well.
+Principle 2.12.4
+: 
+Actors
+ should provide functionality to access, correct, and remove data about
+      
+people
+ to those 
+people
+ when that data has been provided by someone else.
+    
+websites
+Note
+  See 
+Group Privacy
+ and 
+Data Rights
+ for
+  further discussion of privacy of people other than the user.
+2.13 
+Notifications and Interruptions
+Notifications and other interruptive UI can be a powerful way to capture attention.
+Depending on the operating system in use, a notification can appear outside of the
+browser context (for example, in a general notifications tray) or even cause a device to
+buzz or play an alert tone.
+Like all powerful features, notifications can be misused and can become an annoyance
+or even used to manipulate behaviour and thus reduce 
+autonomy
+.
+Principle 2.13.1
+: 
+A 
+user agent
+ should help
+    users control notifications and other interruptive UI that can be used to manipulate behavior.
+User agents
+ should provide UI that allows their users to audit which web 
+sites
+ have been granted
+  permission to display alerts and to revoke these permissions.
+  
+User agents
+ should also apply some quality metric to the initial request for permissions to receive
+  notifications (for example, disallowing sites from requesting permission on first visit).
+user agents
+Principle 2.13.2
+: 
+Web 
+sites
+ should use notifications
+    only for information that their users have specifically requested.
+  
+  Web 
+sites
+ should tell their users what specific kind of information people can expect to
+  receive, and how notifications can be turned off,  when requesting permission to send interruptive
+  notifications.  Web 
+sites
+ should not request permission to send notifications when
+  the user is unlikely to have sufficient knowledge (e.g. information about what kinds of
+  notifications they are signing up for) to make an informed response. If it's unlikely
+  that such information could have been provided then the 
+user agent
+ should apply
+  mitigations (for example, warning about potential malicious use of the notifications
+  API).
+  Permissions should be requested in context.
+websites
+2.14 
+Non-Retaliation
+Principle 2.14
+: 
+Actors
+ must not retaliate against 
+people
+ who protect their 
+data
+ against
+    non-essential 
+processing
+ or exercise rights over their 
+data
+.
+  
+websites
+user agents
+People should be free to limit the amount of private information they share,
+to request that an 
+actor
+ limit the uses of data already shared,
+or that 
+data
+ be deleted.
+When a 
+person
+ chooses to deny or withdraw their permission to use their 
+data
+,
+retaliation is inappropriate.
+It is not retaliation to terminate a service
+when 
+data
+ that is essential to the operation of a service is withheld.
+However, it might be retaliation if withholding 
+data
+
+results in actions unrelated to the use of that 
+data
+.
+Examples of retaliatory behavior include:
+making the process of withdrawing consent more onerous than granting it;
+using threats, badgering, or trickery ([
+dark-patterns
+])
+to encourage people to reconsider their choice; and,
+denying access to services that do not depend on use of the data.
+2.15 
+Support Choosing Which Information to Present
+Principle 2.15.1
+: 
+User agents
+ should support 
+people
+ in choosing which information they provide to 
+actors
+ that
+    request it, up to and including allowing users to provide arbitrary information.
+  
+user agents
+Actors
+ can invest time and energy into automating ways of gathering 
+data
+ from 
+people
+ and can
+design their products in ways that make it a lot easier for 
+people
+ to disclose information than not, whereas
+
+people
+ typically have to manually wade through options, repeated prompts, and 
+deceptive patterns
+. In many
+cases, the absence of data — when a 
+person
+ refuses to provide some information — can also be identifying
+or revealing. Additionally, APIs can be defined or implemented in rigid ways that can prevent people from
+accessing useful functionality. For example, I might want to look for restaurants in a city I will be visiting
+this weekend, but if my geolocation is forcefully set to match my GPS, a restaurant-finding
+site might only allow searches in my current location. In other cases, sites do not abide by data
+minimisation principles and request more information than they require. This principle supports
+
+people
+ in minimising their own data.
+User agents
+ should make it simple for 
+people
+ to 
+present the identity they wish
+to
+ and to provide information about themselves or their devices in
+ways that they control. This helps 
+people
+ to live in obscurity ([
+Lost-In-Crowd
+],
+[
+Obscurity-By-Design
+]), including by obfuscating information about themselves ([
+Obfuscation
+]).
+Principle 2.15.2
+: 
+
+    APIs should be designed such that data returned through an API does not assert a fact or make a
+    promise on the user's behalf about the user or their environment.
+  
+API designers
+Instead, the API could indicate a 
+person
+'s preference, a 
+person
+'s chosen identity, a
+
+person
+'s query or interest, or a 
+person
+'s selected communication style.
+For example, a 
+user agent
+ might support this principle by:
+Generating domain-specific email addresses or other directed identifiers so that 
+people
+ can
+log into the site without becoming recognisable across contexts.
+Offering the option to generate geolocation and accelerometry data with parameters specified by
+the 
+user
+.
+Uploading a stored video stream in response to a camera prompt.
+Automatically granting or denying permission prompts based on user configuration.
+Sites should include deception in their threat modeling and not assume that web platform APIs
+provide any guarantees of consistency, currency, or correctness about the user. People often have
+control of the devices and software they use to interact with web sites. In response to site
+requests, people may arbitrarily modify or select the information they provide for a
+variety of reasons, including both malice and self-protection.
+In any rare instances when an API must be defined as returning true current values, users may still
+configure their agents to respond with other information, for reasons including testing, auditing or
+mitigating forms of data collection, including 
+browser fingerprinting
+.
+A. 
+Common Concepts
+A.1 
+People
+A 
+person
+ (also 
+user
+ or
+
+data subject
+) is any natural person. Throughout this document, we primarily use 
+person
+ or
+
+people
+ to refer to human beings, as a reminder of their humanity. When we use the term 
+user
+,
+it is to talk about the specific 
+person
+ who happens to be using a given system at that time.
+A 
+vulnerable person
+ in a particular 
+context
+
+is a 
+person
+ whose ability to make their own choices can be taken away more
+easily than usual. Among other things, they should
+be treated with greater default privacy protections and may be considered unable to
+
+consent
+ to various interactions with a system.
+People can be vulnerable for different reasons, and some people may
+be vulnerable in a specific 
+context
+. For example, a child might
+be vulnerable in many contexts, but a person in a position of power imbalance
+with an employer or other 
+actor
+ might be vulnerable in the contexts
+where that actor is also present.  See 
+1.2 
+Vulnerability
+.
+A.2 
+Contexts
+A 
+context
+ is a physical or digital environment in which 
+people
+ interact with other
+
+actors
+, and which the 
+people
+ understand as distinct from other 
+contexts
+.
+A 
+context
+ is not defined in terms of who owns or controls it. Sharing
+
+data
+ between different 
+contexts
+ of a single company can be
+a 
+privacy violation
+, just as if the same data were shared between unrelated 
+actors
+.
+A.3 
+Server-Side Actors
+An 
+actor
+ is an entity that a 
+person
+ can reasonably understand as a single "thing"
+they're interacting with. 
+Actors
+ can be 
+people
+ or collective entities like companies,
+associations, or governmental bodies.
+User agents
+ tend to explain to 
+people
+ which 
+origin
+ or 
+site
+ provided the
+web page they're looking at. The 
+actor
+ that makes or delegates decisions
+about the content and 
+data processing
+ on this 
+origin
+ or 
+site
+ is
+known as the web page's 
+first party
+. When a 
+person
+
+interacts with a part of a web page, the 
+first party
+ of that interaction
+is usually the web page's 
+first party
+.
+However, if a different 
+actor
+ makes the decisions about how that part of the
+page works, and a reasonable person with a realistic amount of time and energy would realize
+that this other 
+actor
+ has this control, this other
+
+actor
+ is the 
+first party
+ for the interaction instead.
+If someone captures data about an interaction with a web page,
+the 
+first party
+ of that interaction is accountable for the way that data is 
+processed
+,
+even if another 
+actor
+ does the processing.
+A 
+third party
+ is any 
+actor
+ other than the
+
+person
+ visiting the website or the 
+first parties
+ they expect to be interacting
+with.
+A.4 
+Acting on Data
+We define 
+personal data
+ as any information that is directly or
+indirectly related to an identified or identifiable 
+person
+, such as by reference to an
+
+identifier
+ ([
+GDPR
+], [
+OECD-Guidelines
+], [
+Convention-108
+]).
+On the web, an 
+identifier
+ of some type is typically assigned for an
+
+identity
+ as seen by a website, which makes it easier for an automated
+system to store data about that 
+person
+.
+Example
+ 14
+: Identifiers
+Examples of 
+identifiers
+ for a 
+person
+ can be:
+their name,
+an identification number including those mapping to a device that this
+
+person
+ may be using,
+their phone number,
+their location data,
+an online identifier such as email or IP addresses,
+browser fingerprints (based on a combination of
+configuration characteristics), or
+factors specific to their physical, physiological, genetic, mental, economic,
+cultural, social, or behavioral 
+identity
+,
+strings derived from other 
+identifiers
+, for instance through hashing.
+If a 
+person
+ could reasonably be identified or re-identified through the combination of 
+data
+ with other
+
+data
+, then both sets of 
+data
+ are 
+personal data
+.
+People
+ have 
+privacy
+ in a given 
+context
+ when 
+actors
+ in
+that 
+context
+ follow that 
+context
+'s principles when presenting
+information and using 
+personal data
+.
+When the principles for that 
+context
+ are not followed, there is a
+
+privacy violation
+. We say that a particular interaction is
+
+appropriate
+ when the principles are followed
+or 
+inappropriate
+ otherwise.
+An 
+actor
+processes
+ data if it
+carries out operations on 
+personal data
+, whether or not by automated means, such as
+collection, recording, organisation, structuring, storage, adaptation or alteration,
+retrieval, consultation, use, disclosure by transmission, 
+sharing
+, dissemination or
+otherwise making available, 
+selling
+, alignment or combination, restriction, erasure or
+destruction.
+An 
+actor
+shares
+ data if it provides it to any other
+
+data controller
+. Note that, under this definition, an 
+actor
+ that provides data to its own
+
+service providers
+ is not 
+sharing
+ it.
+An 
+actor
+sells
+ data when it 
+shares
+ the data in exchange
+for something of value, even if that value isn't monetary.
+The 
+purpose
+ of a given 
+processing
+ of data is an anticipated, intended, or
+planned outcome of this 
+processing
+ which is achieved or aimed for within a given
+
+context
+. A 
+purpose
+, when described, should be specific enough that
+someone familiar with the relevant 
+context
+ could pick some
+
+means
+ that would achieve the 
+purpose
+.
+The 
+means
+ is the general way that data is 
+processed
+ to achieve a particular
+
+purpose
+, in a given 
+context
+. 
+Means
+ are relatively abstract
+and don't specify all the way down to implementation details. For example, for
+the 
+purpose
+ of restoring a person's preferences, the 
+means
+ could be to
+look up their identifier in a preferences store.
+A 
+data controller
+ is an 
+actor
+ that determines the 
+means
+ and 
+purposes
+
+of data processing. Any 
+actor
+ that is not a 
+service provider
+ is a 
+data controller
+.
+A 
+service provider
+ or 
+data processor
+:
+processes
+ data on behalf of another 
+actor
+;
+ensures that the data is only retained, accessed, and used as directed by that
+
+actor
+ and solely for the list of explicitly-specified 
+purposes
+
+detailed by the directing 
+actor
+;
+may determine implementation details of the data processing in question but
+does not determine the 
+purpose
+ for which the data is being 
+processed
+
+nor the overarching 
+means
+ through which the 
+purpose
+ is carried out;
+has no independent right to use the data other than in a 
+de-identified
+ form (e.g., for
+monitoring service integrity, load balancing, capacity planning, or billing); and,
+has a contract in place with the 
+actor
+ which is consistent with the above limitations.
+A.5 
+Recognition
+Recognition
+ is the act of realising that a given 
+identity
+
+corresponds to the same 
+person
+ as another 
+identity
+ which may have been
+observed either in another 
+context
+, or in the same 
+context
+ but at a
+different time. 
+Recognition
+ can be probabilistic, if someone realises there's
+a high probability that two 
+identities
+ correspond to the same 
+person
+,
+even if they aren't certain.
+A 
+person
+ can be 
+recognized
+ whether or not their legal identity or
+characteristics of their legal identity are included in the recognition.
+A.5.1 
+Recognition Types
+There are several types of 
+recognition
+ that may take place.
+Cross-context recognition
+ is 
+recognition
+ between different
+
+contexts
+.
+Cross-context recognition
+ is only 
+appropriate
+ when the person being 
+recognized
+
+can reasonably expect recognition to happen, and can control whether it does.
+If a person uses a piece of identifying information in two different
+contexts (e.g. their email or phone number), this 
+does not
+ automatically
+mean that they intend to use the same identity in both contexts. It is
+
+inappropriate
+ to 
+recognize
+ them using that information, unless there's
+some other indication that they intended to use a single identity. It is also
+
+inappropriate
+ to seek extra identifying information to help with
+cross-context recognition.
+Systems which 
+recognize
+ people across 
+contexts
+ need
+to be careful not to apply the principles of one 
+context
+ in ways that
+violate the principles around use of information acquired in a different
+
+context
+. This is particularly true for 
+vulnerable people
+, as
+recognising them in different 
+contexts
+ may force traits into the open
+that reveal their vulnerability. For example, if you meet your therapist at a
+party, you expect them to have different discussion topics with you than they
+usually would, and possibly even to pretend they don't know you.
+Cross-site recognition
+ is 
+recognition
+ when the identities
+are observed on different 
+sites
+. In the usual case that the sites are
+different 
+contexts
+,
+
+cross-site recognition
+ is 
+inappropriate
+ in the same cases as 
+cross-context recognition
+.
+Same-site recognition
+ is when a single 
+site
+recognizes
+ a
+
+person
+ across two or more visits.
+A privacy harm occurs if a 
+person
+ reasonably expects that they'll be using
+a different 
+identity
+ for different visits to a single site, but the site
+
+recognizes
+ them anyway.
+Note that these categories overlap: 
+cross-site recognition
+ is usually
+
+cross-context recognition
+ (and always 
+recognizes
+ across 
+partitions
+); and
+
+same-site recognition
+ is sometimes 
+cross-context recognition
+ (and may or may not
+involve multiple 
+partitions
+).
+A.5.2 
+User agent awareness of recognition
+A 
+partition
+ is the 
+user agent
+'s attempt to match how its user
+would understand a 
+context
+. 
+User agents
+ don't have a perfect
+understanding of how their users experience the sites they visit, so they
+often need to approximate the boundaries between 
+contexts
+ when building
+
+partitions
+.
+In the absence of better information, a 
+partition
+ can be defined as:
+a set of 
+environments
+ (roughly: same-site and cross-site 
+iframe
+s,
+workers, and top-level pages)
+whose 
+top-level origins
+ are in the 
+same site
+ (note: see
+[
+PSL-Problems
+])
+being visited within the same user agent installation (and browser profile,
+container, or container tab for user agents that support those features)
+between points in time that the person or user agent clears that 
+site
+'s
+cookies and other storage (which is sometimes automatic at the end of each
+session).
+It can be difficult for a 
+user agent
+ to detect when a single site contains
+multiple 
+contexts
+. When a 
+user agent
+ can detect this, it should adjust
+its 
+partitions
+ accordingly, for instance by partitioning identities
+per subdomain or site path. User agents should work to improve their ability to
+distinguish contexts within a site.
+User agents
+ should prevent people from being
+
+recognized
+ across 
+partitions
+ unless they intend to be
+recognized.
+Note that sites can do harm even if they can't be completely certain
+that visits come from the same person, so 
+user agents
+ should also take steps
+to prevent such probabilistic recognition. The 
+Target Privacy Threat Model
+ discusses
+the tradeoffs involved ([
+Privacy-Threat
+]).
+If a 
+user agent
+ can tell that its user is using a particular identity on a
+website, it should make that active identity clear to the user (e.g. if the
+user logged into the site via an API like 
+Credential Management Level 1
+).
+B. 
+Conformance
+This document does not adhere to strict [
+RFC2119
+] terminology because it is primarily of
+an informative nature and does not easily lend itself to constraining a conformance class.
+However, within the formulation of its principles, we have taken care to use "should" to indicate
+that a principle can be overridden in some rare cases given that there are valid reasons for doing so and
+"must" to indicate that we can see no situation in which deviating from the principle could
+be justified.
+C. 
+Acknowledgements
+Some of the definitions in this document build on top of the work in
+
+Tracking Preference Expression (DNT)
+.
+The following people, in alphabetical order of their first name, were instrumental
+in producing this document and made invaluable contributions:
+Amy Guy,
+Ben Savage,
+Chris Needham,
+Christine Runnegar,
+Dan Appelquist,
+Don Marti,
+François Daoust,
+Ian Jacobs,
+Irene Knapp,
+Jonathan Kingston,
+Kyle Den Hartog,
+Mark Nottingham,
+Martin Thomson,
+Nick Doty,
+Peter Snyder,
+Sam Weiler,
+Shubhie Panicker,
+Tess O'Connor, and
+Wendy Seltzer.
+D. 
+Issue summary
+There are no issues listed in this specification.
+E. 
+References
+E.1 
+Informative references
+[Adding-Permissions]
+Adding another permission? A guide
+. Nick Doty. 2018. URL: 
+https://github.com/w3cping/adding-permissions
+[Addressing-Cyber-Harassment]
+Addressing cyber harassment: An overview of hate crimes in cyberspace
+. Danielle Keats Citron.  Case Western Reserve Journal of Law, Technology & the Internet. 2015. URL: 
+https://scholarship.law.bu.edu/cgi/viewcontent.cgi?article=1634&context=faculty_scholarship
+[Beyond-Individual]
+Privacy Beyond the Individual Level (in Modern Socio-Technical Perspectives on Privacy)
+. J.J. Suh; M.J. Metzger.  Springer. URL: 
+https://doi.org/10.1007/978-3-030-82786-1_6
+[Consent-Lackeys]
+Publishers tell Google: We're not your consent lackeys
+. Rebecca Hill.  The Register. URL: 
+https://www.theregister.com/2018/05/01/publishers_slam_google_ad_policy_gdpr_consent/
+[Content-Aggregation-Technology]
+Content Aggregation Technology (CAT)
+. Robin Berjon; Justin Heideman. URL: 
+https://nytimes.github.io/std-cat/
+[Contextual-Integrity]
+Privacy As Contextual Integrity
+. Helen Nissenbaum.  Washington Law Review. URL: 
+https://digitalcommons.law.uw.edu/wlr/vol79/iss1/10/
+[Convention-108]
+Convention for the Protection of Individuals with regard to Automatic Processing of Personal Data
+.  Council of Europe. URL: 
+https://rm.coe.int/1680078b37
+[Credential-Management-1]
+Credential Management Level 1
+. Nina Satragno; Marcos Caceres.  W3C. 13 August 2024. W3C Working Draft. URL: 
+https://www.w3.org/TR/credential-management-1/
+[CSSOM-View-1]
+CSSOM View Module
+. Simon Pieters.  W3C. 17 March 2016. W3C Working Draft. URL: 
+https://www.w3.org/TR/cssom-view-1/
+[Dark-Pattern-Dark]
+What Makes a Dark Pattern… Dark? Design Attributes, Normative Considerations, and Measurement Methods
+. Arunesh Mathur; Jonathan Mayer; Mihir Kshirsagar. URL: 
+https://arxiv.org/abs/2101.04843v1
+[Dark-Patterns]
+Dark patterns: past, present, and future
+. Arvind Narayanan; Arunesh Mathur; Marshini Chetty; Mihir Kshirsagar.  ACM. URL: 
+https://dl.acm.org/doi/10.1145/3397884
+[Data-Minimization]
+Data Minimization in Web APIs
+. Daniel Appelquist.  W3C TAG. Draft Finding. URL: 
+https://www.w3.org/2001/tag/doc/APIMinimization-20100605.html
+[De-identification-Privacy-Act]
+De-identification and the Privacy Act
+. Office of the Australian Information Commissioner.  Australian Government. URL: 
+https://www.oaic.gov.au/privacy/guidance-and-advice/de-identification-and-the-privacy-act
+[Deprecation-Reporting]
+Deprecation Reporting
+.  W3C. Draft Community Group Report. URL: 
+https://wicg.github.io/deprecation-reporting/
+[Design-Principles]
+Web Platform Design Principles
+. Martin Thomson; Jeffrey Yasskin.  W3C. 30 April 2025. W3C Working Group Note. URL: 
+https://www.w3.org/TR/design-principles/
+[Digital-Market-Manipulation]
+Digital Market Manipulation
+. Ryan Calo.  George Washington Law Review. URL: 
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2309703
+[DOM]
+DOM Standard
+. Anne van Kesteren.  WHATWG. Living Standard. URL: 
+https://dom.spec.whatwg.org/
+[Element-Timing]
+Element Timing API
+.  W3C. Editor's Draft. URL: 
+https://w3c.github.io/element-timing/
+[Ethical-Web-Principles]
+Ethical Web Principles
+. Daniel Appelquist; Hadley Beeman; Amy Guy.  W3C. 12 December 2024. STMT. URL: 
+https://www.w3.org/TR/ethical-web-principles/
+[Event-Timing]
+Event Timing API
+. Michal Mocny.  W3C. 16 April 2025. W3C Working Draft. URL: 
+https://www.w3.org/TR/event-timing/
+[Fiduciary-Law]
+Fiduciary Law
+. Tamar Frankel.  California Law Review. May 1983. URL: 
+http://www.bu.edu/lawlibrary/facultypublications/PDFs/Frankel/Fiduciary%20Law.pdf
+[Fiduciary-Model]
+The Fiduciary Model of Privacy
+. Jack M. Balkin.  Harvard Law Review Forum. 26 September 2020. URL: 
+https://ssrn.com/abstract=3700087
+[Fiduciary-UA]
+The Fiduciary Duties of User Agents
+. Robin Berjon. URL: 
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3827421
+[fingerprinting-guidance]
+Mitigating Browser Fingerprinting in Web Specifications
+. Nick Doty; Tom Ritter.  W3C. 21 March 2025. W3C Working Group Note. URL: 
+https://www.w3.org/TR/fingerprinting-guidance/
+[For-Everyone]
+This Is For Everyone
+. Tim Berners-Lee. Statement made to the London 2012 Olympics opening ceremony. URL: 
+https://twitter.com/timberners_lee/status/228960085672599552
+[GDPR]
+General Data Protection Regulations (GDPR) / Regulation (EU) 2016/679
+. European Parliament and Council of European Union. URL: 
+https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN
+[GKC-Privacy]
+Governing Privacy in Knowledge Commons
+. Madelyn Rose Sanfilippo; Brett M. Frischmann; Katherine J. Strandburg.  Cambridge University Press. URL: 
+https://www.cambridge.org/core/books/governing-privacy-in-knowledge-commons/FA569455669E2CECA25DF0244C62C1A1
+[GPC-Spec]
+Global Privacy Control (GPC)
+. Sebastian Zimmeck; Peter Snyder; Justin Brookman; Aram Zucker-Scharff.  W3C. 16 April 2025. W3C Working Draft. URL: 
+https://www.w3.org/TR/gpc/
+[html]
+HTML Standard
+. Anne van Kesteren; Domenic Denicola; Dominic Farolino; Ian Hickson; Philip Jägenstedt; Simon Pieters.  WHATWG. Living Standard. URL: 
+https://html.spec.whatwg.org/multipage/
+[IAD]
+Understanding Institutional Diversity
+. Elinor Ostrom.  Princeton University Press. URL: 
+https://press.princeton.edu/books/paperback/9780691122380/understanding-institutional-diversity
+[Individual-Group-Privacy]
+From Individual to Group Privacy in Big Data Analytics
+. Brent Mittelstadt.  Philosophy & Technology. URL: 
+https://link.springer.com/article/10.1007/s13347-017-0253-7
+[infra]
+Infra Standard
+. Anne van Kesteren; Domenic Denicola.  WHATWG. Living Standard. URL: 
+https://infra.spec.whatwg.org/
+[Internet-of-Garbage]
+The Internet of Garbage
+. Sarah Jeong.  The Verge. 2018. URL: 
+https://www.theverge.com/2018/8/28/17777330/internet-of-garbage-book-sarah-jeong-online-harassment
+[Intersection-Observer]
+Intersection Observer
+. Stefan Zager; Emilio Cobos Álvarez; Traian Captan.  W3C. 18 October 2023. W3C Working Draft. URL: 
+https://www.w3.org/TR/intersection-observer/
+[Lost-In-Crowd]
+Why You Can No Longer Get Lost in the Crowd
+. Woodrow Hartzog; Evan Selinger.  The New York Times. URL: 
+https://www.nytimes.com/2019/04/17/opinion/data-privacy.html
+[New-Chicago-School]
+The New Chicago School
+. Lawrence Lessig.  The Journal of Legal Studies. June 1998. URL: 
+https://www.docdroid.net/i3pUJof/lawrence-lessig-the-new-chicago-school-1998.pdf
+[NIST-800-63A]
+Digital Identity Guidelines: Enrollment and Identity Proofing Requirements
+. Paul A. Grassi; James L. Fenton; Naomi B. Lefkovitz; Jamie M. Danker; Yee-Yin Choong; Kristen K. Greene; Mary F. Theofanos.  NIST. March 2020. URL: 
+https://pages.nist.gov/800-63-3/sp800-63a.html
+[Obfuscation]
+Obfuscation: A User's Guide for Privacy and Protest
+. Finn Brunton; Helen Nissenbaum.  Penguin Random House. URL: 
+https://www.penguinrandomhouse.com/books/657301/obfuscation-by-finn-brunton-and-helen-nissenbaum/
+[Obscurity-By-Design]
+Obscurity by Design
+. Woodrow Hartzog; Frederic Stutzman. URL: 
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2284583
+[OECD-Guidelines]
+OECD Guidelines on the Protection of Privacy and Transborder Flows of Personal Data
+.  OECD Publishing. 2002. URL: 
+https://doi.org/10.1787/9789264196391-en
+[PEN-Harassment]
+Online Harassment Field Manual
+.  PEN America. URL: 
+https://onlineharassmentfieldmanual.pen.org/defining-online-harassment-a-glossary-of-terms/
+[Performance-Measure-Memory]
+Measure Memory API
+.  W3C. Draft Community Group Report. URL: 
+https://wicg.github.io/performance-measure-memory/
+[PEW-Harassment]
+The State of Online Harassment
+.  Pew Research Center. January 2021. URL: 
+https://www.pewresearch.org/internet/2021/01/13/the-state-of-online-harassment/
+[Portability-Threat-Model]
+User Data Portability Threat Model
+. Lisa Dusseault.  Data Transfer Initiative. URL: 
+https://dtinit.org/assets/ThreatModel.pdf
+[Privacy-Behavior]
+Privacy and Human Behavior in the Age of Information
+. Alessandro Acquisti; Laura Brandimarte; George Loewenstein.  Science. URL: 
+https://www.heinz.cmu.edu/~acquisti/papers/AcquistiBrandimarteLoewenstein-S-2015.pdf
+[Privacy-Concerned]
+Americans and Privacy: Concerned, Confused and Feeling Lack of Control Over Their Personal Information
+. Brooke Auxier; Lee Rainie; Monica Anderson; Andrew Perrin; Madhu Kumar; Erica Turner.  Pew Research Center. URL: 
+https://www.pewresearch.org/internet/2019/11/15/americans-and-privacy-concerned-confused-and-feeling-lack-of-control-over-their-personal-information/
+[Privacy-Contested]
+Privacy is an essentially contested concept: a multi-dimensional analytic for mapping privacy
+. Deirdre K. Mulligan; Colin Koopman; Nick Doty.  Philosophical Transacions A. URL: 
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5124066/
+[Privacy-Threat]
+Target Privacy Threat Model
+. Jeffrey Yasskin; Tom Lowenthal.  W3C PING. URL: 
+https://w3cping.github.io/privacy-threat-model/
+[PSL-Problems]
+Public Suffix List Problems
+. Ryan Sleevi. URL: 
+https://github.com/sleevi/psl-problems
+[Records-Computers-Rights]
+Records, Computers and the Rights of Citizens
+.  U.S. Department of Health, Education & Welfare. URL: 
+https://archive.epic.org/privacy/hew1973report/
+[Relational-Governance]
+A Relational Theory of Data Governance
+. Salomé Viljoen.  Yale Law Journal. URL: 
+https://www.yalelawjournal.org/feature/a-relational-theory-of-data-governance
+[Relational-Turn]
+A Relational Turn for Data Protection?
+. Neil Richards; Woodrow Hartzog. URL: 
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3745973&s=09
+[RFC2119]
+Key words for use in RFCs to Indicate Requirement Levels
+. S. Bradner.  IETF. March 1997. Best Current Practice. URL: 
+https://www.rfc-editor.org/rfc/rfc2119
+[RFC6772]
+Geolocation Policy: A Document Format for Expressing Privacy Preferences for Location Information
+. H. Schulzrinne, Ed.; H. Tschofenig, Ed.; J. Cuellar; J. Polk; J. Morris; M. Thomson.  IETF. January 2013. Proposed Standard. URL: 
+https://www.rfc-editor.org/rfc/rfc6772
+[RFC6973]
+Privacy Considerations for Internet Protocols
+. A. Cooper; H. Tschofenig; B. Aboba; J. Peterson; J. Morris; M. Hansen; R. Smith.  IETF. July 2013. Informational. URL: 
+https://www.rfc-editor.org/rfc/rfc6973
+[RFC7258]
+Pervasive Monitoring Is an Attack
+. S. Farrell; H. Tschofenig.  IETF. May 2014. Best Current Practice. URL: 
+https://www.rfc-editor.org/rfc/rfc7258
+[RFC7687]
+Report from the Strengthening the Internet (STRINT) Workshop
+. S. Farrell; R. Wenning; B. Bos; M. Blanchet; H. Tschofenig.  IETF. December 2015. Informational. URL: 
+https://www.rfc-editor.org/rfc/rfc7687
+[RFC9110]
+HTTP Semantics
+. R. Fielding, Ed.; M. Nottingham, Ed.; J. Reschke, Ed. IETF. June 2022. Internet Standard. URL: 
+https://httpwg.org/specs/rfc9110.html
+[Seeing-Like-A-State]
+Seeing Like a State: How Certain Schemes to Improve the Human Condition Have Failed
+. James C. Scott. URL: 
+https://bookshop.org/books/seeing-like-a-state-how-certain-schemes-to-improve-the-human-condition-have-failed/9780300246759
+[Standard-Bodies-Regulators]
+Technical Standards Bodies are Regulators
+. Mark Nottingham. URL: 
+https://www.mnot.net/blog/2023/11/01/regulators
+[Strava-Debacle]
+The Latest Data Privacy Debacle
+. Zeynep Tufekci.  The New York Times. URL: 
+https://www.nytimes.com/2018/01/30/opinion/strava-privacy.html
+[Strava-Reveal-Military]
+Strava Fitness App Can Reveal Military Sites, Analysts Say
+. Richard Pérez-Peña; Matthew Rosenberg.  The New York Times. URL: 
+https://www.nytimes.com/2018/01/29/world/middleeast/strava-heat-map.html
+[Taking-Trust-Seriously]
+Taking Trust Seriously in Privacy Law
+. Neil Richards; Woodrow Hartzog. URL: 
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2655719
+[Tracking-DNT]
+Tracking Preference Expression (DNT)
+. Roy Fielding; David Singer.  W3C. 17 January 2019. W3C Working Group Note. URL: 
+https://www.w3.org/TR/tracking-dnt/
+[Understanding-Privacy]
+Understanding Privacy
+. Daniel Solove.  Harvard University Press. URL: 
+https://www.hup.harvard.edu/catalog.php?isbn=9780674035072
+[Unsanctioned-Tracking]
+Unsanctioned Web Tracking
+. Mark Nottingham.  W3C. 17 July 2015. TAG Finding. URL: 
+http://www.w3.org/2001/tag/doc/unsanctioned-tracking/
+[Web-Without-3p-Cookies]
+Improving the web without third-party cookies
+. Amy Guy.  W3C. URL: 
+https://www.w3.org/2001/tag/doc/web-without-3p-cookies/
+[Why-Privacy]
+Why Privacy Matter
+. Neil Richards.  Oxford University Press. URL: 
+https://global.oup.com/academic/product/why-privacy-matters-9780190939045?cc=us&lang=en&
+↑
+Permalink
+Referenced in:
+§ 1.1.1 Opt-in, Consent, Opt-out, Global Controls
+§ 1.4 User Agents
+Permalink
+Referenced in:
+§ 1. An Introduction to Privacy on the Web
+(2)
+§ 1.3 Collective Governance
+(2)
+Permalink
+Referenced in:
+§ 1. An Introduction to Privacy on the Web
+(2)
+(3)
+(4)
+(5)
+§ 1.3.2 Transparency and Research
+Permalink
+Referenced in:
+§ 1.1 Individual Autonomy
+(2)
+(3)
+(4)
+(5)
+§ 1.1.1 Opt-in, Consent, Opt-out, Global Controls
+§ 1.1.2 Privacy Labor
+(2)
+(3)
+§ 2.5 Data Rights
+§ 2.7 Collective Privacy
+§ 2.13 Notifications and Interruptions
+Permalink
+Referenced in:
+§ 1.1 Individual Autonomy
+(2)
+§ 1.2 Vulnerability
+§ 2.15 Support Choosing Which Information to Present
+Permalink
+Referenced in:
+§ Best Practices Summary
+§ 1.1.1 Opt-in, Consent, Opt-out, Global Controls
+(2)
+(3)
+(4)
+(5)
+(6)
+§ 1.1.2 Privacy Labor
+§ 1.3 Collective Governance
+§ 1.4 User Agents
+§ 2.5 Data Rights
+§ 2.11 Transparency
+§ 2.12 Consent, Withdrawal of Consent, Opt-Outs, and Objections
+§ A.1 People
+Permalink
+Referenced in:
+§ 1.1.1 Opt-in, Consent, Opt-out, Global Controls
+(2)
+(3)
+(4)
+(5)
+Permalink
+Referenced in:
+§ 1.1.1 Opt-in, Consent, Opt-out, Global Controls
+(2)
+(3)
+§ 2.12 Consent, Withdrawal of Consent, Opt-Outs, and Objections
+Permalink
+Referenced in:
+§ 1.1.1 Opt-in, Consent, Opt-out, Global Controls
+§ 1.1.2 Privacy Labor
+(2)
+(3)
+§ 2.2.1.1 Designing ancillary APIs that provide new information
+§ 2.7 Collective Privacy
+§ 2.12 Consent, Withdrawal of Consent, Opt-Outs, and Objections
+Permalink
+Referenced in:
+§ 1.1.2 Privacy Labor
+(2)
+(3)
+(4)
+Permalink
+Referenced in:
+§ 1.2 Vulnerability
+§ 1.2.1 Guardians
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+(8)
+(9)
+(10)
+(11)
+§ 2.8 Device Owners and Administrators
+Permalink
+Referenced in:
+§ 1.2.1 Guardians
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+(8)
+(9)
+(10)
+(11)
+Permalink
+Referenced in:
+§ 1.4 User Agents
+(2)
+Permalink
+exported
+Referenced in:
+Not referenced in this document.
+Permalink
+exported
+Referenced in:
+Not referenced in this document.
+Permalink
+exported
+Referenced in:
+Not referenced in this document.
+Permalink
+exported
+Referenced in:
+Not referenced in this document.
+Permalink
+exported
+Referenced in:
+Not referenced in this document.
+Permalink
+Referenced in:
+§ 1.3 Collective Governance
+(2)
+§ 1.4 User Agents
+(2)
+Permalink
+Referenced in:
+§ Best Practices Summary
+§ 2.1 Identity on the Web
+(2)
+§ 2.5 Data Rights
+§ A.4 Acting on Data
+(2)
+§ A.5 Recognition
+(2)
+(3)
+§ A.5.1 Recognition Types
+Permalink
+Referenced in:
+§ 2.2.1 Ancillary uses
+(2)
+§ 2.2.1.1 Designing ancillary APIs that provide new information
+(2)
+(3)
+Permalink
+Referenced in:
+§ 2.2.1 Ancillary uses
+(2)
+Permalink
+Referenced in:
+§ Best Practices Summary
+§ 2.2.1 Ancillary uses
+(2)
+Permalink
+Referenced in:
+§ Best Practices Summary
+(2)
+(3)
+§ 2.2.1 Ancillary uses
+§ 2.2.1.1 Designing ancillary APIs that provide new information
+(2)
+(3)
+Permalink
+Referenced in:
+§ 2.3 Information access
+(2)
+(3)
+(4)
+Permalink
+exported
+Referenced in:
+Not referenced in this document.
+Permalink
+exported
+Referenced in:
+Not referenced in this document.
+Permalink
+exported
+Referenced in:
+Not referenced in this document.
+Permalink
+exported
+Referenced in:
+Not referenced in this document.
+Permalink
+exported
+Referenced in:
+Not referenced in this document.
+Permalink
+exported
+Referenced in:
+Not referenced in this document.
+Permalink
+Referenced in:
+§ Best Practices Summary
+§ 1.3 Collective Governance
+§ 2.2.1.1 Designing ancillary APIs that provide new information
+§ 2.6 De-identified Data
+(2)
+§ A.4 Acting on Data
+Permalink
+Referenced in:
+§ 2.6 De-identified Data
+(2)
+(3)
+(4)
+(5)
+§ 2.10 Purpose limitation
+Permalink
+Referenced in:
+§ Best Practices Summary
+§ 2.8 Device Owners and Administrators
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+(8)
+(9)
+Permalink
+Referenced in:
+§ 2.8 Device Owners and Administrators
+(2)
+Permalink
+Referenced in:
+§ Best Practices Summary
+(2)
+§ 2.8 Device Owners and Administrators
+§ 2.9 Protecting web users from abusive behaviour
+(2)
+(3)
+(4)
+(5)
+(6)
+Permalink
+Referenced in:
+§ 2.9 Protecting web users from abusive behaviour
+Permalink
+Referenced in:
+§ 2.9 Protecting web users from abusive behaviour
+(2)
+Permalink
+Referenced in:
+§ Best Practices Summary
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+(8)
+(9)
+(10)
+(11)
+§ 1. An Introduction to Privacy on the Web
+(2)
+(3)
+(4)
+(5)
+(6)
+§ 1.1 Individual Autonomy
+(2)
+(3)
+(4)
+§ 1.1.1 Opt-in, Consent, Opt-out, Global Controls
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+(8)
+(9)
+(10)
+(11)
+(12)
+§ 1.1.2 Privacy Labor
+(2)
+(3)
+(4)
+(5)
+(6)
+§ 1.2 Vulnerability
+(2)
+§ 1.3 Collective Governance
+(2)
+(3)
+§ 1.3.1 Group Privacy
+(2)
+(3)
+(4)
+§ 1.3.2 Transparency and Research
+§ 1.4 User Agents
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+(8)
+(9)
+(10)
+(11)
+(12)
+(13)
+(14)
+(15)
+(16)
+(17)
+(18)
+(19)
+(20)
+(21)
+§ 2.1 Identity on the Web
+(2)
+(3)
+(4)
+(5)
+§ 2.2.1 Ancillary uses
+(2)
+§ 2.4 Sensitive Information
+(2)
+§ 2.5 Data Rights
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+§ 2.6 De-identified Data
+(2)
+§ 2.7 Collective Privacy
+§ 2.8 Device Owners and Administrators
+(2)
+(3)
+§ 2.9 Protecting web users from abusive behaviour
+(2)
+(3)
+§ 2.11 Transparency
+(2)
+(3)
+(4)
+(5)
+(6)
+§ 2.12 Consent, Withdrawal of Consent, Opt-Outs, and Objections
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+(8)
+(9)
+§ 2.14 Non-Retaliation
+(2)
+§ 2.15 Support Choosing Which Information to Present
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+(8)
+(9)
+(10)
+(11)
+(12)
+(13)
+(14)
+§ A.1 People
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+§ A.2 Contexts
+(2)
+§ A.3 Server-Side Actors
+(2)
+(3)
+(4)
+(5)
+§ A.4 Acting on Data
+(2)
+(3)
+(4)
+(5)
+(6)
+§ A.5 Recognition
+(2)
+(3)
+§ A.5.1 Recognition Types
+(2)
+Permalink
+Referenced in:
+§ 1. An Introduction to Privacy on the Web
+§ 1.2 Vulnerability
+§ 2.9 Protecting web users from abusive behaviour
+§ A.5.1 Recognition Types
+Permalink
+Referenced in:
+§ Best Practices Summary
+(2)
+§ 1. An Introduction to Privacy on the Web
+(2)
+(3)
+§ 2. Principles for Privacy on the Web
+(2)
+(3)
+§ 2.1 Identity on the Web
+(2)
+(3)
+(4)
+§ 2.4 Sensitive Information
+§ 2.11 Transparency
+§ A.1 People
+(2)
+§ A.2 Contexts
+(2)
+(3)
+§ A.4 Acting on Data
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+§ A.5 Recognition
+(2)
+§ A.5.1 Recognition Types
+(2)
+(3)
+(4)
+(5)
+(6)
+§ A.5.2 User agent awareness of recognition
+(2)
+(3)
+Permalink
+Referenced in:
+§ Best Practices Summary
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+(8)
+(9)
+(10)
+§ 1. An Introduction to Privacy on the Web
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+§ 1.1 Individual Autonomy
+§ 1.1.1 Opt-in, Consent, Opt-out, Global Controls
+(2)
+§ 1.1.2 Privacy Labor
+(2)
+(3)
+(4)
+(5)
+§ 1.2 Vulnerability
+§ 1.3 Collective Governance
+(2)
+§ 1.4 User Agents
+(2)
+§ 2.2 Data Minimization
+(2)
+§ 2.2.1 Ancillary uses
+§ 2.4 Sensitive Information
+(2)
+§ 2.5 Data Rights
+(2)
+(3)
+§ 2.6 De-identified Data
+(2)
+(3)
+(4)
+§ 2.9 Protecting web users from abusive behaviour
+(2)
+§ 2.10 Purpose limitation
+(2)
+§ 2.11 Transparency
+(2)
+§ 2.12 Consent, Withdrawal of Consent, Opt-Outs, and Objections
+(2)
+(3)
+(4)
+§ 2.14 Non-Retaliation
+(2)
+§ 2.15 Support Choosing Which Information to Present
+(2)
+§ A.1 People
+§ A.2 Contexts
+(2)
+§ A.3 Server-Side Actors
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+§ A.4 Acting on Data
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+(8)
+(9)
+(10)
+(11)
+Permalink
+Referenced in:
+§ A.3 Server-Side Actors
+Permalink
+Referenced in:
+§ 1.4 User Agents
+§ 2.6 De-identified Data
+(2)
+(3)
+§ A.3 Server-Side Actors
+(2)
+(3)
+Permalink
+Referenced in:
+§ 2.6 De-identified Data
+(2)
+(3)
+(4)
+(5)
+(6)
+Permalink
+Referenced in:
+§ Best Practices Summary
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+(8)
+§ 1. An Introduction to Privacy on the Web
+(2)
+(3)
+(4)
+(5)
+§ 1.1 Individual Autonomy
+(2)
+(3)
+§ 1.1.1 Opt-in, Consent, Opt-out, Global Controls
+(2)
+(3)
+§ 1.3 Collective Governance
+(2)
+§ 1.4 User Agents
+(2)
+(3)
+§ 1.5 Incorporating Different Privacy Principles
+§ 2.2 Data Minimization
+(2)
+(3)
+§ 2.2.1 Ancillary uses
+(2)
+(3)
+(4)
+(5)
+§ 2.2.1.1 Designing ancillary APIs that provide new information
+(2)
+(3)
+(4)
+(5)
+§ 2.5 Data Rights
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+(8)
+(9)
+§ 2.6 De-identified Data
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+(8)
+§ 2.14 Non-Retaliation
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+§ 2.15 Support Choosing Which Information to Present
+§ A.2 Contexts
+§ A.4 Acting on Data
+(2)
+(3)
+(4)
+(5)
+(6)
+Permalink
+Referenced in:
+§ 1.1.1 Opt-in, Consent, Opt-out, Global Controls
+(2)
+§ 2.4 Sensitive Information
+§ 2.6 De-identified Data
+(2)
+(3)
+(4)
+§ A.4 Acting on Data
+(2)
+(3)
+Permalink
+Referenced in:
+§ 1. An Introduction to Privacy on the Web
+(2)
+§ 1.1.2 Privacy Labor
+§ 1.3 Collective Governance
+(2)
+§ 2.5 Data Rights
+Permalink
+Referenced in:
+§ 1.3.1 Group Privacy
+§ A.2 Contexts
+Permalink
+Referenced in:
+§ 1.1 Individual Autonomy
+§ 1.1.1 Opt-in, Consent, Opt-out, Global Controls
+§ 1.1.2 Privacy Labor
+(2)
+§ 1.3 Collective Governance
+§ 1.4 User Agents
+§ 1.5 Incorporating Different Privacy Principles
+§ 2.3 Information access
+(2)
+§ 2.3.1 Unavoidable information exposure
+§ 2.6 De-identified Data
+§ A.5.1 Recognition Types
+Permalink
+Referenced in:
+§ 1.1.2 Privacy Labor
+(2)
+§ 1.4 User Agents
+§ A.5.1 Recognition Types
+(2)
+(3)
+Permalink
+Referenced in:
+§ Best Practices Summary
+(2)
+§ 1. An Introduction to Privacy on the Web
+(2)
+(3)
+§ 1.1 Individual Autonomy
+§ 1.1.1 Opt-in, Consent, Opt-out, Global Controls
+(2)
+(3)
+(4)
+(5)
+§ 1.1.2 Privacy Labor
+(2)
+(3)
+(4)
+§ 1.3 Collective Governance
+(2)
+§ 1.4 User Agents
+(2)
+(3)
+(4)
+(5)
+(6)
+§ 2.2.1 Ancillary uses
+§ 2.5 Data Rights
+§ 2.6 De-identified Data
+§ 2.7 Collective Privacy
+(2)
+(3)
+§ 2.12 Consent, Withdrawal of Consent, Opt-Outs, and Objections
+§ 2.14 Non-Retaliation
+§ A.3 Server-Side Actors
+(2)
+§ A.4 Acting on Data
+(2)
+(3)
+(4)
+(5)
+Permalink
+Referenced in:
+§ A.4 Acting on Data
+(2)
+(3)
+Permalink
+Referenced in:
+§ A.4 Acting on Data
+Permalink
+Referenced in:
+§ Best Practices Summary
+§ 1.1.1 Opt-in, Consent, Opt-out, Global Controls
+(2)
+(3)
+§ 1.3 Collective Governance
+(2)
+§ 2.6 De-identified Data
+§ 2.10 Purpose limitation
+§ A.4 Acting on Data
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+(8)
+Permalink
+Referenced in:
+§ A.4 Acting on Data
+(2)
+(3)
+(4)
+(5)
+Permalink
+Referenced in:
+§ A.4 Acting on Data
+(2)
+Permalink
+Referenced in:
+§ A.4 Acting on Data
+(2)
+(3)
+Permalink
+Referenced in:
+§ Best Practices Summary
+(2)
+§ 2.1 Identity on the Web
+(2)
+(3)
+(4)
+(5)
+§ 2.2 Data Minimization
+§ 2.11 Transparency
+(2)
+§ A.5 Recognition
+(2)
+§ A.5.1 Recognition Types
+(2)
+(3)
+(4)
+(5)
+(6)
+(7)
+(8)
+(9)
+§ A.5.2 User agent awareness of recognition
+Permalink
+Referenced in:
+§ 2.2.1 Ancillary uses
+§ 2.3 Information access
+§ A.5.1 Recognition Types
+(2)
+(3)
+(4)
+Permalink
+Referenced in:
+§ A.5.1 Recognition Types
+(2)
+Permalink
+Referenced in:
+§ A.5.1 Recognition Types
+Permalink
+Referenced in:
+§ 2.1 Identity on the Web
+§ 2.3 Information access
+§ A.5.1 Recognition Types
+(2)
+§ A.5.2 User agent awareness of recognition
+(2)
+(3)
+(4)

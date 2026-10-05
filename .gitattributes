@@ -9,3 +9,12 @@ wiki-llm/pubsub/sources/**/*.txt -diff -whitespace
 wiki-llm/pubsub/sources/**/*.html -diff -whitespace
 wiki-llm/pubsub/sources/** -text
 website/dist/assets/fonts/*-OFL.txt -text -whitespace
+
+# Preserve subscription council primary-source captures and retrieval hashes.
+wiki-llm/subscription-design-council/sources/** -text
+wiki-llm/subscription-design-council/sources/**/*.raw -diff -whitespace
+wiki-llm/subscription-design-council/sources/**/*.txt -diff -whitespace
+wiki-llm/subscription-design-council/sources/**/*.html -diff -whitespace
+
+# Keep independent model review bytes identical to their provenance hashes.
+wiki-llm/subscription-design-council/agents/** -text -whitespace

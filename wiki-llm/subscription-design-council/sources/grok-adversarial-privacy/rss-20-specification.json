@@ -1,0 +1,13 @@
+{
+  "url": "https://www.rssboard.org/rss-specification",
+  "retrieved_utc": "2026-10-05T20:28:32.516194+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "1610f254e9312593a67f6a58e7e7978b0d10c7cd247ec6d2382d1c6fd55079c9",
+  "text_sha256": "ce1d604ab02b49bfaa987fecf1b2ef00c24adb86f0a235672d5426ba8f9e3f96",
+  "bytes": 38676,
+  "text_bytes": 18693,
+  "final_url": "https://www.rssboard.org/rss-specification",
+  "accepted_source": true
+}

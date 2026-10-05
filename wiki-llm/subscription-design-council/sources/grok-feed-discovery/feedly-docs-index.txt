@@ -1,0 +1,390 @@
+Feedly Documentation
+Toggle Navigation
+Home 
+New to Feedly?  
+New to Feedly Threat Intelligence?  
+Collect  
+Analyze  
+Share  
+Contact Us  
+Search  
+Manage  
+Integrations  
+Apps and Extensions  
+Industry Add-Ons  
+Old - Getting Started  
+Old - Leo  
+Old - Feedly Business  
+Feedly Documentation
+Search
+No results found
+New to Feedly Threat Intelligence?
+AI Feeds
+Everything you need to know about Feedly Threat Intelligence AI Feeds.
+7
+ articles
+                                                                        
+                                
+Cyberattack Intel Agent
+Filter cyberattack intel to identify attack chains, victims, attributions, and more.
+6
+ articles
+                                                                        
+                                
+Vulnerability Intel Agent
+Discover, triage, research, and document high-risk CVEs faster with Feedly AI.
+5
+ articles
+                                                                        
+                                
+TTP Intel Agent
+Plan effective threat hunts or red-blue exercises with complete context.
+7
+ articles
+                                                                        
+                                
+MCP Server
+How to automate CTI workflows with AI Assistants and the Feedly Threat Graph
+4
+ articles
+                                                                        
+                                
+Cyberattack Insights Cards
+Everything you need to know about Cyberattack Insights Cards.
+5
+ articles
+                                                                        
+                                
+CVE Insights Cards
+Everything you need to know about Feedly Threat Intelligence CVE Insights Cards.
+5
+ articles
+                                                                        
+                                
+Malware Insights Cards
+Everything you need to know about Feedly Threat Intelligence Malware Insights Cards.
+5
+ articles
+                                                                        
+                                
+Microsoft Teams Integration
+Everything you need to know about Feedly Threat Intelligence MS Teams integration.
+1
+ article
+                                                                        
+                                
+Slack Integration
+Everything you need to know about Feedly Threat Intelligence Slack integration.
+1
+ article
+                                                                        
+                                
+API
+Everything you need to know about Feedly Threat Intelligence's API.
+1
+ article
+                                                                        
+                                
+New to Feedly?
+New to Feedly?
+Everything you need to know about getting started.
+1
+ article
+                                                                        
+                                
+Collect
+Feedly AI Feeds
+How to find relevant info across the web
+28
+ articles
+                                                                        
+                                
+Websites
+How to follow RSS feeds, Youtube, Medium, ...
+18
+ articles
+                                                                        
+                                
+RSS Builder
+How to follow websites that don’t support RSS
+10
+ articles
+                                                                        
+                                
+Newsletter Feeds
+How to follow Newsletters in Feedly
+12
+ articles
+                                                                        
+                                
+Mute Filters
+21
+ articles
+                                                                        
+                                
+Summarization
+3
+ articles
+                                                                        
+                                
+Deduplication
+5
+ articles
+                                                                        
+                                
+Strategic Moves
+14
+ articles
+                                                                        
+                                
+Twitter
+How to follow Twitter feeds
+3
+ articles
+                                                                        
+                                
+Reddit
+How to follow Reddit sources
+7
+ articles
+                                                                        
+                                
+Managing Feeds
+How to manage your feeds
+39
+ articles
+                                                                        
+                                
+Team Feeds
+How to organize and manage Team Feeds
+11
+ articles
+                                                                        
+                                
+Export, Import
+How to export and import your feeds and sources
+4
+ articles
+                                                                        
+                                
+Google News searches
+How to create and manage Google News searches
+9
+ articles
+                                                                        
+                                
+Mastodon
+How to share articles and follow Mastodon feeds
+2
+ articles
+                                                                        
+                                
+Facebook
+Following Facebook feeds in Feedly
+1
+ article
+                                                                        
+                                
+Telegram
+Following Telegram feeds in Feedly
+1
+ article
+                                                                        
+                                
+Analyze
+Ask AI Market Intelligence
+4
+ articles
+                                                                        
+                                
+Ask AI Threat Intelligence
+3
+ articles
+                                                                        
+                                
+Boards
+16
+ articles
+                                                                        
+                                
+Team Boards
+12
+ articles
+                                                                        
+                                
+Notes and Highlights
+5
+ articles
+                                                                        
+                                
+Share
+Bluesky
+1
+ article
+                                                                        
+                                
+Threads
+1
+ article
+                                                                        
+                                
+Automated Newsletters
+10
+ articles
+                                                                        
+                                
+Legacy Newsletters
+21
+ articles
+                                                                        
+                                
+Slack
+6
+ articles
+                                                                        
+                                
+Microsoft Teams
+5
+ articles
+                                                                        
+                                
+Buffer
+9
+ articles
+                                                                        
+                                
+Pocket
+4
+ articles
+                                                                        
+                                
+Evernote
+4
+ articles
+                                                                        
+                                
+OneNote
+5
+ articles
+                                                                        
+                                
+Custom Sharing
+2
+ articles
+                                                                        
+                                
+Email
+3
+ articles
+                                                                        
+                                
+LinkedIn
+2
+ articles
+                                                                        
+                                
+Twitter
+1
+ article
+                                                                        
+                                
+Contact Us
+Contact
+1
+ article
+                                                                        
+                                
+Search
+Within Your Feedly
+4
+ articles
+                                                                        
+                                
+Manage
+Team Users
+10
+ articles
+                                                                        
+                                
+Billing
+15
+ articles
+                                                                        
+                                
+Logins
+9
+ articles
+                                                                        
+                                
+Preferences
+6
+ articles
+                                                                        
+                                
+Privacy
+4
+ articles
+                                                                        
+                                
+Plans
+5
+ articles
+                                                                        
+                                
+Integrations
+Zapier
+4
+ articles
+                                                                        
+                                
+IFTTT
+4
+ articles
+                                                                        
+                                
+Dropbox
+8
+ articles
+                                                                        
+                                
+Enterprise Integrations
+12
+ articles
+                                                                        
+                                
+Apps and Extensions
+Web Application
+3
+ articles
+                                                                        
+                                
+iOS Application
+8
+ articles
+                                                                        
+                                
+Android Application
+7
+ articles
+                                                                        
+                                
+Industry Add-Ons
+Market Intelligence
+13
+ articles
+                                                                        
+                                
+Threat Intelligence
+12
+ articles
+                                                                        
+                                
+©
+    
+        
+Feedly
+
+    
+    2026. 
+Powered by 
+Help Scout

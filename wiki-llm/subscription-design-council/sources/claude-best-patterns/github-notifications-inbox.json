@@ -1,0 +1,28 @@
+{
+  "url": "https://docs.github.com/en/subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/managing-notifications-from-your-inbox",
+  "retrieved_utc": "2026-10-05T20:32:48.575771+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "c6d642caaf6de84688029a58b663c6b7c39097d4120c11fc350609261e7897d9",
+  "text_sha256": "cda0ddeb61d7d0383564ca0525a5be00db79e76e63e4593cbada2d725d66c90c",
+  "bytes": 126409,
+  "text_bytes": 4923,
+  "final_url": "https://docs.github.com/en/subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/managing-notifications-from-your-inbox",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/claude-best-patterns/github-notifications-inbox-tiles/docs.github.com_en_subscriptions-and-notifications_how-tos_viewing-and-triaging-notifications_managing-notifications-from-your-inbox.png.tiles/tile_0000.jpg",
+        "sha256": "6769ad7b9a25230f475a7651d5f74e2ce32e6a6067b06a720b9d81f3fa4ee326"
+      },
+      {
+        "path": "sources/claude-best-patterns/github-notifications-inbox-tiles/docs.github.com_en_subscriptions-and-notifications_how-tos_viewing-and-triaging-notifications_managing-notifications-from-your-inbox.png.tiles/tile_0001.jpg",
+        "sha256": "4dda6d489d06c74f955e7710b72772694bf7afc61df669c75570ec1e98dd6f2e"
+      }
+    ],
+    "stderr": "2026-10-05 14:32:50,148 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:33:06,368 INFO pixelrag_render.backends.cdp: [w0] https://docs.github.com/en/subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/managing-notifications-from-your-inbox \u2192 2 tiles (13.2s)\n2026-10-05 14:33:06,386 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 14:33:06,387 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

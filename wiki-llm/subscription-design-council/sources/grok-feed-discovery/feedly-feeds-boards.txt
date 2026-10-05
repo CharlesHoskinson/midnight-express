@@ -1,0 +1,94 @@
+How to use Team Feeds and Team Boards - Feedly Documentation
+Toggle Navigation
+Home 
+New to Feedly?  
+New to Feedly Threat Intelligence?  
+Collect  
+Analyze  
+Share  
+Contact Us  
+Search  
+Manage  
+Integrations  
+Apps and Extensions  
+Industry Add-Ons  
+Old - Getting Started  
+Old - Leo  
+Old - Feedly Business  
+How to use Team Feeds and Team Boards
+When you’re using Feedly as part of an enterprise team, it helps to understand how your 
+team feeds
+, 
+boards
+, and 
+personal feeds
+ work together, and why organizing them well makes your workflow smoother.
+Team Feeds
+What they are:
+Team Feeds automatically update as new content is published. They are organized into Folders, which you can expand or collapse. Team Feeds include:
+AI Feeds
+:
+ Powered by AI Models and filters to surface high-signal intel.
+RSS Feeds
+: Custom sources you or your team have added.
+Best practice:
+Keep 
+AI feeds
+ and 
+RSS feeds
+ in 
+separate folders
+. For example, you might prefix AI feed folders with “AI” to make them easy to spot.
+➜ Why? AI Feeds automatically filter out noise and surface relevant intel. RSS feeds pull in 
+everything,
+ so mixing them can muddy the signal.
+How to use:
+Click a 
+folder
+ to see all articles from feeds inside it at once.
+Or drill down into a specific AI feed if you want to focus on that topic only.
+Team Boards
+What they are:
+Boards are where you 
+manually save
+ and 
+organize
+ articles that matter most. They’re perfect for:
+Highlighting priority intel for the team.
+Building curated content for a newsletter or briefing.
+Adding 
+analyst notes
+ or context for others.
+How to use:
+Save an article from any feed to a board.
+Add comments or notes for your teammates.
+Tag people, assign follow-ups, or even share directly to Slack or email — right from Feedly.
+Personal Feeds & Boards
+What they are:
+Personal feeds and boards are 
+private,
+ only you can see them.
+When to use them:
+Researching sensitive topics that shouldn’t be shared with the full team yet.
+Working on a confidential request from leadership.
+Tracking personal interests or side projects (yes, you can track hobby topics too!).
+Did this answer your question?
+Thanks for the feedback
+There was a problem submitting your feedback. Please try again later.
+Yes
+No
+Last updated on August 11, 2025
+Toggle Search
+Categories
+Market Intelligence  
+Threat Intelligence  
+No results found
+©
+    
+        
+Feedly
+
+    
+    2026. 
+Powered by 
+Help Scout

@@ -1,0 +1,13 @@
+{
+  "url": "https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/",
+  "retrieved_utc": "2026-10-05T20:14:23.726990+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "97295ef7f2d8891030ca0e259c795b5b38de50c746f0316e47b2771aa2d2ef38",
+  "text_sha256": "1d4310773c178f80abc98f31869a2636e2114cf8b4b39876044f626752e0b422",
+  "bytes": 82438,
+  "text_bytes": 39420,
+  "final_url": "https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/",
+  "accepted_source": true
+}

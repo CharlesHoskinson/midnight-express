@@ -1,0 +1,32 @@
+{
+  "url": "https://www.w3.org/WAI/ARIA/apg/patterns/feed/",
+  "retrieved_utc": "2026-10-05T20:32:50.840107+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "3a438b03a06bcbc2ca61aa698f238ff2833b572e95cdfb97323444d77a30d1ea",
+  "text_sha256": "56b462fd3f90c9f87c50a8eeff1271d2057ebb8ec3c41d57edcf1743696d8df6",
+  "bytes": 41947,
+  "text_bytes": 7998,
+  "final_url": "https://www.w3.org/WAI/ARIA/apg/patterns/feed/",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/gemini-accessibility/wai-apg-feed-tiles/www.w3.org_WAI_ARIA_apg_patterns_feed.png.tiles/tile_0000.jpg",
+        "sha256": "5788f0cab3469d2c98fb4f63f03ceaf10cb7e9c2d8ed653c220950ede66df49d"
+      },
+      {
+        "path": "sources/gemini-accessibility/wai-apg-feed-tiles/www.w3.org_WAI_ARIA_apg_patterns_feed.png.tiles/tile_0001.jpg",
+        "sha256": "8fd4232d8d1c682c9206ea0aa2b25c614c5a01911a56cfb5c3bf88bb9180b2aa"
+      },
+      {
+        "path": "sources/gemini-accessibility/wai-apg-feed-tiles/www.w3.org_WAI_ARIA_apg_patterns_feed.png.tiles/tile_0002.jpg",
+        "sha256": "73a6be7e2871f7719c05a256de5d067482ebcd4391ff1466512fa473306df542"
+      }
+    ],
+    "stderr": "2026-10-05 14:32:51,906 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:32:59,051 INFO pixelrag_render.backends.cdp: [w0] https://www.w3.org/WAI/ARIA/apg/patterns/feed/ \u2192 3 tiles (3.5s)\n2026-10-05 14:32:59,068 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 14:32:59,068 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

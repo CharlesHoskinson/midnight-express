@@ -1,0 +1,13 @@
+{
+  "url": "https://developer.mozilla.org/robots.txt",
+  "retrieved_utc": "2026-10-05T20:27:23.506542+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "8f2712e11105e549aa4fa1ea4de6a9fd5292ee805d773d669ca98a9e0e54273a",
+  "text_sha256": "8f2712e11105e549aa4fa1ea4de6a9fd5292ee805d773d669ca98a9e0e54273a",
+  "bytes": 119,
+  "text_bytes": 119,
+  "final_url": "https://developer.mozilla.org/robots.txt",
+  "accepted_source": false
+}

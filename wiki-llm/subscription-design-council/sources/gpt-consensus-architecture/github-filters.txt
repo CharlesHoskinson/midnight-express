@@ -1,0 +1,204 @@
+Inbox filters - GitHub Docs
+Skip to main content
+Skip to content
+GitHub
+Docs
+Search or ask Copilot
+/
+Menu
+Collapse sidebar
+Expand sidebar
+Scroll breadcrumbs left
+Home
+Subscriptions & notifications
+Reference
+Inbox filters
+Scroll breadcrumbs right
+Subscriptions & notifications
+Get started
+Configuring notifications
+Concepts
+About notifications
+Scheduled reminders
+How-tos
+Manage subscriptions
+View subscriptions
+Manage your subscriptions
+Customize a workflow
+Manage from your inbox
+Triage a notification
+Manage organization notifications
+Manage Actions notifications
+Manage scheduled reminders
+Manage security notifications
+Manage marketing emails
+Tutorials
+Triage your notifications
+Reference
+Inbox filters
+Email notification headers
+Emails from GitHub
+In this article
+Inbox filters
+Learn about filtering notifications in your GitHub inbox.
+Copy markdown
+In this article
+Custom filter limitations
+Supported queries for custom filters
+Dependabot custom filters
+You can create custom filters for your inbox using the following supported filters. For more information about creating custom filters, see 
+Managing notifications from your inbox
+.
+Custom filter limitations
+Custom filters do not currently support:
+Full text search in your inbox, including searching for pull request or issue titles
+Distinguishing between the 
+is:issue
+, 
+is:pr
+, and 
+is:pull-request
+ query filters. These queries will return both issues and pull requests.
+Creating more than 15 custom filters
+Changing the default filters or their order
+Search 
+exclusion
+ using 
+NOT
+ or 
+-QUALIFIER
+Supported queries for custom filters
+These are the types of filters that you can use:
+Filter by repository with 
+repo:
+Filter by discussion type with 
+is:
+Filter by notification reason with 
+reason:
+Filter by notification author with 
+author:
+Filter by organization with 
+org:
+Supported 
+repo:
+ queries
+To add a 
+repo:
+ filter, you must include the owner of the repository in the query: 
+repo:owner/repository
+. An owner is the organization or the user who owns the GitHub asset that triggers the notification. For example, 
+repo:octo-org/octo-repo
+ will show notifications triggered in the octo-repo repository within the octo-org organization.
+Supported 
+is:
+ queries
+To filter notifications for specific activity on GitHub, you can use the 
+is
+ query. For example, to only see repository invitation updates, use 
+is:repository-invitation
+, and to only see Dependabot alerts, use 
+is:repository-vulnerability-alert
+.
+is:check-suite
+is:commit
+is:gist
+is:issue-or-pull-request
+is:release
+is:repository-invitation
+is:repository-vulnerability-alert
+is:repository-advisory
+is:discussion
+For information about reducing noise from notifications for Dependabot alerts, see 
+Configuring notifications for Dependabot alerts
+.
+You can also use the 
+is:
+ query to describe how the notification was triaged.
+is:saved
+is:done
+is:unread
+is:read
+Supported 
+reason:
+ queries
+To filter notifications by why you've received an update, you can use the 
+reason:
+ query. For example, to see notifications when you (or a team you're on) is requested to review a pull request, use 
+reason:review-requested
+. For more information, see 
+About notifications
+.
+Query
+Description
+reason:assign
+When there's an update on an issue or pull request you've been assigned to.
+reason:author
+When you opened a pull request or issue and there has been an update or new comment.
+reason:comment
+When you commented on an issue or pull request.
+reason:participating
+When you have commented on an issue or pull request or you have been @mentioned.
+reason:invitation
+When you're invited to a team, organization, or repository.
+reason:manual
+When you click 
+Subscribe
+ on an issue or pull request you weren't already subscribed to.
+reason:mention
+You were directly @mentioned.
+reason:review-requested
+You or a team you're on have been requested to review a pull request.
+reason:security-alert
+When a security alert is issued for a repository.
+reason:state-change
+When the state of a pull request or issue is changed. For example, an issue is closed or a pull request is merged.
+reason:team-mention
+When a team you're a member of is @mentioned.
+reason:ci-activity
+When a repository has a CI update, such as a new workflow run status.
+Supported 
+author:
+ queries
+To filter notifications by user, you can use the 
+author:
+ query. An author is the original author of the thread (for example: in an issue, pull request, gist, or discussion) for which you are being notified. For example, to see notifications for threads created by the Octocat user, use 
+author:octocat
+.
+Supported 
+org:
+ queries
+To filter notifications by organization, you can use the 
+org
+ query. The organization you need to specify in the query is the organization of the repository for which you are being notified on GitHub. This query is useful if you belong to several organizations, and want to see notifications for a specific organization.
+For example, to see notifications from the octo-org organization, use 
+org:octo-org
+.
+Dependabot custom filters
+If you use Dependabot to keep your dependencies up to date, you can use and save these custom filters:
+is:repository_vulnerability_alert
+ to show notifications for Dependabot alerts.
+reason:security_alert
+ to show notifications for Dependabot alerts and security update pull requests.
+author:app/dependabot
+ to show notifications generated by Dependabot. This includes Dependabot alerts, security update pull requests, and version update pull requests.
+For more information about Dependabot, see 
+Dependabot alerts
+.
+Back to top
+Help and support
+Was this Doc helpful?
+Yes
+No
+Help us make GitHub Docs great!
+All Docs are open source. See something that's wrong or unclear? Submit a pull request.
+Make a contribution
+Still need help?
+Ask the GitHub community
+Contact support
+Expert services
+Blog
+GitHub Inc. © 2026
+Terms
+Privacy
+Status
+Pricing

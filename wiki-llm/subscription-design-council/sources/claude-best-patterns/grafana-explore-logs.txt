@@ -1,0 +1,1256 @@
+Logs in Explore | Grafana documentation
+
+Searching...
+
+Site search
+
+
+Ask Grot AI
+Try using 
+Grot AI
+ for this query ->
+
+All
+
+Docs
+View all results
+No results.
+There was an error with your request.
+Grafana Labs is a Leader in the 2026 Gartner® Magic Quadrant™ for Observability Platforms.
+Learn more
+Downloads
+Contact Us
+Grafana Cloud
+Solutions
+Pricing
+Open Source
+Learn
+Docs
+ Company
+AI/Search
+Sign in
+Sign up
+Site Search
+Ask AI
+Documentation for automated readers
+A curated documentation index is available at: https://grafana.com/llms.txt
+A complete documentation index is available at: https://grafana.com/llms-full.txt
+These indexes can help with page discovery before fetching individual documents.
+This page is also available in Markdown, which may be easier for automated readers
+and AI tools to parse than HTML. The Markdown version is available at
+https://grafana.com/docs/grafana/latest/visualizations/explore/logs-integration.md, or by sending
+Accept: text/markdown to https://grafana.com/docs/grafana/latest/visualizations/explore/logs-integration/. For broader
+documentation discovery, the curated index is available at https://grafana.com/llms.txt
+and the complete index is available at https://grafana.com/llms-full.txt.
+Menu
+Documentation
+Grafana documentation
+Visualize data
+Explore
+Logs in Explore
+Grafana Cloud
+
+Enterprise
+
+Open source
+
+Logs in Explore
+Explore is a powerful tool for logging and log analysis. It allows you to investigate logs from different data sources including:
+Loki
+Elasticsearch
+Cloudwatch
+InfluxDB
+Azure Monitor
+ClickHouse
+With Explore, you can efficiently monitor, troubleshoot, and respond to incidents by analyzing your logs and identifying the root causes. It also helps you to correlate logs with other telemetry signals such as metrics, traces or profiles, by viewing them side-by-side.
+The results of log queries display as individual log lines and as a graph showing the logs volume for the selected time period.
+Logs volume
+When working with data sources that support a full range logs volume, Explore automatically displays a graph showing the log distribution for all submitted log queries. This feature is currently supported by the Elasticsearch and Loki data sources.
+Note
+In Loki, generating the full range log volume via a metric query can be resource-intensive, depending on the time range queried. This is especially challenging for smaller Loki installations. To mitigate this, we recommend that you use a proxy like 
+nginx
+ in front of Loki with a timeout like 10ss. Log volume histogram queries can be identified by looking for queries with the HTTP header 
+X-Query-Tags
+ with value 
+Source=logvolhist
+; these headers are added by Grafana to all log volume histogram queries.
+If the data source doesn’t support loading the full range logs volume, the logs model calculates a time series by counting log rows and organizing them into buckets based on an automatically calculated time interval. The timestamp of the first log row is used to anchor the start of the logs volume in the results. The end of the time series is anchored to the time picker’s 
+To
+ range. This way, you can still analyze and visualize log data efficiently even when the data source doesn’t offer full range support.
+Logs
+The following sections provide detailed explanations on how to visualize and interact with individual logs in Explore.
+Infinite scroll
+When you reach the bottom of the list of logs, you will see the message 
+Scroll to load more
+. If you continue scrolling and the displayed logs are within the selected time interval, Grafana will load more logs. When the sort order is “newest first” you receive older logs, and when the sort order is “oldest first” you get newer logs.
+Visualization options
+You have the option to customize the display of logs and choose which columns to show. Following is a list of available options.
+Expand table
+Option
+Description
+Expand / Collapse
+Expand or collapse the controls toolbar.
+Scroll to bottom
+Jump to the bottom of the logs table.
+Oldest Logs First / Newest logs first
+Sort direction (ascending or descending).
+Search logs / Close search
+Click to open/close the client side string search of the displayed logs result.
+Deduplication
+None
+ does not perform any deduplication, 
+Exact
+ matches are done on the whole line except for date fields. 
+Numbers
+ matches are done on the line after stripping out numbers such as durations, IP addresses, and so on. 
+Signature
+ is the most aggressive deduplication as it strips all letters and numbers and matches on the remaining whitespace and punctuation.
+Filter levels
+Filter logs in display by log level: All levels, Info, Debut, Warning, Error.
+Set Timestamp format
+Hide timestamps (disabled), Show milliseconds timestamps, Show nanoseconds timestamps.
+Set line wrap
+Disable line wrapping, Enable line wrapping, Enable line wrapping and prettify JSON.
+Enable highlighting
+Plain text, Highlight text.
+Font size
+Small font (default), Large font.
+Unescaped newlines
+Only displayed if the logs contain unescaped new lines. Click to unescape and display as new lines.
+Download logs
+Plain text (txt), JavaScript Object Notation (JSON), Comma-separated values (CSV)
+Download log lines
+This feature lets you save log data for further analysis or to share it with others in a convenient and accessible format.
+In Explore there are three export options:
+TXT
+ - will export the data as visible on the screen, meaning it will take into account formatting, like 
+line_format
+.
+JSON
+ - will export the raw data, regardless of the formatting, like 
+line_format
+.
+CSV
+ - will export the raw data, regardless of the formatting, like 
+line_format
+.
+Click 
+Download
+ and select 
+TXT
+, 
+JSON
+ or 
+CSV
+ to download log results.
+Log result meta information
+The following meta information displays above the retrieved log lines:
+Number of received logs -
+ Indicates the total count of logs received for the current query or time range.
+Error -
+ Displays any errors in your log results.
+Common labels -
+ Displays common labels.
+Total bytes processed -
+ Represents the cumulative size of the log data processed in bytes.
+Note
+The availability of certain metadata may vary depending on the data source, so you might only see details related to those specific data sources.
+Escaping newlines
+Explore automatically detects some incorrectly escaped sequences in log lines, such as newlines (
+\n
+, 
+\r
+) or tabs (
+\t
+). When it detects such sequences, Explore provides an 
+Escape newlines
+ option.
+To automatically fix incorrectly escaped sequences that Explore has detected:
+Click 
+Escape newlines
+ to replace the sequences.
+Review returned log lines.
+Explore replaces these sequences, changing the option from 
+Escape newlines
+ to 
+Remove escaping
+. Assess the changes, as the parsing may not be accurate based on the input. To revert the replacements, click 
+Remove escaping
+.
+Log level
+For logs where a 
+level
+ label is specified, the value of this label is used to determine the log level and update the color of each log line accordingly.
+If the log doesn’t have a specified level label, Grafana treats the log line as not containing a level and omits rendering any value for it.
+Refer to the following table for more information. The log level is always determined by the first match when level is defined.
+Tip
+When using the Loki data source, if 
+level
+ is part of your log line, you can use parsers such as 
+json
+, 
+logfmt
+, or 
+regex
+ to extract the level information into a level label. This label is used to determine the level value, allowing the histogram to display the various log levels as separate bars.
+Log levels supported and mapping of log level abbreviation and expressions:
+Expand table
+Log level
+Color
+Supported expressions
+critical
+purple
+emerg, emergency, fatal, alert, crit, critical, 0, 1, 2
+error
+red
+err, eror, error, 3
+warning
+yellow
+warn, warning, 4
+info
+blue
+info, information, informational, notice, 5, 6
+debug
+gray
+dbug, debug, 7
+trace
+light blue
+trace
+unknown
+gray
+*
+Highlight searched words
+When your query includes specific words or expressions for keyword search, Explore highlights them in log lines to enhance visibility. This highlighting feature facilitates easier identification and focus on the relevant content within your logs.
+Note
+The ability to highlight search words varies depending on data source. For some data sources, the highlighting of search words may not be available.
+Log details view
+In Explore, each log line has an expandable section called 
+Log details
+ that you open by clicking on the log line. The Log details view provides additional information and exploration options in the form of 
+Fields
+ and 
+Links
+ attached to the log lines, enabling a more robust interaction and analysis.
+Fields
+Within the 
+Log details
+ view, you have the ability to filter the displayed fields in two ways: a positive filter, which focuses on an specific field and a negative filter, which excludes certain fields.
+These filters modify the corresponding query that generated the log line, incorporating equality and inequality expressions accordingly.
+If the data source supports it, as is the case with Loki and Elasticsearch, log details will verify whether the field is already included in the current query, indicating an active state for positive filters. This enables you to toggle it off from the query or convert the filter expression from positive to negative as necessary.
+Click the 
+eye icon
+ to select a subset of fields to visualize in the logs list instead of the complete log line.
+Each field has a 
+stats icon
+, which displays ad-hoc statistics in relation to all displayed logs.
+For data sources that support log types, such as Loki, instead of a single view containing all fields, fields will be displayed grouped by their type: Indexed Labels, Parsed fields, and Structured Metadata.
+Links
+Grafana provides data links or correlations, allowing you to convert any part of a log message into an internal or external link. These links enable you to navigate to related data or external resources, offering a seamless and convenient way to explore additional information.
+Data link in Explore
+Log details modes
+There are two modes available to view log details:
+Inline
+ The default, displays log details below the log line.
+Sidebar
+ Displays log details in a sidebar view.
+No matter which display mode you are currently viewing, you can change it by clicking the mode control icon.
+Log context
+Log context is a feature that displays additional lines of context surrounding a log entry that matches a specific search query. This helps in understanding the context of the log entry and is similar to the 
+-C
+ parameter in the 
+grep
+ command.
+If you’re using Loki for your logs, to modify your log context queries, you can use the Loki log context query editor at the top of the table. You can activate this editor by clicking the menu for the log line, and selecting 
+Show context
+. Within the 
+Log Context
+ view, you have the option to modify your search by removing one or more label filters from the log stream. If your original query used a parser, you can refine your search by leveraging extracted label filters.
+Change the 
+Context time window
+ option to look for logs within a specific time interval around your log line.
+Toggle 
+Wrap lines
+ if you encounter long lines of text that make it difficult to read and analyze the context around log entries. By enabling this toggle, Grafana automatically wraps long lines of text to fit within the visible width of the viewer, making the log entries easier to read and understand.
+Click 
+Open in split view
+ to execute the context query for a log entry in a split screen in the Explore view. Clicking this button opens a new Explore pane with the context query displayed alongside the log entry, making it easier to analyze and understand the surrounding context.
+Use Command-click or Ctrl+click to open the log context query in a new browser to view the context model. All previously selected filters get applied.
+Copy log line
+Click 
+Copy log line
+ to copy the content of a selected log line to the clipboard.
+Copy link to log line
+Linking log lines in Grafana allows you to quickly navigate to specific log entries for detailed and precise analysis. Click 
+Copy shortlink
+ to generate and copy a
+
+short URL
+ that provides direct access to the exact log entry within an absolute time range. When you open the link, Grafana automatically scrolls to the corresponding log line and highlights it in blue, making it easy to identify and focus on relevant information.
+Note
+The short URL feature is currently only supported in Loki and other data sources that provide an 
+id
+ field.
+Live tailing
+Use the 
+Live tail
+ feature to view real-time logs from data sources.
+Click 
+Live
+ in the Explore toolbar to switch to Live tail view.
+In 
+Live tail view
+, new logs appear at the bottom of the screen, and have a contrasting background, allowing you to easily track what’s new.
+Click 
+Pause
+ to pause live tailing and explore previous logs without interruptions. or simply scroll through the logs view.
+Click 
+Clear logs
+ to remove all displayed logs. This action resets the log view and provides a clean slate to continue your log analysis
+Click 
+Resume
+ to resume live tailing and continue viewing real-time logs.
+Click 
+Stop
+ to exit live tailing and return to the standard Explore view.
+The 
+Live tailing feature
+ allows you to monitor the latest logs in real-time, making it easier to track events as they occur and promptly detect issues.
+Logs sample
+If the selected data source supports log samples and both log and metric queries, you will automatically see log line samples that contribute to the visualized metrics for metric queries. 
+This feature is currently only supported by the Loki data source.
+Switch from metrics to logs
+If you are transitioning from a metrics data source that implements 
+DataSourceWithQueryExportSupport
+ (such as Prometheus) to a logging data source that supports 
+DataSourceWithQueryImportSupport
+ (such as Loki), Explore retains the labels from your query that exist in the logs and use them to query the log streams.
+For example, after switching to the Loki data source, the Prometheus query 
+grafana_alerting_active_alerts{job="grafana"}
+ changes to 
+{job="grafana"}
+. This will retrieve a set of logs within the specified time range, which can be searched using grep or text search.
+Was this page helpful?
+ Yes
+ No
+Suggest an edit in GitHub
+Create a GitHub issue
+Email docs@grafana.com
+Help and support
+Community
+Related resources from Grafana Labs
+Additional helpful documentation, links, and articles:
+Video
+Getting started with managing your metrics, logs, and traces using Grafana
+In this webinar, we’ll demo how to get started using the LGTM Stack: Loki for logs, Grafana for visualization, Tempo for traces, and Mimir for metrics.
+Video
+Getting started with Grafana dashboard design
+In this webinar, you'll learn how to design stylish and easily accessible Grafana dashboards that tell a story.
+Video
+Building advanced Grafana dashboards
+In this webinar, we’ll demo how to build and format Grafana dashboards.
+Technical documentation
+Plugin catalog
+Choose a product
+Cloud
+Adaptive Telemetry
+AI and Machine Learning
+Alerting
+Application Observability
+Knowledge graph
+Cloud Provider Observability
+Database Observability
+Drilldown apps
+Fleet Management
+Frontend Observability
+IRM
+k6 Performance Testing
+Kubernetes Monitoring
+Logs
+Metrics
+Profiles
+Service Center
+SLO
+Synthetic Monitoring
+Traces
+Grafana Enterprise
+Alerting
+Drilldown apps
+Helm Charts
+Logs
+Metrics
+Traces
+Alerting
+Alloy
+Beyla
+Drilldown apps
+Faro
+Grafana
+Helm Charts
+k6
+k6 Studio
+Loki
+Mimir
+OpenTelemetry
+Pyroscope
+Tempo
+Federal Cloud
+Viewing: v13.2 (latest)
+Find another version
+Grafana documentation
+What's new
+What's new in Grafana v13.2
+What's new in Grafana v13.1
+What's new in Grafana v13.0
+What's new in Grafana v12.4
+What's new in Grafana v12.3
+What's new in Grafana v12.2
+What's new in Grafana v12.1
+What's new in Grafana v12.0
+What's new in Grafana v11.6
+What's new in Grafana v11.5
+What's new in Grafana v11.4
+What's new in Grafana v11.3
+What's new in Grafana v11.2
+What's new in Grafana v11.1
+What's new in Grafana v11.0
+What's new in Grafana v10.4
+What's new in Grafana v10.3
+What's new in Grafana v10.2
+What's new in Grafana v10.1
+What's new in Grafana v10.0
+What's new in Grafana v9.5
+What's new in Grafana v9.4
+What's new in Grafana v9.3
+What's new in Grafana v9.2
+Breaking changes
+Breaking changes in Grafana v11.0
+Breaking changes in Grafana v10.3
+Breaking changes in Grafana v10.0
+Upgrade Grafana
+Upgrade strategies
+Upgrade to v13.2
+Upgrade to v13.1
+Upgrade to v13.0
+Upgrade to v12.4
+Upgrade to v12.3
+Upgrade to v12.2
+Upgrade to v12.1
+Upgrade to v12.0
+Upgrade to v11.6
+Upgrade to v11.5
+Upgrade to v11.4
+Upgrade to v11.3
+Upgrade to v11.2
+Upgrade to v11.1
+Upgrade to v11.0
+Upgrade to v10.4
+Upgrade to v10.3
+Upgrade to v10.2
+Upgrade to v10.1
+Upgrade to v10.0
+Upgrade to v9.5
+Upgrade to v9.4
+Upgrade to v9.3
+Upgrade to v9.2
+Upgrade to v9.1
+Upgrade to v9.0
+Upgrade to v8.5
+Upgrade to v8.4
+Upgrade to v8.3
+Upgrade to v8.2
+Upgrade to v8.1
+Upgrade to v8.0
+About Grafana
+Grafana Enterprise
+Grafana Cloud
+Introduction
+What is Prometheus?
+Dashboard overview
+Introduction to time series
+Time series dimensions
+Histograms and heatmaps
+Exemplars
+Glossary
+Get started with Grafana Open Source
+Build your first dashboard
+Get started with Grafana and Prometheus
+Get started with Grafana and InfluxDB
+Get started with Grafana and MS SQL Server
+Set up
+Install Grafana
+Debian or Ubuntu
+RHEL or Fedora
+SUSE or openSUSE
+Grafana Docker image
+Grafana on Kubernetes
+Grafana on Helm Charts
+macOS
+Windows
+Configure Grafana
+Configure Grafana Enterprise
+Configure feature toggles
+Configure profiling and tracing
+Configure custom branding
+Settings updates at runtime
+Configure data source proxy
+Start Grafana
+Sign in to Grafana
+Configure security
+Configure database encryption
+Encrypt database secrets using Google Cloud KMS
+Encrypt database secrets using Hashicorp Vault
+Encrypt database secrets using AWS KMS
+Encrypt database secrets using Azure Key Vault
+Integrate Grafana with Hashicorp Vault
+Audit a Grafana instance
+Export logs of usage insights
+Configure secret scanning
+Configure request security
+Configure security hardening
+Configure access management
+Configure authentication
+Basic auth
+Anonymous access
+LDAP
+LDAP user interface
+Enhanced LDAP
+SAML
+SAML config file
+SAML user interface
+SAML configuration options
+Configure SAML signing and encryption
+Configure Role and Team sync for SAML
+Configure organization mapping for SAML
+Configure SAML single logout
+Configure SAML with Entra ID
+Configure SAML with Okta
+Configure SAML with Okta catalog application
+Troubleshooting
+Generic OAuth
+Microsoft Entra ID OAuth
+GitHub OAuth
+GitLab OAuth
+Google OAuth
+Grafana Cloud OAuth2
+Keycloak OAuth2
+Multiple providers with Keycloak
+Okta OIDC
+Auth proxy
+JWT
+Configure SCIM provisioning
+Manage users and teams with SCIM
+Configure SCIM with Entra ID
+Configure SCIM with Okta
+Troubleshoot SCIM
+Multi-team access
+Configure Team Sync
+Set up Grafana monitoring
+Set up HA
+Set up HTTPS
+Set up image rendering
+Troubleshooting
+Flags
+Set up Grafana Live
+Configure a Docker image
+Administration
+Back up Grafana
+Grafana Assistant
+Data source management
+Label Based Access Control (LBAC) for data sources
+Configure LBAC for a Loki data source
+Configure LBAC for data sources for Prometheus
+Create LBAC for data sources rules for a supported data source
+Configure team LBAC for data sources for Tempo
+Plugin management
+Types of plugins
+Install a plugin
+Plugin signatures
+Customize navigation placement of plugin pages
+Plugin backend communication
+Isolate plugin code with the Plugin Frontend Sandbox
+Grafana Advisor
+Manage Advisor with Grafana CLI
+Create an alert based on Advisor
+Grafana Teams
+Configure Grafana Teams
+Administer Grafana Teams
+Team folders
+Manage users
+Server user management
+Assign or remove Grafana server administrator privileges
+Add or remove a user in an organization
+Change a user's organization permissions
+Manage user preferences
+Manage users in an organization
+Manage dashboard permissions
+Roles and permissions
+Role-based access control (RBAC)
+Plan your RBAC rollout strategy
+Basic and fixed roles permissions
+RBAC permission actions and scopes
+Create custom roles
+Assign RBAC roles
+Manage RBAC roles
+Configure RBAC in Grafana
+Provisioning RBAC with Grafana
+Provisioning RBAC with Terraform
+RBAC for app plugins
+Plugin role definitions
+Troubleshooting RBAC
+Folder access control
+Manage organizations
+Organization preferences
+Admin with Grafana server CLI
+Provision Grafana
+Service accounts
+Migrate API keys
+Server stats and license
+Announcement banner
+Grafana Enterprise license
+Activate a Grafana Enterprise license purchased through AWS Marketplace
+Activate a Grafana Enterprise license from AWS Marketplace on EKS
+Activate a Grafana Enterprise license from AWS Marketplace on ECS
+Activate a Grafana Enterprise license from AWS on an instance deployed outside of AWS
+Manage your Grafana Enterprise license in AWS Marketplace
+Transfer your AWS Marketplace Grafana Enterprise license
+Correlations
+Correlation
+Permissions
+Add permissions
+Create a new correlation
+Use variables and transformations in a correlation
+Use correlations in visualizations
+Migrate
+Manually migrate to Grafana Cloud
+Migrate to Grafana Cloud using the Grafana Cloud Migration Assistant
+Search
+Recorded queries (deprecated)
+Data sources
+Concepts
+Alertmanager
+Amazon CloudWatch
+Configure
+AWS authentication
+Query editor
+Template variables
+Annotations
+Alerting
+Troubleshooting
+Azure Monitor
+Configure
+Query editor
+Template variables
+Annotations
+Alerting
+Troubleshooting
+Elasticsearch
+Configure
+Query editor
+Template variables
+Annotations
+Alerting
+Troubleshooting
+Google Cloud Monitoring
+Configure
+Google authentication
+Query editor
+Template variables
+Annotations
+Alerting
+Troubleshooting
+Graphite
+Configure
+Query editor
+Template variables
+Annotations
+Alerting
+Troubleshooting
+InfluxDB
+Configure
+Query editor
+Template variables
+Annotations
+Alerting
+Troubleshooting
+Jaeger
+Configure
+Query editor
+Troubleshooting
+Loki
+Configure
+Query editor
+Template variables
+Annotations
+Alerting
+Troubleshooting
+Microsoft SQL Server
+Configure
+Query editor
+Template variables
+Annotations
+Alerting
+Troubleshooting
+MySQL
+Configure
+Query editor
+Template variables
+Annotations
+Alerting
+Troubleshooting
+OpenTSDB
+Configure
+Query editor
+Template variables
+Alerting
+Annotations
+Troubleshooting
+Parca
+Configure
+Query editor
+Template variables
+Troubleshooting
+PostgreSQL
+Configure
+Query editor
+Template variables
+Annotations
+Alerting
+Troubleshooting
+Prometheus
+Configure
+Azure authentication (deprecated)
+AWS authentication (deprecated)
+Query editor
+Template variables
+Annotations
+Alerting
+Troubleshooting
+Pyroscope
+Configure
+Trace to profiles
+Query profile data
+Template variables
+Troubleshooting
+Tempo
+Configure Tempo
+Trace to logs
+Trace to metrics
+Trace to profiles
+Additional settings
+Provision
+Trace correlations
+Query tracing data
+Search traces
+Write TraceQL queries
+TraceQL query examples
+Service Graph and Service Graph view
+Span filters
+Troubleshooting
+TestData
+Configure
+Query editor
+Template variables
+Annotations
+Alerting
+Troubleshooting
+Zipkin
+Configure
+Query editor
+Template variables
+Troubleshooting
+General troubleshooting
+Alerting
+Introduction
+Alert rules
+Queries and conditions
+Labels and annotations
+Alert rule evaluation
+No Data and Error states
+Stale alert instances
+Alert rule state and health
+Evaluation within a group
+Notifications
+Contact points
+Notification policies
+Grouping
+Templates
+Configure alert rules
+Configure Grafana-managed alert rules
+Create and link alert rules to panels
+Import to Grafana-managed rules
+Configure data source-managed alert rules
+Create recording rules
+Create Grafana-managed recording rules
+Create data source-managed recording rules
+Migrate recorded queries
+Template annotations and labels
+Template reference
+Examples
+Template language
+Configure notifications
+Configure contact points
+Alertmanager
+Amazon SNS
+Discord
+Email
+Google Chat
+Grafana IRM
+Jira
+Microsoft Teams
+MQTT
+Opsgenie
+PagerDuty
+Slack
+Telegram
+Webhook
+Configure notification policies
+Configure mute timings and active time intervals
+Configure silences
+Configure inhibition rules
+Template notifications
+Manage templates
+Template reference
+Examples
+Template language
+Use images
+Monitor alerts
+Alerts overview page
+View alert rules
+View alert state
+View alert state history
+View notification history
+View active notifications
+Declare incidents from firing alerts
+Additional configuration
+Configure roles and permissions
+Configure RBAC
+Manage access using roles
+Manage access using folders or data sources
+Configure silence access
+Configure Alertmanagers
+Configure alert state history
+Provision Alerting resources
+Use configuration files to provision
+Use Terraform to provision
+Export alerting resources
+Use the HTTP API to manage alerting resources
+Configure high availability
+Meta monitoring
+Performance considerations and limitations
+Guides
+Best practices
+Handle connectivity errors
+Handle missing data
+When SLOs reduce alert noise
+Alerting on forecasts
+Examples
+Multi-dimensional alerts
+Table data
+Trace-based alerts
+Dynamic labels
+Dynamic thresholds
+High-cardinality alerts
+Tutorials
+Visualize data
+Dashboards
+Use dashboards
+Build dashboards
+Create dashboards
+Dashboard controls
+Dashboard groupings
+Create dashboards from templates and suggestions
+Filter and Group by
+Import dashboards
+Modify dashboard settings
+Manage dashboard links
+Dashboard URL variables
+Manage library panels
+Manage version history
+Annotate visualizations
+JSON model
+Best practices
+Manage dashboards
+Search dashboards
+Manage playlists
+Reporting
+Settings
+Sharing
+Shared dashboards
+Variables
+Add variables
+Global variables
+Advanced variable configurations
+Variable syntax
+Inspect variables
+Assess dashboard usage
+Troubleshoot dashboards
+Panels and visualizations
+Visualizations
+Time series
+Alert list
+Annotations list
+Bar chart
+Bar gauge
+Candlestick
+Canvas
+Dashboard list
+Flame graph
+Gauge
+Geomap
+Heatmap
+Histogram
+Logs
+News
+Node graph
+Pie chart
+Stat
+State timeline
+Status history
+Table
+Text
+Traces
+Trend
+XY chart
+Panel overview
+Panel editor
+The panel inspect view
+Query and transform data
+Write expression queries
+SQL expressions
+Share query results
+Transform data
+Troubleshoot queries
+Calculation types
+Configure panel options
+Configure standard options
+Configure a legend
+Configure tooltips
+Configure data links and actions
+Configure value mappings
+Configure thresholds
+Configure field overrides
+Explore
+Get started with Explore
+Query editor in Explore
+Query management in Explore
+Query inspector in Explore
+Correlations Editor in Explore
+Logs in Explore
+Traces in Explore
+Drilldown
+Metrics Drilldown
+About metrics and telemetry
+Get started
+Drill down your metrics
+Logs Drilldown
+Access or Install
+Configure
+Get started
+View logs
+Table
+JSON
+Labels and fields
+Log patterns
+Sorting and ordering
+Troubleshooting
+Traces Drilldown
+Access or install
+Concepts
+Traces and telemetry
+Trace structure
+Tempo and AI
+Glossary
+Get started
+Investigation walkthrough
+Determine your use case
+Investigate trends and spikes
+Choose span data
+Choose a RED metric
+Analyze tracing data
+Add filters
+Save and load queries
+View exemplars
+UI reference
+Profiles Drilldown
+Access or install
+Profile settings
+Concepts
+What is profiling?
+Continuous profiling
+Understand profiling types
+Flame graphs
+Get started
+Determine your use case
+Choose a view
+Investigate trends and spikes
+Use Flame graph AI
+As code
+Observability as code
+Grafana CLI
+gcx CLI
+Introduction to gcx
+Install gcx
+Configure gcx
+Migrate your gcx configuration
+Usage statistics
+Keychain credential storage
+grafanactl CLI (deprecated)
+Use grafanactl
+Foundation SDK
+Foundation SDK key concepts
+Automate dashboard provisioning with CI/CD
+Git Sync
+Key concepts
+Usage limitations
+Set up Git Sync
+Setup prerequisites
+Set up Git Sync as code
+Set up Git Sync with Terraform
+Instantaneous pulling and dashboard previews
+Add non-provisioned resources
+Work with provisioned repositories
+Work with provisioned dashboards
+Permissions and access control
+Git repository protection
+Deployment scenarios
+Single instance
+Across environments
+Regional replication
+Testing sandboxes
+High availability
+Shared instance
+On-prem file provisioning
+Set up file provisioning
+Infrastructure as code
+Terraform
+Create and manage a Grafana Cloud stack using Terraform
+Create and manage dashboards using Terraform and GitHub Actions
+Manage Grafana IRM in Grafana Cloud using Terraform
+Manage Knowledge Graph in Grafana Cloud using Terraform
+Get started
+Configure the Knowledge Graph stack
+Notification alerts
+Suppressed assertions
+Custom model rules
+Prometheus rules
+Log configurations
+Thresholds
+Trace configurations
+Profile configurations
+Provision with Terraform
+Manage Fleet Management in Grafana Cloud using Terraform
+Manage Frontend Observability in Grafana Cloud with Terraform
+Manage Cloud Provider Observability in Grafana Cloud using Terraform
+Install plugins in Grafana Cloud using Terraform
+Manage saved queries
+Ansible
+Manage stack using Ansible
+Grafana Operator
+Manage resources with the Grafana Operator
+Manage dashboards with ArgoCD
+Grizzly (deprecated)
+Troubleshooting
+Send panel to support
+Data sources diagnostic bundle
+Generate a HAR capture
+Developer resources
+OSS MCP server
+Introduction
+Clients
+Claude Desktop
+Cursor
+Codex CLI
+VS Code Copilot
+Claude Code
+Gemini CLI
+Windsurf
+Zed
+Set up
+Install with uvx
+Install with Docker
+Install the binary
+Deploy with Helm
+Client configuration examples
+Reference
+MCP tools
+Configure
+Authentication
+Transports and addresses
+Enable and disable tools
+Client TLS
+Server TLS
+Multi-organization and headers
+Command-line flags
+Health check
+Guides
+Query metrics with Prometheus
+Query logs with Loki
+Search and inspect dashboards
+Manage alert rules
+Generate deeplinks
+Run a panel query
+Incident
+Query metrics with InfluxDB
+Developer
+Go SDK
+Observability
+Build and test
+Usage statistics
+Troubleshooting
+Grafana version
+Contribute to Grafana
+Contributor License Agreement (CLA)
+Developer tools
+Grafana APIs
+HTTP API
+API Structure
+Migrate to new APIs
+Authentication
+Dashboard HTTP API
+Folder HTTP API
+Playlist HTTP API
+Resource History API
+Secrets Management HTTP API
+Legacy Grafana HTTP API
+Admin HTTP API
+Alerting Provisioning HTTP API
+Annotations HTTP API
+Correlations HTTP API
+Dashboard Permissions HTTP API
+Dashboard Versions HTTP API
+Data source HTTP API
+Data source LBAC rules HTTP API
+Data source permissions HTTP API
+Folder Permissions HTTP API
+Folder/Dashboard Search HTTP API
+Library Element HTTP API
+Licensing HTTP API
+Organization HTTP API
+Other HTTP API
+Preferences API
+Query and Resource Caching HTTP API
+Query History HTTP API
+RBAC HTTP API
+Reporting API
+Service account HTTP API
+Shared Dashboards HTTP API
+Short URL HTTP API
+Snapshot API
+SSO Settings API
+Team HTTP API
+Team Sync HTTP API
+User HTTP API
+Examples
+API Tutorial: Create Service Account tokens and dashboards for an organization
+cURL examples
+Grafana Cloud API
+Grafana Cloud tracing API
+Grafana Cloud Synthetic Monitoring API
+Copyright notice
+Scroll for more
+Read this in Grafana Cloud
+Is this page helpful?
+ Yes
+ No
+On this page
+Logs volume
+Logs
+Infinite scroll
+Visualization options
+Download log lines
+Log result meta information
+Escaping newlines
+Log level
+Highlight searched words
+Log details view
+Log context
+Copy log line
+Copy link to log line
+Live tailing
+Logs sample
+Switch from metrics to logs
+Scroll for more
+Still have questions?
+Ask your questions. Let AI do the heavy lifting.
+Get every update
+Subscribe to our newsletter
+Subscribe
+By submitting, you agree to our 
+Privacy policy
+Grafana Cloud
+Overview
+Pricing
+What's in the free tier?
+AI Assistant
+Agent Observability
+Application Observability
+Kubernetes Monitoring
+Dashboards & Visualization
+Database Observability
+Frontend Observability
+Synthetic Monitoring
+Performance & Load Testing
+Incident Response & Management
+AI Investigations
+What’s New
+Grafana Cloud Status
+Solutions
+AI Observability
+Full-Stack Observability
+Infrastructure & Cloud Observability
+Cloud Provider Observability
+Digital Experience Monitoring
+Scaled Prometheus
+Cost Management & Optimization
+Site Reliability
+Log Management
+Migrate to OpenTelemetry
+Integrations
+All Integrations
+All Plugins
+AWS
+Google Cloud
+Microsoft Azure
+Kubernetes
+Datadog
+New Relic
+Open Source
+Our Projects
+GitHub
+Downloads
+Dashboard Templates
+Learn
+Documentation
+Blog
+Community
+Events
+Observability Survey & Reports
+Company
+About Grafana Labs
+Careers
+Partnerships
+Newsroom
+Success Stories
+Contact Us
+Getting Help
+Professional Services
+Hey AI
+Compare
+Datadog vs. Grafana Cloud
+Dynatrace vs. Grafana Cloud
+Elasticsearch vs. Grafana Cloud
+New Relic vs. Grafana Cloud
+PagerDuty vs. Grafana Cloud
+Splunk vs. Grafana Cloud
+Donut take our word for it. Try 
+Grafana Cloud
+ today.
+Grafana Cloud Status
+Legal & Security
+Terms of Service
+Privacy Policy
+Trademark Policy
+Copyright 2026 © Grafana Labs
+Grafana Labs uses cookies for the normal operation of this website. 
+Learn more.
+Got it!

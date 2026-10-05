@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="utf-8"/>
+    <title>How can I search within my Feedly? - Feedly Documentation</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="When you need to find any article in your feeds, Boards, Feedly AI Feeds or outside your Feedly, you can use Power Search via the search icon in the left naviga"/>
+    <meta name="author" content="Feedly"/>
+    <link rel="canonical" href="https://docs.feedly.com/article/78-how-can-i-search-within-my-feedly"/>
+    
+        
+   
+            <meta name="twitter:card" content="summary"/>
+            <meta name="twitter:title" content="How can I search within my Feedly?" />
+            <meta name="twitter:description" content="When you need to find any article in your feeds, Boards, Feedly AI Feeds or outside your Feedly, you can use Power Search via the search icon in the left naviga"/>
+
+
+    
+
+    
+        <link rel="stylesheet" href="//d3eto7onm69fcz.cloudfront.net/assets/stylesheets/launch-1790673831894.css">
+    
+    <style>
+        body { background: #ffffff; }
+        .navbar .navbar-inner { background: #ffffff; }
+        .navbar .nav li a, 
+        .navbar .icon-private-w  { color: #b8b8b8; }
+        .navbar .brand, 
+        .navbar .nav li a:hover, 
+        .navbar .nav li a:focus, 
+        .navbar .nav .active a, 
+        .navbar .nav .active a:hover, 
+        .navbar .nav .active a:focus  { color: #b8b8b8; }
+        .navbar a:hover .icon-private-w, 
+        .navbar a:focus .icon-private-w, 
+        .navbar .active a .icon-private-w, 
+        .navbar .active a:hover .icon-private-w, 
+        .navbar .active a:focus .icon-private-w { color: #b8b8b8; }
+        #serp-dd .result a:hover,
+        #serp-dd .result > li.active,
+        #fullArticle strong a,
+        #fullArticle a strong,
+        .collection a,
+        .contentWrapper a,
+        .most-pop-articles .popArticles a,
+        .most-pop-articles .popArticles a:hover span,
+        .category-list .category .article-count,
+        .category-list .category:hover .article-count { color: #2bb24c; }
+        #fullArticle, 
+        #fullArticle p, 
+        #fullArticle ul, 
+        #fullArticle ol, 
+        #fullArticle li, 
+        #fullArticle div, 
+        #fullArticle blockquote, 
+        #fullArticle dd, 
+        #fullArticle table { color:#585858; }
+    </style>
+    
+        <link rel="stylesheet" href="//s1.feedly.com/helpscout/FeedlyKnowledgeBase.css">
+    
+    <link rel="apple-touch-icon-precomposed" href="//d33v4339jhl8k0.cloudfront.net/docs/assets/5abc898d2c7d3a0e9366d6c3/images/693c55db35862f03fd1c4a69/Frame-1073714196-(1).png">
+    <link rel="shortcut icon" type="image/png" href="//d33v4339jhl8k0.cloudfront.net/docs/assets/5abc898d2c7d3a0e9366d6c3/images/693c55dbcb9d3b0ea8ed81be/Frame-1073714196-(1).png">
+    <!--[if lt IE 9]>
+    
+        <script src="//d3eto7onm69fcz.cloudfront.net/assets/javascripts/html5shiv.min.js"></script>
+    
+    <![endif]-->
+    
+        <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"WebSite","url":"https://docs.feedly.com","potentialAction":{"@type":"SearchAction","target":"https://docs.feedly.com/search?query={query}","query-input":"required name=query"}}
+        </script>
+    
+        <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Feedly Documentation","item":"https://docs.feedly.com"},{"@type":"ListItem","position":2,"name":"Search","item":"https://docs.feedly.com/collection/417-search"},{"@type":"ListItem","position":3,"name":"How can I search within my Feedly?","item":"https://docs.feedly.com/article/78-how-can-i-search-within-my-feedly"}]}
+        </script>
+    
+    
+        <script type="text/javascript">!function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});</script>
+<script type="text/javascript">window.Beacon('init', '7dbc0d3a-e0eb-460b-8207-b72f0c11abd4')</script>
+    
+</head>
+    
+    <body>
+        
+<header id="mainNav" class="navbar">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="https://docs.feedly.com">
+            
+                
+                    <img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5abc898d2c7d3a0e9366d6c3/images/64d0c434ccffa67e9b0842a7/logo.png" alt="Feedly Documentation" width="300" height="42">
+                
+
+            
+            </a>
+            
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            
+            <div class="nav-collapse collapse">
+                <nav role="navigation"><!-- added for accessibility -->
+                <ul class="nav">
+                    
+                        <li id="home"><a href="/">Home <b class="caret"></b></a></li>
+                    
+                    
+                        
+                            <li  id="new-to-feedly"><a href="/collection/519-new-to-feedly">New to Feedly?  <b class="caret"></b></a></li>
+                        
+                            <li  id="new-to-feedly-threat-intelligence"><a href="/collection/760-new-to-feedly-threat-intelligence">New to Feedly Threat Intelligence?  <b class="caret"></b></a></li>
+                        
+                            <li  id="collect"><a href="/collection/408-collect">Collect  <b class="caret"></b></a></li>
+                        
+                            <li  id="analyze"><a href="/collection/411-analyze">Analyze  <b class="caret"></b></a></li>
+                        
+                            <li  id="share"><a href="/collection/414-share">Share  <b class="caret"></b></a></li>
+                        
+                            <li  id="contact-us"><a href="/collection/525-contact-us">Contact Us  <b class="caret"></b></a></li>
+                        
+                            <li  class="active"  id="search"><a href="/collection/417-search">Search  <b class="caret"></b></a></li>
+                        
+                            <li  id="manage"><a href="/collection/423-manage">Manage  <b class="caret"></b></a></li>
+                        
+                            <li  id="integrations"><a href="/collection/420-integrations">Integrations  <b class="caret"></b></a></li>
+                        
+                            <li  id="apps-and-extensions"><a href="/collection/426-apps-and-extensions">Apps and Extensions  <b class="caret"></b></a></li>
+                        
+                            <li  id="industry-add-ons"><a href="/collection/429-industry-add-ons">Industry Add-Ons  <b class="caret"></b></a></li>
+                        
+                            <li  id="old---getting-started"><a href="/collection/405-old---getting-started">Old - Getting Started  <b class="caret"></b></a></li>
+                        
+                            <li  id="old---leo"><a href="/collection/219-old---leo">Old - Leo  <b class="caret"></b></a></li>
+                        
+                            <li  id="old---feedly-business"><a href="/collection/10-old---feedly-business">Old - Feedly Business  <b class="caret"></b></a></li>
+                        
+                    
+                    
+                    
+                </ul>
+                </nav>
+            </div><!--/.nav-collapse -->
+        </div><!--/container-->
+    </div><!--/navbar-inner-->
+</header>
+        <section id="contentArea" class="container-fluid">
+            <div class="row-fluid">
+                <section id="main-content" class="span9">
+                    <div class="contentWrapper">
+                        
+    
+    <article id="fullArticle">
+        <h1 class="title">How can I search within my Feedly?</h1>
+    
+        <a href="javascript:window.print()" class="printArticle" title="Print this article" aria-label="Print this Article"><i class="icon-print"></i></a>
+        <p>When you need to find any article in your feeds, Boards,&nbsp;Feedly AI Feeds&nbsp;or outside your Feedly, you can use Power Search via the search icon in the left navigation bar&nbsp;or directly via <a href="https://feedly.com/i/powerSearch/in/">https://feedly.com/i/powerSearch/in/</a></p>
+<p><img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5abc898d2c7d3a0e9366d6c3/images/663d0ed05ae8353469c6b834/file-pWIn1ufal8.png" style="max-width: 100%; "></p>
+<h2>Refine your search results with search operators</h2>
+<p>You can type a search operator into the search bar to modify your search results. Using these search operators can further refine your search results. You can specify exactly what you’re looking for and&nbsp;look for specific terms in your search results.</p>
+<ul>
+ <li>The search setup screen contains the AND, OR, and NOT operators, which allow you to narrow your search results:
+  <ul>
+   <li>“<b>AND</b>” searches for stories that include two different topics.</li>
+   <li>“<b>OR</b>” searches for stories related to one topic or another.</li>
+   <li>“<b>NOT</b>” searches for one topic but prevents another related topic from appearing in your search results.</li>
+  </ul></li>
+ <li>You can use the dropdown on the right to limit the search to Everything or Title only.</li>
+ <li>You can use the dropdown options on the right of the search bar to limit your search by:
+  <ul>
+   <li>Date Published (Today, Last 7 days, Last 30 days, Forever, Custom Range)</li>
+   <li><b>sort</b> (Newest, Popularity)</li>
+   <li><strong>embed</strong> (Any Content, Video, Audio, Documents)<strong>.</strong></li>
+  </ul></li>
+ <li>To specify the search, you can also choose from the dropdown menu on the right to search within All Feeds, All Boards, Annotated, Recently Read, Beyond Your Feedly, Feedly AI Feeds, or specific Feeds and Boards.</li>
+</ul>
+<p><img src="//d33v4339jhl8k0.cloudfront.net/docs/assets/5abc898d2c7d3a0e9366d6c3/images/663d11cd7303ea4a739d42d8/file-cExd0i5tqw.png" style="max-width: 100%; "></p>
+    </article>
+    
+        <div class="articleRatings" data-article-url="https://docs.feedly.com/article/78-how-can-i-search-within-my-feedly">
+            <span class="articleRatings-question">Did this answer your question?</span>
+            <span class="articleRatings-feedback">
+                <span class="articleRatings-feedback-tick">
+                    <svg height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m8 14a.997.997 0 0 1 -.707-.293l-2-2a.999.999 0 1 1 1.414-1.414l1.293 1.293 4.293-4.293a.999.999 0 1 1 1.414 1.414l-5 5a.997.997 0 0 1 -.707.293" fill="#2CC683" fill-rule="evenodd"/>
+                    </svg>
+                </span>
+                <span class="articleRatings-feedback-message">Thanks for the feedback</span>
+            </span>
+            <span class="articleRatings-failure">There was a problem submitting your feedback. Please try again later.</span>
+            <div class="articleRatings-actions">
+                <button class="rateAction rateAction--positive" data-rating="positive">
+                    <span class="sr-only">Yes</span>
+                    <span class="rating-face">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                            <path fill-rule="evenodd" d="M5.538 14.026A19.392 19.392 0 0 1 12 12.923c2.26 0 4.432.388 6.462 1.103-1.087 2.61-3.571 4.436-6.462 4.436-2.891 0-5.375-1.825-6.462-4.436zm1.847-3.872a1.846 1.846 0 1 1 0-3.692 1.846 1.846 0 0 1 0 3.692zm9.23 0a1.846 1.846 0 1 1 0-3.692 1.846 1.846 0 0 1 0 3.692z"/>
+                        </svg>
+                    </span>
+                </button>
+                <button class="rateAction rateAction--negative" data-rating="negative">
+                    <span class="sr-only">No</span>
+                    <span class="rating-face">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                            <path fill-rule="evenodd" d="M7.385 13.846a1.846 1.846 0 1 1 0-3.692 1.846 1.846 0 0 1 0 3.692zm9.23 0a1.846 1.846 0 1 1 0-3.692 1.846 1.846 0 0 1 0 3.692zm-.967 4.95a.992.992 0 0 1-.615-.212c-1.701-1.349-4.364-1.349-6.065 0a.998.998 0 0 1-1.36-.123.895.895 0 0 1 .127-1.3A6.897 6.897 0 0 1 12 15.692c1.555 0 3.069.521 4.266 1.467.41.326.467.909.127 1.3a.982.982 0 0 1-.745.335z"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+     
+
+    <section class="articleFoot">
+    
+
+    <time class="lu" datetime=2024-05-09 >Last updated on May 9, 2024</time>
+    </section>
+
+                    </div><!--/contentWrapper-->
+                    
+                </section><!--/content-->
+                <aside id="sidebar" class="span3">
+                 
+
+<form action="/search" method="GET" id="searchBar" class="sm" autocomplete="off">
+    
+                    <input type="hidden" name="collectionId" value="5f92982ccff47e001a591647"/>
+                    <input type="text" name="query" title="search-query" class="search-query" placeholder="Search" value="" aria-label="Search" />
+                    <button type="submit">
+                        <span class="sr-only">Toggle Search</span>
+                        <i class="icon-search"></i>
+                    </button>
+                    <div id="serp-dd" style="display: none;" class="sb">
+                        <ul class="result">
+                        </ul>
+                    </div>
+                
+</form>
+
+                
+                    <h3>Categories</h3>
+                    <ul class="nav nav-list">
+                    
+                        
+                            <li  class="active" ><a href="/category/466-within-your-feedly">Within Your Feedly  <i class="icon-arrow"></i></a></li>
+                        
+                    
+                    </ul>
+                
+                </aside><!--/span-->
+            </div><!--/row-->
+            <div id="noResults" style="display:none;">No results found</div>
+            <footer>
+                
+
+<p>&copy;
+    
+        <a href="https://docs.feedly.com">Feedly</a>
+    
+    2026. <span>Powered by <a rel="nofollow noopener noreferrer" href="https://www.helpscout.com/docs-refer/?co=Feedly&utm_source=docs&utm_medium=footerlink&utm_campaign=Docs+Branding" target="_blank">Help Scout</a></span>
+    
+        
+    
+    
+</p>
+
+            </footer>
+        </section><!--/.fluid-container-->
+        
+        
+    <script src="//d3eto7onm69fcz.cloudfront.net/assets/javascripts/app4.min.js"></script>
+
+<script>
+// keep iOS links from opening safari
+if(("standalone" in window.navigator) && window.navigator.standalone){
+// If you want to prevent remote links in standalone web apps opening Mobile Safari, change 'remotes' to true
+var noddy, remotes = false;
+document.addEventListener('click', function(event) {
+noddy = event.target;
+while(noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
+noddy = noddy.parentNode;
+}
+
+if('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes)){
+event.preventDefault();
+document.location.href = noddy.href;
+}
+
+},false);
+}
+</script>
+        
+    </body>
+</html>
+
+

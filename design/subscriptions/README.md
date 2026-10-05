@@ -30,3 +30,8 @@ The script checks six compatible category profiles, predicate compatibility, cur
 - Label offline fixtures with exact event/context JCS hashes and October 4 noon trusted clock. Every accepted v0.2 reference result has `executes:false`; no browser schema check substitutes for current production authority or authenticated original wire.
 
 Finite checks validate configuration boundaries. Schema validation does not implement execution authority, durable consumers, transport privacy or global exactly-once effects.
+
+
+## Directory workspace recommendation
+
+The [subscription workspace design](directory-workspace.md) defines the researched replacement interface: directory-first discovery, independently scoped feeds, personal organization, historical information restoration and separate delivery attention. It is a recommendation, not the current dashboard implementation. Feed descriptors map to existing local intent bindings through an adapter; they add no fields to the closed intent or sealed business envelope. The [council archive](../../wiki-llm/subscription-design-council/README.md) records evidence and resolved disagreements.

@@ -1,0 +1,13 @@
+{
+  "url": "https://www.inoreader.com/blog/2024/11/organize-your-content-and-customize-your-account.html",
+  "retrieved_utc": "2026-10-05T20:09:17.543271+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "40ad5c7ef58e95ffb4f0f933059b4c1006316eeeba07515ae7a5051db84de77a",
+  "text_sha256": "6bcd4a6ea0b2ea60b2eb26b5af1d402288653098d86bae23e09aa5f1fa0b7172",
+  "bytes": 127878,
+  "text_bytes": 10883,
+  "final_url": "https://www.inoreader.com/blog/2024/11/organize-your-content-and-customize-your-account.html",
+  "accepted_source": true
+}

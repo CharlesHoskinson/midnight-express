@@ -1,0 +1,24 @@
+{
+  "url": "https://developer.apple.com/design/human-interface-guidelines/privacy",
+  "retrieved_utc": "2026-10-05T20:28:24.234846+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "18eb6cec62adf8cc4d4995b74d6c3b4c41d18fb792546c7d35efdf9b3b151687",
+  "text_sha256": "6b9d2d0cde381ed5e4bacb0f40801f90dceeb73e3185220ced4a9b59e76e7c9f",
+  "bytes": 17848,
+  "text_bytes": 154,
+  "final_url": "https://developer.apple.com/design/human-interface-guidelines/privacy",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/grok-adversarial-privacy/apple-hig-privacy-tiles/developer.apple.com_design_human-interface-guidelines_privacy.png.tiles/tile_0000.jpg",
+        "sha256": "9db82a9186f60d81d160661af4556790886fdc10face73b90961e6c56821c67e"
+      }
+    ],
+    "stderr": "2026-10-05 14:28:25,800 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:28:35,683 INFO pixelrag_render.backends.cdp: [w0] https://developer.apple.com/design/human-interface-guidelines/privacy \u2192 1 tiles (6.8s)\n2026-10-05 14:28:35,700 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 14:28:35,701 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

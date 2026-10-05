@@ -1,0 +1,973 @@
+Replay and purge messages with seek  |  Pub/Sub  |  Google Cloud Documentation
+
+      
+      Skip to main content
+    
+
+    Documentation
+  
+    
+close
+Get Started
+
+                      Get Started with Google Cloud
+                    
+
+                      Product List
+                    
+
+                      Cloud Customer Care
+                    
+Featured Products
+
+                      Agent Platform
+                    
+
+                      Apigee API Management
+                    
+
+                      BigQuery
+                    
+
+                      Compute Engine
+                    
+
+                      Cloud CDN
+                    
+
+                      Cloud Run
+                    
+
+                      Cloud Storage
+                    
+
+                      Cloud SQL
+                    
+
+                      Gemini Enterprise
+                    
+
+                      Google Kubernetes Engine
+                    
+
+                      Looker
+                    
+Cross-product Tools
+
+                      Access and resources management
+                    
+
+                      Costs and usage management
+                    
+
+                      Infrastructure as code
+                    
+
+                      SDK, languages, frameworks, and tools
+                    
+Technology Areas
+
+                      AI and ML
+                    
+
+                      Application development
+                    
+
+                      Application hosting
+                    
+
+                      Compute
+                    
+
+                      Data analytics and pipelines
+                    
+
+                      Databases
+                    
+
+                      Distributed, hybrid, and multicloud
+                    
+
+                      Industry solutions
+                    
+
+                      Migration
+                    
+
+                      Networking
+                    
+
+                      Observability and monitoring
+                    
+
+                      Security
+                    
+
+                      Storage
+                    
+/
+
+  Console
+
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어
+Sign in
+
+    
+          Pub/Sub
+        
+  
+Start free
+
+    Overview
+  
+    
+
+    Guides
+  
+    
+
+    Reference
+  
+    
+
+    Samples
+  
+    
+
+    Resources
+  
+    
+
+      Documentation
+   
+
+      More
+   
+
+      Overview
+   
+
+      Guides
+   
+
+      Reference
+   
+
+      Samples
+   
+
+      Resources
+   
+
+      Console
+   
+Discover
+Product overview
+Choose Pub/Sub or Cloud Managed Service for Apache Kafka
+Choose Pub/Sub or Cloud Tasks
+Pub/Sub architectural overview
+Pub/Sub reliability
+Pub/Sub Lite documentation
+Get started
+Pub/Sub service overview
+Publish and subscribe with client libraries
+Publish and subscribe with the gcloud CLI
+Publish and subscribe with the console
+Secure and control access
+Authenticate to Pub/Sub
+Access control for Pub/Sub
+Configure message encryption
+Configure message storage policies
+Create and manage tags
+Publish messages
+Publish message overview
+Create a topic
+Standard topic
+Amazon Kinesis Data Streams import topic
+Cloud Storage import topic
+Azure Event Hubs import topic
+Amazon Managed Streaming for Apache Kafka (MSK) import topic
+Confluent Cloud import topic
+Manage topics
+Change topic type
+Delete topics
+List topics
+Publish messages
+Configure publishing options
+Compress messages
+Retry requests
+Flow control
+Concurrency control
+Batch messaging
+Use schemas
+Associate a schema with a topic
+Publish messages to a topic with a schema
+Use SMTs
+Create a topic SMT
+Update a topic SMT
+Delete a topic SMT
+Best practices for publishing
+Receive messages
+Subscription overview
+Choose a subscription type
+How subscriptions work
+Pull subscriptions
+Push subscriptions
+BigQuery subscriptions
+Bigtable subscriptions
+Cloud Storage subscriptions
+Create a subscription
+Subscription properties
+Pull subscription
+Push subscription
+BigQuery subscription
+Bigtable subscription
+Cloud Storage subscription
+Manage subscriptions
+Change subscription type
+List subscriptions
+Detach a subscription from a topic
+Delete subscriptions
+Receive messages from pull subscriptions
+Use SMTs
+Create a subscription SMT
+Update a subscription SMT
+Delete a subscription SMT
+Configure delivery options
+Flow control
+Handle message failures
+Dead letter topics
+Subscription retry policy
+Message retention
+Replay and purge messages
+Lease management
+Order messages
+Filter messages
+Validate schemas
+Exactly-once delivery
+Concurrency control
+Authentication for push subscriptions
+Payload unwrapping
+Best practices for subscribing
+Validate and transform messages
+Schemas
+Schema overview
+Create a schema
+Commit a schema revision
+Delete a schema
+Delete a schema revision
+List schemas
+List revisions of a schema
+Roll back a schema revision
+View schema details
+Validate a schema definition
+Validate a message for a schema
+Single message transforms (SMTs)
+SMT overview
+Choose topic or subscription SMTs
+AI Inference SMT
+User-defined function (UDF) SMT
+Monitor and audit
+Monitor Pub/Sub in Cloud Monitoring
+Monitor topics within Pub/Sub
+Monitor subscriptions within Pub/Sub
+View Pub/Sub audit logs
+View Pub/Sub reports with labels
+Use OpenTelemetry tracing
+Best practices for metrics in scaling
+Build Pub/Sub systems
+Build a one-to-many Pub/Sub system
+Replay messages with seek
+Migrate from Kafka to Pub/Sub
+Use the Pub/Sub remote MCP server
+Test and integrate
+Test locally with Pub/Sub emulator
+Connect Pub/Sub to Apache Kafka
+Pub/Sub in Spring applications
+Pub/Sub with Cloud Run
+Integrate Pub/Sub with Cloud Functions
+Pub/Sub triggers in Cloud Functions
+Optical Character Recognition (OCR)
+Integrate Pub/Sub with Dataflow
+Stream from Pub/Sub to Cloud Storage with Dataflow
+Stream from Pub/Sub to BigQuery
+Stream with Pub/Sub and Dataflow
+Stream logs to Splunk using Pub/Sub and Dataflow
+Work with messages in App Engine
+Stream Pub/Sub messages over WebSockets
+Troubleshoot
+General troubleshooting
+Troubleshooting with audit logs
+Troubleshoot topics
+Troubleshoot standard topics
+Troubleshoot import topics
+Use platform logs to troubleshoot import topics
+Troubleshoot Amazon Kinesis Data Streams import topics
+Troubleshoot Cloud Storage import topics
+Troubleshoot Azure Events Hub import topics
+Troubleshoot Amazon MSK import topics
+Troubleshoot Confluent Cloud import topics
+Troubleshoot subscriptions
+Troubleshoot pull subscriptions
+Troubleshoot push subscriptions
+Troubleshoot push payload unwrapping
+Troubleshoot BigQuery subscriptions
+Troubleshoot Bigtable subscriptions
+Troubleshoot Cloud Storage subscriptions
+Troubleshoot subscriptions with SMTs
+Troubleshoot with GCPDiag
+Troubleshoot pull subscriptions with GCPDiag
+Code samples
+Pub/Sub code samples
+
+      Get Started
+   
+
+      Get Started with Google Cloud
+   
+
+      Product List
+   
+
+      Cloud Customer Care
+   
+
+      Featured Products
+   
+
+      Agent Platform
+   
+
+      Apigee API Management
+   
+
+      BigQuery
+   
+
+      Compute Engine
+   
+
+      Cloud CDN
+   
+
+      Cloud Run
+   
+
+      Cloud Storage
+   
+
+      Cloud SQL
+   
+
+      Gemini Enterprise
+   
+
+      Google Kubernetes Engine
+   
+
+      Looker
+   
+
+      Cross-product Tools
+   
+
+      Access and resources management
+   
+
+      Costs and usage management
+   
+
+      Infrastructure as code
+   
+
+      SDK, languages, frameworks, and tools
+   
+
+      Technology Areas
+   
+
+      AI and ML
+   
+
+      Application development
+   
+
+      Application hosting
+   
+
+      Compute
+   
+
+      Data analytics and pipelines
+   
+
+      Databases
+   
+
+      Distributed, hybrid, and multicloud
+   
+
+      Industry solutions
+   
+
+      Migration
+   
+
+      Networking
+   
+
+      Observability and monitoring
+   
+
+      Security
+   
+
+      Storage
+   
+
+    
+          Home
+        
+  
+
+    
+          Documentation
+        
+  
+
+    
+          Data analytics
+        
+  
+
+    
+          Pub/Sub
+        
+  
+
+    
+          Guides
+        
+  
+
+  
+    
+    Send feedback
+  
+  
+
+      Replay and purge messages with seek
+
+      
+      Stay organized with collections
+    
+
+      
+      Save and categorize content based on your preferences.
+    
+After you acknowledge messages in Pub/Sub, these messages become
+inaccessible to the subscriber client. In addition, subscriber clients must
+process every message in a subscription even if only a subset is needed.
+The 
+seek
+ feature extends subscriber capabilities by
+allowing you to alter the acknowledgment state of messages in bulk. For
+example, you can replay previously acknowledged messages or purge messages in
+bulk. In addition, you can copy the acknowledgment state of one subscription
+to another by using seek in combination with a 
+snapshot
+.
+For a quick demonstration of how these features work, see
+
+Replay a message in Pub/Sub by seeking to a snapshot or timestamp
+.
+Snapshot and seek overview
+A Pub/Sub snapshot is a durable, consistent, and reliable
+point-in-time view of the message acknowledgment (ack) state of a subscription.
+A snapshot records the acknowledgment state of all the messages within a
+subscription at the moment of its creation. A snapshot retains the
+unacknowledged messages of the source subscription at the time of creation of
+the snapshot, and any messages published to the topic after the snapshot is
+created.
+The lifetime of a snapshot is determined by the existing backlog of the source
+subscription. The lifetime equals 7 days minus the age of the oldest
+unacknowledged message in the subscription. For example, consider a snapshot of
+a subscription with a backlog where the oldest unacknowledged message is 1 day
+old. The snapshot expires after 6 days. This timeline is necessary for snapshots
+to offer strong at-least-once delivery guarantee.
+The maximum possible lifetime of a snapshot is seven days.
+You cannot create a snapshot that would expire in less than 1 hour after the
+time of its creation.
+The seek feature lets you seek to a specific snapshot or timestamp for a
+subscription. This feature lets you control how Pub/Sub can
+deliver messages from a specific point in time or from a specific snapshot.
+To seek to a time in the past and replay previously-acknowledged messages, you
+must configure message retention on the topic, or configure the subscription to
+retain acknowledged messages. For more information, see the following:
+Enable topic message retention
+Configure message retention for a subscription
+Eventual consistency of seek operations
+Seek operations are strictly consistent in regard to the message delivery
+guarantee. This means that any message that is to become unacknowledged based
+on the seek condition is guaranteed to be eventually delivered
+after the seek operation succeeds. However, delivered messages don't instantly
+become consistent with the seek operation. So a message that was published
+before the seek timestamp or that is acknowledged in a snapshot might be
+delivered after the seek operation. In a sense, message delivery operates as an
+eventually consistent system with respect to the seek operation; it might take
+as long as a minute for the operation to take full effect.
+Use cases for seek operations
+Update subscriber code safely.
+ A concern with deploying new subscriber
+code is that the new executable may erroneously acknowledge messages,
+leading to message loss. Incorporating snapshots into your deployment
+process gives you a way to recover from bugs in new subscriber code.
+Recover from unexpected subscriber problems.
+ In cases where subscriber
+problems are not associated with a specific deployment event, you might not
+have a relevant snapshot. In this case, if you have enabled 
+acknowledged
+message retention
+ for a subscription, seeking to a time in the past gives
+you a way to recover from the error.
+Save processing time and cost.
+ Perform a bulk acknowledgment on a large
+backlog of messages that are no longer relevant.
+Test subscriber code on known data.
+ When testing subscriber code for
+performance and consistency, it is useful to use the same data in every run.
+Snapshots enable consistent data with strong semantics. In addition,
+snapshots can be applied to any subscription on a given topic, including a
+newly created one.
+Create a snapshot
+You can create a snapshot using the console, the Google APIs, or the
+Google Cloud CLI CLI.
+Console
+To create a snapshot, follow these steps:
+In the Google Cloud console, go to the 
+Snapshots
+ page.
+Go to the snapshots page
+Click 
+Create snapshot
+.
+For 
+Select a Pub/Sub subscription
+, select a subscription.
+For 
+Snapshot ID
+, enter a name for the snapshot.
+For more information on how to name Pub/Sub resources, see
+
+Guidelines to name a topic, subscription, schema, or snapshot
+.
+Click 
+Create
+ to create the snapshot.
+You can also create a snapshot from the 
+Subscriptions
+ page. If you
+create a snapshot immediately after creating a subscription, you might get
+an error due to the propagation delay for the newly-created subscription.
+gcloud
+To create a snapshot, use the
+following
+
+gcloud pubsub snapshots create
+
+command:
+gcloud
+pubsub
+snapshots
+create
+\
+--project
+=
+PROJECT_ID
+\
+--subscription
+=
+SUBSCRIPTION_ID
+\
+SNAPSHOT_ID
+Replace the following:
+PROJECT_ID
+. Specifies the ID of the project.
+SUBSCRIPTION_ID
+. Specifies the ID of the subscription.
+SNAPSHOT_ID
+. Specifies the ID of the snapshot.
+Seek to a timestamp
+Seeking to a time marks every message received by Pub/Sub before
+the time as acknowledged, and all messages received after the time as
+unacknowledged.
+You can perform the following types of seek operations based on timestamps:
+To purge all messages, you can seek to a time in the future.
+To replay and reprocess previously acknowledged messages, seek to a
+time in the past.
+The message publication time is generated by the Pub/Sub
+servers (see
+
+publishTime
+
+in the API reference). This approach is imprecise due to the following reasons:
+Possible clock skew among Pub/Sub servers.
+The fact that Pub/Sub has to work with the arrival time of
+the publish request rather than when an event occurred in the source system.
+You can seek to a timestamp using the console, the Google APIs, or the
+Google Cloud CLI CLI. Before you seek to a timestamp on a subscription,
+ensure that message retention is enabled on the subscription.
+Console
+To seek to a timestamp, follow these steps:
+In the Google Cloud console, go to the 
+Subscription
+ page.
+Go to Subscription
+Click a subscription which has message retention enabled.
+In the subscription details page, click 
+Replay messages
+.
+For 
+Seek
+, click 
+To a previous time point
+.
+Select an appropriate date and time and then click 
+Seek
+.
+gcloud
+To seek to a timestamp, use the
+following
+
+gcloud pubsub subscriptions seek
+
+command:
+gcloud
+pubsub
+subscriptions
+seek
+SUBSCRIPTION_ID
+\
+--time
+=
+TIME
+\
+Replace the following:
+TIME
+: the time to which you want to perform the
+seek operation.
+SUBSCRIPTION_ID
+: the ID of the subscription.
+For more information about supported time formats, see
+
+gcloud topic datetimes
+.
+Seek to a snapshot
+You can replay unacknowledged messages by using a snapshot to seek to any
+of the topic's subscriptions.
+Unlike with seeking to a time, you don't need to perform any special
+subscription configuration to seek to a snapshot. You just need to create the
+snapshot ahead of time. For example, you might create a snapshot when deploying
+new subscriber code, in case you need to recover from unexpected or erroneous
+acknowledgments.
+If the backlog in the subscription is too old and the resulting snapshot
+would expire in less than 1 hour, the seek operation fails.
+You can seek to a snapshot using the console, the Google APIs, or the
+Google Cloud CLI CLI.
+Console
+To seek to a snapshot, follow these steps:
+In the Google Cloud console, go to the 
+Subscription
+ page.
+Go to Subscription
+Click a subscription.
+In the subscription details page, click 
+Replay messages
+.
+For 
+Seek
+, click 
+To a snapshot
+.
+Select an appropriate snapshot and then click 
+Seek
+.
+gcloud
+To seek to a snapshot, use the
+following
+
+gcloud pubsub subscriptions seek
+
+command:
+gcloud
+pubsub
+subscriptions
+seek
+SUBSCRIPTION_ID
+\
+--snapshot
+=
+SNAPSHOT_ID
+Replace the following:
+SNAPSHOT_ID
+: the ID of a snapshot.
+The snapshot's topic must be the same as that of the subscription.
+SUBSCRIPTION_ID
+: the ID of the subscription.
+Seek with filters
+You can replay messages from subscriptions with filters. If you seek to a
+timestamp using a subscription with a filter, the Pub/Sub service
+only redelivers the messages that match the filter.
+A snapshot of a subscription with a filter contains the following messages:
+All messages that are newer than the snapshot, including messages that don't
+match the filter.
+Unacknowledged messages that are older than the snapshot.
+Note:
+ The snapshot might contain messages that are older than the snapshot and
+don't match the filter.
+If you seek to a snapshot using a subscription with a filter, the
+Pub/Sub service only redelivers the messages in the snapshot that
+match the filter of the subscription making the seek request.
+For more information about filters, see
+
+Filtering messages
+.
+Seek with dead-letter topics
+If you seek messages in a subscription with a dead-letter topic,
+Pub/Sub sets the delivery attempts to 
+0
+. The messages that you
+receive from these subscriptions have a field that tallies the number of
+delivery attempts.
+For more information about dead-letter topics, see
+
+Forwarding to dead-letter topics
+.
+Seek with retry policies
+If you seek messages in a subscription with a retry policy, Pub/Sub resets the delay between the following:
+The acknowledgment deadline expiring or the subscriber sending a negative
+acknowledgment.
+Pub/Sub resending the message.
+For more information about retry policies, see
+
+Using retry policies
+.
+Seek with exactly once delivery
+If you seek messages in a subscription with exactly once delivery,
+Pub/Sub resends the previously acknowledged messages that are
+eligible for delivery. Any acknowledgments, for a delivery made before the seek
+operation, will fail. Seek operations are
+
+eventually consistent
+.
+For more information about retry policies, see
+
+Exactly once delivery
+.
+
+  
+    
+    Send feedback
+  
+  
+Except as otherwise noted, the content of this page is licensed under the 
+Creative Commons Attribution 4.0 License
+, and code samples are licensed under the 
+Apache 2.0 License
+. For details, see the 
+Google Developers Site Policies
+. Java is a registered trademark of Oracle and/or its affiliates.
+Last updated 2026-09-30 UTC.
+
+  
+    Need to tell us more?
+  
+  
+
+      [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-30 UTC."],[],[]]
+    
+Products and pricing
+
+            
+          
+            See all products
+          
+          
+
+            
+          
+            Google Cloud pricing
+          
+          
+
+            
+          
+            Google Cloud Marketplace
+          
+          
+
+            
+              
+              
+            
+          
+            Contact sales
+          
+          
+Support
+
+            
+          
+            Community forums
+          
+          
+
+            
+          
+            Support
+          
+          
+
+            
+          
+            Release Notes
+          
+          
+
+            
+              
+              
+            
+          
+            System status
+          
+          
+Resources
+
+            
+          
+            GitHub
+          
+          
+
+            
+          
+            Getting Started with Google Cloud
+          
+          
+
+            
+          
+            Code samples
+          
+          
+
+            
+          
+            Cloud Architecture Center
+          
+          
+
+            
+              
+              
+            
+          
+            Training and Certification
+          
+          
+Engage
+
+            
+          
+            Blog
+          
+          
+
+            
+          
+            Events
+          
+          
+
+            
+          
+            X (Twitter)
+          
+          
+
+            
+          
+            Google Cloud on YouTube
+          
+          
+
+            
+              
+              
+            
+          
+            Google Cloud Tech on YouTube
+          
+          
+
+          Android
+        
+
+          Chrome
+        
+
+          Firebase
+        
+
+          Google AI
+        
+
+          About Google
+        
+
+          Privacy
+        
+
+          Site terms
+        
+
+          Google Cloud terms
+        
+
+          Manage cookies
+        
+
+          Our third decade of climate action: join us
+        
+Sign up for the Google Cloud newsletter
+
+          Subscribe
+        
+English
+Deutsch
+Español
+Español – América Latina
+Français
+Indonesia
+Italiano
+Português
+Português – Brasil
+עברית
+中文 – 简体
+中文 – 繁體
+日本語
+한국어

@@ -1,0 +1,13 @@
+{
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage",
+  "retrieved_utc": "2026-10-05T20:28:29.360070+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "2d40cb7f9354eaea68c4fca55fc48d66a48ccfab18e7cee63f04c63de3b70c7c",
+  "text_sha256": "ca6171e1bb7c852183e0e2b3b6bd91f11b52ca0e12f4e0ba2516084409d66e57",
+  "bytes": 176810,
+  "text_bytes": 9910,
+  "final_url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage",
+  "accepted_source": true
+}

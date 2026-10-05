@@ -1,0 +1,19 @@
+{
+  "url": "https://web.dev/articles/storage-for-the-web",
+  "retrieved_utc": "2026-10-05T20:17:33.389768+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "72c6f42bd287c76707071c728e6f66ba63b25223cc7f8011f40b1332dc34af33",
+  "text_sha256": "24acea2316467d1f5c3b5aa550bf93abea871946ad8f5b40ead73c929f369b8e",
+  "bytes": 109045,
+  "text_bytes": 18143,
+  "final_url": "https://web.dev/articles/storage-for-the-web",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 1,
+    "tiles": [],
+    "stderr": "2026-10-05 14:17:34,881 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 14:17:45,847 WARNING pixelrag_render.backends.cdp: [w0] FAIL https://web.dev/articles/storage-for-the-web: no close frame received or sent\n2026-10-05 14:17:45,865 INFO pixelrag_render.backends.cdp: Batch complete: done=0 failed=1\n2026-10-05 14:17:45,866 WARNING pixelrag_render.render: No outputs produced.\n",
+    "verified_capture": false
+  }
+}

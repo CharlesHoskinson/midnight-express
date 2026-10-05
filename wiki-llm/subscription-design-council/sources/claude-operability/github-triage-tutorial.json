@@ -1,0 +1,17 @@
+{
+  "url": "https://docs.github.com/en/subscriptions-and-notifications/tutorials/triage-your-notifications",
+  "retrieved_utc": "2026-10-05T20:24:40.189745+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 404,
+  "raw_sha256": "979615bad4719ae23bf76385ee60de8b1b05c785ce74497dee80ecb54c69c522",
+  "text_sha256": "408ae5c509b2a468545bbd0070213f1b62822f1242fad77768350132718675a4",
+  "bytes": 502,
+  "text_bytes": 107,
+  "final_url": "https://docs.github.com/en/subscriptions-and-notifications/tutorials/triage-your-notifications",
+  "accepted_source": false,
+  "visual": {
+    "verified_capture": false,
+    "rejected": "404 error page captured; tiles deleted; not used as evidence"
+  }
+}

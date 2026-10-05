@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.github.com/en/subscriptions-and-notifications/reference/inbox-filters",
+  "retrieved_utc": "2026-10-05T20:08:55.552266+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "157f6037be538795c6ddbe834da18b945cb0fa214ecfa7f5f8b0ed7241104535",
+  "text_sha256": "d5ae246aebeb30e298fbd6ff67a61f031fa189abf11cb9cf5fd96e0e2b57849e",
+  "bytes": 116576,
+  "text_bytes": 5888,
+  "final_url": "https://docs.github.com/en/subscriptions-and-notifications/reference/inbox-filters",
+  "accepted_source": true
+}

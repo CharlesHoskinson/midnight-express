@@ -1,0 +1,298 @@
+Organize and customize feeds in Inoreader | Inoreader blog
+inoreader-logo
+Start 15-Day Trial                
+Home
+Features
+Enterprise
+Pricing
+Blog
+Contact
+en
+
+                                Čeština                            
+
+                                English                            
+
+                                Español                            
+
+                                Français                            
+
+                                Italiano                            
+
+                                Magyar                            
+
+                                Nederlands                            
+
+                                Polski                            
+
+                                Slovenčina                            
+
+                                Български                            
+
+                                Українська                            
+
+                                پارسی                             
+
+                                中文(简体)                            
+
+                                日本語                            
+Sign in
+Create account
+en
+
+                                Čeština                            
+
+                                English                            
+
+                                Español                            
+
+                                Français                            
+
+                                Italiano                            
+
+                                Magyar                            
+
+                                Nederlands                            
+
+                                Polski                            
+
+                                Slovenčina                            
+
+                                Български                            
+
+                                Українська                            
+
+                                پارسی                             
+
+                                中文(简体)                            
+
+                                日本語                            
+
+        Blog    
+
+                Back to Blog            
+Organize and customize feeds in Inoreader
+Oct 2, 2020
+|
+ How-to                            
+After you’ve added your first feeds, it’s time to arrange them according to your preferences. Let’s start with the basics:
+The sidebar
+The sidebar is where all essential information appears. You’ll find your feeds, folders, automation rules, filters, and more here. It’s pretty adjustable – within the 
+Preferences > Sidebar
+ menu, you’ll find useful options to customize, reorder and justify the sidebar to your needs. You can change the sidebar’s width, the unread counters, and even which items are shown.
+Library
+Here, you’ll find your stuff – your 
+Read later
+ articles, saved web pages, annotated articles, and reading history. Besides this, you’ll find all your tags there.
+Maybe the most crucial segment of the sidebar is the 
+Feeds 
+section. This is where your feeds and folders are listed. Next to every item is the unread counter. It lets you know where the new entries are at all times. By clicking the unread counter, you will mark all unread articles within the feed as read.
+Sometimes, among your feeds, you may see a red-colored feed. This means there are issues with the feed, and it’s not working correctly.
+Folders
+You can group your feeds into folders. Having folders is an excellent approach to keeping your newsfeed under control. It’s up to you to arrange your folders. A common practice is to bring feeds on a given topic together in a dedicated folder. You can substantially reduce the noise from duplicate or similar headlines with the duplicate filter feature available for Inoreader Pro subscribers.
+Tags
+Tags are excellent for organizing content based on keywords or specific topics. Every tag produces its feed (you can find all tag feeds in your Library section). The tag menu is at the top of every article. You can create and assign tags from the top menu of every article.
+More on tags here
+Spotlights
+With spotlights, you can speed up your reading and sort your content more easily by picking phrases to be automatically colored in the shade you choose.
+Highlights
+Using highlights (available to Pro users) while reading allows you to mark important sections in your articles, add your own thoughts, and keep them separately to revisit later.
+Customize feeds
+Inoreader gives you the power to customize your feeds and reading experience. By default, you will see a list of your unread articles. You can switch to 
+All articles
+ anytime from the top right buttons.
+Layout
+The layout is how the articles in a given feed look. You can choose different settings for each feed, folder, and tag. Go through all of them and pick the best for your needs!
+Sorting
+Choose whether your articles are sorted by newest or oldest first. The default setting is “newest first,” meaning the last article received will be shown first.
+Grouping
+Group the articles in your folders and tags by feed. You’ll get an excellent visual separation, which can significantly increase your effectiveness when reading large amounts of unread articles in folders containing many feeds.
+Next read:
+Discover new sources and content creators
+In case you missed it
+Follow along with text-to-speech and narration tracking
+Sep 21, 2026
+Build active reading habits
+Nov 28, 2024
+Organize your content and customize your account
+Nov 28, 2024
+With Inoreader, content comes to you the minute it's available.
+Follow websites, social media feeds, podcasts, blogs, and newsletters. Enjoy what's important to you, all in one place.
+With Inoreader, content comes to you the minute it's available.
+Follow websites, social media feeds, podcasts, blogs, and newsletters. Enjoy what's important to you, all in one place.
+Create account
+Features
+Enterprise
+Pricing
+Blog
+Help center
+About us
+Knowledge base
+Developer portal
+Contact us
+Service status
+Brand portal
+Terms of Service
+Privacy Policy
+Security commitment
+English
+
+                                Čeština                            
+
+                                English                            
+
+                                Español                            
+
+                                Français                            
+
+                                Italiano                            
+
+                                Magyar                            
+
+                                Nederlands                            
+
+                                Polski                            
+
+                                Slovenčina                            
+
+                                Български                            
+
+                                Українська                            
+
+                                پارسی                             
+
+                                中文(简体)                            
+
+                                日本語                            
+© 2026 Innologica Ltd
+English
+
+                                Čeština                            
+
+                                English                            
+
+                                Español                            
+
+                                Français                            
+
+                                Italiano                            
+
+                                Magyar                            
+
+                                Nederlands                            
+
+                                Polski                            
+
+                                Slovenčina                            
+
+                                Български                            
+
+                                Українська                            
+
+                                پارسی                             
+
+                                中文(简体)                            
+
+                                日本語                            
+We use cookies to enhance your Inoreader experience.
+By using our website, you agree to our use of cookies.
+Access cookie settings
+OK, I agree
+×
+Sign in
+Use a different account
+
+                            Sign in with a passkey                            
+ Other sign-in methods
+Change user
+
+                                    Passkey sign-in was canceled or couldn't be completed.                                
+
+                                    Don't have a passkey yet? Sign in with your password first, then add one in your account settings.                                
+Sign in
+Email address:
+
+                        Please enter Email                    
+Password
+
+                        Please enter password                    
+Remember me
+Forgot password?
+Sign in
+
+                        Sign in with a passkey                    
+
+                                Passkey sign-in was canceled or couldn't be completed                            
+
+                                Don't have a passkey yet? Sign in with your password first, then add one in your account settings.                            
+Or simply sign in with:
+
+                    New to Inoreader? 
+Create an account
+Create account
+With Inoreader, content comes to you. 
+
+                    Sign up to browse more than 5 000 000 sources and build the ultimate newsfeed!
+
+                    Create account                
+Don't have an account?
+
+                        Create one now                    
+×
+Create account
+Email address
+Please enter email
+Password
+
+                        Please enter password                    
+Create account
+Or simply sign in with:
+
+                    Already have an account? 
+Sign in.
+Sign in
+Already have an account?
+
+                    Enter your profile and access your feeds now.                
+
+                    Sign in                
+Already have an account?
+
+                        Sign in                    
+×
+Request Quote
+Name
+Please enter name
+Email
+Please provide valid email
+Company
+Optional
+Industry
+Optional
+Select from list
+Media and Publishing
+Pharmaceuticals
+Cybersecurity
+Telecommunications
+IT and Software
+Finance and Banking
+Transport and Logistics
+Marketing and PR
+Public Authorities
+International Organizations
+Research
+Education Services
+Other
+Position
+Optional
+Message
+Please enter message
+
+                            I understand and accept the 
+Inoreader Privacy
+                                Policy
+You must accept the privacy policy
+Send message
+
+                Thank you for your query. Our team will review the details and get back to you shortly.            
+Go to homepage
