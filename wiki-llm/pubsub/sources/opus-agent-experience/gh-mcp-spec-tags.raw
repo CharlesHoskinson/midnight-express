@@ -1,0 +1,92 @@
+[
+  {
+    "name": "2026-07-28",
+    "zipball_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/zipball/refs/tags/2026-07-28",
+    "tarball_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/tarball/refs/tags/2026-07-28",
+    "commit": {
+      "sha": "5f5440bb26a62e2cf3440b92da5a667efa03b267",
+      "url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/commits/5f5440bb26a62e2cf3440b92da5a667efa03b267"
+    },
+    "node_id": "REF_kwDOM2nIG7RyZWZzL3RhZ3MvMjAyNi0wNy0yOA"
+  },
+  {
+    "name": "2026-07-28-RC",
+    "zipball_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/zipball/refs/tags/2026-07-28-RC",
+    "tarball_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/tarball/refs/tags/2026-07-28-RC",
+    "commit": {
+      "sha": "9d700ed62dcf86cb77475c9b81930611a9182f46",
+      "url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/commits/9d700ed62dcf86cb77475c9b81930611a9182f46"
+    },
+    "node_id": "REF_kwDOM2nIG7dyZWZzL3RhZ3MvMjAyNi0wNy0yOC1SQw"
+  },
+  {
+    "name": "2025-11-25",
+    "zipball_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/zipball/refs/tags/2025-11-25",
+    "tarball_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/tarball/refs/tags/2025-11-25",
+    "commit": {
+      "sha": "38c84e9f93ad191d9eb26d92b945d17bd0efcaf3",
+      "url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/commits/38c84e9f93ad191d9eb26d92b945d17bd0efcaf3"
+    },
+    "node_id": "REF_kwDOM2nIG7RyZWZzL3RhZ3MvMjAyNS0xMS0yNQ"
+  },
+  {
+    "name": "2025-11-25-RC",
+    "zipball_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/zipball/refs/tags/2025-11-25-RC",
+    "tarball_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/tarball/refs/tags/2025-11-25-RC",
+    "commit": {
+      "sha": "b7d269cf527c2b26e8093e914ed9025be75f9e94",
+      "url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/commits/b7d269cf527c2b26e8093e914ed9025be75f9e94"
+    },
+    "node_id": "REF_kwDOM2nIG7dyZWZzL3RhZ3MvMjAyNS0xMS0yNS1SQw"
+  },
+  {
+    "name": "2025-06-18",
+    "zipball_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/zipball/refs/tags/2025-06-18",
+    "tarball_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/tarball/refs/tags/2025-06-18",
+    "commit": {
+      "sha": "f5ccad944fdf2b7d9cc70cf817f66ca5a8aa03a4",
+      "url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/commits/f5ccad944fdf2b7d9cc70cf817f66ca5a8aa03a4"
+    },
+    "node_id": "REF_kwDOM2nIG7RyZWZzL3RhZ3MvMjAyNS0wNi0xOA"
+  },
+  {
+    "name": "2025-03-26",
+    "zipball_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/zipball/refs/tags/2025-03-26",
+    "tarball_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/tarball/refs/tags/2025-03-26",
+    "commit": {
+      "sha": "9236eb1cbfa02c17ab45c83a7bdbe55c450070be",
+      "url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/commits/9236eb1cbfa02c17ab45c83a7bdbe55c450070be"
+    },
+    "node_id": "REF_kwDOM2nIG7RyZWZzL3RhZ3MvMjAyNS0wMy0yNg"
+  },
+  {
+    "name": "2024-11-05",
+    "zipball_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/zipball/refs/tags/2024-11-05",
+    "tarball_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/tarball/refs/tags/2024-11-05",
+    "commit": {
+      "sha": "0d63bea927001bedf3be3e59be735c979ba0aacb",
+      "url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/commits/0d63bea927001bedf3be3e59be735c979ba0aacb"
+    },
+    "node_id": "REF_kwDOM2nIG7RyZWZzL3RhZ3MvMjAyNC0xMS0wNQ"
+  },
+  {
+    "name": "2024-11-05-final",
+    "zipball_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/zipball/refs/tags/2024-11-05-final",
+    "tarball_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/tarball/refs/tags/2024-11-05-final",
+    "commit": {
+      "sha": "48234828288ec5e5011398f17b8736f61645f130",
+      "url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/commits/48234828288ec5e5011398f17b8736f61645f130"
+    },
+    "node_id": "REF_kwDOM2nIG7pyZWZzL3RhZ3MvMjAyNC0xMS0wNS1maW5hbA"
+  },
+  {
+    "name": "2024-10-07",
+    "zipball_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/zipball/refs/tags/2024-10-07",
+    "tarball_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/tarball/refs/tags/2024-10-07",
+    "commit": {
+      "sha": "ed35f718be83a2e3e1e568f7ba3562b81ed69c40",
+      "url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/commits/ed35f718be83a2e3e1e568f7ba3562b81ed69c40"
+    },
+    "node_id": "REF_kwDOM2nIG7RyZWZzL3RhZ3MvMjAyNC0xMC0wNw"
+  }
+]

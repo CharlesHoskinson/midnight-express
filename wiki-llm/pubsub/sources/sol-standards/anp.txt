@@ -1,0 +1,644 @@
+GitHub - agent-network-protocol/AgentNetworkProtocol: AgentNetworkProtocol(ANP) is an open source protocol for agent communication. Our vision is to define how agents connect with each other, building an open, secure, and efficient collaboration network for billions of intelligent agents. · GitHub
+Skip to content
+Navigation Menu
+Sign in
+Appearance settings
+Platform
+AI CODE CREATION
+GitHub Copilot
+Write better code with AI
+GitHub Copilot app
+Direct agents from issue to merge
+MCP Registry
+Integrate external tools
+DEVELOPER WORKFLOWS
+Actions
+Automate any workflow
+Codespaces
+Instant dev environments
+Issues
+Plan and track work
+Code Review
+Manage code changes
+Code Quality
+Enforce quality at merge
+APPLICATION SECURITY
+GitHub Advanced Security
+Find and fix vulnerabilities
+Code security
+Secure your code as you build
+Secret protection
+Stop leaks before they start
+EXPLORE
+Why GitHub
+Documentation
+Blog
+Changelog
+Marketplace
+View all features
+Solutions
+BY COMPANY SIZE
+Enterprises
+Small and medium teams
+Startups
+Nonprofits
+BY USE CASE
+App Modernization
+DevSecOps
+DevOps
+CI/CD
+View all use cases
+BY INDUSTRY
+Healthcare
+Financial services
+Manufacturing
+Government
+View all industries
+View all solutions
+Resources
+EXPLORE BY TOPIC
+AI
+Software Development
+DevOps
+Security
+View all topics
+EXPLORE BY TYPE
+Customer stories
+Events & webinars
+Ebooks & reports
+Business insights
+GitHub Skills
+SUPPORT & SERVICES
+Documentation
+Customer support
+Community forum
+Trust center
+Partners
+View all resources
+Open Source
+COMMUNITY
+GitHub Sponsors
+Fund open source developers
+PROGRAMS
+Security Lab
+Maintainer Community
+GitHub Stars
+Archive Program
+REPOSITORIES
+Topics
+Trending
+Collections
+Enterprise
+ENTERPRISE SOLUTIONS
+Enterprise platform
+AI-powered developer platform
+AVAILABLE ADD-ONS
+GitHub Advanced Security
+Enterprise-grade security features
+Copilot for Business
+Enterprise-grade AI features
+Premium Support
+Enterprise-grade 24/7 support
+Pricing
+Search
+/
+Sign in
+Sign up
+Appearance settings
+You signed in with another tab or window. 
+Reload
+ to refresh your session.
+You signed out in another tab or window. 
+Reload
+ to refresh your session.
+You switched accounts on another tab or window. 
+Reload
+ to refresh your session.
+Dismiss alert
+{{ message }}
+
+        agent-network-protocol
+
+/
+AgentNetworkProtocol
+Public
+Notifications
+
+You must be signed in to change notification settings
+Fork
+    
+105
+
+          Star
+
+1.4k
+Code
+Issues
+21
+Pull requests
+1
+Discussions
+Actions
+Projects
+Security and quality
+0
+Insights
+Additional navigation options
+
+          Code
+
+
+          Issues
+
+
+          Pull requests
+
+
+          Discussions
+
+
+          Actions
+
+
+          Projects
+
+
+          Security and quality
+
+
+          Insights
+
+main
+Branches
+Tags
+Go to file
+Code
+Open more actions menu
+Latest commit
+History
+566 Commits
+566 Commits
+Folders and files
+Name
+Name
+Last commit message
+Last commit date
+.github
+.github
+application
+application
+blogs
+blogs
+chinese
+chinese
+deprecated
+deprecated
+docs
+docs
+examples
+examples
+images
+images
+message
+message
+references
+references
+scripts
+scripts
+standard
+standard
+tests
+tests
+vnext
+vnext
+.gitignore
+.gitignore
+01-agentnetworkprotocol-technical-white-paper.md
+01-agentnetworkprotocol-technical-white-paper.md
+02-anp-did-authentication-protocol-specification.md
+02-anp-did-authentication-protocol-specification.md
+03-did-wba-method-design-specification.md
+03-did-wba-method-design-specification.md
+04-anp-did-wba-name-space-specification.md
+04-anp-did-wba-name-space-specification.md
+05-anp-did-authorization-protocol-specification.md
+05-anp-did-authorization-protocol-specification.md
+06-anp-agent-communication-meta-protocol-specification.md
+06-anp-agent-communication-meta-protocol-specification.md
+07-anp-agent-description-protocol-specification.md
+07-anp-agent-description-protocol-specification.md
+08-ANP-Agent-Discovery-Protocol-Specification.md
+08-ANP-Agent-Discovery-Protocol-Specification.md
+09-ANP-end-to-end-instant-messaging-protocol-specification.md
+09-ANP-end-to-end-instant-messaging-protocol-specification.md
+AGENTS.md
+AGENTS.md
+CONTRIBUTING.cn.md
+CONTRIBUTING.cn.md
+CONTRIBUTING.md
+CONTRIBUTING.md
+CONTRIBUTORS.cn.md
+CONTRIBUTORS.cn.md
+CONTRIBUTORS.md
+CONTRIBUTORS.md
+GEMINI.md
+GEMINI.md
+LICENSE
+LICENSE
+README.cn.md
+README.cn.md
+README.md
+README.md
+appendix-a-did-wba-k1-compatibility-extension.md
+appendix-a-did-wba-k1-compatibility-extension.md
+appendix-b-compatibility-with-native-did-web.md
+appendix-b-compatibility-with-native-did-web.md
+View all files
+Repository files navigation
+README
+Contributing
+Apache-2.0 license
+More
+ items
+English
+ | 
+中文
+Agent Network Protocol (ANP)
+ANP aims to become the HTTP of the Agentic Web era: a protocol suite for agent identity, naming, discovery, negotiation, secure messaging, and application-level collaboration.
+Note:
+ This project has not issued any digital currency on any platform or blockchain.
+Vision and Positioning
+Agent Network Protocol (ANP) is an open-source communication protocol for intelligent agents. Its goal is to define how agents connect with each other and to build an open, secure, and efficient collaboration network for billions of agents.
+We believe the agent internet is the next generation of information infrastructure after the human-centric internet. In this vision:
+From platform-centric to protocol-centric:
+ data and services should not remain locked in isolated platforms. Agents need open protocols for direct connection.
+Connection is power:
+ every agent can be both an information consumer and a service provider, able to discover, connect to, and collaborate with other nodes.
+AI-native network:
+ agents should interact through semantically clear, machine-readable, and callable protocols rather than only through human-facing webpages.
+Why We Need ANP
+Current internet infrastructure is mature, but it still lacks a communication and connection layer designed for large-scale agent networks. ANP focuses on three challenges:
+🌐 
+Interconnection:
+ enable agents from different platforms and domains to authenticate, discover, and communicate with each other.
+🖥️ 
+Native interfaces:
+ let AI use APIs, protocol documents, structured descriptions, and negotiated interfaces instead of imitating human browsing.
+🤝 
+Efficient collaboration:
+ allow agents to self-organize, self-negotiate, and build lower-cost collaboration networks.
+Protocol Architecture
+ANP is built on existing Internet infrastructure and organizes the released protocol capabilities into two core protocol layers plus domain-specific application protocols:
+🌐 
+Open Internet Infrastructure:
+ ANP reuses HTTP, CA, DNS, CDN, Search, and TLS instead of rebuilding a new network stack.
+🔒 
+Identity and Encrypted Communication Layer:
+ based on W3C DID and Web infrastructure. ANP-02 separates common authentication from DID method validation, including 
+did:wba
+ and native 
+did:web
+, while the messaging Profiles define DID addressing and device-bound E2EE.
+📡 
+Application Protocol Layer:
+ includes Agent Description, Agent Discovery, and Agent Application Protocols. Domain protocols such as agent payment, authorization, authentication, and transaction protocols are built on top of this layer.
+🧪 
+Meta-protocol status:
+ ANP-06 remains a draft and is not part of the currently released architecture. The updated draft positions it as an Agent Description-driven semantic negotiation layer that uses 
+MetaProtocolInterface
+, 
+anp.get_capabilities
+, and 
+anp.negotiate
+ to select the subsequent interface, Profile, security profile, and schema.
+Protocol Specification Index
+Area
+Document
+Status
+What it defines
+Overview
+ANP-01: Technical White Paper
+Informative v1.2
+Vision, design principles, and conceptual architecture; normative status is defined by each specification
+Authentication
+ANP-02: DID Authentication Protocol
+Released v1.2
+Method-independent HTTP/JSON authentication and WBA/Web bindings; independent of Messaging and WNS
+Identity
+ANP-03: did:wba Method Specification
+Released v1.2
+Web-based DID method, 
+e1_
+ binding, stable subject paths, and verified DID transitions
+Naming
+ANP-04: ANP-DID:WBA Name Space Specification
+Released v1.2
+WNS Handles, name-to-DID resolution, WBA binding, and existing native Web compatibility
+Authorization
+ANP-05: DID-Based Authorization
+Draft / not released; v0.6
+DID client identity for OAuth and independent VC direct presentation for delegation and organization-role credentials
+Meta-protocol
+ANP-06: Agent Communication Meta-Protocol
+Draft; document version 1.2
+Optional semantic negotiation, 
+MetaProtocolInterface
+, and interface / Profile / security profile / schema selection
+Description
+ANP-07: Agent Description Protocol
+Released v1.2
+Agent Description documents, interface descriptions, and capability publication
+Discovery
+ANP-08: Agent Discovery Protocol
+Released v1.2
+Active 
+.well-known
+ discovery and passive registration with search agents
+Messaging
+ANP-09: End-to-End Instant Messaging Overview
+Published v1.2 catalog; P6 candidate
+Direct and group messaging, device-bound E2EE, attachments, federation, and mentions
+Payments
+ANP-10: AP2 Payment Adaptation Draft
+Draft / not released; EN document v1.1, CN document v0.1
+Proposed ANP payment adaptation, mandates, receipts, and transaction flows; not a stable payment interoperability standard
+The 
+vNext workspace
+ contains white paper revisions. The 
+ANP-01 white paper revision
+ is an informative working draft. 
+ANP-05: DID-Based Authorization
+ is located at the repository root, with its 
+Chinese mirror
+ in 
+chinese/
+; it remains a v0.6 draft / not released. These drafts are not part of ANP 1.2. Current 1.2 normative references use the release paths above. The historical deprecated did:all documents retain their original identity; the current ANP-02 number denotes DID authentication.
+Instant Messaging Profiles
+The 
+ANP Messaging 1.2 Profile index
+ and its 
+Chinese mirror
+ include all nine documents:
+Profile
+Wire identifier
+Document
+P1
+anp.core.binding.v1
+Core Binding
+P2
+anp.identity.discovery.v1
+Identity and Discovery
+P3
+anp.direct.base.v1
+Direct Messaging Base Semantics
+P4
+anp.group.base.v2
+Group Messaging Base Semantics
+P5
+anp.direct.e2ee.v2
+Direct End-to-End Encryption
+P6
+anp.group.e2ee.v2
+ — candidate, stable code point pending
+Group End-to-End Encryption
+P7
+anp.attachment.v1
+Attachments and Object Transfer
+P8
+anp.federation.relay.v1
+Federation and Cross-Domain
+P9
+v1 binding extension; no independent 
+meta.profile
+Message Mentions
+Ordinary Direct, Group, Mention, and Attachment operations remain addressed by business DID or Group DID; device fan-out stays local to the receiving domain. P4 v2 introduces DID-only membership and Host-coordinated member DID updates. P5/P6 v2 use independent cryptographic device endpoints, including per-device-pair Direct sessions and multiple MLS leaves. Implementations 
+MUST NOT
+ reinterpret E2EE v1 state as v2 or silently downgrade E2EE v2 operations. P6's candidate status and registered-code-point gate remain in force.
+DID Compatibility Appendices
+Appendix A: did:wba 
+k1_
+ Compatibility Extension
+Appendix B: Native 
+did:web
+ Integration
+: ANP-02 authentication, existing WNS/Web compatibility, and messaging composition without conversion to WBA.
+Quick Start
+For method-independent ordinary API authentication, read 
+ANP-02
+. It does not require Messaging, Handles, or device Manifests.
+For proposed DID-based agent authorization, read 
+ANP-05 (draft)
+. It explains when to use OAuth and when to use VC, defines the agent-authorization roadmap and v1 identity/basic-delegation scope, with integrity-bound metadata, first-contact admission, hosted/local OAuth flows, and independent VC direct presentation for delegation and role credentials; implementation support is not implied.
+To understand ANP concepts and usage, read the 
+ANP Getting Started Guide
+ or the 
+Chinese guide
+.
+To implement ANP 1.2 identity, start with ANP-02, then 
+ANP-03: did:wba
+ for WBA method validation or 
+Appendix B
+ for native 
+did:web
+ integration.
+To publish an agent, read 
+ANP-07: Agent Description Protocol
+ and 
+ANP-08: Agent Discovery Protocol
+.
+To build messaging, start from 
+ANP-09
+ and then choose the required messaging profiles.
+To run demos, see 
+ANP Sample Programs
+.
+Protocol SDK
+The open-source implementation of ANP is maintained in the AgentConnect repository:
+https://github.com/agent-network-protocol/AgentConnect
+AgentConnect focuses on practical SDK support for 
+did:wba
+, authentication, agent description, protocol negotiation, secure communication, and application protocols.
+Open-Source Implementation: AWiki
+AWiki is an open-source implementation of agent identity and messaging based on ANP:
+awiki-cli-rs2
+: Rust SDK and command-line client for agent identity and messaging.
+awiki-me
+: Cross-platform Flutter app for identity management and messaging.
+awiki-open-server
+: Open-source server implementation for agent identity and messaging.
+Repository Layout
+01-*.md
+, 
+02-*.md
+, 
+03-*.md
+, 
+04-*.md
+, 
+06-*.md
+, 
+07-*.md
+, 
+08-*.md
+, 
+09-*.md
+: English core documents, with document version 1.2 and individual status markers.
+05-anp-did-authorization-protocol-specification.md
+: English ANP-05 authorization draft, v0.6 / not released; outside the ANP 1.2 release.
+message/
+: the ANP Messaging 1.2 Profile suite and index; P6 retains candidate status.
+chinese/
+: Chinese mirrors of core and messaging specifications, the ANP-05 authorization draft, and related research notes.
+vnext/
+: English and Chinese ANP-01 white paper revisions. Current 1.2 documents remain in their release paths.
+application/
+: independently versioned application-layer protocols such as AP2.
+docs/
+: guides, extended reading, and community operations documents.
+blogs/
+: articles and historical protocol analysis.
+examples/
+: ADP assets, API interfaces, 
+Messaging 1.2 examples
+, and 
+ANP-02 vectors
+. The example directory names retain 
+-vnext
+ for path compatibility.
+images/
+ and 
+standard/
+: shared figures and standardization references.
+Further Reading
+Extended Reading
+ANP Technical White Paper
+AgentConnect Examples
+Milestones
+ Define and implement the identity authentication and secure communication foundation.
+ Release 
+did:wba
+ v1.1 with default 
+e1_
+ Ed25519 path binding and compatibility guidance for 
+k1_
+ and native 
+did:web
+.
+ Define WNS handles as a human-readable naming layer for DID-based agents.
+ Release the Agent Description Protocol and Agent Discovery Protocol.
+ Release the meta-protocol after the draft is stabilized.
+ Split end-to-end instant messaging into an overview plus nine interoperable profiles.
+ Integrate ANP-02 authentication, ANP-03 identity continuity, ANP-04 naming, and native Web integration into the ANP 1.2 documents.
+ Integrate all nine messaging documents and their mixed-version Profile catalog into ANP 1.2.
+ Complete the registered MLS ExtensionType release gate for stable P6 v2.
+ Add an AP2 payment adaptation draft to the application layer.
+ Continue aligning SDK implementations and examples with the 1.2 specification set and validating actual interoperability.
+ Continue standardization work and expand domain-specific application protocols.
+Contact Us
+We have established an ANP open-source technical community to advance ANP development through an open-source community approach. We sincerely invite you to join our community.
+Email: 
+chgaowei@gmail.com
+Additional contact emails: 
+zynetzy1@aliyun.com
+, 
+2764433097@qq.com
+Discord: 
+https://discord.gg/sFjBKTY7sB
+Official website: 
+https://agent-network-protocol.com/
+GitHub: 
+https://github.com/agent-network-protocol/AgentNetworkProtocol
+WeChat: flow10240
+Contributing
+We welcome contributions in any form. Please refer to 
+CONTRIBUTING.md
+.
+Contributors
+We extend our sincere gratitude to all contributors for their outstanding work and dedication to the Agent Network Protocol project.
+View the full contributors list
+Release Status and Versioning
+Current specification set: ANP 1.2.
+ Core specifications and all nine messaging documents have been integrated from vNext into their canonical release paths. ANP-02 provides DID-method-independent authentication for 
+did:wba
+ and native 
+did:web
+; ANP-03 defines WBA method rules and identity continuity; ANP-04 defines WNS naming. Agent description and discovery documents are aligned with this release.
+Release scope:
+ root-level specifications and 
+message/
+ are the current English documents, with Chinese mirrors under 
+chinese/
+. ANP-06 remains a draft. P6 Group E2EE is included in the 1.2 documentation but remains a candidate pending its registered MLS 
+ExtensionType
+ release gate; the provisional 
+0xF0A1
+ value is not a completed registration. Application protocols are independently versioned; ANP-10 is an AP2 adaptation draft, not a released stable payment standard.
+ANP Messaging 1.2:
+ the 
+Profile index
+ defines the mixed-version suite. P1/P2/P3/P7/P8 and the P9 binding retain v1; P4 Group Base and P5/P6 E2EE use v2. Publication of specifications does not establish SDK or product implementation support; capability advertisement must reflect actual support and each Profile's release restrictions.
+Versioning note:
+Version: 1.2
+ identifies the specification/document release version, not a wire version. Profile identifiers, 
+protocolVersion
+, interface versions, algorithms, and signature/AAD formats follow their owning specifications and are not globally renumbered. P4/P5/P6 adopt the v2 contracts already defined in vNext; other Profile identifiers and example wire-version fields remain unchanged.
+License
+The root project license is 
+Apache License 2.0 (Apache-2.0)
+. Retain the applicable license, copyright, and attribution notices. Repository copyright notices identify ANP Community; author and contributor credits remain in their own records.
+This project-level statement does not replace separate notices in historical drafts, archived documents, or third-party reference material. Review those materials individually before redistribution or a project donation; updating a license label or copyright notice does not establish ownership or clear third-party rights.
+Copyright Notice
+Copyright (c) 2024 ANP Community
+This file is released under the 
+Apache License 2.0
+. You are free to use and modify it, but must retain this copyright notice.
+About
+AgentNetworkProtocol(ANP) is an open source protocol for agent communication. Our vision is to define how agents connect with each other, building an open, secure, and efficient collaboration network for billions of intelligent agents.
+agent-network-protocol.com
+Topics
+agent
+communication
+protocol
+Resources
+Readme
+Apache-2.0 license
+Contributing
+Contributing
+Activity
+Custom properties
+Stars
+1.4k
+ stars
+Watchers
+33
+ watching
+Forks
+105
+ forks
+Report repository
+Releases
+Packages
+Used by
+Contributors
+Languages
+Footer
+
+        © 2026 GitHub, Inc.
+      
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+
+      Manage cookies
+    
+
+        Do not share my personal information
+      
+
+    You can’t perform that action at this time.
+  

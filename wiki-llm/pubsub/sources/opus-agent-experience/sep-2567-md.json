@@ -1,0 +1,13 @@
+{
+  "url": "https://modelcontextprotocol.io/seps/2567-sessionless-mcp.md",
+  "retrieved_utc": "2026-10-05T18:11:33.428603+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "d11d4e725af6a593929895466fdc6418266363561f53e5eeeec3b18362d3acc0",
+  "text_sha256": "b41e99b5a2b0e7d3f535419ff4b6e05b642ecfa3880b8ea048243b2b9b4cc5ed",
+  "bytes": 35265,
+  "text_bytes": 35090,
+  "final_url": "https://modelcontextprotocol.io/seps/2567-sessionless-mcp.md",
+  "accepted_source": true
+}

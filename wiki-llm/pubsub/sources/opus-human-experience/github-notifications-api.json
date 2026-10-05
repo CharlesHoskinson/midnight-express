@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.github.com/en/rest/activity/notifications",
+  "retrieved_utc": "2026-10-05T18:11:26.082332+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "8c72d49751706a015a6c040d3d34933b4d6f973190ea0b232fc3192ffbc231a1",
+  "text_sha256": "6d227e85aee9c83e66137ebec0ada8db820c7e5594a1e3d5ba3278ead69e0f79",
+  "bytes": 478361,
+  "text_bytes": 41307,
+  "final_url": "https://docs.github.com/en/rest/activity/notifications",
+  "accepted_source": true
+}

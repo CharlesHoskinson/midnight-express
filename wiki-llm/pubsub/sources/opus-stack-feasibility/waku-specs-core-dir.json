@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/waku-org/specs/contents/standards/core",
+  "retrieved_utc": "2026-10-05T18:11:33.357625+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "6647a24ac3b08ce9468f167b0323c9d7e1f5864832b7dc2ad20575c5e207fa8b",
+  "text_sha256": "6647a24ac3b08ce9468f167b0323c9d7e1f5864832b7dc2ad20575c5e207fa8b",
+  "bytes": 8756,
+  "text_bytes": 8756,
+  "final_url": "https://api.github.com/repositories/749710229/contents/standards/core",
+  "accepted_source": true
+}

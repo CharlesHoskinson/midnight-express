@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB",
+  "retrieved_utc": "2026-10-05T18:16:22.820655+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "e3b4c3d47a90d582a4dab5a8cf96f8ad5feb872a304822bfed2f13f124b6f39d",
+  "text_sha256": "e3b4c3d47a90d582a4dab5a8cf96f8ad5feb872a304822bfed2f13f124b6f39d",
+  "bytes": 6105,
+  "text_bytes": 6105,
+  "final_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB",
+  "accepted_source": true
+}

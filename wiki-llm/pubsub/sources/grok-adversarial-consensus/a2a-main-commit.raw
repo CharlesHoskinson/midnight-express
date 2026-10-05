@@ -1,0 +1,101 @@
+{
+  "sha": "679ab3afc6f95ef47bb969d511053d0f63bca2a2",
+  "node_id": "C_kwDOOOo1wNoAKDY3OWFiM2FmYzZmOTVlZjQ3YmI5NjlkNTExMDUzZDBmNjNiY2EyYTI",
+  "commit": {
+    "author": {
+      "name": "Aron Kerekes",
+      "email": "arkereke@cisco.com",
+      "date": "2026-10-05T16:25:13Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-10-05T16:25:13Z"
+    },
+    "message": "docs: fix daily link checker run (#2298)\n\nfixes #2297 \n\nUpdates lychee with a root path to resolve root relative links.\n\nSigned-off-by: Aron Kerekes <arkereke@cisco.com>",
+    "tree": {
+      "sha": "08384a2dd04b41164a58db529bbcff8f163b3f06",
+      "url": "https://api.github.com/repos/a2aproject/A2A/git/trees/08384a2dd04b41164a58db529bbcff8f163b3f06"
+    },
+    "url": "https://api.github.com/repos/a2aproject/A2A/git/commits/679ab3afc6f95ef47bb969d511053d0f63bca2a2",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqw89pCRC1aQ7uu5UhlAAAJ84QAIelWa7Uqi6KXpWwHQdJURDV\nbiwdoBskiBRjfA0Z261RJRCO9V64ZDmYdFCdNDhnOP/mbKtYDhbr2T0nXcHX/82T\ne3wUxp/a1OPBV93mAJjuetmPPxJj8c/Fj5/Ga3JDDdvUomf5E1lCYkVfCc+GiEXK\nGrLNaE7C1G2IEOhJo0uVAoaCV9NNqQj/DvFamEkggDL5OWh2fn5w/7cv+38g4tO8\nNJhMBi7VjWR0E2NYIeS8sbFfmL5HHa8cuEltQkQBaN+1f2wrcsmx9GlxU5nCYUaN\nHdRjyocQKv8dE41tWoQ5MKtx3vlz64e+b63ZJZy1jkNgvShdAC160JewnK0kUFBg\n0KWX9u29inkdQLbpMuNW1JkSpDY8w9dA75NnEOziZEYi/Veosiq2w6Pfn0oVZzow\nU5Nvc0g1B2XQsTivhsgZiDGe3GBU/x2SZWC/hHi/4AIcIKPXuuMmG0RNPOkFvoZ1\n++wpuNumqNVNf5s/drtW/Vx8D4CKsMlvWsBhZSyhzkkyB5sNmu9Cx5ukvEP+LPMh\nqvDQg5yOMMtkREIgGlzGzZe9jFB7j/IN/oCZmqLzQNff6MY82ky/4gvrvbw14ro3\nlOTN9JusJEk/sqAiu1/s3CVNB1J5FgUH2ZNikpzXr0rRtEp7in0Fffgm4NUCFiF8\n03/Adbz6fbph8AqkwDxe\n=GoGB\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 08384a2dd04b41164a58db529bbcff8f163b3f06\nparent fe182ee3c053d2e6a3ad2576c959fa5f7d8b5d07\nauthor Aron Kerekes <arkereke@cisco.com> 1791217513 +0200\ncommitter GitHub <noreply@github.com> 1791217513 +0200\n\ndocs: fix daily link checker run (#2298)\n\nfixes #2297 \n\nUpdates lychee with a root path to resolve root relative links.\n\nSigned-off-by: Aron Kerekes <arkereke@cisco.com>",
+      "verified_at": "2026-10-05T16:25:14Z"
+    }
+  },
+  "url": "https://api.github.com/repos/a2aproject/A2A/commits/679ab3afc6f95ef47bb969d511053d0f63bca2a2",
+  "html_url": "https://github.com/a2aproject/A2A/commit/679ab3afc6f95ef47bb969d511053d0f63bca2a2",
+  "comments_url": "https://api.github.com/repos/a2aproject/A2A/commits/679ab3afc6f95ef47bb969d511053d0f63bca2a2/comments",
+  "author": {
+    "login": "keraron",
+    "id": 53857116,
+    "node_id": "MDQ6VXNlcjUzODU3MTE2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/53857116?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/keraron",
+    "html_url": "https://github.com/keraron",
+    "followers_url": "https://api.github.com/users/keraron/followers",
+    "following_url": "https://api.github.com/users/keraron/following{/other_user}",
+    "gists_url": "https://api.github.com/users/keraron/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/keraron/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/keraron/subscriptions",
+    "organizations_url": "https://api.github.com/users/keraron/orgs",
+    "repos_url": "https://api.github.com/users/keraron/repos",
+    "events_url": "https://api.github.com/users/keraron/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/keraron/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "fe182ee3c053d2e6a3ad2576c959fa5f7d8b5d07",
+      "url": "https://api.github.com/repos/a2aproject/A2A/commits/fe182ee3c053d2e6a3ad2576c959fa5f7d8b5d07",
+      "html_url": "https://github.com/a2aproject/A2A/commit/fe182ee3c053d2e6a3ad2576c959fa5f7d8b5d07"
+    }
+  ],
+  "stats": {
+    "total": 5,
+    "additions": 4,
+    "deletions": 1
+  },
+  "files": [
+    {
+      "sha": "04b9f58ffc58c59bf2b161e951390882868c8031",
+      "filename": ".github/workflows/links.yaml",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 1,
+      "changes": 5,
+      "blob_url": "https://github.com/a2aproject/A2A/blob/679ab3afc6f95ef47bb969d511053d0f63bca2a2/.github%2Fworkflows%2Flinks.yaml",
+      "raw_url": "https://github.com/a2aproject/A2A/raw/679ab3afc6f95ef47bb969d511053d0f63bca2a2/.github%2Fworkflows%2Flinks.yaml",
+      "contents_url": "https://api.github.com/repos/a2aproject/A2A/contents/.github%2Fworkflows%2Flinks.yaml?ref=679ab3afc6f95ef47bb969d511053d0f63bca2a2",
+      "patch": "@@ -123,7 +123,10 @@ jobs:\n         uses: lycheeverse/lychee-action@v2.6.1 # CVE-2024-48908: pin >=2.0.2\n         with:\n           lycheeVersion: \"v0.22.0\"\n-          args: '--config lychee.toml site'\n+          # --root-dir resolves root-relative links (e.g. the /llms.txt pointer\n+          # in the mkdocs copyright footer, present on every page) against the\n+          # built site; without it lychee cannot turn them into URIs.\n+          args: '--config lychee.toml --root-dir \"${{ github.workspace }}/site\" site'\n           fail: true\n           output: lychee/out.md\n           token: ${{ secrets.GITHUB_TOKEN }}"
+    }
+  ]
+}

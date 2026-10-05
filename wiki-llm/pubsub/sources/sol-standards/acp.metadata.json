@@ -1,0 +1,9 @@
+{
+  "url": "https://agentcommunicationprotocol.dev/introduction/welcome",
+  "fetched_at": "2026-10-05T18:04:22.597524+00:00",
+  "method": "Scrapling Fetcher.get",
+  "status": 200,
+  "sha256": "d69873925767eeb19c0552c41f636b1af56f3c0735270685b50537f02cdc2f6b",
+  "text_sha256": "2fa0cf7dace5b90b891dd9164b88df6eadf3d015b4e051a601ad87983e3fbcc6",
+  "bytes": 284619
+}

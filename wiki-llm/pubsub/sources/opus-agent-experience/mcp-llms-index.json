@@ -1,0 +1,13 @@
+{
+  "url": "https://modelcontextprotocol.io/llms.txt",
+  "retrieved_utc": "2026-10-05T18:10:32.725603+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "c228f2c8f26c0f8087d6b6c109c3bfb99a008374ef71f84fb54317a846bfad31",
+  "text_sha256": "c228f2c8f26c0f8087d6b6c109c3bfb99a008374ef71f84fb54317a846bfad31",
+  "bytes": 48711,
+  "text_bytes": 48711,
+  "final_url": "https://modelcontextprotocol.io/llms.txt",
+  "accepted_source": true
+}

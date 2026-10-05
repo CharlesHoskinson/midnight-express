@@ -1,0 +1,31 @@
+{
+  "recordedUtc": "2026-10-05T18:56:33.438675+00:00",
+  "results": {
+    "closedLocalContract": "PASS finite structural and rejected-routing checks",
+    "publicFixtureReceipts": "PASS actual model validator and exact JCS event/context bindings",
+    "mothAdapter": "PASS synthetic RPC/activation/version/network/provider/race contract checks",
+    "subscriptionDashboard": "PASS lifecycle, immutable scopes, paused saturation, retained replay, quarantine, final predicate, export and mobile enlarged-text behavior",
+    "specificationPage": "PASS public source downloads, static content, keyboard/native disclosures and enlarged-text layouts",
+    "legacyPages": "PASS workflow/component controls, navigation and mobile layouts",
+    "leanCanonical": "PASS kernel build and finite Python/Lean fixture/mutation slice",
+    "leanPublicCopy": "PASS standalone build with only bundled Std",
+    "leanAudit": "Standard propext/Quot.sound only for principal audited properties",
+    "archive": "PASS source artifact hashes and public/canonical Lean byte equality"
+  },
+  "commands": [
+    "python design/subscriptions/test_contract.py",
+    "python website/tests/check_fixtures.py",
+    "node website/tests/moth-connector.cjs",
+    "node website/tests/subscriptions.cjs",
+    "node website/tests/specification.cjs",
+    "python formal/lean/check.py",
+    "lake env lean Audit.lean"
+  ],
+  "notEstablished": [
+    "Live Moth extension interoperability",
+    "Production transport/admission/decryption or current source authority",
+    "Durable subscription transactions or Store recovery",
+    "General Python/Lean refinement or verified parser/hash primitives",
+    "Customer business savings"
+  ]
+}

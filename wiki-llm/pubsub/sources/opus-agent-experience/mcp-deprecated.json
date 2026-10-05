@@ -1,0 +1,13 @@
+{
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/deprecated",
+  "retrieved_utc": "2026-10-05T18:10:49.116423+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "48198cfdad792f367cd47c3aa6d5772a615d9b4136378e5abbab9f84b34a784b",
+  "text_sha256": "7af92d3ccff6a965c7e6affdb6ba8b4201e05e67f00738364004faf2dd5e7fa9",
+  "bytes": 290010,
+  "text_bytes": 2915,
+  "final_url": "https://modelcontextprotocol.io/specification/2026-07-28/deprecated",
+  "accepted_source": true
+}

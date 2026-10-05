@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/waku-org/specs/master/standards/core/relay-sharding.md",
+  "retrieved_utc": "2026-10-05T18:11:57.514227+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "e17d60949680211cf067cebc37bc7a05551c1d1f182c2ccd002471269dd56fed",
+  "text_sha256": "22156c39a48003725b45adb17b70fb49891786dc08059031c38154110a9a30f4",
+  "bytes": 17646,
+  "text_bytes": 17478,
+  "final_url": "https://raw.githubusercontent.com/waku-org/specs/master/standards/core/relay-sharding.md",
+  "accepted_source": true
+}

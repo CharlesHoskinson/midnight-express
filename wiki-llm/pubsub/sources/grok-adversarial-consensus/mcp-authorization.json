@@ -1,0 +1,13 @@
+{
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization",
+  "retrieved_utc": "2026-10-05T18:19:11.480776+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "0c9d685b6ea6eda16654b43ce7bd38cb7ccc294f87074d2cf2403f32c8ee120e",
+  "text_sha256": "e238ea98613bbcbe5ee46b672d5b0184c48eb88b79ed201599281b7f7e5f42a4",
+  "bytes": 492713,
+  "text_bytes": 20287,
+  "final_url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization",
+  "accepted_source": true
+}

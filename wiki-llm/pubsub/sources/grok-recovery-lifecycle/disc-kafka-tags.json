@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/apache/kafka/tags?per_page=8",
+  "retrieved_utc": "2026-10-05T18:17:02.957001+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "f0b6dd313ca9968978e2ebd7a605c010b4c12c404ab810c03351a90f39847f8a",
+  "text_sha256": "f0b6dd313ca9968978e2ebd7a605c010b4c12c404ab810c03351a90f39847f8a",
+  "bytes": 4489,
+  "text_bytes": 4489,
+  "final_url": "https://api.github.com/repos/apache/kafka/tags?per_page=8",
+  "accepted_source": true
+}

@@ -1,0 +1,13 @@
+{
+  "url": "https://json-schema.org/specification",
+  "retrieved_utc": "2026-10-05T18:22:06.087263+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "6fdee9b204c2d77b0c46aa6d63637337216f5b1724fbe7bd033a541f64032931",
+  "text_sha256": "f9873cbeea3122a64924ef84cd2bed8513d40f1a2643509d434273dce2abbba6",
+  "bytes": 87073,
+  "text_bytes": 3455,
+  "final_url": "https://json-schema.org/specification",
+  "accepted_source": true
+}

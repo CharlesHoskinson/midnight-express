@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/tags?per_page=10",
+  "retrieved_utc": "2026-10-05T18:12:44.559631+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "70f55ded01f17bdfd70d89c34224d78a1467bf6aea1febeb9ab2ba48a839399c",
+  "text_sha256": "70f55ded01f17bdfd70d89c34224d78a1467bf6aea1febeb9ab2ba48a839399c",
+  "bytes": 5041,
+  "text_bytes": 5041,
+  "final_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/tags?per_page=10",
+  "accepted_source": true
+}

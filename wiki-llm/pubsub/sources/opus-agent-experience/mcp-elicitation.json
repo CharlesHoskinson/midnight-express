@@ -1,0 +1,13 @@
+{
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/client/elicitation",
+  "retrieved_utc": "2026-10-05T18:10:45.566504+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "1eba9bb2a1c2fe9a5e3efe6e5793f8ec1f68328961089f5c8cc38ea13534ee15",
+  "text_sha256": "334192cc6db9104f3c06ba440e51e27014a81812d3ee50f10e2a1d23aa21133d",
+  "bytes": 706461,
+  "text_bytes": 24411,
+  "final_url": "https://modelcontextprotocol.io/specification/2026-07-28/client/elicitation",
+  "accepted_source": true
+}

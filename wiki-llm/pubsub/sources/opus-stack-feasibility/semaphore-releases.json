@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/semaphore-protocol/semaphore/releases?per_page=5",
+  "retrieved_utc": "2026-10-05T18:11:30.291184+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "4a0688a36516198e53859c82f1287da4876f8f9244169c4ae6f3eb59362ce79d",
+  "text_sha256": "df3dd29fdac358296f569fa8f8de28848f83bb21a5f0bb9ea38658db7b16ce73",
+  "bytes": 14392,
+  "text_bytes": 14123,
+  "final_url": "https://api.github.com/repos/semaphore-protocol/semaphore/releases?per_page=5",
+  "accepted_source": true
+}

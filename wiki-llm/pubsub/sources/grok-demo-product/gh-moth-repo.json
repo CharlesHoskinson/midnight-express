@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/shieldedtech/moth-wallet",
+  "retrieved_utc": "2026-10-05T18:14:36.404449+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "a07d9e0d88206f2c3d276421d19b38368f18e2545e96009723872da225a72f27",
+  "text_sha256": "a07d9e0d88206f2c3d276421d19b38368f18e2545e96009723872da225a72f27",
+  "bytes": 7198,
+  "text_bytes": 7198,
+  "final_url": "https://api.github.com/repos/shieldedtech/moth-wallet",
+  "accepted_source": true
+}

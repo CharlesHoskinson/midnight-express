@@ -1,0 +1,37 @@
+{
+  "source": "Official google/fonts repository, snapshot hashes retained; SIL Open Font Licenses distributed alongside fonts",
+  "files": [
+    {
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/dmsans/DMSans%5Bopsz,wght%5D.ttf",
+      "file": "dm-sans.ttf",
+      "retrievedUtc": "2026-10-05T18:54:32.380455+00:00",
+      "method": "Scrapling Fetcher.get",
+      "sha256": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d",
+      "bytes": 240164
+    },
+    {
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/dmsans/OFL.txt",
+      "file": "dm-sans-OFL.txt",
+      "retrievedUtc": "2026-10-05T18:54:33.369566+00:00",
+      "method": "Scrapling Fetcher.get",
+      "sha256": "9af36190332437f5ecd09974de43c1f7c77a310a996cdd8ceb25628b458840e1",
+      "bytes": 4482
+    },
+    {
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/spacegrotesk/SpaceGrotesk%5Bwght%5D.ttf",
+      "file": "space-grotesk.ttf",
+      "retrievedUtc": "2026-10-05T18:54:34.992334+00:00",
+      "method": "Scrapling Fetcher.get",
+      "sha256": "acad6de1fc93436f5c0f1f4137751ef04f1aea3063e7036535970ffcfbd79f72",
+      "bytes": 136676
+    },
+    {
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/spacegrotesk/OFL.txt",
+      "file": "space-grotesk-OFL.txt",
+      "retrievedUtc": "2026-10-05T18:54:36.253454+00:00",
+      "method": "Scrapling Fetcher.get",
+      "sha256": "564ce565c371c5e5bbf286006565a7c9aa55a9f56e7ca58d56e05d649dd61a72",
+      "bytes": 4495
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/modelcontextprotocol/ext-apps/releases?per_page=4",
+  "retrieved_utc": "2026-10-05T18:12:51.845316+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "d6c71a2934c395fa9bacdce5327244251cc7b518e0ac6675edda61ef64f94004",
+  "text_sha256": "d6c71a2934c395fa9bacdce5327244251cc7b518e0ac6675edda61ef64f94004",
+  "bytes": 25710,
+  "text_bytes": 25710,
+  "final_url": "https://api.github.com/repos/modelcontextprotocol/ext-apps/releases?per_page=4",
+  "accepted_source": true
+}

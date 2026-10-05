@@ -1,0 +1,220 @@
+{
+  "moth_commit": "d48206a1957af09bf17bf5e941c2b5bccb12db63",
+  "midnight_api_commit": "612db2b62dbd78c079da62e57e7b8585a204b858",
+  "limitations": [
+    "No installed-extension connection claimed.",
+    "Google plain search redirect and DuckDuckGo 403; public GitHub API search used instead.",
+    "Speculative mothwallet.com failed DNS and was discarded.",
+    "Comparison sources fetched at mutable master branches; snapshots and hashes retain retrieved content.",
+    "README text snapshot extracted; pinned TypeScript uses raw response bytes."
+  ],
+  "sources": [
+    {
+      "file": "moth-readme.txt",
+      "url": "https://raw.githubusercontent.com/shieldedtech/moth-wallet/main/README.md",
+      "sha256": "578b2a494af2a57525a5694a25f1db63db96821a99eae652ab1cad8e761b4458",
+      "bytes": 35827,
+      "fetched": "2026-10-05",
+      "method": "Scrapling Fetcher",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "moth-tree.txt",
+      "url": "https://api.github.com/repos/shieldedtech/moth-wallet/git/trees/main?recursive=1",
+      "sha256": "e1952660c4c1934ddc2c7b65e9521de1e817cc63b67b7502f424dc2902aa255e",
+      "bytes": 263654,
+      "fetched": "2026-10-05",
+      "method": "Scrapling Fetcher",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "packages--extension--entrypoints--injected.ts.txt",
+      "url": "https://raw.githubusercontent.com/shieldedtech/moth-wallet/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/entrypoints/injected.ts",
+      "sha256": "5e1eb18ede84b19bb49677310a531a478027adeef5399c20d40f05361c9d3d25",
+      "bytes": 4010,
+      "fetched": "2026-10-05",
+      "method": "Scrapling Fetcher",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "packages--extension--lib--connector--constants.ts.txt",
+      "url": "https://raw.githubusercontent.com/shieldedtech/moth-wallet/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/lib/connector/constants.ts",
+      "sha256": "248bb5c08c0a2cd66cd39c1ccd27086fa062312a6f404f7d0574974194fa2c32",
+      "bytes": 2635,
+      "fetched": "2026-10-05",
+      "method": "Scrapling Fetcher",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "packages--extension--lib--background--connector-handlers.ts.txt",
+      "url": "https://raw.githubusercontent.com/shieldedtech/moth-wallet/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/lib/background/connector-handlers.ts",
+      "sha256": "7726712a87ab1d7f79a82b41f25b661dc030fb8f675d7c2f28ab9db5abb1b545",
+      "bytes": 24485,
+      "fetched": "2026-10-05",
+      "method": "Scrapling Fetcher",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "packages--mock-dapp--src--main.ts.txt",
+      "url": "https://raw.githubusercontent.com/shieldedtech/moth-wallet/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/mock-dapp/src/main.ts",
+      "sha256": "363d80f281d446bedb852809b68a5adef9bc1ad694c8131495bc00bd76cd53a5",
+      "bytes": 22170,
+      "fetched": "2026-10-05",
+      "method": "Scrapling Fetcher",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "packages--extension--lib--background--permissions.ts.txt",
+      "url": "https://raw.githubusercontent.com/shieldedtech/moth-wallet/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/lib/background/permissions.ts",
+      "sha256": "4c4ef867c50067dc0dc5de945d239ae454c2b90d3ea30a879d95b4359b19bb35",
+      "bytes": 1124,
+      "fetched": "2026-10-05",
+      "method": "Scrapling Fetcher",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "packages--extension--package.json.txt",
+      "url": "https://raw.githubusercontent.com/shieldedtech/moth-wallet/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/package.json",
+      "sha256": "e56d1421e2e426913a08e3e00ba2eceb15e6a9b5cba675523b6e577142452729",
+      "bytes": 1797,
+      "fetched": "2026-10-05",
+      "method": "Scrapling Fetcher",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "midnight-api-search.txt",
+      "url": "https://api.github.com/search/repositories?q=dapp-connector-api+midnight",
+      "sha256": "1d5e1be17ca2820f944d197d6f60afcdd8a2dd5beb06203ab8592d2756d72ba7",
+      "bytes": 41985,
+      "fetched": "2026-10-05",
+      "method": "Scrapling Fetcher",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "cip30.txt",
+      "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/master/CIP-0030/README.md",
+      "sha256": "bfd8d5160d9fa5b350b300da12f004c91b6cab3ff48f7e2b094d571f64debd1b",
+      "bytes": 28262,
+      "fetched": "2026-10-05",
+      "method": "Scrapling Fetcher",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "eip1193.txt",
+      "url": "https://eips.ethereum.org/EIPS/eip-1193",
+      "sha256": "64dcca614175a5fa54265904a3d82553441ca21adcb0cf2899feba4900b897cf",
+      "bytes": 22710,
+      "fetched": "2026-10-05",
+      "method": "Scrapling Fetcher",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "wallet-standard.txt",
+      "url": "https://raw.githubusercontent.com/wallet-standard/wallet-standard/master/README.md",
+      "sha256": "a5b38c2ae17b29fc4871d38150d42b46a9bd6d115a86536b5aed38efe32b6d65",
+      "bytes": 1434,
+      "fetched": "2026-10-05",
+      "method": "Scrapling Fetcher",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "midnight-tree.txt",
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/main?recursive=1",
+      "sha256": "4dbab83ba2859b491e58f164d0869b8f43eca92fc7c778285493baca0b42af10",
+      "bytes": 29410,
+      "fetched": "2026-10-05",
+      "method": "Scrapling Fetcher",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "midnight-README.md.txt",
+      "url": "https://raw.githubusercontent.com/midnightntwrk/midnight-dapp-connector-api/612db2b62dbd78c079da62e57e7b8585a204b858/README.md",
+      "sha256": "d294cc368045de54ab0403b1c225c244caeedc00b162d30c0620fabe84f24e17",
+      "bytes": 13281,
+      "fetched": "2026-10-05",
+      "method": "Scrapling Fetcher",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "midnight-src--api.ts.txt",
+      "url": "https://raw.githubusercontent.com/midnightntwrk/midnight-dapp-connector-api/612db2b62dbd78c079da62e57e7b8585a204b858/src/api.ts",
+      "sha256": "502476fde24dfd8e0689cdc65db232047446d80daff65d6bf61c4be4873ba97d",
+      "bytes": 16386,
+      "fetched": "2026-10-05",
+      "method": "Scrapling Fetcher",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "midnight-package.json.txt",
+      "url": "https://raw.githubusercontent.com/midnightntwrk/midnight-dapp-connector-api/612db2b62dbd78c079da62e57e7b8585a204b858/package.json",
+      "sha256": "39eb6f71cd6d0a5164abc8369002781628c3f8a921f3f578b9ced70cc0210c0f",
+      "bytes": 1759,
+      "fetched": "2026-10-05",
+      "method": "Scrapling Fetcher",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "standard-connect.txt",
+      "url": "https://raw.githubusercontent.com/wallet-standard/wallet-standard/master/packages/core/features/src/connect.ts",
+      "sha256": "e33082cfdd9efa3f3b5ca978cda10b49e16421a6a7b163df4fc2aa270f7232e9",
+      "bytes": 2916,
+      "fetched": "2026-10-05",
+      "method": "Scrapling Fetcher",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "standard-disconnect.txt",
+      "url": "https://raw.githubusercontent.com/wallet-standard/wallet-standard/master/packages/core/features/src/disconnect.ts",
+      "sha256": "c26dc4e17c525e9b6dea16a9829b40dcb3e20634e564ed92cf6841d548248a34",
+      "bytes": 1869,
+      "fetched": "2026-10-05",
+      "method": "Scrapling Fetcher",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "standard-events.txt",
+      "url": "https://raw.githubusercontent.com/wallet-standard/wallet-standard/master/packages/core/features/src/events.ts",
+      "sha256": "470709ae6a82605740006caecb1eaec07ada4c3e00c89cca85a7ff1e75ca5c9a",
+      "bytes": 4419,
+      "fetched": "2026-10-05",
+      "method": "Scrapling Fetcher",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "midnight-specification.txt",
+      "url": "https://raw.githubusercontent.com/midnightntwrk/midnight-dapp-connector-api/612db2b62dbd78c079da62e57e7b8585a204b858/SPECIFICATION.md",
+      "sha256": "d9056e6c8e6df2bd254f194c46bde539811651a5cf4ebb78295c534a583a0497",
+      "bytes": 31222,
+      "fetched": "2026-10-05",
+      "method": "Scrapling Fetcher",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "tiles/github.com_shieldedtech_moth-wallet_blob_d48206a1957af09bf17bf5e941c2b5bccb12db63_packages_extension_lib_connector_constants.ts.png.tiles/tile_0000.jpg",
+      "url": "https://github.com/shieldedtech/moth-wallet/blob/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/lib/connector/constants.ts",
+      "sha256": "7b458234edb4d295dd4ac6fd39ed54bad32c5df955a2c20546a37df598eed3fa",
+      "bytes": 191626,
+      "fetched": "2026-10-05",
+      "method": "PixelRAG CDP tile",
+      "verified": "visual constants identity/version/capabilities"
+    },
+    {
+      "file": "tiles/github.com_shieldedtech_moth-wallet_blob_d48206a1957af09bf17bf5e941c2b5bccb12db63_packages_extension_lib_connector_constants.ts.png.tiles/tile_0001.jpg",
+      "url": "https://github.com/shieldedtech/moth-wallet/blob/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/lib/connector/constants.ts",
+      "sha256": "49917f8645724e95edbbbde188623cd74bc12c2be4fbb7b5d95ae5ce7eed2893",
+      "bytes": 14810,
+      "fetched": "2026-10-05",
+      "method": "PixelRAG CDP tile",
+      "verified": "source snapshot"
+    },
+    {
+      "file": "tiles/github.com_shieldedtech_moth-wallet_blob_d48206a1957af09bf17bf5e941c2b5bccb12db63_packages_extension_lib_connector_constants.ts.png.tiles/tiles.json",
+      "url": "https://github.com/shieldedtech/moth-wallet/blob/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/lib/connector/constants.ts",
+      "sha256": "eb0d59bf8b920f976e7e5e88e08e3fe7cfa62716c30348107dc70f4d0038d702",
+      "bytes": 230,
+      "fetched": "2026-10-05",
+      "method": "PixelRAG CDP tile",
+      "verified": "source snapshot"
+    }
+  ]
+}

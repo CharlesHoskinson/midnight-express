@@ -1,0 +1,32 @@
+{
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
+  "retrieved_utc": "2026-10-05T18:08:13.318155+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "3df42bbd57328257eeac86a02186a429df09836445b76950f7c3b8b81a118a82",
+  "text_sha256": "5050bbe50249b73b025e236b75ad5b1e01f0be1e28511b9aed2b27c9398f4fcc",
+  "bytes": 324817,
+  "text_bytes": 10078,
+  "final_url": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/sol-standards/mcp-current-visual-tiles/modelcontextprotocol.io_specification_2026-07-28_changelog.png.tiles/tile_0000.jpg",
+        "sha256": "246b45d8acbf6bbea243a45b8b34185313de9c2ffd0f8a04540df86214d6e44d"
+      },
+      {
+        "path": "sources/sol-standards/mcp-current-visual-tiles/modelcontextprotocol.io_specification_2026-07-28_changelog.png.tiles/tile_0001.jpg",
+        "sha256": "f3049a0967aeb8b92706151e96faf2e9ec0b821c740ca2c74869d7294622ec26"
+      },
+      {
+        "path": "sources/sol-standards/mcp-current-visual-tiles/modelcontextprotocol.io_specification_2026-07-28_changelog.png.tiles/tile_0002.jpg",
+        "sha256": "269da631d4016e0a01fac9246e0907def5af0d07827d97ae038a1f0a3bf06646"
+      }
+    ],
+    "stderr": "2026-10-05 12:08:14,870 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 12:08:24,038 INFO pixelrag_render.backends.cdp: [w0] https://modelcontextprotocol.io/specification/2026-07-28/changelog \u2192 3 tiles (6.1s)\n2026-10-05 12:08:24,057 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 12:08:24,057 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

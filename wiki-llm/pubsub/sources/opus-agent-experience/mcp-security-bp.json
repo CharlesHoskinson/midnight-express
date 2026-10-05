@@ -1,0 +1,13 @@
+{
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/security_best_practices",
+  "retrieved_utc": "2026-10-05T18:10:39.519419+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "dc866f4638ccdca08f339f5a462152dd1d6a8f8e6292326b669e08d963b5c936",
+  "text_sha256": "b4865dff6f7856966c946577edfd0ecd3c56ef97fe02ffab94cdc8905472d299",
+  "bytes": 575753,
+  "text_bytes": 36513,
+  "final_url": "https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices",
+  "accepted_source": true
+}

@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/5f5440bb26a62e2cf3440b92da5a667efa03b267/schema/2026-07-28/schema.ts",
+  "retrieved_utc": "2026-10-05T18:20:51.940260+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "742750af0bb8c716e7030c4977c992b55d1adc4407e9e66997db5846baedc2cd",
+  "text_sha256": "8c9a974a522c9561a1200d97e31a1db26a3b44db5dc3dcced76a54de61eb9bfe",
+  "bytes": 98426,
+  "text_bytes": 98410,
+  "final_url": "https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/5f5440bb26a62e2cf3440b92da5a667efa03b267/schema/2026-07-28/schema.ts",
+  "accepted_source": true
+}

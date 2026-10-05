@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/612db2b62dbd78c079da62e57e7b8585a204b858?recursive=1",
+  "retrieved_utc": "2026-10-05T18:17:05.407744+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "4dbab83ba2859b491e58f164d0869b8f43eca92fc7c778285493baca0b42af10",
+  "text_sha256": "4dbab83ba2859b491e58f164d0869b8f43eca92fc7c778285493baca0b42af10",
+  "bytes": 29410,
+  "text_bytes": 29410,
+  "final_url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/612db2b62dbd78c079da62e57e7b8585a204b858?recursive=1",
+  "accepted_source": true
+}

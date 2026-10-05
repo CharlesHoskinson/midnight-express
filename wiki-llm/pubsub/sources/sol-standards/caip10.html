@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Account ID Specification | Chain Agnostic Improvement Proposals</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Account ID Specification" />
+<meta name="author" content="Pedro Gomes (@pedrouid)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Chain Agnostic Improvement Proposals (CAIPs) describe standards for blockchain projects that are not specific to a single chain." />
+<meta property="og:description" content="Chain Agnostic Improvement Proposals (CAIPs) describe standards for blockchain projects that are not specific to a single chain." />
+<link rel="canonical" href="/CAIPs/caip-10" />
+<meta property="og:url" content="/CAIPs/caip-10" />
+<meta property="og:site_name" content="Chain Agnostic Improvement Proposals" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Account ID Specification" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Pedro Gomes (@pedrouid)"},"description":"Chain Agnostic Improvement Proposals (CAIPs) describe standards for blockchain projects that are not specific to a single chain.","headline":"Account ID Specification","url":"/CAIPs/caip-10"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Chain Agnostic Improvement Proposals" /></head>
+<body> <script type="module">
+ import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+ mermaid.initialize({ startOnLoad: true });
+ mermaid.run({
+     querySelector: '.language-mermaid',
+ });
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="home">
+  <h1 class="page-heading">
+    CAIP-10: Account ID Specification
+    <a href="https://github.com/ChainAgnostic/CAIPs/blob/main/CAIPs/caip-10.md"><svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true" class="octicon octicon-mark-github">
+      <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+      </svg></a>
+  </h1>
+  <h3></h3>
+  <table>
+    <tr>
+      <th>Author</th>
+      <td><a href="https://github.com/pedrouid">Pedro Gomes</a></td>
+    </tr>
+    
+    <tr>
+      <th>Discussions-To</th>
+      <td>
+
+    <a href="https://github.com/ChainAgnostic/CAIPs/pull/10">https://github.com/ChainAgnostic/CAIPs/pull/10</a>
+</td>
+    </tr>
+    
+    <tr>
+      <th>Status</th>
+      <td>Final
+        
+    </td>
+    </tr>
+    <tr>
+      <th>Type</th>
+      <td>Standard</td>
+    </tr>
+    
+    <tr>
+      <th>Created</th>
+      <td>2020-03-13</td>
+    </tr>
+    
+    <tr>
+      <th>Updated</th>
+      <td>2022-10-23</td>
+    </tr>
+    
+    
+    <tr>
+      <th>Requires</th>
+      <td>
+
+  <a href="caip-2">2</a>
+</td>
+    </tr>
+    
+    
+    
+  </table>
+
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <ul><li><a href="#simple-summary">Simple Summary</a></li><li><a href="#abstract">Abstract</a></li><li><a href="#motivation">Motivation</a></li><li><a href="#specification">Specification</a><ul><li><a href="#syntax">Syntax</a></li><li><a href="#semantics">Semantics</a></li></ul></li><li><a href="#rationale">Rationale</a></li><li><a href="#canonicalization">Canonicalization</a></li><li><a href="#test-cases">Test Cases</a></li><li><a href="#backwards-compatibility">Backwards Compatibility</a></li><li><a href="#changelog">Changelog</a></li><li><a href="#links">Links</a></li><li><a href="#copyright">Copyright</a></li></ul>
+  </div>
+
+  <h2 id="simple-summary">
+  
+  
+    <a href="#simple-summary" class="anchor-link"></a> Simple Summary
+  
+  
+</h2>
+    
+
+<p>CAIP-10 defines a way to identify an account in any blockchain specified by
+CAIP-2 blockchain id.</p>
+<h2 id="abstract">
+  
+  
+    <a href="#abstract" class="anchor-link"></a> Abstract
+  
+  
+</h2>
+    
+
+<p>This proposal aims to facilitate specifying accounts for any blockchain
+extending <a href="https://ChainAgnostic.org/CAIPs/caip-2">CAIP-2</a> chain id specification. This is useful for both
+decentralized applications and wallets to communicate user accounts (EOA in EVM
+terminology) or smart contracts/abstraction for multiple chains using string
+identifiers specific to each chain. Currently, wallets are usually designed for
+each chain and multi-chain wallets use proprietary data structures to
+differentiate accounts. This proposal aims to standardize these identifiers for
+accounts to allow interoperability.</p>
+<h2 id="motivation">
+  
+  
+    <a href="#motivation" class="anchor-link"></a> Motivation
+  
+  
+</h2>
+    
+
+<p>The motivation for proposal stem from designing a chain-agnostic protocol for
+communication between dapps and wallets that was independent of any blockchain
+but provide the flexibility to be backwards compatible with existing
+applications.</p>
+<h2 id="specification">
+  
+  
+    <a href="#specification" class="anchor-link"></a> Specification
+  
+  
+</h2>
+    
+
+<p>The account id specification will be prefixed with the <a href="https://ChainAgnostic.org/CAIPs/caip-2">CAIP-2</a> blockchain ID
+and delimited with a colon sign (<code class="language-plaintext highlighter-rouge">:</code>)</p>
+<h3 id="syntax">
+  
+  
+    <a href="#syntax" class="anchor-link"></a> Syntax
+  
+  
+</h3>
+    
+
+<p>The <code class="language-plaintext highlighter-rouge">account_id</code> is a case-sensitive string in the form</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>account_id:        chain_id + ":" + account_address
+chain_id:          [-a-z0-9]{3,8}:[-_a-zA-Z0-9]{1,32} (See [CAIP-2][])
+account_address:   [-.%a-zA-Z0-9]{1,128}
+</code></pre></div></div>
+
+<p>Note that <code class="language-plaintext highlighter-rouge">-</code>, <code class="language-plaintext highlighter-rouge">%</code> and <code class="language-plaintext highlighter-rouge">.</code> characters are allowed, but no other
+non-alphanumerics such as <code class="language-plaintext highlighter-rouge">:</code>, <code class="language-plaintext highlighter-rouge">/</code> or <code class="language-plaintext highlighter-rouge">\</code>.  Implementers are recommended to use
+“URL encoding” (% + 2-character codes, canonically capitalized) as per <a href="https://www.rfc-editor.org/rfc/rfc3986#section-2.1">Section
+2</a> of <a href="https://www.rfc-editor.org/rfc/rfc3986">RFC 3986</a> to escape any further non-alphanumeric
+characters, and to consider <a href="https://en.wikipedia.org/wiki/IDN_homograph_attack">homograph attack surfaces</a> in the handling
+of any non-alphanumerics.</p>
+<h3 id="semantics">
+  
+  
+    <a href="#semantics" class="anchor-link"></a> Semantics
+  
+  
+</h3>
+    
+
+<p>The <code class="language-plaintext highlighter-rouge">chain_id</code> is specified by the <a href="https://ChainAgnostic.org/CAIPs/caip-2">CAIP-2</a> which describes the blockchain id.
+The <code class="language-plaintext highlighter-rouge">account_address</code> is a case sensitive string which its format is specific to
+the blockchain that is referred to by the <code class="language-plaintext highlighter-rouge">chain_id</code>.</p>
+<h2 id="rationale">
+  
+  
+    <a href="#rationale" class="anchor-link"></a> Rationale
+  
+  
+</h2>
+    
+
+<p>The goals of the general account ID format is:</p>
+
+<ul>
+  <li>Uniqueness between chains regardless if they are mainnet or testnet</li>
+  <li>Readability using the prefix of a chainId to quickly identify before parsing the address</li>
+  <li>Restricted to constrained set of characters and length for parsing</li>
+</ul>
+<h2 id="canonicalization">
+  
+  
+    <a href="#canonicalization" class="anchor-link"></a> Canonicalization
+  
+  
+</h2>
+    
+
+<p>Note that some namespaces like the EVM offer canonicalization schemes that use
+capitalization (e.g. <a href="https://eips.ethereum.org/EIPS/eip-55">EIP-55</a>), an option suffix (e.g. <a href="https://github.com/hashgraph/hedera-improvement-proposal/blob/main/HIP/hip-15.md">HIP-15</a>), or some
+other transformation. At the present time, this specification does NOT require
+canonicalization, and implementers are advised to consider deduplication or
+canonicalization in their consumption of CAIP-addresses. CAIP-10 profiles in
+CASA <a href="https://namespaces.chainagnostic.org/">namespaces</a> may contain additional information per namespace.</p>
+<h2 id="test-cases">
+  
+  
+    <a href="#test-cases" class="anchor-link"></a> Test Cases
+  
+  
+</h2>
+    
+
+<p>This is a list of manually composed examples</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Ethereum mainnet (canonicalized with [EIP-55][] checksum)
+eip155:1:0xab16a96D359eC26a11e2C2b3d8f8B8942d5Bfcdb
+
+# Bitcoin mainnet
+bip122:000000000019d6689c085ae165831e93:128Lkh3S7CkDTBZ8W7BbpsN3YYizJMp8p6
+
+# Cosmos Hub
+cosmos:cosmoshub-3:cosmos1t2uflqwqe0fsj0shcfkrvpukewcw40yjj6hdc0
+
+# Kusama network
+polkadot:b0a8d493285c2df73290dfb7e61f870f:5hmuyxw9xdgbpptgypokw4thfyoe3ryenebr381z9iaegmfy
+
+# StarkNet Testnet
+starknet:SN_GOERLI:0x02dd1b492765c064eac4039e3841aa5f382773b598097a40073bd8b48170ab57
+
+# Dummy max length (64+1+8+1+32 = 106 chars/bytes)
+chainstd:8c3444cf8970a9e41a706fab93e7a6c4:6d9b0b4b9994e8a6afbd3dc3ed983cd51c755afb27cd1dc7825ef59c134a39f7
+
+# Hedera address (with optional checksum suffix per [HIP-15][])
+hedera:mainnet:0.0.1234567890-zbhlt
+
+</code></pre></div></div>
+<h2 id="backwards-compatibility">
+  
+  
+    <a href="#backwards-compatibility" class="anchor-link"></a> Backwards Compatibility
+  
+  
+</h2>
+    
+
+<p>Previously, the character set was much more restrictive for CAIP-10s, allowing
+no non-alphanumeric characters.  See <a href="https://github.com/ChainAgnostic/CAIPs/blob/8fdb5bfd1bdf15c9daf8aacfbcc423533764dfe9/CAIPs/caip-10.md">pre-2022-10-23
+version</a>
+of specification for details.</p>
+
+<p>Before that, legacy CAIP-10 schema was defined by appending as suffix the CAIP-2
+chainId delimited by the at sign (<code class="language-plaintext highlighter-rouge">@</code>). See <a href="https://github.com/ChainAgnostic/CAIPs/blob/0697e26601d30d8e99df17954ed3e5a1fd59e049/CAIPs/caip-10.md">pre-2021-08-21
+version</a>
+of specification for details.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Legacy example pre-2021-08-21
+0xab16a96d359ec26a11e2c2b3d8f8b8942d5bfcdb@eip155:1
+</code></pre></div></div>
+<h2 id="changelog">
+  
+  
+    <a href="#changelog" class="anchor-link"></a> Changelog
+  
+  
+</h2>
+    
+
+<ul>
+  <li>2022-10-23: expanded charset to include <code class="language-plaintext highlighter-rouge">-</code>,<code class="language-plaintext highlighter-rouge">.</code>, and <code class="language-plaintext highlighter-rouge">%</code>; also added
+canonicalization section and links</li>
+  <li>2022-03-10: update RegEx to incorporate CAIP-2 reference</li>
+  <li>2021-08-11: switch from <code class="language-plaintext highlighter-rouge">{account id}@{chain id}</code> to <code class="language-plaintext highlighter-rouge">{chain id}:{account id}</code>
+syntax</li>
+</ul>
+<h2 id="links">
+  
+  
+    <a href="#links" class="anchor-link"></a> Links
+  
+  
+</h2>
+    
+
+<ul>
+  <li><a href="https://www.rfc-editor.org/rfc/rfc3986">IETF RFC 3986</a> - the IETF standard for URL, URI and URN syntax</li>
+  <li><a href="https://ChainAgnostic.org/CAIPs/caip-2">CAIP-2</a> - CASA Chain ID specification</li>
+  <li><a href="https://eips.ethereum.org/EIPS/eip-55">EIP-55</a> - Ethereum Improvement Proposal for canonicalizing ethereum addresses to by deterministic capitalization of a-f characters</li>
+  <li><a href="https://github.com/hashgraph/hedera-improvement-proposal/blob/main/HIP/hip-15.md">HIP-15</a> - Hedera Improvement Proposal defining a checksum suffix for addresses</li>
+</ul>
+<h2 id="copyright">
+  
+  
+    <a href="#copyright" class="anchor-link"></a> Copyright
+  
+  
+</h2>
+    
+
+<p>Copyright and related rights waived via <a href="../LICENSE">CC0</a>.</p>
+
+
+  <h2>Citation</h2>
+  <p>Please cite this document as:</p>
+  
+  <p><a href="https://github.com/pedrouid">Pedro Gomes</a>, "CAIP-10: Account ID Specification," <em>Chain Agnostic Improvement Proposals</em>, no. 10, March 2020. [Online serial]. Available:
+    https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-10.md</p>
+</div>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "TechArticle",
+    "headline": "CAIP-10: Account ID Specification",
+    "author": "Pedro Gomes (@pedrouid)",
+    "name": "CAIP-10: Account ID Specification",
+    "dateCreated": "2020-03-13",
+    "datePublished": "2020-03-13",
+
+    "discussionUrl": "https://github.com/ChainAgnostic/CAIPs/pull/10",
+    
+    "inLanguage": "en-US",
+    "license": "#copyright",
+    "copyrightYear": "2020"
+  }
+</script>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Chain Agnostic Improvement Proposals</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Chain Agnostic Improvement Proposals</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ChainAgnostic"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ChainAgnostic</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Chain Agnostic Improvement Proposals (CAIPs) describe standards for blockchain projects that are not specific to a single chain.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

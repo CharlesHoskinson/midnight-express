@@ -1,0 +1,9 @@
+{
+  "url": "https://www.asyncapi.com/docs/reference/specification/v3.0.0",
+  "status": 200,
+  "retrievedAt": "2026-10-05T18:04:44.965769+00:00",
+  "sha256": "61ef3ee3ca1c2d7903f8c28e1f284c03e19b1bc1d555acf968865dfb3905a394",
+  "bytes": 1121101,
+  "method": "Scrapling Fetcher.get",
+  "visualGrounding": "pending PixelRAG route from coordinator"
+}

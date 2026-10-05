@@ -1,0 +1,23 @@
+{
+  "id": "opus-human-experience",
+  "exit_code": 0,
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 44,
+      "outputTokens": 16608,
+      "cacheReadInputTokens": 1141538,
+      "cacheCreationInputTokens": 66590,
+      "webSearchRequests": 0,
+      "costUSD": 1.0933636,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 2034,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "is_error": false,
+  "report_exists": true,
+  "errors": null
+}

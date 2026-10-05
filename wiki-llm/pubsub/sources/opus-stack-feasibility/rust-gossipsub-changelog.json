@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/libp2p/rust-libp2p/master/protocols/gossipsub/CHANGELOG.md",
+  "retrieved_utc": "2026-10-05T18:11:56.042988+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "9897dfa9e2d62ca74d5016b599e01d29c7dbd42547e7b6dfad95adcecd48943a",
+  "text_sha256": "950f75d6511ca0ee8249145290f8e0c0041620ebcd4f3df0fe2165061359ed71",
+  "bytes": 20688,
+  "text_bytes": 20408,
+  "final_url": "https://raw.githubusercontent.com/libp2p/rust-libp2p/master/protocols/gossipsub/CHANGELOG.md",
+  "accepted_source": true
+}

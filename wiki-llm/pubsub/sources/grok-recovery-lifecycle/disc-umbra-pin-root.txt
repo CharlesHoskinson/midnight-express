@@ -1,0 +1,562 @@
+[
+  {
+    "name": ".claude",
+    "path": ".claude",
+    "sha": "50f0d449c0044297b71ab126604b073888bdde09",
+    "size": 0,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/.claude?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/.claude",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/50f0d449c0044297b71ab126604b073888bdde09",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/.claude?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/50f0d449c0044297b71ab126604b073888bdde09",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/.claude"
+    }
+  },
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "5c64ab4e3cf72202bc359cd442ddf19f29f16a4e",
+    "size": 0,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/.github?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/.github",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/5c64ab4e3cf72202bc359cd442ddf19f29f16a4e",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/.github?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/5c64ab4e3cf72202bc359cd442ddf19f29f16a4e",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/.github"
+    }
+  },
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "45a13b4df8a50ceb69a5b9191a6383ef9c4c832f",
+    "size": 881,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/.gitignore?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/.gitignore",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/45a13b4df8a50ceb69a5b9191a6383ef9c4c832f",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/.gitignore?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/45a13b4df8a50ceb69a5b9191a6383ef9c4c832f",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/.gitignore"
+    }
+  },
+  {
+    "name": ".gitleaks.toml",
+    "path": ".gitleaks.toml",
+    "sha": "8c1d4917e9b7b66ff513aaf4adea8891082f72be",
+    "size": 3450,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/.gitleaks.toml?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/.gitleaks.toml",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/8c1d4917e9b7b66ff513aaf4adea8891082f72be",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/.gitleaks.toml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/.gitleaks.toml?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/8c1d4917e9b7b66ff513aaf4adea8891082f72be",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/.gitleaks.toml"
+    }
+  },
+  {
+    "name": ".gitleaksignore",
+    "path": ".gitleaksignore",
+    "sha": "9395c9944a599a1205aaf8307dad5da99bf30ea6",
+    "size": 1810,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/.gitleaksignore?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/.gitleaksignore",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/9395c9944a599a1205aaf8307dad5da99bf30ea6",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/.gitleaksignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/.gitleaksignore?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/9395c9944a599a1205aaf8307dad5da99bf30ea6",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/.gitleaksignore"
+    }
+  },
+  {
+    "name": ".npmrc",
+    "path": ".npmrc",
+    "sha": "03b584ceec45cf94576b67545fa60b93d4ebec04",
+    "size": 656,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/.npmrc?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/.npmrc",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/03b584ceec45cf94576b67545fa60b93d4ebec04",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/.npmrc",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/.npmrc?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/03b584ceec45cf94576b67545fa60b93d4ebec04",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/.npmrc"
+    }
+  },
+  {
+    "name": "AGENTS.md",
+    "path": "AGENTS.md",
+    "sha": "6a5111d574265a06431bacfe8d564ba9fad00592",
+    "size": 1087,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/AGENTS.md?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/AGENTS.md",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/6a5111d574265a06431bacfe8d564ba9fad00592",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/AGENTS.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/AGENTS.md?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/6a5111d574265a06431bacfe8d564ba9fad00592",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/AGENTS.md"
+    }
+  },
+  {
+    "name": "AUTONOMOUS_RUN_LOG.md",
+    "path": "AUTONOMOUS_RUN_LOG.md",
+    "sha": "0968be2fa8e82db957a914f9b3229c27af956e5a",
+    "size": 33114,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/AUTONOMOUS_RUN_LOG.md?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/AUTONOMOUS_RUN_LOG.md",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/0968be2fa8e82db957a914f9b3229c27af956e5a",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/AUTONOMOUS_RUN_LOG.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/AUTONOMOUS_RUN_LOG.md?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/0968be2fa8e82db957a914f9b3229c27af956e5a",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/AUTONOMOUS_RUN_LOG.md"
+    }
+  },
+  {
+    "name": "CHANGELOG.md",
+    "path": "CHANGELOG.md",
+    "sha": "184442f10c37d5aa7bdb240564d1123ac88af223",
+    "size": 5131,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/CHANGELOG.md?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/CHANGELOG.md",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/184442f10c37d5aa7bdb240564d1123ac88af223",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/CHANGELOG.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/CHANGELOG.md?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/184442f10c37d5aa7bdb240564d1123ac88af223",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/CHANGELOG.md"
+    }
+  },
+  {
+    "name": "CLAUDE.md",
+    "path": "CLAUDE.md",
+    "sha": "52600cfea938d9de2d5b6c7dbb2f9b0cc331c916",
+    "size": 20917,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/CLAUDE.md?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/CLAUDE.md",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/52600cfea938d9de2d5b6c7dbb2f9b0cc331c916",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/CLAUDE.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/CLAUDE.md?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/52600cfea938d9de2d5b6c7dbb2f9b0cc331c916",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/CLAUDE.md"
+    }
+  },
+  {
+    "name": "Formal",
+    "path": "Formal",
+    "sha": "90bfb68200e4e2e57ac44e7b4c7bac0d6def7b29",
+    "size": 0,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/Formal?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/Formal",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/90bfb68200e4e2e57ac44e7b4c7bac0d6def7b29",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/Formal?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/90bfb68200e4e2e57ac44e7b4c7bac0d6def7b29",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/Formal"
+    }
+  },
+  {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+    "size": 11358,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/LICENSE?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/LICENSE",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/d645695673349e3947e8e5ae42332d0ac3164cd7",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/LICENSE",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/LICENSE?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/LICENSE"
+    }
+  },
+  {
+    "name": "NOTICE",
+    "path": "NOTICE",
+    "sha": "8388b00859807627b0b367fbf8dd0f88f602a832",
+    "size": 289,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/NOTICE?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/NOTICE",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/8388b00859807627b0b367fbf8dd0f88f602a832",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/NOTICE",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/NOTICE?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/8388b00859807627b0b367fbf8dd0f88f602a832",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/NOTICE"
+    }
+  },
+  {
+    "name": "Performance",
+    "path": "Performance",
+    "sha": "3595246c93f2099bfbe0c590c144b5cddbcd52f4",
+    "size": 0,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/Performance?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/Performance",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/3595246c93f2099bfbe0c590c144b5cddbcd52f4",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/Performance?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/3595246c93f2099bfbe0c590c144b5cddbcd52f4",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/Performance"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "d74d9da04d53a68b2b7aefd248f3591e99d41c83",
+    "size": 16947,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/README.md?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/README.md",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/d74d9da04d53a68b2b7aefd248f3591e99d41c83",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/README.md?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/d74d9da04d53a68b2b7aefd248f3591e99d41c83",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/README.md"
+    }
+  },
+  {
+    "name": "ROADMAP.md",
+    "path": "ROADMAP.md",
+    "sha": "852cb1ee1f00339201504cbf7a424a79d5da9e2b",
+    "size": 34689,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/ROADMAP.md?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/ROADMAP.md",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/852cb1ee1f00339201504cbf7a424a79d5da9e2b",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/ROADMAP.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/ROADMAP.md?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/852cb1ee1f00339201504cbf7a424a79d5da9e2b",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/ROADMAP.md"
+    }
+  },
+  {
+    "name": "SECURITY.md",
+    "path": "SECURITY.md",
+    "sha": "015bb3c963f4aec8ada85a8b3c050978735ce247",
+    "size": 14818,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/SECURITY.md?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/SECURITY.md",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/015bb3c963f4aec8ada85a8b3c050978735ce247",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/SECURITY.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/SECURITY.md?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/015bb3c963f4aec8ada85a8b3c050978735ce247",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/SECURITY.md"
+    }
+  },
+  {
+    "name": "bench",
+    "path": "bench",
+    "sha": "af95602105f982235e20376faf528000f77951e4",
+    "size": 0,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/bench?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/bench",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/af95602105f982235e20376faf528000f77951e4",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/bench?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/af95602105f982235e20376faf528000f77951e4",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/bench"
+    }
+  },
+  {
+    "name": "chain-archive-sync",
+    "path": "chain-archive-sync",
+    "sha": "b8a909c3fe3d88a23fde554f6e69b8fac799b0e8",
+    "size": 0,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/chain-archive-sync?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/chain-archive-sync",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/b8a909c3fe3d88a23fde554f6e69b8fac799b0e8",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/chain-archive-sync?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/b8a909c3fe3d88a23fde554f6e69b8fac799b0e8",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/chain-archive-sync"
+    }
+  },
+  {
+    "name": "design",
+    "path": "design",
+    "sha": "c1134bb1e9d569defef659f76a6287379bae4e0e",
+    "size": 0,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/design?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/design",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/c1134bb1e9d569defef659f76a6287379bae4e0e",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/design?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/c1134bb1e9d569defef659f76a6287379bae4e0e",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/design"
+    }
+  },
+  {
+    "name": "docs",
+    "path": "docs",
+    "sha": "48f776dafe9612f79c0128789f64ff547f80d6ad",
+    "size": 0,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/docs?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/docs",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/48f776dafe9612f79c0128789f64ff547f80d6ad",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/docs?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/48f776dafe9612f79c0128789f64ff547f80d6ad",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/docs"
+    }
+  },
+  {
+    "name": "graphify-out",
+    "path": "graphify-out",
+    "sha": "a5e2b3d8e209fe1f3ee25bddde48315823ab3884",
+    "size": 0,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/graphify-out?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/graphify-out",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/a5e2b3d8e209fe1f3ee25bddde48315823ab3884",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/graphify-out?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/a5e2b3d8e209fe1f3ee25bddde48315823ab3884",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/graphify-out"
+    }
+  },
+  {
+    "name": "nix",
+    "path": "nix",
+    "sha": "1d1c80cb4daad0965d7097bfd3e04f5c7685971e",
+    "size": 0,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/nix?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/nix",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/1d1c80cb4daad0965d7097bfd3e04f5c7685971e",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/nix?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/1d1c80cb4daad0965d7097bfd3e04f5c7685971e",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/nix"
+    }
+  },
+  {
+    "name": "openspec",
+    "path": "openspec",
+    "sha": "ca9c34d307d0b4c74c29361694854846c0c654e9",
+    "size": 0,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/openspec?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/openspec",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/ca9c34d307d0b4c74c29361694854846c0c654e9",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/openspec?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/ca9c34d307d0b4c74c29361694854846c0c654e9",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/openspec"
+    }
+  },
+  {
+    "name": "package-lock.json",
+    "path": "package-lock.json",
+    "sha": "e62ac7f4beef4b054c8ec8ea9cb403da227875af",
+    "size": 227808,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/package-lock.json?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/package-lock.json",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/e62ac7f4beef4b054c8ec8ea9cb403da227875af",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/package-lock.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/package-lock.json?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/e62ac7f4beef4b054c8ec8ea9cb403da227875af",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/package-lock.json"
+    }
+  },
+  {
+    "name": "package.json",
+    "path": "package.json",
+    "sha": "141bbc887a7858d5821206cdaf39a00481b66d5e",
+    "size": 2175,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/package.json?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/package.json",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/141bbc887a7858d5821206cdaf39a00481b66d5e",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/package.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/package.json?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/141bbc887a7858d5821206cdaf39a00481b66d5e",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/package.json"
+    }
+  },
+  {
+    "name": "scripts",
+    "path": "scripts",
+    "sha": "cff718f86c4205f6a16de427f1b6fed3defceb5b",
+    "size": 0,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/scripts?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/scripts",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/cff718f86c4205f6a16de427f1b6fed3defceb5b",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/scripts?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/cff718f86c4205f6a16de427f1b6fed3defceb5b",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/scripts"
+    }
+  },
+  {
+    "name": "src",
+    "path": "src",
+    "sha": "1ef7981340c030a62163bbd6d28f027076fe5eb3",
+    "size": 0,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/src?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/src",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/1ef7981340c030a62163bbd6d28f027076fe5eb3",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/src?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/1ef7981340c030a62163bbd6d28f027076fe5eb3",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/src"
+    }
+  },
+  {
+    "name": "stryker.conf.json",
+    "path": "stryker.conf.json",
+    "sha": "32123a2a8ccc68c546fbc9846a7478e96f2cab81",
+    "size": 2127,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/stryker.conf.json?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/stryker.conf.json",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/32123a2a8ccc68c546fbc9846a7478e96f2cab81",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/stryker.conf.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/stryker.conf.json?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/32123a2a8ccc68c546fbc9846a7478e96f2cab81",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/stryker.conf.json"
+    }
+  },
+  {
+    "name": "test",
+    "path": "test",
+    "sha": "16b9dfa2a23f115dacfa24006a3c9017f7144558",
+    "size": 0,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/test?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/test",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/16b9dfa2a23f115dacfa24006a3c9017f7144558",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/test?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/16b9dfa2a23f115dacfa24006a3c9017f7144558",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/tree/f662822765247f0da553347c9819f958a1992d28/test"
+    }
+  },
+  {
+    "name": "tsconfig.build.json",
+    "path": "tsconfig.build.json",
+    "sha": "e0990023a41e3d368234e82513fad9e95b4ce2e4",
+    "size": 359,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/tsconfig.build.json?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/tsconfig.build.json",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/e0990023a41e3d368234e82513fad9e95b4ce2e4",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/tsconfig.build.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/tsconfig.build.json?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/e0990023a41e3d368234e82513fad9e95b4ce2e4",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/tsconfig.build.json"
+    }
+  },
+  {
+    "name": "tsconfig.json",
+    "path": "tsconfig.json",
+    "sha": "c7746f1419ac85c210c3a7c304114335521cc823",
+    "size": 388,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/tsconfig.json?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/tsconfig.json",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/c7746f1419ac85c210c3a7c304114335521cc823",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/tsconfig.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/tsconfig.json?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/c7746f1419ac85c210c3a7c304114335521cc823",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/tsconfig.json"
+    }
+  },
+  {
+    "name": "typedoc.json",
+    "path": "typedoc.json",
+    "sha": "de98298864adaf4d8862cb63dc6b10354b0e4404",
+    "size": 445,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/typedoc.json?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/typedoc.json",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/de98298864adaf4d8862cb63dc6b10354b0e4404",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/typedoc.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/typedoc.json?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/de98298864adaf4d8862cb63dc6b10354b0e4404",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/typedoc.json"
+    }
+  },
+  {
+    "name": "vitest.config.ts",
+    "path": "vitest.config.ts",
+    "sha": "98f6745b06888f4a0693edb0f73746116dce75eb",
+    "size": 5640,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/vitest.config.ts?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/vitest.config.ts",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/98f6745b06888f4a0693edb0f73746116dce75eb",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/vitest.config.ts",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/vitest.config.ts?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/98f6745b06888f4a0693edb0f73746116dce75eb",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/vitest.config.ts"
+    }
+  },
+  {
+    "name": "vitest.mutation.config.ts",
+    "path": "vitest.mutation.config.ts",
+    "sha": "17ba4a93f500840f58c0493352275a95ae58ce0b",
+    "size": 1421,
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/vitest.mutation.config.ts?ref=f662822765247f0da553347c9819f958a1992d28",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/vitest.mutation.config.ts",
+    "git_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/17ba4a93f500840f58c0493352275a95ae58ce0b",
+    "download_url": "https://raw.githubusercontent.com/CharlesHoskinson/UmbraDB/f662822765247f0da553347c9819f958a1992d28/vitest.mutation.config.ts",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/vitest.mutation.config.ts?ref=f662822765247f0da553347c9819f958a1992d28",
+      "git": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/blobs/17ba4a93f500840f58c0493352275a95ae58ce0b",
+      "html": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/vitest.mutation.config.ts"
+    }
+  }
+]

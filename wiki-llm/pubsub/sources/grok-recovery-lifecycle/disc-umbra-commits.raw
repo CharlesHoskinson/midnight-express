@@ -1,0 +1,248 @@
+[
+  {
+    "sha": "3c0c68b3d0397ee2e8344b77e9ed715132fef6ca",
+    "node_id": "C_kwDOTeTpgNoAKDNjMGM2OGIzZDAzOTdlZTJlODM0NGI3N2U5ZWQ3MTUxMzJmZWY2Y2E",
+    "commit": {
+      "author": {
+        "name": "charles hoskinson",
+        "email": "charles.hoskinson@gmail.com",
+        "date": "2026-07-26T17:50:21Z"
+      },
+      "committer": {
+        "name": "charles hoskinson",
+        "email": "charles.hoskinson@gmail.com",
+        "date": "2026-07-26T17:50:21Z"
+      },
+      "message": "docs(research): experimental results — two findings reorder the roadmap\n\nRan the read-only Stage 0 experiments against the live 4.3.3 indexer.\nThree open questions settled by measurement instead of argument.\n\nR1 answers the E0.4 gate, and the answer is the opposite of the assumption\nthe research was ranked on. We are CPU-bound, not I/O-bound: 70% of one\ncore, but only 27 KB/s of PHYSICAL disk reads against 3,953 read syscalls\nper second, with 23 GB of page cache resident over an 88 GB node store. The\npage cache already serves essentially every read. Ira's 5.2-23.6x came from\na profile that was 67.9% I/O; prefetch exists to get data off disk before\nit is needed and our data is already in memory. So hint-driven prefetch is\ndemoted, and what gets promoted is pipelining plus anything that reduces\nthe NUMBER of lookups, because each lookup is now syscall and B-tree CPU\nrather than disk latency.\n\nR2 retracts my own earlier conclusion. I raised cache_size to 16 MiB\nobjects, measured no sustained gain, reverted, and called the lever spent.\nThat does not survive R1: with 64.5% of CPU inside the quadratic clone, a\ngain confined to the remaining third would have been invisible, and the\nin-process cache is precisely what avoids those 4,000 syscalls/sec. The\nearlier negative is recorded as unreliable rather than as evidence, and\ncache_size must be re-tested after the Rc backport.\n\nR3 resolves the GC disagreement by checking our tag rather than HEAD:\nv4.3.3 has features = [\"layout-v2\"], HEAD has [\"layout-v2\", \"gc-v1\"]. Our\nindexer has NO ledger-DB garbage collection, corroborated by zero GC log\nlines in 30 minutes. One lane was right for our version; the other had read\nHEAD. This also explains the disk trajectory: ~1 GB/hour with nothing ever\nreclaimed.\n\nR4 confirms Stage 4's premise and sharpens it. At v4.3.3 application.rs,\nline 394 computes ledger_state.root() only to compare it against the node's\nvalue and bail on mismatch, line 404 does the same for the zswap root,\nledger_state_root appears zero times in the migrations so no such column\nexists, and the persisted zswap column is populated from the block rather\nthan from our computation. Both computed roots are pure validation, so\ndeferring them changes no stored byte. The Stage 4 decision now rests on\nverified code rather than a reported claim.",
+      "tree": {
+        "sha": "c20685a3fdab16846e90e9e0dc26229a50180e3e",
+        "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/c20685a3fdab16846e90e9e0dc26229a50180e3e"
+      },
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/commits/3c0c68b3d0397ee2e8344b77e9ed715132fef6ca",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/3c0c68b3d0397ee2e8344b77e9ed715132fef6ca",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/commit/3c0c68b3d0397ee2e8344b77e9ed715132fef6ca",
+    "comments_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/3c0c68b3d0397ee2e8344b77e9ed715132fef6ca/comments",
+    "author": {
+      "login": "CharlesHoskinson",
+      "id": 3279952,
+      "node_id": "MDQ6VXNlcjMyNzk5NTI=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3279952?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/CharlesHoskinson",
+      "html_url": "https://github.com/CharlesHoskinson",
+      "followers_url": "https://api.github.com/users/CharlesHoskinson/followers",
+      "following_url": "https://api.github.com/users/CharlesHoskinson/following{/other_user}",
+      "gists_url": "https://api.github.com/users/CharlesHoskinson/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/CharlesHoskinson/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/CharlesHoskinson/subscriptions",
+      "organizations_url": "https://api.github.com/users/CharlesHoskinson/orgs",
+      "repos_url": "https://api.github.com/users/CharlesHoskinson/repos",
+      "events_url": "https://api.github.com/users/CharlesHoskinson/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/CharlesHoskinson/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "CharlesHoskinson",
+      "id": 3279952,
+      "node_id": "MDQ6VXNlcjMyNzk5NTI=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3279952?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/CharlesHoskinson",
+      "html_url": "https://github.com/CharlesHoskinson",
+      "followers_url": "https://api.github.com/users/CharlesHoskinson/followers",
+      "following_url": "https://api.github.com/users/CharlesHoskinson/following{/other_user}",
+      "gists_url": "https://api.github.com/users/CharlesHoskinson/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/CharlesHoskinson/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/CharlesHoskinson/subscriptions",
+      "organizations_url": "https://api.github.com/users/CharlesHoskinson/orgs",
+      "repos_url": "https://api.github.com/users/CharlesHoskinson/repos",
+      "events_url": "https://api.github.com/users/CharlesHoskinson/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/CharlesHoskinson/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "8210139901b7569a090196f16e7a40e49e06dc01",
+        "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/8210139901b7569a090196f16e7a40e49e06dc01",
+        "html_url": "https://github.com/CharlesHoskinson/UmbraDB/commit/8210139901b7569a090196f16e7a40e49e06dc01"
+      }
+    ]
+  },
+  {
+    "sha": "8210139901b7569a090196f16e7a40e49e06dc01",
+    "node_id": "C_kwDOTeTpgNoAKDgyMTAxMzk5MDFiNzU2OWEwOTAxOTZmMTZlN2E0MGU0OWUwNmRjMDE",
+    "commit": {
+      "author": {
+        "name": "charles hoskinson",
+        "email": "charles.hoskinson@gmail.com",
+        "date": "2026-07-26T17:44:10Z"
+      },
+      "committer": {
+        "name": "charles hoskinson",
+        "email": "charles.hoskinson@gmail.com",
+        "date": "2026-07-26T17:44:10Z"
+      },
+      "message": "docs(research): roadmap v2 — the research changed the goal\n\nResearched how Erigon, Reth, Besu, Aptos, Solana, Sui and Substreams solve\nthis. The conclusion is that parallel execution is the wrong target, and\nthe evidence is specific rather than aesthetic.\n\nThe governing find is Ira (Visa Research, arXiv:2601.21286), which states\nour problem verbatim: a replayer already knows future access patterns,\nwhich is exactly what optimal replay needs. Measured on 100,800 mainnet\nblocks against unmodified reth: 5.2x with ONE prefetch thread, 23.6x with\n16, executor sequential throughout. All parallelism was I/O prefetch, and\nthe mechanism is sorting rather than threading. It is bit-identical by\nconstruction, not by proof: hints are advisory and a crash-on-miss cache\nhalts instead of diverging.\n\nBlock-STM is rejected on our own numbers. Its guarantee is sound and it\ndelivers 16-18x at 32 threads, but every block size the paper evaluates is\n1,000 to 50,000 transactions and we run 0.66 per block. The same paper\nmeasures up to 30% overhead on inherently sequential workloads, so we would\npay the 30% and collect none of the 16x. Sealevel needs a transaction\nformat change, which for replayed history means the history is no longer\nthe history. Sui's fast path optimises reaching agreement on an ordering we\nalready have. Substreams' segmented fold requires associativity our apply()\ndoes not have. Each rejection is recorded with the reason so nobody\nre-proposes it.\n\nTwo structural wins replace them, both bit-identical. Sorted write staging,\nwhich matters unusually here because a content-addressed store makes every\nkey a random hash and random B-tree inserts are the exact pathology\nErigon's ETL exists to defeat. And pipelining deserialization, which is a\npure function of block bytes and entirely off the dependency chain - the\ndirect heir to the 64.5% profile finding.\n\nStage 4 is escalated rather than decided: two of four per-block roots are\ncomputed, compared and discarded, never persisted. Deferring them to batch\nboundaries changes no output byte, only the validation model, and Erigon\nand Reth both do exactly this during historical sync. Plausibly the largest\nsingle win, but it reduces per-block checking on an artifact meant as\nrelease evidence, so it is the owner's call.\n\nRecords an unresolved conflict rather than papering over it: two lanes\ndisagree on whether 4.3.3 has ledger-DB GC, having read different\nrevisions. Must be settled by inspection before anyone tunes gc_bound.\n\nAlso carries an incidental upstream correctness finding: get_root_count\nselects count(1), returning row existence rather than the stored refcount\ncolumn, against a storage-core test asserting the latter.",
+      "tree": {
+        "sha": "df8cc13f2fe86d273fa78e03f6dcff45418ab146",
+        "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/df8cc13f2fe86d273fa78e03f6dcff45418ab146"
+      },
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/commits/8210139901b7569a090196f16e7a40e49e06dc01",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/8210139901b7569a090196f16e7a40e49e06dc01",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/commit/8210139901b7569a090196f16e7a40e49e06dc01",
+    "comments_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/8210139901b7569a090196f16e7a40e49e06dc01/comments",
+    "author": {
+      "login": "CharlesHoskinson",
+      "id": 3279952,
+      "node_id": "MDQ6VXNlcjMyNzk5NTI=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3279952?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/CharlesHoskinson",
+      "html_url": "https://github.com/CharlesHoskinson",
+      "followers_url": "https://api.github.com/users/CharlesHoskinson/followers",
+      "following_url": "https://api.github.com/users/CharlesHoskinson/following{/other_user}",
+      "gists_url": "https://api.github.com/users/CharlesHoskinson/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/CharlesHoskinson/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/CharlesHoskinson/subscriptions",
+      "organizations_url": "https://api.github.com/users/CharlesHoskinson/orgs",
+      "repos_url": "https://api.github.com/users/CharlesHoskinson/repos",
+      "events_url": "https://api.github.com/users/CharlesHoskinson/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/CharlesHoskinson/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "CharlesHoskinson",
+      "id": 3279952,
+      "node_id": "MDQ6VXNlcjMyNzk5NTI=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3279952?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/CharlesHoskinson",
+      "html_url": "https://github.com/CharlesHoskinson",
+      "followers_url": "https://api.github.com/users/CharlesHoskinson/followers",
+      "following_url": "https://api.github.com/users/CharlesHoskinson/following{/other_user}",
+      "gists_url": "https://api.github.com/users/CharlesHoskinson/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/CharlesHoskinson/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/CharlesHoskinson/subscriptions",
+      "organizations_url": "https://api.github.com/users/CharlesHoskinson/orgs",
+      "repos_url": "https://api.github.com/users/CharlesHoskinson/repos",
+      "events_url": "https://api.github.com/users/CharlesHoskinson/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/CharlesHoskinson/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "e65d52155664635a3e2fea99caa4502d84365169",
+        "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/e65d52155664635a3e2fea99caa4502d84365169",
+        "html_url": "https://github.com/CharlesHoskinson/UmbraDB/commit/e65d52155664635a3e2fea99caa4502d84365169"
+      }
+    ]
+  },
+  {
+    "sha": "e65d52155664635a3e2fea99caa4502d84365169",
+    "node_id": "C_kwDOTeTpgNoAKGU2NWQ1MjE1NTY2NDYzNWEzZTJmZWE5OWNhYTQ1MDJkODQzNjUxNjk",
+    "commit": {
+      "author": {
+        "name": "charles hoskinson",
+        "email": "charles.hoskinson@gmail.com",
+        "date": "2026-07-26T17:09:41Z"
+      },
+      "committer": {
+        "name": "charles hoskinson",
+        "email": "charles.hoskinson@gmail.com",
+        "date": "2026-07-26T17:09:41Z"
+      },
+      "message": "docs(research): staged roadmap for chain-indexer parallelism\n\nWritten against a live perf profile of our own running indexer, not from\nreading the code. The measurement changed the plan.\n\n64.5% of CPU is hashbrown::RawTable clone+drop. Proof verification, the\nobvious parallelism target on a ZK chain, is 0.28%. The cause is an O(N^2)\ndeep clone of key_to_child_repr in storage-core arena.rs:1160-1166: the\ndeserializer recurses once per node and copies an N-entry HashMap at every\nlevel, once per transaction. Bimodal block times corroborate it, 0.185s for\nempty blocks against 1.87s for blocks carrying transactions.\n\nSo the first win is not parallelism. Upstream already fixed this on the\nledger-9 line by making the field an Rc; the fix is absent from ledger-8.1.0,\nstorage-core 1.2.1-rc.1 and crates.io 1.2.0, which means upgrading the\npublished image does not get it and a one-line backport does. Roughly 1.9x.\n\nStage 0 is experiments only, gating everything else, and it starts by\nremoving the quadratic term because that changes the profile every later\nparallelism decision depends on. Stage 1 is Quint modelling: the obligation\nis that any parallel pipeline produces a bit-identical result to the\nsequential fold, so the admissible reorderings get proven before concurrent\nRust is written, each with a falsifiability control that must fire.\n\nStage 4 (intra-block parallelism) is included and pre-emptively rejected:\nat 0.66 transactions per block there is nothing to parallelise within a\nblock. Recording why is more useful than leaving it as an open idea.\n\nThe roadmap declines to promise 20x on 20 cores. The ledger fold is a\nsequential dependency no scheduler removes; realistic is ~1.9x from the\nbackport and maybe 2.5-3x cumulative.\n\nAlso records the more urgent problem: 4.3.3 has no ledger-DB GC, every\nblock's state is a permanent root, and the databases are 161 GB at\nhalf-height and should be expected to double. Throughput is irrelevant if\nthe disk fills first.",
+      "tree": {
+        "sha": "1d5d3f682a4511f24c74b4ca800f016ecf3b33a4",
+        "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/1d5d3f682a4511f24c74b4ca800f016ecf3b33a4"
+      },
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/commits/e65d52155664635a3e2fea99caa4502d84365169",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/e65d52155664635a3e2fea99caa4502d84365169",
+    "html_url": "https://github.com/CharlesHoskinson/UmbraDB/commit/e65d52155664635a3e2fea99caa4502d84365169",
+    "comments_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/e65d52155664635a3e2fea99caa4502d84365169/comments",
+    "author": {
+      "login": "CharlesHoskinson",
+      "id": 3279952,
+      "node_id": "MDQ6VXNlcjMyNzk5NTI=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3279952?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/CharlesHoskinson",
+      "html_url": "https://github.com/CharlesHoskinson",
+      "followers_url": "https://api.github.com/users/CharlesHoskinson/followers",
+      "following_url": "https://api.github.com/users/CharlesHoskinson/following{/other_user}",
+      "gists_url": "https://api.github.com/users/CharlesHoskinson/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/CharlesHoskinson/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/CharlesHoskinson/subscriptions",
+      "organizations_url": "https://api.github.com/users/CharlesHoskinson/orgs",
+      "repos_url": "https://api.github.com/users/CharlesHoskinson/repos",
+      "events_url": "https://api.github.com/users/CharlesHoskinson/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/CharlesHoskinson/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "CharlesHoskinson",
+      "id": 3279952,
+      "node_id": "MDQ6VXNlcjMyNzk5NTI=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3279952?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/CharlesHoskinson",
+      "html_url": "https://github.com/CharlesHoskinson",
+      "followers_url": "https://api.github.com/users/CharlesHoskinson/followers",
+      "following_url": "https://api.github.com/users/CharlesHoskinson/following{/other_user}",
+      "gists_url": "https://api.github.com/users/CharlesHoskinson/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/CharlesHoskinson/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/CharlesHoskinson/subscriptions",
+      "organizations_url": "https://api.github.com/users/CharlesHoskinson/orgs",
+      "repos_url": "https://api.github.com/users/CharlesHoskinson/repos",
+      "events_url": "https://api.github.com/users/CharlesHoskinson/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/CharlesHoskinson/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "909db329f6c462a6cdb49dcaa0d7608b1a7b285b",
+        "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/909db329f6c462a6cdb49dcaa0d7608b1a7b285b",
+        "html_url": "https://github.com/CharlesHoskinson/UmbraDB/commit/909db329f6c462a6cdb49dcaa0d7608b1a7b285b"
+      }
+    ]
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/asyncapi/spec/v3.1.0/spec/asyncapi.md",
+  "retrieved_utc": "2026-10-05T18:19:30.299879+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "983a9c0ccb35412d4f6f254ab1ae9ea09a560664b1e41efb0109b12d0cd91869",
+  "text_sha256": "ae38440e0a80d37494d1e29825e8050f76c0841c87b54f528bd7ec17d361188c",
+  "bytes": 132656,
+  "text_bytes": 111633,
+  "final_url": "https://raw.githubusercontent.com/asyncapi/spec/v3.1.0/spec/asyncapi.md",
+  "accepted_source": true
+}

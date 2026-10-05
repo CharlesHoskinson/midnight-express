@@ -1,0 +1,28 @@
+{
+  "url": "https://modelcontextprotocol.io/extensions/client-matrix",
+  "retrieved_utc": "2026-10-05T18:16:41.414049+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "602ea1e8dd603c72855a054b2012c931b14109b6dde2e753ac35a8558c691c8f",
+  "text_sha256": "a0e9e2d1574449644148b77ad8eecf18610ef19932ee7ea0131ee181d344bd61",
+  "bytes": 312225,
+  "text_bytes": 3015,
+  "final_url": "https://modelcontextprotocol.io/extensions/client-matrix",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/opus-agent-experience/mcp-client-matrix-visual-tiles/modelcontextprotocol.io_extensions_client-matrix.png.tiles/tile_0000.jpg",
+        "sha256": "d2b6973e1c382566ff38cf76a2cb6d442bf8f76784ceb2a37eaeba5a2cf0942e"
+      },
+      {
+        "path": "sources/opus-agent-experience/mcp-client-matrix-visual-tiles/modelcontextprotocol.io_extensions_client-matrix.png.tiles/tile_0001.jpg",
+        "sha256": "84539dcec4cacc5cceb4b3d4ba26e8557d843c08d6b61a0c116e491a88e791a6"
+      }
+    ],
+    "stderr": "2026-10-05 12:16:43,217 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 12:16:52,854 INFO pixelrag_render.backends.cdp: [w0] https://modelcontextprotocol.io/extensions/client-matrix \u2192 2 tiles (6.6s)\n2026-10-05 12:16:52,871 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 12:16:52,872 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

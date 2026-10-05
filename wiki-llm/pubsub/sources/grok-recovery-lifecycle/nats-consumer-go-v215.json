@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/nats-io/nats-server/v2.15.0/server/consumer.go",
+  "retrieved_utc": "2026-10-05T18:18:01.427587+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "d86d545a9da17c2ee1a1f77fc25a44b053bbce70fbf4d115977eada3d7b807e9",
+  "text_sha256": "f6db13daced4775ce0077ba87202492b0ddc6add71f5c71e3bf9c83b213267a9",
+  "bytes": 210545,
+  "text_bytes": 210498,
+  "final_url": "https://raw.githubusercontent.com/nats-io/nats-server/v2.15.0/server/consumer.go",
+  "accepted_source": true
+}

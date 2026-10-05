@@ -1,0 +1,126 @@
+# Agent User Interaction Protocol
+
+- [AG-UI Overview](https://docs.ag-ui.com/introduction.md)
+- [MCP, A2A, and AG-UI](https://docs.ag-ui.com/agentic-protocols.md): Understanding how AG-UI complements and works with MCP and A2A
+- [Build applications](https://docs.ag-ui.com/quickstart/applications.md): Build agentic applications utilizing compatible event AG-UI event streams
+- [Introduction](https://docs.ag-ui.com/quickstart/introduction.md): Learn how to get started building an AG-UI integration
+- [Server](https://docs.ag-ui.com/quickstart/server.md): Implement AG-UI compatible servers
+- [Middleware](https://docs.ag-ui.com/quickstart/middleware.md): Connect to existing protocols, in process agents or custom solutions via AG-UI
+- [Build clients](https://docs.ag-ui.com/quickstart/clients.md): Showcase: build a conversational CLI agent from scratch using AG-UI and Mastra
+- [Migrating to 1.0](https://docs.ag-ui.com/migrating-to-1-0.md): What changes for an application or integration moving to AG-UI 1.0, per SDK — and what does not
+- [Production support](https://docs.ag-ui.com/talk-to-us.md): Optional commercial architecture and implementation support for teams deploying AG-UI
+- [Core architecture](https://docs.ag-ui.com/concepts/architecture.md): Understand how AG-UI connects front-end applications to AI agents
+- [Events](https://docs.ag-ui.com/concepts/events.md): Understanding events in the Agent User Interaction Protocol
+- [Agents](https://docs.ag-ui.com/concepts/agents.md): Learn about agents in the Agent User Interaction Protocol
+- [Middleware](https://docs.ag-ui.com/concepts/middleware.md): Transform and intercept events in AG-UI agents
+- [Messages](https://docs.ag-ui.com/concepts/messages.md): Understanding message structure and communication in AG-UI
+- [Metadata](https://docs.ag-ui.com/concepts/metadata.md): Attaching extra information to events, messages and tool calls
+- [Reasoning](https://docs.ag-ui.com/concepts/reasoning.md): Support for LLM reasoning visibility and continuity in AG-UI
+- [State Management](https://docs.ag-ui.com/concepts/state.md): Understanding state synchronization between agents and frontends in AG-UI
+- [Interrupts](https://docs.ag-ui.com/concepts/interrupts.md): Human-in-the-loop pauses and resumes in the Agent User Interaction Protocol
+- [Serialization](https://docs.ag-ui.com/concepts/serialization.md): Serialize event streams for history restore, branching, and compaction in AG-UI
+- [Tools](https://docs.ag-ui.com/concepts/tools.md): Understanding tools and how they enable human-in-the-loop AI workflows
+- [Subagents](https://docs.ag-ui.com/concepts/subagents.md): Attributing a run's output to the subagent that produced it
+- [Capabilities](https://docs.ag-ui.com/concepts/capabilities.md): Dynamic capability discovery for agents in the AG-UI protocol
+- [Generative UI](https://docs.ag-ui.com/concepts/generative-ui-specs.md): Understanding AG-UI's relationship with generative UI specifications
+- [Integrations](https://docs.ag-ui.com/integrations.md): A list of AG-UI integrations
+- [Google ADK JavaScript quickstart](https://docs.ag-ui.com/integrations/google-adk-js.md): Run a native Google ADK JavaScript agent behind an AG-UI endpoint.
+- [Overview](https://docs.ag-ui.com/drafts/overview.md): Draft changes being considered for the AG-UI protocol
+- [Generative User Interfaces](https://docs.ag-ui.com/drafts/generative-ui.md): AI-generated interfaces without custom tool renderers
+- [Meta Events](https://docs.ag-ui.com/drafts/meta-events.md): Annotations and signals independent of agent runs
+- [Developing with Cursor](https://docs.ag-ui.com/tutorials/cursor.md): Use Cursor to build AG-UI implementations faster
+- [Debugging](https://docs.ag-ui.com/tutorials/debugging.md): A comprehensive guide to debugging Agent User Interaction Protocol (AG-UI) integrations
+- [What's New](https://docs.ag-ui.com/development/updates.md): The latest updates and improvements to AG-UI
+- [Roadmap](https://docs.ag-ui.com/development/roadmap.md): Our plans for evolving Agent User Interaction Protocol
+- [Contributing](https://docs.ag-ui.com/development/contributing.md): How to participate in Agent User Interaction Protocol development
+- [Support for AG-UI](https://docs.ag-ui.com/support.md): Open-source and community support for people building with AG-UI
+- [Specification](https://docs.ag-ui.com/spec/1.0/index.md): The behavioural specification for the AG-UI protocol — 1.0
+- [Key Changes](https://docs.ag-ui.com/spec/1.0/changelog.md): What 1.0 changes against the 0.x line — 1.0
+- [Architecture](https://docs.ag-ui.com/spec/1.0/architecture.md): The components, the run as the unit of interaction, and the principles behind both — 1.0
+- [The Event Model](https://docs.ag-ui.com/spec/1.0/basic/index.md): The event envelope, its general fields, the identifiers, and the map of every event — 1.0
+- [Run Input](https://docs.ag-ui.com/spec/1.0/basic/run-input.md): The one message that travels from the application to the agent, and what each of its fields obliges — 1.0
+- [Metadata](https://docs.ag-ui.com/spec/1.0/basic/metadata.md): The open channel on everything: what it carries, how it merges, and where it lands — 1.0
+- [Capabilities](https://docs.ag-ui.com/spec/1.0/basic/capabilities.md): What an agent declares about itself before a run, what a declaration obliges, and what it does not — 1.0
+- [Event Patterns](https://docs.ag-ui.com/spec/1.0/basic/patterns/index.md): The ways a producer composes events into a stream — 1.0
+- [Streaming Messages](https://docs.ag-ui.com/spec/1.0/basic/patterns/streaming.md): The open–content–close discipline, the chunked form, and the rules that bind them — 1.0
+- [Snapshots and Deltas](https://docs.ag-ui.com/spec/1.0/basic/patterns/snapshots.md): How evolving values travel: replacement wholesale, amendment by JSON Patch — 1.0
+- [Interrupts and Resume](https://docs.ag-ui.com/spec/1.0/basic/patterns/interrupt-resume.md): How a run asks for something from outside, and how the next run answers — 1.0
+- [Transports](https://docs.ag-ui.com/spec/1.0/basic/transports/index.md): What a transport must provide to carry AG-UI, and the standard bindings — 1.0
+- [HTTP + Server-Sent Events](https://docs.ag-ui.com/spec/1.0/basic/transports/http-sse.md): The default binding: a POST carrying the run input, a text/event-stream carrying the run — 1.0
+- [HTTP + Protobuf](https://docs.ag-ui.com/spec/1.0/basic/transports/http-protobuf.md): The binary binding: the same POST, a stream of length-prefixed protobuf frames back — 1.0
+- [Processing Model](https://docs.ag-ui.com/spec/1.0/basic/processing.md): What survives, what is fatal, and where middleware sits relative to enforcement — 1.0
+- [Versioning and Compatibility](https://docs.ag-ui.com/spec/1.0/basic/versioning.md): Talking to an older peer, what may be dropped, and when losing content obliges a warning — 1.0
+- [Event Streams](https://docs.ag-ui.com/spec/1.0/events/index.md): The eight event families, and who reacts to each — 1.0
+- [Runs and Steps](https://docs.ag-ui.com/spec/1.0/events/lifecycle.md): When a run begins and ends, what may happen in between, and how steps mark its phases — 1.0
+- [Text Messages](https://docs.ag-ui.com/spec/1.0/events/text-messages.md): Streaming conversational text from the agent to the user — 1.0
+- [Tool Calls](https://docs.ag-ui.com/spec/1.0/events/tool-calls.md): How an agent proposes a call, streams its arguments, and receives its result — 1.0
+- [Reasoning](https://docs.ag-ui.com/spec/1.0/events/reasoning.md): Streaming what the model is thinking, and round-tripping what it must not reveal — 1.0
+- [State](https://docs.ag-ui.com/spec/1.0/events/state.md): The shared state and the conversation itself: replaced wholesale, amended by patch — 1.0
+- [Activity](https://docs.ag-ui.com/spec/1.0/events/activity.md): Structured progress a UI renders as its own widget, kept in the message sequence — 1.0
+- [Subagents](https://docs.ag-ui.com/spec/1.0/events/subagents.md): Attribution, ownership, nesting, parallel execution, state and termination — 1.0
+- [Raw and Custom Events](https://docs.ag-ui.com/spec/1.0/events/passthrough.md): The two escape hatches, and the limits that keep them from becoming a second protocol — 1.0
+- [Schema files](https://docs.ag-ui.com/spec/1.0/schema-files.md): The machine-readable schema, its address, and how to use it — 1.0
+- [Schema Reference](https://docs.ag-ui.com/spec/1.0/schema.md): Every definition of the 1.0 schema, one anchor each — generated, do not edit
+- [Specification](https://docs.ag-ui.com/spec/draft/index.md): The behavioural specification for the AG-UI protocol — Draft
+- [Key Changes](https://docs.ag-ui.com/spec/draft/changelog.md): What the draft changes against 1.0, and what 1.0 changes against the 0.x line — Draft
+- [Architecture](https://docs.ag-ui.com/spec/draft/architecture.md): The components, the run as the unit of interaction, and the principles behind both — Draft
+- [The Event Model](https://docs.ag-ui.com/spec/draft/basic/index.md): The event envelope, its general fields, the identifiers, and the map of every event — Draft
+- [Run Input](https://docs.ag-ui.com/spec/draft/basic/run-input.md): The one message that travels from the application to the agent, and what each of its fields obliges — Draft
+- [Metadata](https://docs.ag-ui.com/spec/draft/basic/metadata.md): The open channel on everything: what it carries, how it merges, and where it lands — Draft
+- [Capabilities](https://docs.ag-ui.com/spec/draft/basic/capabilities.md): What an agent declares about itself before a run, what a declaration obliges, and what it does not — Draft
+- [Event Patterns](https://docs.ag-ui.com/spec/draft/basic/patterns/index.md): The ways a producer composes events into a stream — Draft
+- [Streaming Messages](https://docs.ag-ui.com/spec/draft/basic/patterns/streaming.md): The open–content–close discipline, the chunked form, and the rules that bind them — Draft
+- [Snapshots and Deltas](https://docs.ag-ui.com/spec/draft/basic/patterns/snapshots.md): How evolving values travel: replacement wholesale, amendment by JSON Patch — Draft
+- [Interrupts and Resume](https://docs.ag-ui.com/spec/draft/basic/patterns/interrupt-resume.md): How a run asks for something from outside, and how the next run answers — Draft
+- [Transports](https://docs.ag-ui.com/spec/draft/basic/transports/index.md): What a transport must provide to carry AG-UI, and the standard bindings — Draft
+- [HTTP + Server-Sent Events](https://docs.ag-ui.com/spec/draft/basic/transports/http-sse.md): The default binding: a POST carrying the run input, a text/event-stream carrying the run — Draft
+- [HTTP + Protobuf](https://docs.ag-ui.com/spec/draft/basic/transports/http-protobuf.md): The binary binding: the same POST, a stream of length-prefixed protobuf frames back — Draft
+- [Processing Model](https://docs.ag-ui.com/spec/draft/basic/processing.md): What survives, what is fatal, and where middleware sits relative to enforcement — Draft
+- [Versioning and Compatibility](https://docs.ag-ui.com/spec/draft/basic/versioning.md): Talking to an older peer, what may be dropped, and when losing content obliges a warning — Draft
+- [Event Streams](https://docs.ag-ui.com/spec/draft/events/index.md): The eight event families, and who reacts to each — Draft
+- [Runs and Steps](https://docs.ag-ui.com/spec/draft/events/lifecycle.md): When a run begins and ends, what may happen in between, and how steps mark its phases — Draft
+- [Text Messages](https://docs.ag-ui.com/spec/draft/events/text-messages.md): Streaming conversational text from the agent to the user — Draft
+- [Tool Calls](https://docs.ag-ui.com/spec/draft/events/tool-calls.md): How an agent proposes a call, streams its arguments, and receives its result — Draft
+- [Reasoning](https://docs.ag-ui.com/spec/draft/events/reasoning.md): Streaming what the model is thinking, and round-tripping what it must not reveal — Draft
+- [State](https://docs.ag-ui.com/spec/draft/events/state.md): The shared state and the conversation itself: replaced wholesale, amended by patch — Draft
+- [Activity](https://docs.ag-ui.com/spec/draft/events/activity.md): Structured progress a UI renders as its own widget, kept in the message sequence — Draft
+- [Subagents](https://docs.ag-ui.com/spec/draft/events/subagents.md): Attribution, ownership, nesting, parallel execution, state and termination — Draft
+- [Raw and Custom Events](https://docs.ag-ui.com/spec/draft/events/passthrough.md): The two escape hatches, and the limits that keep them from becoming a second protocol — Draft
+- [Schema files](https://docs.ag-ui.com/spec/draft/schema-files.md): The machine-readable schema, its address, and how to use it — Draft
+- [Schema Reference](https://docs.ag-ui.com/spec/draft/schema.md): Every definition of the draft schema, one anchor each — generated, do not edit
+- [Overview](https://docs.ag-ui.com/sdk/js/core/overview.md): Core concepts in the Agent User Interaction Protocol SDK
+- [Types](https://docs.ag-ui.com/sdk/js/core/types.md): Documentation for the core types used in the Agent User Interaction Protocol SDK
+- [Multimodal Inputs](https://docs.ag-ui.com/sdk/js/core/multimodal-inputs.md): Use modality-specific user input parts with typed data/url sources in @ag-ui/core
+- [Events](https://docs.ag-ui.com/sdk/js/core/events.md): Documentation for the events used in the Agent User Interaction Protocol SDK
+- [Overview](https://docs.ag-ui.com/sdk/js/client/overview.md): Client package overview
+- [AbstractAgent](https://docs.ag-ui.com/sdk/js/client/abstract-agent.md): Base agent implementation with core event handling
+- [HttpAgent](https://docs.ag-ui.com/sdk/js/client/http-agent.md): HTTP-based agent for connecting to remote AI agents
+- [Middleware](https://docs.ag-ui.com/sdk/js/client/middleware.md): Event stream transformation and filtering for AG-UI agents
+- [AgentSubscriber](https://docs.ag-ui.com/sdk/js/client/subscriber.md): Event-driven subscriber system for agent lifecycle and event handling
+- [Stream Compaction](https://docs.ag-ui.com/sdk/js/client/compaction.md): compactEvents utility for reducing verbose streaming sequences
+- [@ag-ui/encoder](https://docs.ag-ui.com/sdk/js/encoder.md)
+- [@ag-ui/proto](https://docs.ag-ui.com/sdk/js/proto.md)
+- [Overview](https://docs.ag-ui.com/sdk/python/core/overview.md): Core concepts in the Agent User Interaction Protocol SDK
+- [Types](https://docs.ag-ui.com/sdk/python/core/types.md): Documentation for the core types used in the Agent User Interaction Protocol Python SDK
+- [Multimodal Inputs](https://docs.ag-ui.com/sdk/python/core/multimodal-inputs.md): Use modality-specific user input parts with typed data/url sources in ag_ui.core
+- [Events](https://docs.ag-ui.com/sdk/python/core/events.md): Documentation for the events used in the Agent User Interaction Protocol Python SDK
+- [Overview](https://docs.ag-ui.com/sdk/python/encoder/overview.md): Documentation for encoding Agent User Interaction Protocol events
+- [Overview](https://docs.ag-ui.com/sdk/dotnet/abstractions/overview.md): Protocol types in the AG-UI .NET SDK
+- [Types](https://docs.ag-ui.com/sdk/dotnet/abstractions/types.md): Documentation for the protocol types in AGUI.Abstractions
+- [Events](https://docs.ag-ui.com/sdk/dotnet/abstractions/events.md): Documentation for the streaming event types in AGUI.Abstractions
+- [Multimodal Inputs](https://docs.ag-ui.com/sdk/dotnet/abstractions/multimodal-inputs.md): Use modality-specific user input parts with typed data and URL sources in AGUI.Abstractions
+- [Overview](https://docs.ag-ui.com/sdk/dotnet/client/overview.md): Client package overview
+- [AGUIChatClient](https://docs.ag-ui.com/sdk/dotnet/client/chat-client.md): IChatClient implementation for consuming AG-UI endpoints
+- [Transport](https://docs.ag-ui.com/sdk/dotnet/client/transport.md): AG-UI client transport abstraction and HTTP event stream
+- [Overview](https://docs.ag-ui.com/sdk/dotnet/hosting/overview.md): Server adapter package overview
+- [Endpoints](https://docs.ag-ui.com/sdk/dotnet/hosting/endpoints.md): Host an IChatClient as an AG-UI endpoint
+- [Extensibility](https://docs.ag-ui.com/sdk/dotnet/hosting/extensibility.md): Customize AG-UI stream conversion with AGUIStreamOptions
+
+## Optional
+
+- [TypeScript SDK](https://docs.ag-ui.com/sdk/js/core/overview)
+- [Python SDK](https://docs.ag-ui.com/sdk/python/core/overview)
+- [.NET SDK](https://docs.ag-ui.com/sdk/dotnet/abstractions/overview)
+
+
+This documentation is built and hosted on [Mintlify](https://mintlify.com), a developer documentation platform.

@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/nats-io/nats.docs",
+  "retrieved_utc": "2026-10-05T18:18:01.447275+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "3452cafd0557c961ba23f67ce9423ba7cc524839ee309fac98599dc7d608285a",
+  "text_sha256": "3452cafd0557c961ba23f67ce9423ba7cc524839ee309fac98599dc7d608285a",
+  "bytes": 6811,
+  "text_bytes": 6811,
+  "final_url": "https://api.github.com/repos/nats-io/nats.docs",
+  "accepted_source": true
+}

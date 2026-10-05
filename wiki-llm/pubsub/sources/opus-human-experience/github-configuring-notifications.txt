@@ -1,0 +1,272 @@
+Configuring notifications - GitHub Docs
+Skip to main content
+Skip to content
+GitHub
+Docs
+Search or ask Copilot
+/
+Menu
+Collapse sidebar
+Expand sidebar
+Scroll breadcrumbs left
+Home
+Subscriptions & notifications
+Get started
+Configuring notifications
+Scroll breadcrumbs right
+Subscriptions & notifications
+Get started
+Configuring notifications
+Concepts
+About notifications
+Scheduled reminders
+How-tos
+Manage subscriptions
+View subscriptions
+Manage your subscriptions
+Customize a workflow
+Manage from your inbox
+Triage a notification
+Manage organization notifications
+Manage Actions notifications
+Manage scheduled reminders
+Manage security notifications
+Manage marketing emails
+Tutorials
+Triage your notifications
+Reference
+Inbox filters
+Email notification headers
+Emails from GitHub
+In this article
+Configuring notifications
+Choose the type of activity on GitHub that you want to receive notifications for and how you want these updates delivered.
+Copy markdown
+In this article
+Notification delivery options
+About participating and watching notifications
+Customizing your email notifications
+Replying to email notifications
+Choosing your notification settings
+Configuring your watch settings for an individual repository
+Managing your notification settings with GitHub Mobile
+Configuring your watch settings for an individual repository with GitHub Mobile
+Notification delivery options
+You can receive notifications for activity on GitHub in the following locations.
+The notifications inbox in the GitHub web interface
+The notifications inbox on GitHub Mobile, which syncs with the inbox in the web interface
+An email client that uses a verified email address, which can also sync with the notifications inbox in the web interface and GitHub Mobile
+To use the notifications inbox on GitHub and GitHub Mobile, you must enable notifications for both 
+Email
+ and 
+On GitHub
+ in your notification settings. For more information, see 
+Choosing your notification settings
+.
+Tip
+
+If you receive notifications both via email and on GitHub, you can automatically sync the read or unread status of the notification so that notifications on GitHub are automatically marked as read once you've read the corresponding email notification. To enable this sync, your email client must be able to view images from 
+notifications@github.com
+.
+Benefits of the notifications inbox
+The notifications inbox includes triaging options designed specifically for your GitHub notifications flow, including options to:
+Triage multiple notifications at once.
+Mark completed notifications as 
+Done
+ and remove them from your inbox. To view all of your notifications marked as 
+Done
+, use the 
+is:done
+ query.
+Save a notification to review later. Saved notifications are flagged in your inbox and kept indefinitely. To view all of your saved notifications, use the 
+is:saved
+ query.
+Unsubscribe and remove a notification from your inbox.
+Preview the issue or pull request where the notification originates on GitHub from within the notifications inbox.
+See one of the latest reasons you're receiving a notification from your inbox with a 
+reasons
+ label.
+Create custom filters to focus on different notifications when you want.
+Group notifications in your inbox by repository or date to get a quick overview with less context switching.
+In addition, you can receive and triage notifications on your mobile device with GitHub Mobile. For more information, see 
+Managing your notification settings with GitHub Mobile
+ or 
+GitHub Mobile
+.
+Benefits of using an email client for notifications
+One benefit of using an email client is that all of your notifications can be kept indefinitely depending on your email client's storage capacity. Your inbox notifications are only kept for 3 months on GitHub unless you've marked them as 
+Saved
+. 
+Saved
+ notifications are kept indefinitely. For more information about your inbox's retention policy, see 
+About notifications
+.
+Sending notifications to your email client also allows you to customize your inbox according to your email client's settings, which can include custom or color-coded labels.
+Email notifications also allow flexibility with the types of notifications you receive and allow you to choose different email addresses for updates. For example, you can send certain notifications for a repository to a verified personal email address. For more information, about your email customization options, see 
+Customizing your email notifications
+.
+About participating and watching notifications
+When you watch a repository, you're subscribing to updates for activity in that repository.
+To see repositories that you're watching, go to your 
+watching page
+. For more information, see 
+Managing subscriptions for activity on GitHub
+.
+You can configure notifications for a repository on the repository page, or on your watching page.
+Note
+
+You can watch a maximum of 10,000 repositories.
+About custom notifications
+You can customize notifications for a repository. For example, you can choose to only be notified when updates to one or more types of events (issues, pull requests, releases, security alerts, or discussions) happen within a repository, or ignore all notifications for a repository. For more information, see 
+Configuring your watch settings for an individual repository
+ below.
+Participating in conversations
+Anytime you comment in a conversation or when someone @mentions your username, you are participating in a conversation. By default, you are automatically subscribed to a conversation when you participate in it. You can unsubscribe from a conversation you've participated in manually by clicking 
+Unsubscribe
+ on the issue or pull request or through the 
+Unsubscribe
+ option in the notifications inbox.
+For conversations you're watching or participating in, you can choose whether you want to receive notifications on GitHub or by email in your notification settings. For more information, see 
+Choosing your notification settings
+.
+For example, on your "Notification settings" page:
+If you don't want notifications to be sent to your email, deselect 
+email
+ for participating and watching notifications.
+If you want to receive notifications by email when you've participated in a conversation, then select 
+email
+ under "Participating".
+If you do not enable "Notify me: On GitHub" for watching or participating notifications, then your notifications inbox will not have any updates.
+Customizing your email notifications
+After enabling email notifications, GitHub will send notifications to you as multipart emails that contain both HTML and plain text copies of the content. Email notification content includes any Markdown, @mentions, emojis, hash-links, and more, that appear in the original content on GitHub. If you only want to see the text in the email, you can configure your email client to display the plain text copy only.
+Tip
+
+If you receive notifications both via email and on GitHub, you can automatically sync the read or unread status of the notification so that notifications on GitHub are automatically marked as read once you've read the corresponding email notification. To enable this sync, your email client must be able to view images from 
+notifications@github.com
+.
+If you're using Gmail, you can click a button beside the notification email to visit the original issue or pull request that generated the notification.
+Choose a default email address where you want to send updates for conversations you're participating in or watching. You can also specify which activity on GitHub you want to receive updates for using your default email address. For example, choose whether you want updates sent to your default email from:
+Comments on issues and pull requests
+Pull request reviews
+Pull request pushes
+Your own updates, such as when you open, comment on, or close an issue or pull request
+Depending on the organization that owns the repository, you can also send notifications to different email addresses. Your organization may require the email address to be verified for a specific domain. For more information, see 
+Managing organization notifications
+.
+You can also send notifications for a specific repository to an email address. For more information, see 
+About email notifications for pushes to your repository
+.
+You'll only receive notification emails if you've chosen to receive email notifications in your notification settings.
+If an organization you're a member of restricts email notifications to an approved email domain, you'll need to verify an email address in that domain to receive email notifications about activity in the organization. For more information, see 
+Restricting email notifications for your organization
+.
+Each email notification that GitHub sends contains header information that you can use to filter notifications in your email client. For information about the headers included, see 
+Email notification headers
+.
+Replying to email notifications
+You can reply to email notifications from GitHub and your reply will be posted to the issue, pull request, or discussion.
+The 
+reply-to
+ address on each email notification identifies the thread and the account that the comment will be posted from. This email address remains valid until you reset your password.
+GitHub will not always include the full email contents and will attempt to strip some personally identifiable information from comments created via an email reply:
+Email addresses in a standard format, such as 
+octocat@github.com
+, are transformed to 
+***@***.***
+.
+Signatures and quoted reply chains, when the email client has used a 
+>
+ to mark those sections, are stripped.
+While the unsubscribe link from your email notification is sometimes quoted, the link will only work when signed in to your account.
+Email attachments are not included in the resulting comment.
+The maximum length of a comment created via an email reply is 65530 characters.
+Choosing your notification settings
+In the upper-right corner of any page, click 
+. If the icon is not displayed, go directly to the 
+notifications page
+.
+In the left sidebar, under the list of repositories, use the "Manage notifications" drop-down to click 
+Notification settings
+.
+On the notifications settings page, choose how you receive notifications when:
+There are updates in repositories you're watching or in a conversation you're participating in. For more information, see 
+About participating and watching notifications
+.
+There are new Dependabot alerts in your repository. For more information, see 
+Managing security notifications
+.
+There are workflow runs updates on repositories set up with GitHub Actions. For more information, see 
+Managing GitHub Actions notifications
+.
+There are new deploy keys added to repositories that belong to organizations that you're an owner of. For more information, see 
+Managing organization notifications
+.
+Configuring your watch settings for an individual repository
+You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of certain event types such as issues, pull requests, releases, security alerts, or discussions (if enabled for the repository), or completely ignore an individual repository.
+On GitHub, navigate to the main page of the repository.
+In the upper-right corner, select the "Watch" drop-down menu, then click a watch option.
+If you want to further customize notifications, click 
+Custom
+, then select specific events that you want to be notified of, such as Issues or Pull Requests, in addition to participating and @mentions.
+For example, if you select "Issues", you will be notified about, and subscribed to, updates on every issue (including those that existed prior to you selecting this option) in the repository. If you're @mentioned in a pull request in this repository, you'll receive notifications for that too, and you'll be subscribed to updates on that specific pull request, in addition to being notified about issues.
+Managing your notification settings with GitHub Mobile
+When you install GitHub Mobile, you will automatically be opted into web notifications. Within the app, you can enable push notifications for the following events.
+Direct mentions
+Assignments to issues or pull requests
+Requests to review a pull request
+Requests to approve a deployment
+You can also schedule when GitHub Mobile will send push notifications to your mobile device.
+GitHub Enterprise Server uses background fetch to support push notifications, so you may experience a delay in receiving push notifications.
+Managing your notification settings with GitHub for iOS
+In the bottom menu, tap 
+Profile
+.
+To view your settings, tap 
+.
+To update your notification settings, tap 
+Notifications
+ and then use the toggles to enable or disable your preferred types of push notifications.
+Optionally, to schedule when GitHub Mobile will send push notifications to your mobile device, tap 
+Working Hours
+, use the 
+Custom working hours
+ toggle, and then choose when you would like to receive push notifications.
+Managing your notification settings with GitHub for Android
+In the bottom menu, tap 
+Profile
+.
+To view your settings, tap 
+.
+To update your notification settings, tap 
+Configure Notifications
+ and then use the toggles to enable or disable your preferred types of push notifications.
+Optionally, to schedule when GitHub Mobile will send push notifications to your mobile device, tap 
+Working Hours
+, use the 
+Custom working hours
+ toggle, and then choose when you would like to receive push notifications.
+Configuring your watch settings for an individual repository with GitHub Mobile
+You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of certain event types such as issues, pull requests, discussions (if enabled for the repository) and new releases, or completely ignore an individual repository.
+On GitHub Mobile, navigate to the main page of the repository.
+Tap 
+Watch
+.
+To choose what activities you receive notifications for, tap your preferred watch settings. For example, choose to only be notified when you are participating or @mentioned, or use the "Custom" option to select specific events that you want to be notified of.
+Back to top
+Help and support
+Was this Doc helpful?
+Yes
+No
+Help us make GitHub Docs great!
+All Docs are open source. See something that's wrong or unclear? Submit a pull request.
+Make a contribution
+Still need help?
+Ask the GitHub community
+Contact support
+Expert services
+Blog
+GitHub Inc. © 2026
+Terms
+Privacy
+Status
+Pricing

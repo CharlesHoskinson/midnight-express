@@ -1,0 +1,470 @@
+AG-UI Overview - Agent User Interaction Protocol
+Documentation Index
+Fetch the complete documentation index at: 
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Agent User Interaction Protocol home page
+Search...
+⌘K
+Discord
+ag-ui-protocol/ag-ui
+ag-ui-protocol/ag-ui
+Search...
+Navigation
+Get Started
+AG-UI Overview
+Documentation
+Specification
+SDKs
+TypeScript SDK
+Python SDK
+.NET SDK
+Get Started
+AG-UI Overview
+MCP, A2A, and AG-UI
+Quickstart
+Migrating to 1.0
+Production support
+Concepts
+Core architecture
+Events
+Agents
+Middleware
+Messages
+Metadata
+Reasoning
+State Management
+Interrupts
+Serialization
+Tools
+Subagents
+Capabilities
+Generative UI
+Integrations
+Integrations
+Google ADK JavaScript quickstart
+Proposals
+Overview
+Generative User Interfaces
+Meta Events
+Tutorials
+Developing with Cursor
+Debugging
+Development
+What's New
+Roadmap
+Contributing
+Support for AG-UI
+On this page
+The Agent–User Interaction (AG-UI) Protocol
+Agentic Protocols
+Building blocks (today & upcoming)
+Why Agentic Apps need AG-UI
+The requirements of user‑facing agents
+AG-UI in Action
+Supported Integrations
+Direct to LLM
+Agent Framework - Partnerships
+Agent Framework - 1st Party
+Agent Framework - Community
+Agent Interaction Protocols
+Infrastructure / Deployment
+Specification (standard)
+Generative UI
+SDKs
+Clients
+Quick Start
+Explore AG-UI
+Resources
+Contributing
+Support and Feedback
+Get Started
+AG-UI Overview
+​
+The Agent–User Interaction (AG-UI) Protocol
+AG-UI is an 
+open
+, 
+lightweight
+, 
+event-based
+ protocol that standardizes how AI agents connect to user-facing applications.
+AG-UI is designed to be the general-purpose, bi-directional connection between a user-facing application and any agentic backend.
+Built for simplicity and flexibility, it standardizes how agent state, UI intents, and user interactions flow between your model/agent runtime and user-facing frontend applications—to allow application developers to ship reliable, debuggable, user‑friendly agentic features fast while focusing on application needs and avoiding complex ad-hoc wiring.
+​
+Agentic Protocols
+Confused about “A2UI” and “AG-UI”?
+  That’s understandable!  Despite the naming similarities, they are quite different and work well together.  A2UI is a 
+generative UI specification
+ - allowing agents to deliver UI widgets, where AG-UI is the Agent↔User Interaction protocol - which connects an agentic frontend to any agentic backend.  
+Learn more
+AG-UI is one of three prominent open 
+agentic protocols
+.
+Layer
+Protocol / Example
+Purpose
+Agent ↔ User Interaction
+AG-UI
+(Agent–User Interaction Protocol)
+The open, event-based standard that connects agents to user-facing applications — enabling real-time, multimodal, interactive experiences.
+Agent ↔ Tools & Data
+MCP 
+(Model Context Protocol)
+Open standard (originated by Anthropic) that lets agents securely connect to external systems — tools, workflows, and data sources.
+Agent ↔ Agent
+A2A
+(Agent to Agent)
+Open standard (originated by Google) which defines how agents coordinate and share work across distributed agentic systems.
+​
+Building blocks (today & upcoming)
+Streaming chat
+Live token and event streaming for responsive multi turn sessions, with cancel and resume.
+Multimodality
+Typed attachments and real time media (files, images, audio, transcripts); supports voice, previews, annotations, provenance.
+Generative UI, static
+Render model output as stable, typed components under app control.
+Generative UI, declarative
+Small declarative language for constrained yet open-ended agent UIs; agents propose trees and constraints, the app validates and mounts.
+Shared state
+(Read-only & read-write). Typed store shared between agent and app, with streamed event-sourced diffs and conflict resolution for snappy collaboration.
+Thinking steps
+Visualize intermediate reasoning from traces and tool events; no raw chain of thought.
+Frontend tool calls
+Typed handoffs from agent to frontend-executed actions, and back.
+Backend tool rendering
+Visualize backend tool outputs in app and chat, emit side effects as first-class events.
+Interrupts (human in the loop)
+Pause, approve, edit, retry, or escalate mid flow without losing state.
+Sub-agents and composition
+Nested delegation with scoped state, tracing, and cancellation.
+Agent steering
+Dynamically redirect agent execution with real-time user input to guide behavior and outcomes.
+Tool output streaming
+Stream tool results and logs so UIs can render long-running effects in real time.
+Custom events
+Open-ended data exchange for needs not covered by the protocol.
+​
+Why Agentic Apps need AG-UI
+Agentic applications break the simple request/response model that dominated frontend-backend development in the pre-agentic era: a client makes a request, the server returns data, the client renders it, and the interaction ends.
+​
+The requirements of user‑facing agents
+While agents are just software, they exhibit characteristics that make them challenging to serve behind traditional REST/GraphQL APIs:
+Agents are 
+long‑running
+ and 
+stream
+ intermediate work—often across multi‑turn sessions.
+Agents are 
+nondeterministic
+ and can 
+control application UI nondeterministically
+.
+Agents simultanously mix 
+structured + unstructured IO
+ (e.g. text & voice, alongside tool calls and state updates).
+Agents need user-interactive 
+composition
+: e.g. they may call sub‑agents, often recursively.
+And more…
+AG-UI is an event-based protocol that enables dynamic communication between agentic frontends and backends. It builds on top of the foundational protocols of the web (HTTP, WebSockets) as an abstraction layer designed for the agentic age—bridging the gap between traditional client-server architectures and the dynamic, stateful nature of AI agents.
+​
+AG-UI in Action
+Your browser does not support the video tag.
+You can see demo apps of the AG-UI features with the framework of your choice, with preview, code, and walkthrough docs in the 
+AG-UI Dojo
+​
+Supported Integrations
+AG-UI was born from CopilotKit’s initial 
+partnership
+ with LangChain and CrewAI - and brings the incredibly popular agent-user-interactivity infrastructure to the wider agentic ecosystem.
+1st party
+ = the platforms that have AG‑UI built in and provide documentation for guidance.
+​
+Direct to LLM
+Framework
+Status
+AG-UI Resources
+Direct to LLM
+Supported
+Docs
+​
+Agent Framework - Partnerships
+Framework
+Status
+AG-UI Resources
+LangChain
+Supported
+Docs
+, 
+Demos
+CrewAI
+Supported
+Docs
+, 
+Demos
+​
+Agent Framework - 1st Party
+Framework
+Status
+AG-UI Resources
+Microsoft Agent Framework
+Supported
+Docs
+, 
+Demos
+Google ADK
+Supported
+Docs
+, 
+Demos
+Google ADK (JavaScript)
+Supported
+Quickstart
+, 
+Demos
+Google Antigravity
+Supported
+Docs
+, 
+Demos
+AWS Strands Agents
+Supported
+Docs
+, 
+Demos
+AWS Bedrock AgentCore
+Supported
+Docs
+Mastra
+Supported
+Docs
+, 
+Demos
+Pydantic AI
+Supported
+Docs
+, 
+Demos
+Agno
+Supported
+Docs
+, 
+Demos
+LlamaIndex
+Supported
+Docs
+, 
+Demos
+AG2
+Supported
+Docs
+Demos
+AWS Bedrock Agents
+In Progress
+–
+​
+Agent Framework - Community
+Framework
+Status
+AG-UI Resources
+Claude Agent SDK
+Supported
+Demos
+Claude Managed Agents SDK
+Supported
+Integration
+, 
+Demos
+Langroid
+Supported
+Demos
+OpenAI Agent SDK
+In Progress
+–
+Cloudflare Agents
+In Progress
+–
+​
+Agent Interaction Protocols
+Protocol
+Status
+AG-UI Resources
+Integrations
+A2A Middleware
+Supported
+Docs
+Partnership
+​
+Infrastructure / Deployment
+Platform
+Status
+AG-UI Resources
+Integrations
+Amazon Bedrock AgentCore
+Supported
+Docs
+1st Party
+​
+Specification (standard)
+Framework
+Status
+AG-UI Resources
+Oracle Agent Spec
+Supported
+Docs
+, 
+Demos
+​
+Generative UI
+Framework
+Status
+AG-UI Resources
+A2UI
+Supported
+Docs
+MCP Apps
+Supported
+Docs
+​
+SDKs
+SDK
+Status
+AG-UI Resources
+Integrations
+Kotlin
+Supported
+Getting Started
+Community
+Golang
+Supported
+Getting Started
+Community
+Dart
+Supported
+Getting Started
+Community
+Java
+Supported
+Getting Started
+Community
+Rust
+Supported
+Getting Started
+Community
+Ruby
+Supported
+Getting Started
+Community
+C++
+Supported
+GitHub Source
+Community
+.NET
+Supported
+Getting Started
+Community
+Nim
+In Progress
+PR
+Community
+Flowise
+In Progress
+GitHub Source
+Community
+Langflow
+In Progress
+GitHub Source
+Community
+​
+Clients
+Client
+Status
+AG-UI Resources
+Integrations
+CopilotKit
+Supported
+Getting Started
+1st Party
+Terminal + Agent
+Supported
+Getting Started
+Community
+Chat platforms (Slack, Microsoft Teams)
+Supported
+Channels SDK
+, 
+OpenTag example
+1st Party
+React Native
+Supported
+Example
+1st Party
+An AG-UI client does not have to be a web application. The protocol describes an
+event stream rather than a rendering target, so a terminal, a mobile app, or a
+chat platform can each act as a client.
+A chat-platform client is something anyone can build against AG-UI. The
+
+Channels SDK
+ is one implementation
+of it, and 
+OpenTag
+
+is a complete application built on it: a Python LangGraph agent served over AG-UI
+into Slack and Microsoft Teams. In that application the agent and its runtime are
+self-hosted, while platform credentials and message delivery are handled by
+CopilotKit Intelligence — a hosted service, not part of the protocol.
+​
+Quick Start
+Choose the path that fits your needs:
+Build agentic applications
+Build agentic applications powered by AG-UI compatible agents.
+Build new AG-UI integrations
+Build integrations for new agent frameworks, custom in-house solutions, or use AG-UI without any agent framework.
+Build AG-UI compatible clients
+Build new clients for AG-UI-compatible agents (web, mobile, slack, messaging, etc.)
+​
+Explore AG-UI
+Dive deeper into AG-UI’s core concepts and capabilities:
+Core architecture
+Understand how AG-UI connects agents, protocols, and front-ends
+Events
+Learn about AG-UI’s event-driven protocol
+​
+Resources
+Explore guides, tools, and integrations to help you build, optimize, and extend
+your AG-UI implementation. These resources cover everything from practical
+development workflows to debugging techniques.
+Developing with Cursor
+Use Cursor to build AG-UI implementations faster
+Troubleshooting AG-UI
+Fix common issues when working with AG-UI servers and clients
+​
+Contributing
+Want to contribute? Check out our
+
+Contributing Guide
+ to learn how you can help
+improve AG-UI.
+​
+Support and Feedback
+Here’s how to get help or provide feedback:
+For bug reports and feature requests related to the AG-UI specification, SDKs,
+or documentation (open source), please
+
+create a GitHub issue
+For discussions or Q&A about AG-UI, please join the
+
+Discord community
+For production architecture or implementation help, see
+
+Production support
+Was this page helpful?
+Yes
+No
+MCP, A2A, and AG-UI
+Next
+github
+Powered by
+This documentation is built and hosted on Mintlify, a developer documentation platform

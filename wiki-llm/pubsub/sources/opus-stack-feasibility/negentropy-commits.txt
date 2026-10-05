@@ -1,0 +1,264 @@
+[
+  {
+    "sha": "b3687652922785c6f3b6c00684f51c6977965784",
+    "node_id": "C_kwDOJH9G-NoAKGIzNjg3NjUyOTIyNzg1YzZmM2I2YzAwNjg0ZjUxYzY5Nzc5NjU3ODQ",
+    "commit": {
+      "author": {
+        "name": "Doug Hoyte",
+        "email": "doug@hcsw.org",
+        "date": "2026-08-01T16:15:57Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-08-01T16:15:57Z"
+      },
+      "message": "Merge pull request #19 from toniladniot-rgb/master\n\nAdd GitHub Actions workflow for Go project",
+      "tree": {
+        "sha": "d7e5c59de8d06705fd4c5dc1b043aa2413b5b79c",
+        "url": "https://api.github.com/repos/hoytech/negentropy/git/trees/d7e5c59de8d06705fd4c5dc1b043aa2413b5b79c"
+      },
+      "url": "https://api.github.com/repos/hoytech/negentropy/git/commits/b3687652922785c6f3b6c00684f51c6977965784",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqbhu9CRC1aQ7uu5UhlAAAud0QAKXR8QPL7v/83GThnnjKx7ML\nzG5VpMbeGuxG/fvOr4xCAKbCc/QpN9nWsGgKAR1RUIyiFnGClK1qGTyMvFFAe6rH\nkEDw9q7aKw7hdCdg0CR+J8kpGl0havlTOYTacB4hl7mIYw0b4RgpWX7+6HR1dX3v\njKkdsxP2Ty/KjiJ0M1AeeCsHNVrTAiprjPVKnbUSHEXc5WdMlOXgj5mxpQ3KXOp0\np2bmpfTBHsYUt0yffm/cXgmfFf+dTjvHmIZaOnoxVZA7BRuB9/FscKjNzWwaLtKx\nfK/iZS30fS6bqPSTPwzK7ft9Tj4ccY/As+QDznxSApe+7wwm5ekddyDH9/LQXUCB\nz9bZ/55h6fFfw1upcDwyup4G65GGxWMGNkZuSwUC+RvZWK9vMqE+bCF3Pg8r4EdQ\nb2Gm+FAgmTMu2wyfjQmTKsjCwPl9yputl8fzxnHwTu1qJot7e3HePs7rBe99boOl\ncSaNuyK9890MZISL+eLRGFmYl1PENsc1nNOfeHXyA1hZEVw6+MNmEF20NlujTW1s\nxO3CiIJ1yNi8Bu7aL6E1o7Bpe1pbCRuiBfYE/PkuISHrTfc++SwCuClgimkWGpyH\nBAgbx0YC2Mhd9DhlCc2Dw51F/QdC0x+dc4HI9rz8lknJvunx1yrxim8bOmd36006\nk/OqaF++kXJamwU5s4Eg\n=2qEQ\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree d7e5c59de8d06705fd4c5dc1b043aa2413b5b79c\nparent 76f3cf6e69be505e7295edb08a6152fce30261f1\nparent 2e727038fb60371593064f64d9a110823ac73d4d\nauthor Doug Hoyte 
+ 1785600957 -0400\ncommitter GitHub 
+ 1785600957 -0400\n\nMerge pull request #19 from toniladniot-rgb/master\n\nAdd GitHub Actions workflow for Go project",
+        "verified_at": "2026-08-01T16:15:57Z"
+      }
+    },
+    "url": "https://api.github.com/repos/hoytech/negentropy/commits/b3687652922785c6f3b6c00684f51c6977965784",
+    "html_url": "https://github.com/hoytech/negentropy/commit/b3687652922785c6f3b6c00684f51c6977965784",
+    "comments_url": "https://api.github.com/repos/hoytech/negentropy/commits/b3687652922785c6f3b6c00684f51c6977965784/comments",
+    "author": {
+      "login": "hoytech",
+      "id": 144548,
+      "node_id": "MDQ6VXNlcjE0NDU0OA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/144548?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hoytech",
+      "html_url": "https://github.com/hoytech",
+      "followers_url": "https://api.github.com/users/hoytech/followers",
+      "following_url": "https://api.github.com/users/hoytech/following{/other_user}",
+      "gists_url": "https://api.github.com/users/hoytech/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/hoytech/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/hoytech/subscriptions",
+      "organizations_url": "https://api.github.com/users/hoytech/orgs",
+      "repos_url": "https://api.github.com/users/hoytech/repos",
+      "events_url": "https://api.github.com/users/hoytech/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/hoytech/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "76f3cf6e69be505e7295edb08a6152fce30261f1",
+        "url": "https://api.github.com/repos/hoytech/negentropy/commits/76f3cf6e69be505e7295edb08a6152fce30261f1",
+        "html_url": "https://github.com/hoytech/negentropy/commit/76f3cf6e69be505e7295edb08a6152fce30261f1"
+      },
+      {
+        "sha": "2e727038fb60371593064f64d9a110823ac73d4d",
+        "url": "https://api.github.com/repos/hoytech/negentropy/commits/2e727038fb60371593064f64d9a110823ac73d4d",
+        "html_url": "https://github.com/hoytech/negentropy/commit/2e727038fb60371593064f64d9a110823ac73d4d"
+      }
+    ]
+  },
+  {
+    "sha": "2e727038fb60371593064f64d9a110823ac73d4d",
+    "node_id": "C_kwDOJH9G-NoAKDJlNzI3MDM4ZmI2MDM3MTU5MzA2NGY2NGQ5YTExMDgyM2FjNzNkNGQ",
+    "commit": {
+      "author": {
+        "name": "toniladniot-rgb",
+        "email": "toniladniot@gmail.com",
+        "date": "2026-07-25T08:58:16Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-07-25T08:58:16Z"
+      },
+      "message": "Add GitHub Actions workflow for Go project\n\nThis workflow builds and tests a Go project on push or pull request to the master branch.",
+      "tree": {
+        "sha": "d7e5c59de8d06705fd4c5dc1b043aa2413b5b79c",
+        "url": "https://api.github.com/repos/hoytech/negentropy/git/trees/d7e5c59de8d06705fd4c5dc1b043aa2413b5b79c"
+      },
+      "url": "https://api.github.com/repos/hoytech/negentropy/git/commits/2e727038fb60371593064f64d9a110823ac73d4d",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqZHqoCRC1aQ7uu5UhlAAACH8QABlvv5zdCX40grrlaNkTo8pr\nBB9FBs0nhzjsm+Ag6ckIiMekXgvje94d0+DmjRKOq6q2B08Ewb+uPa7Lu8K0Xs4I\nT+TTGgSkiT94M00QZ7+kM7vDdcyqX3bAbX1gd3HekYTkwhYotE6SbcgZy/xXWuA9\nF3GiojnOTrVHr9zYTbZADKInbi3w7hDKSyy8tjAxr9FNYH3mZTsvBadV4Dx7GvC7\nGeGzyIdva4vYr263/UdzuHS2WPsgDdXG6ywEtDGjlV+3iGOAbLp7VodYTQ5VjBP8\ny0PI5WEPawtF/uG2N1rCebVe4didNvHR/+lLiSH3kVAxMMFRPvOR01ECeK+hbFTu\nbY6iweypa8S7MZOsEiRRFc5Go7m+5LoKylN4vr8kg42b5fm0oX43tYeEnC0oGaHd\nOxy+5/mzhpKqqGuPaK0DcK3Up6VhNd1kwwy5mTMW2Iy58r2olMA5wJ+5t0sRPq4t\naGfOP1qnk2mwtstryjKr9WO5b0HbsOCvOMuL78kvqDZnr9+m6UdvIJqHU4hT8WDm\n291UgrgsPWgqNaeln10vBXR8zmX0lbQZ6RH+gCVIN9IzoWngbqT1cO4xhollNqsT\n1aEv51i/WsmHqHQEHdeMaERnNqFa+j3oVdAhN+vB7s7DCtBtTAJQvGDwsD4JQaL5\nwQB0bQEVhnmh0dcRD89l\n=3OMk\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree d7e5c59de8d06705fd4c5dc1b043aa2413b5b79c\nparent 76f3cf6e69be505e7295edb08a6152fce30261f1\nauthor toniladniot-rgb 
+ 1784969896 +0200\ncommitter GitHub 
+ 1784969896 +0200\n\nAdd GitHub Actions workflow for Go project\n\nThis workflow builds and tests a Go project on push or pull request to the master branch.",
+        "verified_at": "2026-07-25T08:58:16Z"
+      }
+    },
+    "url": "https://api.github.com/repos/hoytech/negentropy/commits/2e727038fb60371593064f64d9a110823ac73d4d",
+    "html_url": "https://github.com/hoytech/negentropy/commit/2e727038fb60371593064f64d9a110823ac73d4d",
+    "comments_url": "https://api.github.com/repos/hoytech/negentropy/commits/2e727038fb60371593064f64d9a110823ac73d4d/comments",
+    "author": {
+      "login": "toniladniot-rgb",
+      "id": 231532255,
+      "node_id": "U_kgDODczm3w",
+      "avatar_url": "https://avatars.githubusercontent.com/u/231532255?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/toniladniot-rgb",
+      "html_url": "https://github.com/toniladniot-rgb",
+      "followers_url": "https://api.github.com/users/toniladniot-rgb/followers",
+      "following_url": "https://api.github.com/users/toniladniot-rgb/following{/other_user}",
+      "gists_url": "https://api.github.com/users/toniladniot-rgb/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/toniladniot-rgb/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/toniladniot-rgb/subscriptions",
+      "organizations_url": "https://api.github.com/users/toniladniot-rgb/orgs",
+      "repos_url": "https://api.github.com/users/toniladniot-rgb/repos",
+      "events_url": "https://api.github.com/users/toniladniot-rgb/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/toniladniot-rgb/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "76f3cf6e69be505e7295edb08a6152fce30261f1",
+        "url": "https://api.github.com/repos/hoytech/negentropy/commits/76f3cf6e69be505e7295edb08a6152fce30261f1",
+        "html_url": "https://github.com/hoytech/negentropy/commit/76f3cf6e69be505e7295edb08a6152fce30261f1"
+      }
+    ]
+  },
+  {
+    "sha": "76f3cf6e69be505e7295edb08a6152fce30261f1",
+    "node_id": "C_kwDOJH9G-NoAKDc2ZjNjZjZlNjliZTUwNWU3Mjk1ZWRiMDhhNjE1MmZjZTMwMjYxZjE",
+    "commit": {
+      "author": {
+        "name": "Doug Hoyte",
+        "email": "doug@hcsw.org",
+        "date": "2026-07-06T14:57:29Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-07-06T14:57:29Z"
+      },
+      "message": "Merge pull request #18 from vitorpamplona/master\n\nMigrates Kotlin Negentropy lib to 1.2.0 and adds a script to download the jar.",
+      "tree": {
+        "sha": "691a0d2b436dc5d631cf60c29e1ee35b0df610ae",
+        "url": "https://api.github.com/repos/hoytech/negentropy/git/trees/691a0d2b436dc5d631cf60c29e1ee35b0df610ae"
+      },
+      "url": "https://api.github.com/repos/hoytech/negentropy/git/commits/76f3cf6e69be505e7295edb08a6152fce30261f1",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqS8JZCRC1aQ7uu5UhlAAAw2oQAG08bjcPkD2xJdyBi2nX1L1e\nkaM45jCRaXXdnytNbNwVcvG81o4WrSVWRiRqqGlpBndcHEt6f5vtD0hEEchXQhhS\nabvQPHUsDe+hzicNU/BC9L/7Bf3M3k/iHV2KVoxC5M6TN3PDei92H/vuMdFJR8ad\n+rwh2RJibl4WkXnRj8/LKt66YxzX1gFAf0FHKegYYOnkRF1iwp2YM/KBVYFYu8A1\nx43NVNnOhdsR0y4I4zdYrumha+hjmIksAVDKA8QhRUSXqegCUwtaYgkdYU6UHaLl\nZmuVaprfH3HlPItADTeE6WVTbhKNgQm8JvXmEv9KbLe/tMFWyTSerIpK61wlxfS8\noXOnqzfXXGp8C3V68hUtI/Hn2wM9kgfnrh3ef+z2Q/nqOZdK+nymyQCbWMeSS/VL\nY1rz49Ekm4GET7cDPpDCpr256xiMwFSsWEiGlaCF6C5oKu0qnPKnsNHyWTLLpk2A\nPJEdW0UrBGfs1aeXbj5w+8f0XZ8/b2BItYwAhggTPMkLuDTTwlA9OyCYZ48XTAWc\nieAOYovGg+bT6aZO1kwf+XKFl8LJmmL+XaAiZObEIPeB/Q56wMiPo+QPRSnmbL/W\nZnjwDZE2667uoa3NiTN9HWINpxStJW3wFiWnbaxp+IRO55SbiLfaGi4n9Jrt++Bx\nWU7h0TkXDJFAYCrjIYUY\n=ZWOX\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 691a0d2b436dc5d631cf60c29e1ee35b0df610ae\nparent 6edb041df742013b1f119c22c10f049e83768399\nparent c63b9522efb570969c4d74798a872a004c63b89f\nauthor Doug Hoyte 
+ 1783349849 -0400\ncommitter GitHub 
+ 1783349849 -0400\n\nMerge pull request #18 from vitorpamplona/master\n\nMigrates Kotlin Negentropy lib to 1.2.0 and adds a script to download the jar.",
+        "verified_at": "2026-07-06T14:57:30Z"
+      }
+    },
+    "url": "https://api.github.com/repos/hoytech/negentropy/commits/76f3cf6e69be505e7295edb08a6152fce30261f1",
+    "html_url": "https://github.com/hoytech/negentropy/commit/76f3cf6e69be505e7295edb08a6152fce30261f1",
+    "comments_url": "https://api.github.com/repos/hoytech/negentropy/commits/76f3cf6e69be505e7295edb08a6152fce30261f1/comments",
+    "author": {
+      "login": "hoytech",
+      "id": 144548,
+      "node_id": "MDQ6VXNlcjE0NDU0OA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/144548?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hoytech",
+      "html_url": "https://github.com/hoytech",
+      "followers_url": "https://api.github.com/users/hoytech/followers",
+      "following_url": "https://api.github.com/users/hoytech/following{/other_user}",
+      "gists_url": "https://api.github.com/users/hoytech/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/hoytech/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/hoytech/subscriptions",
+      "organizations_url": "https://api.github.com/users/hoytech/orgs",
+      "repos_url": "https://api.github.com/users/hoytech/repos",
+      "events_url": "https://api.github.com/users/hoytech/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/hoytech/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "6edb041df742013b1f119c22c10f049e83768399",
+        "url": "https://api.github.com/repos/hoytech/negentropy/commits/6edb041df742013b1f119c22c10f049e83768399",
+        "html_url": "https://github.com/hoytech/negentropy/commit/6edb041df742013b1f119c22c10f049e83768399"
+      },
+      {
+        "sha": "c63b9522efb570969c4d74798a872a004c63b89f",
+        "url": "https://api.github.com/repos/hoytech/negentropy/commits/c63b9522efb570969c4d74798a872a004c63b89f",
+        "html_url": "https://github.com/hoytech/negentropy/commit/c63b9522efb570969c4d74798a872a004c63b89f"
+      }
+    ]
+  }
+]

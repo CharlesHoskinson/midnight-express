@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/libp2p/specs/master/pubsub/gossipsub/gossipsub-v1.3.md",
+  "retrieved_utc": "2026-10-05T18:11:56.054518+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "190b03da39e948f1f6071e6133fa206cbffeb558f0d38c5c7a3f443cc27515d5",
+  "text_sha256": "190b03da39e948f1f6071e6133fa206cbffeb558f0d38c5c7a3f443cc27515d5",
+  "bytes": 5965,
+  "text_bytes": 5965,
+  "final_url": "https://raw.githubusercontent.com/libp2p/specs/master/pubsub/gossipsub/gossipsub-v1.3.md",
+  "accepted_source": true
+}

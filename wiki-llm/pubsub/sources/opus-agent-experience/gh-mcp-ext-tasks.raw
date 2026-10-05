@@ -1,0 +1,248 @@
+[
+  {
+    "sha": "5246bc3d0253c1c4b09e682f690b7e8b97362500",
+    "node_id": "C_kwDOSQDBP9oAKDUyNDZiYzNkMDI1M2MxYzRiMDllNjgyZjY5MGI3ZThiOTczNjI1MDA",
+    "commit": {
+      "author": {
+        "name": "Luca Chang",
+        "email": "131398524+LucaButBoring@users.noreply.github.com",
+        "date": "2026-09-30T22:23:34Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-09-30T22:23:34Z"
+      },
+      "message": "v0.2.2",
+      "tree": {
+        "sha": "0171b33a5eef5c2ca32ffe132b44957673749641",
+        "url": "https://api.github.com/repos/modelcontextprotocol/ext-tasks/git/trees/0171b33a5eef5c2ca32ffe132b44957673749641"
+      },
+      "url": "https://api.github.com/repos/modelcontextprotocol/ext-tasks/git/commits/5246bc3d0253c1c4b09e682f690b7e8b97362500",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqvYvmCRC1aQ7uu5UhlAAA72AQAHgOg+GzJZ0lJrSV3QHy1VPw\nWD/gJuRRibOnmx1yVPyE5nsa0Gx4Ps8kEgYqUOMto4KDo+rLaBznQcqE3AWwlyKz\nz2wPmr5cLrOTOHGq2Ndt7/9QbPH0xrgL6LE+xNx7rmGg15nCKsACBd9vEFDv/Iib\nik3KS5gcDAaRrySR1ncL2Z0+uQqcdLfHUwH0Zu6JKhdtAj6m+AjflXGiPArhCK7H\n2XJZp9t/Ze8qP0eMUJU+XkLXZ1/fiq5vPVKJHlPd8yCzaHCMlR5AoilRXWk6HL2M\nLuZ9KwXCVYxg8iSHap1vOxLNP2D/0WYP9WtiQwXt9tUBVggwktixmqWKLkonyn4e\nTtFJNc7qmeeZt+6dTgdNYDNMQtSY66J5sroS5WFvaaN38suWBkMg8V0jUxC/kD0U\nq4INq/JZEwnBGWX6S69wl1TOoHvcVBZQEngzurnmlnNrprWUiscgDJYQEFtRa0vn\nmcuun4ZbjlxsL7OPrQ/p8N0X6a8Jk37+2vNdU/jzo/RCJCWgARseW4gymzI0EhH6\nbcmoAoZUS8L1LQDdr/CldZKI2dxO4fqCShp8ftg39KtlYaskG//NZUDHjWD4nMgy\nUCmb59Ky2D8+cM/IFAcqjk5MNxmeRqCr/gCMMYxpjCJ9Y8y1VcSwC8HxOBFUjJYr\njS2e80T1bNQXS3dsN4Yv\n=aaY1\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 0171b33a5eef5c2ca32ffe132b44957673749641\nparent c80db48a00e709ddc5951be8a0ac51b8b17b02a0\nauthor Luca Chang <131398524+LucaButBoring@users.noreply.github.com> 1790807014 -0700\ncommitter GitHub <noreply@github.com> 1790807014 -0700\n\nv0.2.2",
+        "verified_at": "2026-09-30T22:23:35Z"
+      }
+    },
+    "url": "https://api.github.com/repos/modelcontextprotocol/ext-tasks/commits/5246bc3d0253c1c4b09e682f690b7e8b97362500",
+    "html_url": "https://github.com/modelcontextprotocol/ext-tasks/commit/5246bc3d0253c1c4b09e682f690b7e8b97362500",
+    "comments_url": "https://api.github.com/repos/modelcontextprotocol/ext-tasks/commits/5246bc3d0253c1c4b09e682f690b7e8b97362500/comments",
+    "author": {
+      "login": "LucaButBoring",
+      "id": 131398524,
+      "node_id": "U_kgDOB9T7fA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/131398524?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/LucaButBoring",
+      "html_url": "https://github.com/LucaButBoring",
+      "followers_url": "https://api.github.com/users/LucaButBoring/followers",
+      "following_url": "https://api.github.com/users/LucaButBoring/following{/other_user}",
+      "gists_url": "https://api.github.com/users/LucaButBoring/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/LucaButBoring/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/LucaButBoring/subscriptions",
+      "organizations_url": "https://api.github.com/users/LucaButBoring/orgs",
+      "repos_url": "https://api.github.com/users/LucaButBoring/repos",
+      "events_url": "https://api.github.com/users/LucaButBoring/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/LucaButBoring/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "c80db48a00e709ddc5951be8a0ac51b8b17b02a0",
+        "url": "https://api.github.com/repos/modelcontextprotocol/ext-tasks/commits/c80db48a00e709ddc5951be8a0ac51b8b17b02a0",
+        "html_url": "https://github.com/modelcontextprotocol/ext-tasks/commit/c80db48a00e709ddc5951be8a0ac51b8b17b02a0"
+      }
+    ]
+  },
+  {
+    "sha": "c80db48a00e709ddc5951be8a0ac51b8b17b02a0",
+    "node_id": "C_kwDOSQDBP9oAKGM4MGRiNDhhMDBlNzA5ZGRjNTk1MWJlOGEwYWM1MWI4YjE3YjAyYTA",
+    "commit": {
+      "author": {
+        "name": "Luca Chang",
+        "email": "131398524+LucaButBoring@users.noreply.github.com",
+        "date": "2026-09-30T22:21:25Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-09-30T22:21:25Z"
+      },
+      "message": "ci: publish directly via the release.yml trusted publisher (#29)\n\nThe npm-publish.yml trusted publisher only allows `npm stage publish`, and\napproving staged versions requires an npm maintainer with 2FA. The package\nalso has a release.yml trusted publisher that allows `npm publish`, so rename\nthe workflow to match it and revert #27:\n\n- Rename .github/workflows/npm-publish.yml to release.yml.\n- Publish with `npm publish` again (npm 11.5.1 pin) instead of staging.\n- Restore the verify job that waits for npm to serve the version.",
+      "tree": {
+        "sha": "81e0202287637903fb435360f2b5898cd99623fb",
+        "url": "https://api.github.com/repos/modelcontextprotocol/ext-tasks/git/trees/81e0202287637903fb435360f2b5898cd99623fb"
+      },
+      "url": "https://api.github.com/repos/modelcontextprotocol/ext-tasks/git/commits/c80db48a00e709ddc5951be8a0ac51b8b17b02a0",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqvYtlCRC1aQ7uu5UhlAAAzFsQAEVdaRJVyH8mCuCf1F73GxAS\nh/v70hYjXfTzFhdibWHk5gTbJB326qv0YMCF8Ke+0NB/lA7Z3Hx1H/kP8FJCqfz8\nX8WccukQutMfH3aSUVWI7UPU2TpfMqwJDo5j66bAahOWU2a4axutWY0yWfr97ypv\n+saQIcLOu1Ur7IphNyc11eiKlih42o/fTlcACYFz9rGdzCeT1ewj7DFidFx06cDQ\nF6RKBi4WiMwUb6h9ESjQHesp3hQ1mz72eoM5byvCLLS4u2RiS6UYeL1DkjuoGYcz\nk0bNDwYcoRXT/fgpiF+znWxZ5FBxKZw1r5ehhmvdvZ0cTEk6L/+HDIflnltH1+x+\nEoVhliHZQoM/SzScq/pUVJDrQ5c+nZJ1FETRd6W2xZc+8DQBkBjFZfWqUVOhhxog\nrHRZOtSBMSZve3jVwGuqEM3/blO/lPvdX2aEyS8VQGus5Fsx5BoahPvApkbNCGdg\n9IPHl8I/X4erMI5hxakw7nvmvvibeEEf2oVNYFpWSZ2MO2e+GSWYEuvPAtfl9dXV\nniwEwohHTaJlfgSl4ZPzdSl21ufpnFdFWzwfi/G1MVO3ASU8KcsBD09dwuozB2l7\nJNxGrRNz3Dsnv1zJlBDWMKIjqxEJpXURC1HZ/cHqAuxxdbFEVrn22+QFgRLZk2qi\nmQ+4nvTVqs1CpCmxKk+Y\n=e1CU\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 81e0202287637903fb435360f2b5898cd99623fb\nparent 1c7d38bf9c380e7d5a11ed092af588891b2d6f36\nauthor Luca Chang <131398524+LucaButBoring@users.noreply.github.com> 1790806885 +0200\ncommitter GitHub <noreply@github.com> 1790806885 -0700\n\nci: publish directly via the release.yml trusted publisher (#29)\n\nThe npm-publish.yml trusted publisher only allows `npm stage publish`, and\napproving staged versions requires an npm maintainer with 2FA. The package\nalso has a release.yml trusted publisher that allows `npm publish`, so rename\nthe workflow to match it and revert #27:\n\n- Rename .github/workflows/npm-publish.yml to release.yml.\n- Publish with `npm publish` again (npm 11.5.1 pin) instead of staging.\n- Restore the verify job that waits for npm to serve the version.",
+        "verified_at": "2026-09-30T22:21:25Z"
+      }
+    },
+    "url": "https://api.github.com/repos/modelcontextprotocol/ext-tasks/commits/c80db48a00e709ddc5951be8a0ac51b8b17b02a0",
+    "html_url": "https://github.com/modelcontextprotocol/ext-tasks/commit/c80db48a00e709ddc5951be8a0ac51b8b17b02a0",
+    "comments_url": "https://api.github.com/repos/modelcontextprotocol/ext-tasks/commits/c80db48a00e709ddc5951be8a0ac51b8b17b02a0/comments",
+    "author": {
+      "login": "LucaButBoring",
+      "id": 131398524,
+      "node_id": "U_kgDOB9T7fA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/131398524?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/LucaButBoring",
+      "html_url": "https://github.com/LucaButBoring",
+      "followers_url": "https://api.github.com/users/LucaButBoring/followers",
+      "following_url": "https://api.github.com/users/LucaButBoring/following{/other_user}",
+      "gists_url": "https://api.github.com/users/LucaButBoring/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/LucaButBoring/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/LucaButBoring/subscriptions",
+      "organizations_url": "https://api.github.com/users/LucaButBoring/orgs",
+      "repos_url": "https://api.github.com/users/LucaButBoring/repos",
+      "events_url": "https://api.github.com/users/LucaButBoring/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/LucaButBoring/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "1c7d38bf9c380e7d5a11ed092af588891b2d6f36",
+        "url": "https://api.github.com/repos/modelcontextprotocol/ext-tasks/commits/1c7d38bf9c380e7d5a11ed092af588891b2d6f36",
+        "html_url": "https://github.com/modelcontextprotocol/ext-tasks/commit/1c7d38bf9c380e7d5a11ed092af588891b2d6f36"
+      }
+    ]
+  },
+  {
+    "sha": "1c7d38bf9c380e7d5a11ed092af588891b2d6f36",
+    "node_id": "C_kwDOSQDBP9oAKDFjN2QzOGJmOWMzODBlN2Q1YTExZWQwOTJhZjU4ODg5MWIyZDZmMzY",
+    "commit": {
+      "author": {
+        "name": "Luca Chang",
+        "email": "131398524+LucaButBoring@users.noreply.github.com",
+        "date": "2026-09-30T22:06:52Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-09-30T22:06:52Z"
+      },
+      "message": "v0.2.1",
+      "tree": {
+        "sha": "ec3f679128ce04dbfc6cc90f6f86e5d3d98c39c4",
+        "url": "https://api.github.com/repos/modelcontextprotocol/ext-tasks/git/trees/ec3f679128ce04dbfc6cc90f6f86e5d3d98c39c4"
+      },
+      "url": "https://api.github.com/repos/modelcontextprotocol/ext-tasks/git/commits/1c7d38bf9c380e7d5a11ed092af588891b2d6f36",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqvYf8CRC1aQ7uu5UhlAAAbR0QAAb8HldVbov2xkJX91hHgWPH\ndxzEskZky/aYPZPj06ttIPc5HaLNevju20Xn9+nEjDwZFPFFPjMhtyq1zNx9Sfvg\nrZF2HdFeHdoDrawqW8NJyIT2xYwlb5QZmqLjX99N8fz/F+RzIeXE9lDGDzzLdcBu\nPUpDFK6DEKhdbRk0b4dnfe0c0TRM85ZVrU7bUNCJtEGueeb+8C+ELIKdtr3kPwgw\nga9MTnzolHlL8jir7/aqa+0ljajX8i5JA704nA0SA7XE2BhUee+NROU/NPQH6yEl\nq3Gg//C1paeuKhbpd/ongGnDh8QplWXQ3VJultzb8x6tS4zMfIMTq6upN7V/hamO\ndTW0zh88S8ceics2p91H9t1TO/JvY9TnaC8kyp2ThEWnbuhz/gm+qi69JpHONgEm\nDV/aZ8+JpZ+/9eIwJsCGYMT2wdjCOgiJPLuxbxs7zJxazatnYEOrU661U+1gbPk+\nRbN4ZMBfcKx+rU8GGdb1ImGsXxbuqzkw2wMLhZP+DjDwB1QkLh3WfQg0qq+AXnH8\nryNVWj40F4r3nNIyDOcyzSfvU7LCeYZcRaOPW4HuvF++YSSxrE9kpBiECbkXPiqx\n3zkhrbSKrDuVyvDpJRDLw6qekGFozbFbAG6yU7cnowSntnUQbtCM6wOg8bsNYnS0\nyUfvXQhku6UfinV6Rdpx\n=EVCn\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree ec3f679128ce04dbfc6cc90f6f86e5d3d98c39c4\nparent 6a3761c365b4c502c63626149959b58025c76114\nauthor Luca Chang <131398524+LucaButBoring@users.noreply.github.com> 1790806012 -0700\ncommitter GitHub <noreply@github.com> 1790806012 -0700\n\nv0.2.1",
+        "verified_at": "2026-09-30T22:06:53Z"
+      }
+    },
+    "url": "https://api.github.com/repos/modelcontextprotocol/ext-tasks/commits/1c7d38bf9c380e7d5a11ed092af588891b2d6f36",
+    "html_url": "https://github.com/modelcontextprotocol/ext-tasks/commit/1c7d38bf9c380e7d5a11ed092af588891b2d6f36",
+    "comments_url": "https://api.github.com/repos/modelcontextprotocol/ext-tasks/commits/1c7d38bf9c380e7d5a11ed092af588891b2d6f36/comments",
+    "author": {
+      "login": "LucaButBoring",
+      "id": 131398524,
+      "node_id": "U_kgDOB9T7fA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/131398524?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/LucaButBoring",
+      "html_url": "https://github.com/LucaButBoring",
+      "followers_url": "https://api.github.com/users/LucaButBoring/followers",
+      "following_url": "https://api.github.com/users/LucaButBoring/following{/other_user}",
+      "gists_url": "https://api.github.com/users/LucaButBoring/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/LucaButBoring/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/LucaButBoring/subscriptions",
+      "organizations_url": "https://api.github.com/users/LucaButBoring/orgs",
+      "repos_url": "https://api.github.com/users/LucaButBoring/repos",
+      "events_url": "https://api.github.com/users/LucaButBoring/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/LucaButBoring/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "6a3761c365b4c502c63626149959b58025c76114",
+        "url": "https://api.github.com/repos/modelcontextprotocol/ext-tasks/commits/6a3761c365b4c502c63626149959b58025c76114",
+        "html_url": "https://github.com/modelcontextprotocol/ext-tasks/commit/6a3761c365b4c502c63626149959b58025c76114"
+      }
+    ]
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "url": "https://github.com/shieldedtech/moth-wallet/blob/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/lib/background/permissions.ts",
+  "retrieved_utc": "2026-10-05T18:22:13.098906+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "6c424b60958321b6086b55fac684506cb0629bcb74a8884fd81997ac6ec34647",
+  "text_sha256": "efc896ecae9366a209cf267b58c8dec8c2f4b7ff021822d3038acbec5afec610",
+  "bytes": 270173,
+  "text_bytes": 4614,
+  "final_url": "https://github.com/shieldedtech/moth-wallet/blob/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/lib/background/permissions.ts",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/grok-adversarial-consensus/moth-permissions-visual-tiles/github.com_shieldedtech_moth-wallet_blob_d48206a1957af09bf17bf5e941c2b5bccb12db63_packages_extension_lib_background_permissions.ts.png.tiles/tile_0000.jpg",
+        "sha256": "e8255694a67b18906ceb0b789b6baadd1e284a10ea1a08f6b59d6a9ac5ee7a7b"
+      },
+      {
+        "path": "sources/grok-adversarial-consensus/moth-permissions-visual-tiles/github.com_shieldedtech_moth-wallet_blob_d48206a1957af09bf17bf5e941c2b5bccb12db63_packages_extension_lib_background_permissions.ts.png.tiles/tile_0001.jpg",
+        "sha256": "8a0d749c02a9391f6d2f25c545eb274c18d9255642bcb81add3aae367c90f122"
+      }
+    ],
+    "stderr": "2026-10-05 12:22:15,099 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 12:22:24,240 INFO pixelrag_render.backends.cdp: [w0] https://github.com/shieldedtech/moth-wallet/blob/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/lib/background/permissions.ts \u2192 2 tiles (6.1s)\n2026-10-05 12:22:24,257 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 12:22:24,258 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

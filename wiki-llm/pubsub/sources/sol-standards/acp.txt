@@ -1,0 +1,153 @@
+Welcome - Agent Communication Protocol
+Documentation Index
+Fetch the complete documentation index at: 
+/llms.txt
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Agent Communication Protocol home page
+Agent Communication Protocol
+Search...
+⌘K
+Python SDK
+TypeScript SDK
+Introduction
+Welcome
+What's New
+Quickstart
+Example Agents
+Core Concepts
+Architecture
+Agent Run Lifecycle
+Agent Manifest
+Agent Discovery
+Message Structure
+Message Metadata
+Stateful Agents
+Distributed Sessions
+Errors
+Production-grade
+How To
+Wrap an Agent
+Discover & Run Agent
+Generate Artifacts
+Compose Agents
+Debug
+Await External Response
+High Availability
+REST API
+OpenAPI Spec
+Playground
+Integrations
+MCP Adapter
+Cursor
+About
+Mission & Team
+Contribute
+What's Next
+MCP and A2A
+Support
+GitHub
+Agent Communication Protocol home page
+Agent Communication Protocol
+Search...
+⌘K
+Support
+GitHub
+GitHub
+Search...
+Navigation
+Introduction
+Welcome
+Introduction
+Welcome
+Get to know the Agent Communication Protocol
+​
+🚀 IMPORTANT UPDATE
+ACP is now part of A2A under the Linux Foundation!
+👉 
+Learn more
+ | 🛠️ 
+Migration Guide
+​
+What is ACP?
+The 
+Agent Communication Protocol (ACP)
+ is an open protocol for agent interoperability that solves the growing challenge of connecting AI agents, applications, and humans.
+Modern AI agents are often built in isolation, across different frameworks, teams, and infrastructures. This fragmentation slows innovation and makes it harder for agents to work together effectively. ACP solves this by enabling agents to communicate through a standardized RESTful API that supports:
+All forms of modality
+Synchronous and asynchronous communication
+Streaming interactions
+Both stateful and stateless operation patterns
+Online and offline agent discovery
+Long running tasks
+The protocol remains agnostic to internal implementations, requiring only minimal specifications for compatibility. Whether your agent is built with the 
+BeeAI framework
+, LangChain, CrewAI, or custom code, ACP provides the bridge for seamless collaboration.
+While you can integrate ACP agents directly into your own applications, ACP also underpins the 
+BeeAI platform
+ - a project that allows you to test, deploy, and share ACP agents with your team.
+​
+Why ACP?
+AI systems today are fragmented across incompatible frameworks, creating:
+Integration barriers - Connecting different agents requires custom solutions
+Duplicated effort - Teams rebuild similar functionality
+Scalability challenges - Point-to-point integrations don’t scale
+Inconsistent developer experience - Each framework has its own patterns
+ACP addresses these challenges by providing a shared communication standard that works across any technology stack. 
+Developed as an open standard under the Linux Foundation
+ alongside BeeAI (its reference implementation), ACP maintains transparent, community-driven governance to ensure the protocol serves the broader ecosystem rather than any single vendor.
+​
+Use Cases Enabled by ACP
+ACP unlocks powerful scenarios that transform how agents work together:
+Flexible Agent Replacement
+ As AI technology rapidly evolves, the best-performing agent changes frequently. ACP compatibility lets you seamlessly swap agents in production systems, even when built with different frameworks. Upgrade your translation agent from a custom model to the latest LLM, or replace your code generation tool with a specialized coding assistant - all without modifying integration points.
+Multi-Agent Collaboration
+ Build sophisticated systems where specialized agents work as coordinated teams. A content creation workflow might involve a topic research agent gathering information, a writing agent crafting the draft, and an SEO optimization agent refining for search performance. Each agent excels in its domain while seamlessly coordinating through standardized handoffs.
+Cross-Platform Integration
+ Connect agents across your technology stack - marketing automation, analytics platforms, development tools, and communication systems. When your monitoring agent detects a performance issue, it can automatically trigger your incident response agent to create tickets, notify teams, and coordinate with deployment systems to roll back changes.
+Inter-Company Partnerships
+ Enable secure agent collaboration between organizations. A logistics company’s routing agent could work with a supplier’s inventory agent to optimize delivery schedules, or a marketing agency’s campaign agent could coordinate with a client’s approval workflow agent for streamlined content reviews across organizational boundaries.
+By creating a universal foundation for agent communication, ACP drives broader AI adoption and enables more powerful, interconnected intelligent systems across industries.
+​
+Key Features
+REST-based Communication:
+ ACP uses simple, well-defined 
+REST endpoints
+ that align with standard HTTP patterns. Unlike protocols requiring specialized communication methods (such as JSON-RPC), ACP leverages familiar HTTP conventions that integrate seamlessly into production environments.
+Support for All Message Types:
+ ACP uses MimeTypes for content identification, making it easily extensible to handle any data format. Whether you’re sending text, images, audio, video, or custom binary formats, any mimetype works out of the box without protocol modifications.
+No SDK Required (but available):
+ The protocol is simple enough to use with standard HTTP tools like curl, Postman, or browser requests. For teams that prefer to integrate ACP programmatically, an official 
+Python SDK
+ and 
+Typescript SDK
+ is available.
+Offline Discovery:
+ Agents can be made discoverable even when inactive by embedding metadata directly into their distribution packages. This enables discovery in secure, disconnected, or scale-to-zero environments.
+Async-first, Sync Supported:
+ Built primarily for asynchronous communication to handle long-running agent tasks, while fully supporting synchronous communication.
+​
+Get Started
+Quickstart
+Get up and running with ACP in minutes
+Example Agents
+Explore reference agent implementations
+REST API
+View the complete OpenAPI specification
+Python SDK
+Tools for building and consuming ACP agents
+What's New
+Latest features and improvements in ACP
+Next
+⌘I
+github
+discord
+bluesky
+youtube
+On this page
+🚀 IMPORTANT UPDATE
+What is ACP?
+Why ACP?
+Use Cases Enabled by ACP
+Key Features
+Get Started

@@ -1,0 +1,13 @@
+{
+  "url": "https://developer.chrome.com/docs/extensions/develop/concepts/service-workers/lifecycle",
+  "retrieved_utc": "2026-10-05T18:20:58.895265+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "ba827db2587b0dac130e3d8f75c1f8e231b4f510db205839a8f5a87898001b26",
+  "text_sha256": "43a7c4dd768cc1a52afe6f2a667cb0b7d79a2d6fa683849139a31542fc34f405",
+  "bytes": 142817,
+  "text_bytes": 14297,
+  "final_url": "https://developer.chrome.com/docs/extensions/develop/concepts/service-workers/lifecycle",
+  "accepted_source": true
+}

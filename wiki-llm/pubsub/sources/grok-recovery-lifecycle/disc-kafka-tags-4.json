@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/apache/kafka/git/matching-refs/tags/4.",
+  "retrieved_utc": "2026-10-05T18:18:01.421097+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "eff4ee1e02b9648757ee281ce99802406f102c902062c0a55c1a0f60bf903320",
+  "text_sha256": "eff4ee1e02b9648757ee281ce99802406f102c902062c0a55c1a0f60bf903320",
+  "bytes": 21099,
+  "text_bytes": 21099,
+  "final_url": "https://api.github.com/repos/apache/kafka/git/matching-refs/tags/4.",
+  "accepted_source": true
+}

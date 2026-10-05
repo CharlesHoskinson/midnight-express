@@ -1,0 +1,9 @@
+{
+  "url": "https://raw.githubusercontent.com/reactive-streams/reactive-streams-jvm/v1.0.4/README.md",
+  "status": 200,
+  "retrievedAt": "2026-10-05T18:04:47.984804+00:00",
+  "sha256": "026bd995289dc881e0bfe7858697603cf30bbde53de0b35dbe9e4ca1061cb500",
+  "bytes": 35449,
+  "method": "Scrapling Fetcher.get",
+  "visualGrounding": "pending PixelRAG route from coordinator"
+}

@@ -1,0 +1,13 @@
+{
+  "url": "https://www.w3.org/TR/push-api/",
+  "retrieved_utc": "2026-10-05T18:12:30.537311+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "7948ef74adeb0d38030757c6813f7d252eb4279bf400c80d657b8f40fd12ddd4",
+  "text_sha256": "e6d3687e3ccebfaee2768d9c0cf3b2b1b0b342dd83006d49f4cc6dfe95e5cf2a",
+  "bytes": 410928,
+  "text_bytes": 85765,
+  "final_url": "https://www.w3.org/TR/push-api/",
+  "accepted_source": true
+}

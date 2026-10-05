@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/reactive-streams/reactive-streams-jvm/v1.0.4/README.md",
+  "retrieved_utc": "2026-10-05T18:18:01.405342+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "026bd995289dc881e0bfe7858697603cf30bbde53de0b35dbe9e4ca1061cb500",
+  "text_sha256": "f3fc910dc5041aeb387f8bb4efaf3cd2e29d7a0d7b532270db7bd506290d554c",
+  "bytes": 35449,
+  "text_bytes": 33956,
+  "final_url": "https://raw.githubusercontent.com/reactive-streams/reactive-streams-jvm/v1.0.4/README.md",
+  "accepted_source": true
+}

@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/cloudevents/spec/releases?per_page=5",
+  "retrieved_utc": "2026-10-05T18:19:06.724349+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "d536ec8c9b0b74fdb990dbd9005533e10305ee3a54623ac22a4634f077beab4c",
+  "text_sha256": "d536ec8c9b0b74fdb990dbd9005533e10305ee3a54623ac22a4634f077beab4c",
+  "bytes": 17115,
+  "text_bytes": 17115,
+  "final_url": "https://api.github.com/repos/cloudevents/spec/releases?per_page=5",
+  "accepted_source": true
+}

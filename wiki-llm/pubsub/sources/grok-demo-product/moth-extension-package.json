@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/shieldedtech/moth-wallet/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/package.json",
+  "retrieved_utc": "2026-10-05T18:15:51.897013+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "e56d1421e2e426913a08e3e00ba2eceb15e6a9b5cba675523b6e577142452729",
+  "text_sha256": "e56d1421e2e426913a08e3e00ba2eceb15e6a9b5cba675523b6e577142452729",
+  "bytes": 1797,
+  "text_bytes": 1797,
+  "final_url": "https://raw.githubusercontent.com/shieldedtech/moth-wallet/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/package.json",
+  "accepted_source": true
+}

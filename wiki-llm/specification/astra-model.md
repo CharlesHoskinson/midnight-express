@@ -1,0 +1,17 @@
+# Typed v0.2 model: design record
+
+The model was derived from the current repository's `model/schemas/{rfq,invoice,agent}.v0.2.json`, `model/profiles/lock.json`, `model/profiles/rules.json`, `model/validator.py` and `model/README.md`. These local primary artifacts define the scope; the model does not silently broaden it to the chain catalog or treat archived v0.1 behavior as current.
+
+`formal/lean/MidnightExpress/Model.lean` defines three closed payload branches, exact installed profile commitments, envelope metadata, decimal coefficient/scale values and the complete business records. The fixed schema values are represented as restricted constructors or implicit type tags. Flexible semantic fields remain explicit, including currencies/units, proposal budget, invoice status and evidence clocks. Both RFQ and invoice have a reusable terms record, making equality against the trusted fixture complete and reviewable.
+
+The supported input is already decoded. Parsing and byte-level requirements are deliberately documented as preconditions of the abstraction, rather than being replaced with an unproved claim that Lean validates arbitrary JSON. String digests are opaque. Business intent is retained structurally so replay arguments do not need an axiom that SHA-256 is injective.
+
+The product model uses integer coefficients and natural-number scales. `product_denominator` proves the exact multiplication law; whole Shares times a USD-cent price stays at scale two. Positivity is preserved, while the 18-digit upper bound must still be checked on the product. This covers an actual overflow boundary in the Python validator without introducing machine-word overflow or floating arithmetic into the formal model.
+
+Dispatch checks all fixed envelope selectors and pins the current contract hash. Unknown profile names and unsupported operation strings reject. A theorem recovers the entire exact envelope predicate from successful dispatch. These are semantic guarantees for the pinned model; authentic distribution and verification of bundle resource bytes are separate requirements.
+
+Replay identity is factored into occurrence identity `(source,id)`, stable action identity `(authorityDomain,executionScope,actionId)` and full source-bound business intent. Verified equalities show occurrence metadata cannot refresh intent. Verified inequalities show a changed proposal target or profile contract changes intent, while a changed target keeps the action key. The validation module can therefore classify same-key altered intent as a conflict instead of creating a fresh action.
+
+Validation used the installed compiler at `/home/hoskinson/.elan/toolchains/leanprover--lean4---v4.34.1/bin`. The toolchain is pinned in `lean-toolchain`, with no downloaded theorem dependencies. `lake build MidnightExpress.Model` passed after the initial source was written; the final integrated build is recorded by the repository-level verification. No existing schema, released profile bundle or historical evidence was edited.
+
+This note records artifact choices, source mapping and checked results. Proof scope and reproduction instructions are maintained in `formal/lean/README.md`; public documentation should link the actual Lean source and avoid claiming that kernel checking establishes production authentication, consensus finality, external exactly-once effects or correctness of the complete Python program.

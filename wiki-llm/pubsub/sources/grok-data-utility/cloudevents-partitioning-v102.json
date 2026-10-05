@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/cloudevents/spec/v1.0.2/cloudevents/extensions/partitioning.md",
+  "retrieved_utc": "2026-10-05T18:19:30.321108+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "38b5bf2b9e46a52917710f5ca2bba3cc3b5d91649f7a463293b6cd67634fa94e",
+  "text_sha256": "38b5bf2b9e46a52917710f5ca2bba3cc3b5d91649f7a463293b6cd67634fa94e",
+  "bytes": 1215,
+  "text_bytes": 1215,
+  "final_url": "https://raw.githubusercontent.com/cloudevents/spec/v1.0.2/cloudevents/extensions/partitioning.md",
+  "accepted_source": true
+}

@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/waku-org/specs/master/standards/core/store-sync.md",
+  "retrieved_utc": "2026-10-05T18:11:57.515944+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "1a3c1efcf536007764dc5ee7f20de0e63d59c47135497f96701420c0a42f47f4",
+  "text_sha256": "0aac09a1d41ba5def993b680c3f0b1cf89fda85a2d943a70dd073e93a737068c",
+  "bytes": 6980,
+  "text_bytes": 6960,
+  "final_url": "https://raw.githubusercontent.com/waku-org/specs/master/standards/core/store-sync.md",
+  "accepted_source": true
+}

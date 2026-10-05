@@ -1,0 +1,125 @@
+{
+  "sha": "f662822765247f0da553347c9819f958a1992d28",
+  "node_id": "C_kwDOTeTpgNoAKGY2NjI4MjI3NjUyNDdmMGRhNTUzMzQ3Yzk4MTlmOTU4YTE5OTJkMjg",
+  "commit": {
+    "author": {
+      "name": "charles hoskinson",
+      "email": "charles.hoskinson@gmail.com",
+      "date": "2026-10-04T03:49:39Z"
+    },
+    "committer": {
+      "name": "charles hoskinson",
+      "email": "charles.hoskinson@gmail.com",
+      "date": "2026-10-04T03:49:39Z"
+    },
+    "message": "Resolve verified historical graph secret-scan false positive",
+    "tree": {
+      "sha": "96c2e5b0721641a47e092978de6acf7216f2e293",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/trees/96c2e5b0721641a47e092978de6acf7216f2e293"
+    },
+    "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/git/commits/f662822765247f0da553347c9819f958a1992d28",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/f662822765247f0da553347c9819f958a1992d28",
+  "html_url": "https://github.com/CharlesHoskinson/UmbraDB/commit/f662822765247f0da553347c9819f958a1992d28",
+  "comments_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/f662822765247f0da553347c9819f958a1992d28/comments",
+  "author": {
+    "login": "CharlesHoskinson",
+    "id": 3279952,
+    "node_id": "MDQ6VXNlcjMyNzk5NTI=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/3279952?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/CharlesHoskinson",
+    "html_url": "https://github.com/CharlesHoskinson",
+    "followers_url": "https://api.github.com/users/CharlesHoskinson/followers",
+    "following_url": "https://api.github.com/users/CharlesHoskinson/following{/other_user}",
+    "gists_url": "https://api.github.com/users/CharlesHoskinson/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/CharlesHoskinson/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/CharlesHoskinson/subscriptions",
+    "organizations_url": "https://api.github.com/users/CharlesHoskinson/orgs",
+    "repos_url": "https://api.github.com/users/CharlesHoskinson/repos",
+    "events_url": "https://api.github.com/users/CharlesHoskinson/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/CharlesHoskinson/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "CharlesHoskinson",
+    "id": 3279952,
+    "node_id": "MDQ6VXNlcjMyNzk5NTI=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/3279952?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/CharlesHoskinson",
+    "html_url": "https://github.com/CharlesHoskinson",
+    "followers_url": "https://api.github.com/users/CharlesHoskinson/followers",
+    "following_url": "https://api.github.com/users/CharlesHoskinson/following{/other_user}",
+    "gists_url": "https://api.github.com/users/CharlesHoskinson/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/CharlesHoskinson/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/CharlesHoskinson/subscriptions",
+    "organizations_url": "https://api.github.com/users/CharlesHoskinson/orgs",
+    "repos_url": "https://api.github.com/users/CharlesHoskinson/repos",
+    "events_url": "https://api.github.com/users/CharlesHoskinson/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/CharlesHoskinson/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "da05e4d2e95e7d547249813c83c534705fb046e4",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/da05e4d2e95e7d547249813c83c534705fb046e4",
+      "html_url": "https://github.com/CharlesHoskinson/UmbraDB/commit/da05e4d2e95e7d547249813c83c534705fb046e4"
+    }
+  ],
+  "stats": {
+    "total": 22,
+    "additions": 22,
+    "deletions": 0
+  },
+  "files": [
+    {
+      "sha": "9395c9944a599a1205aaf8307dad5da99bf30ea6",
+      "filename": ".gitleaksignore",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 0,
+      "changes": 7,
+      "blob_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/.gitleaksignore",
+      "raw_url": "https://github.com/CharlesHoskinson/UmbraDB/raw/f662822765247f0da553347c9819f958a1992d28/.gitleaksignore",
+      "contents_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/.gitleaksignore?ref=f662822765247f0da553347c9819f958a1992d28",
+      "patch": "@@ -16,3 +16,10 @@\n # planting a fresh hex value in EITHER field of the tracked .example template fails the gate.\n be646fcff58052a77e848914a79ccef2279cf78f:nix/midnight-env/test-wallets/preview-test-wallet.json:umbradb-wallet-seed-hex:4\n be646fcff58052a77e848914a79ccef2279cf78f:nix/midnight-env/test-wallets/preview-test-wallet.json:umbradb-wallet-seed-hex:5\n+\n+# Verified historical graph false positive, not a credential: the generic rule crosses the\n+# quoted nodes delimiter in a serialized hyperedge and captures another declared graph node ID.\n+# Both IDs exist in graph.json at this commit, sourced from l7-precedent.md;\n+# the rationale node cites B3.\n+# This exempts ONLY this immutable finding; new content on the path remains scanned.\n+c80329a40c0c5809940fee75c793d61088aa7250:docs/research/sqlite-migration/graph/graph.html:generic-api-key:281"
+    },
+    {
+      "sha": "acf727b1f1b73f02e5228ee66f90a4d95ec88df1",
+      "filename": "docs/integrations/audits/midnight-express-recovery/adversarial.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 0,
+      "changes": 6,
+      "blob_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/docs%2Fintegrations%2Faudits%2Fmidnight-express-recovery%2Fadversarial.md",
+      "raw_url": "https://github.com/CharlesHoskinson/UmbraDB/raw/f662822765247f0da553347c9819f958a1992d28/docs%2Fintegrations%2Faudits%2Fmidnight-express-recovery%2Fadversarial.md",
+      "contents_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/docs%2Fintegrations%2Faudits%2Fmidnight-express-recovery%2Fadversarial.md?ref=f662822765247f0da553347c9819f958a1992d28",
+      "patch": "@@ -25,3 +25,9 @@ Targeted read-only re-audit verified the corrected final spec table and `git dif\n No other material privacy/cryptography/ownership claim error found in this design tranche. Passing the documentation audit must not be represented as certification of future implementation or of production deployment. Graphify and full release audit are owned by the parent agent.\n \n Final targeted re-audit: PASS. Read-only reviewer made no repository changes. Parent owns Graphify regeneration and consolidated release evidence.\n+\n+## Additional targeted audit: historical secret-scanner false positive\n+\n+**PASS.** Reviewed final `.gitleaksignore:20–24` diff independently, without displaying credential values. The sole added suppression is fingerprint `c80329a40c0c5809940fee75c793d61088aa7250:docs/research/sqlite-migration/graph/graph.html:generic-api-key:281`. At that immutable commit, HTML line 281 parses as a hyperedge array; the generic-rule match crosses a serialized `nodes` delimiter into another declared graph node ID. Both symbolic IDs are present in that commit's graph.json, connected in graph data and sourced from l7-precedent.md. This is not credential material. No path/rule/global allowlist or custom-rule weakening is introduced; fresh findings on the same path remain scanned. `git diff --check` passed. Parent reports a verified Gitleaks 8.28 full-history scan of 223 commits PASS and a custom seed-rule negative control detected with expected exit 1; this reviewer did not rerun those scans.\n+\n+Low-severity nonblocking comment precision at `.gitleaksignore:22`: the write-amplification rationale node explicitly cites B3, while the Erigon concept node has null source_location. Both source_file fields are l7-precedent.md. Suggested precise wording: both IDs source the document, with the rationale node citing B3. This does not alter the false-positive classification or suppression safety."
+    },
+    {
+      "sha": "44cdf6a3017652baaa01d653c5d63f399c91d60f",
+      "filename": "docs/integrations/audits/midnight-express-recovery/domain.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 0,
+      "changes": 9,
+      "blob_url": "https://github.com/CharlesHoskinson/UmbraDB/blob/f662822765247f0da553347c9819f958a1992d28/docs%2Fintegrations%2Faudits%2Fmidnight-express-recovery%2Fdomain.md",
+      "raw_url": "https://github.com/CharlesHoskinson/UmbraDB/raw/f662822765247f0da553347c9819f958a1992d28/docs%2Fintegrations%2Faudits%2Fmidnight-express-recovery%2Fdomain.md",
+      "contents_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/contents/docs%2Fintegrations%2Faudits%2Fmidnight-express-recovery%2Fdomain.md?ref=f662822765247f0da553347c9819f958a1992d28",
+      "patch": "@@ -29,3 +29,12 @@ Verified final `specs/mpe-recovery/spec.md:9–10` and `:16`: UDB-MPE-003 now se\n Also verified final `specs/mpe-recovery/spec.md:13–14`, `:17`, `:19`: endpoint custody maps to PRV-007; key erasure maps to CRY-029/030 with the declared backup profile; expired outbox dispatch is explicitly refused; privacy acknowledgement behavior maps to CON-039. Authoritative source checks confirm PRV-007 keeps recognition/decryption secrets inside the trusted endpoint, and STO-011 concerns process-restart recovery rather than power-loss durability. The final table preserves that distinction.\n \n **No remaining domain-correctness blockers. PASS for the design-only proposal**, not certification of an implemented adapter, HA system, or future release.\n+\n+\n+## Final targeted CI-fix audit — PASS\n+\n+Independently reviewed the final `.gitleaksignore` diff. The sole addition at `.gitleaksignore:20–24` documents and exempts the exact fingerprint `c80329a40c0c5809940fee75c793d61088aa7250:docs/research/sqlite-migration/graph/graph.html:generic-api-key:281`. There is no path-wide or rule-wide exclusion.\n+\n+Independently read historical `graph.html:281` at that commit: the detected material is a serialized hyperedge node list, containing symbolic identifiers `l7_precedent_random_hash_key_write_amplification` and `l7_precedent_erigon`. Parsed historical `graph/graph.json` confirms both are declared nodes: respectively the rationale “Random-hash-key B-tree write amplification” with source location B3, and the concept “Erigon”, both attributed to `l7-precedent.md`. This is a graph identifier false positive, not credential material.\n+\n+Severity: no remaining finding. The exact-fingerprint suppression is justified and does not change recovery requirements or claimed implementation. Parent reports verified Gitleaks 8.28.0 full-history scan over 223 commits PASS and an all-zero seed outside the template detected with expected exit 1; this auditor independently verified classification and suppression scope, not scanner execution. The prior design-only domain PASS remains valid."
+    }
+  ]
+}

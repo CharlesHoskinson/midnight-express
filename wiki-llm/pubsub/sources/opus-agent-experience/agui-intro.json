@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.ag-ui.com/introduction",
+  "retrieved_utc": "2026-10-05T18:13:37.747956+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "36037da6b1773888c58b77ab8b688e45430bf2591fa8d8aa62807514d5129701",
+  "text_sha256": "98501ed3fafeaccf0ba610252b41917c56019c5ef08e8817306249588712f8e3",
+  "bytes": 481976,
+  "text_bytes": 10810,
+  "final_url": "https://docs.ag-ui.com/introduction",
+  "accepted_source": true
+}

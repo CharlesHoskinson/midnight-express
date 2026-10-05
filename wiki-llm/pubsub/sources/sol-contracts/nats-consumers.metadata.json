@@ -1,0 +1,10 @@
+{
+  "url": "https://docs.nats.io/nats-concepts/jetstream/consumers",
+  "status": 200,
+  "retrievedAt": "2026-10-05T18:04:50.104803+00:00",
+  "sha256": "63c5c9d361c429d6f41e135b0bb1c0140e48cc622ae0868cee220ee7b82d7fda",
+  "bytes": 260706,
+  "method": "Scrapling Fetcher.get",
+  "visualGrounding": "pending PixelRAG route from coordinator",
+  "resolvedUrl": "https://docs.nats.io/learn/jetstream/pull-consumers"
+}

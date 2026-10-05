@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Specification: Midnight Express</title>
+<meta name="description" content="The mathematical rules behind Midnight Express v0.2 quotes, payment observations and sandbox approvals, with Lean proof coverage and explicit assumptions.">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="specification.css">
+</head>
+<body class="spec-page">
+<a class="skip" href="#main-content">Skip to main content</a>
+<header>
+<a class="brand" href="index.html"><span class="mark">M∕E</span> MIDNIGHT EXPRESS</a>
+<nav aria-label="Main navigation">
+<a href="index.html#overview">Overview</a>
+<a href="index.html#example">Workflows</a>
+<a href="index.html#architecture">Architecture</a>
+<a href="data-model.html">Data model</a>
+<a href="subscriptions.html">Subscriptions</a>
+<a href="specification.html" aria-current="page">Specification</a>
+<a href="implementation.html">Implementation</a>
+</nav>
+</header>
+<main id="main-content" tabindex="-1">
+<section class="impl-intro">
+<p class="eyebrow">FORMAL SPECIFICATION / MODEL v0.2</p>
+<h1>Make the rules<br>precise<span>.</span></h1>
+<p class="lead">A quote must add up. A payment observation must preserve what its source claimed. An approval must stay bound to the work a person reviewed. The formal model expresses those requirements as mathematical conditions that Lean can check.</p>
+<p>Lean is a programming language and proof assistant. It checks that a proof follows from the definitions and assumptions in its source. This specification covers a typed model of the local reference software; a successful validation returns <code>executes:false</code>.</p>
+<div class="intro-links"><a href="#quote">Follow a quote</a><a href="#proofs">Read the proof coverage</a><a href="#sources">Open the Lean sources</a></div>
+<nav class="impl-jumps" aria-label="Specification sections">
+<a href="#agreement">Shared agreement</a><a href="#quote">Quote arithmetic</a><a href="#payment">Payment observations</a><a href="#approval">Approval scope</a><a href="#identity">Identity &amp; replay</a><a href="#watch">Local subscriptions</a><a href="#proofs">Proofs &amp; limits</a><a href="#sources">Sources</a>
+</nav>
+</section>
+
+<section id="agreement">
+<p class="eyebrow">THE AGREEMENT</p>
+<h2>Choose an exact meaning.</h2>
+<p class="spec-lead">An event names a profile and an exact contract commitment. The receiver uses a reviewed, installed contract to interpret its business data. Unknown contracts are refused.</p>
+<dl class="spec-terms">
+<dt>Profile</dt><dd>A bounded workflow with declared fields and business rules, such as a whole-share USD quote.</dd>
+<dt>Contract commitment</dt><dd>A fingerprint identifying the exact definitions and rules. A version label alone cannot establish that two applications installed the same agreement.</dd>
+<dt>Validation context</dt><dd>Trusted inputs supplied by the application, including current time, source evidence or authority policy. A theorem about those inputs does not establish how they were obtained.</dd>
+<dt>Candidate</dt><dd>The checked interpretation that an application can consider. Execution requires a separate effect boundary and a fresh authority decision.</dd>
+</dl>
+<div class="spec-table-wrap" role="region" aria-label="Supported v0.2 profiles" tabindex="0">
+<table><caption>The current workflow profiles</caption><thead><tr><th scope="col">Profile</th><th scope="col">Exact event type</th><th scope="col">Bounded meaning</th></tr></thead><tbody>
+<tr><th scope="row"><code>rfq.v0.2</code></th><td><code>mpe.rfq.quote.v0.2</code></td><td>Whole Shares, USD cents, price per Share, explicit requester perspective and no fees.</td></tr>
+<tr><th scope="row"><code>invoice.v0.2</code></th><td><code>mpe.invoice.payment-observed.v0.2</code></td><td>A positive payment observation with matching supplied evidence and explicit status and clocks.</td></tr>
+<tr><th scope="row"><code>agent.v0.2</code></th><td><code>mpe.agent.approval.v0.2</code></td><td>One sandbox <code>WriteReport</code> proposal bound to its human approval and policy.</td></tr>
+</tbody></table>
+</div>
+<details class="spec-detail"><summary>What enters the mathematical model?</summary><p>The model starts from typed values. It represents the fields and comparisons needed by each rule. The real reference also checks raw JSON grammar, closed schemas, canonical decimal strings, byte limits and installed bundle resources before constructing a candidate.</p><p>That parsing and loading pipeline needs its own assurance. Lean's typed values cannot contain an undeclared profile constructor, but that fact alone does not prove that a JSON parser rejects an unknown field or misspelled profile.</p></details>
+</section>
+
+<section id="quote">
+<p class="eyebrow">RFQ / EXACT ARITHMETIC</p>
+<h2>A quote must add up.</h2>
+<p class="spec-lead">A buyer requests 100 shares at $123.45 per share. The contract records price and cash as integer cents, so the cash check has no floating-point rounding step.</p>
+<div class="spec-equation"><p class="equation-label">Cash in USD cents</p><p class="equation">cash = quantity × price</p><p class="equation-example">1,234,500 = 100 × 12,345</p><p>Here, <var>quantity</var> is a positive whole number of Shares and <var>price</var> is a positive number of cents per Share. The cash amount is $12,345.</p></div>
+<div class="spec-prose"><h3>Translate a declared convention.</h3><p>A second source format quotes 1,234,500 cents per 100 shares from the dealer's selling perspective. Its reviewed adapter divides the block price by 100 and converts the perspective to the buyer's purchase. The resulting terms agree only when the complete source-bound business meaning agrees.</p><p>If the source omits the price basis, the adapter cannot infer it. A quote with cash of 1,234,501 cents also fails: its total differs by one cent from the required product.</p></div>
+<div class="spec-equation"><p class="equation-label">Quote validity at the supplied current time</p><p class="equation">event.time ≤ validFrom ≤ now &lt; validUntil</p><p>The opening instant is included. The expiry instant is excluded. At exactly <var>validUntil</var>, the quote is expired. Its record time must also be no later than the opening instant.</p></div>
+<details class="spec-detail"><summary>How decimal scale relates to the arithmetic</summary><p>The reference decimal form is <code>coefficient × 10⁻scale</code>. For USD, <code>12345 × 10⁻² = 123.45</code>. Whole-share quantity uses scale zero; USD amounts use scale two. Canonical coefficient strings are positive and bounded to 18 digits.</p><p>The arithmetic theorem applies to the modeled integer quantities after interpretation. It does not prove the decimal parser, adapter implementation or wire encoding correct. Independent RFQ interpreters in Python, Rust and TypeScript provide separate evidence from finite conformance cases.</p></details>
+</section>
+
+<section id="payment">
+<p class="eyebrow">INVOICE / REPORTED EVIDENCE</p>
+<h2>Preserve the payment claim.</h2>
+<p class="spec-lead">A source reports a $250 payment against a $500 invoice. The observation identifies the payment, carries its status and matches the complete evidence supplied in the validation context.</p>
+<div class="spec-equation"><p class="equation-label">Amount admitted for every status</p><p class="equation">0 &lt; observedAmount ≤ invoicePayable</p><p class="equation-example">0 &lt; 25,000 ≤ 50,000 cents</p><p>The same amount bound applies to Pending, Final and Reversed. A reversal remains an observation of what the source reported.</p></div>
+<div class="spec-equation"><p class="equation-label">Ordered observation clocks</p><p class="equation">effectiveAt ≤ observedAt<br>≤ event.time ≤ now</p><p>The source says the payment took effect at 10:00; an observer sees it at 10:05 and records the event at 10:06. Validation at 10:07 admits that ordering. A record time before the observation time fails.</p></div>
+<p class="spec-prose">Final means that the source asserted final status and the supplied evidence matched. It does not prove bank or blockchain finality, allocate a payment to an invoice or instruct a transfer. Several accepted observations also need separate accounting rules before their amounts can be added.</p>
+</section>
+
+<section id="approval">
+<p class="eyebrow">AGENT / BOUNDED APPROVAL</p>
+<h2>Keep permission attached<br>to the reviewed work.</h2>
+<p class="spec-lead">The approval profile covers one sandbox operation: writing a report. The proposal fixes its input and target, with an authority domain, execution scope, budget window, policy and expiry.</p>
+<div class="spec-prose"><p>Suppose a human approves a report for one sandbox target. Changing the target or input changes the proposal being checked. A matching action label cannot carry that approval to different work. The model compares the approval against the supplied proposal and authority context.</p></div>
+<div class="spec-equation"><p class="equation-label">Stable action identity</p><p class="equation">actionKey =<br>(authorityDomain, executionScope, actionId)</p><p>A new event identifier does not change this key. The consumed action remains the same work even when another delivery asks for it again.</p></div>
+<div class="spec-callout"><h3>Validation stops at a candidate.</h3><p>Every successful modeled validation has <code>executes:false</code>. A report-writing host must check current permission again at the effect boundary. Revocation, budget consumption and expiry can change after a message arrives.</p><p>The local recovery prototype writes a database report row in a transaction. The formal data model does not prove that Python, JavaScript, PostgreSQL or a remote destination implements the whole authority and recovery contract.</p></div>
+</section>
+
+<section id="identity">
+<p class="eyebrow">IDENTITY / RETRIES &amp; HISTORY</p>
+<h2>Know what has repeated.</h2>
+<dl class="spec-terms">
+<dt>Occurrence identity</dt><dd>Identifies one event occurrence. Reusing it with changed content must expose a conflict.</dd>
+<dt>Business intent</dt><dd>Includes source, exact profile and contract, and the complete typed business data. Occurrence ID and record time are excluded, so re-emitting the same intent can preserve its candidate fingerprint.</dd>
+<dt>Action identity</dt><dd>Identifies work within an authority domain and execution scope. A consumed action cannot be renewed by a fresh occurrence or transport envelope.</dd>
+<dt>Transport EID</dt><dd>Identifies a protocol envelope. It belongs to a different layer from the business intent and the action key.</dd>
+</dl>
+<div class="spec-equation"><p class="equation-label">Intent fingerprint used by the reference</p><p class="equation spec-code-equation"><code>SHA256(JCS({domain, source, type,<br>profile, contract, data}))</code></p><p>The domain is <code>mpe.model.intent.v0.2</code>. JCS means JSON Canonicalization Scheme: a defined serialization that gives agreed data reproducible bytes.</p></div>
+<p class="spec-prose">Preserving the modeled intent under a change of occurrence metadata is a structural statement. Hash collision resistance, canonicalization correctness and source authentication require separate arguments. Two different dealers keep different source identities even if their prices match.</p>
+<details class="spec-detail"><summary>What happens when a contract changes?</summary><p>A meaning-changing edit creates a new immutable commitment. Historical events retain their original contract. The local reference installs exact reviewed bundles and refuses unknown commitments; it does not fetch a definition from a sender's URL.</p><p>The v0.1 release remains historical and read-only. Interpreting old data does not authorize a new effect. Authenticated bundle distribution and live workflow migration remain outside this model's guarantees.</p></details>
+</section>
+
+<section id="watch">
+<p class="eyebrow">SUBSCRIPTIONS / PROPOSED LOCAL CONTROL PLANE</p>
+<h2>A watch records what<br>a consumer wants to receive.</h2>
+<p class="spec-lead">The <a href="subscriptions.html">local subscription demo</a> explores selectors, pauses, cursors and retention gaps. A watch's intent and delivery state are separate from the v0.2 business-event profiles above.</p>
+<div class="spec-prose"><p>A delivery cursor describes local receipt. A processing cursor describes contiguous decisions about received items, including reviewed or quarantined dispositions. Neither establishes that an action executed. A pause records the consumer's request; permission expiry or revocation still prevents delivery.</p><p>Selectors are proposed to run locally after authorized decryption. They cannot restrict what an authorized reader of the whole shard can see. The browser demo uses simulated permissions and tab memory, with no protocol transport or production authority service.</p></div>
+<p class="spec-scope" id="watch-proof-status">The v0.2 profile proofs below do not establish the subscription demo's behavior. Watch rules require their own explicitly scoped state model and implementation evidence.</p>
+</section>
+
+<section id="proofs">
+<p class="eyebrow">PROOF COVERAGE</p>
+<h2>Read each guarantee<br>with its assumptions.</h2>
+<p class="spec-lead">A soundness theorem connects a successful modeled check to a stated condition. For example, accepting a modeled quote implies that its cash amount equals quantity multiplied by price.</p>
+<div class="spec-equation"><p class="equation-label">The shape of a validator guarantee</p><p class="equation">validate(event, context) = accepted<br>⇒ requiredConditions(event, context)</p><p>This implication quantifies over the typed values in Lean. It depends on the supplied context. Tests against real JSON provide a separate, finite comparison with the reference implementation.</p></div>
+<p id="proof-status" class="spec-prose">The modules and examples build successfully with Lean 4.34.1 and its bundled standard library. The named theorems below state properties of the definitions in <a href="formal/lean/MidnightExpress/Model.lean">Model.lean</a> and <a href="formal/lean/MidnightExpress/Validation.lean">Validation.lean</a>. The project contains no admitted proofs or custom axioms.</p>
+<ul class="spec-proof-list">
+<li>Acceptance is equivalent to the modeled common and workflow conditions. Soundness gives the conditions from an accepted result; completeness gives acceptance when all those conditions hold.<code>validation_sound · validation_complete</code></li>
+<li>Dispatch requires the exact envelope agreement, including its contract. Unknown profile and operation strings are rejected by the supplied tag decoders.<code>dispatch_requires_exact_envelope · unknown_profile_rejected · unknown_operation_rejected</code></li>
+<li>An accepted quote has the exact decimal product as cash and obeys the declared validity interval. Whole-share multiplication preserves the cents scale; the product must still fit the coefficient bound.<code>accepted_quote_exact_decimal_product · accepted_quote_half_open · product_valid_iff_within_bound</code></li>
+<li>An accepted invoice observation matches the complete supplied payment evidence. The invoice rule also requires ordered clocks and a positive, bounded amount for every status. A Final verdict requires Final in that record.<code>accepted_invoice_complete_evidence · invoiceCheck_iff · final_verdict_requires_final_record</code></li>
+<li>An accepted approval matches the supplied proposal and policy, is absent from the supplied revocation list, has not expired, and fits the allowed target, Step limit and single-effect bound.<code>accepted_approval_current_policy · accepted_approval_not_revoked · accepted_approval_unexpired · accepted_approval_bounded</code></li>
+<li>A new occurrence for an already recorded action is classified as a duplicate when its supplied intent token matches. A changed token under that key is refused. Current validation runs before replay classification.<code>same_action_new_occurrence_duplicate · action_conflict_rejected · invalid_now_cannot_replay</code></li>
+<li>Changing occurrence metadata preserves structural intent. Changing an approval target preserves the action key while changing intent. Accepted validation and replay results always carry <code>executes:false</code>.<code>occurrence_metadata_does_not_refresh_intent · changed_target_keeps_action_key · changed_target_changes_intent · stateful_check_never_executes</code></li>
+</ul>
+<details class="spec-detail"><summary>What does the replay proof assume?</summary><p>The replay model uses sequential in-memory lists and compares supplied event and intent digest strings. It does not compute those digests or prove that a changed payload produces a changed digest. Structural intent theorems describe the complete typed values separately.</p><p>The caller must supply correctly derived commitments. Durable atomic storage, concurrent workers, crashes and remote retries need their own implementation evidence. A sequential replay theorem does not establish exactly-once delivery or effects in a running service.</p></details>
+<div class="spec-prose"><h3>What still needs external evidence</h3><ul class="spec-boundaries">
+<li>The JSON parser, Unicode and decimal grammar, closed schemas, resource bounds and conversion from raw input to Lean's typed values.</li>
+<li>JCS canonicalization, SHA-256 behavior and collision resistance, signatures, encryption, source authentication and admission to the private protocol.</li>
+<li>The correctness and freshness of supplied time, source evidence, human identity, policy and revocation information.</li>
+<li>The running Python and other interpreters, adapters, durable stores, network delivery, concurrency and external effects. The Lean model is not an end-to-end verification of those programs.</li>
+<li>Bank settlement, blockchain consensus and real partner conventions. A matching fixture cannot establish those facts.</li>
+</ul></div>
+</section>
+
+<section id="sources">
+<p class="eyebrow">SOURCES &amp; REPRODUCTION</p>
+<h2>Inspect the definitions.</h2>
+<p class="spec-lead">The equations and examples on this page are readable without repository access. The published Lean source files provide the exact definitions behind the proof claims.</p>
+<div id="lean-source-links" class="spec-prose"><ul>
+<li><a href="formal/lean/README.md">Scope and reproduction guide</a></li>
+<li><a href="formal/lean/MidnightExpress/Model.lean">Model.lean: values, profile dispatch, arithmetic and identity</a></li>
+<li><a href="formal/lean/MidnightExpress/Validation.lean">Validation.lean: executable checks, acceptance proofs and replay</a></li>
+<li><a href="formal/lean/MidnightExpress/Examples.lean">Examples.lean: concrete accepted and rejected cases</a></li>
+<li><a href="formal/lean/MidnightExpress.lean">Project entry point</a>, <a href="formal/lean/lakefile.lean">build configuration</a> and <a href="formal/lean/lean-toolchain">pinned toolchain</a></li>
+</ul><p>With the files in the same directory layout and Lean's toolchain manager installed, run:</p></div>
+<pre><code>cd formal/lean
+lake build</code></pre>
+<p class="spec-source-note">A clean build checks the general proofs and the concrete examples. The examples cover selected cases; agreement on a finite corpus is separate from a general proof that the production parser and validator implement this specification.</p>
+<p class="spec-source-note">The <a href="https://github.com/CharlesHoskinson/midnight-express">project repository</a> may require GitHub access. Its model README, schemas, conformance tests and recovery fixtures provide implementation evidence. Repository access is not required to read the explanations on this page.</p>
+<p class="spec-source-note">Continue with the <a href="data-model.html">data model guide</a> for integration examples or the <a href="implementation.html">implementation plan</a> for the work needed beyond the local reference.</p>
+</section>
+</main>
+</body>
+</html>

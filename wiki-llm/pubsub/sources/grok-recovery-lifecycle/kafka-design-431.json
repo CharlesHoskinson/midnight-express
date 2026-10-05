@@ -1,0 +1,24 @@
+{
+  "url": "https://github.com/apache/kafka/blob/4.3.1/docs/design/design.md",
+  "retrieved_utc": "2026-10-05T18:28:10.842349+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "4530222b0ec686da755b3d5b508a8c716b19942c61d93e8f5e3d35a42cce5bcc",
+  "text_sha256": "9e525df25017ee5e7a482aecf881f175b2911f75c2c40b90679b34ef5dcf244b",
+  "bytes": 571728,
+  "text_bytes": 75972,
+  "final_url": "https://github.com/apache/kafka/blob/4.3.1/docs/design/design.md",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/grok-recovery-lifecycle/kafka-design-431-tiles/github.com_apache_kafka_blob_4.3.1_docs_design_design.md.png.tiles/tile_0000.jpg",
+        "sha256": "5fec0f8957ecef54b1d2db9a41b18bef8ed8153e4fb1369605e4deabc4f3def7"
+      }
+    ],
+    "stderr": "2026-10-05 12:28:13,645 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 12:28:34,633 INFO pixelrag_render.backends.cdp: [w0] https://github.com/apache/kafka/blob/4.3.1/docs/design/design.md \u2192 1 tiles (17.9s)\n2026-10-05 12:28:34,650 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 12:28:34,651 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

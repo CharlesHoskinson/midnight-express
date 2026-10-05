@@ -1,0 +1,13 @@
+{
+  "url": "https://a2a-protocol.org/latest/topics/a2a-and-mcp/",
+  "retrieved_utc": "2026-10-05T18:13:36.315706+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "ad26c1b4902755e26d99f0e1b12d017acc1642f8babbfcbedee1d0bad29cfd5c",
+  "text_sha256": "b89ad09fec9136e59b1d417ce8852f0ecce18b57a5ea32928c842af916e8c5cd",
+  "bytes": 75761,
+  "text_bytes": 10946,
+  "final_url": "https://a2a-protocol.org/latest/topics/a2a-and-mcp/",
+  "accepted_source": true
+}

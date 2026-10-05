@@ -1,0 +1,13 @@
+{
+  "url": "https://notifications.spec.whatwg.org/",
+  "retrieved_utc": "2026-10-05T18:12:27.057098+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "bd9f070b4a44cab1543dc4a2ca729999c533b89632b1ca0f563385a77aa1837f",
+  "text_sha256": "a02dd1aebefba9de06d221e92a2507ae39fc8e41f32180a53416aac33fcfa01d",
+  "bytes": 423166,
+  "text_bytes": 57086,
+  "final_url": "https://notifications.spec.whatwg.org/",
+  "accepted_source": true
+}

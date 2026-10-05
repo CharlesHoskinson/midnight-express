@@ -1,0 +1,744 @@
+{
+  "sha": "612db2b62dbd78c079da62e57e7b8585a204b858",
+  "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/612db2b62dbd78c079da62e57e7b8585a204b858",
+  "tree": [
+    {
+      "path": ".add_license_headers.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "e82b50cc6fd4d0586756df9dc9ea44467ecb4841",
+      "size": 1416,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/e82b50cc6fd4d0586756df9dc9ea44467ecb4841"
+    },
+    {
+      "path": ".changeset",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6db6a26cfe4933881c24be658cfd4f0ac4b51553",
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/6db6a26cfe4933881c24be658cfd4f0ac4b51553"
+    },
+    {
+      "path": ".changeset/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e5b6d8d6a67ad0dca8f20117fbfc72e076882d00",
+      "size": 510,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/e5b6d8d6a67ad0dca8f20117fbfc72e076882d00"
+    },
+    {
+      "path": ".changeset/config.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "626eececfa0dbed6cbc093845a80cbfef49453a4",
+      "size": 426,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/626eececfa0dbed6cbc093845a80cbfef49453a4"
+    },
+    {
+      "path": ".changeset/dapp-connector-api-org-rename.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "26d257083612c4a5055b39b78401e1df1cbd417e",
+      "size": 242,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/26d257083612c4a5055b39b78401e1df1cbd417e"
+    },
+    {
+      "path": ".changeset/dco-sign-off.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f8b8106eb66b7a753a657b7d977646e3eb0addaa",
+      "size": 66,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/f8b8106eb66b7a753a657b7d977646e3eb0addaa"
+    },
+    {
+      "path": ".changeset/fix-dist-src-leak.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b47ea3752b491b2ebc4131fd4f0843614f7566d4",
+      "size": 376,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/b47ea3752b491b2ebc4131fd4f0843614f7566d4"
+    },
+    {
+      "path": ".changeset/pre.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7b7fe26ab52cc3e5e5ae7f1ee7a7782e962bbd5d",
+      "size": 227,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/7b7fe26ab52cc3e5e5ae7f1ee7a7782e962bbd5d"
+    },
+    {
+      "path": ".changeset/signdata-ecdsa-scheme.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9f9104b68ed1a7bfd185fda7259285aa7ca633e5",
+      "size": 479,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/9f9104b68ed1a7bfd185fda7259285aa7ca633e5"
+    },
+    {
+      "path": ".changeset/tangy-goats-cry.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c4340b0141e43a663cfa485dcb0c5771c0e8b93c",
+      "size": 965,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/c4340b0141e43a663cfa485dcb0c5771c0e8b93c"
+    },
+    {
+      "path": ".envrc",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6e8284cfdf6de85572aa9fe15a44e27ca1577d38",
+      "size": 209,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/6e8284cfdf6de85572aa9fe15a44e27ca1577d38"
+    },
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c5d5085bdfea4ee553b5b7ba398f41d321b8b5ea",
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/c5d5085bdfea4ee553b5b7ba398f41d321b8b5ea"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1a5a75db9cf1ca399b8f2f3254ef3f6305882fa5",
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/1a5a75db9cf1ca399b8f2f3254ef3f6305882fa5"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug-report.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7a95b43d2f7bba09d919ab8d93926110cfa213ac",
+      "size": 521,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/7a95b43d2f7bba09d919ab8d93926110cfa213ac"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/documentation-improvement.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "92747fd8873f760d08e0ff2f937f1112c5a2990c",
+      "size": 764,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/92747fd8873f760d08e0ff2f937f1112c5a2990c"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/feature-request.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64bfd72e2ddb21723b752992157584555ad21e15",
+      "size": 665,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/64bfd72e2ddb21723b752992157584555ad21e15"
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed49f1c6baff9c7f953c7c6894984b2f7b206639",
+      "size": 532,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/ed49f1c6baff9c7f953c7c6894984b2f7b206639"
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f3a1b84f487f9a9219ffb1fffacbe4d0bcb17f78",
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/f3a1b84f487f9a9219ffb1fffacbe4d0bcb17f78"
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE/pull_request_template.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f4244a264f575a92956d55ff01378064d2b9c178",
+      "size": 813,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/f4244a264f575a92956d55ff01378064d2b9c178"
+    },
+    {
+      "path": ".github/dco.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "758ff3d25b3816f9630890ff2519cc15e0382b34",
+      "size": 89,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/758ff3d25b3816f9630890ff2519cc15e0382b34"
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8e4462897ea2fa88065d93f28d7892799f630816",
+      "size": 574,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/8e4462897ea2fa88065d93f28d7892799f630816"
+    },
+    {
+      "path": ".github/renovate.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d926eaebc05832c5810c01b30a62252828a70e6",
+      "size": 1125,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/2d926eaebc05832c5810c01b30a62252828a70e6"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8a4289a322601a264237163aeae87b91522fc556",
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/8a4289a322601a264237163aeae87b91522fc556"
+    },
+    {
+      "path": ".github/workflows/cd.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0960b7ca26807053e9a63b008edbebce3c8075db",
+      "size": 11300,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/0960b7ca26807053e9a63b008edbebce3c8075db"
+    },
+    {
+      "path": ".github/workflows/check-changeset.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fc5d733cb5af0d52732d1456c0d0f036a795b74f",
+      "size": 1119,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/fc5d733cb5af0d52732d1456c0d0f036a795b74f"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f183582bd2b2ee5b1b66e94461dabc3cf46b1861",
+      "size": 445,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/f183582bd2b2ee5b1b66e94461dabc3cf46b1861"
+    },
+    {
+      "path": ".github/workflows/docs-api.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7245921e11b83862d479cf0aeb3ded851f1997e5",
+      "size": 1964,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/7245921e11b83862d479cf0aeb3ded851f1997e5"
+    },
+    {
+      "path": ".github/workflows/license-headers.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7c0b66bb787aa88897b7d17deba9b6747586e4aa",
+      "size": 1865,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/7c0b66bb787aa88897b7d17deba9b6747586e4aa"
+    },
+    {
+      "path": ".github/workflows/scan.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c43ac013ce9753b7eeb864d682c51f00ab08c3fe",
+      "size": 785,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/c43ac013ce9753b7eeb864d682c51f00ab08c3fe"
+    },
+    {
+      "path": ".github/workflows/setup-env",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4f04a3ad1f2496ba4f90a3cfe7342f765236866f",
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/4f04a3ad1f2496ba4f90a3cfe7342f765236866f"
+    },
+    {
+      "path": ".github/workflows/setup-env/action.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ef46e85afcc7a7995aa1142883b251d80b260048",
+      "size": 343,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/ef46e85afcc7a7995aa1142883b251d80b260048"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fead6d68f4f0af37c08c26fff4592031608a69c8",
+      "size": 200,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/fead6d68f4f0af37c08c26fff4592031608a69c8"
+    },
+    {
+      "path": ".license_midnight.txt",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "22730565c93864f34f377efb12f41a92b7ac3818",
+      "size": 678,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/22730565c93864f34f377efb12f41a92b7ac3818"
+    },
+    {
+      "path": ".licenserc.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4ccf83379ab176410355568733a7d4b8eadf4705",
+      "size": 1456,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/4ccf83379ab176410355568733a7d4b8eadf4705"
+    },
+    {
+      "path": ".prettierignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5069cfc167324ea84e14dfe02c97c0d4ea6f32c8",
+      "size": 8,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/5069cfc167324ea84e14dfe02c97c0d4ea6f32c8"
+    },
+    {
+      "path": ".prettierrc.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f18c29dcbd56c86c4b61dee0f264b68d506e5003",
+      "size": 114,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/f18c29dcbd56c86c4b61dee0f264b68d506e5003"
+    },
+    {
+      "path": ".tool-versions",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aea05c970231b06ff8823af26139451141ac8519",
+      "size": 28,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/aea05c970231b06ff8823af26139451141ac8519"
+    },
+    {
+      "path": ".yarn",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9ba255455a776e0b192b16f567de5e23df3ba06f",
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/9ba255455a776e0b192b16f567de5e23df3ba06f"
+    },
+    {
+      "path": ".yarn/releases",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fe5e3df112474e35eb22388591fb946f1629272b",
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/fe5e3df112474e35eb22388591fb946f1629272b"
+    },
+    {
+      "path": ".yarn/releases/yarn-4.17.0.cjs",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "324ef8b83f7b55e3c14573fcbbd3f25483201e9c",
+      "size": 3019631,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/324ef8b83f7b55e3c14573fcbbd3f25483201e9c"
+    },
+    {
+      "path": ".yarnrc.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "10fcacfdb5729ef5327f20d0ded92bbb0bbb6cf1",
+      "size": 118,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/10fcacfdb5729ef5327f20d0ded92bbb0bbb6cf1"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "35441b6010bdbe0bfbd5676320bf96f608b6fb71",
+      "size": 1335,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/35441b6010bdbe0bfbd5676320bf96f608b6fb71"
+    },
+    {
+      "path": "CODEOWNERS",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1e660d62a3715ae3bbf9ffb8a636cf0f08c13817",
+      "size": 670,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/1e660d62a3715ae3bbf9ffb8a636cf0f08c13817"
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1481d5422e2285ea8c33702b2322790320e993b1",
+      "size": 3268,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/1481d5422e2285ea8c33702b2322790320e993b1"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c11710c50138733b1163363832881d5e5df29777",
+      "size": 5090,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/c11710c50138733b1163363832881d5e5df29777"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d5c13de39a500dd1ce9dcf1dea81576428eca5c2",
+      "size": 10787,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/d5c13de39a500dd1ce9dcf1dea81576428eca5c2"
+    },
+    {
+      "path": "NOTICE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "67e1bfaafce435ad21dbd5519a9dd564354ca718",
+      "size": 569,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/67e1bfaafce435ad21dbd5519a9dd564354ca718"
+    },
+    {
+      "path": "QUICKSTART.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "defd2a07f88add8d208c900069a8dd44b16cb1d8",
+      "size": 737,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/defd2a07f88add8d208c900069a8dd44b16cb1d8"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dce7f372e9af6fe9d83ba238ef7ada10a817a6f4",
+      "size": 13281,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/dce7f372e9af6fe9d83ba238ef7ada10a817a6f4"
+    },
+    {
+      "path": "RELEASE_NOTES_v4.0.0.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "412aee3cc184478568fa9c3a374cc1ac819efe7b",
+      "size": 9529,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/412aee3cc184478568fa9c3a374cc1ac819efe7b"
+    },
+    {
+      "path": "SECURITY.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "45f372e8388cd170dfd844cb1b69e49ce291111e",
+      "size": 3328,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/45f372e8388cd170dfd844cb1b69e49ce291111e"
+    },
+    {
+      "path": "SPECIFICATION.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "08121a030456d77431d4ad1e67875b43bbe355c6",
+      "size": 31222,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/08121a030456d77431d4ad1e67875b43bbe355c6"
+    },
+    {
+      "path": "docs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8f3add8947376b93cf5321c507678b2f28f5421e",
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/8f3add8947376b93cf5321c507678b2f28f5421e"
+    },
+    {
+      "path": "docs/api",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "46712beeb2eeaa4fe4186a236337c6886d85ce0b",
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/46712beeb2eeaa4fe4186a236337c6886d85ce0b"
+    },
+    {
+      "path": "docs/api/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0674a24a36e31181ba73e0d1930a920ba1d11759",
+      "size": 13329,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/0674a24a36e31181ba73e0d1930a920ba1d11759"
+    },
+    {
+      "path": "docs/api/_media",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c46e225a0d9cced79168ba1758e77d93ed6dee46",
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/c46e225a0d9cced79168ba1758e77d93ed6dee46"
+    },
+    {
+      "path": "docs/api/_media/SPECIFICATION.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2a4cdd2b27e42aded46d8b14f27cf603e573199e",
+      "size": 30648,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/2a4cdd2b27e42aded46d8b14f27cf603e573199e"
+    },
+    {
+      "path": "docs/api/globals.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "57da9ab259eec122f6b9e5eebef7c3e1ec1d5560",
+      "size": 1038,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/57da9ab259eec122f6b9e5eebef7c3e1ec1d5560"
+    },
+    {
+      "path": "docs/api/type-aliases",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "93f41429f7d73e4dd5c9e876b2d39b4f0b8b26e4",
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/93f41429f7d73e4dd5c9e876b2d39b4f0b8b26e4"
+    },
+    {
+      "path": "docs/api/type-aliases/APIError.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f6e182473fc247c5fa25f28e081c902b27a49e7a",
+      "size": 745,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/f6e182473fc247c5fa25f28e081c902b27a49e7a"
+    },
+    {
+      "path": "docs/api/type-aliases/Configuration.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e57a294cacfec385e6dd3a35e493de381d2a928d",
+      "size": 811,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/e57a294cacfec385e6dd3a35e493de381d2a928d"
+    },
+    {
+      "path": "docs/api/type-aliases/ConnectedAPI.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a62bd512b65795af5f5072575466d57f3b6a6632",
+      "size": 559,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/a62bd512b65795af5f5072575466d57f3b6a6632"
+    },
+    {
+      "path": "docs/api/type-aliases/ConnectionStatus.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "86cd71b4bbee1e71f5606257c581c12a8d8caa5b",
+      "size": 751,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/86cd71b4bbee1e71f5606257c581c12a8d8caa5b"
+    },
+    {
+      "path": "docs/api/type-aliases/DesiredInput.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4eb7fcb6145e8d08567559d130d9de691e2a3132",
+      "size": 449,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/4eb7fcb6145e8d08567559d130d9de691e2a3132"
+    },
+    {
+      "path": "docs/api/type-aliases/DesiredOutput.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3bd722d2b0a9bbcf106a56255d22ee634a3b6b62",
+      "size": 652,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/3bd722d2b0a9bbcf106a56255d22ee634a3b6b62"
+    },
+    {
+      "path": "docs/api/type-aliases/ErrorCode.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "997c51993d0704c46bf16ab3dda1c802986b2176",
+      "size": 408,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/997c51993d0704c46bf16ab3dda1c802986b2176"
+    },
+    {
+      "path": "docs/api/type-aliases/ExecutionStatus.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3fe6445cab0b7f901e17459dca35ad31ae8c080d",
+      "size": 357,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/3fe6445cab0b7f901e17459dca35ad31ae8c080d"
+    },
+    {
+      "path": "docs/api/type-aliases/HintUsage.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e1eec9803ff8e8228260734e9b9ac05484fe864d",
+      "size": 777,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/e1eec9803ff8e8228260734e9b9ac05484fe864d"
+    },
+    {
+      "path": "docs/api/type-aliases/HistoryEntry.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8f0069d1881fbf1481c96ed9354d5c0df3945297",
+      "size": 404,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/8f0069d1881fbf1481c96ed9354d5c0df3945297"
+    },
+    {
+      "path": "docs/api/type-aliases/InitialAPI.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b0d91b40a5205d3e51b1b206be115e37eea222ec",
+      "size": 2404,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/b0d91b40a5205d3e51b1b206be115e37eea222ec"
+    },
+    {
+      "path": "docs/api/type-aliases/KeyMaterialProvider.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ce166f07c80c1c5d090178345bbeefcf2681a410",
+      "size": 1350,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/ce166f07c80c1c5d090178345bbeefcf2681a410"
+    },
+    {
+      "path": "docs/api/type-aliases/ProvingProvider.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "42524635a54e453fba42cd470a93444e3686ed7a",
+      "size": 985,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/42524635a54e453fba42cd470a93444e3686ed7a"
+    },
+    {
+      "path": "docs/api/type-aliases/SignDataOptions.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "90721b8b7523b3994a7afc263f624efe275bf805",
+      "size": 815,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/90721b8b7523b3994a7afc263f624efe275bf805"
+    },
+    {
+      "path": "docs/api/type-aliases/Signature.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5d2e7b5dcd46cea51a3652c70fa16d357e0024e6",
+      "size": 1248,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/5d2e7b5dcd46cea51a3652c70fa16d357e0024e6"
+    },
+    {
+      "path": "docs/api/type-aliases/TokenType.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6fe258a32e1d52837b7af792bfeca8d81892efe9",
+      "size": 270,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/6fe258a32e1d52837b7af792bfeca8d81892efe9"
+    },
+    {
+      "path": "docs/api/type-aliases/TxStatus.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b902810bd92b398d971b45c5fdf45ac126445385",
+      "size": 1294,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/b902810bd92b398d971b45c5fdf45ac126445385"
+    },
+    {
+      "path": "docs/api/type-aliases/WalletConnectedAPI.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "405251eb317c090a5314ca43b57a59a863619f3f",
+      "size": 9031,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/405251eb317c090a5314ca43b57a59a863619f3f"
+    },
+    {
+      "path": "docs/api/variables",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8da662b0cb90b08ee9d437fbfc6a094af1690d47",
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/8da662b0cb90b08ee9d437fbfc6a094af1690d47"
+    },
+    {
+      "path": "docs/api/variables/ErrorCodes.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "532191b02c0583ae12100543f5887a49c24252ea",
+      "size": 966,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/532191b02c0583ae12100543f5887a49c24252ea"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d6bdd669b037ed08d9b51f83cb681d188987de5b",
+      "size": 1353,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/d6bdd669b037ed08d9b51f83cb681d188987de5b"
+    },
+    {
+      "path": "flake.lock",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2f96fe0c67c021c5f0916db7d1782406aad38384",
+      "size": 1476,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/2f96fe0c67c021c5f0916db7d1782406aad38384"
+    },
+    {
+      "path": "flake.nix",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "84e252328fc19a2eafc5988a2cbf5b1539881905",
+      "size": 462,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/84e252328fc19a2eafc5988a2cbf5b1539881905"
+    },
+    {
+      "path": "package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b2cabdcac549c6c7ec993efa22008434c1e9f23",
+      "size": 1759,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/2b2cabdcac549c6c7ec993efa22008434c1e9f23"
+    },
+    {
+      "path": "rollup.config.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "87d2908ee1d1f2f678d3ec747cfcb186fd0acbf1",
+      "size": 462,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/87d2908ee1d1f2f678d3ec747cfcb186fd0acbf1"
+    },
+    {
+      "path": "scripts",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a6ed21ddfd8478816e3652ac573f8cd6398f81ac",
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/a6ed21ddfd8478816e3652ac573f8cd6398f81ac"
+    },
+    {
+      "path": "scripts/publish-alias.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c61103c7c6e3b296d322db8e135a6d75edd42e83",
+      "size": 7027,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/c61103c7c6e3b296d322db8e135a6d75edd42e83"
+    },
+    {
+      "path": "src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "3cf27bda664d102f08890c5867e48665f3ec3c6f",
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/3cf27bda664d102f08890c5867e48665f3ec3c6f"
+    },
+    {
+      "path": "src/api.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a9ff9d04718915c5eaba5c81b4905a8c8703133",
+      "size": 16386,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/3a9ff9d04718915c5eaba5c81b4905a8c8703133"
+    },
+    {
+      "path": "src/errors.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e3acfb871a5e7a60b463e05e19a8a1a10d113107",
+      "size": 2244,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/e3acfb871a5e7a60b463e05e19a8a1a10d113107"
+    },
+    {
+      "path": "src/globals.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f1844ee322fbc0f712ab090d30eb8ea60715ee6e",
+      "size": 1354,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/f1844ee322fbc0f712ab090d30eb8ea60715ee6e"
+    },
+    {
+      "path": "src/index.ts",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "49750fba90306dc79cf478e6f1a34f4e6086e825",
+      "size": 1179,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/49750fba90306dc79cf478e6f1a34f4e6086e825"
+    },
+    {
+      "path": "tsconfig.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d7d0ea6de0ea657d03febab074a8c4153b05e84c",
+      "size": 579,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/d7d0ea6de0ea657d03febab074a8c4153b05e84c"
+    },
+    {
+      "path": "typedoc.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3cf9e17afe6924a353d850ac8ef2a8f2c41dc4b3",
+      "size": 464,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/3cf9e17afe6924a353d850ac8ef2a8f2c41dc4b3"
+    },
+    {
+      "path": "yarn.lock",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d7bac64669193b0edcc531d8c7a8a663ba7deb44",
+      "size": 118072,
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/blobs/d7bac64669193b0edcc531d8c7a8a663ba7deb44"
+    }
+  ],
+  "truncated": false
+}

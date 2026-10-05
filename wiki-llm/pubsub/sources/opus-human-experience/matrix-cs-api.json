@@ -1,0 +1,13 @@
+{
+  "url": "https://spec.matrix.org/v1.16/client-server-api/",
+  "retrieved_utc": "2026-10-05T18:11:29.683921+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "d242e430acceab413e4e2e8ced98d8a33bc5b6ed634e17e659eb81423f2b2a7c",
+  "text_sha256": "0e3f2a99309977d7bd6407c3d51f1338053e4d869b8f097884a44de7935bdf3a",
+  "bytes": 2830128,
+  "text_bytes": 1043550,
+  "final_url": "https://spec.matrix.org/v1.16/client-server-api/",
+  "accepted_source": true
+}

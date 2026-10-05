@@ -1,0 +1,9 @@
+{
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/utilities/tasks",
+  "fetched_at": "2026-10-05T18:05:23.088770+00:00",
+  "method": "Scrapling Fetcher.get",
+  "status": 200,
+  "sha256": "d7a8523ae71a5bd6c92769aaf1e5203a7c8af9426a48db1ae87fd6fa90055369",
+  "text_sha256": "e65677a2d6a9a8c2cfb8829875f3b9770523fa1d5395d67a3ba9e74a1855d6ce",
+  "bytes": 380838
+}

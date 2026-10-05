@@ -1,0 +1,10 @@
+{
+  "ref": "refs/tags/v4.1.0-beta.1",
+  "node_id": "REF_kwDOQVRIw7dyZWZzL3RhZ3MvdjQuMS4wLWJldGEuMQ",
+  "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/refs/tags/v4.1.0-beta.1",
+  "object": {
+    "sha": "8ed5f51e6e6d9135879d0460412bef6cb27fd5a6",
+    "type": "tag",
+    "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/tags/8ed5f51e6e6d9135879d0460412bef6cb27fd5a6"
+  }
+}

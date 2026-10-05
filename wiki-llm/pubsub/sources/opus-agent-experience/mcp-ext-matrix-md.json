@@ -1,0 +1,13 @@
+{
+  "url": "https://modelcontextprotocol.io/extensions/client-matrix.md",
+  "retrieved_utc": "2026-10-05T18:11:27.725443+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "47d9fdd69da4063636807548cbe939c7d57edb26412c8180071c42e198bf926e",
+  "text_sha256": "edc6a9b213591afc8fa21f862c97e2927b6ea982d7b44b2645cb5e433528d9f4",
+  "bytes": 4354,
+  "text_bytes": 4085,
+  "final_url": "https://modelcontextprotocol.io/extensions/client-matrix.md",
+  "accepted_source": true
+}

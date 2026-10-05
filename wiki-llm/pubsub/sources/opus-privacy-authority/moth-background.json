@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/shieldedtech/moth-wallet/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/entrypoints/background.ts",
+  "retrieved_utc": "2026-10-05T18:11:08.699176+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "3a4b4e0222ca7fc100712e2c675a4b6ae5e6127349d26db36a0a22c748d29020",
+  "text_sha256": "3a4b4e0222ca7fc100712e2c675a4b6ae5e6127349d26db36a0a22c748d29020",
+  "bytes": 3173,
+  "text_bytes": 3173,
+  "final_url": "https://raw.githubusercontent.com/shieldedtech/moth-wallet/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/entrypoints/background.ts",
+  "accepted_source": true
+}

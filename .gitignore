@@ -42,3 +42,6 @@ design/AFK.md
 !catalog/data-model/**/*.pdf
 model/interpreters/rust/target/
 model/interpreters/node_modules/
+
+# Lean compilation cache; sources and toolchain are versioned.
+formal/lean/.lake/

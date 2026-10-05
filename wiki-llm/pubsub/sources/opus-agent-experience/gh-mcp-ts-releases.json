@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/modelcontextprotocol/typescript-sdk/releases?per_page=6",
+  "retrieved_utc": "2026-10-05T18:12:47.732685+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "419606ca8faad7e609a9053cc967d7416b45bc5a05203159f91ceef8a8c3b157",
+  "text_sha256": "419606ca8faad7e609a9053cc967d7416b45bc5a05203159f91ceef8a8c3b157",
+  "bytes": 16747,
+  "text_bytes": 16747,
+  "final_url": "https://api.github.com/repos/modelcontextprotocol/typescript-sdk/releases?per_page=6",
+  "accepted_source": true
+}

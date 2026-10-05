@@ -38,6 +38,14 @@ Repository material is organized by purpose:
 | Literature and comparisons | `catalog/`, `notes/` and [comparative design assessments](reviews/competitive-event-systems/README.md) |
 | Local website maintenance and publishing | [Website guide](website/README.md) |
 
+## Private subscriptions
+
+The [subscription design](docs/product-requirements/pubsub-subscription-experience.md) explains how humans, wallets, DApps and agents follow supported workflows. Try the [dashboard](https://charleshoskinson.github.io/midnight-express/subscriptions.html), or inspect the [research record](wiki-llm/pubsub/README.md). The dashboard uses mock delivery, offline-checked reference fixtures and optional explicit Moth connection controls.
+
+## Formal data model
+
+The [Lean specification](formal/lean/README.md) makes the installed v0.2 semantic rules precise. Read the [Specification guide](https://charleshoskinson.github.io/midnight-express/specification.html) for quote arithmetic, payment evidence, scoped approvals and the proof assumptions.
+
 ## License
 
 The project is released under Apache License 2.0; see [LICENSE](LICENSE).

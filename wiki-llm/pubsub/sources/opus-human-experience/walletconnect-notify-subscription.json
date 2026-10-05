@@ -1,0 +1,13 @@
+{
+  "url": "https://specs.walletconnect.com/2.0/specs/clients/notify/notify-subscription",
+  "retrieved_utc": "2026-10-05T18:12:18.851648+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "0c4ab15cb0bbbd901575875730b6a8cc2623cc9ff751894d886c506dfab79259",
+  "text_sha256": "f3ccdf10786bb3fc9344084c20170d99ca909dc487ce443adf6e75b37bc9b67e",
+  "bytes": 27364,
+  "text_bytes": 3453,
+  "final_url": "https://specs.walletconnect.com/2.0/specs/clients/notify/notify-subscription",
+  "accepted_source": true
+}

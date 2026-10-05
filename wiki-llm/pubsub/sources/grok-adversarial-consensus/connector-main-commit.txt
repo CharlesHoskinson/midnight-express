@@ -1,0 +1,133 @@
+{
+  "sha": "612db2b62dbd78c079da62e57e7b8585a204b858",
+  "node_id": "C_kwDOQVRIw9oAKDYxMmRiMmI2MmRiZDc4YzA3OWRhNjJlNTdlN2I4NTg1YTIwNGI4NTg",
+  "commit": {
+    "author": {
+      "name": "Chris Ferry",
+      "email": "chris.ferry@shielded.io",
+      "date": "2026-09-29T15:44:34Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-09-29T15:44:34Z"
+    },
+    "message": "Merge pull request #95 from midnightntwrk/docs/dco-contributing\n\ndocs: adopt DCO sign-off in CONTRIBUTING.md",
+    "tree": {
+      "sha": "371b2d21b5032dc49639a1d474cfc00390b212f3",
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/371b2d21b5032dc49639a1d474cfc00390b212f3"
+    },
+    "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/commits/612db2b62dbd78c079da62e57e7b8585a204b858",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqu9zjCRC1aQ7uu5UhlAAAxlcQAFgYPmq0ErAjjMEI2Nm0uRwc\n82XuUgpkL6050WSxwhZSzMBHB7iEzJt/UUemu1vTwI3ODnFavIOS86SHNPB6QGEQ\nGK5knMJqVu3Ri8dlZbxdIC7PihKpklL1kGlZ5/Qe/Q7BFpxXylYQytWzati/mpMC\nQGRdLpAaODqTv+8gfwjwBbfmNut50vgfacOmR+l17bPKdXSY1oWD1usnhrk6ULRi\nad4ArIJ8n6taJg9kQ7dfzVCNXv+l9ZCGfQrQGBz22lPeNmXwtMCjHRSPBD7WqfLQ\nsSYp6MvvDwydt2iYeaC8uF7xXRX4szA3lPETijQ/vRFerLaZnKaMoix2Hn1wqE+W\nShDOZb0mQMwWq5HofWkWg5Mf9g/M7hzVNjdraz71NI95sOO4WyBqmhRNBlYADuCD\nXJ82OFLHkxKU36f5p3eXM69oABPc2ejfT+M+g169c7EzXUpYTWb2nrywuc9FYFwv\n8ITPuq0JqqHhrefoqoLGA/ovWVb1LwTdwUCzfK2xFHACNundo2evAcZ3dybCooKC\ngTxw5pM9Pyjf8g8yrFxl/kXjkwAcTRFkZ6x3ipXJCn3kvylD9j/R1hNiEr9BmLA4\nXq0Ycctua46JN+fh8uOaye99xaqRn/mCEzpJiXLGYJoQKd7ddmFVPUREDpABUuUr\nvkkLOv3RmgmNDWAQtaMA\n=Hj4p\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 371b2d21b5032dc49639a1d474cfc00390b212f3\nparent 4392de7cd0f147659456e0830adcfad377adbdbb\nparent d840862bca856e0ca1ec4675ed653728b20eca1b\nauthor Chris Ferry 
+ 1790696674 -0400\ncommitter GitHub 
+ 1790696674 -0400\n\nMerge pull request #95 from midnightntwrk/docs/dco-contributing\n\ndocs: adopt DCO sign-off in CONTRIBUTING.md",
+      "verified_at": "2026-09-29T15:44:35Z"
+    }
+  },
+  "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/612db2b62dbd78c079da62e57e7b8585a204b858",
+  "html_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/commit/612db2b62dbd78c079da62e57e7b8585a204b858",
+  "comments_url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/612db2b62dbd78c079da62e57e7b8585a204b858/comments",
+  "author": {
+    "login": "chrisferry",
+    "id": 50551,
+    "node_id": "MDQ6VXNlcjUwNTUx",
+    "avatar_url": "https://avatars.githubusercontent.com/u/50551?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/chrisferry",
+    "html_url": "https://github.com/chrisferry",
+    "followers_url": "https://api.github.com/users/chrisferry/followers",
+    "following_url": "https://api.github.com/users/chrisferry/following{/other_user}",
+    "gists_url": "https://api.github.com/users/chrisferry/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/chrisferry/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/chrisferry/subscriptions",
+    "organizations_url": "https://api.github.com/users/chrisferry/orgs",
+    "repos_url": "https://api.github.com/users/chrisferry/repos",
+    "events_url": "https://api.github.com/users/chrisferry/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/chrisferry/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "4392de7cd0f147659456e0830adcfad377adbdbb",
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/4392de7cd0f147659456e0830adcfad377adbdbb",
+      "html_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/commit/4392de7cd0f147659456e0830adcfad377adbdbb"
+    },
+    {
+      "sha": "d840862bca856e0ca1ec4675ed653728b20eca1b",
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/d840862bca856e0ca1ec4675ed653728b20eca1b",
+      "html_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/commit/d840862bca856e0ca1ec4675ed653728b20eca1b"
+    }
+  ],
+  "stats": {
+    "total": 39,
+    "additions": 35,
+    "deletions": 4
+  },
+  "files": [
+    {
+      "sha": "f8b8106eb66b7a753a657b7d977646e3eb0addaa",
+      "filename": ".changeset/dco-sign-off.md",
+      "status": "added",
+      "additions": 4,
+      "deletions": 0,
+      "changes": 4,
+      "blob_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/blob/612db2b62dbd78c079da62e57e7b8585a204b858/.changeset%2Fdco-sign-off.md",
+      "raw_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/raw/612db2b62dbd78c079da62e57e7b8585a204b858/.changeset%2Fdco-sign-off.md",
+      "contents_url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/contents/.changeset%2Fdco-sign-off.md?ref=612db2b62dbd78c079da62e57e7b8585a204b858",
+      "patch": "@@ -0,0 +1,4 @@\n+---\n+---\n+\n+docs: adopt DCO sign-off in CONTRIBUTING.md (no release)"
+    },
+    {
+      "sha": "758ff3d25b3816f9630890ff2519cc15e0382b34",
+      "filename": ".github/dco.yml",
+      "status": "added",
+      "additions": 5,
+      "deletions": 0,
+      "changes": 5,
+      "blob_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/blob/612db2b62dbd78c079da62e57e7b8585a204b858/.github%2Fdco.yml",
+      "raw_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/raw/612db2b62dbd78c079da62e57e7b8585a204b858/.github%2Fdco.yml",
+      "contents_url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/contents/.github%2Fdco.yml?ref=612db2b62dbd78c079da62e57e7b8585a204b858",
+      "patch": "@@ -0,0 +1,5 @@\n+require:\n+  members: true\n+allowRemediationCommits:\n+  individual: true\n+  thirdParty: false"
+    },
+    {
+      "sha": "c11710c50138733b1163363832881d5e5df29777",
+      "filename": "CONTRIBUTING.md",
+      "status": "modified",
+      "additions": 26,
+      "deletions": 4,
+      "changes": 30,
+      "blob_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/blob/612db2b62dbd78c079da62e57e7b8585a204b858/CONTRIBUTING.md",
+      "raw_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/raw/612db2b62dbd78c079da62e57e7b8585a204b858/CONTRIBUTING.md",
+      "contents_url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/contents/CONTRIBUTING.md?ref=612db2b62dbd78c079da62e57e7b8585a204b858",
+      "patch": "@@ -2,11 +2,33 @@\n \r\n We welcome your contributions to the Midnight network! By contributing, you'll play a vital role in shaping the future of a blockchain focused on data privacy.\r\n \r\n-### Contributor License Agreement\r\n+## Developer Certificate of Origin (DCO)\r\n \r\n-Like many other open source projects, we ask contributors to sign a contributor\r\n-License Agreement before accepting contributions. We use CLA assistant (https://github.com/cla-assistant/cla-assistant) to streamline the CLA\r\n-signing process, enabling contributors to sign our CLAs directly within a GitHub pull request.\r\n+All contributions must include a sign-off in every commit message, certifying that you have the right to submit the code under the project license. This is done by adding a `Signed-off-by` trailer using `git commit -s`:\r\n+\r\n+```\r\n+git commit -s -m \"feat: your commit message\"\r\n+```\r\n+\r\n+This produces a commit message like:\r\n+\r\n+```\r\n+feat: your commit message\r\n+\r\n+Signed-off-by: Your Name 
+\r\n+```\r\n+\r\n+By signing off, you agree to the [Developer Certificate of Origin (version 1.1)](https://developercertificate.org/).\r\n+\r\n+If you have forgotten to sign off past commits in a PR, you can amend them:\r\n+\r\n+```bash\r\n+# Amend the last commit\r\n+git commit --amend -s --no-edit\r\n+\r\n+# Or rebase to sign off multiple commits (replace N with the number of commits)\r\n+git rebase --signoff HEAD~N\r\n+```\r\n \r\n ## Getting Started\r\n \r"
+    }
+  ]
+}

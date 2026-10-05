@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/cloudevents/spec/v1.0.2/subscriptions/spec.md",
+  "retrieved_utc": "2026-10-05T18:17:55.297407+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 404,
+  "raw_sha256": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed",
+  "text_sha256": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed",
+  "bytes": 14,
+  "text_bytes": 14,
+  "final_url": "https://raw.githubusercontent.com/cloudevents/spec/v1.0.2/subscriptions/spec.md",
+  "accepted_source": false
+}

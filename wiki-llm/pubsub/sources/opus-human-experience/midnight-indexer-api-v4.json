@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/midnightntwrk/midnight-indexer/456fa193184a1b269513f006e9dd5a2739566ec6/docs/api/v4/api-documentation.md",
+  "retrieved_utc": "2026-10-05T18:11:03.239302+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "227a60887777ef83280559682e8f0a06b076612c372c5b629559a73bccb35bb6",
+  "text_sha256": "22e9ea6ad51b7cf33e4ade68a4db44f30e816d425baad05e44ba7fadebd720b4",
+  "bytes": 33247,
+  "text_bytes": 33216,
+  "final_url": "https://raw.githubusercontent.com/midnightntwrk/midnight-indexer/456fa193184a1b269513f006e9dd5a2739566ec6/docs/api/v4/api-documentation.md",
+  "accepted_source": true
+}

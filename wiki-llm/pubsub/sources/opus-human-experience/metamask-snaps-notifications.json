@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.metamask.io/snaps/features/notifications/",
+  "retrieved_utc": "2026-10-05T18:11:32.641294+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "fe93cd7f4f85e95826ebf72caf38ab07de6bac1661b92258dd65fbaea2ea5406",
+  "text_sha256": "61a106210362c20cc3db7d33f2f655b08e15ea5442a0723fa40bba92678c0987",
+  "bytes": 88381,
+  "text_bytes": 4739,
+  "final_url": "https://docs.metamask.io/snaps/features/notifications/",
+  "accepted_source": true
+}

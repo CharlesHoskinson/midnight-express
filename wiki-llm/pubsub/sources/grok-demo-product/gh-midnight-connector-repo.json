@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api",
+  "retrieved_utc": "2026-10-05T18:15:19.261732+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "6ffa9645bfa328922f5fa45d78b7ffd790b9ac17c01d041affd1b5f8fb8a8c3d",
+  "text_sha256": "6ffa9645bfa328922f5fa45d78b7ffd790b9ac17c01d041affd1b5f8fb8a8c3d",
+  "bytes": 14754,
+  "text_bytes": 14754,
+  "final_url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api",
+  "accepted_source": true
+}

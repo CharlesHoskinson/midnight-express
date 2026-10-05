@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/branches?per_page=30",
+  "retrieved_utc": "2026-10-05T18:19:39.806548+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "19bf10137e508ebefd5482a5344bd932a864505210c40d96503dcb8993c2c043",
+  "text_sha256": "19bf10137e508ebefd5482a5344bd932a864505210c40d96503dcb8993c2c043",
+  "bytes": 7420,
+  "text_bytes": 7420,
+  "final_url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/branches?per_page=30",
+  "accepted_source": true
+}

@@ -1,0 +1,28 @@
+{
+  "url": "https://modelcontextprotocol.io/docs/2026-07-28/learn/versioning",
+  "retrieved_utc": "2026-10-05T18:22:02.397004+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "2d707c5db5f8d27a530a87e1c6ccd48f9a78f796c8aebdf7bbfd6b380c7ca233",
+  "text_sha256": "9242650269710bce3cc7a185f4e5001ef58f699730f0f645fd7848920fd7ed22",
+  "bytes": 288763,
+  "text_bytes": 3431,
+  "final_url": "https://modelcontextprotocol.io/docs/2026-07-28/learn/versioning",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/grok-adversarial-consensus/mcp-versioning-visual-tiles/modelcontextprotocol.io_docs_2026-07-28_learn_versioning.png.tiles/tile_0000.jpg",
+        "sha256": "2b2ef06256e6c18d93089a6850b5c1a3a6a009c46c51fbf5062e3a9b9946bf77"
+      },
+      {
+        "path": "sources/grok-adversarial-consensus/mcp-versioning-visual-tiles/modelcontextprotocol.io_docs_2026-07-28_learn_versioning.png.tiles/tile_0001.jpg",
+        "sha256": "1e573dcc1f4e453afffaae814fc4ed71ae3bf7805718d113ef44f423a284037d"
+      }
+    ],
+    "stderr": "2026-10-05 12:22:04,314 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 12:22:12,915 INFO pixelrag_render.backends.cdp: [w0] https://modelcontextprotocol.io/docs/2026-07-28/learn/versioning \u2192 2 tiles (5.5s)\n2026-10-05 12:22:12,932 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 12:22:12,933 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

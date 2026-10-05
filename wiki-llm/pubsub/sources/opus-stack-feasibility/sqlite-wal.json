@@ -1,0 +1,13 @@
+{
+  "url": "https://www.sqlite.org/wal.html",
+  "retrieved_utc": "2026-10-05T18:11:58.698359+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "f3467b530b883d4a00574fe1a898b3d121ed72764ae28cf66941080ac0badb9e",
+  "text_sha256": "ca42d22eb03d715dcb373857117d9e84c685d6d408f7fcfeb299c1bd05d870a3",
+  "bytes": 42143,
+  "text_bytes": 32039,
+  "final_url": "https://www.sqlite.org/wal.html",
+  "accepted_source": true
+}

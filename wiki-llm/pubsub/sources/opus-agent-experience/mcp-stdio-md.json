@@ -1,0 +1,13 @@
+{
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/stdio.md",
+  "retrieved_utc": "2026-10-05T18:11:20.682419+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "a021917cb77ecd936143aced4fd243e12dd7b5f9a9344546742df97a381277f5",
+  "text_sha256": "0afe93d340569716663f18f6a5d10011cb8be68740e6b5eeaefe0fbbc0a8f807",
+  "bytes": 7352,
+  "text_bytes": 7318,
+  "final_url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/stdio.md",
+  "accepted_source": true
+}

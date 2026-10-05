@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/compare/5f5440bb26a62e2cf3440b92da5a667efa03b267...75db1e987cbbba6d170315dc99d0dfc440754aef",
+  "retrieved_utc": "2026-10-05T18:19:05.241825+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "773cfed4b342ccde44347564b4fb9a0d0b9420fdfe40d2e7663f6cdaaf4f70e6",
+  "text_sha256": "e70f8d23419361981976745cfa2ef35b1303e7bdaaa229e79db41a19ea9e57fb",
+  "bytes": 2464700,
+  "text_bytes": 2326332,
+  "final_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/compare/5f5440bb26a62e2cf3440b92da5a667efa03b267...75db1e987cbbba6d170315dc99d0dfc440754aef",
+  "accepted_source": true
+}

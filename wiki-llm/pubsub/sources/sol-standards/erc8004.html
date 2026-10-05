@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+    
+      <title>ERC-8004: Trustless Agents</title>
+      <meta property="og:title" content="ERC-8004: Trustless Agents" />
+    
+    <meta name="description" content="Discover agents and establish trust through reputation and validation" />
+    <meta property="og:description" content="Discover agents and establish trust through reputation and validation" />
+    <meta name="twitter:description" content="Discover agents and establish trust through reputation and validation" />
+  
+  <meta name="generator" content="Jekyll" />
+  <meta property="og:locale" content="en_US" />
+  <link rel="canonical" href="https://eips.ethereum.org/EIPS/eip-8004" />
+  <meta property="og:url" content="https://eips.ethereum.org/EIPS/eip-8004" />
+  <meta property="og:site_name" content="Ethereum Improvement Proposals" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://eips.ethereum.org/assets/images/eip-og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://eips.ethereum.org/assets/images/eip-og-image.png" />
+  <meta name="twitter:site" content="@" />
+  <script type="application/ld+json">
+    {
+      "@type": "WebSite",
+      "url": "https://eips.ethereum.org",
+      "name": "Ethereum Improvement Proposals",
+      "description": "Ethereum Improvement Proposals (EIPs) describe standards for the Ethereum platform, such as core protocol specifications.",
+      "@context": "https://schema.org"
+    }
+  </script>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" /><link type="application/atom+xml" rel="alternate" href="https://eips.ethereum.org/feed.xml" title="Ethereum Improvement Proposals" /><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/css/override.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", (event) => {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    });
+  </script>
+  <script type="text/javascript">
+    window.MathJax = {
+      loader: {
+        load: ['input/tex-base', 'output/chtml']
+      },
+      tex: {
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']],
+        processEscapes: true,
+        processEnvironments: false,
+        processRefs: false
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js" integrity="sha384-/1zmJ1mBdfKIOnwPxpdG6yaRrxP6qu3eVYm0cz2nOx+AcL4d3AqEFrwcqGZVVroG" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/citation-js/0.6.7/citation.min.js" integrity="sha512-N+LDFMa9owHXGS+CyMrBvuxq2QuGl3fiB/7cys3aUEL7K6P1soHGqsS0sjHXZpwNd9Kz0m3R4IPy1HYRi6ROEQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="text/javascript">
+    addEventListener('DOMContentLoaded', async () => {
+      const Cite = window.require('citation-js');
+      const citationElements = document.querySelectorAll('.language-csl-json');
+      for (let citationElement of citationElements) {
+        try {
+          const citation = await Cite.async(citationElement);
+          const template = document.createElement('template');
+          template.innerHTML = citation.format('bibliography', {
+            format: 'html',
+            template: 'apa',
+            lang: 'en-US'
+          });
+          if (citationElement.parentElement && citationElement.parentElement.matches('pre')) {
+            citationElement.parentElement.replaceWith(template.content);
+          } else {
+            citationElement.replaceWith(template.content);
+          }
+        } catch (e) {
+          console.error("unable to render citation", e);
+        }
+      }
+    });
+  </script>
+</head>
+<body><header class="site-header" role="banner">
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Ethereum Improvement Proposals</a><nav class="site-nav d-flex">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger row p-2"><a class="page-link col" href="/all">All</a><a class="page-link col" href="/core">Core</a><a class="page-link col" href="/networking">Networking</a><a class="page-link col" href="/interface">Interface</a><a class="page-link col" href="/erc">ERC</a><a class="page-link col" href="/meta">Meta</a><a class="page-link col" href="/informational">Informational</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="bi-megaphone-fill" fill="currentColor" viewBox="0 0 16 16">
+    <title>Alert</title>
+    <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-11zm-1 .724c-2.067.95-4.539 1.481-7 1.656v6.237a25.222 25.222 0 0 1 1.088.085c2.053.204 4.038.668 5.912 1.56V3.224zm-8 7.841V4.934c-.68.027-1.399.043-2.008.053A2.02 2.02 0 0 0 0 7v2c0 1.106.896 1.996 1.994 2.009a68.14 68.14 0 0 1 .496.008 64 64 0 0 1 1.51.048zm1.39 1.081c.285.021.569.047.85.078l.253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a65.81 65.81 0 0 1 1.692.064c.327.017.65.037.966.06z"/>
+  </symbol>
+  <symbol id="bi-code" fill="currentColor" viewBox="0 0 16 16">
+    <title>Source</title>
+    <path d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z"/>
+  </symbol>
+  <svg id="bi-chat" fill="currentColor" viewBox="0 0 16 16">
+    <title>Discuss</title>
+    <path d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z"/>
+  </svg>
+</svg>
+
+<div class="home">
+  
+  
+  
+ 
+  <span class="h5">
+    
+    
+    
+      <span class="badge text-light bg-warning" data-bs-toggle="tooltip" data-bs-title="This EIP is not yet recommended for general use or implementation, as it is subject to normative (breaking) changes.">⚠️ Draft</span>
+    
+    
+    
+       
+    
+      <a class="badge text-light bg-primary" data-bs-toggle="tooltip" data-bs-title="Application-level standards and conventions, including contract standards such as token standards, name registries, URI schemes, library/package formats, and wallet formats." href="../erc">Standards Track: ERC</a>
+    
+  </span>
+  <h1 class="page-heading">
+    ERC-8004: Trustless Agents
+    <a href="https://ethereum-magicians.org/t/erc-8004-trustless-agents/25098" class="no-underline">
+      <svg role="img" aria-label="Discuss" class="inline-svg" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 16 16">
+        <use xlink:href="#bi-chat"/>
+      </svg>
+    </a>
+    <a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-8004.md" class="no-underline">
+      <svg role="img" aria-label="Source" class="inline-svg" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 16 16">
+        <use xlink:href="#bi-code"/>
+      </svg>
+    </a>
+  </h1>
+  <h3>Discover agents and establish trust through reputation and validation</h3>
+  <table class="table table-borderless preamble">
+    <tbody>
+      <tr>
+        <th scope="row">Authors</th>
+        <td>Marco De Rossi&nbsp;(<a href="https://github.com/MarcoMetaMask">@MarcoMetaMask</a>), Davide Crapis (@dcrapis)&nbsp;&lt;<a href="mailto:davide@ethereum.org">davide@ethereum.org</a>&gt;, Jordan Ellis&nbsp;&lt;<a href="mailto:jordanellis@google.com">jordanellis@google.com</a>&gt;, Erik Reppel&nbsp;&lt;<a href="mailto:erik.reppel@coinbase.com">erik.reppel@coinbase.com</a>&gt;</td>
+      </tr>
+      
+        <tr>
+          <th scope="row">Created</th>
+          <td>2025-08-13</td>
+        </tr>
+      
+      
+             
+      
+        <tr>
+          <th scope="row">Discussion Link</th>
+          <td><a href="https://ethereum-magicians.org/t/erc-8004-trustless-agents/25098" target="_blank" rel="noopener">https://ethereum-magicians.org/t/erc-8004-trustless-agents/25098</a></td>
+        </tr>
+      
+      
+        <tr>
+          <th scope="row">Requires</th>
+          <td>
+
+  <a href="eip-155">EIP-155</a>, 
+
+  <a href="eip-712">EIP-712</a>, 
+
+  <a href="eip-721">EIP-721</a>, 
+
+  <a href="eip-1271">EIP-1271</a>
+
+</td>
+        </tr>
+      
+    </tbody>
+  </table>
+  <br/>
+
+  
+
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <ul>
+  <li><a href="#abstract">Abstract</a></li>
+  <li><a href="#motivation">Motivation</a></li>
+  <li><a href="#specification">Specification</a>
+    <ul>
+      <li><a href="#identity-registry">Identity Registry</a></li>
+      <li><a href="#reputation-registry">Reputation Registry</a></li>
+      <li><a href="#validation-registry">Validation Registry</a></li>
+    </ul>
+  </li>
+  <li><a href="#rationale">Rationale</a></li>
+  <li><a href="#security-considerations">Security Considerations</a></li>
+  <li><a href="#copyright">Copyright</a></li>
+</ul>
+
+  </div>
+
+  <h2 id="abstract">
+      
+      
+        <a href="#abstract" class="anchor-link"></a> Abstract
+      
+      
+    </h2>
+
+<p>This protocol proposes to use blockchains to <strong>discover, choose, and interact with agents across organizational boundaries</strong> without pre-existing trust, thus <strong>enabling open-ended agent economies</strong>.</p>
+
+<p>Trust models are pluggable and tiered, with security proportional to value at risk, from low-stake tasks like ordering pizza to high-stake tasks like medical diagnosis. Developers can choose from different trust models: reputation systems using client feedback, validation via stake-secured re-execution, zero-knowledge machine learning (zkML) proofs, or trusted execution environment (TEE) oracles.</p>
+  
+    <h2 id="motivation">
+      
+      
+        <a href="#motivation" class="anchor-link"></a> Motivation
+      
+      
+    </h2>
+
+<p>Model context protocol <!-- TODO: double check that this is the correct abbreviation -->(MCP) allows servers to list and offer their capabilities (prompts, resources, tools, and completions), while Agent2Agent <!-- TODO: double check that this is the correct abbreviation -->(A2A) handles agent authentication, skills advertisement via AgentCards, direct messaging, and complete task-lifecycle orchestration. However, these agent communication protocols don’t inherently cover agent discovery and trust.</p>
+
+<p>To foster an open, cross-organizational agent economy, we need mechanisms for discovering and trusting agents in untrusted settings. This ERC addresses this need through three lightweight registries, which can be deployed on any L2 or on Mainnet as per-chain singletons:</p>
+
+<p><strong>Identity Registry</strong> - A minimal on-chain handle based on <a href="/EIPS/eip-721">ERC-721</a> with URIStorage extension <!-- Editor's Note: where is URIStorage defined? Is it an OZ thing? If so, you should include the interface here, or make a separate ERC standardizing it. -->that resolves to an agent’s registration file, providing every agent with a portable, censorship-resistant identifier.</p>
+
+<p><strong>Reputation Registry</strong> - A standard interface for posting and fetching feedback signals. Scoring and aggregation occur both on-chain (for composability) and off-chain (for sophisticated algorithms), enabling an ecosystem of specialized services for agent scoring, auditor networks, and insurance pools.</p>
+
+<p><strong>Validation Registry</strong> - Generic hooks for requesting and recording independent validators checks (e.g. stakers re-running the job, zkML verifiers, TEE oracles, trusted judges).</p>
+
+<p>Payments are orthogonal to this protocol and not covered here. However, examples are provided showing how <strong>x402 payments</strong> <!-- Editor's Note: This is a coinbase thing, right? If it isn't necessary to your standard, can you omit it? -->can enrich feedback signals.</p>
+  
+    <h2 id="specification">
+      
+      
+        <a href="#specification" class="anchor-link"></a> Specification
+      
+      
+    </h2>
+
+<p>The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “NOT RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in <a href="https://www.rfc-editor.org/rfc/rfc2119">RFC 2119</a> and <a href="https://www.rfc-editor.org/rfc/rfc8174">RFC 8174</a>.</p>
+  
+    <h3 id="identity-registry">
+      
+      
+        <a href="#identity-registry" class="anchor-link"></a> Identity Registry
+      
+      
+    </h3>
+
+<p>The Identity Registry uses ERC-721 with the URIStorage extension for agent registration, making <strong>all agents immediately browsable and transferable with NFTs-compliant apps</strong>. Each agent is uniquely identified globally by:</p>
+
+<ul>
+  <li><em>agentRegistry</em>: A colon-separated string <code class="language-plaintext highlighter-rouge">{namespace}:{chainId}:{identityRegistry}</code> (e.g., <code class="language-plaintext highlighter-rouge">eip155:1:0x742...</code>) where:
+    <ul>
+      <li><em>namespace</em>: The chain family identifier (<code class="language-plaintext highlighter-rouge">eip155</code> for EVM chains)</li>
+      <li><em>chainId</em>: The blockchain network identifier</li>
+      <li><em>identityRegistry</em>: The address where the ERC-721 registry contract is deployed</li>
+    </ul>
+  </li>
+  <li><em>agentId</em>: The ERC-721 tokenId assigned incrementally by the registry</li>
+</ul>
+
+<p>Throughout this document, <em>tokenId</em> in ERC-721 is referred to as <em>agentId</em> and <em>tokenURI</em> in ERC-721 is referred to as <em>agentURI</em>. The owner of the ERC-721 token is the owner of the agent and can transfer ownership or delegate management (e.g., updating the registration file) to operators, as supported by <code class="language-plaintext highlighter-rouge">ERC721URIStorage</code>.</p>
+  
+    <h4 id="agent-uri-and-agent-registration-file">
+      
+      
+        <a href="#agent-uri-and-agent-registration-file" class="anchor-link"></a> Agent URI and Agent Registration File
+      
+      
+    </h4>
+
+<p>The <em>agentURI</em> MUST resolve to the agent registration file. It MAY use any URI scheme such as <code class="language-plaintext highlighter-rouge">ipfs://</code> (e.g., <code class="language-plaintext highlighter-rouge">ipfs://cid</code>), <code class="language-plaintext highlighter-rouge">https://</code> (e.g., <code class="language-plaintext highlighter-rouge">https://example.com/agent3.json</code>), or a base64-encoded <code class="language-plaintext highlighter-rouge">data:</code> URI (e.g., <code class="language-plaintext highlighter-rouge">data:application/json;base64,eyJ0eXBlIjoi...</code>) for fully on-chain metadata. When the registration uri changes, it can be updated with <em>setAgentURI()</em>.</p>
+
+<p>The registration file MUST have the following structure:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://eips.ethereum.org/EIPS/eip-8004#registration-v1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myAgentName"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A natural language description of the Agent, which MAY include what it does, how it works, pricing, and interaction methods"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/agentimage.png"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"services"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"web"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://web.agentxyz.com/"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A2A"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://agent.example/.well-known/agent-card.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.3.0"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MCP"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://mcp.agent.eth/"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-06-18"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OASF"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ipfs://{cid}"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.8"</span><span class="p">,</span><span class="w"> </span><span class="c1">// https://github.com/agntcy/oasf/tree/v0.8.0</span><span class="w">
+      </span><span class="nl">"skills"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="c1">// OPTIONAL</span><span class="w">
+      </span><span class="nl">"domains"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="c1">// OPTIONAL</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ENS"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vitalik.eth"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DID"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"did:method:foobar"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mail@myagent.com"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"x402Support"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"registrations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"agentId"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"agentRegistry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{namespace}:{chainId}:{identityRegistry}"</span><span class="w"> </span><span class="c1">// e.g. eip155:1:0x742...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"supportedTrust"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"reputation"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crypto-economic"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tee-attestation"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The <em>type</em>, <em>name</em>, <em>description</em>, and <em>image</em> fields at the top SHOULD ensure compatibility with ERC-721 apps. The number and type of <em>endpoints</em> are fully customizable, allowing developers to add as many as they wish. The <em>version</em> field in endpoints is a SHOULD, not a MUST.</p>
+
+<p>Agents MAY advertise their endpoints, which point to an A2A agent card, an MCP endpoint, an ENS agent name, DIDs, or the agent’s wallets on any chain (even chains where the agent is not registered).</p>
+  
+    <h4 id="endpoint-domain-verification-optional">
+      
+      
+        <a href="#endpoint-domain-verification-optional" class="anchor-link"></a> Endpoint Domain Verification (Optional)
+      
+      
+    </h4>
+
+<p>Since endpoints can point to domains not controlled by the agent owner, an agent MAY optionally prove control of an HTTPS endpoint-domain by publishing <code class="language-plaintext highlighter-rouge">https://{endpoint-domain}/.well-known/agent-registration.json</code> containing at least a <code class="language-plaintext highlighter-rouge">registrations</code> list (or the full agent registration file). Users MAY treat the endpoint-domain as verified if the file is reachable over HTTPS and includes a <code class="language-plaintext highlighter-rouge">registrations</code> entry whose <code class="language-plaintext highlighter-rouge">agentRegistry</code> and <code class="language-plaintext highlighter-rouge">agentId</code> match the on-chain agent; if the endpoint-domain is the same domain that serves the agent’s primary registration file referenced by <code class="language-plaintext highlighter-rouge">agentURI</code>, this additional check is not needed because domain control is already demonstrated there.</p>
+
+<p>Agents SHOULD have at least one registration (multiple are possible), and all fields in the registration are mandatory.
+The <em>supportedTrust</em> field is OPTIONAL. If absent or empty, this ERC is used only for discovery, not for trust.</p>
+  
+    <h4 id="on-chain-metadata">
+      
+      
+        <a href="#on-chain-metadata" class="anchor-link"></a> On-chain metadata
+      
+      
+    </h4>
+
+<p>The registry extends ERC-721 by adding <code class="language-plaintext highlighter-rouge">getMetadata(uint256 agentId, string metadataKey)</code> and <code class="language-plaintext highlighter-rouge">setMetadata(uint256 agentId, string metadataKey, bytes metadataValue)</code> functions for optional extra on-chain agent metadata:</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="n">getMetadata</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">string</span> <span class="k">memory</span> <span class="n">metadataKey</span><span class="p">)</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bytes</span> <span class="k">memory</span><span class="p">)</span>
+<span class="k">function</span> <span class="n">setMetadata</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">string</span> <span class="k">memory</span> <span class="n">metadataKey</span><span class="p">,</span> <span class="kt">bytes</span> <span class="k">memory</span> <span class="n">metadataValue</span><span class="p">)</span> <span class="k">external</span>
+</code></pre></div></div>
+
+<p>When metadata is set, the following event is emitted:</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">event</span> <span class="n">MetadataSet</span><span class="p">(</span><span class="kt">uint256</span> <span class="k">indexed</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">string</span> <span class="k">indexed</span> <span class="n">indexedMetadataKey</span><span class="p">,</span> <span class="kt">string</span> <span class="n">metadataKey</span><span class="p">,</span> <span class="kt">bytes</span> <span class="n">metadataValue</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The key <code class="language-plaintext highlighter-rouge">agentWallet</code> is reserved and cannot be set via <code class="language-plaintext highlighter-rouge">setMetadata()</code> or during <code class="language-plaintext highlighter-rouge">register()</code> (including the metadata array overload). It represents the address where the agent receives payments and is initially set to the owner’s address. To change it, the agent owner must prove control of the new wallet by providing a valid <a href="/EIPS/eip-712">EIP-712</a> signature for EOAs or <a href="/EIPS/eip-1271">ERC-1271</a> for smart contract wallets—by calling:</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="n">setAgentWallet</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">address</span> <span class="n">newWallet</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">deadline</span><span class="p">,</span> <span class="kt">bytes</span> <span class="k">calldata</span> <span class="n">signature</span><span class="p">)</span> <span class="k">external</span>
+</code></pre></div></div>
+
+<p>To read and clear the currently set wallet, the following functions are exposed:</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="n">getAgentWallet</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">agentId</span><span class="p">)</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">address</span><span class="p">)</span>
+<span class="k">function</span> <span class="n">unsetAgentWallet</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">agentId</span><span class="p">)</span> <span class="k">external</span>
+</code></pre></div></div>
+
+<p>When the agent is transferred, <code class="language-plaintext highlighter-rouge">agentWallet</code> is automatically cleared (effectively resetting it to the zero address) and must be re-verified by the new owner.</p>
+  
+    <h4 id="registration">
+      
+      
+        <a href="#registration" class="anchor-link"></a> Registration
+      
+      
+    </h4>
+
+<p>New agents can be minted by calling one of these functions:</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="n">MetadataEntry</span> <span class="p">{</span>
+<span class="kt">string</span> <span class="n">metadataKey</span><span class="p">;</span>
+<span class="kt">bytes</span> <span class="n">metadataValue</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">function</span> <span class="n">register</span><span class="p">(</span><span class="kt">string</span> <span class="n">agentURI</span><span class="p">,</span> <span class="n">MetadataEntry</span><span class="p">[]</span> <span class="k">calldata</span> <span class="n">metadata</span><span class="p">)</span> <span class="k">external</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span> <span class="n">agentId</span><span class="p">)</span>
+
+<span class="k">function</span> <span class="n">register</span><span class="p">(</span><span class="kt">string</span> <span class="n">agentURI</span><span class="p">)</span> <span class="k">external</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span> <span class="n">agentId</span><span class="p">)</span>
+
+<span class="c1">// agentURI is added later with setAgentURI()
+</span><span class="k">function</span> <span class="n">register</span><span class="p">()</span> <span class="k">external</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span> <span class="n">agentId</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This emits one Transfer event, one MetadataSet event for the reserved <code class="language-plaintext highlighter-rouge">agentWallet</code> key, one MetadataSet event for each additional metadata entry (if any), and</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">event</span> <span class="n">Registered</span><span class="p">(</span><span class="kt">uint256</span> <span class="k">indexed</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">string</span> <span class="n">agentURI</span><span class="p">,</span> <span class="kt">address</span> <span class="k">indexed</span> <span class="n">owner</span><span class="p">)</span>
+</code></pre></div></div>
+  
+    <h4 id="update-agenturi">
+      
+      
+        <a href="#update-agenturi" class="anchor-link"></a> Update agentURI
+      
+      
+    </h4>
+
+<p>The agentURI can be updated by calling the following function, which emits a URIUpdated event:</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">function</span> <span class="n">setAgentURI</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">string</span> <span class="k">calldata</span> <span class="n">newURI</span><span class="p">)</span> <span class="k">external</span>
+
+<span class="k">event</span> <span class="n">URIUpdated</span><span class="p">(</span><span class="kt">uint256</span> <span class="k">indexed</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">string</span> <span class="n">newURI</span><span class="p">,</span> <span class="kt">address</span> <span class="k">indexed</span> <span class="n">updatedBy</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>If the owner wants to store the entire registration file on-chain, the <em>agentURI</em> SHOULD use a base64-encoded data URI rather than a serialized JSON string:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data:application/json;base64,eyJ0eXBlIjoi...
+</code></pre></div></div>
+  
+    <h3 id="reputation-registry">
+      
+      
+        <a href="#reputation-registry" class="anchor-link"></a> Reputation Registry
+      
+      
+    </h3>
+
+<p>When the Reputation Registry is deployed, the <em>identityRegistry</em> address is set via <code class="language-plaintext highlighter-rouge">initialize(address identityRegistry_)</code> and publicly visible by calling:</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="n">getIdentityRegistry</span><span class="p">()</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">address</span> <span class="n">identityRegistry</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The feedback given by a <em>clientAddress</em> to an agent consists of a signed fixed-point <em>value</em> (<code class="language-plaintext highlighter-rouge">int128</code>) and its <em>valueDecimals</em> (<code class="language-plaintext highlighter-rouge">uint8</code>, 0-18), plus optional <em>tag1</em> and <em>tag2</em> (left to developers’ discretion to provide maximum on-chain composability and filtering), an <em>endpoint</em> URI, a file URI pointing to an off-chain JSON containing additional information, and its KECCAK-256 file hash to guarantee integrity. We suggest using IPFS or equivalent services to make feedback easily indexed by subgraphs or similar technologies. For IPFS URIs, the hash is not required.
+All fields except <em>value</em> and <em>valueDecimals</em> are OPTIONAL, so the off-chain file is not required and can be omitted.</p>
+  
+    <h4 id="giving-feedback">
+      
+      
+        <a href="#giving-feedback" class="anchor-link"></a> Giving Feedback
+      
+      
+    </h4>
+
+<p>New feedback can be added by any <em>clientAddress</em> calling:</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="n">giveFeedback</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">int128</span> <span class="n">value</span><span class="p">,</span> <span class="kt">uint8</span> <span class="n">valueDecimals</span><span class="p">,</span> <span class="kt">string</span> <span class="k">calldata</span> <span class="n">tag1</span><span class="p">,</span> <span class="kt">string</span> <span class="k">calldata</span> <span class="n">tag2</span><span class="p">,</span> <span class="kt">string</span> <span class="k">calldata</span> <span class="n">endpoint</span><span class="p">,</span> <span class="kt">string</span> <span class="k">calldata</span> <span class="n">feedbackURI</span><span class="p">,</span> <span class="kt">bytes32</span> <span class="n">feedbackHash</span><span class="p">)</span> <span class="k">external</span>
+</code></pre></div></div>
+
+<p>The <em>agentId</em> must be a validly registered agent. The <em>valueDecimals</em> MUST be between 0 and 18. The feedback submitter MUST NOT be the agent owner or an approved operator for <em>agentId</em>. <em>tag1</em>, <em>tag2</em>, <em>endpoint</em>, <em>feedbackURI</em>, and <em>feedbackHash</em> are OPTIONAL.</p>
+
+<p>Where provided, <em>feedbackHash</em> is the KECCAK-256 hash (<code class="language-plaintext highlighter-rouge">keccak256</code>) of the content referenced by <em>feedbackURI</em>, enabling verifiable integrity for non-content-addressed URIs. For IPFS (or other content-addressed URIs), <em>feedbackHash</em> is OPTIONAL and can be omitted (e.g., set to <code class="language-plaintext highlighter-rouge">bytes32(0)</code>).</p>
+
+<p>If the procedure succeeds, an event is emitted:</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">event</span> <span class="n">NewFeedback</span><span class="p">(</span><span class="kt">uint256</span> <span class="k">indexed</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">address</span> <span class="k">indexed</span> <span class="n">clientAddress</span><span class="p">,</span> <span class="kt">uint64</span> <span class="n">feedbackIndex</span><span class="p">,</span> <span class="kt">int128</span> <span class="n">value</span><span class="p">,</span> <span class="kt">uint8</span> <span class="n">valueDecimals</span><span class="p">,</span> <span class="kt">string</span> <span class="k">indexed</span> <span class="n">indexedTag1</span><span class="p">,</span> <span class="kt">string</span> <span class="n">tag1</span><span class="p">,</span> <span class="kt">string</span> <span class="n">tag2</span><span class="p">,</span> <span class="kt">string</span> <span class="n">endpoint</span><span class="p">,</span> <span class="kt">string</span> <span class="n">feedbackURI</span><span class="p">,</span> <span class="kt">bytes32</span> <span class="n">feedbackHash</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The feedback fields <em>value</em>, <em>valueDecimals</em>, <em>tag1</em>, <em>tag2</em>, and <em>isRevoked</em> are stored in the contract storage along with the feedbackIndex (a 1-indexed counter of feedback submissions that <em>clientAddress</em> has given to <em>agentId</em>). The fields <em>endpoint</em>, <em>feedbackURI</em>, and <em>feedbackHash</em> are emitted but are not stored. This exposes reputation signals to any smart contract, enabling on-chain composability.</p>
+
+<p>When the feedback is given by an agent (i.e., the client is an agent), the agent SHOULD use the address set in the on-chain optional <code class="language-plaintext highlighter-rouge">agentWallet</code> metadata as the clientAddress, to facilitate reputation aggregation.</p>
+  
+    <h4 id="examples-of-value--valuedecimals">
+      
+      
+        <a href="#examples-of-value--valuedecimals" class="anchor-link"></a> Examples of <code class="language-plaintext highlighter-rouge">value</code> / <code class="language-plaintext highlighter-rouge">valueDecimals</code>
+      
+      
+    </h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>tag1</th>
+      <th>What it measures</th>
+      <th>Example human value</th>
+      <th><code class="language-plaintext highlighter-rouge">value</code></th>
+      <th><code class="language-plaintext highlighter-rouge">valueDecimals</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">starred</code></td>
+      <td>Quality rating (0-100)</td>
+      <td><code class="language-plaintext highlighter-rouge">87/100</code></td>
+      <td><code class="language-plaintext highlighter-rouge">87</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">reachable</code></td>
+      <td>Endpoint reachable (binary)</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ownerVerified</code></td>
+      <td>Endpoint owned by agent owner (binary)</td>
+      <td><code class="language-plaintext highlighter-rouge">true</code></td>
+      <td><code class="language-plaintext highlighter-rouge">1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">uptime</code></td>
+      <td>Endpoint uptime (%)</td>
+      <td><code class="language-plaintext highlighter-rouge">99.77%</code></td>
+      <td><code class="language-plaintext highlighter-rouge">9977</code></td>
+      <td><code class="language-plaintext highlighter-rouge">2</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">successRate</code></td>
+      <td>Endpoint success rate (%)</td>
+      <td><code class="language-plaintext highlighter-rouge">89%</code></td>
+      <td><code class="language-plaintext highlighter-rouge">89</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">responseTime</code></td>
+      <td>Response time (ms)</td>
+      <td><code class="language-plaintext highlighter-rouge">560ms</code></td>
+      <td><code class="language-plaintext highlighter-rouge">560</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">blocktimeFreshness</code></td>
+      <td>Avg block delay (blocks)</td>
+      <td><code class="language-plaintext highlighter-rouge">4 blocks</code></td>
+      <td><code class="language-plaintext highlighter-rouge">4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">revenues</code></td>
+      <td>Cumulative revenues (e.g., USD)</td>
+      <td><code class="language-plaintext highlighter-rouge">$560</code></td>
+      <td><code class="language-plaintext highlighter-rouge">560</code></td>
+      <td><code class="language-plaintext highlighter-rouge">0</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">tradingYield</code> (<code class="language-plaintext highlighter-rouge">tag2</code> = <code class="language-plaintext highlighter-rouge">day, week, month, year</code>)</td>
+      <td>Yield</td>
+      <td><code class="language-plaintext highlighter-rouge">-3,2%</code></td>
+      <td><code class="language-plaintext highlighter-rouge">-32</code></td>
+      <td><code class="language-plaintext highlighter-rouge">1</code></td>
+    </tr>
+  </tbody>
+</table>
+  
+    <h4 id="off-chain-feedback-file-structure">
+      
+      
+        <a href="#off-chain-feedback-file-structure" class="anchor-link"></a> Off-Chain Feedback File Structure
+      
+      
+    </h4>
+
+<p>The OPTIONAL file at the URI could look like:</p>
+
+<div class="language-jsonc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="c1">// MUST FIELDS</span><span class="w">
+  </span><span class="nl">"agentRegistry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eip155:1:{identityRegistry}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"agentId"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"clientAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eip155:1:{clientAddress}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-09-23T12:00:00Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"valueDecimals"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+
+  </span><span class="c1">// ALL OPTIONAL FIELDS</span><span class="w">
+  </span><span class="nl">"tag1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"tag2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://agent.example.com/GetPrice"</span><span class="p">,</span><span class="w">
+
+  </span><span class="nl">"mcp"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"tool"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ToolName"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">// or: { "prompt": "PromptName" } / { "resource": "ResourceName" }</span><span class="w">
+
+  </span><span class="c1">// A2A: see "Context Identifier Semantics" and Task model in the A2A specification.</span><span class="w">
+  </span><span class="nl">"a2a"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"skills"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"as-defined-by-A2A"</span><span class="p">],</span><span class="w"> </span><span class="c1">// e.g., AgentSkill identifiers</span><span class="w">
+    </span><span class="nl">"contextId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"as-defined-by-A2A"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"taskId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"as-defined-by-A2A"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+
+  </span><span class="nl">"oasf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"skills"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"as-defined-by-OASF"</span><span class="p">],</span><span class="w">
+    </span><span class="nl">"domains"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"as-defined-by-OASF"</span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  
+  </span><span class="nl">"proofOfPayment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// this can be used for x402 proof of payment</span><span class="w">
+	  </span><span class="nl">"fromAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x00..."</span><span class="p">,</span><span class="w">
+	  </span><span class="nl">"toAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x00..."</span><span class="p">,</span><span class="w">
+	  </span><span class="nl">"chainId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+	  </span><span class="nl">"txHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x00..."</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+
+ </span><span class="c1">// Other fields</span><span class="w">
+  </span><span class="nl">" ... "</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">" ... "</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// MAY</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+  
+    <h4 id="revoking-feedback">
+      
+      
+        <a href="#revoking-feedback" class="anchor-link"></a> Revoking Feedback
+      
+      
+    </h4>
+
+<p><em>clientAddress</em> can revoke feedback by calling:</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="n">revokeFeedback</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">uint64</span> <span class="n">feedbackIndex</span><span class="p">)</span> <span class="k">external</span>
+</code></pre></div></div>
+
+<p>This emits:</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">event</span> <span class="n">FeedbackRevoked</span><span class="p">(</span><span class="kt">uint256</span> <span class="k">indexed</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">address</span> <span class="k">indexed</span> <span class="n">clientAddress</span><span class="p">,</span> <span class="kt">uint64</span> <span class="k">indexed</span> <span class="n">feedbackIndex</span><span class="p">)</span>
+</code></pre></div></div>
+  
+    <h4 id="appending-responses">
+      
+      
+        <a href="#appending-responses" class="anchor-link"></a> Appending Responses
+      
+      
+    </h4>
+
+<p>Anyone (e.g., the <em>agentId</em> showing a refund, any off-chain data intelligence aggregator tagging feedback as spam) can call:</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="n">appendResponse</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">address</span> <span class="n">clientAddress</span><span class="p">,</span> <span class="kt">uint64</span> <span class="n">feedbackIndex</span><span class="p">,</span> <span class="kt">string</span> <span class="k">calldata</span> <span class="n">responseURI</span><span class="p">,</span> <span class="kt">bytes32</span> <span class="n">responseHash</span><span class="p">)</span> <span class="k">external</span>
+</code></pre></div></div>
+
+<p>Where <em>responseHash</em> is the KECCAK-256 file hash of the <em>responseURI</em> file content to guarantee integrity. This field is not required for IPFS URIs.</p>
+
+<p>This emits:</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">event</span> <span class="n">ResponseAppended</span><span class="p">(</span><span class="kt">uint256</span> <span class="k">indexed</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">address</span> <span class="k">indexed</span> <span class="n">clientAddress</span><span class="p">,</span> <span class="kt">uint64</span> <span class="n">feedbackIndex</span><span class="p">,</span> <span class="kt">address</span> <span class="k">indexed</span> <span class="n">responder</span><span class="p">,</span> <span class="kt">string</span> <span class="n">responseURI</span><span class="p">,</span> <span class="kt">bytes32</span> <span class="n">responseHash</span><span class="p">)</span>
+</code></pre></div></div>
+  
+    <h4 id="read-functions">
+      
+      
+        <a href="#read-functions" class="anchor-link"></a> Read Functions
+      
+      
+    </h4>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="n">getSummary</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">address</span><span class="p">[]</span> <span class="k">calldata</span> <span class="n">clientAddresses</span><span class="p">,</span> <span class="kt">string</span> <span class="n">tag1</span><span class="p">,</span> <span class="kt">string</span> <span class="n">tag2</span><span class="p">)</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint64</span> <span class="n">count</span><span class="p">,</span> <span class="kt">int128</span> <span class="n">summaryValue</span><span class="p">,</span> <span class="kt">uint8</span> <span class="n">summaryValueDecimals</span><span class="p">)</span>
+<span class="c1">// agentId and clientAddresses are mandatory; tag1 and tag2 are optional filters.
+// clientAddresses MUST be provided (non-empty); results without filtering by clientAddresses are subject to Sybil/spam attacks. See Security Considerations for details
+</span>
+<span class="k">function</span> <span class="n">readFeedback</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">address</span> <span class="n">clientAddress</span><span class="p">,</span> <span class="kt">uint64</span> <span class="n">feedbackIndex</span><span class="p">)</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">int128</span> <span class="n">value</span><span class="p">,</span> <span class="kt">uint8</span> <span class="n">valueDecimals</span><span class="p">,</span> <span class="kt">string</span> <span class="n">tag1</span><span class="p">,</span> <span class="kt">string</span> <span class="n">tag2</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">isRevoked</span><span class="p">)</span>
+
+<span class="k">function</span> <span class="n">readAllFeedback</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">address</span><span class="p">[]</span> <span class="k">calldata</span> <span class="n">clientAddresses</span><span class="p">,</span> <span class="kt">string</span> <span class="n">tag1</span><span class="p">,</span> <span class="kt">string</span> <span class="n">tag2</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">includeRevoked</span><span class="p">)</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">address</span><span class="p">[]</span> <span class="k">memory</span> <span class="n">clients</span><span class="p">,</span> <span class="kt">uint64</span><span class="p">[]</span> <span class="k">memory</span> <span class="n">feedbackIndexes</span><span class="p">,</span> <span class="kt">int128</span><span class="p">[]</span> <span class="k">memory</span> <span class="n">values</span><span class="p">,</span> <span class="kt">uint8</span><span class="p">[]</span> <span class="k">memory</span> <span class="n">valueDecimals</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="k">memory</span> <span class="n">tag1s</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="k">memory</span> <span class="n">tag2s</span><span class="p">,</span> <span class="kt">bool</span><span class="p">[]</span> <span class="k">memory</span> <span class="n">revokedStatuses</span><span class="p">)</span>
+<span class="c1">// agentId is the only mandatory parameter; others are optional filters. Revoked feedback are omitted by default.
+</span>
+<span class="k">function</span> <span class="n">getResponseCount</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">address</span> <span class="n">clientAddress</span><span class="p">,</span> <span class="kt">uint64</span> <span class="n">feedbackIndex</span><span class="p">,</span> <span class="kt">address</span><span class="p">[]</span> <span class="n">responders</span><span class="p">)</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint64</span> <span class="n">count</span><span class="p">)</span>
+<span class="c1">// agentId is the only mandatory parameter; others are optional filters.
+</span>
+<span class="k">function</span> <span class="n">getClients</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">agentId</span><span class="p">)</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">address</span><span class="p">[]</span> <span class="k">memory</span><span class="p">)</span>
+
+<span class="k">function</span> <span class="n">getLastIndex</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">address</span> <span class="n">clientAddress</span><span class="p">)</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint64</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>We expect reputation systems around reviewers/clientAddresses to emerge. <strong>While simple filtering by reviewer (useful to mitigate spam) and by tag are enabled on-chain, more complex reputation aggregation will happen off-chain</strong>.</p>
+  
+    <h3 id="validation-registry">
+      
+      
+        <a href="#validation-registry" class="anchor-link"></a> Validation Registry
+      
+      
+    </h3>
+
+<p><strong>This registry enables agents to request verification of their work and allows validator smart contracts to provide responses that can be tracked on-chain</strong>. Validator smart contracts could use, for example, stake-secured inference re-execution, zkML verifiers or TEE oracles to validate or reject requests.</p>
+
+<p>When the Validation Registry is deployed, the <em>identityRegistry</em> address is set via <code class="language-plaintext highlighter-rouge">initialize(address identityRegistry_)</code> and is visible by calling <code class="language-plaintext highlighter-rouge">getIdentityRegistry()</code>, as described above.</p>
+  
+    <h4 id="validation-request">
+      
+      
+        <a href="#validation-request" class="anchor-link"></a> Validation Request
+      
+      
+    </h4>
+
+<p>Agents request validation by calling:</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="n">validationRequest</span><span class="p">(</span><span class="kt">address</span> <span class="n">validatorAddress</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">string</span> <span class="n">requestURI</span><span class="p">,</span> <span class="kt">bytes32</span> <span class="n">requestHash</span><span class="p">)</span> <span class="k">external</span>
+</code></pre></div></div>
+
+<p>This function MUST be called by the owner or operator of <em>agentId</em>. The <em>requestURI</em> points to off-chain data containing all information needed for the validator to validate, including inputs and outputs needed for the verification. The <em>requestHash</em> is a commitment to this data (<code class="language-plaintext highlighter-rouge">keccak256</code> of the request payload) and identifies the request. All other fields are mandatory.</p>
+
+<p>A ValidationRequest event is emitted:</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">event</span> <span class="n">ValidationRequest</span><span class="p">(</span><span class="kt">address</span> <span class="k">indexed</span> <span class="n">validatorAddress</span><span class="p">,</span> <span class="kt">uint256</span> <span class="k">indexed</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">string</span> <span class="n">requestURI</span><span class="p">,</span> <span class="kt">bytes32</span> <span class="k">indexed</span> <span class="n">requestHash</span><span class="p">)</span>
+</code></pre></div></div>
+  
+    <h4 id="validation-response">
+      
+      
+        <a href="#validation-response" class="anchor-link"></a> Validation Response
+      
+      
+    </h4>
+
+<p>Validators respond by calling:</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="n">validationResponse</span><span class="p">(</span><span class="kt">bytes32</span> <span class="n">requestHash</span><span class="p">,</span> <span class="kt">uint8</span> <span class="n">response</span><span class="p">,</span> <span class="kt">string</span> <span class="n">responseURI</span><span class="p">,</span> <span class="kt">bytes32</span> <span class="n">responseHash</span><span class="p">,</span> <span class="kt">string</span> <span class="n">tag</span><span class="p">)</span> <span class="k">external</span>
+</code></pre></div></div>
+
+<p>Only <em>requestHash</em> and <em>response</em> are mandatory; <em>responseURI</em>, <em>responseHash</em> and <em>tag</em> are optional. This function MUST be called by the <em>validatorAddress</em> specified in the original request. The <em>response</em> is a value between 0 and 100, which can be used as binary (0 for failed, 100 for passed) or with intermediate values for validations with a spectrum of outcomes. The optional <em>responseURI</em> points to off-chain evidence or audit of the validation, <em>responseHash</em> is its commitment (in case the resource is not on IPFS), while <em>tag</em> allows for custom categorization or additional data.</p>
+
+<p>validationResponse() can be called multiple times for the same <em>requestHash</em>, enabling use cases like progressive validation states (e.g., “soft finality” and “hard finality” using <em>tag</em>) or updates to validation status.</p>
+
+<p>Upon successful execution, a <em>ValidationResponse</em> event is emitted with all function parameters:</p>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">event</span> <span class="n">ValidationResponse</span><span class="p">(</span><span class="kt">address</span> <span class="k">indexed</span> <span class="n">validatorAddress</span><span class="p">,</span> <span class="kt">uint256</span> <span class="k">indexed</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">bytes32</span> <span class="k">indexed</span> <span class="n">requestHash</span><span class="p">,</span> <span class="kt">uint8</span> <span class="n">response</span><span class="p">,</span> <span class="kt">string</span> <span class="n">responseURI</span><span class="p">,</span> <span class="kt">bytes32</span> <span class="n">responseHash</span><span class="p">,</span> <span class="kt">string</span> <span class="n">tag</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The contract stores <em>requestHash</em>, <em>validatorAddress</em>, <em>agentId</em>, <em>response</em>, <em>responseHash</em>, <em>lastUpdate</em>, and <em>tag</em> for on-chain querying and composability.</p>
+  
+    <h4 id="read-functions-1">
+      
+      
+        <a href="#read-functions-1" class="anchor-link"></a> Read Functions
+      
+      
+    </h4>
+
+<div class="language-solidity highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span> <span class="n">getValidationStatus</span><span class="p">(</span><span class="kt">bytes32</span> <span class="n">requestHash</span><span class="p">)</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">address</span> <span class="n">validatorAddress</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">uint8</span> <span class="n">response</span><span class="p">,</span> <span class="kt">bytes32</span> <span class="n">responseHash</span><span class="p">,</span> <span class="kt">string</span> <span class="n">tag</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">lastUpdate</span><span class="p">)</span>
+
+<span class="c1">//Returns aggregated validation statistics for an agent. agentId is the only mandatory parameter; validatorAddresses and tag are optional filters
+</span><span class="k">function</span> <span class="n">getSummary</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">agentId</span><span class="p">,</span> <span class="kt">address</span><span class="p">[]</span> <span class="k">calldata</span> <span class="n">validatorAddresses</span><span class="p">,</span> <span class="kt">string</span> <span class="n">tag</span><span class="p">)</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint64</span> <span class="n">count</span><span class="p">,</span> <span class="kt">uint8</span> <span class="n">averageResponse</span><span class="p">)</span>
+
+<span class="k">function</span> <span class="n">getAgentValidations</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">agentId</span><span class="p">)</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bytes32</span><span class="p">[]</span> <span class="k">memory</span> <span class="n">requestHashes</span><span class="p">)</span>
+
+<span class="k">function</span> <span class="n">getValidatorRequests</span><span class="p">(</span><span class="kt">address</span> <span class="n">validatorAddress</span><span class="p">)</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bytes32</span><span class="p">[]</span> <span class="k">memory</span> <span class="n">requestHashes</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Incentives and slashing related to validation are managed by the specific validation protocol and are outside the scope of this registry.</p>
+  
+    <h2 id="rationale">
+      
+      
+        <a href="#rationale" class="anchor-link"></a> Rationale
+      
+      
+    </h2>
+
+<ul>
+  <li><strong>Agent communication protocols</strong>: MCP and A2A are popular, and other protocols could emerge. For this reason, this protocol links from the blockchain to a flexible registration file including a list where endpoints can be added at will, combining AI primitives (MCP, A2A) and Web3 primitives such as wallet addresses, DIDs, and ENS names.</li>
+  <li><strong>Feedback</strong>: The protocol combines the leverage of nomenclature already established by A2A (such as tasks and skills) and MCP (such as tools and prompts) with complete flexibility in the feedback signal structure.</li>
+  <li><strong>Gas Sponsorship</strong>: Since clients don’t need to be registered anymore, any application can implement frictionless feedback leveraging <a href="/EIPS/eip-7702">EIP-7702</a>.</li>
+  <li><strong>Indexing</strong>: Since feedback data is saved on-chain and we suggest using IPFS for full data, it’s easy to leverage subgraphs to create indexers and improve UX.</li>
+  <li><strong>Deployment</strong>: We expect the registries to be deployed with singletons per chain. Note that an agent registered and receiving feedback on chain A can still operate and transact on other chains. Agents can also be registered on multiple chains if desired.</li>
+</ul>
+
+<!-- Editor's Note: The test cases section should be a list of input/output/state changes or automated test functions. Simply listing "what to test" is insufficient. -->
+
+<!--
+
+## Test Cases
+
+This protocol enables:
+
+* Crawling all agents starting from a logically centralized endpoint and discover agent information (name, image, services), capabilities, communication endpoints (MCP, A2A, others), ENS names, wallet addresses and which trust models they support (reputation, validation, TEE attestation)
+* Building agent explorers and marketplaces using any ERC-721 compatible application to browse, transfer, and manage agents
+* Building reputation systems with on-chain aggregation (average scores for smart contract composability) or sophisticated off-chain analysis. All reputation signals are public good.
+* Discovering which agents support stake-secured or zkML validation and how to request it through a standardized interface
+
+-->
+  
+    <h2 id="security-considerations">
+      
+      
+        <a href="#security-considerations" class="anchor-link"></a> Security Considerations
+      
+      
+    </h2>
+
+<ul>
+  <li>Sybil attacks are possible, inflating the reputation of fake agents. The protocol’s contribution is to make signals public and use the same schema. We expect many players to build reputation systems, for example, trusting or giving reputation to reviewers (and therefore filtering by reviewer, as the protocol already enables).</li>
+  <li>On-chain pointers and hashes cannot be deleted, ensuring audit trail integrity</li>
+  <li>Validator incentives and slashing are managed by specific validation protocols</li>
+  <li>While this ERC cryptographically ensures the registration file corresponds to the on-chain agent, it cannot cryptographically guarantee that advertised capabilities are functional and non-malicious. The three trust models (reputation, validation, and TEE attestation) are designed to support this verification need</li>
+</ul>
+  
+    <h2 id="copyright">
+      
+      
+        <a href="#copyright" class="anchor-link"></a> Copyright
+      
+      
+    </h2>
+
+<p>Copyright and related rights waived via <a href="/LICENSE">CC0</a>.</p>
+
+  <h2>Citation</h2>
+  <p>Please cite this document as:</p>
+  
+  <p>Marco De Rossi&nbsp;(<a href="https://github.com/MarcoMetaMask">@MarcoMetaMask</a>), Davide Crapis (@dcrapis)&nbsp;&lt;<a href="mailto:davide@ethereum.org">davide@ethereum.org</a>&gt;, Jordan Ellis&nbsp;&lt;<a href="mailto:jordanellis@google.com">jordanellis@google.com</a>&gt;, Erik Reppel&nbsp;&lt;<a href="mailto:erik.reppel@coinbase.com">erik.reppel@coinbase.com</a>&gt;, "ERC-8004: Trustless Agents [DRAFT]," <em>Ethereum Improvement Proposals</em>, no. 8004, August 2025. Available: https://eips.ethereum.org/EIPS/eip-8004.</p>
+</div>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "TechArticle",
+    "headline": "ERC-8004: Trustless Agents [DRAFT]",
+    "name": "ERC-8004: Trustless Agents [DRAFT]",
+    "author": "Marco De Rossi (@MarcoMetaMask), Davide Crapis (@dcrapis) <davide@ethereum.org>, Jordan Ellis <jordanellis@google.com>, Erik Reppel <erik.reppel@coinbase.com>",
+    "dateCreated": "2025-08-13",
+    "datePublished": "2025-08-13",
+    
+    "discussionUrl": "https://ethereum-magicians.org/t/erc-8004-trustless-agents/25098",
+    
+    "inLanguage": "en-US",
+    "license": "#copyright",
+    "copyrightYear": "2025"
+  }
+</script>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Ethereum Improvement Proposals</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Ethereum Improvement Proposals</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/ethereum/EIPs"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">ethereum/EIPs</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Ethereum Improvement Proposals (EIPs) describe standards for the Ethereum platform, such as core protocol specifications.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

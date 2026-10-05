@@ -1,0 +1,24 @@
+{
+  "node_id": "TA_kwDOQVRIw9oAKDhlZDVmNTFlNmU2ZDkxMzU4NzlkMDQ2MDQxMmJlZjZjYjI3ZmQ1YTY",
+  "sha": "8ed5f51e6e6d9135879d0460412bef6cb27fd5a6",
+  "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/tags/8ed5f51e6e6d9135879d0460412bef6cb27fd5a6",
+  "tagger": {
+    "name": "MidnightCI",
+    "email": "midnight-automation+midnightci@iohk.io",
+    "date": "2026-07-02T13:19:13Z"
+  },
+  "object": {
+    "sha": "da90f631d45338d640365fb3d868e095130b4d6d",
+    "type": "commit",
+    "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/commits/da90f631d45338d640365fb3d868e095130b4d6d"
+  },
+  "tag": "v4.1.0-beta.1",
+  "message": "v4.1.0-beta.1\n-----BEGIN PGP SIGNATURE-----\n\niQIzBAABCgAdFiEEy3Egs95lt3668aeRXRZOFASAIFYFAmpGZVEACgkQXRZOFASA\nIFaKvBAAk77uJInoQMUCH5MidQwd9sYNdKqqJdiZWuMRMBXnJ6N7wQNXth0eSDnd\no/Pe+YZHWyK87D//rAlF1RcOZdsOog/8avqttqasvAC2q2qlP97oNBBotbd7Z7qX\n/bKFGkVGgjz0DyQEeYEY1eS8RSYm/MAwcHBsHX62mS1jmkEEgH6tiVg4aNlko9bz\nL0REER6mfbUhYgyeJxo62SEoagA5nWc3VCwXAnPRsqSIuUgxJutvQf3HYUIhdvri\nKGXbdHr51TTFiqEFLZE8S407kvL2ZNd5fLUUhzQWjV4nz9raju9UG0wAaxyycLKB\nlUCNhPsjiIG4e4+B2yUZunwO/nyYHfoQwH5/5MMkiqLb03cEnZZVW2znnzAZm5Qj\nHW2NUgcXzgTsxfx4IHGE+v+7NROiGL6j4MQjJ34+r7pxEfr69CYBkdzd2vreAstq\nqdwE/nWUOnxmWzpGhtqB1DHSzMJxjv/hfvamTqjuIbrYrocSVncNtst4AIEooPFm\nUmOPa+PApn3Wn57KQQ687ZtLym7i3B6oy7jRpsVRrmBhlW3gYGRjgxatxCV4dofS\nNyRz9nKV3QpHsb0J1Uv+16epOdj1dXVZ5EBAUwjYGmG5cjaXTOJpV37uRtwfJY8O\nc2jH/Y6/UZfjL6jdCoaGA2OsXJdTn64HvHBv8qca4XL7vYk4wyk=\n=nRLc\n-----END PGP SIGNATURE-----\n",
+  "verification": {
+    "verified": true,
+    "reason": "valid",
+    "signature": "-----BEGIN PGP SIGNATURE-----\n\niQIzBAABCgAdFiEEy3Egs95lt3668aeRXRZOFASAIFYFAmpGZVEACgkQXRZOFASA\nIFaKvBAAk77uJInoQMUCH5MidQwd9sYNdKqqJdiZWuMRMBXnJ6N7wQNXth0eSDnd\no/Pe+YZHWyK87D//rAlF1RcOZdsOog/8avqttqasvAC2q2qlP97oNBBotbd7Z7qX\n/bKFGkVGgjz0DyQEeYEY1eS8RSYm/MAwcHBsHX62mS1jmkEEgH6tiVg4aNlko9bz\nL0REER6mfbUhYgyeJxo62SEoagA5nWc3VCwXAnPRsqSIuUgxJutvQf3HYUIhdvri\nKGXbdHr51TTFiqEFLZE8S407kvL2ZNd5fLUUhzQWjV4nz9raju9UG0wAaxyycLKB\nlUCNhPsjiIG4e4+B2yUZunwO/nyYHfoQwH5/5MMkiqLb03cEnZZVW2znnzAZm5Qj\nHW2NUgcXzgTsxfx4IHGE+v+7NROiGL6j4MQjJ34+r7pxEfr69CYBkdzd2vreAstq\nqdwE/nWUOnxmWzpGhtqB1DHSzMJxjv/hfvamTqjuIbrYrocSVncNtst4AIEooPFm\nUmOPa+PApn3Wn57KQQ687ZtLym7i3B6oy7jRpsVRrmBhlW3gYGRjgxatxCV4dofS\nNyRz9nKV3QpHsb0J1Uv+16epOdj1dXVZ5EBAUwjYGmG5cjaXTOJpV37uRtwfJY8O\nc2jH/Y6/UZfjL6jdCoaGA2OsXJdTn64HvHBv8qca4XL7vYk4wyk=\n=nRLc\n-----END PGP SIGNATURE-----\n",
+    "payload": "object da90f631d45338d640365fb3d868e095130b4d6d\ntype commit\ntag v4.1.0-beta.1\ntagger MidnightCI <midnight-automation+midnightci@iohk.io> 1782998353 +0000\n\nv4.1.0-beta.1\n",
+    "verified_at": "2026-07-03T03:01:28Z"
+  }
+}

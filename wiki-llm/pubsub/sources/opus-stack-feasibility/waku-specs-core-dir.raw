@@ -1,0 +1,146 @@
+[
+  {
+    "name": "enr.md",
+    "path": "standards/core/enr.md",
+    "sha": "e1dddfc09bcb9e0150754505a67adcdb13d2e9c3",
+    "size": 9852,
+    "url": "https://api.github.com/repos/logos-messaging/specs/contents/standards/core/enr.md?ref=master",
+    "html_url": "https://github.com/logos-messaging/specs/blob/master/standards/core/enr.md",
+    "git_url": "https://api.github.com/repos/logos-messaging/specs/git/blobs/e1dddfc09bcb9e0150754505a67adcdb13d2e9c3",
+    "download_url": "https://raw.githubusercontent.com/logos-messaging/specs/master/standards/core/enr.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/logos-messaging/specs/contents/standards/core/enr.md?ref=master",
+      "git": "https://api.github.com/repos/logos-messaging/specs/git/blobs/e1dddfc09bcb9e0150754505a67adcdb13d2e9c3",
+      "html": "https://github.com/logos-messaging/specs/blob/master/standards/core/enr.md"
+    }
+  },
+  {
+    "name": "incentivization.md",
+    "path": "standards/core/incentivization.md",
+    "sha": "14d5cdcae108daaa3702f248983333353525e1c5",
+    "size": 9723,
+    "url": "https://api.github.com/repos/logos-messaging/specs/contents/standards/core/incentivization.md?ref=master",
+    "html_url": "https://github.com/logos-messaging/specs/blob/master/standards/core/incentivization.md",
+    "git_url": "https://api.github.com/repos/logos-messaging/specs/git/blobs/14d5cdcae108daaa3702f248983333353525e1c5",
+    "download_url": "https://raw.githubusercontent.com/logos-messaging/specs/master/standards/core/incentivization.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/logos-messaging/specs/contents/standards/core/incentivization.md?ref=master",
+      "git": "https://api.github.com/repos/logos-messaging/specs/git/blobs/14d5cdcae108daaa3702f248983333353525e1c5",
+      "html": "https://github.com/logos-messaging/specs/blob/master/standards/core/incentivization.md"
+    }
+  },
+  {
+    "name": "lightpush.md",
+    "path": "standards/core/lightpush.md",
+    "sha": "73945743725d2ffa52626ad79459d3a7a14eeec8",
+    "size": 4569,
+    "url": "https://api.github.com/repos/logos-messaging/specs/contents/standards/core/lightpush.md?ref=master",
+    "html_url": "https://github.com/logos-messaging/specs/blob/master/standards/core/lightpush.md",
+    "git_url": "https://api.github.com/repos/logos-messaging/specs/git/blobs/73945743725d2ffa52626ad79459d3a7a14eeec8",
+    "download_url": "https://raw.githubusercontent.com/logos-messaging/specs/master/standards/core/lightpush.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/logos-messaging/specs/contents/standards/core/lightpush.md?ref=master",
+      "git": "https://api.github.com/repos/logos-messaging/specs/git/blobs/73945743725d2ffa52626ad79459d3a7a14eeec8",
+      "html": "https://github.com/logos-messaging/specs/blob/master/standards/core/lightpush.md"
+    }
+  },
+  {
+    "name": "mix.md",
+    "path": "standards/core/mix.md",
+    "sha": "e00264c300e8d46088f8534273aba323b8592658",
+    "size": 8750,
+    "url": "https://api.github.com/repos/logos-messaging/specs/contents/standards/core/mix.md?ref=master",
+    "html_url": "https://github.com/logos-messaging/specs/blob/master/standards/core/mix.md",
+    "git_url": "https://api.github.com/repos/logos-messaging/specs/git/blobs/e00264c300e8d46088f8534273aba323b8592658",
+    "download_url": "https://raw.githubusercontent.com/logos-messaging/specs/master/standards/core/mix.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/logos-messaging/specs/contents/standards/core/mix.md?ref=master",
+      "git": "https://api.github.com/repos/logos-messaging/specs/git/blobs/e00264c300e8d46088f8534273aba323b8592658",
+      "html": "https://github.com/logos-messaging/specs/blob/master/standards/core/mix.md"
+    }
+  },
+  {
+    "name": "relay-sharding.md",
+    "path": "standards/core/relay-sharding.md",
+    "sha": "42717e5071e99feb4015407552efc9328d9a219b",
+    "size": 17646,
+    "url": "https://api.github.com/repos/logos-messaging/specs/contents/standards/core/relay-sharding.md?ref=master",
+    "html_url": "https://github.com/logos-messaging/specs/blob/master/standards/core/relay-sharding.md",
+    "git_url": "https://api.github.com/repos/logos-messaging/specs/git/blobs/42717e5071e99feb4015407552efc9328d9a219b",
+    "download_url": "https://raw.githubusercontent.com/logos-messaging/specs/master/standards/core/relay-sharding.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/logos-messaging/specs/contents/standards/core/relay-sharding.md?ref=master",
+      "git": "https://api.github.com/repos/logos-messaging/specs/git/blobs/42717e5071e99feb4015407552efc9328d9a219b",
+      "html": "https://github.com/logos-messaging/specs/blob/master/standards/core/relay-sharding.md"
+    }
+  },
+  {
+    "name": "rendezvous.md",
+    "path": "standards/core/rendezvous.md",
+    "sha": "292be4c24d1173d9f554347b1c12a4b3572428c1",
+    "size": 6993,
+    "url": "https://api.github.com/repos/logos-messaging/specs/contents/standards/core/rendezvous.md?ref=master",
+    "html_url": "https://github.com/logos-messaging/specs/blob/master/standards/core/rendezvous.md",
+    "git_url": "https://api.github.com/repos/logos-messaging/specs/git/blobs/292be4c24d1173d9f554347b1c12a4b3572428c1",
+    "download_url": "https://raw.githubusercontent.com/logos-messaging/specs/master/standards/core/rendezvous.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/logos-messaging/specs/contents/standards/core/rendezvous.md?ref=master",
+      "git": "https://api.github.com/repos/logos-messaging/specs/git/blobs/292be4c24d1173d9f554347b1c12a4b3572428c1",
+      "html": "https://github.com/logos-messaging/specs/blob/master/standards/core/rendezvous.md"
+    }
+  },
+  {
+    "name": "rln-contract.md",
+    "path": "standards/core/rln-contract.md",
+    "sha": "5cc65ccdb107751f157dbc794a7855fc1a76ed0e",
+    "size": 20865,
+    "url": "https://api.github.com/repos/logos-messaging/specs/contents/standards/core/rln-contract.md?ref=master",
+    "html_url": "https://github.com/logos-messaging/specs/blob/master/standards/core/rln-contract.md",
+    "git_url": "https://api.github.com/repos/logos-messaging/specs/git/blobs/5cc65ccdb107751f157dbc794a7855fc1a76ed0e",
+    "download_url": "https://raw.githubusercontent.com/logos-messaging/specs/master/standards/core/rln-contract.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/logos-messaging/specs/contents/standards/core/rln-contract.md?ref=master",
+      "git": "https://api.github.com/repos/logos-messaging/specs/git/blobs/5cc65ccdb107751f157dbc794a7855fc1a76ed0e",
+      "html": "https://github.com/logos-messaging/specs/blob/master/standards/core/rln-contract.md"
+    }
+  },
+  {
+    "name": "store-sync.md",
+    "path": "standards/core/store-sync.md",
+    "sha": "6928df39f063e3627e3f79573617ccdcbfd1c600",
+    "size": 6980,
+    "url": "https://api.github.com/repos/logos-messaging/specs/contents/standards/core/store-sync.md?ref=master",
+    "html_url": "https://github.com/logos-messaging/specs/blob/master/standards/core/store-sync.md",
+    "git_url": "https://api.github.com/repos/logos-messaging/specs/git/blobs/6928df39f063e3627e3f79573617ccdcbfd1c600",
+    "download_url": "https://raw.githubusercontent.com/logos-messaging/specs/master/standards/core/store-sync.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/logos-messaging/specs/contents/standards/core/store-sync.md?ref=master",
+      "git": "https://api.github.com/repos/logos-messaging/specs/git/blobs/6928df39f063e3627e3f79573617ccdcbfd1c600",
+      "html": "https://github.com/logos-messaging/specs/blob/master/standards/core/store-sync.md"
+    }
+  },
+  {
+    "name": "sync.md",
+    "path": "standards/core/sync.md",
+    "sha": "f5489f50d1feb3872810895736a93e7336b49c91",
+    "size": 16294,
+    "url": "https://api.github.com/repos/logos-messaging/specs/contents/standards/core/sync.md?ref=master",
+    "html_url": "https://github.com/logos-messaging/specs/blob/master/standards/core/sync.md",
+    "git_url": "https://api.github.com/repos/logos-messaging/specs/git/blobs/f5489f50d1feb3872810895736a93e7336b49c91",
+    "download_url": "https://raw.githubusercontent.com/logos-messaging/specs/master/standards/core/sync.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/logos-messaging/specs/contents/standards/core/sync.md?ref=master",
+      "git": "https://api.github.com/repos/logos-messaging/specs/git/blobs/f5489f50d1feb3872810895736a93e7336b49c91",
+      "html": "https://github.com/logos-messaging/specs/blob/master/standards/core/sync.md"
+    }
+  }
+]

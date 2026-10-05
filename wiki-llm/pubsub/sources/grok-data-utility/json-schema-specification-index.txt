@@ -1,0 +1,115 @@
+JSON Schema - Specification [#section]
+The JSON Schema Office Hours Now Runs Weekly! 
+Join Us!
+✕
+Specification
+Docs
+Tools
+Blog
+Community
+Search
+System
+Light
+Dark
+Star on GitHub
+Specification
+Introduction
+Get Started
+Guides
+Reference
+Specification
+Introduction
+Get Started
+Guides
+Reference
+Specification
+Specification 
+The current version is 
+2020-12
+!
+The previous version was 2019-09.
+Specification documents
+See also the release notes / change log (Work in progress).
+The specification is split into two parts, Core and Validation. We also publish
+the Relative JSON Pointers spec although it's not currently used by Core or
+Validation in any significant way.
+JSON Schema Core
+ defines the basic foundation of JSON Schema   
+JSON Schema Validation
+ defines the validation keywords of JSON Schema    
+Relative JSON Pointers
+ extends the JSON Pointer syntax for relative pointers   
+Meta-schemas
+The meta-schemas are schemas against which other schemas can be validated. It is self-descriptive: the JSON Schema meta-schema validates itself.
+The latest meta-schema is 
+2020-12
+.  For an explanation of the change to date-based identifiers, see the 
+Specification Links
+ page.
+If you are accessing these JSON document links 
+from a web browser
+, you will need to 
+save the file
+ then open it as a JSON document.  This is due to limitations with GitHub Pages.
+General-purpose meta-schema
+Please note, additional vocabulary specific schema files are needed to fully construct and use the Core/Validation Dialect meta-schema.
+Core/Validation Dialect meta-schema
+ Used for schemas written for pure validation.                                  
+Hyper-Schema Dialect meta-schema
+ Used for schemas written for validation (2020-12) and hyper-linking (2019-09). 
+Recommended Output meta-schema
+ Recommended output structure of the application process.                       
+Single-vocabulary meta-schemas
+These are relevant primarily to people who want to write their own meta-schemas that build on specific parts of the existing specification.
+Core Vocabulary meta-schema
+Applicator Vocabulary meta-schema
+Validation Vocabulary meta-schema
+Unevaluated Vocabulary meta-schema
+Format Annotation Vocabulary meta-schema
+Format Assertion Vocabulary meta-schema
+Content Vocabulary meta-schema
+Meta-Data Vocabulary meta-schema
+Output schemas and examples
+JSON Schema recommended output schema
+JSON Schema verbose output example
+Migrating from older drafts
+The release notes discuss the changes impacting users and implementers:
+JSON Schema Core and Validation
+  
+Draft 2019-09 to Draft 2020-12
+Draft-07 to Draft 2019-09
+Draft-06 to Draft-07
+Draft-04 to Draft-06
+JSON Hyper-Schema
+  
+There was no JSON Hyper-Schema draft for 2020-12 releases.
+Draft-07 to 2019-09
+Draft-04 to Draft-07
+Draft-04 to Draft-06
+Older drafts
+Please see 
+Specification Links
+ for older drafts and the latest unreleased version of the specification.
+Go Back
+Media: string-encoding non-JSON data
+Up Next
+Draft 2020-12
+Need Help?
+Did you find these docs helpful?
+Help us make our docs great!
+At JSON Schema, we value docs contributions as much as every other type of contribution!
+Edit this page on Github
+Learn how to contribute
+Still Need Help?
+Learning JSON Schema is often confusing, but don't worry, we are here to help!.
+Ask the community on GitHub
+Ask the community on Slack
+Open Collective
+Code of Conduct
+Slack
+X
+LinkedIn
+Youtube
+GitHub
+Copyright © 2026 JSON Schema. 
+All rights reserved.

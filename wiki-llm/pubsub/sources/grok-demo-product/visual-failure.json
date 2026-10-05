@@ -1,0 +1,17 @@
+{
+  "note": "The first PixelRAG capture of permissions.ts failed. A later successful capture reused the slug moth-permissions-visual and replaced that metadata. This file keeps the failure. The failure is not evidence about the file contents. The retained tiles are from the retry.",
+  "url": "https://github.com/shieldedtech/moth-wallet/blob/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/lib/background/permissions.ts",
+  "attempt_utc": "2026-10-05T18:15:51.924914+00:00",
+  "tool": "PixelRAG pixelshot 0.4.0",
+  "backend": "cdp",
+  "exit_code": 1,
+  "verified_capture": false,
+  "tiles": [],
+  "stderr_excerpt": "FAIL ... permissions.ts: no close frame received or sent",
+  "retry_utc": "2026-10-05T18:19:25.631381+00:00",
+  "retry_verified_capture": true,
+  "retry_tiles": [
+    "sources/grok-demo-product/moth-permissions-visual-tiles/github.com_shieldedtech_moth-wallet_blob_d48206a1957af09bf17bf5e941c2b5bccb12db63_packages_extension_lib_background_permissions.ts.png.tiles/tile_0000.jpg",
+    "sources/grok-demo-product/moth-permissions-visual-tiles/github.com_shieldedtech_moth-wallet_blob_d48206a1957af09bf17bf5e941c2b5bccb12db63_packages_extension_lib_background_permissions.ts.png.tiles/tile_0001.jpg"
+  ]
+}

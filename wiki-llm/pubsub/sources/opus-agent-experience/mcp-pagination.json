@@ -1,0 +1,13 @@
+{
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/utilities/pagination",
+  "retrieved_utc": "2026-10-05T18:10:47.441770+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "20c318c62fb7f3392fff63ea71ca807941d908d440c07afcfef393322a09f4fc",
+  "text_sha256": "9ddeccf05f9c9c9fa4d0a2f421eee16f55501dd7676406369056890b2fafc2ad",
+  "bytes": 342380,
+  "text_bytes": 3592,
+  "final_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/utilities/pagination",
+  "accepted_source": true
+}

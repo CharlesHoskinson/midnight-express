@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/vacp2p/zerokit/releases?per_page=5",
+  "retrieved_utc": "2026-10-05T18:11:30.305965+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "037b490ab4f43ab72257e464b3ec263a600a9de16dc92e2f124495a1cab77885",
+  "text_sha256": "546176949795bc5570a2b7edb16dec737dae3a00a9240789cd99ed719534580d",
+  "bytes": 473426,
+  "text_bytes": 473409,
+  "final_url": "https://api.github.com/repos/vacp2p/zerokit/releases?per_page=5",
+  "accepted_source": true
+}

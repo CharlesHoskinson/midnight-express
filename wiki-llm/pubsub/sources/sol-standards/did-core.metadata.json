@@ -1,0 +1,9 @@
+{
+  "url": "https://www.w3.org/TR/did-core/",
+  "fetched_at": "2026-10-05T18:04:26.527091+00:00",
+  "method": "Scrapling Fetcher.get",
+  "status": 200,
+  "sha256": "5e44345740d9bfaa852d3b66c57e98c9beb6c5bf6083b0126dd5daac377b9993",
+  "text_sha256": "f03c0e5c9b5246a4d2b0a0aeb28e83991fd74c6c57bfeb7fee8f579c31a98a52",
+  "bytes": 730300
+}

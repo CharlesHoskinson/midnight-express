@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.github.com/en/subscriptions-and-notifications/get-started/configuring-notifications",
+  "retrieved_utc": "2026-10-05T18:11:28.135401+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "b3db443220e3b033aebd53ec720420db7d5f2b9f0aab993236fcf9f5e79617f0",
+  "text_sha256": "60287e630dbfd4e2f1ad6ef5cf446d9b8a5f64e606716a22b9c78b7742a077b4",
+  "bytes": 186997,
+  "text_bytes": 14550,
+  "final_url": "https://docs.github.com/en/subscriptions-and-notifications/get-started/configuring-notifications",
+  "accepted_source": true
+}

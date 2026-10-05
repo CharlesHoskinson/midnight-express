@@ -1,0 +1,13 @@
+{
+  "url": "https://www.sqlite.org/chronology.html",
+  "retrieved_utc": "2026-10-05T18:11:33.357269+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "5c5346b2d41beaa088ba85c9b4d1f2e04f7ae5cf07969496d6158029a20c5247",
+  "text_sha256": "b2b93e1462df016bb24f4906e70f9ddf63cfca7a1b2714084a7faacb7021b3f0",
+  "bytes": 91832,
+  "text_bytes": 6932,
+  "final_url": "https://www.sqlite.org/chronology.html",
+  "accepted_source": true
+}

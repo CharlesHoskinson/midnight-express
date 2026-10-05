@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/cloudevents/spec/2ed3806b4ad8fda35813263cfefb2d73098b7655/docs/share/2021-06-24-DiscoveryOverview.pdf",
+  "retrieved_utc": "2026-10-05T18:22:11.705590+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "e9462ff09c20b5678c436a08bf45689e4468fa8a5de7f4cb1132c0321b53e933",
+  "text_sha256": "5c60bf3d1f5c364eef4f00e6686a0f6aa8b252c92d589dd86b2f470c13636748",
+  "bytes": 188761,
+  "text_bytes": 278995,
+  "final_url": "https://raw.githubusercontent.com/cloudevents/spec/2ed3806b4ad8fda35813263cfefb2d73098b7655/docs/share/2021-06-24-DiscoveryOverview.pdf",
+  "accepted_source": true
+}

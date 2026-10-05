@@ -1,0 +1,542 @@
+[
+  {
+    "ref": "refs/tags/4.0.0",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4wLjA=",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.0.0",
+    "object": {
+      "sha": "8926e9a2e7443b739472c9eb1d81ad68cedfe73c",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/8926e9a2e7443b739472c9eb1d81ad68cedfe73c"
+    }
+  },
+  {
+    "ref": "refs/tags/4.0.0-rc0",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4wLjAtcmMw",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.0.0-rc0",
+    "object": {
+      "sha": "56142fd58034a81052a99b017ecdd9b395303f91",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/56142fd58034a81052a99b017ecdd9b395303f91"
+    }
+  },
+  {
+    "ref": "refs/tags/4.0.0-rc1",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4wLjAtcmMx",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.0.0-rc1",
+    "object": {
+      "sha": "c527c4478ba274eee531da9da49da124b1d8380c",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/c527c4478ba274eee531da9da49da124b1d8380c"
+    }
+  },
+  {
+    "ref": "refs/tags/4.0.0-rc3",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4wLjAtcmMz",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.0.0-rc3",
+    "object": {
+      "sha": "9d2d4f10c264a2eb988ae4769d06a243304db491",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/9d2d4f10c264a2eb988ae4769d06a243304db491"
+    }
+  },
+  {
+    "ref": "refs/tags/4.0.0-rc4",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4wLjAtcmM0",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.0.0-rc4",
+    "object": {
+      "sha": "f4b50777d176ee517f5a2d46dcee7f9e422ddff7",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/f4b50777d176ee517f5a2d46dcee7f9e422ddff7"
+    }
+  },
+  {
+    "ref": "refs/tags/4.0.1",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4wLjE=",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.0.1",
+    "object": {
+      "sha": "324904e8d8fc9cc832deb498e64e0f91ee4aee29",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/324904e8d8fc9cc832deb498e64e0f91ee4aee29"
+    }
+  },
+  {
+    "ref": "refs/tags/4.0.1-rc0",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4wLjEtcmMw",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.0.1-rc0",
+    "object": {
+      "sha": "717f21abce53335dd724568503dd3adcbf4b93e2",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/717f21abce53335dd724568503dd3adcbf4b93e2"
+    }
+  },
+  {
+    "ref": "refs/tags/4.0.1-rc1",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4wLjEtcmMx",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.0.1-rc1",
+    "object": {
+      "sha": "977e5de635790101f568b1ac4e0a3a9379267a97",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/977e5de635790101f568b1ac4e0a3a9379267a97"
+    }
+  },
+  {
+    "ref": "refs/tags/4.0.1-rc2",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4wLjEtcmMy",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.0.1-rc2",
+    "object": {
+      "sha": "a5260ebd02ff60aa1c4a63b9ae7a2a2353ab1e1e",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/a5260ebd02ff60aa1c4a63b9ae7a2a2353ab1e1e"
+    }
+  },
+  {
+    "ref": "refs/tags/4.0.2",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4wLjI=",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.0.2",
+    "object": {
+      "sha": "f27ce2bfb196f33f7ef77793f10d4a2d129f4d9f",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/f27ce2bfb196f33f7ef77793f10d4a2d129f4d9f"
+    }
+  },
+  {
+    "ref": "refs/tags/4.0.2-rc0",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4wLjItcmMw",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.0.2-rc0",
+    "object": {
+      "sha": "5c696761c25c775715df7047c8e1e6a80ce900a7",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/5c696761c25c775715df7047c8e1e6a80ce900a7"
+    }
+  },
+  {
+    "ref": "refs/tags/4.0.2-rc1",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4wLjItcmMx",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.0.2-rc1",
+    "object": {
+      "sha": "dda920c4354e50bb9fe48ae8b8e2f34726117f08",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/dda920c4354e50bb9fe48ae8b8e2f34726117f08"
+    }
+  },
+  {
+    "ref": "refs/tags/4.0.2-rc2",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4wLjItcmMy",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.0.2-rc2",
+    "object": {
+      "sha": "bfa8e1400b56cfeb97606aaf9365121b0ef31db1",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/bfa8e1400b56cfeb97606aaf9365121b0ef31db1"
+    }
+  },
+  {
+    "ref": "refs/tags/4.0.2-rc3",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4wLjItcmMz",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.0.2-rc3",
+    "object": {
+      "sha": "d086d191eefb4f3e1155415fa4b186c45a186e19",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/d086d191eefb4f3e1155415fa4b186c45a186e19"
+    }
+  },
+  {
+    "ref": "refs/tags/4.1.0",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4xLjA=",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.1.0",
+    "object": {
+      "sha": "080a42c343d919971985102a38c82dc6da0623d5",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/080a42c343d919971985102a38c82dc6da0623d5"
+    }
+  },
+  {
+    "ref": "refs/tags/4.1.0-rc0",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4xLjAtcmMw",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.1.0-rc0",
+    "object": {
+      "sha": "82df266ca71572bf09caac79749abcb5514c1345",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/82df266ca71572bf09caac79749abcb5514c1345"
+    }
+  },
+  {
+    "ref": "refs/tags/4.1.0-rc1",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4xLjAtcmMx",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.1.0-rc1",
+    "object": {
+      "sha": "fe71d249789a9b89602765eed1f2a32f2b89891b",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/fe71d249789a9b89602765eed1f2a32f2b89891b"
+    }
+  },
+  {
+    "ref": "refs/tags/4.1.0-rc2",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4xLjAtcmMy",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.1.0-rc2",
+    "object": {
+      "sha": "145db6c8b53682877ec2c94957a1dd82e2c2d6df",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/145db6c8b53682877ec2c94957a1dd82e2c2d6df"
+    }
+  },
+  {
+    "ref": "refs/tags/4.1.0-rc3",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4xLjAtcmMz",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.1.0-rc3",
+    "object": {
+      "sha": "7f98ecb1b2ac64d0e7c09862c11d0ffdfd692ef1",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/7f98ecb1b2ac64d0e7c09862c11d0ffdfd692ef1"
+    }
+  },
+  {
+    "ref": "refs/tags/4.1.1",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4xLjE=",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.1.1",
+    "object": {
+      "sha": "0753c489afad403fb6e78fda4c4a380e46f500c0",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/0753c489afad403fb6e78fda4c4a380e46f500c0"
+    }
+  },
+  {
+    "ref": "refs/tags/4.1.1-rc0",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4xLjEtcmMw",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.1.1-rc0",
+    "object": {
+      "sha": "e139dc996410bcbd4213b9de482339f82ceec434",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/e139dc996410bcbd4213b9de482339f82ceec434"
+    }
+  },
+  {
+    "ref": "refs/tags/4.1.1-rc1",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4xLjEtcmMx",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.1.1-rc1",
+    "object": {
+      "sha": "cfea5a1b4f00bb5863ce27283255ca2387d7b336",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/cfea5a1b4f00bb5863ce27283255ca2387d7b336"
+    }
+  },
+  {
+    "ref": "refs/tags/4.1.1-rc2",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4xLjEtcmMy",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.1.1-rc2",
+    "object": {
+      "sha": "7c3a36eaaefb7453742691b99d70322ab151f9c7",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/7c3a36eaaefb7453742691b99d70322ab151f9c7"
+    }
+  },
+  {
+    "ref": "refs/tags/4.1.2",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4xLjI=",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.1.2",
+    "object": {
+      "sha": "dfad9ea494a92bcfe3cb7420aaf45aa459ae90eb",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/dfad9ea494a92bcfe3cb7420aaf45aa459ae90eb"
+    }
+  },
+  {
+    "ref": "refs/tags/4.1.2-rc0",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4xLjItcmMw",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.1.2-rc0",
+    "object": {
+      "sha": "dbe929f0253cd9100568cf371a7bc31f27656947",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/dbe929f0253cd9100568cf371a7bc31f27656947"
+    }
+  },
+  {
+    "ref": "refs/tags/4.1.2-rc1",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4xLjItcmMx",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.1.2-rc1",
+    "object": {
+      "sha": "3e37cef500d4e77db4dda85fc92300e260a89fc6",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/3e37cef500d4e77db4dda85fc92300e260a89fc6"
+    }
+  },
+  {
+    "ref": "refs/tags/4.2.0",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4yLjA=",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.2.0",
+    "object": {
+      "sha": "9f8b3ad416bd416f3706f3d7a1f425b9dd8bc5f2",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/9f8b3ad416bd416f3706f3d7a1f425b9dd8bc5f2"
+    }
+  },
+  {
+    "ref": "refs/tags/4.2.0-rc0",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4yLjAtcmMw",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.2.0-rc0",
+    "object": {
+      "sha": "4670a7d7d652c338f0c1bf85aa74e344c7d102ba",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/4670a7d7d652c338f0c1bf85aa74e344c7d102ba"
+    }
+  },
+  {
+    "ref": "refs/tags/4.2.0-rc1",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4yLjAtcmMx",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.2.0-rc1",
+    "object": {
+      "sha": "6874ea7a3b40a42768380c479f3fb08f8c4a7e55",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/6874ea7a3b40a42768380c479f3fb08f8c4a7e55"
+    }
+  },
+  {
+    "ref": "refs/tags/4.2.0-rc2",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4yLjAtcmMy",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.2.0-rc2",
+    "object": {
+      "sha": "0caf3017930263f6a889ea84db9f7e4024d2d0e9",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/0caf3017930263f6a889ea84db9f7e4024d2d0e9"
+    }
+  },
+  {
+    "ref": "refs/tags/4.2.0-rc3",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4yLjAtcmMz",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.2.0-rc3",
+    "object": {
+      "sha": "0ab1a16c83be2973e3c28fcc9d8251018185ed5e",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/0ab1a16c83be2973e3c28fcc9d8251018185ed5e"
+    }
+  },
+  {
+    "ref": "refs/tags/4.2.0-rc4",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4yLjAtcmM0",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.2.0-rc4",
+    "object": {
+      "sha": "7c686e809cfa8738bd2c6a3c793a07426963c4c3",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/7c686e809cfa8738bd2c6a3c793a07426963c4c3"
+    }
+  },
+  {
+    "ref": "refs/tags/4.2.1",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4yLjE=",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.2.1",
+    "object": {
+      "sha": "0ca275dccd788d114b9b30cae8a3a966a7229c1b",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/0ca275dccd788d114b9b30cae8a3a966a7229c1b"
+    }
+  },
+  {
+    "ref": "refs/tags/4.2.1-rc0",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4yLjEtcmMw",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.2.1-rc0",
+    "object": {
+      "sha": "1e75ec1b11ceb854077f45602cb728a5be130b8b",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/1e75ec1b11ceb854077f45602cb728a5be130b8b"
+    }
+  },
+  {
+    "ref": "refs/tags/4.2.1-rc1",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4yLjEtcmMx",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.2.1-rc1",
+    "object": {
+      "sha": "42112c127cd2c709f1df4115d2ef53482a5a3d46",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/42112c127cd2c709f1df4115d2ef53482a5a3d46"
+    }
+  },
+  {
+    "ref": "refs/tags/4.2.1-rc2",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4yLjEtcmMy",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.2.1-rc2",
+    "object": {
+      "sha": "fccd66c9b5d8946a891b0c7c3f9912c5043b327a",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/fccd66c9b5d8946a891b0c7c3f9912c5043b327a"
+    }
+  },
+  {
+    "ref": "refs/tags/4.2.1-rc3",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4yLjEtcmMz",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.2.1-rc3",
+    "object": {
+      "sha": "c3ec1deb511a7fcefe1e56ece4b73cede18f668c",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/c3ec1deb511a7fcefe1e56ece4b73cede18f668c"
+    }
+  },
+  {
+    "ref": "refs/tags/4.2.1-rc4",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4yLjEtcmM0",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.2.1-rc4",
+    "object": {
+      "sha": "03db00f24d1867993cb7e1e06a931a98d9ab6b55",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/03db00f24d1867993cb7e1e06a931a98d9ab6b55"
+    }
+  },
+  {
+    "ref": "refs/tags/4.2.1-rc5",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4yLjEtcmM1",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.2.1-rc5",
+    "object": {
+      "sha": "2419a7638205548d253c6edd987746363291166b",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/2419a7638205548d253c6edd987746363291166b"
+    }
+  },
+  {
+    "ref": "refs/tags/4.2.2",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4yLjI=",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.2.2",
+    "object": {
+      "sha": "0ebce2e40db7dd1c8e625c8c0ff396021de1a7b6",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/0ebce2e40db7dd1c8e625c8c0ff396021de1a7b6"
+    }
+  },
+  {
+    "ref": "refs/tags/4.2.2-rc0",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4yLjItcmMw",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.2.2-rc0",
+    "object": {
+      "sha": "88359dcec9c07a142c16b327fd57b703d746a981",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/88359dcec9c07a142c16b327fd57b703d746a981"
+    }
+  },
+  {
+    "ref": "refs/tags/4.2.2-rc1",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4yLjItcmMx",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.2.2-rc1",
+    "object": {
+      "sha": "fcc78b2edb62763e9d637a5cefb0c7b674a351c5",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/fcc78b2edb62763e9d637a5cefb0c7b674a351c5"
+    }
+  },
+  {
+    "ref": "refs/tags/4.3.0",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4zLjA=",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.3.0",
+    "object": {
+      "sha": "10b563feb33efaa46bc8417428f25171a6f185ef",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/10b563feb33efaa46bc8417428f25171a6f185ef"
+    }
+  },
+  {
+    "ref": "refs/tags/4.3.0-rc0",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4zLjAtcmMw",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.3.0-rc0",
+    "object": {
+      "sha": "2b66299c7c70ddf51b834cfcaed07bf293ef830c",
+      "type": "commit",
+      "url": "https://api.github.com/repos/apache/kafka/git/commits/2b66299c7c70ddf51b834cfcaed07bf293ef830c"
+    }
+  },
+  {
+    "ref": "refs/tags/4.3.0-rc1",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4zLjAtcmMx",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.3.0-rc1",
+    "object": {
+      "sha": "ae5ae55e98550c971d96dfcc4c0755042aa4d5dd",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/ae5ae55e98550c971d96dfcc4c0755042aa4d5dd"
+    }
+  },
+  {
+    "ref": "refs/tags/4.3.0-rc2",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4zLjAtcmMy",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.3.0-rc2",
+    "object": {
+      "sha": "556546f09821e868cfb9d2448110690f300eca0d",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/556546f09821e868cfb9d2448110690f300eca0d"
+    }
+  },
+  {
+    "ref": "refs/tags/4.3.1",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4zLjE=",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.3.1",
+    "object": {
+      "sha": "a07059eb9b5bac1bfdbb1e74313f2fae4ca20fd9",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/a07059eb9b5bac1bfdbb1e74313f2fae4ca20fd9"
+    }
+  },
+  {
+    "ref": "refs/tags/4.3.1-rc0",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4zLjEtcmMw",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.3.1-rc0",
+    "object": {
+      "sha": "5f90b9b62cb12fc6af0ac42fb3735a56d7be018f",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/5f90b9b62cb12fc6af0ac42fb3735a56d7be018f"
+    }
+  },
+  {
+    "ref": "refs/tags/4.3.1-rc1",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4zLjEtcmMx",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.3.1-rc1",
+    "object": {
+      "sha": "2dfcd73a536261025d9ac8ec76c58434f5c9c3a0",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/2dfcd73a536261025d9ac8ec76c58434f5c9c3a0"
+    }
+  },
+  {
+    "ref": "refs/tags/4.3.1-rc2",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4zLjEtcmMy",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.3.1-rc2",
+    "object": {
+      "sha": "2b5f418315487ab2540a683b2474aa9cb40c7643",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/2b5f418315487ab2540a683b2474aa9cb40c7643"
+    }
+  },
+  {
+    "ref": "refs/tags/4.3.2-rc0",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC4zLjItcmMw",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.3.2-rc0",
+    "object": {
+      "sha": "84c8fae3df6d0f2ce45d8e1c6c1ac5f92617b414",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/84c8fae3df6d0f2ce45d8e1c6c1ac5f92617b414"
+    }
+  },
+  {
+    "ref": "refs/tags/4.4.0-rc0",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC40LjAtcmMw",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.4.0-rc0",
+    "object": {
+      "sha": "f2ebfc548a4435fef6f426059c5810693e477eb3",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/f2ebfc548a4435fef6f426059c5810693e477eb3"
+    }
+  },
+  {
+    "ref": "refs/tags/4.4.0-rc1",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC40LjAtcmMx",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.4.0-rc1",
+    "object": {
+      "sha": "10916ac0258021ac2b3fb4d5dba92eade4a2374a",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/10916ac0258021ac2b3fb4d5dba92eade4a2374a"
+    }
+  },
+  {
+    "ref": "refs/tags/4.4.0-rc3",
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3MvNC40LjAtcmMz",
+    "url": "https://api.github.com/repos/apache/kafka/git/refs/tags/4.4.0-rc3",
+    "object": {
+      "sha": "dc7b614a5e6d4fb7128a47afbb56db03c055634c",
+      "type": "tag",
+      "url": "https://api.github.com/repos/apache/kafka/git/tags/dc7b614a5e6d4fb7128a47afbb56db03c055634c"
+    }
+  }
+]

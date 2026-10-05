@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/shieldedtech/moth-wallet/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/wxt.config.ts",
+  "retrieved_utc": "2026-10-05T18:11:11.325045+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "32642b98181206b30b45950b0432801bce91d48e4eec6ffa26b0095fc57fc86f",
+  "text_sha256": "a32d76931fa68489df717f77780ab58f2d598a7cfafd855228c045da648dd44b",
+  "bytes": 5274,
+  "text_bytes": 5235,
+  "final_url": "https://raw.githubusercontent.com/shieldedtech/moth-wallet/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/wxt.config.ts",
+  "accepted_source": true
+}

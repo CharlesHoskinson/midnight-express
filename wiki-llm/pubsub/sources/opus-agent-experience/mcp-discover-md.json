@@ -1,0 +1,13 @@
+{
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/discover.md",
+  "retrieved_utc": "2026-10-05T18:11:17.763130+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "331489cd2984399cfe4828357fdd5a23e062ef40f69f4815499b055b51e2b82c",
+  "text_sha256": "963fa6075c71f4cbd024b9e93490b00be596fb4219f65c17fd7cc5af9dd4f8bb",
+  "bytes": 3835,
+  "text_bytes": 3788,
+  "final_url": "https://modelcontextprotocol.io/specification/2026-07-28/server/discover.md",
+  "accepted_source": true
+}

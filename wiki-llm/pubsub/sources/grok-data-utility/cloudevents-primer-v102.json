@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/cloudevents/spec/v1.0.2/cloudevents/primer.md",
+  "retrieved_utc": "2026-10-05T18:17:55.258792+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "e547028f1e4f509ba3b713333eb4d2f53ec71bb79cc034db82520ece082a88ca",
+  "text_sha256": "0957ed3dc5ce73386145844b756e44ea8e18e86bc5e422afe9e49a79b5b9261f",
+  "bytes": 49982,
+  "text_bytes": 49958,
+  "final_url": "https://raw.githubusercontent.com/cloudevents/spec/v1.0.2/cloudevents/primer.md",
+  "accepted_source": true
+}

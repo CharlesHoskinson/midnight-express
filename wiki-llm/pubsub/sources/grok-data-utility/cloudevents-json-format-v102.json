@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/cloudevents/spec/v1.0.2/cloudevents/formats/json-format.md",
+  "retrieved_utc": "2026-10-05T18:17:55.271867+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "30778f995a2c82f3ac6c4f7cd56415d675111990151c9ab67bd0a2de1d0e1ce5",
+  "text_sha256": "adc725488054f1f555f99e2b29352b5edb68850fe37be475c92cc55b059d67ef",
+  "bytes": 17640,
+  "text_bytes": 17606,
+  "final_url": "https://raw.githubusercontent.com/cloudevents/spec/v1.0.2/cloudevents/formats/json-format.md",
+  "accepted_source": true
+}

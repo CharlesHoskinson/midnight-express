@@ -1,0 +1,351 @@
+{
+  "baseline": "5ff9627",
+  "recordedUtc": "2026-10-05T18:43:17.067703+00:00",
+  "requestedMix": {
+    "claude-opus-5-5": 4,
+    "gpt-6.1-sol": 4,
+    "grok-4.7 xhigh": 4
+  },
+  "provenanceLimit": "Opus CLI supplied modelUsage; GPT model overrides and Grok CLI model/effort were explicitly requested. No raw private reasoning or CLI transcripts archived.",
+  "agents": [
+    {
+      "id": "sol-agent-standards",
+      "provider": "OpenAI",
+      "model": "gpt-6.1-sol",
+      "invocation": "collaboration.spawn_agent explicit model override",
+      "status": "report-reviewed",
+      "report": "agents/sol-agent-standards.md",
+      "reportSha256": "ad9a6bb3d8431d089c88eb542afe76d69d63824ba7f0166b8c421eec1c1d064e"
+    },
+    {
+      "id": "sol-wallet-consumers",
+      "provider": "OpenAI",
+      "model": "gpt-6.1-sol",
+      "invocation": "collaboration.spawn_agent explicit model override",
+      "status": "report-reviewed",
+      "report": "agents/sol-wallet-consumers.md",
+      "reportSha256": "b038927a54a2902ed3ab5ebeacbdc19dbd57a8e64e756591b43c9a3fc9865d45"
+    },
+    {
+      "id": "sol-subscription-contracts",
+      "provider": "OpenAI",
+      "model": "gpt-6.1-sol",
+      "invocation": "collaboration.spawn_agent explicit model override",
+      "status": "report-reviewed",
+      "report": "agents/sol-subscription-contracts.md",
+      "reportSha256": "def3ac56cdeb1186885ace167fa4cb65b3588d1cd5cc1524c595d56e526c3564"
+    },
+    {
+      "id": "sol-pubsub-dashboard",
+      "provider": "OpenAI",
+      "model": "gpt-6.1-sol",
+      "invocation": "collaboration.spawn_agent explicit model override",
+      "status": "report-reviewed",
+      "report": "agents/sol-pubsub-dashboard.md",
+      "reportSha256": "d5d6aca4db4d302492fe4b6db618751cf4ce7eca20d6243aa70de738a00140fa"
+    },
+    {
+      "id": "opus-human-experience",
+      "provider": "claude",
+      "model": "claude-opus-5-5",
+      "reasoning_effort": "high",
+      "initialAttempt": {
+        "status": "failed",
+        "exit_code": 1,
+        "started_utc": "2026-10-05T18:09:42.010795+00:00",
+        "finished_utc": "2026-10-05T18:13:11.608695+00:00",
+        "diagnostic": "",
+        "reported_model_usage": {
+          "claude-opus-5-5": {
+            "inputTokens": 56,
+            "outputTokens": 13439,
+            "cacheReadInputTokens": 1981535,
+            "cacheCreationInputTokens": 80325,
+            "webSearchRequests": 0,
+            "costUSD": 1.307911,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 128000,
+            "thinkingTokens": 4581,
+            "canonicalModel": "claude-opus-5-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        }
+      },
+      "continuation": {
+        "id": "opus-human-experience",
+        "exit_code": 0,
+        "modelUsage": {
+          "claude-opus-5-5": {
+            "inputTokens": 44,
+            "outputTokens": 16608,
+            "cacheReadInputTokens": 1141538,
+            "cacheCreationInputTokens": 66590,
+            "webSearchRequests": 0,
+            "costUSD": 1.0933636,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 128000,
+            "thinkingTokens": 2034,
+            "canonicalModel": "claude-opus-5-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        },
+        "is_error": false,
+        "report_exists": true,
+        "errors": null
+      },
+      "status": "report-reviewed",
+      "report": "agents/opus-human-experience.md",
+      "reportSha256": "0915bb9a6399063175e373aefc0bc450696b687180f40518e1bc3b66c8a5565e"
+    },
+    {
+      "id": "opus-agent-experience",
+      "provider": "claude",
+      "model": "claude-opus-5-5",
+      "reasoning_effort": "high",
+      "initialAttempt": {
+        "status": "failed",
+        "exit_code": 1,
+        "started_utc": "2026-10-05T18:09:42.011168+00:00",
+        "finished_utc": "2026-10-05T18:14:00.387301+00:00",
+        "diagnostic": "",
+        "reported_model_usage": {
+          "claude-opus-5-5": {
+            "inputTokens": 56,
+            "outputTokens": 13601,
+            "cacheReadInputTokens": 2113965,
+            "cacheCreationInputTokens": 108817,
+            "webSearchRequests": 0,
+            "costUSD": 1.5655729999999999,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 128000,
+            "thinkingTokens": 4462,
+            "canonicalModel": "claude-opus-5-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        }
+      },
+      "continuation": {
+        "id": "opus-agent-experience",
+        "exit_code": 0,
+        "modelUsage": {
+          "claude-opus-5-5": {
+            "inputTokens": 48,
+            "outputTokens": 22348,
+            "cacheReadInputTokens": 1652190,
+            "cacheCreationInputTokens": 92454,
+            "webSearchRequests": 0,
+            "costUSD": 1.517222,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 128000,
+            "thinkingTokens": 4472,
+            "canonicalModel": "claude-opus-5-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        },
+        "is_error": false,
+        "report_exists": true,
+        "errors": null
+      },
+      "status": "report-reviewed",
+      "report": "agents/opus-agent-experience.md",
+      "reportSha256": "79f6fcc582a63baa1049f507ebc254da3692c0e410015b58a52be1e6ebc08602"
+    },
+    {
+      "id": "opus-privacy-authority",
+      "provider": "claude",
+      "model": "claude-opus-5-5",
+      "reasoning_effort": "high",
+      "initialAttempt": {
+        "status": "failed",
+        "exit_code": 1,
+        "started_utc": "2026-10-05T18:09:42.011417+00:00",
+        "finished_utc": "2026-10-05T18:13:14.116692+00:00",
+        "diagnostic": "",
+        "reported_model_usage": {
+          "claude-opus-5-5": {
+            "inputTokens": 56,
+            "outputTokens": 13191,
+            "cacheReadInputTokens": 1892141,
+            "cacheCreationInputTokens": 94063,
+            "webSearchRequests": 0,
+            "costUSD": 1.3949761999999999,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 128000,
+            "thinkingTokens": 5649,
+            "canonicalModel": "claude-opus-5-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        }
+      },
+      "continuation": {
+        "id": "opus-privacy-authority",
+        "exit_code": 0,
+        "modelUsage": {
+          "claude-opus-5-5": {
+            "inputTokens": 60,
+            "outputTokens": 18985,
+            "cacheReadInputTokens": 1667810,
+            "cacheCreationInputTokens": 80980,
+            "webSearchRequests": 0,
+            "costUSD": 1.3613419999999996,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 128000,
+            "thinkingTokens": 3603,
+            "canonicalModel": "claude-opus-5-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        },
+        "is_error": false,
+        "report_exists": true,
+        "errors": null
+      },
+      "status": "report-reviewed",
+      "report": "agents/opus-privacy-authority.md",
+      "reportSha256": "f16f4df0b192ff33670c1f863d6605874e3628475ef324d7d91bad4f66183f27"
+    },
+    {
+      "id": "opus-stack-feasibility",
+      "provider": "claude",
+      "model": "claude-opus-5-5",
+      "reasoning_effort": "high",
+      "initialAttempt": {
+        "status": "failed",
+        "exit_code": 1,
+        "started_utc": "2026-10-05T18:09:42.012032+00:00",
+        "finished_utc": "2026-10-05T18:12:29.749604+00:00",
+        "diagnostic": "",
+        "reported_model_usage": {
+          "claude-opus-5-5": {
+            "inputTokens": 56,
+            "outputTokens": 12268,
+            "cacheReadInputTokens": 2246574,
+            "cacheCreationInputTokens": 111286,
+            "webSearchRequests": 0,
+            "costUSD": 1.5851867999999998,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 128000,
+            "thinkingTokens": 3368,
+            "canonicalModel": "claude-opus-5-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        }
+      },
+      "continuation": {
+        "id": "opus-stack-feasibility",
+        "exit_code": 0,
+        "modelUsage": {
+          "claude-opus-5-5": {
+            "inputTokens": 38,
+            "outputTokens": 20463,
+            "cacheReadInputTokens": 1236777,
+            "cacheCreationInputTokens": 92648,
+            "webSearchRequests": 0,
+            "costUSD": 1.3979514000000002,
+            "contextWindow": 1000000,
+            "maxOutputTokens": 128000,
+            "thinkingTokens": 5101,
+            "canonicalModel": "claude-opus-5-5",
+            "provider": "firstParty",
+            "costBasis": "list"
+          }
+        },
+        "is_error": false,
+        "report_exists": true,
+        "errors": null
+      },
+      "status": "report-reviewed",
+      "report": "agents/opus-stack-feasibility.md",
+      "reportSha256": "c16190b6948746a30c8cd186cfefe337e999bdba1f85c54fcfbee3f7d4348454"
+    },
+    {
+      "id": "grok-data-utility",
+      "provider": "grok",
+      "model": "grok-4.7",
+      "reasoning_effort": "xhigh",
+      "initialAttempt": {
+        "status": "failed",
+        "exit_code": 1,
+        "started_utc": "2026-10-05T18:12:29.749983+00:00",
+        "finished_utc": "2026-10-05T18:22:24.679744+00:00",
+        "diagnostic": "Max turns reached\nError: max turns reached\n",
+        "reported_model_usage": null
+      },
+      "continuation": {
+        "coordinatorExit": 143,
+        "result": "report and inspected visual appendix written before coordinator interruption; no successful CLI exit claimed"
+      },
+      "status": "report-reviewed",
+      "report": "agents/grok-data-utility.md",
+      "reportSha256": "f425e55d6500309b96a77d70c94a81b761d87748c0d9906ecec695cc39c24f68"
+    },
+    {
+      "id": "grok-recovery-lifecycle",
+      "provider": "grok",
+      "model": "grok-4.7",
+      "reasoning_effort": "xhigh",
+      "initialAttempt": {
+        "status": "failed",
+        "exit_code": 1,
+        "started_utc": "2026-10-05T18:13:11.609081+00:00",
+        "finished_utc": "2026-10-05T18:21:36.157338+00:00",
+        "diagnostic": "Max turns reached\nError: max turns reached\n",
+        "reported_model_usage": null
+      },
+      "continuation": {
+        "coordinatorExit": 143,
+        "result": "report and inspected visual appendix written before coordinator interruption; no successful CLI exit claimed"
+      },
+      "status": "report-reviewed",
+      "report": "agents/grok-recovery-lifecycle.md",
+      "reportSha256": "a57d783258dc48c0bc7476d2fd4a85e4867d1f18e21b59640735330d5aef5d29"
+    },
+    {
+      "id": "grok-demo-product",
+      "provider": "grok",
+      "model": "grok-4.7",
+      "reasoning_effort": "xhigh",
+      "initialAttempt": {
+        "status": "completed",
+        "exit_code": 0,
+        "started_utc": "2026-10-05T18:13:14.117061+00:00",
+        "finished_utc": "2026-10-05T18:23:56.213960+00:00",
+        "diagnostic": null,
+        "reported_model_usage": null
+      },
+      "status": "report-reviewed",
+      "report": "agents/grok-demo-product.md",
+      "reportSha256": "b682b63fa9dad757004d8e6fecce1cd779d6996e4850e9b0be636b23e4afe8b2"
+    },
+    {
+      "id": "grok-adversarial-consensus",
+      "provider": "grok",
+      "model": "grok-4.7",
+      "reasoning_effort": "xhigh",
+      "initialAttempt": {
+        "status": "failed",
+        "exit_code": 1,
+        "started_utc": "2026-10-05T18:14:00.387888+00:00",
+        "finished_utc": "2026-10-05T18:23:41.381821+00:00",
+        "diagnostic": "Max turns reached\nError: max turns reached\n",
+        "reported_model_usage": null
+      },
+      "continuation": {
+        "coordinatorExit": 143,
+        "finalSeparateCLIExit": 0,
+        "requestedModel": "grok-4.7",
+        "requestedReasoningEffort": "xhigh",
+        "result": "report completed using existing captures; one inspected PixelRAG tile"
+      },
+      "status": "report-reviewed",
+      "report": "agents/grok-adversarial-consensus.md",
+      "reportSha256": "c76c828e43c5229d0a6d89732182dc56fe1051c1df96ec9598a265bce6aad78c"
+    }
+  ]
+}

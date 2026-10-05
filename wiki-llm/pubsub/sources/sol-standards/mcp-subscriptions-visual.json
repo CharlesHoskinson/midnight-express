@@ -1,0 +1,32 @@
+{
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/subscriptions",
+  "retrieved_utc": "2026-10-05T18:08:36.455446+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "ce20ad72fb4bac5235567ca81d29cf28b7bde91c445a6f48c69043db93748bf8",
+  "text_sha256": "fb93999c99b9cbe9ba373fe16ad7caee2b2b7465899b6df8fdee0a5e2c3d729c",
+  "bytes": 363380,
+  "text_bytes": 6793,
+  "final_url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/subscriptions",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/sol-standards/mcp-subscriptions-visual-tiles/modelcontextprotocol.io_specification_2026-07-28_basic_patterns_subscriptions.png.tiles/tile_0000.jpg",
+        "sha256": "e1f09171b83c85c991d692637a3ea1fd8e111fcf3eb6ed6032f7933ee8c2ddee"
+      },
+      {
+        "path": "sources/sol-standards/mcp-subscriptions-visual-tiles/modelcontextprotocol.io_specification_2026-07-28_basic_patterns_subscriptions.png.tiles/tile_0001.jpg",
+        "sha256": "dfaf21fb080a6de34fe8cc9f6d425a8e72e97733dcf2b76b2d25023a1a3d4e2a"
+      },
+      {
+        "path": "sources/sol-standards/mcp-subscriptions-visual-tiles/modelcontextprotocol.io_specification_2026-07-28_basic_patterns_subscriptions.png.tiles/tile_0002.jpg",
+        "sha256": "fbbd6d0a4ce342cd7b1bb4953ab117eecfd81db51b6ef47437d8777829fd4919"
+      }
+    ],
+    "stderr": "2026-10-05 12:08:38,089 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 12:08:47,111 INFO pixelrag_render.backends.cdp: [w0] https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/subscriptions \u2192 3 tiles (6.0s)\n2026-10-05 12:08:47,128 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 12:08:47,129 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

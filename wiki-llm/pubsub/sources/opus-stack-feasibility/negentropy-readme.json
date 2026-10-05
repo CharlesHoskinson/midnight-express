@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/hoytech/negentropy/master/README.md",
+  "retrieved_utc": "2026-10-05T18:11:58.668071+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "7c6660dfbb55c4e0e50a8ab14b321d7c793e63e86489978be1e66c9a3d594a1c",
+  "text_sha256": "1bba3d8fb49dc26dfeb127029c1c94587dffeffcc95bd550edde85ffc88d6085",
+  "bytes": 17272,
+  "text_bytes": 17131,
+  "final_url": "https://raw.githubusercontent.com/hoytech/negentropy/master/README.md",
+  "accepted_source": true
+}

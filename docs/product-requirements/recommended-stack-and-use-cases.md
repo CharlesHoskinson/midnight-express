@@ -94,3 +94,7 @@ The [use-case register](use-cases.json) and [detailed product requirements](top-
 Do not put Signal in the first dependency set alongside OpenMLS. Keep Signal as a documented alternative if customer evidence favors a dedicated pairwise product. Tor/Arti is an optional later origin-privacy profile; PIR engines are research candidates. RocksDB and additional chain/ERP connectors follow measured workload or customer needs.
 
 The selected libraries still need to be integrated with the custom MPE admission profile, store protocol, SDK privacy rules and Midnight authority/binding circuits. The original PDF/register remains authoritative for protocol requirements.
+
+## Consumer integration
+
+The [private subscription design](pubsub-subscription-experience.md) adds a principal-bound local watch service, typed SDK and durable consumer journal above whole-shard recognition. Umbra/PostgreSQL or SQLite supplies the selected host's state tier; the consumer transaction and recovery semantics still need implementation. Optional versioned MCP, A2A and AG-UI adapters serve agent interfaces. Moth is a wallet connector, not membership or business authority. The [browser proof of concept](../../website/dist/subscriptions.html) demonstrates local mock delivery and explicit Moth connection controls; it does not run the protocol or persist state.

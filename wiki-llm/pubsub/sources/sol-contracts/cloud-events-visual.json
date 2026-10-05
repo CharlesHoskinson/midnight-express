@@ -1,0 +1,52 @@
+{
+  "url": "https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md",
+  "retrieved_utc": "2026-10-05T18:10:08.073806+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "e76915e61f9844648f771bcf0f7788720737789a429517d076ad6da918a125f0",
+  "text_sha256": "4f6603cbb00373dd2db6d827ec859621327882f95daf1b99095d7989a432c982",
+  "bytes": 431893,
+  "text_bytes": 26704,
+  "final_url": "https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/sol-contracts/cloud-events-visual-tiles/github.com_cloudevents_spec_blob_v1.0.2_cloudevents_spec.md.png.tiles/tile_0000.jpg",
+        "sha256": "7709d8b77d5ce9544b93f26739d08160bc15041a27790318d60751bc6c50ae6a"
+      },
+      {
+        "path": "sources/sol-contracts/cloud-events-visual-tiles/github.com_cloudevents_spec_blob_v1.0.2_cloudevents_spec.md.png.tiles/tile_0001.jpg",
+        "sha256": "c01d4672a852d184344247fb93bcfa8eeea2e7f10f8fe0c2b294ddb3625e40a7"
+      },
+      {
+        "path": "sources/sol-contracts/cloud-events-visual-tiles/github.com_cloudevents_spec_blob_v1.0.2_cloudevents_spec.md.png.tiles/tile_0002.jpg",
+        "sha256": "0ce4a43e2f1cf04ff28e5c2eceeb14c49986f9e3ad05699418734fb1ea2b161b"
+      },
+      {
+        "path": "sources/sol-contracts/cloud-events-visual-tiles/github.com_cloudevents_spec_blob_v1.0.2_cloudevents_spec.md.png.tiles/tile_0003.jpg",
+        "sha256": "dfc77d54e70300292e861809d32dcb965295bbf7dcd8ec38f40a870c0b646834"
+      },
+      {
+        "path": "sources/sol-contracts/cloud-events-visual-tiles/github.com_cloudevents_spec_blob_v1.0.2_cloudevents_spec.md.png.tiles/tile_0004.jpg",
+        "sha256": "a6c32cc4b248db65df2bd0e8d97b5f8337eb17ac76ce42304dc6cd9c8cf89409"
+      },
+      {
+        "path": "sources/sol-contracts/cloud-events-visual-tiles/github.com_cloudevents_spec_blob_v1.0.2_cloudevents_spec.md.png.tiles/tile_0005.jpg",
+        "sha256": "4231ef48fbee1fd61cef6a00d5fe91de3d6761b86d7637b1fac08cc1198b0c9c"
+      },
+      {
+        "path": "sources/sol-contracts/cloud-events-visual-tiles/github.com_cloudevents_spec_blob_v1.0.2_cloudevents_spec.md.png.tiles/tile_0006.jpg",
+        "sha256": "c068be95ee7a441770f920f7c0434455129f5d574f1e89187d5dd83b49553aed"
+      },
+      {
+        "path": "sources/sol-contracts/cloud-events-visual-tiles/github.com_cloudevents_spec_blob_v1.0.2_cloudevents_spec.md.png.tiles/tile_0007.jpg",
+        "sha256": "367720bdba3a7c600f98720552508e0356486136ad20b453f3607ea5528071df"
+      }
+    ],
+    "stderr": "2026-10-05 12:10:10,356 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 12:10:19,221 INFO pixelrag_render.backends.cdp: [w0] https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md \u2192 8 tiles (5.8s)\n2026-10-05 12:10:19,238 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 12:10:19,239 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

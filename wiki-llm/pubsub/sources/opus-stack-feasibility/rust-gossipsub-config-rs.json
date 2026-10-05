@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/libp2p/rust-libp2p/master/protocols/gossipsub/src/config.rs",
+  "retrieved_utc": "2026-10-05T18:12:20.876233+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "8e1a863212197c5584e359d3984470030286b7a1b5d37ea3aac356db8c751333",
+  "text_sha256": "f66f60a4f394fd7b38f1edb37823ec231bd154a4c2cc8bb9289e9f717ec89f7b",
+  "bytes": 54467,
+  "text_bytes": 53898,
+  "final_url": "https://raw.githubusercontent.com/libp2p/rust-libp2p/master/protocols/gossipsub/src/config.rs",
+  "accepted_source": true
+}

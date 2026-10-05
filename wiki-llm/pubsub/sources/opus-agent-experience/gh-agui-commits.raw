@@ -1,0 +1,258 @@
+[
+  {
+    "sha": "3092a4bea39187a6ff316f9d6e648349239014c7",
+    "node_id": "C_kwDOOmBWg9oAKDMwOTJhNGJlYTM5MTg3YTZmZjMxNmY5ZDZlNjQ4MzQ5MjM5MDE0Yzc",
+    "commit": {
+      "author": {
+        "name": "Maxim",
+        "email": "1580455+mxmzb@users.noreply.github.com",
+        "date": "2026-10-05T17:07:56Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-05T17:07:56Z"
+      },
+      "message": "Merge pull request #2961 from ag-ui-protocol/fix/tool-call-start-existing-owner\n\nfix(langgraph): name the owning assistant message as a non-streamed tool call's parent",
+      "tree": {
+        "sha": "37787ac807921e42d4ec537179ac1e5c12aa272e",
+        "url": "https://api.github.com/repos/ag-ui-protocol/ag-ui/git/trees/37787ac807921e42d4ec537179ac1e5c12aa272e"
+      },
+      "url": "https://api.github.com/repos/ag-ui-protocol/ag-ui/git/commits/3092a4bea39187a6ff316f9d6e648349239014c7",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqw9lsCRC1aQ7uu5UhlAAA5+4QAKYMqWjxj8S22a6Uy+K2wia8\nna5EweiwmVR1jX6CnepylPRjpNo+Tu7FjeMjdCU08vQChWW1a+BvmvNDjIF3WpPh\nmOweqiaXFY8AdtAEmzYiQrV3N3m6tytezavXtHaDS27CO+rrGcMNCw0nYmxhoY+B\nbnTl5fiWdXyfN2Wn+t6zGudrRi3ikoTUNWDpoLBxJ1eBmshPPEQ55ofdFtx6oNKS\nF0fd/vrTGqog3/z/n7BFcbmthGginjrRy3KfbuZP7hcraTFDf9DjhST5w5Eu5VOa\nIUlxBh7lKrM2TBzrGJRktlh9aw4sdxYLy+pCIvANaLabZT9iqISewqSEl7ZU54SE\nB8Wp1Xi+EwiEMTmEcF7ALXp+ML5bUkP/n0VUwHo9NpP+Dh4U1fKyigHPrbaHy6EI\naCJ7bK6X/0IAMS8ZcSzxbgsWbTM0Vy7Vi3cYlTwQEvt4zh8baz65zro1PcVcaKkd\nXGrt+T6jquLi706Dzd82bdAKEgKcnZxsiIjYTvIIHYz1rzhMhjpfkoK5d0Z/D+ID\n9Nk6S6Du1jr0Sm83V+SQQMVV/N4HU59wme7knXfIU3eOy0GTC4cOZFQAytYnOc9e\nmaqOgBSleS2zVjIhjVI5VDXrNTFmogcIPdMexss+sNrdoWVyjK6Oo80VVU4+TtiX\nKlFVApsOZNcNKFrC4zik\n=lmTN\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 37787ac807921e42d4ec537179ac1e5c12aa272e\nparent 42e4f6e8f88c0f172714336aabbb2b91aa6e99b6\nparent f2612b726f67fa05b739c1a95fef92803b4273ec\nauthor Maxim <1580455+mxmzb@users.noreply.github.com> 1791220076 +0200\ncommitter GitHub <noreply@github.com> 1791220076 +0200\n\nMerge pull request #2961 from ag-ui-protocol/fix/tool-call-start-existing-owner\n\nfix(langgraph): name the owning assistant message as a non-streamed tool call's parent",
+        "verified_at": "2026-10-05T17:07:57Z"
+      }
+    },
+    "url": "https://api.github.com/repos/ag-ui-protocol/ag-ui/commits/3092a4bea39187a6ff316f9d6e648349239014c7",
+    "html_url": "https://github.com/ag-ui-protocol/ag-ui/commit/3092a4bea39187a6ff316f9d6e648349239014c7",
+    "comments_url": "https://api.github.com/repos/ag-ui-protocol/ag-ui/commits/3092a4bea39187a6ff316f9d6e648349239014c7/comments",
+    "author": {
+      "login": "mxmzb",
+      "id": 1580455,
+      "node_id": "MDQ6VXNlcjE1ODA0NTU=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1580455?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mxmzb",
+      "html_url": "https://github.com/mxmzb",
+      "followers_url": "https://api.github.com/users/mxmzb/followers",
+      "following_url": "https://api.github.com/users/mxmzb/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mxmzb/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mxmzb/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mxmzb/subscriptions",
+      "organizations_url": "https://api.github.com/users/mxmzb/orgs",
+      "repos_url": "https://api.github.com/users/mxmzb/repos",
+      "events_url": "https://api.github.com/users/mxmzb/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mxmzb/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "42e4f6e8f88c0f172714336aabbb2b91aa6e99b6",
+        "url": "https://api.github.com/repos/ag-ui-protocol/ag-ui/commits/42e4f6e8f88c0f172714336aabbb2b91aa6e99b6",
+        "html_url": "https://github.com/ag-ui-protocol/ag-ui/commit/42e4f6e8f88c0f172714336aabbb2b91aa6e99b6"
+      },
+      {
+        "sha": "f2612b726f67fa05b739c1a95fef92803b4273ec",
+        "url": "https://api.github.com/repos/ag-ui-protocol/ag-ui/commits/f2612b726f67fa05b739c1a95fef92803b4273ec",
+        "html_url": "https://github.com/ag-ui-protocol/ag-ui/commit/f2612b726f67fa05b739c1a95fef92803b4273ec"
+      }
+    ]
+  },
+  {
+    "sha": "f2612b726f67fa05b739c1a95fef92803b4273ec",
+    "node_id": "C_kwDOOmBWg9oAKGYyNjEyYjcyNmY2N2ZhMDViNzM5YzFhOTVmZWY5MjgwM2I0MjczZWM",
+    "commit": {
+      "author": {
+        "name": "Maxim",
+        "email": "1580455+mxmzb@users.noreply.github.com",
+        "date": "2026-10-05T16:53:19Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-05T16:53:19Z"
+      },
+      "message": "Merge branch 'main' into fix/tool-call-start-existing-owner",
+      "tree": {
+        "sha": "37787ac807921e42d4ec537179ac1e5c12aa272e",
+        "url": "https://api.github.com/repos/ag-ui-protocol/ag-ui/git/trees/37787ac807921e42d4ec537179ac1e5c12aa272e"
+      },
+      "url": "https://api.github.com/repos/ag-ui-protocol/ag-ui/git/commits/f2612b726f67fa05b739c1a95fef92803b4273ec",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqw9X/CRC1aQ7uu5UhlAAABMMQAAPeBmnR84dmppbTIwoki9PN\nMkeG77nFsQYPOX185M0kSceCpJcgv5bqY0rL/NNvel+1EhdqBHcmBTTSLlhjUG1g\ni1piev1xuy62dBJvx1NDW85fvCwKU+8+Buk2GcLKUtZ//r/vpgKy+1QIvZJdm1H+\nGc3HXV34DZeFdZ1i98t0nezaMr0CUGPTqsLUZBLo12B1MTXtXZ3JaCoKUlVXNIsV\n91hGF5NwJiCd8Bp/fdS8ZKRuOD+Gco3WEB86rBYeHMrDS9PUghiYnUHLg2lvDDcL\nAxTAMPOIwr0wc/uscUZfXJ281dFN3PRUYR8I4YBMGkz3C7nww1z/Lqq2PzCP5Top\nbWZ3/kjzMvnlQFWvJ6gMGgMKbDx6ZYu9BpsaT3IDgAeOXv5GjpPC0ckeKre82O7Q\njK2AkDqcncsDONBsokjMY9Nhr98KiXiL774i7rCzWcd5U1havqH3nk8RIp99qJMr\n9o8k9if203kXjreSTzjNpnm1Gv267R/wytJsJdYZwod4A5P4fwQQsAEcbc4FNghk\naa8h902wpj7Et/e5MKK8ROPNI/vulY5zzMlsClc8Qsyl8fdz9coMufEFlLCR9EMB\nEifI97qgPvKLH6nE1GZkAcsY3Oc/4RtFTjGMKEx/Yh1J+XuSYgpIe1VYpfdv2NBZ\nD8smycwb4Yxd6rLrDLmT\n=ElxY\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 37787ac807921e42d4ec537179ac1e5c12aa272e\nparent cff386618c93725c087c339decf8a6536cf719ca\nparent 42e4f6e8f88c0f172714336aabbb2b91aa6e99b6\nauthor Maxim <1580455+mxmzb@users.noreply.github.com> 1791219199 +0200\ncommitter GitHub <noreply@github.com> 1791219199 +0200\n\nMerge branch 'main' into fix/tool-call-start-existing-owner",
+        "verified_at": "2026-10-05T16:53:20Z"
+      }
+    },
+    "url": "https://api.github.com/repos/ag-ui-protocol/ag-ui/commits/f2612b726f67fa05b739c1a95fef92803b4273ec",
+    "html_url": "https://github.com/ag-ui-protocol/ag-ui/commit/f2612b726f67fa05b739c1a95fef92803b4273ec",
+    "comments_url": "https://api.github.com/repos/ag-ui-protocol/ag-ui/commits/f2612b726f67fa05b739c1a95fef92803b4273ec/comments",
+    "author": {
+      "login": "mxmzb",
+      "id": 1580455,
+      "node_id": "MDQ6VXNlcjE1ODA0NTU=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1580455?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mxmzb",
+      "html_url": "https://github.com/mxmzb",
+      "followers_url": "https://api.github.com/users/mxmzb/followers",
+      "following_url": "https://api.github.com/users/mxmzb/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mxmzb/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mxmzb/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mxmzb/subscriptions",
+      "organizations_url": "https://api.github.com/users/mxmzb/orgs",
+      "repos_url": "https://api.github.com/users/mxmzb/repos",
+      "events_url": "https://api.github.com/users/mxmzb/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mxmzb/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "cff386618c93725c087c339decf8a6536cf719ca",
+        "url": "https://api.github.com/repos/ag-ui-protocol/ag-ui/commits/cff386618c93725c087c339decf8a6536cf719ca",
+        "html_url": "https://github.com/ag-ui-protocol/ag-ui/commit/cff386618c93725c087c339decf8a6536cf719ca"
+      },
+      {
+        "sha": "42e4f6e8f88c0f172714336aabbb2b91aa6e99b6",
+        "url": "https://api.github.com/repos/ag-ui-protocol/ag-ui/commits/42e4f6e8f88c0f172714336aabbb2b91aa6e99b6",
+        "html_url": "https://github.com/ag-ui-protocol/ag-ui/commit/42e4f6e8f88c0f172714336aabbb2b91aa6e99b6"
+      }
+    ]
+  },
+  {
+    "sha": "cff386618c93725c087c339decf8a6536cf719ca",
+    "node_id": "C_kwDOOmBWg9oAKGNmZjM4NjYxOGM5MzcyNWMwODdjMzM5ZGVjZjhhNjUzNmNmNzE5Y2E",
+    "commit": {
+      "author": {
+        "name": "Maxim",
+        "email": "maxim.zubarev@icloud.com",
+        "date": "2026-10-05T16:40:50Z"
+      },
+      "committer": {
+        "name": "Maxim",
+        "email": "maxim.zubarev@icloud.com",
+        "date": "2026-10-05T16:40:50Z"
+      },
+      "message": "test(dojo): drop the stale tool-call parents from the deepagents trace\n\nOn the HITL resume run, OnToolEnd replays TOOL_CALL_START for\nrequest_human_approval and the outer `task` call. The baseline pinned their\nparentMessageId as the call's own id, which the TOOL_CALL_RESULT also used\nas its messageId: the collision this PR fixes. The owners were made in the\nprevious run, so the replayed starts now name no parent.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "tree": {
+        "sha": "2a4db532d9cef35d48cd7b7d7bdb3fb36601bf16",
+        "url": "https://api.github.com/repos/ag-ui-protocol/ag-ui/git/trees/2a4db532d9cef35d48cd7b7d7bdb3fb36601bf16"
+      },
+      "url": "https://api.github.com/repos/ag-ui-protocol/ag-ui/git/commits/cff386618c93725c087c339decf8a6536cf719ca",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAglfSWH8dTMTpk9pXsmBYgC/P+AB\nNrUmLUky5k9tnhvkMAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQPJ9Qvt8SepYFda5tQJypWhL5FAoQss6tbyc4mAsSMnOE6Pv0F7ON4x95Wb0Npfm3P\nYfK2h9M56REE+xmkJtAA0=\n-----END SSH SIGNATURE-----",
+        "payload": "tree 2a4db532d9cef35d48cd7b7d7bdb3fb36601bf16\nparent d52cc7f6f37c027faec4f6b6bffa303395346374\nauthor Maxim <maxim.zubarev@icloud.com> 1791218450 +0200\ncommitter Maxim <maxim.zubarev@icloud.com> 1791218450 +0200\n\ntest(dojo): drop the stale tool-call parents from the deepagents trace\n\nOn the HITL resume run, OnToolEnd replays TOOL_CALL_START for\nrequest_human_approval and the outer `task` call. The baseline pinned their\nparentMessageId as the call's own id, which the TOOL_CALL_RESULT also used\nas its messageId: the collision this PR fixes. The owners were made in the\nprevious run, so the replayed starts now name no parent.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\n",
+        "verified_at": "2026-10-05T16:40:54Z"
+      }
+    },
+    "url": "https://api.github.com/repos/ag-ui-protocol/ag-ui/commits/cff386618c93725c087c339decf8a6536cf719ca",
+    "html_url": "https://github.com/ag-ui-protocol/ag-ui/commit/cff386618c93725c087c339decf8a6536cf719ca",
+    "comments_url": "https://api.github.com/repos/ag-ui-protocol/ag-ui/commits/cff386618c93725c087c339decf8a6536cf719ca/comments",
+    "author": {
+      "login": "mxmzb",
+      "id": 1580455,
+      "node_id": "MDQ6VXNlcjE1ODA0NTU=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1580455?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mxmzb",
+      "html_url": "https://github.com/mxmzb",
+      "followers_url": "https://api.github.com/users/mxmzb/followers",
+      "following_url": "https://api.github.com/users/mxmzb/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mxmzb/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mxmzb/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mxmzb/subscriptions",
+      "organizations_url": "https://api.github.com/users/mxmzb/orgs",
+      "repos_url": "https://api.github.com/users/mxmzb/repos",
+      "events_url": "https://api.github.com/users/mxmzb/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mxmzb/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "mxmzb",
+      "id": 1580455,
+      "node_id": "MDQ6VXNlcjE1ODA0NTU=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1580455?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mxmzb",
+      "html_url": "https://github.com/mxmzb",
+      "followers_url": "https://api.github.com/users/mxmzb/followers",
+      "following_url": "https://api.github.com/users/mxmzb/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mxmzb/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mxmzb/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mxmzb/subscriptions",
+      "organizations_url": "https://api.github.com/users/mxmzb/orgs",
+      "repos_url": "https://api.github.com/users/mxmzb/repos",
+      "events_url": "https://api.github.com/users/mxmzb/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mxmzb/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "d52cc7f6f37c027faec4f6b6bffa303395346374",
+        "url": "https://api.github.com/repos/ag-ui-protocol/ag-ui/commits/d52cc7f6f37c027faec4f6b6bffa303395346374",
+        "html_url": "https://github.com/ag-ui-protocol/ag-ui/commit/d52cc7f6f37c027faec4f6b6bffa303395346374"
+      }
+    ]
+  }
+]

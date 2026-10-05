@@ -60,3 +60,7 @@ Retain the committed class-credit bounds, content-bound share, recovery of an of
 - Secret/witness trust boundary and crash-safe local admission state; no per-envelope Registry write.
 
 [Semaphore assessment](semaphore-membership-option.md), [original requirement fit](requirements-fit-and-open-source.md), and [source reviews](../../reviews/competitive-event-systems/semaphore/README.md) provide source evidence. Cryptographic profile compatibility and production performance remain unverified.
+
+## Consumer integration
+
+The [private subscription design](pubsub-subscription-experience.md) adds a principal-bound local watch service, typed SDK and durable consumer journal above whole-shard recognition. Umbra/PostgreSQL or SQLite supplies the selected host's state tier; the consumer transaction and recovery semantics still need implementation. Optional versioned MCP, A2A and AG-UI adapters serve agent interfaces. Moth is a wallet connector, not membership or business authority. The [browser proof of concept](../../website/dist/subscriptions.html) demonstrates local mock delivery and explicit Moth connection controls; it does not run the protocol or persist state.

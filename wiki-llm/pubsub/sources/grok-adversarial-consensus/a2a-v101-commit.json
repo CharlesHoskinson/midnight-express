@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/a2aproject/A2A/commits/v1.0.1",
+  "retrieved_utc": "2026-10-05T18:20:55.031365+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "564d713ec06ddbf67795e28c2a31759b9e85596473e5bc6a9d9658cd5415d3ce",
+  "text_sha256": "056cf250dd3ec96b4ffadc40ec1d7996e9b88f3c39dd3a258c6da24f628d59dc",
+  "bytes": 7922,
+  "text_bytes": 7838,
+  "final_url": "https://api.github.com/repos/a2aproject/A2A/commits/v1.0.1",
+  "accepted_source": true
+}

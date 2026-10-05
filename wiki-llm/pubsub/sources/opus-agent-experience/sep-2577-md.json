@@ -1,0 +1,13 @@
+{
+  "url": "https://modelcontextprotocol.io/seps/2577-deprecate-roots-sampling-and-logging.md",
+  "retrieved_utc": "2026-10-05T18:11:34.863844+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "703d3b770604f05f916cf95430e618bacda0f34a656686db13bab9b590b69d97",
+  "text_sha256": "709cf51a803e5190e79831d51a5b5bfa354f61629fc879b936cca25d52bdd24a",
+  "bytes": 13494,
+  "text_bytes": 13256,
+  "final_url": "https://modelcontextprotocol.io/seps/2577-deprecate-roots-sampling-and-logging.md",
+  "accepted_source": true
+}

@@ -1,0 +1,23 @@
+{
+  "id": "opus-privacy-authority",
+  "exit_code": 0,
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 60,
+      "outputTokens": 18985,
+      "cacheReadInputTokens": 1667810,
+      "cacheCreationInputTokens": 80980,
+      "webSearchRequests": 0,
+      "costUSD": 1.3613419999999996,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 3603,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "is_error": false,
+  "report_exists": true,
+  "errors": null
+}

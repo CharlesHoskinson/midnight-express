@@ -1,0 +1,28 @@
+{
+  "url": "https://github.com/shieldedtech/moth-wallet/blob/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/entrypoints/content.ts",
+  "retrieved_utc": "2026-10-05T18:12:59.101274+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "39c4c2d998468077f8a538d7fb0a0f0f6e7afb58875f305ce947045d5b579474",
+  "text_sha256": "dc11fcf17b7ada3800fe9e5828d2e94d6127a38f038160009c9373da67e33e28",
+  "bytes": 271884,
+  "text_bytes": 5279,
+  "final_url": "https://github.com/shieldedtech/moth-wallet/blob/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/entrypoints/content.ts",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/opus-privacy-authority/moth-content-visual-tiles/github.com_shieldedtech_moth-wallet_blob_d48206a1957af09bf17bf5e941c2b5bccb12db63_packages_extension_entrypoints_content.ts.png.tiles/tile_0000.jpg",
+        "sha256": "8b69ecd7fcc2f9fe63146715d3ff340d20cd0b7cb6ea3c392106139faaf822a6"
+      },
+      {
+        "path": "sources/opus-privacy-authority/moth-content-visual-tiles/github.com_shieldedtech_moth-wallet_blob_d48206a1957af09bf17bf5e941c2b5bccb12db63_packages_extension_entrypoints_content.ts.png.tiles/tile_0001.jpg",
+        "sha256": "8a0d749c02a9391f6d2f25c545eb274c18d9255642bcb81add3aae367c90f122"
+      }
+    ],
+    "stderr": "2026-10-05 12:13:00,742 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 12:13:10,580 INFO pixelrag_render.backends.cdp: [w0] https://github.com/shieldedtech/moth-wallet/blob/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/entrypoints/content.ts \u2192 2 tiles (6.8s)\n2026-10-05 12:13:10,597 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 12:13:10,598 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

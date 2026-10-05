@@ -1,0 +1,241 @@
+[
+  {
+    "url": "https://api.github.com/repos/semaphore-protocol/semaphore/releases/351091372",
+    "assets_url": "https://api.github.com/repos/semaphore-protocol/semaphore/releases/351091372/assets",
+    "upload_url": "https://uploads.github.com/repos/semaphore-protocol/semaphore/releases/351091372/assets{?name,label}",
+    "html_url": "https://github.com/semaphore-protocol/semaphore/releases/tag/v4.14.3",
+    "id": 351091372,
+    "author": {
+      "login": "github-actions[bot]",
+      "id": 41898282,
+      "node_id": "MDM6Qm90NDE4OTgyODI=",
+      "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/github-actions%5Bbot%5D",
+      "html_url": "https://github.com/apps/github-actions",
+      "followers_url": "https://api.github.com/users/github-actions%5Bbot%5D/followers",
+      "following_url": "https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}",
+      "gists_url": "https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/github-actions%5Bbot%5D/subscriptions",
+      "organizations_url": "https://api.github.com/users/github-actions%5Bbot%5D/orgs",
+      "repos_url": "https://api.github.com/users/github-actions%5Bbot%5D/repos",
+      "events_url": "https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/github-actions%5Bbot%5D/received_events",
+      "type": "Bot",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "node_id": "RE_kwDOCrYAds4U7Tqs",
+    "tag_name": "v4.14.3",
+    "target_commitish": "main",
+    "name": "v4.14.3",
+    "draft": false,
+    "immutable": false,
+    "prerelease": false,
+    "created_at": "2026-07-08T17:41:29Z",
+    "updated_at": "2026-07-08T17:51:07Z",
+    "published_at": "2026-07-08T17:44:23Z",
+    "assets": [
+
+    ],
+    "tarball_url": "https://api.github.com/repos/semaphore-protocol/semaphore/tarball/v4.14.3",
+    "zipball_url": "https://api.github.com/repos/semaphore-protocol/semaphore/zipball/v4.14.3",
+    "body": "##    🐞 Bug Fixes\r\n\r\n* chore(group): update lean-imt package version by @vplasencia in https://github.com/semaphore-protocol/semaphore/pull/1089\r\n",
+    "mentions_count": 1
+  },
+  {
+    "url": "https://api.github.com/repos/semaphore-protocol/semaphore/releases/279431087",
+    "assets_url": "https://api.github.com/repos/semaphore-protocol/semaphore/releases/279431087/assets",
+    "upload_url": "https://uploads.github.com/repos/semaphore-protocol/semaphore/releases/279431087/assets{?name,label}",
+    "html_url": "https://github.com/semaphore-protocol/semaphore/releases/tag/v4.14.2",
+    "id": 279431087,
+    "author": {
+      "login": "github-actions[bot]",
+      "id": 41898282,
+      "node_id": "MDM6Qm90NDE4OTgyODI=",
+      "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/github-actions%5Bbot%5D",
+      "html_url": "https://github.com/apps/github-actions",
+      "followers_url": "https://api.github.com/users/github-actions%5Bbot%5D/followers",
+      "following_url": "https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}",
+      "gists_url": "https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/github-actions%5Bbot%5D/subscriptions",
+      "organizations_url": "https://api.github.com/users/github-actions%5Bbot%5D/orgs",
+      "repos_url": "https://api.github.com/users/github-actions%5Bbot%5D/repos",
+      "events_url": "https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/github-actions%5Bbot%5D/received_events",
+      "type": "Bot",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "node_id": "RE_kwDOCrYAds4Qp8ev",
+    "tag_name": "v4.14.2",
+    "target_commitish": "main",
+    "name": "v4.14.2",
+    "draft": false,
+    "immutable": false,
+    "prerelease": false,
+    "created_at": "2026-01-23T16:16:22Z",
+    "updated_at": "2026-01-23T16:21:05Z",
+    "published_at": "2026-01-23T16:21:05Z",
+    "assets": [
+
+    ],
+    "tarball_url": "https://api.github.com/repos/semaphore-protocol/semaphore/tarball/v4.14.2",
+    "zipball_url": "https://api.github.com/repos/semaphore-protocol/semaphore/zipball/v4.14.2",
+    "body": "##    🐞 Bug Fixes\n\n- [**@semaphore-protocol/data**](https://github.com/semaphore-protocol/semaphore/tree/main/packages/data): Use member index from event instead of array position in S…  -  by @johnson86tw in https://github.com/semaphore-protocol/semaphore/issues/1081 [
+(f1523)
+](https://github.com/semaphore-protocol/semaphore/commit/f1523df5)\n\n#####     [View changes on GitHub](https://github.com/semaphore-protocol/semaphore/compare/v4.14.1...v4.14.2)",
+    "mentions_count": 1
+  },
+  {
+    "url": "https://api.github.com/repos/semaphore-protocol/semaphore/releases/277984722",
+    "assets_url": "https://api.github.com/repos/semaphore-protocol/semaphore/releases/277984722/assets",
+    "upload_url": "https://uploads.github.com/repos/semaphore-protocol/semaphore/releases/277984722/assets{?name,label}",
+    "html_url": "https://github.com/semaphore-protocol/semaphore/releases/tag/v4.14.1",
+    "id": 277984722,
+    "author": {
+      "login": "github-actions[bot]",
+      "id": 41898282,
+      "node_id": "MDM6Qm90NDE4OTgyODI=",
+      "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/github-actions%5Bbot%5D",
+      "html_url": "https://github.com/apps/github-actions",
+      "followers_url": "https://api.github.com/users/github-actions%5Bbot%5D/followers",
+      "following_url": "https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}",
+      "gists_url": "https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/github-actions%5Bbot%5D/subscriptions",
+      "organizations_url": "https://api.github.com/users/github-actions%5Bbot%5D/orgs",
+      "repos_url": "https://api.github.com/users/github-actions%5Bbot%5D/repos",
+      "events_url": "https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/github-actions%5Bbot%5D/received_events",
+      "type": "Bot",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "node_id": "RE_kwDOCrYAds4QkbXS",
+    "tag_name": "v4.14.1",
+    "target_commitish": "main",
+    "name": "v4.14.1",
+    "draft": false,
+    "immutable": false,
+    "prerelease": false,
+    "created_at": "2026-01-19T16:11:40Z",
+    "updated_at": "2026-01-19T16:16:15Z",
+    "published_at": "2026-01-19T16:16:15Z",
+    "assets": [
+
+    ],
+    "tarball_url": "https://api.github.com/repos/semaphore-protocol/semaphore/tarball/v4.14.1",
+    "zipball_url": "https://api.github.com/repos/semaphore-protocol/semaphore/zipball/v4.14.1",
+    "body": "##    🐞 Bug Fixes\n\n- [**@semaphore-protocol/group**](https://github.com/semaphore-protocol/semaphore/tree/main/packages/group): Allow 0n values in Group constructor  -  by @johnson86tw in https://github.com/semaphore-protocol/semaphore/issues/1079 [
+(7a705)
+](https://github.com/semaphore-protocol/semaphore/commit/7a705104)\n- [**@semaphore-protocol/website**](https://github.com/semaphore-protocol/semaphore/tree/main/packages/website): Update nextjs version  -  by @vplasencia [
+(d99c5)
+](https://github.com/semaphore-protocol/semaphore/commit/d99c5644)\n\n#####     [View changes on GitHub](https://github.com/semaphore-protocol/semaphore/compare/v4.14.0...v4.14.1)",
+    "mentions_count": 2
+  },
+  {
+    "url": "https://api.github.com/repos/semaphore-protocol/semaphore/releases/257426268",
+    "assets_url": "https://api.github.com/repos/semaphore-protocol/semaphore/releases/257426268/assets",
+    "upload_url": "https://uploads.github.com/repos/semaphore-protocol/semaphore/releases/257426268/assets{?name,label}",
+    "html_url": "https://github.com/semaphore-protocol/semaphore/releases/tag/v4.14.0",
+    "id": 257426268,
+    "author": {
+      "login": "github-actions[bot]",
+      "id": 41898282,
+      "node_id": "MDM6Qm90NDE4OTgyODI=",
+      "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/github-actions%5Bbot%5D",
+      "html_url": "https://github.com/apps/github-actions",
+      "followers_url": "https://api.github.com/users/github-actions%5Bbot%5D/followers",
+      "following_url": "https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}",
+      "gists_url": "https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/github-actions%5Bbot%5D/subscriptions",
+      "organizations_url": "https://api.github.com/users/github-actions%5Bbot%5D/orgs",
+      "repos_url": "https://api.github.com/users/github-actions%5Bbot%5D/repos",
+      "events_url": "https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/github-actions%5Bbot%5D/received_events",
+      "type": "Bot",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "node_id": "RE_kwDOCrYAds4PWANc",
+    "tag_name": "v4.14.0",
+    "target_commitish": "main",
+    "name": "v4.14.0",
+    "draft": false,
+    "immutable": false,
+    "prerelease": false,
+    "created_at": "2025-10-27T10:21:28Z",
+    "updated_at": "2025-10-27T10:25:59Z",
+    "published_at": "2025-10-27T10:25:59Z",
+    "assets": [
+
+    ],
+    "tarball_url": "https://api.github.com/repos/semaphore-protocol/semaphore/tarball/v4.14.0",
+    "zipball_url": "https://api.github.com/repos/semaphore-protocol/semaphore/zipball/v4.14.0",
+    "body": "##    🚀 Features\n\n- [**@semaphore-protocol/data**](https://github.com/semaphore-protocol/semaphore/tree/main/packages/data): Add semaphore event listeners  -  by @Lauman in https://github.com/semaphore-protocol/semaphore/issues/1054 [
+(b55bf)
+](https://github.com/semaphore-protocol/semaphore/commit/b55bf7fd)\n\n##    🐞 Bug Fixes\n\n- [**@semaphore-protocol/data/ethers**](https://github.com/semaphore-protocol/semaphore/tree/main/packages/data/ethers): Correct MembersAdded map type to string[]  -  by @radik878 in https://github.com/semaphore-protocol/semaphore/issues/1033 [
+(e1e89)
+](https://github.com/semaphore-protocol/semaphore/commit/e1e89300)\n- [**@semaphore-protocol/scripts**](https://github.com/semaphore-protocol/semaphore/tree/main/packages/scripts): Replaced map with foreach func  -  by @CristianPerez06 in https://github.com/semaphore-protocol/semaphore/issues/1061 [
+(496e1)
+](https://github.com/semaphore-protocol/semaphore/commit/496e18ec)\n\n#####     [View changes on GitHub](https://github.com/semaphore-protocol/semaphore/compare/v4.13.2...v4.14.0)",
+    "mentions_count": 3
+  },
+  {
+    "url": "https://api.github.com/repos/semaphore-protocol/semaphore/releases/254001968",
+    "assets_url": "https://api.github.com/repos/semaphore-protocol/semaphore/releases/254001968/assets",
+    "upload_url": "https://uploads.github.com/repos/semaphore-protocol/semaphore/releases/254001968/assets{?name,label}",
+    "html_url": "https://github.com/semaphore-protocol/semaphore/releases/tag/v4.13.2",
+    "id": 254001968,
+    "author": {
+      "login": "github-actions[bot]",
+      "id": 41898282,
+      "node_id": "MDM6Qm90NDE4OTgyODI=",
+      "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/github-actions%5Bbot%5D",
+      "html_url": "https://github.com/apps/github-actions",
+      "followers_url": "https://api.github.com/users/github-actions%5Bbot%5D/followers",
+      "following_url": "https://api.github.com/users/github-actions%5Bbot%5D/following{/other_user}",
+      "gists_url": "https://api.github.com/users/github-actions%5Bbot%5D/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/github-actions%5Bbot%5D/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/github-actions%5Bbot%5D/subscriptions",
+      "organizations_url": "https://api.github.com/users/github-actions%5Bbot%5D/orgs",
+      "repos_url": "https://api.github.com/users/github-actions%5Bbot%5D/repos",
+      "events_url": "https://api.github.com/users/github-actions%5Bbot%5D/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/github-actions%5Bbot%5D/received_events",
+      "type": "Bot",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "node_id": "RE_kwDOCrYAds4PI8Mw",
+    "tag_name": "v4.13.2",
+    "target_commitish": "main",
+    "name": "v4.13.2",
+    "draft": false,
+    "immutable": false,
+    "prerelease": false,
+    "created_at": "2025-10-13T08:31:58Z",
+    "updated_at": "2025-10-13T08:36:35Z",
+    "published_at": "2025-10-13T08:36:35Z",
+    "assets": [
+
+    ],
+    "tarball_url": "https://api.github.com/repos/semaphore-protocol/semaphore/tarball/v4.13.2",
+    "zipball_url": "https://api.github.com/repos/semaphore-protocol/semaphore/zipball/v4.13.2",
+    "body": "##    🚀 Features\n\n- Support gnosis-chiado and gnosis networks  -  by @vplasencia [
+(cd02f)
+](https://github.com/semaphore-protocol/semaphore/commit/cd02f491)\n\n#####     [View changes on GitHub](https://github.com/semaphore-protocol/semaphore/compare/v4.13.1...v4.13.2)",
+    "mentions_count": 1
+  }
+]

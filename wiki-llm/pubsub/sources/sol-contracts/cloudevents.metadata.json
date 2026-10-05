@@ -1,0 +1,9 @@
+{
+  "url": "https://raw.githubusercontent.com/cloudevents/spec/v1.0.2/cloudevents/spec.md",
+  "status": 200,
+  "retrievedAt": "2026-10-05T18:04:43.484517+00:00",
+  "sha256": "e327435c858d19fd171e4ab9781a01fc22dfa949d23c4220976529ebd16a1aa3",
+  "bytes": 25542,
+  "method": "Scrapling Fetcher.get",
+  "visualGrounding": "pending PixelRAG route from coordinator"
+}

@@ -1,0 +1,386 @@
+[
+  {
+    "name": "_category_.json",
+    "path": "learn/jetstream/_category_.json",
+    "sha": "5612c7a4ee1c2db18ccfb4645ff9c42af3ddf0d7",
+    "size": 120,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/_category_.json?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/_category_.json",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/5612c7a4ee1c2db18ccfb4645ff9c42af3ddf0d7",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/_category_.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/_category_.json?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/5612c7a4ee1c2db18ccfb4645ff9c42af3ddf0d7",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/_category_.json"
+    }
+  },
+  {
+    "name": "acknowledgment.md",
+    "path": "learn/jetstream/acknowledgment.md",
+    "sha": "2de2723eee6c9e9181afa3552541908e99ca16ac",
+    "size": 13146,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/acknowledgment.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/acknowledgment.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/2de2723eee6c9e9181afa3552541908e99ca16ac",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/acknowledgment.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/acknowledgment.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/2de2723eee6c9e9181afa3552541908e99ca16ac",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/acknowledgment.md"
+    }
+  },
+  {
+    "name": "advanced-publishing.md",
+    "path": "learn/jetstream/advanced-publishing.md",
+    "sha": "76492c3d5a6a70c46a6ed566def60d09e7880fea",
+    "size": 11383,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/advanced-publishing.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/advanced-publishing.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/76492c3d5a6a70c46a6ed566def60d09e7880fea",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/advanced-publishing.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/advanced-publishing.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/76492c3d5a6a70c46a6ed566def60d09e7880fea",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/advanced-publishing.md"
+    }
+  },
+  {
+    "name": "altering-stream-state.md",
+    "path": "learn/jetstream/altering-stream-state.md",
+    "sha": "f82af50c711d498e6d31d48ff3528dd0526e72a8",
+    "size": 8026,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/altering-stream-state.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/altering-stream-state.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/f82af50c711d498e6d31d48ff3528dd0526e72a8",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/altering-stream-state.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/altering-stream-state.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/f82af50c711d498e6d31d48ff3528dd0526e72a8",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/altering-stream-state.md"
+    }
+  },
+  {
+    "name": "delivery-and-acknowledgment.md",
+    "path": "learn/jetstream/delivery-and-acknowledgment.md",
+    "sha": "3c972a95416203047d002a45250b90073206a674",
+    "size": 9286,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/delivery-and-acknowledgment.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/delivery-and-acknowledgment.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/3c972a95416203047d002a45250b90073206a674",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/delivery-and-acknowledgment.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/delivery-and-acknowledgment.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/3c972a95416203047d002a45250b90073206a674",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/delivery-and-acknowledgment.md"
+    }
+  },
+  {
+    "name": "filtering.md",
+    "path": "learn/jetstream/filtering.md",
+    "sha": "c9c5a76b194c4da1f5726e9abde661b1275fd448",
+    "size": 8221,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/filtering.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/filtering.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/c9c5a76b194c4da1f5726e9abde661b1275fd448",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/filtering.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/filtering.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/c9c5a76b194c4da1f5726e9abde661b1275fd448",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/filtering.md"
+    }
+  },
+  {
+    "name": "get-direct.md",
+    "path": "learn/jetstream/get-direct.md",
+    "sha": "d13f3511bcf44e4ad061d316e3291c87c224431d",
+    "size": 9124,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/get-direct.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/get-direct.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/d13f3511bcf44e4ad061d316e3291c87c224431d",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/get-direct.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/get-direct.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/d13f3511bcf44e4ad061d316e3291c87c224431d",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/get-direct.md"
+    }
+  },
+  {
+    "name": "index.md",
+    "path": "learn/jetstream/index.md",
+    "sha": "68e9a4e7fc4d7cb1eab9ca0d5ba4334ac4fac5b5",
+    "size": 3361,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/index.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/index.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/68e9a4e7fc4d7cb1eab9ca0d5ba4334ac4fac5b5",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/index.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/index.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/68e9a4e7fc4d7cb1eab9ca0d5ba4334ac4fac5b5",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/index.md"
+    }
+  },
+  {
+    "name": "message-ttl.md",
+    "path": "learn/jetstream/message-ttl.md",
+    "sha": "3d9ada9ff3404b49af1f4cb24e66820816e0f9cc",
+    "size": 8308,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/message-ttl.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/message-ttl.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/3d9ada9ff3404b49af1f4cb24e66820816e0f9cc",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/message-ttl.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/message-ttl.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/3d9ada9ff3404b49af1f4cb24e66820816e0f9cc",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/message-ttl.md"
+    }
+  },
+  {
+    "name": "mirrors-and-sources.md",
+    "path": "learn/jetstream/mirrors-and-sources.md",
+    "sha": "a23a21c8d87def68a2e4883416dad839e75eb481",
+    "size": 11376,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/mirrors-and-sources.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/mirrors-and-sources.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/a23a21c8d87def68a2e4883416dad839e75eb481",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/mirrors-and-sources.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/mirrors-and-sources.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/a23a21c8d87def68a2e4883416dad839e75eb481",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/mirrors-and-sources.md"
+    }
+  },
+  {
+    "name": "ordered-consumer.md",
+    "path": "learn/jetstream/ordered-consumer.md",
+    "sha": "c87a4b9b02066252f15e4ffa8503494b5420142a",
+    "size": 6754,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/ordered-consumer.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/ordered-consumer.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/c87a4b9b02066252f15e4ffa8503494b5420142a",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/ordered-consumer.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/ordered-consumer.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/c87a4b9b02066252f15e4ffa8503494b5420142a",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/ordered-consumer.md"
+    }
+  },
+  {
+    "name": "pausing.md",
+    "path": "learn/jetstream/pausing.md",
+    "sha": "475b29ed61ad6957be054ef45c9fdaaf07c44b31",
+    "size": 7132,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/pausing.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/pausing.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/475b29ed61ad6957be054ef45c9fdaaf07c44b31",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/pausing.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/pausing.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/475b29ed61ad6957be054ef45c9fdaaf07c44b31",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/pausing.md"
+    }
+  },
+  {
+    "name": "policies.md",
+    "path": "learn/jetstream/policies.md",
+    "sha": "d087d16dcb87ba4954484c0c14970a93d86238f3",
+    "size": 8592,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/policies.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/policies.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/d087d16dcb87ba4954484c0c14970a93d86238f3",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/policies.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/policies.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/d087d16dcb87ba4954484c0c14970a93d86238f3",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/policies.md"
+    }
+  },
+  {
+    "name": "priority-groups.md",
+    "path": "learn/jetstream/priority-groups.md",
+    "sha": "831b4de6bf5211dba81218f3ba6997ff5ea5cdf4",
+    "size": 13618,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/priority-groups.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/priority-groups.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/831b4de6bf5211dba81218f3ba6997ff5ea5cdf4",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/priority-groups.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/priority-groups.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/831b4de6bf5211dba81218f3ba6997ff5ea5cdf4",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/priority-groups.md"
+    }
+  },
+  {
+    "name": "publishing.md",
+    "path": "learn/jetstream/publishing.md",
+    "sha": "712e7b16f682195a00e0ef86dd2693aef3a8ebfd",
+    "size": 10565,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/publishing.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/publishing.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/712e7b16f682195a00e0ef86dd2693aef3a8ebfd",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/publishing.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/publishing.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/712e7b16f682195a00e0ef86dd2693aef3a8ebfd",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/publishing.md"
+    }
+  },
+  {
+    "name": "pull-consumers.md",
+    "path": "learn/jetstream/pull-consumers.md",
+    "sha": "1449bcf871cde768ea8e0f7b1565c7e52e5ef753",
+    "size": 7479,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/pull-consumers.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/pull-consumers.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/1449bcf871cde768ea8e0f7b1565c7e52e5ef753",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/pull-consumers.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/pull-consumers.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/1449bcf871cde768ea8e0f7b1565c7e52e5ef753",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/pull-consumers.md"
+    }
+  },
+  {
+    "name": "reading-back.md",
+    "path": "learn/jetstream/reading-back.md",
+    "sha": "d04734c33ebab7a539aec93fb4f91ca7a530c81e",
+    "size": 13263,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/reading-back.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/reading-back.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/d04734c33ebab7a539aec93fb4f91ca7a530c81e",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/reading-back.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/reading-back.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/d04734c33ebab7a539aec93fb4f91ca7a530c81e",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/reading-back.md"
+    }
+  },
+  {
+    "name": "retention-policies.md",
+    "path": "learn/jetstream/retention-policies.md",
+    "sha": "7ed43ded5203888d3d1f4841c01b84a7bcb77596",
+    "size": 11019,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/retention-policies.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/retention-policies.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/7ed43ded5203888d3d1f4841c01b84a7bcb77596",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/retention-policies.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/retention-policies.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/7ed43ded5203888d3d1f4841c01b84a7bcb77596",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/retention-policies.md"
+    }
+  },
+  {
+    "name": "shaping-the-stream.md",
+    "path": "learn/jetstream/shaping-the-stream.md",
+    "sha": "f32dfec8cb77ad179cb211b42910e419769f9f6a",
+    "size": 9545,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/shaping-the-stream.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/shaping-the-stream.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/f32dfec8cb77ad179cb211b42910e419769f9f6a",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/shaping-the-stream.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/shaping-the-stream.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/f32dfec8cb77ad179cb211b42910e419769f9f6a",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/shaping-the-stream.md"
+    }
+  },
+  {
+    "name": "subject-mapping.md",
+    "path": "learn/jetstream/subject-mapping.md",
+    "sha": "1ca3dfd8fdc606be336ec089408d876bd7795a6c",
+    "size": 9966,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/subject-mapping.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/subject-mapping.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/1ca3dfd8fdc606be336ec089408d876bd7795a6c",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/subject-mapping.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/subject-mapping.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/1ca3dfd8fdc606be336ec089408d876bd7795a6c",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/subject-mapping.md"
+    }
+  },
+  {
+    "name": "surviving-node-loss.md",
+    "path": "learn/jetstream/surviving-node-loss.md",
+    "sha": "d0142aa483e4ad03f4d3ade14186c1264cfaf574",
+    "size": 12194,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/surviving-node-loss.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/surviving-node-loss.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/d0142aa483e4ad03f4d3ade14186c1264cfaf574",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/surviving-node-loss.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/surviving-node-loss.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/d0142aa483e4ad03f4d3ade14186c1264cfaf574",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/surviving-node-loss.md"
+    }
+  },
+  {
+    "name": "where-next.md",
+    "path": "learn/jetstream/where-next.md",
+    "sha": "fa23c8405c644757c49be4726a34d0a6b8d2861e",
+    "size": 14981,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/where-next.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/where-next.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/fa23c8405c644757c49be4726a34d0a6b8d2861e",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/where-next.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/where-next.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/fa23c8405c644757c49be4726a34d0a6b8d2861e",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/where-next.md"
+    }
+  },
+  {
+    "name": "worker-pool.md",
+    "path": "learn/jetstream/worker-pool.md",
+    "sha": "8b5eb0c9432f017f2e60ae2efff6bcf15908b8e9",
+    "size": 8758,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/worker-pool.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/worker-pool.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/8b5eb0c9432f017f2e60ae2efff6bcf15908b8e9",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/worker-pool.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/worker-pool.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/8b5eb0c9432f017f2e60ae2efff6bcf15908b8e9",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/worker-pool.md"
+    }
+  },
+  {
+    "name": "your-first-stream.md",
+    "path": "learn/jetstream/your-first-stream.md",
+    "sha": "98757faf5c27c9d47dcf514c8944003dc899e1b7",
+    "size": 8753,
+    "url": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/your-first-stream.md?ref=main",
+    "html_url": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/your-first-stream.md",
+    "git_url": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/98757faf5c27c9d47dcf514c8944003dc899e1b7",
+    "download_url": "https://raw.githubusercontent.com/nats-io/nats.docs.v2/main/learn/jetstream/your-first-stream.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/nats-io/nats.docs.v2/contents/learn/jetstream/your-first-stream.md?ref=main",
+      "git": "https://api.github.com/repos/nats-io/nats.docs.v2/git/blobs/98757faf5c27c9d47dcf514c8944003dc899e1b7",
+      "html": "https://github.com/nats-io/nats.docs.v2/blob/main/learn/jetstream/your-first-stream.md"
+    }
+  }
+]

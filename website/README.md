@@ -8,6 +8,8 @@ Open `dist/index.html` or serve `dist` with a static HTTP server. The public rea
 
 - `dist/index.html`: workflows, architecture, use cases, glossary and FAQ.
 - `dist/data-model.html`: business meaning, contracts, adapters, versioning and the current reference’s limits.
+- `dist/specification.html`: Lean semantic rules, verified properties, public sources and proof assumptions.
+- `dist/subscriptions.html`: interactive local subscription demonstration and optional Moth connection controls.
 - `dist/implementation.html`: current local evidence, proposed protocol sprints and acceptance gates.
 
 Use-case cards are generated static HTML and remain readable without JavaScript. `dist/use-cases.js` preserves a snapshot of the canonical register; `dist/product-content.js` supplies editorial scenarios and interactive business walkthroughs. Changes to the register or editorial card copy require regeneration of the cards and canonical snapshot. Run this from the repository root:
@@ -45,3 +47,17 @@ GitHub Pages deploys pushes to `gh-pages`. A commit on the research branch alone
 The [architecture reviews](../reviews/architecture-page/), [product explanation reviews](../reviews/product-page/README.md), [Data Model reviews](../reviews/data-model-page/README.md) and [expanded reader-guidance reviews](../reviews/data-model-page/round-2/README.md) explain earlier design decisions. They are editorial evidence, not customer validation.
 
 The [Inkwell implementation review](../reviews/inkwell-product/implementation.md) records the current structural findings and protected technical claims. An [archived website account](../reviews/inkwell-product/implementation-before/website-readme.md) preserves earlier review assignments, validation reports, image-generation details and Humanizer provenance.
+
+## Subscription demonstration
+
+Serve `dist` over HTTP; the dashboard loads its public synthetic fixture JSON. It keeps state only in tab memory. The Moth adapter accepts the verified 4.0.1 reference interface on preprod, requires a click to connect and exposes no signer. Connection grants remain origin-wide.
+
+Run `node website/tests/moth-connector.cjs` for synthetic adapter checks. Browser checks use `node website/tests/subscriptions.cjs` with a local static server and Playwright; see the test for configurable paths. Offline fixture validation evidence lives in `wiki-llm/pubsub/data-model-fit.json`.
+
+Revalidate the public receipt bindings with `/tmp/mpe-data-model-validation-env/bin/python website/tests/check_fixtures.py` (or an environment with the model dependencies installed). This checker reads fixtures and invokes the actual validator without rewriting evidence.
+
+## Formal specification sources
+
+The canonical Lean project is `formal/lean` at the repository root. Copy its verified source modules, build definition, pinned toolchain and README into `dist/formal/lean` for public reading after the integrated build passes. Exclude `.lake` and generated build outputs. The public source set is a copy of the canonical project; verify byte equality before publishing. Browser QA lives in `website/tests/specification.cjs`.
+
+The site serves DM Sans and Space Grotesk locally, including their SIL Open Font Licenses and retrieval hashes under `dist/assets/fonts`. This avoids an external stylesheet dependency and keeps the subscription page compatible with its same-origin content policy.

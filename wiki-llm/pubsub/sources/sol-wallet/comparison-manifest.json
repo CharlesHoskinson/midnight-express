@@ -1,0 +1,30 @@
+[
+  {
+    "url": "https://api.github.com/search/repositories?q=dapp-connector-api+midnight",
+    "file": "midnight-api-search.txt",
+    "sha256": "1d5e1be17ca2820f944d197d6f60afcdd8a2dd5beb06203ab8592d2756d72ba7",
+    "status": 200,
+    "fetched": "2026-10-05"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/cardano-foundation/CIPs/master/CIP-0030/README.md",
+    "file": "cip30.txt",
+    "sha256": "bfd8d5160d9fa5b350b300da12f004c91b6cab3ff48f7e2b094d571f64debd1b",
+    "status": 200,
+    "fetched": "2026-10-05"
+  },
+  {
+    "url": "https://eips.ethereum.org/EIPS/eip-1193",
+    "file": "eip1193.txt",
+    "sha256": "64dcca614175a5fa54265904a3d82553441ca21adcb0cf2899feba4900b897cf",
+    "status": 200,
+    "fetched": "2026-10-05"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/wallet-standard/wallet-standard/master/README.md",
+    "file": "wallet-standard.txt",
+    "sha256": "a5b38c2ae17b29fc4871d38150d42b46a9bd6d115a86536b5aed38efe32b6d65",
+    "status": 200,
+    "fetched": "2026-10-05"
+  }
+]

@@ -1,0 +1,463 @@
+moth-wallet/packages/extension/lib/connector/constants.ts at d48206a1957af09bf17bf5e941c2b5bccb12db63 · shieldedtech/moth-wallet · GitHub
+Skip to content
+Navigation Menu
+Sign in
+Appearance settings
+Platform
+AI CODE CREATION
+GitHub Copilot
+Write better code with AI
+GitHub Copilot app
+Direct agents from issue to merge
+MCP Registry
+Integrate external tools
+DEVELOPER WORKFLOWS
+Actions
+Automate any workflow
+Codespaces
+Instant dev environments
+Issues
+Plan and track work
+Code Review
+Manage code changes
+Code Quality
+Enforce quality at merge
+APPLICATION SECURITY
+GitHub Advanced Security
+Find and fix vulnerabilities
+Code security
+Secure your code as you build
+Secret protection
+Stop leaks before they start
+EXPLORE
+Why GitHub
+Documentation
+Blog
+Changelog
+Marketplace
+View all features
+Solutions
+BY COMPANY SIZE
+Enterprises
+Small and medium teams
+Startups
+Nonprofits
+BY USE CASE
+App Modernization
+DevSecOps
+DevOps
+CI/CD
+View all use cases
+BY INDUSTRY
+Healthcare
+Financial services
+Manufacturing
+Government
+View all industries
+View all solutions
+Resources
+EXPLORE BY TOPIC
+AI
+Software Development
+DevOps
+Security
+View all topics
+EXPLORE BY TYPE
+Customer stories
+Events & webinars
+Ebooks & reports
+Business insights
+GitHub Skills
+SUPPORT & SERVICES
+Documentation
+Customer support
+Community forum
+Trust center
+Partners
+View all resources
+Open Source
+COMMUNITY
+GitHub Sponsors
+Fund open source developers
+PROGRAMS
+Security Lab
+Maintainer Community
+GitHub Stars
+Archive Program
+REPOSITORIES
+Topics
+Trending
+Collections
+Enterprise
+ENTERPRISE SOLUTIONS
+Enterprise platform
+AI-powered developer platform
+AVAILABLE ADD-ONS
+GitHub Advanced Security
+Enterprise-grade security features
+Copilot for Business
+Enterprise-grade AI features
+Premium Support
+Enterprise-grade 24/7 support
+Pricing
+Search
+/
+Sign in
+Sign up
+Appearance settings
+You signed in with another tab or window. 
+Reload
+ to refresh your session.
+You signed out in another tab or window. 
+Reload
+ to refresh your session.
+You switched accounts on another tab or window. 
+Reload
+ to refresh your session.
+Dismiss alert
+{{ message }}
+
+        shieldedtech
+
+/
+moth-wallet
+Public
+Notifications
+
+You must be signed in to change notification settings
+Fork
+    
+6
+
+          Star
+
+11
+Code
+Issues
+32
+Pull requests
+25
+Actions
+Projects
+Security and quality
+0
+Insights
+Additional navigation options
+
+          Code
+
+
+          Issues
+
+
+          Pull requests
+
+
+          Actions
+
+
+          Projects
+
+
+          Security and quality
+
+
+          Insights
+
+Files
+Expand file tree
+d48206a1957af09bf17bf5e941c2b5bccb12db63
+Breadcrumbs
+moth-wallet
+/
+packages
+/
+extension
+/
+lib
+/
+connector
+/
+constants.ts
+Copy path
+Blame
+More file actions
+Blame
+More file actions
+Latest commit
+History
+History
+History
+62 lines (56 loc) · 2.57 KB
+d48206a
+Breadcrumbs
+moth-wallet
+/
+packages
+/
+extension
+/
+lib
+/
+connector
+/
+constants.ts
+Copy path
+Top
+File metadata and controls
+Code
+Blame
+62 lines (56 loc) · 2.57 KB
+Raw
+Copy raw file
+Download raw file
+Open symbols panel
+Edit and raw actions
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+export
+const
+WALLET_ID
+=
+'moth'
+;
+export
+const
+WALLET_RDNS
+=
+'io.shielded.moth'
+;
+export
+const
+WALLET_NAME
+=
+'Moth Wallet'
+;
+/** Version of the @midnight-ntwrk/dapp-connector-api standard implemented. */
+export
+const
+API_VERSION
+=
+'4.0.1'
+;
+/** The Moth mark, inlined so the page never fetches from the extension.
+ *
+ *  Kept in step with brand/icon-small.svg — the simplified variant, because this
+ *  is what a dApp renders in a wallet-picker row, at about the size of a favicon.
+ *  It previously carried a purple diagonal that matched nothing: not the old
+ *  brand, and not the Moonlime palette in assets/globals.css. Hardcoded hexes
+ *  rather than CSS variables on purpose: this string is handed to a page we do
+ *  not control and must render without our stylesheet. */
+export
+const
+WALLET_ICON
+=
+'data:image/svg+xml;base64,'
++
+btoa
+(
+'<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 64 64"><rect width="64" height="64" rx="13" fill="#1c1f36"/><g transform="translate(32 33) scale(1.06) translate(-32 -36)"><g id="w"><path d="M35 22 C 47 22, 57 30, 62 41 C 50 44, 39 43, 35 38 Z" fill="#aeeb6b"/><path d="M35 37 C 42 39, 48 44, 46 51 C 39 54, 34 48, 33 41 Z" fill="#aeeb6b"/></g><use href="#w" transform="translate(64 0) scale(-1 1)"/><ellipse cx="32" cy="37" rx="3.2" ry="11" fill="#aeeb6b"/></g></svg>'
+,
+)
+;
+/** ConnectedAPI methods the MVP implements; everything else rejects with InternalError. */
+export
+const
+IMPLEMENTED_METHODS
+=
+[
+'getShieldedBalances'
+,
+'getUnshieldedBalances'
+,
+'getDustBalance'
+,
+'getShieldedAddresses'
+,
+'getUnshieldedAddress'
+,
+'getDustAddress'
+,
+'makeTransfer'
+,
+'submitTransaction'
+,
+'getConfiguration'
+,
+'getConnectionStatus'
+,
+'getTxHistory'
+,
+'signData'
+,
+'balanceSealedTransaction'
+,
+'balanceUnsealedTransaction'
+,
+'makeIntent'
+,
+'hintUsage'
+,
+'getProvingProvider'
+,
+]
+as
+const
+;
+export
+const
+NOT_IMPLEMENTED_METHODS
+=
+[
+]
+as
+const
+;
+/** Non-standard wallet extension methods — NOT in @midnight-ntwrk/dapp-connector-api
+ *  v4.0.1. Exposed on the injected API so DApps can call them (via a TS cast),
+ *  and proposed upstream separately. See specs/003-derive-app-secret. */
+export
+const
+EXTENSION_METHODS
+=
+[
+'deriveAppSecret'
+,
+]
+as
+const
+;
+/** Private RPC calls used by the page-local ProvingProvider proxy. */
+export
+const
+PROVING_PROVIDER_METHODS
+=
+[
+'provingProviderCheck'
+,
+'provingProviderProve'
+,
+]
+as
+const
+;
+export
+type
+ConnectorMethod
+=
+|
+'connect'
+|
+(
+typeof
+IMPLEMENTED_METHODS
+)
+[
+number
+]
+|
+(
+typeof
+NOT_IMPLEMENTED_METHODS
+)
+[
+number
+]
+|
+(
+typeof
+EXTENSION_METHODS
+)
+[
+number
+]
+|
+(
+typeof
+PROVING_PROVIDER_METHODS
+)
+[
+number
+]
+;
+Footer
+
+        © 2026 GitHub, Inc.
+      
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+
+      Manage cookies
+    
+
+        Do not share my personal information
+      
+
+    You can’t perform that action at this time.
+  

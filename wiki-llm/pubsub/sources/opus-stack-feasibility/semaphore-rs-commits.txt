@@ -1,0 +1,255 @@
+[
+  {
+    "sha": "ccf81861d4f10f196d3c705746003c54611fe784",
+    "node_id": "C_kwDON1Pbj9oAKGNjZjgxODYxZDRmMTBmMTk2ZDNjNzA1NzQ2MDAzYzU0NjExZmU3ODQ",
+    "commit": {
+      "author": {
+        "name": "Ya-wen, Jeng",
+        "email": "vivi432@yahoo.com.tw",
+        "date": "2025-10-07T02:06:41Z"
+      },
+      "committer": {
+        "name": "Ya-wen, Jeng",
+        "email": "vivi432@yahoo.com.tw",
+        "date": "2025-10-07T02:06:41Z"
+      },
+      "message": "chore: remove unused category from Cargo.toml",
+      "tree": {
+        "sha": "77d818dd53a4223de87dd99a9be08382a074289e",
+        "url": "https://api.github.com/repos/semaphore-protocol/semaphore-rs/git/trees/77d818dd53a4223de87dd99a9be08382a074289e"
+      },
+      "url": "https://api.github.com/repos/semaphore-protocol/semaphore-rs/git/commits/ccf81861d4f10f196d3c705746003c54611fe784",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/semaphore-protocol/semaphore-rs/commits/ccf81861d4f10f196d3c705746003c54611fe784",
+    "html_url": "https://github.com/semaphore-protocol/semaphore-rs/commit/ccf81861d4f10f196d3c705746003c54611fe784",
+    "comments_url": "https://api.github.com/repos/semaphore-protocol/semaphore-rs/commits/ccf81861d4f10f196d3c705746003c54611fe784/comments",
+    "author": {
+      "login": "vivianjeng",
+      "id": 17507085,
+      "node_id": "MDQ6VXNlcjE3NTA3MDg1",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17507085?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/vivianjeng",
+      "html_url": "https://github.com/vivianjeng",
+      "followers_url": "https://api.github.com/users/vivianjeng/followers",
+      "following_url": "https://api.github.com/users/vivianjeng/following{/other_user}",
+      "gists_url": "https://api.github.com/users/vivianjeng/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/vivianjeng/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/vivianjeng/subscriptions",
+      "organizations_url": "https://api.github.com/users/vivianjeng/orgs",
+      "repos_url": "https://api.github.com/users/vivianjeng/repos",
+      "events_url": "https://api.github.com/users/vivianjeng/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/vivianjeng/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "vivianjeng",
+      "id": 17507085,
+      "node_id": "MDQ6VXNlcjE3NTA3MDg1",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17507085?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/vivianjeng",
+      "html_url": "https://github.com/vivianjeng",
+      "followers_url": "https://api.github.com/users/vivianjeng/followers",
+      "following_url": "https://api.github.com/users/vivianjeng/following{/other_user}",
+      "gists_url": "https://api.github.com/users/vivianjeng/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/vivianjeng/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/vivianjeng/subscriptions",
+      "organizations_url": "https://api.github.com/users/vivianjeng/orgs",
+      "repos_url": "https://api.github.com/users/vivianjeng/repos",
+      "events_url": "https://api.github.com/users/vivianjeng/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/vivianjeng/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "6d07a53f02c3239eba9397d1d9a20ad735360e9a",
+        "url": "https://api.github.com/repos/semaphore-protocol/semaphore-rs/commits/6d07a53f02c3239eba9397d1d9a20ad735360e9a",
+        "html_url": "https://github.com/semaphore-protocol/semaphore-rs/commit/6d07a53f02c3239eba9397d1d9a20ad735360e9a"
+      }
+    ]
+  },
+  {
+    "sha": "6d07a53f02c3239eba9397d1d9a20ad735360e9a",
+    "node_id": "C_kwDON1Pbj9oAKDZkMDdhNTNmMDJjMzIzOWViYTkzOTdkMWQ5YTIwYWQ3MzUzNjBlOWE",
+    "commit": {
+      "author": {
+        "name": "Ya-wen, Jeng",
+        "email": "vivi432@yahoo.com.tw",
+        "date": "2025-10-07T02:05:04Z"
+      },
+      "committer": {
+        "name": "Ya-wen, Jeng",
+        "email": "vivi432@yahoo.com.tw",
+        "date": "2025-10-07T02:05:04Z"
+      },
+      "message": "v0.1.0",
+      "tree": {
+        "sha": "3bf8c93d3da8a41009e2e0648ce3d9b92edf02b6",
+        "url": "https://api.github.com/repos/semaphore-protocol/semaphore-rs/git/trees/3bf8c93d3da8a41009e2e0648ce3d9b92edf02b6"
+      },
+      "url": "https://api.github.com/repos/semaphore-protocol/semaphore-rs/git/commits/6d07a53f02c3239eba9397d1d9a20ad735360e9a",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null,
+        "verified_at": null
+      }
+    },
+    "url": "https://api.github.com/repos/semaphore-protocol/semaphore-rs/commits/6d07a53f02c3239eba9397d1d9a20ad735360e9a",
+    "html_url": "https://github.com/semaphore-protocol/semaphore-rs/commit/6d07a53f02c3239eba9397d1d9a20ad735360e9a",
+    "comments_url": "https://api.github.com/repos/semaphore-protocol/semaphore-rs/commits/6d07a53f02c3239eba9397d1d9a20ad735360e9a/comments",
+    "author": {
+      "login": "vivianjeng",
+      "id": 17507085,
+      "node_id": "MDQ6VXNlcjE3NTA3MDg1",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17507085?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/vivianjeng",
+      "html_url": "https://github.com/vivianjeng",
+      "followers_url": "https://api.github.com/users/vivianjeng/followers",
+      "following_url": "https://api.github.com/users/vivianjeng/following{/other_user}",
+      "gists_url": "https://api.github.com/users/vivianjeng/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/vivianjeng/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/vivianjeng/subscriptions",
+      "organizations_url": "https://api.github.com/users/vivianjeng/orgs",
+      "repos_url": "https://api.github.com/users/vivianjeng/repos",
+      "events_url": "https://api.github.com/users/vivianjeng/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/vivianjeng/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "vivianjeng",
+      "id": 17507085,
+      "node_id": "MDQ6VXNlcjE3NTA3MDg1",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17507085?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/vivianjeng",
+      "html_url": "https://github.com/vivianjeng",
+      "followers_url": "https://api.github.com/users/vivianjeng/followers",
+      "following_url": "https://api.github.com/users/vivianjeng/following{/other_user}",
+      "gists_url": "https://api.github.com/users/vivianjeng/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/vivianjeng/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/vivianjeng/subscriptions",
+      "organizations_url": "https://api.github.com/users/vivianjeng/orgs",
+      "repos_url": "https://api.github.com/users/vivianjeng/repos",
+      "events_url": "https://api.github.com/users/vivianjeng/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/vivianjeng/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "c5c4b5e46856ba77cf7d567582f5f02c10859bd4",
+        "url": "https://api.github.com/repos/semaphore-protocol/semaphore-rs/commits/c5c4b5e46856ba77cf7d567582f5f02c10859bd4",
+        "html_url": "https://github.com/semaphore-protocol/semaphore-rs/commit/c5c4b5e46856ba77cf7d567582f5f02c10859bd4"
+      }
+    ]
+  },
+  {
+    "sha": "c5c4b5e46856ba77cf7d567582f5f02c10859bd4",
+    "node_id": "C_kwDON1Pbj9oAKGM1YzRiNWU0Njg1NmJhNzdjZjdkNTY3NTgyZjVmMDJjMTA4NTliZDQ",
+    "commit": {
+      "author": {
+        "name": "Vivian Plasencia",
+        "email": "v.pcalana@gmail.com",
+        "date": "2025-10-06T08:12:23Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2025-10-06T08:12:23Z"
+      },
+      "message": "Merge pull request #19 from semaphore-protocol/v0.1.0-release\n\nV0.1.0 release",
+      "tree": {
+        "sha": "e11d5b27e7bc89e26d908b68c31105001939822d",
+        "url": "https://api.github.com/repos/semaphore-protocol/semaphore-rs/git/trees/e11d5b27e7bc89e26d908b68c31105001939822d"
+      },
+      "url": "https://api.github.com/repos/semaphore-protocol/semaphore-rs/git/commits/c5c4b5e46856ba77cf7d567582f5f02c10859bd4",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJo43nnCRC1aQ7uu5UhlAAAFbUQAC0U6xB+FQk+zZVDyfL6zYEE\nXMtlryrFKUqP7lECKiyMBfK9m7BeG1hvyYjRKgfbXuqA8VBLu3jIevXcNqKH3mUM\n5CEGz60r+cbMK/LGFj3+gPrpDtD8Gfuknwvik8AunZjGqU+GgSKWIqVSRLxEaP94\n64dYmm07fV22VZsylXXj4IbJVecFq5Bl3TVrg1jp3aMeHLXUtYDM3dngajKv2j28\nSmhv4poT3zGVw9kqprl12vFG5l2AIO1kvpoZnePBIQ51jusiM+59/FKCRN8I7mrA\nZzmtSkrs6olQZkWopwWBhFLOyssOSA1uxUcOyfTlANN2SyFa2z9E4mnul9MpLTsi\nbGYwIds7A8VfxVjGIBrVne/2vL6Htk1lEXc9hgkeA7S3PzoBJcF076NyeHcPLOT0\n/kcQUltMYNC06EHbvpV5I3OiRm178DmmzOz8JhPeKnHx5NN2IX5zATfObbwr/pkU\nDhrsT9TqecuIIqINPZG09I25vvwze2At0fti36z0ohHbyBs47+DHtL7tt0M0WOcA\nHPKyfFwfhuJlJK7vWTy98PCQsK2ViYvAEpB28b3wDXJODjL0pY/ijRfDW6nNPPHL\njaTxrioSFzjxh43/E7XfLYo/N3LxnIqHQl4rC7yignRSkGR+plqAxCZpbnAG5fbx\n4X3aFBThvfjcrfEU+hfJ\n=hwud\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree e11d5b27e7bc89e26d908b68c31105001939822d\nparent e619f6126f087ccab2c0ad5e39ba908d9bf0d853\nparent 91bf51f2675cd6ae0c437bf75c553a3aeda185b8\nauthor Vivian Plasencia 
+ 1759738343 +0200\ncommitter GitHub 
+ 1759738343 +0200\n\nMerge pull request #19 from semaphore-protocol/v0.1.0-release\n\nV0.1.0 release",
+        "verified_at": "2025-10-06T08:12:24Z"
+      }
+    },
+    "url": "https://api.github.com/repos/semaphore-protocol/semaphore-rs/commits/c5c4b5e46856ba77cf7d567582f5f02c10859bd4",
+    "html_url": "https://github.com/semaphore-protocol/semaphore-rs/commit/c5c4b5e46856ba77cf7d567582f5f02c10859bd4",
+    "comments_url": "https://api.github.com/repos/semaphore-protocol/semaphore-rs/commits/c5c4b5e46856ba77cf7d567582f5f02c10859bd4/comments",
+    "author": {
+      "login": "vplasencia",
+      "id": 52170174,
+      "node_id": "MDQ6VXNlcjUyMTcwMTc0",
+      "avatar_url": "https://avatars.githubusercontent.com/u/52170174?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/vplasencia",
+      "html_url": "https://github.com/vplasencia",
+      "followers_url": "https://api.github.com/users/vplasencia/followers",
+      "following_url": "https://api.github.com/users/vplasencia/following{/other_user}",
+      "gists_url": "https://api.github.com/users/vplasencia/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/vplasencia/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/vplasencia/subscriptions",
+      "organizations_url": "https://api.github.com/users/vplasencia/orgs",
+      "repos_url": "https://api.github.com/users/vplasencia/repos",
+      "events_url": "https://api.github.com/users/vplasencia/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/vplasencia/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "e619f6126f087ccab2c0ad5e39ba908d9bf0d853",
+        "url": "https://api.github.com/repos/semaphore-protocol/semaphore-rs/commits/e619f6126f087ccab2c0ad5e39ba908d9bf0d853",
+        "html_url": "https://github.com/semaphore-protocol/semaphore-rs/commit/e619f6126f087ccab2c0ad5e39ba908d9bf0d853"
+      },
+      {
+        "sha": "91bf51f2675cd6ae0c437bf75c553a3aeda185b8",
+        "url": "https://api.github.com/repos/semaphore-protocol/semaphore-rs/commits/91bf51f2675cd6ae0c437bf75c553a3aeda185b8",
+        "html_url": "https://github.com/semaphore-protocol/semaphore-rs/commit/91bf51f2675cd6ae0c437bf75c553a3aeda185b8"
+      }
+    ]
+  }
+]

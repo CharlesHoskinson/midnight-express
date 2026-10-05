@@ -1,0 +1,17 @@
+import MidnightExpress
+#print axioms MidnightExpress.validation_sound
+#print axioms MidnightExpress.validation_complete
+#print axioms MidnightExpress.acceptance_never_executes
+#print axioms MidnightExpress.accepted_source_role_principal
+#print axioms MidnightExpress.accepted_quote_rational_cash
+#print axioms MidnightExpress.accepted_quote_half_open
+#print axioms MidnightExpress.final_verdict_requires_final_record
+#print axioms MidnightExpress.accepted_approval_current_policy
+#print axioms MidnightExpress.accepted_approval_not_revoked
+#print axioms MidnightExpress.accepted_approval_bounded
+#print axioms MidnightExpress.unknown_profile_validation_rejected
+#print axioms MidnightExpress.stateful_check_never_executes
+#print axioms MidnightExpress.invalid_now_cannot_replay
+#print axioms MidnightExpress.occurrence_conflict_rejected
+#print axioms MidnightExpress.action_conflict_rejected
+#print axioms MidnightExpress.same_action_new_occurrence_duplicate

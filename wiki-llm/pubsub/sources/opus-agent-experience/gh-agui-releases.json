@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/ag-ui-protocol/ag-ui/releases?per_page=8",
+  "retrieved_utc": "2026-10-05T18:12:56.001656+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "4c0a0be794597939cb3195f8ae01facf1c7af80d25126217390200f17ce26f72",
+  "text_sha256": "297978b7631c028e3b9f969ba4c2a3e13050d1ddee1a07faeea57239c773e3ca",
+  "bytes": 38245,
+  "text_bytes": 36810,
+  "final_url": "https://api.github.com/repos/ag-ui-protocol/ag-ui/releases?per_page=8",
+  "accepted_source": true
+}

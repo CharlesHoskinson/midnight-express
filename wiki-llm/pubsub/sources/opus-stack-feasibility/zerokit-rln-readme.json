@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/vacp2p/zerokit/master/rln/README.md",
+  "retrieved_utc": "2026-10-05T18:11:57.542480+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "2fee233fb50ec9f5eb72e0053354005aea061e9625db34cb647a775ceebb7b10",
+  "text_sha256": "d89a4b5836f5090ee5a9dd3af8788b3add4211c9fc76fbfc95a3b63de774240a",
+  "bytes": 20307,
+  "text_bytes": 20049,
+  "final_url": "https://raw.githubusercontent.com/vacp2p/zerokit/master/rln/README.md",
+  "accepted_source": true
+}

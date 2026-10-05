@@ -1,0 +1,732 @@
+[
+  {
+    "sha": "2e3407e8166c21bfce7b354739c6f11e39a3fb2a",
+    "node_id": "C_kwDOBSHhDdoAKDJlMzQwN2U4MTY2YzIxYmZjZTdiMzU0NzM5YzZmMTFlMzlhM2ZiMmE",
+    "commit": {
+      "author": {
+        "name": "Darius Clark",
+        "email": "dariusc93@users.noreply.github.com",
+        "date": "2026-10-05T14:05:49Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-05T14:05:49Z"
+      },
+      "message": "chore: update igd-next to 0.18 (#6664)\n\n## Description\n\n\n\nUpdates igd-next to 0.18.0.\n\npossibly resolves #6243.\n\n## AI Assistance Disclosure\n\n\n\n**Tools used** _(required — write `none` if no AI was used)_: _e.g. none / Claude Code / Copilot / Cursor / ChatGPT_\n\n**Attestation** _(required)_:\n\n- [x] I have read every line of this diff, understand what it does, and can explain it in review.\n\n## Notes & open questions\n\n\n\nWhile this update *might* resolve #6243, further testing would need to be done (though it might be worth looking into implementing PMP/PCP in the near future as well). Additionally, this update introduces some optimizations, fixes, does allow us to remove a dependency from the tree. \n\n## Change checklist\n\n\n\n- [ ] I have performed a self-review of my own code\n- [ ] I have made corresponding changes to the documentation\n- [ ] I have added tests that prove my fix is effective or that my feature works\n- [ ] A changelog entry has been made in the appropriate crates\n\n\nApproved-by: jxs <1204690+jxs@users.noreply.github.com>",
+      "tree": {
+        "sha": "0a91efac33bd7d877d4b37b40320c5edd294f12e",
+        "url": "https://api.github.com/repos/libp2p/rust-libp2p/git/trees/0a91efac33bd7d877d4b37b40320c5edd294f12e"
+      },
+      "url": "https://api.github.com/repos/libp2p/rust-libp2p/git/commits/2e3407e8166c21bfce7b354739c6f11e39a3fb2a",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqw669CRC1aQ7uu5UhlAAAHDwQAGA/7BcjRs0bvBINl5rJIPma\n5+D1V9YC5tpZrX10eGrN/DxBJD4wQU/Qw18Gp39g5OBfjk5meZkg85onxT0Wn/+j\nRzVJwE6u7QmlLPcSL3xahEz+S7+fCGT+1CGRcb/GrY7V/AJGu6hsUVn0WHV/xJT+\nxp2VqnmHft2FII8H4e85SJ8EGIxRLzgtZmHU3xugwJy7tiQ2uzNY7ypTmeBba9w7\nMf8wFjSJQb+ynYlL+XDji5BfZkJobi2eyOXPEfErqmYhJBHFvcYCBr+SuxzB7NsA\nguhCH/1mZz/OXPyhtUpD+tZJly9t4jxAmv0rvd7BWTgpc6xwo6w9GW46MZ3XbJyp\ndkzNKWwudIiRYkff0QnMjiVxaSoKrcC3AU6KcG5HpeIWcUD5U8/USQ9A9xzwVwcj\n3ovew0Q8bQkNe5oOapco66aTQNCuOLJCoS1EgkqKvod01wPj9OpYg3MIOQLAVjyn\n0eQy5B0xjvgAfh2IeGD0HtMaJb0dosD7prJuIFtYlj1r58k90UI2B0jHmHkiL9UG\newOZtSEkxhOg25t0ObW3K0Uu6r7Ak0MDA9WMvfyQA129/U/ttIRiM8xlFQ+LjrVu\nZ7qWP7sM3VgkGWkYtW0cW9/SL+FM0b9a1dWfefHq5FVzvtgiPa2GN42k0dCiqC3S\n395VpT6anV0t22l07gxH\n=HjNb\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 0a91efac33bd7d877d4b37b40320c5edd294f12e\nparent 1472fef0ce0b76f0e813e9e23fece2f7a6daba5c\nauthor Darius Clark 
+ 1791209149 -0400\ncommitter GitHub 
+ 1791209149 +0000\n\nchore: update igd-next to 0.18 (#6664)\n\n## Description\n\n\n\nUpdates igd-next to 0.18.0.\n\npossibly resolves #6243.\n\n## AI Assistance Disclosure\n\n\n\n**Tools used** _(required — write `none` if no AI was used)_: _e.g. none / Claude Code / Copilot / Cursor / ChatGPT_\n\n**Attestation** _(required)_:\n\n- [x] I have read every line of this diff, understand what it does, and can explain it in review.\n\n## Notes & open questions\n\n\n\nWhile this update *might* resolve #6243, further testing would need to be done (though it might be worth looking into implementing PMP/PCP in the near future as well). Additionally, this update introduces some optimizations, fixes, does allow us to remove a dependency from the tree. \n\n## Change checklist\n\n\n\n- [ ] I have performed a self-review of my own code\n- [ ] I have made corresponding changes to the documentation\n- [ ] I have added tests that prove my fix is effective or that my feature works\n- [ ] A changelog entry has been made in the appropriate crates\n\n\nApproved-by: jxs <1204690+jxs@users.noreply.github.com>",
+        "verified_at": "2026-10-05T14:05:50Z"
+      }
+    },
+    "url": "https://api.github.com/repos/libp2p/rust-libp2p/commits/2e3407e8166c21bfce7b354739c6f11e39a3fb2a",
+    "html_url": "https://github.com/libp2p/rust-libp2p/commit/2e3407e8166c21bfce7b354739c6f11e39a3fb2a",
+    "comments_url": "https://api.github.com/repos/libp2p/rust-libp2p/commits/2e3407e8166c21bfce7b354739c6f11e39a3fb2a/comments",
+    "author": {
+      "login": "dariusc93",
+      "id": 3918024,
+      "node_id": "MDQ6VXNlcjM5MTgwMjQ=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3918024?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/dariusc93",
+      "html_url": "https://github.com/dariusc93",
+      "followers_url": "https://api.github.com/users/dariusc93/followers",
+      "following_url": "https://api.github.com/users/dariusc93/following{/other_user}",
+      "gists_url": "https://api.github.com/users/dariusc93/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/dariusc93/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/dariusc93/subscriptions",
+      "organizations_url": "https://api.github.com/users/dariusc93/orgs",
+      "repos_url": "https://api.github.com/users/dariusc93/repos",
+      "events_url": "https://api.github.com/users/dariusc93/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/dariusc93/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "1472fef0ce0b76f0e813e9e23fece2f7a6daba5c",
+        "url": "https://api.github.com/repos/libp2p/rust-libp2p/commits/1472fef0ce0b76f0e813e9e23fece2f7a6daba5c",
+        "html_url": "https://github.com/libp2p/rust-libp2p/commit/1472fef0ce0b76f0e813e9e23fece2f7a6daba5c"
+      }
+    ]
+  },
+  {
+    "sha": "1472fef0ce0b76f0e813e9e23fece2f7a6daba5c",
+    "node_id": "C_kwDOBSHhDdoAKDE0NzJmZWYwY2UwYjc2ZjBlODEzZTllMjNmZWNlMmY3YTZkYWJhNWM",
+    "commit": {
+      "author": {
+        "name": "dependabot[bot]",
+        "email": "49699333+dependabot[bot]@users.noreply.github.com",
+        "date": "2026-10-05T09:56:45Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-05T09:56:45Z"
+      },
+      "message": "deps: bump rand from 0.10.2 to 0.10.3 (#6644)\n\nBumps [rand](https://github.com/rust-random/rand) from 0.10.2 to 0.10.3.\n
+\n
+Changelog
+\n
+Sourced from 
+rand's changelog
+.
+\n
+\n
+[0.10.3] — 2026-09-20
+\n
+Fixes
+\n
+\n
+Fix 
+WeightedIndex
+ panic when the sum of float weights is infinite; return 
+Error::Overflow
+ instead (
+#1808
+)
+\n
+Fix spurious 
+Error::NonFinite
+ from 
+Uniform::new_inclusive
+ on large finite float ranges such as 
+0.0..=f64::MAX
+ (
+#1821
+)
+\n
+Fix possible panic due to sampling a deserialized 
+Uniform<char>
+ (
+#1831
+)
+\n
+\n
+Changes
+\n
+\n
+Report exact remaining lengths from 
+WeightedIndex::weights()
+ and reduce overhead when reading weights (
+#1838
+)
+\n
+\n
+#1808
+: 
+rust-random/rand#1808
+\n
+#1821
+: 
+rust-random/rand#1821
+\n
+#1831
+: 
+rust-random/rand#1831
+\n
+#1838
+: 
+rust-random/rand#1838
+\n
+\n
+\n
+\n
+Commits
+\n
+\n
+9e7d328
+ Prepare rand 0.10.3 (
+#1840
+)
+\n
+f73ce74
+ Optimize WeightedIndex weight lookup and iteration (
+#1838
+)
+\n
+ef9e044
+ Avoid panic from deserialized 
+Uniform\\<char>
+ where 
+range == 0
+ (
+#1831
+)
+\n
+c994eb1
+ docs: fix angle unit in quick start example (
+#1839
+)
+\n
+33dea4f
+ Test that WeightedIndex rejects INFINITY with Error::Overflow (
+#1822
+)
+\n
+94c9078
+ Fix Uniform::new_inclusive overflow on large finite float ranges (
+#1821
+)
+\n
+bb1262f
+ Use Xoshiro256PlusPlus in examples/rayon-monte-carlo.rs (
+#1805
+)
+\n
+521fab6
+ Stop pinning dependencies (
+#1820
+)
+\n
+3f7c433
+ Stop pinning dependencies
+\n
+cf4f73e
+ sample_efraimidis_spirakis: error on more than amount non-finite weights (
+#1814
+)
+\n
+Additional commits viewable in 
+compare view
+\n
+\n
+\n
+\n\n\nApproved-by: mergify[bot] <37929162+mergify[bot]@users.noreply.github.com>",
+      "tree": {
+        "sha": "e97fe743b135a7db234b814359e5c777ef618e50",
+        "url": "https://api.github.com/repos/libp2p/rust-libp2p/git/trees/e97fe743b135a7db234b814359e5c777ef618e50"
+      },
+      "url": "https://api.github.com/repos/libp2p/rust-libp2p/git/commits/1472fef0ce0b76f0e813e9e23fece2f7a6daba5c",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqw3RdCRC1aQ7uu5UhlAAADOAQABqtEmwUnrRv/HZ1UmOvgPxB\nYjaumvVEvSIQkP3Ot1+4RleT1/Ek4Bmg95E5NLz53IiMo3Ia8KcUBhE56kfJLL32\nwcj9id09ZxQ88np+3qfIwJNmOV+i0Q1d6LjPNfbJ/7wBeYSs0T+6g5aEDjqOJPN6\nqk4uDLKzlS/b0nuntZqlT8zFm2HbCWpC9eoD/snX+frHaMJzE35iGpywsgWoqcCE\n3opKh3KHoMLk9SjEu+rbV4GgOJAQZaoPqzfJy0AvlP2vCjG0Unx4ZfhQpjFO3Qva\npjSRvg0V/fFTKTfnJBYc2ak8C9/fiGwOG2+0JBqxtACALVffp+iAV/KRt8bw9eXs\nsBDIEIi56Fufr9X8CTRekCzkNZ9T+TvX6MBiJZstFSRMz4zEZFjSJTcbILy1x98y\n1wIsy91JJ7LFXn6ej8KEEpZFxO+4vpYAWiQ4lelm3L2p0u7ZK9REYNv/vBtnKSIe\nVOfHOT8a+AoALEuTTHeOfAmN/UXpPdTIFrLjk+mxvrSLiPSZH6IIR4WPt+lRe7lO\nJNjk/rp1HyhNq/lBMLh9yk657U7d8jMe4fTP+n3PemzBM1YaQbbqti1STK5HCAhE\n1r72+Vp38l+ksdywGEl2EtsnAu7R8+75qsmFZqrl1AYpKCqNEBsUkYZ0GQ2Wsn2S\nkVSeowtfoFHhX7TN9zhM\n=2kai\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree e97fe743b135a7db234b814359e5c777ef618e50\nparent f5ae50590b5913fcf500719c910ea4fabc4877c4\nauthor dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com> 1791194205 +0000\ncommitter GitHub 
+ 1791194205 +0000\n\ndeps: bump rand from 0.10.2 to 0.10.3 (#6644)\n\nBumps [rand](https://github.com/rust-random/rand) from 0.10.2 to 0.10.3.\n
+\n
+Changelog
+\n
+Sourced from 
+rand's changelog
+.
+\n
+\n
+[0.10.3] — 2026-09-20
+\n
+Fixes
+\n
+\n
+Fix 
+WeightedIndex
+ panic when the sum of float weights is infinite; return 
+Error::Overflow
+ instead (
+#1808
+)
+\n
+Fix spurious 
+Error::NonFinite
+ from 
+Uniform::new_inclusive
+ on large finite float ranges such as 
+0.0..=f64::MAX
+ (
+#1821
+)
+\n
+Fix possible panic due to sampling a deserialized 
+Uniform<char>
+ (
+#1831
+)
+\n
+\n
+Changes
+\n
+\n
+Report exact remaining lengths from 
+WeightedIndex::weights()
+ and reduce overhead when reading weights (
+#1838
+)
+\n
+\n
+#1808
+: 
+rust-random/rand#1808
+\n
+#1821
+: 
+rust-random/rand#1821
+\n
+#1831
+: 
+rust-random/rand#1831
+\n
+#1838
+: 
+rust-random/rand#1838
+\n
+\n
+\n
+\n
+Commits
+\n
+\n
+9e7d328
+ Prepare rand 0.10.3 (
+#1840
+)
+\n
+f73ce74
+ Optimize WeightedIndex weight lookup and iteration (
+#1838
+)
+\n
+ef9e044
+ Avoid panic from deserialized 
+Uniform\\<char>
+ where 
+range == 0
+ (
+#1831
+)
+\n
+c994eb1
+ docs: fix angle unit in quick start example (
+#1839
+)
+\n
+33dea4f
+ Test that WeightedIndex rejects INFINITY with Error::Overflow (
+#1822
+)
+\n
+94c9078
+ Fix Uniform::new_inclusive overflow on large finite float ranges (
+#1821
+)
+\n
+bb1262f
+ Use Xoshiro256PlusPlus in examples/rayon-monte-carlo.rs (
+#1805
+)
+\n
+521fab6
+ Stop pinning dependencies (
+#1820
+)
+\n
+3f7c433
+ Stop pinning dependencies
+\n
+cf4f73e
+ sample_efraimidis_spirakis: error on more than amount non-finite weights (
+#1814
+)
+\n
+Additional commits viewable in 
+compare view
+\n
+\n
+\n
+\n\n\nApproved-by: mergify[bot] <37929162+mergify[bot]@users.noreply.github.com>",
+        "verified_at": "2026-10-05T09:56:45Z"
+      }
+    },
+    "url": "https://api.github.com/repos/libp2p/rust-libp2p/commits/1472fef0ce0b76f0e813e9e23fece2f7a6daba5c",
+    "html_url": "https://github.com/libp2p/rust-libp2p/commit/1472fef0ce0b76f0e813e9e23fece2f7a6daba5c",
+    "comments_url": "https://api.github.com/repos/libp2p/rust-libp2p/commits/1472fef0ce0b76f0e813e9e23fece2f7a6daba5c/comments",
+    "author": {
+      "login": "dependabot[bot]",
+      "id": 49699333,
+      "node_id": "MDM6Qm90NDk2OTkzMzM=",
+      "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/dependabot%5Bbot%5D",
+      "html_url": "https://github.com/apps/dependabot",
+      "followers_url": "https://api.github.com/users/dependabot%5Bbot%5D/followers",
+      "following_url": "https://api.github.com/users/dependabot%5Bbot%5D/following{/other_user}",
+      "gists_url": "https://api.github.com/users/dependabot%5Bbot%5D/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/dependabot%5Bbot%5D/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/dependabot%5Bbot%5D/subscriptions",
+      "organizations_url": "https://api.github.com/users/dependabot%5Bbot%5D/orgs",
+      "repos_url": "https://api.github.com/users/dependabot%5Bbot%5D/repos",
+      "events_url": "https://api.github.com/users/dependabot%5Bbot%5D/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/dependabot%5Bbot%5D/received_events",
+      "type": "Bot",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "f5ae50590b5913fcf500719c910ea4fabc4877c4",
+        "url": "https://api.github.com/repos/libp2p/rust-libp2p/commits/f5ae50590b5913fcf500719c910ea4fabc4877c4",
+        "html_url": "https://github.com/libp2p/rust-libp2p/commit/f5ae50590b5913fcf500719c910ea4fabc4877c4"
+      }
+    ]
+  },
+  {
+    "sha": "f5ae50590b5913fcf500719c910ea4fabc4877c4",
+    "node_id": "C_kwDOBSHhDdoAKGY1YWU1MDU5MGI1OTEzZmNmNTAwNzE5YzkxMGVhNGZhYmM0ODc3YzQ",
+    "commit": {
+      "author": {
+        "name": "dependabot[bot]",
+        "email": "49699333+dependabot[bot]@users.noreply.github.com",
+        "date": "2026-10-05T08:35:19Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-05T08:35:19Z"
+      },
+      "message": "deps: bump quinn-proto from 0.11.18 to 0.11.19 (#6665)\n\nBumps [quinn-proto](https://github.com/quinn-rs/quinn) from 0.11.18 to 0.11.19.\n
+\n
+Release notes
+\n
+Sourced from 
+quinn-proto's releases
+.
+\n
+\n
+quinn-proto 0.11.19
+\n
+Fixes several advisories:
+\n
+\n
+MAX_STREAM_DATA frame opens streams over the stream limit
+\n
+Retry packet with a long token panics or exhausts client memory
+\n
+\n
+What's Changed
+\n
+\n
+0.11.x updates by 
+@​djc
+ in 
+quinn-rs/quinn#2882
+\n
+backport: fix: make handshake_data cancellation-safe by 
+@​robertkiel
+ in 
+quinn-rs/quinn#2881
+\n
+backport: fix: potential CID leak in connect() by 
+@​robertkiel
+ in 
+quinn-rs/quinn#2878
+\n
+backport: fix: cleanup state if transmit failed by 
+@​robertkiel
+ in 
+quinn-rs/quinn#2879
+\n
+backport: fix: stale waker in 
+blocked_readers
+ by 
+@​robertkiel
+ in 
+quinn-rs/quinn#2880
+\n
+quinn-proto: Pad Initial datagrams to the configured minimum MTU (0.11) by 
+@​idevelop
+ in 
+quinn-rs/quinn#2894
+\n
+[0.11.x] quinn: Wake wait_idle when the endpoint driver is dropped by 
+@​njaremko
+ in 
+quinn-rs/quinn#2902
+\n
+Prepare 0.11.19 by 
+@​djc
+ in 
+quinn-rs/quinn#2905
+\n
+\n
+\n
+\n
+\n
+Commits
+\n
+\n
+8192ed3
+ udp: bump version to 0.5.16
+\n
+6862d3d
+ udp: backport receive error handling to 0.11.x
+\n
+78d30dc
+ proto: bump version to 0.11.19
+\n
+73114d8
+ Check MAX_STREAM_DATA on remote bidi streams against limit
+\n
+a6e78d1
+ proto: reserve close frame space after large Initial headers
+\n
+74c33ff
+ proto: reject Initial tokens that prevent packet construction
+\n
+f97fb5a
+ quinn: Wake wait_idle when the endpoint driver is dropped
+\n
+8ada074
+ quinn-proto: Pad Initial datagrams to the configured minimum MTU
+\n
+16ecc70
+ fix: stale waker in blocked_readers
+\n
+12d7f07
+ fix: cleanup state if transmit failed
+\n
+Additional commits viewable in 
+compare view
+\n
+\n
+\n
+\n\n\n[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=quinn-proto&package-manager=cargo&previous-version=0.11.18&new-version=0.11.19)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)\n\nYou can trigger a rebase of this PR by commenting `@dependabot rebase`.\n\n[//]: # (dependabot-automerge-start)\n[//]: # (dependabot-automerge-end)\n\n---\n\n
+\n
+Dependabot commands and options
+\n
+\n\nYou can trigger Dependabot actions by commenting on this PR:\n- `@dependabot rebase` will rebase this PR\n- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it\n- `@dependabot show 
+ ignore conditions` will show all of the ignore conditions of the specified dependency\n- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)\n- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)\n- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)\n\n\n
+\n\nApproved-by: mergify[bot] <37929162+mergify[bot]@users.noreply.github.com>",
+      "tree": {
+        "sha": "872fe58fe6278f3990ed463f77aae7d9a0af1248",
+        "url": "https://api.github.com/repos/libp2p/rust-libp2p/git/trees/872fe58fe6278f3990ed463f77aae7d9a0af1248"
+      },
+      "url": "https://api.github.com/repos/libp2p/rust-libp2p/git/commits/f5ae50590b5913fcf500719c910ea4fabc4877c4",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqw2FHCRC1aQ7uu5UhlAAAb+8QAET2rl7VOiZpHVvgh0SkvEgT\njZQrtHCl4eZY5WIO3NYVnh0wRn7mJxGfk4GmI5v9ZfUcOkgOK3iHYLM9S05AtbjQ\nmXxfwFN+Ijk7eKjXPspKvAbQMtm/I8NfIMc1gqf7/i0gLiSD0dT8oHGKTbLCD5tW\no0qZaVS76ifULk1iYgIxQhm1aj16j9R9Fl4d2yuPuHudMauTB0hhdEKeApJ8BlwA\n0jlVp64NtQeaxcC1858KVo4zriCvrq0mPB8ahgiUsqerOWaDX/F5e7ikJEzA6mBF\nypFp+1ZvYAiSbNS4+gJ3CVbsRGiibxjiBSLnMKN8WB3Ajduov1wZgFs4Qyxdmesi\nLAs/HeXbaSxkYVszE4E/v4p+pHBn2JI719PLP4B/qZV01tP3c5bu2RQLODEt+F1B\nqIpWyBzj8aYA1o5JJ8mjwnkUpdeY1eTIYGL2+Al1fGrDBk+gQlrdi74tvX7NgPUO\nJzGcCas8xCERjsG+wgrXqMNyt3FgaYzf6TL+C90fUnZjZ4yuRCaOSfHV/6/kMWbP\nQk6c+g91gtig7r1+0Jb9BGUFA/N2lfw4yzAyQOMbUbb5iub548ayNDkdoB3bqRa+\n5IejLHqjQJ5/uuR1cH/FygESjWKQZ1ZSSPUCRXrxhr+ZmTk7YRbf2LV05KaW7lHr\nP3Ayd16rBiOMTXJ++XIr\n=PBES\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 872fe58fe6278f3990ed463f77aae7d9a0af1248\nparent 4c08378612b6d410a22d141a0fe9df3e114b8755\nauthor dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com> 1791189319 +0000\ncommitter GitHub 
+ 1791189319 +0000\n\ndeps: bump quinn-proto from 0.11.18 to 0.11.19 (#6665)\n\nBumps [quinn-proto](https://github.com/quinn-rs/quinn) from 0.11.18 to 0.11.19.\n
+\n
+Release notes
+\n
+Sourced from 
+quinn-proto's releases
+.
+\n
+\n
+quinn-proto 0.11.19
+\n
+Fixes several advisories:
+\n
+\n
+MAX_STREAM_DATA frame opens streams over the stream limit
+\n
+Retry packet with a long token panics or exhausts client memory
+\n
+\n
+What's Changed
+\n
+\n
+0.11.x updates by 
+@​djc
+ in 
+quinn-rs/quinn#2882
+\n
+backport: fix: make handshake_data cancellation-safe by 
+@​robertkiel
+ in 
+quinn-rs/quinn#2881
+\n
+backport: fix: potential CID leak in connect() by 
+@​robertkiel
+ in 
+quinn-rs/quinn#2878
+\n
+backport: fix: cleanup state if transmit failed by 
+@​robertkiel
+ in 
+quinn-rs/quinn#2879
+\n
+backport: fix: stale waker in 
+blocked_readers
+ by 
+@​robertkiel
+ in 
+quinn-rs/quinn#2880
+\n
+quinn-proto: Pad Initial datagrams to the configured minimum MTU (0.11) by 
+@​idevelop
+ in 
+quinn-rs/quinn#2894
+\n
+[0.11.x] quinn: Wake wait_idle when the endpoint driver is dropped by 
+@​njaremko
+ in 
+quinn-rs/quinn#2902
+\n
+Prepare 0.11.19 by 
+@​djc
+ in 
+quinn-rs/quinn#2905
+\n
+\n
+\n
+\n
+\n
+Commits
+\n
+\n
+8192ed3
+ udp: bump version to 0.5.16
+\n
+6862d3d
+ udp: backport receive error handling to 0.11.x
+\n
+78d30dc
+ proto: bump version to 0.11.19
+\n
+73114d8
+ Check MAX_STREAM_DATA on remote bidi streams against limit
+\n
+a6e78d1
+ proto: reserve close frame space after large Initial headers
+\n
+74c33ff
+ proto: reject Initial tokens that prevent packet construction
+\n
+f97fb5a
+ quinn: Wake wait_idle when the endpoint driver is dropped
+\n
+8ada074
+ quinn-proto: Pad Initial datagrams to the configured minimum MTU
+\n
+16ecc70
+ fix: stale waker in blocked_readers
+\n
+12d7f07
+ fix: cleanup state if transmit failed
+\n
+Additional commits viewable in 
+compare view
+\n
+\n
+\n
+\n\n\n[![Dependabot compatibility score](https://dependabot-badges.githubapp.com/badges/compatibility_score?dependency-name=quinn-proto&package-manager=cargo&previous-version=0.11.18&new-version=0.11.19)](https://docs.github.com/en/github/managing-security-vulnerabilities/about-dependabot-security-updates#about-compatibility-scores)\n\nYou can trigger a rebase of this PR by commenting `@dependabot rebase`.\n\n[//]: # (dependabot-automerge-start)\n[//]: # (dependabot-automerge-end)\n\n---\n\n
+\n
+Dependabot commands and options
+\n
+\n\nYou can trigger Dependabot actions by commenting on this PR:\n- `@dependabot rebase` will rebase this PR\n- `@dependabot recreate` will recreate this PR, overwriting any edits that have been made to it\n- `@dependabot show 
+ ignore conditions` will show all of the ignore conditions of the specified dependency\n- `@dependabot ignore this major version` will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)\n- `@dependabot ignore this minor version` will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)\n- `@dependabot ignore this dependency` will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)\n\n\n
+\n\nApproved-by: mergify[bot] <37929162+mergify[bot]@users.noreply.github.com>",
+        "verified_at": "2026-10-05T08:35:19Z"
+      }
+    },
+    "url": "https://api.github.com/repos/libp2p/rust-libp2p/commits/f5ae50590b5913fcf500719c910ea4fabc4877c4",
+    "html_url": "https://github.com/libp2p/rust-libp2p/commit/f5ae50590b5913fcf500719c910ea4fabc4877c4",
+    "comments_url": "https://api.github.com/repos/libp2p/rust-libp2p/commits/f5ae50590b5913fcf500719c910ea4fabc4877c4/comments",
+    "author": {
+      "login": "dependabot[bot]",
+      "id": 49699333,
+      "node_id": "MDM6Qm90NDk2OTkzMzM=",
+      "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/dependabot%5Bbot%5D",
+      "html_url": "https://github.com/apps/dependabot",
+      "followers_url": "https://api.github.com/users/dependabot%5Bbot%5D/followers",
+      "following_url": "https://api.github.com/users/dependabot%5Bbot%5D/following{/other_user}",
+      "gists_url": "https://api.github.com/users/dependabot%5Bbot%5D/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/dependabot%5Bbot%5D/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/dependabot%5Bbot%5D/subscriptions",
+      "organizations_url": "https://api.github.com/users/dependabot%5Bbot%5D/orgs",
+      "repos_url": "https://api.github.com/users/dependabot%5Bbot%5D/repos",
+      "events_url": "https://api.github.com/users/dependabot%5Bbot%5D/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/dependabot%5Bbot%5D/received_events",
+      "type": "Bot",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "4c08378612b6d410a22d141a0fe9df3e114b8755",
+        "url": "https://api.github.com/repos/libp2p/rust-libp2p/commits/4c08378612b6d410a22d141a0fe9df3e114b8755",
+        "html_url": "https://github.com/libp2p/rust-libp2p/commit/4c08378612b6d410a22d141a0fe9df3e114b8755"
+      }
+    ]
+  }
+]

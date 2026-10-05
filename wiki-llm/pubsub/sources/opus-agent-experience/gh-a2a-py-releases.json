@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/a2aproject/a2a-python/releases?per_page=4",
+  "retrieved_utc": "2026-10-05T18:12:54.779116+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "63e177c1d4dd75ba4446cf2ceb39dbd94a8d26cd7397e9a92b37e3b3d864f3b6",
+  "text_sha256": "63e177c1d4dd75ba4446cf2ceb39dbd94a8d26cd7397e9a92b37e3b3d864f3b6",
+  "bytes": 13955,
+  "text_bytes": 13955,
+  "final_url": "https://api.github.com/repos/a2aproject/a2a-python/releases?per_page=4",
+  "accepted_source": true
+}

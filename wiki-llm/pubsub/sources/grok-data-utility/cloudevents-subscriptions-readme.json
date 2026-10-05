@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/cloudevents/spec/2ed3806b4ad8fda35813263cfefb2d73098b7655/subscriptions/README.md",
+  "retrieved_utc": "2026-10-05T18:22:10.501673+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "b8f4736b4df4e51d9ad04979fd662b6d85cefae52c5641cc5bdaa5048b78aaae",
+  "text_sha256": "b8f4736b4df4e51d9ad04979fd662b6d85cefae52c5641cc5bdaa5048b78aaae",
+  "bytes": 99,
+  "text_bytes": 99,
+  "final_url": "https://raw.githubusercontent.com/cloudevents/spec/2ed3806b4ad8fda35813263cfefb2d73098b7655/subscriptions/README.md",
+  "accepted_source": false
+}

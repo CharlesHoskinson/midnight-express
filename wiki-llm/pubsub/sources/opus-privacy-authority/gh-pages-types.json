@@ -1,0 +1,28 @@
+{
+  "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages",
+  "retrieved_utc": "2026-10-05T18:12:08.184785+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "f6628a6f67bb7fe6e5fa08af76e45e77e021de5f486fedbc197dd727b5c7add2",
+  "text_sha256": "b9fae6f08d527d9a354ade3f10271e082af897cbfaf94ba0294253c0d525ec1a",
+  "bytes": 94629,
+  "text_bytes": 3326,
+  "final_url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/opus-privacy-authority/gh-pages-types-tiles/docs.github.com_en_pages_getting-started-with-github-pages_what-is-github-pages.png.tiles/tile_0000.jpg",
+        "sha256": "c010772de910cf15c9aec22d3e06df26c7574a28b1550acb7ce9cd4f7f17824c"
+      },
+      {
+        "path": "sources/opus-privacy-authority/gh-pages-types-tiles/docs.github.com_en_pages_getting-started-with-github-pages_what-is-github-pages.png.tiles/tile_0001.jpg",
+        "sha256": "40e2d0ffbc54f1bad69f32f41c656c807e7a1cbe49f1dd7f5b6d7c64516eef74"
+      }
+    ],
+    "stderr": "2026-10-05 12:12:09,730 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 12:12:16,994 INFO pixelrag_render.backends.cdp: [w0] https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages \u2192 2 tiles (4.2s)\n2026-10-05 12:12:17,011 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 12:12:17,012 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

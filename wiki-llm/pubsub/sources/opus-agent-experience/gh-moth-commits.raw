@@ -1,0 +1,263 @@
+[
+  {
+    "sha": "d48206a1957af09bf17bf5e941c2b5bccb12db63",
+    "node_id": "C_kwDOT3t4DtoAKGQ0ODIwNmExOTU3YWYwOWJmMTdiZjVlOTQxYzJiNWJjY2IxMmRiNjM",
+    "commit": {
+      "author": {
+        "name": "Bob Blessing-Hartley",
+        "email": "90476727+bobblessinghartley@users.noreply.github.com",
+        "date": "2026-10-01T18:26:33Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-01T18:26:33Z"
+      },
+      "message": "Merge pull request #162 from shieldedtech/chrispalaskas/auto-lock-dapp-activity\n\nfix(extension): auto-lock counts dApp use as activity, and settings stop freezing defaults",
+      "tree": {
+        "sha": "d4c74dbde9c62e32b9d5be5a8640fb7bdb9b0cad",
+        "url": "https://api.github.com/repos/shieldedtech/moth-wallet/git/trees/d4c74dbde9c62e32b9d5be5a8640fb7bdb9b0cad"
+      },
+      "url": "https://api.github.com/repos/shieldedtech/moth-wallet/git/commits/d48206a1957af09bf17bf5e941c2b5bccb12db63",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqvqXZCRC1aQ7uu5UhlAAAGT8QAJfvCga6TLiXZsU25x+uAWBZ\nvhaRtZHo3en7T85wR0UL3zyuhUjQ7PxRkbVkfCfE/7UbW5xkxswRaJVlmJKA+f7j\nXy82cG03BMOJftirvrCbNtCU+4OqZM5OF1ZWUzlauO/Gml0m/eHEscwg23ejwVMJ\nC4jyewUKyX3tubrpORiV8og4t5t29bi0eeJNdVxULSQE0rzt8q1ESI1zwdCZGL3V\n0QD4yUzz0E2SgAS29P9pYVJngYOpWL2UFSCPMhjyqkjlBUl65///bYeOcunBpDTn\nA0iEzyXPqa4/5ISUJpX2jI20aUnCYlaE1/dYG26E0+BtOWLLGmP73/Q/L+KMLTfK\na2cP0rMBN2mbm8yWmufwxTH2ut4/Zh1siIjlCwPtdcLZ4PshKrw1CIWmCb0a3rBe\nNOK5Tz8AT3+LMfK1TNfIYsuzkNskC93frnymSOnnK2T5P4E7RXRWXYXyAkYeTq+A\nfsbRrMT+KQYr0rkc0P0nioipw3TirSShIL/EvbKygetEChKtr7kJddsFMw1qRYhR\nWaWeSBYKO1Fw+1B6JbIgNM39Ga+wc/qw+VmwoWAh3nti4StpYj15pFkQxQWNmbHR\nxRW8fh4kH7V55Fl1Cu3rT4w6ZlJPrZVj7u3U6IoMJgzMuvFP+Kevj44B7btVhojD\nXEJxqjzrA2UfLXsDIiqD\n=cIbk\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree d4c74dbde9c62e32b9d5be5a8640fb7bdb9b0cad\nparent 53009b6d655a04734e4ae0257e159a772b640181\nparent 107f38aa8830a139572ab54076027f6c39ce3ff5\nauthor Bob Blessing-Hartley <90476727+bobblessinghartley@users.noreply.github.com> 1790879193 -0400\ncommitter GitHub <noreply@github.com> 1790879193 -0400\n\nMerge pull request #162 from shieldedtech/chrispalaskas/auto-lock-dapp-activity\n\nfix(extension): auto-lock counts dApp use as activity, and settings stop freezing defaults",
+        "verified_at": "2026-10-01T18:26:34Z"
+      }
+    },
+    "url": "https://api.github.com/repos/shieldedtech/moth-wallet/commits/d48206a1957af09bf17bf5e941c2b5bccb12db63",
+    "html_url": "https://github.com/shieldedtech/moth-wallet/commit/d48206a1957af09bf17bf5e941c2b5bccb12db63",
+    "comments_url": "https://api.github.com/repos/shieldedtech/moth-wallet/commits/d48206a1957af09bf17bf5e941c2b5bccb12db63/comments",
+    "author": {
+      "login": "bobblessinghartley",
+      "id": 90476727,
+      "node_id": "MDQ6VXNlcjkwNDc2NzI3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/90476727?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/bobblessinghartley",
+      "html_url": "https://github.com/bobblessinghartley",
+      "followers_url": "https://api.github.com/users/bobblessinghartley/followers",
+      "following_url": "https://api.github.com/users/bobblessinghartley/following{/other_user}",
+      "gists_url": "https://api.github.com/users/bobblessinghartley/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/bobblessinghartley/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/bobblessinghartley/subscriptions",
+      "organizations_url": "https://api.github.com/users/bobblessinghartley/orgs",
+      "repos_url": "https://api.github.com/users/bobblessinghartley/repos",
+      "events_url": "https://api.github.com/users/bobblessinghartley/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/bobblessinghartley/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "53009b6d655a04734e4ae0257e159a772b640181",
+        "url": "https://api.github.com/repos/shieldedtech/moth-wallet/commits/53009b6d655a04734e4ae0257e159a772b640181",
+        "html_url": "https://github.com/shieldedtech/moth-wallet/commit/53009b6d655a04734e4ae0257e159a772b640181"
+      },
+      {
+        "sha": "107f38aa8830a139572ab54076027f6c39ce3ff5",
+        "url": "https://api.github.com/repos/shieldedtech/moth-wallet/commits/107f38aa8830a139572ab54076027f6c39ce3ff5",
+        "html_url": "https://github.com/shieldedtech/moth-wallet/commit/107f38aa8830a139572ab54076027f6c39ce3ff5"
+      }
+    ]
+  },
+  {
+    "sha": "107f38aa8830a139572ab54076027f6c39ce3ff5",
+    "node_id": "C_kwDOT3t4DtoAKDEwN2YzOGFhODgzMGExMzk1NzJhYjU0MDc2MDI3ZjZjMzljZTNmZjU",
+    "commit": {
+      "author": {
+        "name": "Christos Palaskas",
+        "email": "chris.palaskas@gmail.com",
+        "date": "2026-09-30T21:51:20Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-09-30T21:51:20Z"
+      },
+      "message": "Merge branch 'main' into chrispalaskas/auto-lock-dapp-activity",
+      "tree": {
+        "sha": "d4c74dbde9c62e32b9d5be5a8640fb7bdb9b0cad",
+        "url": "https://api.github.com/repos/shieldedtech/moth-wallet/git/trees/d4c74dbde9c62e32b9d5be5a8640fb7bdb9b0cad"
+      },
+      "url": "https://api.github.com/repos/shieldedtech/moth-wallet/git/commits/107f38aa8830a139572ab54076027f6c39ce3ff5",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqvYRYCRC1aQ7uu5UhlAAAgKMQAB9fF1Mp3DTJtl9sF8np9mt1\n2ofOYy0HrvVFLP2EE+09ab99M+tt91qdomG+5Onc79jIzrVzmuh0Wao4ygf4dInI\nZ3NdQNJEiVI8kPeHB7OuKh3Mz75C1yyyww94fLlWehSQgxRWgjbMwvzYsYz7d+RT\njDkEvv8qHIM8aih6MNFU4H9q6XmTYbCe/X8uHMq9DaAZA02BsQuuquzJKYK3G2Aa\nKwh6xG9aEqOT/Wa2znyuEzLpqRaocHaSQoubsqpMC26PnQk9Rj3cp4rQw2MCXsrl\nTYUmyNRZUNWQ5Qc+8Tvm7Y98ew2JlDa6tZad97r+h+QK6hUY6nD6rw+EFgwGmF41\nkDEuvOFvDV++OoHUdrBe728uZ1Xin5ninktr8G65b5I5QhXYDG8yUe99qfsEPYXt\nKD8FMqpZsXVEi2oS7efdhi3mlEgzo9EY9/AlFdyrkPfCUS4JsfyKW7pVG79bgnj3\nfzKpwvSr2hfLCabihwEFdGHv7y3tlFKdMzlpwIFWNOuuPmKP2LPtvEkOLI6Yc4+b\ng2YQVEaOkEmQJtNC9RJbs3rJqWva0MM3mt2I6kkwEVcAQkSW1NwjRD8RcxDFx1f7\n+2Ndqyu5WBxwDeKK7NZqa391ZnQEEEMNlU1I4QSqpmyYLbr5NIQMMn8NlWyuNggc\nxUBcVtFQN90cJohOutG/\n=AzE9\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree d4c74dbde9c62e32b9d5be5a8640fb7bdb9b0cad\nparent c74a8cc4a5703ccabdaa7ec12efc3074d7c67635\nparent 53009b6d655a04734e4ae0257e159a772b640181\nauthor Christos Palaskas <chris.palaskas@gmail.com> 1790805080 -0400\ncommitter GitHub <noreply@github.com> 1790805080 -0400\n\nMerge branch 'main' into chrispalaskas/auto-lock-dapp-activity",
+        "verified_at": "2026-09-30T21:51:21Z"
+      }
+    },
+    "url": "https://api.github.com/repos/shieldedtech/moth-wallet/commits/107f38aa8830a139572ab54076027f6c39ce3ff5",
+    "html_url": "https://github.com/shieldedtech/moth-wallet/commit/107f38aa8830a139572ab54076027f6c39ce3ff5",
+    "comments_url": "https://api.github.com/repos/shieldedtech/moth-wallet/commits/107f38aa8830a139572ab54076027f6c39ce3ff5/comments",
+    "author": {
+      "login": "chrispalaskas",
+      "id": 16150124,
+      "node_id": "MDQ6VXNlcjE2MTUwMTI0",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16150124?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chrispalaskas",
+      "html_url": "https://github.com/chrispalaskas",
+      "followers_url": "https://api.github.com/users/chrispalaskas/followers",
+      "following_url": "https://api.github.com/users/chrispalaskas/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chrispalaskas/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chrispalaskas/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chrispalaskas/subscriptions",
+      "organizations_url": "https://api.github.com/users/chrispalaskas/orgs",
+      "repos_url": "https://api.github.com/users/chrispalaskas/repos",
+      "events_url": "https://api.github.com/users/chrispalaskas/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chrispalaskas/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "c74a8cc4a5703ccabdaa7ec12efc3074d7c67635",
+        "url": "https://api.github.com/repos/shieldedtech/moth-wallet/commits/c74a8cc4a5703ccabdaa7ec12efc3074d7c67635",
+        "html_url": "https://github.com/shieldedtech/moth-wallet/commit/c74a8cc4a5703ccabdaa7ec12efc3074d7c67635"
+      },
+      {
+        "sha": "53009b6d655a04734e4ae0257e159a772b640181",
+        "url": "https://api.github.com/repos/shieldedtech/moth-wallet/commits/53009b6d655a04734e4ae0257e159a772b640181",
+        "html_url": "https://github.com/shieldedtech/moth-wallet/commit/53009b6d655a04734e4ae0257e159a772b640181"
+      }
+    ]
+  },
+  {
+    "sha": "53009b6d655a04734e4ae0257e159a772b640181",
+    "node_id": "C_kwDOT3t4DtoAKDUzMDA5YjZkNjU1YTA0NzM0ZTRhZTAyNTdlMTU5YTc3MmI2NDAxODE",
+    "commit": {
+      "author": {
+        "name": "Christos Palaskas",
+        "email": "chris.palaskas@gmail.com",
+        "date": "2026-09-30T21:49:28Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-09-30T21:49:28Z"
+      },
+      "message": "Merge pull request #169 from shieldedtech/chrispalaskas/dust-cap-in-flight\n\nfix(core): steady DUST balance and cap through a send, and an honest fill estimate",
+      "tree": {
+        "sha": "0c4f1be1f009027baf194a85e9177446936f33d6",
+        "url": "https://api.github.com/repos/shieldedtech/moth-wallet/git/trees/0c4f1be1f009027baf194a85e9177446936f33d6"
+      },
+      "url": "https://api.github.com/repos/shieldedtech/moth-wallet/git/commits/53009b6d655a04734e4ae0257e159a772b640181",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqvYPoCRC1aQ7uu5UhlAAAqzQQAF3BHONxWQgoh2s/1EBt/5cp\nqT0x8Rt+3fl5V7bKu82S2N8xhZBl0kPI+n6sLv9fL5A4LfL8QJ8ykkW0B6Aa+l+P\nbjR5YYLGZhHyeGO+ANJHWF7+iA9pwHCxC4Re2bWxHPWDo1Iv8rJwhSVW8A2hIywT\n4qxSMkgOxO8mMUXBQP1B9BZOMvyxjpfSEGSCiws8pgE3qQPBSqk3hYJTGyi6lUsB\nlZ/Ct7qz1BDtzxKtGSd0SS/HyZ3l95ExOVzemZRacm+eeex7mKjjpES+Oott6nIv\nHZTpWuw34cxaHn7kZMCd2X6vsnO7xpMhRJQUyVq/mRpFSf3ZcWvosYTBADIoVCqC\nmJh264HsbKAhoOedftEQTIbQOt2O9E7g58/w4olKxzUsDR3kPCzIAxr5PfaInqzq\n4CcZw9D5QRazV4zla5XVWTsOT9DkO4STnFfzPdkwSTqHIlE9AnTxZqWO1A2yGMT+\npF2n3X5w0UgG5fbOtUfXImyuwQ43twtUJud0e77x8PVUIGeKpdY0B6BfuHaooJlr\nW+uzYiY+Nkp11HuNmutSRFTRLoz3nlKznkqbQ8D+V7jyv2m2OB7XC8NqZYTbAJUG\nLd5KY7fBHaMl5/1J2OBDPoKt9JnCTjtf9zwuDPriPelky0mxotXkODmDSNtiC/c+\nc9gL1Dd73HmsaATkgFbV\n=4aNy\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 0c4f1be1f009027baf194a85e9177446936f33d6\nparent 048266f4d6578d708fe355808077239938ca6af9\nparent 6852e3d05a8ec26502b7b479db38f4accae5d547\nauthor Christos Palaskas <chris.palaskas@gmail.com> 1790804968 -0400\ncommitter GitHub <noreply@github.com> 1790804968 -0400\n\nMerge pull request #169 from shieldedtech/chrispalaskas/dust-cap-in-flight\n\nfix(core): steady DUST balance and cap through a send, and an honest fill estimate",
+        "verified_at": "2026-09-30T21:49:28Z"
+      }
+    },
+    "url": "https://api.github.com/repos/shieldedtech/moth-wallet/commits/53009b6d655a04734e4ae0257e159a772b640181",
+    "html_url": "https://github.com/shieldedtech/moth-wallet/commit/53009b6d655a04734e4ae0257e159a772b640181",
+    "comments_url": "https://api.github.com/repos/shieldedtech/moth-wallet/commits/53009b6d655a04734e4ae0257e159a772b640181/comments",
+    "author": {
+      "login": "chrispalaskas",
+      "id": 16150124,
+      "node_id": "MDQ6VXNlcjE2MTUwMTI0",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16150124?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chrispalaskas",
+      "html_url": "https://github.com/chrispalaskas",
+      "followers_url": "https://api.github.com/users/chrispalaskas/followers",
+      "following_url": "https://api.github.com/users/chrispalaskas/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chrispalaskas/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chrispalaskas/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chrispalaskas/subscriptions",
+      "organizations_url": "https://api.github.com/users/chrispalaskas/orgs",
+      "repos_url": "https://api.github.com/users/chrispalaskas/repos",
+      "events_url": "https://api.github.com/users/chrispalaskas/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chrispalaskas/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "048266f4d6578d708fe355808077239938ca6af9",
+        "url": "https://api.github.com/repos/shieldedtech/moth-wallet/commits/048266f4d6578d708fe355808077239938ca6af9",
+        "html_url": "https://github.com/shieldedtech/moth-wallet/commit/048266f4d6578d708fe355808077239938ca6af9"
+      },
+      {
+        "sha": "6852e3d05a8ec26502b7b479db38f4accae5d547",
+        "url": "https://api.github.com/repos/shieldedtech/moth-wallet/commits/6852e3d05a8ec26502b7b479db38f4accae5d547",
+        "html_url": "https://github.com/shieldedtech/moth-wallet/commit/6852e3d05a8ec26502b7b479db38f4accae5d547"
+      }
+    ]
+  }
+]

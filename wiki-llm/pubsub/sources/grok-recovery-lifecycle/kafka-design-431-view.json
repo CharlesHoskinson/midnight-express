@@ -1,0 +1,84 @@
+{
+  "url": "https://github.com/apache/kafka/blob/4.3.1/docs/design/design.md",
+  "retrieved_utc": "2026-10-05T18:32:32.193137+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "6146448efedf8d4381308f57797c294a52e6b7a90b121613ea1a7c0e90dbb1a7",
+  "text_sha256": "9e525df25017ee5e7a482aecf881f175b2911f75c2c40b90679b34ef5dcf244b",
+  "bytes": 571720,
+  "text_bytes": 75972,
+  "final_url": "https://github.com/apache/kafka/blob/4.3.1/docs/design/design.md",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/grok-recovery-lifecycle/kafka-design-431-view-tiles/github.com_apache_kafka_blob_4.3.1_docs_design_design.md.png.tiles/tile_0000.jpg",
+        "sha256": "6a7b4197c9d777ec7a6bad59fc3b6f6f0a22d77d8ee94a9efd76b8bf3eba9d77"
+      },
+      {
+        "path": "sources/grok-recovery-lifecycle/kafka-design-431-view-tiles/github.com_apache_kafka_blob_4.3.1_docs_design_design.md.png.tiles/tile_0001.jpg",
+        "sha256": "367645b7b1f29b8cc42e2722d6d64af246b2f09ee0428e7c2e7b488541055ef2"
+      },
+      {
+        "path": "sources/grok-recovery-lifecycle/kafka-design-431-view-tiles/github.com_apache_kafka_blob_4.3.1_docs_design_design.md.png.tiles/tile_0002.jpg",
+        "sha256": "c4067696feab193782da56aad73b1d1f6521e39bae1c36225eea6ba37c236363"
+      },
+      {
+        "path": "sources/grok-recovery-lifecycle/kafka-design-431-view-tiles/github.com_apache_kafka_blob_4.3.1_docs_design_design.md.png.tiles/tile_0003.jpg",
+        "sha256": "995d42db5d21832f159681018aeed7ded3d47476100f751d308d9a7855f16327"
+      },
+      {
+        "path": "sources/grok-recovery-lifecycle/kafka-design-431-view-tiles/github.com_apache_kafka_blob_4.3.1_docs_design_design.md.png.tiles/tile_0004.jpg",
+        "sha256": "c364289977819c7544b1cf6175db96899e512d48856e1a4e3e911ff5e03ff1fa"
+      },
+      {
+        "path": "sources/grok-recovery-lifecycle/kafka-design-431-view-tiles/github.com_apache_kafka_blob_4.3.1_docs_design_design.md.png.tiles/tile_0005.jpg",
+        "sha256": "6a6f0dc05d2b682db9efd65e7e3cd92674f6c09101429419a29559248da5a328"
+      },
+      {
+        "path": "sources/grok-recovery-lifecycle/kafka-design-431-view-tiles/github.com_apache_kafka_blob_4.3.1_docs_design_design.md.png.tiles/tile_0006.jpg",
+        "sha256": "1f69838287d68f8089cda6b65412ae9f9512da5b28286b63b1786cf34690a968"
+      },
+      {
+        "path": "sources/grok-recovery-lifecycle/kafka-design-431-view-tiles/github.com_apache_kafka_blob_4.3.1_docs_design_design.md.png.tiles/tile_0007.jpg",
+        "sha256": "9c549ca8018e66a0b0dd953c7b880b8ae6c9a48433bccfb1dcb86f49e9cac41c"
+      },
+      {
+        "path": "sources/grok-recovery-lifecycle/kafka-design-431-view-tiles/github.com_apache_kafka_blob_4.3.1_docs_design_design.md.png.tiles/tile_0008.jpg",
+        "sha256": "7369eb3b7d767767ec1485d9642877ef62eaeeb508f31da2d577457832747ec7"
+      },
+      {
+        "path": "sources/grok-recovery-lifecycle/kafka-design-431-view-tiles/github.com_apache_kafka_blob_4.3.1_docs_design_design.md.png.tiles/tile_0009.jpg",
+        "sha256": "04f76f6132ea49c87bf327c3be844fe6a2bfc870f4e7aaf14f031a53279172c4"
+      },
+      {
+        "path": "sources/grok-recovery-lifecycle/kafka-design-431-view-tiles/github.com_apache_kafka_blob_4.3.1_docs_design_design.md.png.tiles/tile_0010.jpg",
+        "sha256": "3f2a83a7801adb2b888b32601f98712237a3de7559687789388502dcc80ac7c4"
+      },
+      {
+        "path": "sources/grok-recovery-lifecycle/kafka-design-431-view-tiles/github.com_apache_kafka_blob_4.3.1_docs_design_design.md.png.tiles/tile_0011.jpg",
+        "sha256": "827d5715f2be9e36fbdb07e9bd4ca1fb366b2b9797f37ade904edd94f9d3bf67"
+      },
+      {
+        "path": "sources/grok-recovery-lifecycle/kafka-design-431-view-tiles/github.com_apache_kafka_blob_4.3.1_docs_design_design.md.png.tiles/tile_0012.jpg",
+        "sha256": "ea4b370c4b3f6f973e3fc58653e44b1959f77b75248cd01611f4386b4ede88ad"
+      },
+      {
+        "path": "sources/grok-recovery-lifecycle/kafka-design-431-view-tiles/github.com_apache_kafka_blob_4.3.1_docs_design_design.md.png.tiles/tile_0013.jpg",
+        "sha256": "1fc8043e50b68b4d4e8d66a279059de00ee663eb8e26328d16fde75f2a77bba3"
+      },
+      {
+        "path": "sources/grok-recovery-lifecycle/kafka-design-431-view-tiles/github.com_apache_kafka_blob_4.3.1_docs_design_design.md.png.tiles/tile_0014.jpg",
+        "sha256": "f2b4bcb3ed97acf51563bf0347bd27bc75d885b9e1c2406880b2a1c47b21a6c4"
+      },
+      {
+        "path": "sources/grok-recovery-lifecycle/kafka-design-431-view-tiles/github.com_apache_kafka_blob_4.3.1_docs_design_design.md.png.tiles/tile_0015.jpg",
+        "sha256": "977c3cb764934ddf7c23e3111b8907e1a65ce24c20c253639f089dc4a4ff31dc"
+      }
+    ],
+    "stderr": "2026-10-05 12:32:34,742 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 12:32:44,573 INFO pixelrag_render.backends.cdp: [w0] https://github.com/apache/kafka/blob/4.3.1/docs/design/design.md \u2192 16 tiles (6.8s)\n2026-10-05 12:32:44,591 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 12:32:44,591 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/apache/kafka/contents/docs/design?ref=4.3.1",
+  "retrieved_utc": "2026-10-05T18:20:58.868844+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "6ce7c914ca17a20318f563f56663aa6a8a58d5b66520f11044cce56205016cdb",
+  "text_sha256": "6ce7c914ca17a20318f563f56663aa6a8a58d5b66520f11044cce56205016cdb",
+  "bytes": 2616,
+  "text_bytes": 2616,
+  "final_url": "https://api.github.com/repos/apache/kafka/contents/docs/design?ref=4.3.1",
+  "accepted_source": true
+}

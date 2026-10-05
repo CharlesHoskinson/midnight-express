@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/reactive-streams/reactive-streams-jvm/tags?per_page=5",
+  "retrieved_utc": "2026-10-05T18:17:02.961108+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "88776e9d9f912cac130ab639ba6b9c572a25136812da3391da2491997826da8c",
+  "text_sha256": "88776e9d9f912cac130ab639ba6b9c572a25136812da3391da2491997826da8c",
+  "bytes": 2695,
+  "text_bytes": 2695,
+  "final_url": "https://api.github.com/repos/reactive-streams/reactive-streams-jvm/tags?per_page=5",
+  "accepted_source": true
+}

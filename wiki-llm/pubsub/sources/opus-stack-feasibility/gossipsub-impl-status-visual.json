@@ -1,0 +1,28 @@
+{
+  "url": "https://github.com/libp2p/specs/blob/9e9628a4f9a2be2ac79f40a162cd978c5b200b03/pubsub/gossipsub/implementation-status.md",
+  "retrieved_utc": "2026-10-05T18:16:51.717274+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "39fa6a6418fe711cc83c82e6fa69fc49eb3d4ff85fc2447e3a08142b687d8e5d",
+  "text_sha256": "b393b0a67dbbac5f945ecc04030f64baa8eb37e20042ec0a8d233bbdc2d8232c",
+  "bytes": 264423,
+  "text_bytes": 4132,
+  "final_url": "https://github.com/libp2p/specs/blob/9e9628a4f9a2be2ac79f40a162cd978c5b200b03/pubsub/gossipsub/implementation-status.md",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/opus-stack-feasibility/gossipsub-impl-status-visual-tiles/github.com_libp2p_specs_blob_9e9628a4f9a2be2ac79f40a162cd978c5b200b03_pubsub_gossipsub_implementation-status.md.png.tiles/tile_0000.jpg",
+        "sha256": "796db6604afbeaefdff18beb2ad95e31908d4f251cd9dfbeaed52de8fdff8fe9"
+      },
+      {
+        "path": "sources/opus-stack-feasibility/gossipsub-impl-status-visual-tiles/github.com_libp2p_specs_blob_9e9628a4f9a2be2ac79f40a162cd978c5b200b03_pubsub_gossipsub_implementation-status.md.png.tiles/tile_0001.jpg",
+        "sha256": "8a0d749c02a9391f6d2f25c545eb274c18d9255642bcb81add3aae367c90f122"
+      }
+    ],
+    "stderr": "2026-10-05 12:16:54,126 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 12:17:03,504 INFO pixelrag_render.backends.cdp: [w0] https://github.com/libp2p/specs/blob/9e9628a4f9a2be2ac79f40a162cd978c5b200b03/pubsub/gossipsub/implementation-status.md \u2192 2 tiles (6.3s)\n2026-10-05 12:17:03,521 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 12:17:03,522 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

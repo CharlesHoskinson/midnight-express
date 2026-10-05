@@ -1,0 +1,13 @@
+{
+  "url": "https://modelcontextprotocol.io/seps/1024-mcp-client-security-requirements-for-local-server-.md",
+  "retrieved_utc": "2026-10-05T18:11:36.095664+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "eb9677b70d6163a85a8af6778781c9104070463c2c77addf9af4785a7cba355a",
+  "text_sha256": "da0c8664fbfb21aaa7dc25201380135bb75762faeb7c33de9c584dbe92e1540d",
+  "bytes": 6082,
+  "text_bytes": 5928,
+  "final_url": "https://modelcontextprotocol.io/seps/1024-mcp-client-security-requirements-for-local-server-.md",
+  "accepted_source": true
+}

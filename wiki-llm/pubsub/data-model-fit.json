@@ -1,0 +1,1144 @@
+{
+  "kind": "OfflineModelFitReport",
+  "generatedUtc": "2026-10-05T18:10:35.599526+00:00",
+  "method": "actual model.validator Harness.check; local selector evaluated only after success",
+  "trustedContext": "model/conformance/trusted-context.json",
+  "trustedContextSha256": "ddbfa27d8b450dbf03da8183538e4fbdcff9916208fbb7f797f502aa4e769ffc",
+  "trustedNow": "2026-10-04T12:00:00.000Z",
+  "sourceTrust": "supplied trusted-test-fixture-only; unsigned; no production authentication",
+  "paymentContextNote": "Matching-evidence cases explicitly replace paymentEvidence with complete event data as supplied fixture evidence; this is not deriving trusted evidence from a live sender. Base-context outcomes remain separately visible.",
+  "cases": [
+    {
+      "case": "quote-exact-fixed-context",
+      "validation": "accepted",
+      "result": {
+        "status": "offchain-quote-valid",
+        "businessDigest": "sha256:28698f5da5ec1c8fb45234994d08a6347d9589b259e9e99c6bad27f547600c1b",
+        "executes": false
+      },
+      "selector": "all",
+      "localMatch": true,
+      "inputSha256": "2fe34e2cd91be6f62f999634efcab4d2ba6c1ed571df5258aeb392766181edd8"
+    },
+    {
+      "case": "approval-exact-fixed-context",
+      "validation": "accepted",
+      "result": {
+        "status": "sandbox-candidate-only",
+        "businessDigest": "sha256:c07ac4a484f0c52065e9529a9d3b67ff9e342561ca2b5642b25e8027a6bc1177",
+        "executes": false
+      },
+      "selector": "approval-report",
+      "localMatch": true,
+      "inputSha256": "00dbd2ace605226f3d084ef472e159f25889e976e1fbaf97880d771c06eddc78"
+    },
+    {
+      "case": "payment-pending-base-context",
+      "validation": "accepted",
+      "result": {
+        "status": "payment-evidence-pending-or-reversed",
+        "businessDigest": "sha256:ce78c4d311a10b50808fae25553ca657c07dc1079852f9528bf8e4ba18eca25a",
+        "executes": false
+      },
+      "selector": "payment-final",
+      "localMatch": false,
+      "inputSha256": "a09e94376012e77a7d9df43847d6a50ab6b43b618ea7d7f89b39c8d1d03c2b92"
+    },
+    {
+      "case": "payment-pending-supplied-matching-evidence",
+      "validation": "accepted",
+      "result": {
+        "status": "payment-evidence-pending-or-reversed",
+        "businessDigest": "sha256:ce78c4d311a10b50808fae25553ca657c07dc1079852f9528bf8e4ba18eca25a",
+        "executes": false
+      },
+      "selector": "payment-final",
+      "localMatch": false,
+      "inputSha256": "b1b0386f78bd0d1c33fe199fd008a308e27486de4a86c887e2833c42d1a09fc6"
+    },
+    {
+      "case": "payment-final-base-context",
+      "validation": "accepted",
+      "result": {
+        "status": "final-payment-evidence-only",
+        "businessDigest": "sha256:bc9a728810ec21666ce5ce5adfb645cc82d73daa3b5f2332a08579b9632aef6e",
+        "executes": false
+      },
+      "selector": "payment-final",
+      "localMatch": true,
+      "inputSha256": "be906e9bba30651deb91553ceff7acaa1f653de0a8a0c514e962813d4b71924f"
+    },
+    {
+      "case": "payment-final-supplied-matching-evidence",
+      "validation": "accepted",
+      "result": {
+        "status": "final-payment-evidence-only",
+        "businessDigest": "sha256:bc9a728810ec21666ce5ce5adfb645cc82d73daa3b5f2332a08579b9632aef6e",
+        "executes": false
+      },
+      "selector": "payment-final",
+      "localMatch": true,
+      "inputSha256": "72b9fbcec11b183f90360ebdc99fed6c6a9d01fad406f7be3b66cfbbba43080f"
+    },
+    {
+      "case": "payment-reversed-base-context",
+      "validation": "accepted",
+      "result": {
+        "status": "payment-evidence-pending-or-reversed",
+        "businessDigest": "sha256:45f77d7a04097fb25e7a38048fe09c8a4b75009c9f2d5c43c24bee96236c21d4",
+        "executes": false
+      },
+      "selector": "payment-final",
+      "localMatch": false,
+      "inputSha256": "19dc222bad9eb917cdabdb00f944ec0752073029a06d7fdf678b216f4030a599"
+    },
+    {
+      "case": "payment-reversed-supplied-matching-evidence",
+      "validation": "accepted",
+      "result": {
+        "status": "payment-evidence-pending-or-reversed",
+        "businessDigest": "sha256:45f77d7a04097fb25e7a38048fe09c8a4b75009c9f2d5c43c24bee96236c21d4",
+        "executes": false
+      },
+      "selector": "payment-final",
+      "localMatch": false,
+      "inputSha256": "578abaf3e6d9ac0d72df429e38574f15148beeaa2ce38c56d9a39138916fdbb7"
+    },
+    {
+      "case": "approval-initial-ledger",
+      "validation": "accepted",
+      "result": {
+        "status": "sandbox-candidate-only",
+        "businessDigest": "sha256:c07ac4a484f0c52065e9529a9d3b67ff9e342561ca2b5642b25e8027a6bc1177",
+        "executes": false
+      },
+      "selector": "all",
+      "localMatch": true,
+      "inputSha256": "38bc602311cb8c84e16a2d892259dc108090879a7f242f0b8c60ef950dfe913b"
+    },
+    {
+      "case": "approval-duplicate-occurrence",
+      "validation": "accepted",
+      "result": {
+        "status": "duplicate-event",
+        "businessDigest": "sha256:c07ac4a484f0c52065e9529a9d3b67ff9e342561ca2b5642b25e8027a6bc1177",
+        "executes": false
+      },
+      "selector": "all",
+      "localMatch": true,
+      "inputSha256": "38bc602311cb8c84e16a2d892259dc108090879a7f242f0b8c60ef950dfe913b"
+    },
+    {
+      "case": "approval-new-occurrence-same-action",
+      "validation": "accepted",
+      "result": {
+        "status": "duplicate-action",
+        "businessDigest": "sha256:c07ac4a484f0c52065e9529a9d3b67ff9e342561ca2b5642b25e8027a6bc1177",
+        "executes": false
+      },
+      "selector": "all",
+      "localMatch": true,
+      "inputSha256": "26d32470dbf58cba543dc10febd2ffc659ff34070a4a4139e9993e2f9e57d3a0"
+    },
+    {
+      "case": "approval-same-action-changed-content",
+      "validation": "rejected",
+      "reason": "action-identity-conflict",
+      "selector": "all",
+      "localMatch": false,
+      "inputSha256": "ec19619e049d49b9beba9b66ea30d3c379eaa883e55deb55784873e263dd56a6"
+    },
+    {
+      "case": "approval-revoked",
+      "validation": "rejected",
+      "reason": "human-or-revocation",
+      "selector": "all",
+      "localMatch": false,
+      "inputSha256": "00dbd2ace605226f3d084ef472e159f25889e976e1fbaf97880d771c06eddc78"
+    },
+    {
+      "case": "quote-expired-current-day",
+      "validation": "rejected",
+      "reason": "quote-validity",
+      "selector": "all",
+      "localMatch": false,
+      "inputSha256": "2fe34e2cd91be6f62f999634efcab4d2ba6c1ed571df5258aeb392766181edd8"
+    },
+    {
+      "case": "approval-expired-current-day",
+      "validation": "rejected",
+      "reason": "approval-validity",
+      "selector": "all",
+      "localMatch": false,
+      "inputSha256": "00dbd2ace605226f3d084ef472e159f25889e976e1fbaf97880d771c06eddc78"
+    },
+    {
+      "case": "quote-no-source-authority",
+      "validation": "rejected",
+      "reason": "source-role",
+      "selector": "all",
+      "localMatch": false,
+      "inputSha256": "2fe34e2cd91be6f62f999634efcab4d2ba6c1ed571df5258aeb392766181edd8"
+    },
+    {
+      "case": "payment-no-evidence",
+      "validation": "rejected",
+      "reason": "insufficient-payment-evidence",
+      "selector": "all",
+      "localMatch": false,
+      "inputSha256": "be906e9bba30651deb91553ceff7acaa1f653de0a8a0c514e962813d4b71924f"
+    },
+    {
+      "case": "new-contract-type-under-rfq-profile",
+      "validation": "rejected",
+      "reason": "schema-or-validation-failure",
+      "selector": "all",
+      "localMatch": false,
+      "inputSha256": "b8690102368354c714dd0776cec9cce86f4d06edc7f836bd3437a1e2fa7edd0f"
+    },
+    {
+      "case": "subscription-field-in-business-envelope",
+      "validation": "rejected",
+      "reason": "schema-or-validation-failure",
+      "selector": "all",
+      "localMatch": false,
+      "inputSha256": "a0e613765e87072fde4375212b25f23d8fab83bb92be2453f1881641fa983bb6"
+    }
+  ],
+  "allAcceptedExecutesFalse": true,
+  "limits": [
+    "No subscription runtime or wire validation",
+    "No browser validator",
+    "No live authority or payment execution",
+    "Selector matches never imply execution permission"
+  ],
+  "checker": "sources/sol-contracts/model-fit-check.py",
+  "validatorSha256": "444db9dbcc69f39cd9556d4304f7a0af139ca777b864f7f4bd18a541c3438b75",
+  "checkerSha256": "1e71f6a598ab533265c6ae96e526e7a2c6dde7a22e48473407889697c33049ee",
+  "dashboardReceipts": [
+    {
+      "fixtureIndex": 0,
+      "id": "event:rfq",
+      "schemaId": "urn:mpe:model:rfq.v0.2",
+      "profile": "rfq.v0.2",
+      "contract": "sha256:8b5c6b89f6019fcb06b479e92f1b3bea340ac500cc218341e368e1ed2093071c",
+      "eventHash": "sha256:3edca40205587937c600f22a7238c299d62a4be7960794f26d08f15717524e86",
+      "contextHash": "sha256:4969931696dd244c52754a0adebb1b7124b287000d9467dd0b16f23e9802e974",
+      "hashAlgorithm": "sha256 over RFC8785 JCS objects",
+      "trustedNow": "2026-10-04T12:00:00.000Z",
+      "trust": "offline synthetic fixture precheck; no live authority",
+      "event": {
+        "specversion": "1.0",
+        "id": "event:rfq",
+        "source": "urn:mpe:source:dealer",
+        "type": "mpe.rfq.quote.v0.2",
+        "time": "2026-10-04T11:00:00.000Z",
+        "datacontenttype": "application/json",
+        "dataschema": "urn:mpe:model:rfq.v0.2",
+        "mpeprofile": "rfq.v0.2",
+        "mpecontract": "sha256:8b5c6b89f6019fcb06b479e92f1b3bea340ac500cc218341e368e1ed2093071c",
+        "data": {
+          "rfqId": "rfq:demo",
+          "quoteId": "quote:demo",
+          "requester": "party:buyer",
+          "dealer": "party:dealer",
+          "requesterSide": "BuyAsset",
+          "buyer": "party:buyer",
+          "seller": "party:dealer",
+          "asset": "asset:pilot-share-42",
+          "quantity": {
+            "coefficient": "100",
+            "scale": 0,
+            "unit": "Share"
+          },
+          "currency": "iso4217:USD",
+          "price": {
+            "kind": "AbsolutePerUnit",
+            "value": {
+              "coefficient": "12345",
+              "scale": 2
+            },
+            "currency": "iso4217:USD",
+            "assetRef": "asset:pilot-share-42",
+            "unit": "Share",
+            "baseQuantity": "1",
+            "fees": "None"
+          },
+          "cash": {
+            "coefficient": "1234500",
+            "scale": 2
+          },
+          "quoteKind": "Firm",
+          "validFrom": "2026-10-04T11:00:00.000Z",
+          "validUntil": "2026-10-04T13:00:00.000Z",
+          "settlement": "OffchainCoordinationOnly"
+        }
+      },
+      "context": {
+        "authorityDomain": "urn:mpe:sandbox:local",
+        "executionScope": "scope:fixture",
+        "budgetWindow": "window:fixture",
+        "fixtureTrust": "trusted-test-fixture-only",
+        "now": "2026-10-04T12:00:00.000Z",
+        "sources": {
+          "urn:mpe:source:dealer": {
+            "role": "dealer",
+            "principal": "party:dealer"
+          },
+          "urn:mpe:source:bank": {
+            "role": "payment-adapter",
+            "principal": "fixture-bank-v1"
+          },
+          "urn:mpe:source:human": {
+            "role": "human-approver",
+            "principal": "human:alice"
+          }
+        },
+        "rfqs": {
+          "rfq:demo": {
+            "requester": "party:buyer",
+            "dealer": "party:dealer",
+            "requesterSide": "BuyAsset",
+            "asset": "asset:pilot-share-42",
+            "quantity": {
+              "coefficient": "100",
+              "scale": 0,
+              "unit": "Share"
+            },
+            "currency": "iso4217:USD",
+            "state": "open"
+          }
+        },
+        "invoices": {
+          "invoice:supplier/demo": {
+            "supplier": "party:supplier",
+            "customer": "party:customer",
+            "currency": "iso4217:USD",
+            "payable": {
+              "coefficient": "50000",
+              "scale": 2
+            },
+            "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111"
+          }
+        },
+        "paymentEvidence": {
+          "payment:demo": {
+            "invoiceId": "invoice:supplier/demo",
+            "supplier": "party:supplier",
+            "customer": "party:customer",
+            "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+            "currency": "iso4217:USD",
+            "payable": {
+              "coefficient": "50000",
+              "scale": 2
+            },
+            "paymentId": "payment:demo",
+            "amount": {
+              "coefficient": "25000",
+              "scale": 2
+            },
+            "status": "Final",
+            "observedAt": "2026-10-04T11:00:00.000Z",
+            "effectiveAt": "2026-10-04T11:00:00.000Z",
+            "rail": "fixture-bank-v1"
+          },
+          "payment:pending": {
+            "invoiceId": "invoice:supplier/demo",
+            "supplier": "party:supplier",
+            "customer": "party:customer",
+            "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+            "currency": "iso4217:USD",
+            "payable": {
+              "coefficient": "50000",
+              "scale": 2
+            },
+            "paymentId": "payment:pending",
+            "amount": {
+              "coefficient": "25000",
+              "scale": 2
+            },
+            "status": "Pending",
+            "observedAt": "2026-10-04T11:00:00.000Z",
+            "effectiveAt": "2026-10-04T11:00:00.000Z",
+            "rail": "fixture-bank-v1"
+          },
+          "payment:reversed": {
+            "invoiceId": "invoice:supplier/demo",
+            "supplier": "party:supplier",
+            "customer": "party:customer",
+            "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+            "currency": "iso4217:USD",
+            "payable": {
+              "coefficient": "50000",
+              "scale": 2
+            },
+            "paymentId": "payment:reversed",
+            "amount": {
+              "coefficient": "25000",
+              "scale": 2
+            },
+            "status": "Reversed",
+            "observedAt": "2026-10-04T11:00:00.000Z",
+            "effectiveAt": "2026-10-04T11:00:00.000Z",
+            "rail": "fixture-bank-v1"
+          }
+        },
+        "proposals": {
+          "action:demo": {
+            "environment": "Sandbox",
+            "operation": "WriteReport",
+            "target": "sandbox:reports/demo",
+            "inputDigest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+            "budget": {
+              "coefficient": "5",
+              "scale": 0,
+              "unit": "Step"
+            },
+            "expires": "2026-10-04T13:00:00.000Z"
+          }
+        },
+        "policyDigest": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+        "humans": [
+          "human:alice"
+        ],
+        "revokedActions": [],
+        "sandboxTargets": [
+          "sandbox:reports/demo"
+        ],
+        "maxSteps": 10
+      },
+      "status": "offchain-quote-valid",
+      "businessDigest": "sha256:28698f5da5ec1c8fb45234994d08a6347d9589b259e9e99c6bad27f547600c1b",
+      "executes": false,
+      "validation": "offline-prechecked"
+    },
+    {
+      "fixtureIndex": 1,
+      "id": "event:invoice-pending",
+      "schemaId": "urn:mpe:model:invoice.v0.2",
+      "profile": "invoice.v0.2",
+      "contract": "sha256:dd3b68c4f25c4ca87a57e5e5dda88cb8a1630fa9a1b0ab394744fdf984eb047a",
+      "eventHash": "sha256:6553aa05f3473b6311383e461d628ab6b735faefc6e5e282a0d33c78c1d33e86",
+      "contextHash": "sha256:4969931696dd244c52754a0adebb1b7124b287000d9467dd0b16f23e9802e974",
+      "hashAlgorithm": "sha256 over RFC8785 JCS objects",
+      "trustedNow": "2026-10-04T12:00:00.000Z",
+      "trust": "offline synthetic fixture precheck; no live authority",
+      "event": {
+        "specversion": "1.0",
+        "id": "event:invoice-pending",
+        "source": "urn:mpe:source:bank",
+        "type": "mpe.invoice.payment-observed.v0.2",
+        "time": "2026-10-04T11:00:00.000Z",
+        "datacontenttype": "application/json",
+        "dataschema": "urn:mpe:model:invoice.v0.2",
+        "mpeprofile": "invoice.v0.2",
+        "mpecontract": "sha256:dd3b68c4f25c4ca87a57e5e5dda88cb8a1630fa9a1b0ab394744fdf984eb047a",
+        "data": {
+          "invoiceId": "invoice:supplier/demo",
+          "supplier": "party:supplier",
+          "customer": "party:customer",
+          "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+          "currency": "iso4217:USD",
+          "payable": {
+            "coefficient": "50000",
+            "scale": 2
+          },
+          "paymentId": "payment:pending",
+          "amount": {
+            "coefficient": "25000",
+            "scale": 2
+          },
+          "status": "Pending",
+          "observedAt": "2026-10-04T11:00:00.000Z",
+          "effectiveAt": "2026-10-04T11:00:00.000Z",
+          "rail": "fixture-bank-v1"
+        }
+      },
+      "context": {
+        "authorityDomain": "urn:mpe:sandbox:local",
+        "executionScope": "scope:fixture",
+        "budgetWindow": "window:fixture",
+        "fixtureTrust": "trusted-test-fixture-only",
+        "now": "2026-10-04T12:00:00.000Z",
+        "sources": {
+          "urn:mpe:source:dealer": {
+            "role": "dealer",
+            "principal": "party:dealer"
+          },
+          "urn:mpe:source:bank": {
+            "role": "payment-adapter",
+            "principal": "fixture-bank-v1"
+          },
+          "urn:mpe:source:human": {
+            "role": "human-approver",
+            "principal": "human:alice"
+          }
+        },
+        "rfqs": {
+          "rfq:demo": {
+            "requester": "party:buyer",
+            "dealer": "party:dealer",
+            "requesterSide": "BuyAsset",
+            "asset": "asset:pilot-share-42",
+            "quantity": {
+              "coefficient": "100",
+              "scale": 0,
+              "unit": "Share"
+            },
+            "currency": "iso4217:USD",
+            "state": "open"
+          }
+        },
+        "invoices": {
+          "invoice:supplier/demo": {
+            "supplier": "party:supplier",
+            "customer": "party:customer",
+            "currency": "iso4217:USD",
+            "payable": {
+              "coefficient": "50000",
+              "scale": 2
+            },
+            "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111"
+          }
+        },
+        "paymentEvidence": {
+          "payment:demo": {
+            "invoiceId": "invoice:supplier/demo",
+            "supplier": "party:supplier",
+            "customer": "party:customer",
+            "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+            "currency": "iso4217:USD",
+            "payable": {
+              "coefficient": "50000",
+              "scale": 2
+            },
+            "paymentId": "payment:demo",
+            "amount": {
+              "coefficient": "25000",
+              "scale": 2
+            },
+            "status": "Final",
+            "observedAt": "2026-10-04T11:00:00.000Z",
+            "effectiveAt": "2026-10-04T11:00:00.000Z",
+            "rail": "fixture-bank-v1"
+          },
+          "payment:pending": {
+            "invoiceId": "invoice:supplier/demo",
+            "supplier": "party:supplier",
+            "customer": "party:customer",
+            "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+            "currency": "iso4217:USD",
+            "payable": {
+              "coefficient": "50000",
+              "scale": 2
+            },
+            "paymentId": "payment:pending",
+            "amount": {
+              "coefficient": "25000",
+              "scale": 2
+            },
+            "status": "Pending",
+            "observedAt": "2026-10-04T11:00:00.000Z",
+            "effectiveAt": "2026-10-04T11:00:00.000Z",
+            "rail": "fixture-bank-v1"
+          },
+          "payment:reversed": {
+            "invoiceId": "invoice:supplier/demo",
+            "supplier": "party:supplier",
+            "customer": "party:customer",
+            "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+            "currency": "iso4217:USD",
+            "payable": {
+              "coefficient": "50000",
+              "scale": 2
+            },
+            "paymentId": "payment:reversed",
+            "amount": {
+              "coefficient": "25000",
+              "scale": 2
+            },
+            "status": "Reversed",
+            "observedAt": "2026-10-04T11:00:00.000Z",
+            "effectiveAt": "2026-10-04T11:00:00.000Z",
+            "rail": "fixture-bank-v1"
+          }
+        },
+        "proposals": {
+          "action:demo": {
+            "environment": "Sandbox",
+            "operation": "WriteReport",
+            "target": "sandbox:reports/demo",
+            "inputDigest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+            "budget": {
+              "coefficient": "5",
+              "scale": 0,
+              "unit": "Step"
+            },
+            "expires": "2026-10-04T13:00:00.000Z"
+          }
+        },
+        "policyDigest": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+        "humans": [
+          "human:alice"
+        ],
+        "revokedActions": [],
+        "sandboxTargets": [
+          "sandbox:reports/demo"
+        ],
+        "maxSteps": 10
+      },
+      "status": "payment-evidence-pending-or-reversed",
+      "businessDigest": "sha256:ce78c4d311a10b50808fae25553ca657c07dc1079852f9528bf8e4ba18eca25a",
+      "executes": false,
+      "validation": "offline-prechecked"
+    },
+    {
+      "fixtureIndex": 2,
+      "id": "event:invoice-final",
+      "schemaId": "urn:mpe:model:invoice.v0.2",
+      "profile": "invoice.v0.2",
+      "contract": "sha256:dd3b68c4f25c4ca87a57e5e5dda88cb8a1630fa9a1b0ab394744fdf984eb047a",
+      "eventHash": "sha256:b658e03ced1c312f9c7afef0f1c7a3aebb1e4d6ada5fc19cf17f3aeea45d8f3c",
+      "contextHash": "sha256:4969931696dd244c52754a0adebb1b7124b287000d9467dd0b16f23e9802e974",
+      "hashAlgorithm": "sha256 over RFC8785 JCS objects",
+      "trustedNow": "2026-10-04T12:00:00.000Z",
+      "trust": "offline synthetic fixture precheck; no live authority",
+      "event": {
+        "specversion": "1.0",
+        "id": "event:invoice-final",
+        "source": "urn:mpe:source:bank",
+        "type": "mpe.invoice.payment-observed.v0.2",
+        "time": "2026-10-04T11:00:00.000Z",
+        "datacontenttype": "application/json",
+        "dataschema": "urn:mpe:model:invoice.v0.2",
+        "mpeprofile": "invoice.v0.2",
+        "mpecontract": "sha256:dd3b68c4f25c4ca87a57e5e5dda88cb8a1630fa9a1b0ab394744fdf984eb047a",
+        "data": {
+          "invoiceId": "invoice:supplier/demo",
+          "supplier": "party:supplier",
+          "customer": "party:customer",
+          "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+          "currency": "iso4217:USD",
+          "payable": {
+            "coefficient": "50000",
+            "scale": 2
+          },
+          "paymentId": "payment:demo",
+          "amount": {
+            "coefficient": "25000",
+            "scale": 2
+          },
+          "status": "Final",
+          "observedAt": "2026-10-04T11:00:00.000Z",
+          "effectiveAt": "2026-10-04T11:00:00.000Z",
+          "rail": "fixture-bank-v1"
+        }
+      },
+      "context": {
+        "authorityDomain": "urn:mpe:sandbox:local",
+        "executionScope": "scope:fixture",
+        "budgetWindow": "window:fixture",
+        "fixtureTrust": "trusted-test-fixture-only",
+        "now": "2026-10-04T12:00:00.000Z",
+        "sources": {
+          "urn:mpe:source:dealer": {
+            "role": "dealer",
+            "principal": "party:dealer"
+          },
+          "urn:mpe:source:bank": {
+            "role": "payment-adapter",
+            "principal": "fixture-bank-v1"
+          },
+          "urn:mpe:source:human": {
+            "role": "human-approver",
+            "principal": "human:alice"
+          }
+        },
+        "rfqs": {
+          "rfq:demo": {
+            "requester": "party:buyer",
+            "dealer": "party:dealer",
+            "requesterSide": "BuyAsset",
+            "asset": "asset:pilot-share-42",
+            "quantity": {
+              "coefficient": "100",
+              "scale": 0,
+              "unit": "Share"
+            },
+            "currency": "iso4217:USD",
+            "state": "open"
+          }
+        },
+        "invoices": {
+          "invoice:supplier/demo": {
+            "supplier": "party:supplier",
+            "customer": "party:customer",
+            "currency": "iso4217:USD",
+            "payable": {
+              "coefficient": "50000",
+              "scale": 2
+            },
+            "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111"
+          }
+        },
+        "paymentEvidence": {
+          "payment:demo": {
+            "invoiceId": "invoice:supplier/demo",
+            "supplier": "party:supplier",
+            "customer": "party:customer",
+            "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+            "currency": "iso4217:USD",
+            "payable": {
+              "coefficient": "50000",
+              "scale": 2
+            },
+            "paymentId": "payment:demo",
+            "amount": {
+              "coefficient": "25000",
+              "scale": 2
+            },
+            "status": "Final",
+            "observedAt": "2026-10-04T11:00:00.000Z",
+            "effectiveAt": "2026-10-04T11:00:00.000Z",
+            "rail": "fixture-bank-v1"
+          },
+          "payment:pending": {
+            "invoiceId": "invoice:supplier/demo",
+            "supplier": "party:supplier",
+            "customer": "party:customer",
+            "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+            "currency": "iso4217:USD",
+            "payable": {
+              "coefficient": "50000",
+              "scale": 2
+            },
+            "paymentId": "payment:pending",
+            "amount": {
+              "coefficient": "25000",
+              "scale": 2
+            },
+            "status": "Pending",
+            "observedAt": "2026-10-04T11:00:00.000Z",
+            "effectiveAt": "2026-10-04T11:00:00.000Z",
+            "rail": "fixture-bank-v1"
+          },
+          "payment:reversed": {
+            "invoiceId": "invoice:supplier/demo",
+            "supplier": "party:supplier",
+            "customer": "party:customer",
+            "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+            "currency": "iso4217:USD",
+            "payable": {
+              "coefficient": "50000",
+              "scale": 2
+            },
+            "paymentId": "payment:reversed",
+            "amount": {
+              "coefficient": "25000",
+              "scale": 2
+            },
+            "status": "Reversed",
+            "observedAt": "2026-10-04T11:00:00.000Z",
+            "effectiveAt": "2026-10-04T11:00:00.000Z",
+            "rail": "fixture-bank-v1"
+          }
+        },
+        "proposals": {
+          "action:demo": {
+            "environment": "Sandbox",
+            "operation": "WriteReport",
+            "target": "sandbox:reports/demo",
+            "inputDigest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+            "budget": {
+              "coefficient": "5",
+              "scale": 0,
+              "unit": "Step"
+            },
+            "expires": "2026-10-04T13:00:00.000Z"
+          }
+        },
+        "policyDigest": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+        "humans": [
+          "human:alice"
+        ],
+        "revokedActions": [],
+        "sandboxTargets": [
+          "sandbox:reports/demo"
+        ],
+        "maxSteps": 10
+      },
+      "status": "final-payment-evidence-only",
+      "businessDigest": "sha256:bc9a728810ec21666ce5ce5adfb645cc82d73daa3b5f2332a08579b9632aef6e",
+      "executes": false,
+      "validation": "offline-prechecked"
+    },
+    {
+      "fixtureIndex": 3,
+      "id": "event:invoice-reversed",
+      "schemaId": "urn:mpe:model:invoice.v0.2",
+      "profile": "invoice.v0.2",
+      "contract": "sha256:dd3b68c4f25c4ca87a57e5e5dda88cb8a1630fa9a1b0ab394744fdf984eb047a",
+      "eventHash": "sha256:bc2489e88b3af66f6f6e962e711a5b1e3acd74cc542a0f5d86274b4b87ae55a6",
+      "contextHash": "sha256:4969931696dd244c52754a0adebb1b7124b287000d9467dd0b16f23e9802e974",
+      "hashAlgorithm": "sha256 over RFC8785 JCS objects",
+      "trustedNow": "2026-10-04T12:00:00.000Z",
+      "trust": "offline synthetic fixture precheck; no live authority",
+      "event": {
+        "specversion": "1.0",
+        "id": "event:invoice-reversed",
+        "source": "urn:mpe:source:bank",
+        "type": "mpe.invoice.payment-observed.v0.2",
+        "time": "2026-10-04T11:00:00.000Z",
+        "datacontenttype": "application/json",
+        "dataschema": "urn:mpe:model:invoice.v0.2",
+        "mpeprofile": "invoice.v0.2",
+        "mpecontract": "sha256:dd3b68c4f25c4ca87a57e5e5dda88cb8a1630fa9a1b0ab394744fdf984eb047a",
+        "data": {
+          "invoiceId": "invoice:supplier/demo",
+          "supplier": "party:supplier",
+          "customer": "party:customer",
+          "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+          "currency": "iso4217:USD",
+          "payable": {
+            "coefficient": "50000",
+            "scale": 2
+          },
+          "paymentId": "payment:reversed",
+          "amount": {
+            "coefficient": "25000",
+            "scale": 2
+          },
+          "status": "Reversed",
+          "observedAt": "2026-10-04T11:00:00.000Z",
+          "effectiveAt": "2026-10-04T11:00:00.000Z",
+          "rail": "fixture-bank-v1"
+        }
+      },
+      "context": {
+        "authorityDomain": "urn:mpe:sandbox:local",
+        "executionScope": "scope:fixture",
+        "budgetWindow": "window:fixture",
+        "fixtureTrust": "trusted-test-fixture-only",
+        "now": "2026-10-04T12:00:00.000Z",
+        "sources": {
+          "urn:mpe:source:dealer": {
+            "role": "dealer",
+            "principal": "party:dealer"
+          },
+          "urn:mpe:source:bank": {
+            "role": "payment-adapter",
+            "principal": "fixture-bank-v1"
+          },
+          "urn:mpe:source:human": {
+            "role": "human-approver",
+            "principal": "human:alice"
+          }
+        },
+        "rfqs": {
+          "rfq:demo": {
+            "requester": "party:buyer",
+            "dealer": "party:dealer",
+            "requesterSide": "BuyAsset",
+            "asset": "asset:pilot-share-42",
+            "quantity": {
+              "coefficient": "100",
+              "scale": 0,
+              "unit": "Share"
+            },
+            "currency": "iso4217:USD",
+            "state": "open"
+          }
+        },
+        "invoices": {
+          "invoice:supplier/demo": {
+            "supplier": "party:supplier",
+            "customer": "party:customer",
+            "currency": "iso4217:USD",
+            "payable": {
+              "coefficient": "50000",
+              "scale": 2
+            },
+            "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111"
+          }
+        },
+        "paymentEvidence": {
+          "payment:demo": {
+            "invoiceId": "invoice:supplier/demo",
+            "supplier": "party:supplier",
+            "customer": "party:customer",
+            "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+            "currency": "iso4217:USD",
+            "payable": {
+              "coefficient": "50000",
+              "scale": 2
+            },
+            "paymentId": "payment:demo",
+            "amount": {
+              "coefficient": "25000",
+              "scale": 2
+            },
+            "status": "Final",
+            "observedAt": "2026-10-04T11:00:00.000Z",
+            "effectiveAt": "2026-10-04T11:00:00.000Z",
+            "rail": "fixture-bank-v1"
+          },
+          "payment:pending": {
+            "invoiceId": "invoice:supplier/demo",
+            "supplier": "party:supplier",
+            "customer": "party:customer",
+            "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+            "currency": "iso4217:USD",
+            "payable": {
+              "coefficient": "50000",
+              "scale": 2
+            },
+            "paymentId": "payment:pending",
+            "amount": {
+              "coefficient": "25000",
+              "scale": 2
+            },
+            "status": "Pending",
+            "observedAt": "2026-10-04T11:00:00.000Z",
+            "effectiveAt": "2026-10-04T11:00:00.000Z",
+            "rail": "fixture-bank-v1"
+          },
+          "payment:reversed": {
+            "invoiceId": "invoice:supplier/demo",
+            "supplier": "party:supplier",
+            "customer": "party:customer",
+            "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+            "currency": "iso4217:USD",
+            "payable": {
+              "coefficient": "50000",
+              "scale": 2
+            },
+            "paymentId": "payment:reversed",
+            "amount": {
+              "coefficient": "25000",
+              "scale": 2
+            },
+            "status": "Reversed",
+            "observedAt": "2026-10-04T11:00:00.000Z",
+            "effectiveAt": "2026-10-04T11:00:00.000Z",
+            "rail": "fixture-bank-v1"
+          }
+        },
+        "proposals": {
+          "action:demo": {
+            "environment": "Sandbox",
+            "operation": "WriteReport",
+            "target": "sandbox:reports/demo",
+            "inputDigest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+            "budget": {
+              "coefficient": "5",
+              "scale": 0,
+              "unit": "Step"
+            },
+            "expires": "2026-10-04T13:00:00.000Z"
+          }
+        },
+        "policyDigest": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+        "humans": [
+          "human:alice"
+        ],
+        "revokedActions": [],
+        "sandboxTargets": [
+          "sandbox:reports/demo"
+        ],
+        "maxSteps": 10
+      },
+      "status": "payment-evidence-pending-or-reversed",
+      "businessDigest": "sha256:45f77d7a04097fb25e7a38048fe09c8a4b75009c9f2d5c43c24bee96236c21d4",
+      "executes": false,
+      "validation": "offline-prechecked"
+    },
+    {
+      "fixtureIndex": 4,
+      "id": "event:agent",
+      "schemaId": "urn:mpe:model:agent.v0.2",
+      "profile": "agent.v0.2",
+      "contract": "sha256:beaf501a8fdeefe757c340b1945dcd3e9c7c6e3fb4e00612f724afab7605b330",
+      "eventHash": "sha256:948f1732b2de7a07550e84b09f487a9e507494bd51555df76768ddd1120e3365",
+      "contextHash": "sha256:4969931696dd244c52754a0adebb1b7124b287000d9467dd0b16f23e9802e974",
+      "hashAlgorithm": "sha256 over RFC8785 JCS objects",
+      "trustedNow": "2026-10-04T12:00:00.000Z",
+      "trust": "offline synthetic fixture precheck; no live authority",
+      "event": {
+        "specversion": "1.0",
+        "id": "event:agent",
+        "source": "urn:mpe:source:human",
+        "type": "mpe.agent.approval.v0.2",
+        "time": "2026-10-04T11:00:00.000Z",
+        "datacontenttype": "application/json",
+        "dataschema": "urn:mpe:model:agent.v0.2",
+        "mpeprofile": "agent.v0.2",
+        "mpecontract": "sha256:beaf501a8fdeefe757c340b1945dcd3e9c7c6e3fb4e00612f724afab7605b330",
+        "data": {
+          "authorityDomain": "urn:mpe:sandbox:local",
+          "executionScope": "scope:fixture",
+          "budgetWindow": "window:fixture",
+          "actionId": "action:demo",
+          "proposal": {
+            "environment": "Sandbox",
+            "operation": "WriteReport",
+            "target": "sandbox:reports/demo",
+            "inputDigest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+            "budget": {
+              "coefficient": "5",
+              "scale": 0,
+              "unit": "Step"
+            },
+            "expires": "2026-10-04T13:00:00.000Z"
+          },
+          "proposalDigest": "sha256:94bdf0c08cd824de5432499e7bed3bf007cdc5b545dc089dc57b0eb5924ecb28",
+          "policyDigest": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+          "human": "human:alice",
+          "validFrom": "2026-10-04T11:00:00.000Z",
+          "validUntil": "2026-10-04T13:00:00.000Z",
+          "maxEffects": 1
+        }
+      },
+      "context": {
+        "authorityDomain": "urn:mpe:sandbox:local",
+        "executionScope": "scope:fixture",
+        "budgetWindow": "window:fixture",
+        "fixtureTrust": "trusted-test-fixture-only",
+        "now": "2026-10-04T12:00:00.000Z",
+        "sources": {
+          "urn:mpe:source:dealer": {
+            "role": "dealer",
+            "principal": "party:dealer"
+          },
+          "urn:mpe:source:bank": {
+            "role": "payment-adapter",
+            "principal": "fixture-bank-v1"
+          },
+          "urn:mpe:source:human": {
+            "role": "human-approver",
+            "principal": "human:alice"
+          }
+        },
+        "rfqs": {
+          "rfq:demo": {
+            "requester": "party:buyer",
+            "dealer": "party:dealer",
+            "requesterSide": "BuyAsset",
+            "asset": "asset:pilot-share-42",
+            "quantity": {
+              "coefficient": "100",
+              "scale": 0,
+              "unit": "Share"
+            },
+            "currency": "iso4217:USD",
+            "state": "open"
+          }
+        },
+        "invoices": {
+          "invoice:supplier/demo": {
+            "supplier": "party:supplier",
+            "customer": "party:customer",
+            "currency": "iso4217:USD",
+            "payable": {
+              "coefficient": "50000",
+              "scale": 2
+            },
+            "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111"
+          }
+        },
+        "paymentEvidence": {
+          "payment:demo": {
+            "invoiceId": "invoice:supplier/demo",
+            "supplier": "party:supplier",
+            "customer": "party:customer",
+            "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+            "currency": "iso4217:USD",
+            "payable": {
+              "coefficient": "50000",
+              "scale": 2
+            },
+            "paymentId": "payment:demo",
+            "amount": {
+              "coefficient": "25000",
+              "scale": 2
+            },
+            "status": "Final",
+            "observedAt": "2026-10-04T11:00:00.000Z",
+            "effectiveAt": "2026-10-04T11:00:00.000Z",
+            "rail": "fixture-bank-v1"
+          },
+          "payment:pending": {
+            "invoiceId": "invoice:supplier/demo",
+            "supplier": "party:supplier",
+            "customer": "party:customer",
+            "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+            "currency": "iso4217:USD",
+            "payable": {
+              "coefficient": "50000",
+              "scale": 2
+            },
+            "paymentId": "payment:pending",
+            "amount": {
+              "coefficient": "25000",
+              "scale": 2
+            },
+            "status": "Pending",
+            "observedAt": "2026-10-04T11:00:00.000Z",
+            "effectiveAt": "2026-10-04T11:00:00.000Z",
+            "rail": "fixture-bank-v1"
+          },
+          "payment:reversed": {
+            "invoiceId": "invoice:supplier/demo",
+            "supplier": "party:supplier",
+            "customer": "party:customer",
+            "documentDigest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+            "currency": "iso4217:USD",
+            "payable": {
+              "coefficient": "50000",
+              "scale": 2
+            },
+            "paymentId": "payment:reversed",
+            "amount": {
+              "coefficient": "25000",
+              "scale": 2
+            },
+            "status": "Reversed",
+            "observedAt": "2026-10-04T11:00:00.000Z",
+            "effectiveAt": "2026-10-04T11:00:00.000Z",
+            "rail": "fixture-bank-v1"
+          }
+        },
+        "proposals": {
+          "action:demo": {
+            "environment": "Sandbox",
+            "operation": "WriteReport",
+            "target": "sandbox:reports/demo",
+            "inputDigest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+            "budget": {
+              "coefficient": "5",
+              "scale": 0,
+              "unit": "Step"
+            },
+            "expires": "2026-10-04T13:00:00.000Z"
+          }
+        },
+        "policyDigest": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+        "humans": [
+          "human:alice"
+        ],
+        "revokedActions": [],
+        "sandboxTargets": [
+          "sandbox:reports/demo"
+        ],
+        "maxSteps": 10
+      },
+      "status": "sandbox-candidate-only",
+      "businessDigest": "sha256:c07ac4a484f0c52065e9529a9d3b67ff9e342561ca2b5642b25e8027a6bc1177",
+      "executes": false,
+      "validation": "offline-prechecked"
+    }
+  ],
+  "conformanceCheck": {
+    "command": "/tmp/mpe-data-model-validation-env/bin/python model/test_conformance.py",
+    "result": "PASS 80 checks; 3 schema self-checks; pinned local resources verified"
+  }
+}

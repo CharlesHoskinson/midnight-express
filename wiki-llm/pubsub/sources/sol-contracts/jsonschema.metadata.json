@@ -1,0 +1,9 @@
+{
+  "url": "https://json-schema.org/draft/2020-12/json-schema-core",
+  "status": 200,
+  "retrievedAt": "2026-10-05T18:04:46.730483+00:00",
+  "sha256": "efc7665d1fc737ee0a5edf243e3db81b41c937bd09f3d3d08f8994300d9eede3",
+  "bytes": 342931,
+  "method": "Scrapling Fetcher.get",
+  "visualGrounding": "pending PixelRAG route from coordinator"
+}

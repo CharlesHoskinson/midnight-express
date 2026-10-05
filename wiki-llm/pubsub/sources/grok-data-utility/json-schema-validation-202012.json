@@ -1,0 +1,13 @@
+{
+  "url": "https://json-schema.org/draft/2020-12/json-schema-validation",
+  "retrieved_utc": "2026-10-05T18:19:30.303946+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "b5a807b322902b4baec82a39a10457569355aff67e3005c83784046d8f65930e",
+  "text_sha256": "4ffc769d4f8e317edc8e9c9a5b846e9778ee90217e8d3cc7c3827733e985a4ef",
+  "bytes": 169790,
+  "text_bytes": 67835,
+  "final_url": "https://json-schema.org/draft/2020-12/json-schema-validation",
+  "accepted_source": true
+}

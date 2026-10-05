@@ -1,0 +1,63 @@
+export const WALLET_ID = 'moth';
+export const WALLET_RDNS = 'io.shielded.moth';
+export const WALLET_NAME = 'Moth Wallet';
+/** Version of the @midnight-ntwrk/dapp-connector-api standard implemented. */
+export const API_VERSION = '4.0.1';
+
+/** The Moth mark, inlined so the page never fetches from the extension.
+ *
+ *  Kept in step with brand/icon-small.svg — the simplified variant, because this
+ *  is what a dApp renders in a wallet-picker row, at about the size of a favicon.
+ *  It previously carried a purple diagonal that matched nothing: not the old
+ *  brand, and not the Moonlime palette in assets/globals.css. Hardcoded hexes
+ *  rather than CSS variables on purpose: this string is handed to a page we do
+ *  not control and must render without our stylesheet. */
+export const WALLET_ICON =
+  'data:image/svg+xml;base64,' +
+  btoa(
+    '
+',
+  );
+
+/** ConnectedAPI methods the MVP implements; everything else rejects with InternalError. */
+export const IMPLEMENTED_METHODS = [
+  'getShieldedBalances',
+  'getUnshieldedBalances',
+  'getDustBalance',
+  'getShieldedAddresses',
+  'getUnshieldedAddress',
+  'getDustAddress',
+  'makeTransfer',
+  'submitTransaction',
+  'getConfiguration',
+  'getConnectionStatus',
+  'getTxHistory',
+  'signData',
+  'balanceSealedTransaction',
+  'balanceUnsealedTransaction',
+  'makeIntent',
+  'hintUsage',
+  'getProvingProvider',
+] as const;
+
+export const NOT_IMPLEMENTED_METHODS = [] as const;
+
+/** Non-standard wallet extension methods — NOT in @midnight-ntwrk/dapp-connector-api
+ *  v4.0.1. Exposed on the injected API so DApps can call them (via a TS cast),
+ *  and proposed upstream separately. See specs/003-derive-app-secret. */
+export const EXTENSION_METHODS = [
+  'deriveAppSecret',
+] as const;
+
+/** Private RPC calls used by the page-local ProvingProvider proxy. */
+export const PROVING_PROVIDER_METHODS = [
+  'provingProviderCheck',
+  'provingProviderProve',
+] as const;
+
+export type ConnectorMethod =
+  | 'connect'
+  | (typeof IMPLEMENTED_METHODS)[number]
+  | (typeof NOT_IMPLEMENTED_METHODS)[number]
+  | (typeof EXTENSION_METHODS)[number]
+  | (typeof PROVING_PROVIDER_METHODS)[number];

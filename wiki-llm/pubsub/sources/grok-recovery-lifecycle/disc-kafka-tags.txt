@@ -1,0 +1,82 @@
+[
+  {
+    "name": "show",
+    "zipball_url": "https://api.github.com/repos/apache/kafka/zipball/refs/tags/show",
+    "tarball_url": "https://api.github.com/repos/apache/kafka/tarball/refs/tags/show",
+    "commit": {
+      "sha": "a643be62afb23bca15ed2e88db9e76cb0ebfa906",
+      "url": "https://api.github.com/repos/apache/kafka/commits/a643be62afb23bca15ed2e88db9e76cb0ebfa906"
+    },
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3Mvc2hvdw=="
+  },
+  {
+    "name": "kafka-0.7.2-incubating-candidate-5",
+    "zipball_url": "https://api.github.com/repos/apache/kafka/zipball/refs/tags/kafka-0.7.2-incubating-candidate-5",
+    "tarball_url": "https://api.github.com/repos/apache/kafka/tarball/refs/tags/kafka-0.7.2-incubating-candidate-5",
+    "commit": {
+      "sha": "3d93852fda00437d71ab05c06b374adac640451a",
+      "url": "https://api.github.com/repos/apache/kafka/commits/3d93852fda00437d71ab05c06b374adac640451a"
+    },
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3Mva2Fma2EtMC43LjItaW5jdWJhdGluZy1jYW5kaWRhdGUtNQ=="
+  },
+  {
+    "name": "kafka-0.7.2-incubating-candidate-4",
+    "zipball_url": "https://api.github.com/repos/apache/kafka/zipball/refs/tags/kafka-0.7.2-incubating-candidate-4",
+    "tarball_url": "https://api.github.com/repos/apache/kafka/tarball/refs/tags/kafka-0.7.2-incubating-candidate-4",
+    "commit": {
+      "sha": "12fc9225fbf00963a093fa5321e6e23f96d98c5d",
+      "url": "https://api.github.com/repos/apache/kafka/commits/12fc9225fbf00963a093fa5321e6e23f96d98c5d"
+    },
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3Mva2Fma2EtMC43LjItaW5jdWJhdGluZy1jYW5kaWRhdGUtNA=="
+  },
+  {
+    "name": "kafka-0.7.2-incubating-candidate-3",
+    "zipball_url": "https://api.github.com/repos/apache/kafka/zipball/refs/tags/kafka-0.7.2-incubating-candidate-3",
+    "tarball_url": "https://api.github.com/repos/apache/kafka/tarball/refs/tags/kafka-0.7.2-incubating-candidate-3",
+    "commit": {
+      "sha": "0e7b5cfdd931e69daaadfb174f3e43274a1c2d7f",
+      "url": "https://api.github.com/repos/apache/kafka/commits/0e7b5cfdd931e69daaadfb174f3e43274a1c2d7f"
+    },
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3Mva2Fma2EtMC43LjItaW5jdWJhdGluZy1jYW5kaWRhdGUtMw=="
+  },
+  {
+    "name": "kafka-0.7.2-incubating-candidate-2",
+    "zipball_url": "https://api.github.com/repos/apache/kafka/zipball/refs/tags/kafka-0.7.2-incubating-candidate-2",
+    "tarball_url": "https://api.github.com/repos/apache/kafka/tarball/refs/tags/kafka-0.7.2-incubating-candidate-2",
+    "commit": {
+      "sha": "0314c8b70ec848cf4719e5ff5b7270bf3211f9fb",
+      "url": "https://api.github.com/repos/apache/kafka/commits/0314c8b70ec848cf4719e5ff5b7270bf3211f9fb"
+    },
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3Mva2Fma2EtMC43LjItaW5jdWJhdGluZy1jYW5kaWRhdGUtMg=="
+  },
+  {
+    "name": "kafka-0.7.2-incubating-candidate-1",
+    "zipball_url": "https://api.github.com/repos/apache/kafka/zipball/refs/tags/kafka-0.7.2-incubating-candidate-1",
+    "tarball_url": "https://api.github.com/repos/apache/kafka/tarball/refs/tags/kafka-0.7.2-incubating-candidate-1",
+    "commit": {
+      "sha": "b7470a8f64279806192bf172c61b178ba3b7a14d",
+      "url": "https://api.github.com/repos/apache/kafka/commits/b7470a8f64279806192bf172c61b178ba3b7a14d"
+    },
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3Mva2Fma2EtMC43LjItaW5jdWJhdGluZy1jYW5kaWRhdGUtMQ=="
+  },
+  {
+    "name": "kafka-0.7.1-incubating-candidate-3",
+    "zipball_url": "https://api.github.com/repos/apache/kafka/zipball/refs/tags/kafka-0.7.1-incubating-candidate-3",
+    "tarball_url": "https://api.github.com/repos/apache/kafka/tarball/refs/tags/kafka-0.7.1-incubating-candidate-3",
+    "commit": {
+      "sha": "d45f2fe06c223f5c3e2e2b0d3968584c97f313f1",
+      "url": "https://api.github.com/repos/apache/kafka/commits/d45f2fe06c223f5c3e2e2b0d3968584c97f313f1"
+    },
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3Mva2Fma2EtMC43LjEtaW5jdWJhdGluZy1jYW5kaWRhdGUtMw=="
+  },
+  {
+    "name": "kafka-0.7.1-incubating-candidate-2",
+    "zipball_url": "https://api.github.com/repos/apache/kafka/zipball/refs/tags/kafka-0.7.1-incubating-candidate-2",
+    "tarball_url": "https://api.github.com/repos/apache/kafka/tarball/refs/tags/kafka-0.7.1-incubating-candidate-2",
+    "commit": {
+      "sha": "62ff81c31d4cff05465436f947a0ad881ddacff5",
+      "url": "https://api.github.com/repos/apache/kafka/commits/62ff81c31d4cff05465436f947a0ad881ddacff5"
+    },
+    "node_id": "MDM6UmVmMjIxMTI0MzpyZWZzL3RhZ3Mva2Fma2EtMC43LjEtaW5jdWJhdGluZy1jYW5kaWRhdGUtMg=="
+  }
+]

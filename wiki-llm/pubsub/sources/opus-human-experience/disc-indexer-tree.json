@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/midnightntwrk/midnight-indexer/git/trees/456fa193184a1b269513f006e9dd5a2739566ec6?recursive=1",
+  "retrieved_utc": "2026-10-05T18:10:57.405368+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "39ae368a6017543b98a8643ff03e321b75f581c0b0a1119c4a9eb3fb94f7be95",
+  "text_sha256": "39ae368a6017543b98a8643ff03e321b75f581c0b0a1119c4a9eb3fb94f7be95",
+  "bytes": 250985,
+  "text_bytes": 250985,
+  "final_url": "https://api.github.com/repos/midnightntwrk/midnight-indexer/git/trees/456fa193184a1b269513f006e9dd5a2739566ec6?recursive=1",
+  "accepted_source": true
+}

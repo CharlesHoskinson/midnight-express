@@ -1,0 +1,50 @@
+[
+  {
+    "name": "_index.md",
+    "path": "docs/design/_index.md",
+    "sha": "43b243938d73c2fdf13e35625a68489e22544905",
+    "size": 890,
+    "url": "https://api.github.com/repos/apache/kafka/contents/docs/design/_index.md?ref=4.3.1",
+    "html_url": "https://github.com/apache/kafka/blob/4.3.1/docs/design/_index.md",
+    "git_url": "https://api.github.com/repos/apache/kafka/git/blobs/43b243938d73c2fdf13e35625a68489e22544905",
+    "download_url": "https://raw.githubusercontent.com/apache/kafka/4.3.1/docs/design/_index.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/apache/kafka/contents/docs/design/_index.md?ref=4.3.1",
+      "git": "https://api.github.com/repos/apache/kafka/git/blobs/43b243938d73c2fdf13e35625a68489e22544905",
+      "html": "https://github.com/apache/kafka/blob/4.3.1/docs/design/_index.md"
+    }
+  },
+  {
+    "name": "design.md",
+    "path": "docs/design/design.md",
+    "sha": "e5eb380826394d1ee291be0e7225888f4e6a2d3e",
+    "size": 76395,
+    "url": "https://api.github.com/repos/apache/kafka/contents/docs/design/design.md?ref=4.3.1",
+    "html_url": "https://github.com/apache/kafka/blob/4.3.1/docs/design/design.md",
+    "git_url": "https://api.github.com/repos/apache/kafka/git/blobs/e5eb380826394d1ee291be0e7225888f4e6a2d3e",
+    "download_url": "https://raw.githubusercontent.com/apache/kafka/4.3.1/docs/design/design.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/apache/kafka/contents/docs/design/design.md?ref=4.3.1",
+      "git": "https://api.github.com/repos/apache/kafka/git/blobs/e5eb380826394d1ee291be0e7225888f4e6a2d3e",
+      "html": "https://github.com/apache/kafka/blob/4.3.1/docs/design/design.md"
+    }
+  },
+  {
+    "name": "protocol.md",
+    "path": "docs/design/protocol.md",
+    "sha": "87966feee10f3903aaecbea7d732d3a481888abc",
+    "size": 19029,
+    "url": "https://api.github.com/repos/apache/kafka/contents/docs/design/protocol.md?ref=4.3.1",
+    "html_url": "https://github.com/apache/kafka/blob/4.3.1/docs/design/protocol.md",
+    "git_url": "https://api.github.com/repos/apache/kafka/git/blobs/87966feee10f3903aaecbea7d732d3a481888abc",
+    "download_url": "https://raw.githubusercontent.com/apache/kafka/4.3.1/docs/design/protocol.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/apache/kafka/contents/docs/design/protocol.md?ref=4.3.1",
+      "git": "https://api.github.com/repos/apache/kafka/git/blobs/87966feee10f3903aaecbea7d732d3a481888abc",
+      "html": "https://github.com/apache/kafka/blob/4.3.1/docs/design/protocol.md"
+    }
+  }
+]

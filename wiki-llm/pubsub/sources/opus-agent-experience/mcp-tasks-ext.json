@@ -1,0 +1,13 @@
+{
+  "url": "https://modelcontextprotocol.io/extensions/tasks/overview",
+  "retrieved_utc": "2026-10-05T18:10:50.811585+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "d7a8523ae71a5bd6c92769aaf1e5203a7c8af9426a48db1ae87fd6fa90055369",
+  "text_sha256": "e65677a2d6a9a8c2cfb8829875f3b9770523fa1d5395d67a3ba9e74a1855d6ce",
+  "bytes": 380838,
+  "text_bytes": 8793,
+  "final_url": "https://modelcontextprotocol.io/extensions/tasks/overview",
+  "accepted_source": true
+}

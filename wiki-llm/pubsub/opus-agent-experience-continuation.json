@@ -1,0 +1,23 @@
+{
+  "id": "opus-agent-experience",
+  "exit_code": 0,
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 48,
+      "outputTokens": 22348,
+      "cacheReadInputTokens": 1652190,
+      "cacheCreationInputTokens": 92454,
+      "webSearchRequests": 0,
+      "costUSD": 1.517222,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 4472,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "is_error": false,
+  "report_exists": true,
+  "errors": null
+}

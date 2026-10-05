@@ -1,0 +1,427 @@
+[
+  {
+    "sha": "612db2b62dbd78c079da62e57e7b8585a204b858",
+    "node_id": "C_kwDOQVRIw9oAKDYxMmRiMmI2MmRiZDc4YzA3OWRhNjJlNTdlN2I4NTg1YTIwNGI4NTg",
+    "commit": {
+      "author": {
+        "name": "Chris Ferry",
+        "email": "chris.ferry@shielded.io",
+        "date": "2026-09-29T15:44:34Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-09-29T15:44:34Z"
+      },
+      "message": "Merge pull request #95 from midnightntwrk/docs/dco-contributing\n\ndocs: adopt DCO sign-off in CONTRIBUTING.md",
+      "tree": {
+        "sha": "371b2d21b5032dc49639a1d474cfc00390b212f3",
+        "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/371b2d21b5032dc49639a1d474cfc00390b212f3"
+      },
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/commits/612db2b62dbd78c079da62e57e7b8585a204b858",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqu9zjCRC1aQ7uu5UhlAAAxlcQAFgYPmq0ErAjjMEI2Nm0uRwc\n82XuUgpkL6050WSxwhZSzMBHB7iEzJt/UUemu1vTwI3ODnFavIOS86SHNPB6QGEQ\nGK5knMJqVu3Ri8dlZbxdIC7PihKpklL1kGlZ5/Qe/Q7BFpxXylYQytWzati/mpMC\nQGRdLpAaODqTv+8gfwjwBbfmNut50vgfacOmR+l17bPKdXSY1oWD1usnhrk6ULRi\nad4ArIJ8n6taJg9kQ7dfzVCNXv+l9ZCGfQrQGBz22lPeNmXwtMCjHRSPBD7WqfLQ\nsSYp6MvvDwydt2iYeaC8uF7xXRX4szA3lPETijQ/vRFerLaZnKaMoix2Hn1wqE+W\nShDOZb0mQMwWq5HofWkWg5Mf9g/M7hzVNjdraz71NI95sOO4WyBqmhRNBlYADuCD\nXJ82OFLHkxKU36f5p3eXM69oABPc2ejfT+M+g169c7EzXUpYTWb2nrywuc9FYFwv\n8ITPuq0JqqHhrefoqoLGA/ovWVb1LwTdwUCzfK2xFHACNundo2evAcZ3dybCooKC\ngTxw5pM9Pyjf8g8yrFxl/kXjkwAcTRFkZ6x3ipXJCn3kvylD9j/R1hNiEr9BmLA4\nXq0Ycctua46JN+fh8uOaye99xaqRn/mCEzpJiXLGYJoQKd7ddmFVPUREDpABUuUr\nvkkLOv3RmgmNDWAQtaMA\n=Hj4p\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 371b2d21b5032dc49639a1d474cfc00390b212f3\nparent 4392de7cd0f147659456e0830adcfad377adbdbb\nparent d840862bca856e0ca1ec4675ed653728b20eca1b\nauthor Chris Ferry <chris.ferry@shielded.io> 1790696674 -0400\ncommitter GitHub <noreply@github.com> 1790696674 -0400\n\nMerge pull request #95 from midnightntwrk/docs/dco-contributing\n\ndocs: adopt DCO sign-off in CONTRIBUTING.md",
+        "verified_at": "2026-09-29T15:44:35Z"
+      }
+    },
+    "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/612db2b62dbd78c079da62e57e7b8585a204b858",
+    "html_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/commit/612db2b62dbd78c079da62e57e7b8585a204b858",
+    "comments_url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/612db2b62dbd78c079da62e57e7b8585a204b858/comments",
+    "author": {
+      "login": "chrisferry",
+      "id": 50551,
+      "node_id": "MDQ6VXNlcjUwNTUx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/50551?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chrisferry",
+      "html_url": "https://github.com/chrisferry",
+      "followers_url": "https://api.github.com/users/chrisferry/followers",
+      "following_url": "https://api.github.com/users/chrisferry/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chrisferry/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chrisferry/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chrisferry/subscriptions",
+      "organizations_url": "https://api.github.com/users/chrisferry/orgs",
+      "repos_url": "https://api.github.com/users/chrisferry/repos",
+      "events_url": "https://api.github.com/users/chrisferry/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chrisferry/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "4392de7cd0f147659456e0830adcfad377adbdbb",
+        "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/4392de7cd0f147659456e0830adcfad377adbdbb",
+        "html_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/commit/4392de7cd0f147659456e0830adcfad377adbdbb"
+      },
+      {
+        "sha": "d840862bca856e0ca1ec4675ed653728b20eca1b",
+        "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/d840862bca856e0ca1ec4675ed653728b20eca1b",
+        "html_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/commit/d840862bca856e0ca1ec4675ed653728b20eca1b"
+      }
+    ]
+  },
+  {
+    "sha": "d840862bca856e0ca1ec4675ed653728b20eca1b",
+    "node_id": "C_kwDOQVRIw9oAKGQ4NDA4NjJiY2E4NTZlMGNhMWVjNDY3NWVkNjUzNzI4YjIwZWNhMWI",
+    "commit": {
+      "author": {
+        "name": "Chris Ferry",
+        "email": "chris.ferry@shielded.io",
+        "date": "2026-09-28T19:50:04Z"
+      },
+      "committer": {
+        "name": "Chris Ferry",
+        "email": "chris.ferry@shielded.io",
+        "date": "2026-09-28T19:50:04Z"
+      },
+      "message": "docs: add empty changeset for docs-only DCO PR\n\nAssisted-by: AI <noreply@ai-assistant>\nSigned-off-by: Chris Ferry <chris.ferry@shielded.io>",
+      "tree": {
+        "sha": "371b2d21b5032dc49639a1d474cfc00390b212f3",
+        "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/371b2d21b5032dc49639a1d474cfc00390b212f3"
+      },
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/commits/d840862bca856e0ca1ec4675ed653728b20eca1b",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niJEEABYKADkWIQTMjzTAig47N4k6OSnPjUTs8ByORAUCarrE7BsUgAAAAAAEAA5t\nYW51MiwyLjUrMS4xMiwwLDMACgkQz41E7PAcjkSgXwEA2VW6vf/CklPV3S3vzXIS\n1DK47VPyPHE+XVS7TE+HT/EBAO+WtpOAuK05PNsipkM1CepO1keDTYuE+9gtG82j\njtYH\n=XXeC\n-----END PGP SIGNATURE-----",
+        "payload": "tree 371b2d21b5032dc49639a1d474cfc00390b212f3\nparent 0f9feb69999e984a242d4d342b2c4041614cd463\nauthor Chris Ferry <chris.ferry@shielded.io> 1790625004 -0400\ncommitter Chris Ferry <chris.ferry@shielded.io> 1790625004 -0400\n\ndocs: add empty changeset for docs-only DCO PR\n\nAssisted-by: AI <noreply@ai-assistant>\nSigned-off-by: Chris Ferry <chris.ferry@shielded.io>\n",
+        "verified_at": "2026-09-28T19:50:07Z"
+      }
+    },
+    "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/d840862bca856e0ca1ec4675ed653728b20eca1b",
+    "html_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/commit/d840862bca856e0ca1ec4675ed653728b20eca1b",
+    "comments_url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/d840862bca856e0ca1ec4675ed653728b20eca1b/comments",
+    "author": {
+      "login": "chrisferry",
+      "id": 50551,
+      "node_id": "MDQ6VXNlcjUwNTUx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/50551?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chrisferry",
+      "html_url": "https://github.com/chrisferry",
+      "followers_url": "https://api.github.com/users/chrisferry/followers",
+      "following_url": "https://api.github.com/users/chrisferry/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chrisferry/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chrisferry/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chrisferry/subscriptions",
+      "organizations_url": "https://api.github.com/users/chrisferry/orgs",
+      "repos_url": "https://api.github.com/users/chrisferry/repos",
+      "events_url": "https://api.github.com/users/chrisferry/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chrisferry/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "chrisferry",
+      "id": 50551,
+      "node_id": "MDQ6VXNlcjUwNTUx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/50551?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chrisferry",
+      "html_url": "https://github.com/chrisferry",
+      "followers_url": "https://api.github.com/users/chrisferry/followers",
+      "following_url": "https://api.github.com/users/chrisferry/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chrisferry/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chrisferry/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chrisferry/subscriptions",
+      "organizations_url": "https://api.github.com/users/chrisferry/orgs",
+      "repos_url": "https://api.github.com/users/chrisferry/repos",
+      "events_url": "https://api.github.com/users/chrisferry/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chrisferry/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "0f9feb69999e984a242d4d342b2c4041614cd463",
+        "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/0f9feb69999e984a242d4d342b2c4041614cd463",
+        "html_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/commit/0f9feb69999e984a242d4d342b2c4041614cd463"
+      }
+    ]
+  },
+  {
+    "sha": "0f9feb69999e984a242d4d342b2c4041614cd463",
+    "node_id": "C_kwDOQVRIw9oAKDBmOWZlYjY5OTk5ZTk4NGEyNDJkNGQzNDJiMmM0MDQxNjE0Y2Q0NjM",
+    "commit": {
+      "author": {
+        "name": "Chris Ferry",
+        "email": "chris.ferry@shielded.io",
+        "date": "2026-09-28T18:13:33Z"
+      },
+      "committer": {
+        "name": "Chris Ferry",
+        "email": "chris.ferry@shielded.io",
+        "date": "2026-09-28T18:13:33Z"
+      },
+      "message": "docs: adopt DCO sign-off in CONTRIBUTING.md\n\nAdopts the DCO contributor model to match midnightntwrk/midnight-node. Companion to the license/cla → DCO required-check swap in midnightntwrk/midnight-iac#410. Part of midnightntwrk/midnight-iac#433.\n\nAssisted-by: AI <noreply@ai-assistant>\nSigned-off-by: Chris Ferry <chris.ferry@shielded.io>",
+      "tree": {
+        "sha": "fd9742b5026174884f2473bdb81df3c351211765",
+        "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/fd9742b5026174884f2473bdb81df3c351211765"
+      },
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/commits/0f9feb69999e984a242d4d342b2c4041614cd463",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\niJEEABYKADkWIQTMjzTAig47N4k6OSnPjUTs8ByORAUCarquTRsUgAAAAAAEAA5t\nYW51MiwyLjUrMS4xMiwwLDMACgkQz41E7PAcjkTaLwD/bjX7h7PWNvUZwj1Twrub\nc2+dYPNIUGthSYQ9wBsc0N4BAPzwmNR74ObGSwLDS3SLPafBS5LzC8Qs0H5KPc0b\nDkwG\n=mV8c\n-----END PGP SIGNATURE-----",
+        "payload": "tree fd9742b5026174884f2473bdb81df3c351211765\nparent 4392de7cd0f147659456e0830adcfad377adbdbb\nauthor Chris Ferry <chris.ferry@shielded.io> 1790619213 -0400\ncommitter Chris Ferry <chris.ferry@shielded.io> 1790619213 -0400\n\ndocs: adopt DCO sign-off in CONTRIBUTING.md\n\nAdopts the DCO contributor model to match midnightntwrk/midnight-node. Companion to the license/cla → DCO required-check swap in midnightntwrk/midnight-iac#410. Part of midnightntwrk/midnight-iac#433.\n\nAssisted-by: AI <noreply@ai-assistant>\nSigned-off-by: Chris Ferry <chris.ferry@shielded.io>\n",
+        "verified_at": "2026-09-28T18:15:53Z"
+      }
+    },
+    "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/0f9feb69999e984a242d4d342b2c4041614cd463",
+    "html_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/commit/0f9feb69999e984a242d4d342b2c4041614cd463",
+    "comments_url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/0f9feb69999e984a242d4d342b2c4041614cd463/comments",
+    "author": {
+      "login": "chrisferry",
+      "id": 50551,
+      "node_id": "MDQ6VXNlcjUwNTUx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/50551?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chrisferry",
+      "html_url": "https://github.com/chrisferry",
+      "followers_url": "https://api.github.com/users/chrisferry/followers",
+      "following_url": "https://api.github.com/users/chrisferry/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chrisferry/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chrisferry/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chrisferry/subscriptions",
+      "organizations_url": "https://api.github.com/users/chrisferry/orgs",
+      "repos_url": "https://api.github.com/users/chrisferry/repos",
+      "events_url": "https://api.github.com/users/chrisferry/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chrisferry/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "chrisferry",
+      "id": 50551,
+      "node_id": "MDQ6VXNlcjUwNTUx",
+      "avatar_url": "https://avatars.githubusercontent.com/u/50551?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/chrisferry",
+      "html_url": "https://github.com/chrisferry",
+      "followers_url": "https://api.github.com/users/chrisferry/followers",
+      "following_url": "https://api.github.com/users/chrisferry/following{/other_user}",
+      "gists_url": "https://api.github.com/users/chrisferry/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/chrisferry/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/chrisferry/subscriptions",
+      "organizations_url": "https://api.github.com/users/chrisferry/orgs",
+      "repos_url": "https://api.github.com/users/chrisferry/repos",
+      "events_url": "https://api.github.com/users/chrisferry/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/chrisferry/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "4392de7cd0f147659456e0830adcfad377adbdbb",
+        "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/4392de7cd0f147659456e0830adcfad377adbdbb",
+        "html_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/commit/4392de7cd0f147659456e0830adcfad377adbdbb"
+      }
+    ]
+  },
+  {
+    "sha": "4392de7cd0f147659456e0830adcfad377adbdbb",
+    "node_id": "C_kwDOQVRIw9oAKDQzOTJkZTdjZDBmMTQ3NjU5NDU2ZTA4MzBhZGNmYWQzNzdhZGJkYmI",
+    "commit": {
+      "author": {
+        "name": "Squirrel",
+        "email": "gilescope@gmail.com",
+        "date": "2026-08-21T08:51:01Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-08-21T08:51:01Z"
+      },
+      "message": "Merge pull request #76 from midnightntwrk/dependabot/npm_and_yarn/markdown-it-14.3.0\n\nbuild(deps): bump markdown-it from 14.1.0 to 14.3.0",
+      "tree": {
+        "sha": "ab4bd3ebbff723dd970d0a1a1d256d676ac1af5b",
+        "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/ab4bd3ebbff723dd970d0a1a1d256d676ac1af5b"
+      },
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/commits/4392de7cd0f147659456e0830adcfad377adbdbb",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqiBF1CRC1aQ7uu5UhlAAAmAAQACN2NfJZQIf0Ew9TBpF5XAgt\n04mQs6x4Jprf4/Xf7ngHpgwnHFCjREVxFnF4yxS7OaS3L+CqIuaAoKTrzQ8llSlM\nXmt+Ew26t9pf72yUgk9jC7ZuAppPWepRpnvdiGhSjUvwHJh6TtmhRgyQEGknkBBj\naLXT2HhgbuXUfKYvzJ6p6sCadZW8oZY83OiuUJ4xGSNURNKLw2eJxP1IB7qmUOo8\n8JgznPw317EmV8nm+2PFQGv1iTikOTGUlOmIJ6lEBH5MsaQSOc3cTgTLAV0zjBFN\nwNlVjnws3EEGRKxshmkFoKvLrGNK/l0ZTCTInil9YogOB1CI6xisk+mk14wRmP0a\nwNe+CWLP+ETr2lVWU272VPz36vpmwAOh3V+kXMxb5sW4E5aEfmJi4oYoxVG7Ev3o\nt1cGiPvderFnp7Zjdfq0t+vQUsJdwqOnkvWOVOX8qTQZwdkB7c6Fbe5pdZ8IoagC\ns+DF8UUaJJf4blOpWjCRu/F3gZRSYcY/QkSFAuBb0If8qS8htnt+ejiBzlUtA1RF\nvvjwYUs/i543rDPYozoGD11fHtt/bhcfjxtB1oMiINnedDabew7wrbtHDe26j8+7\nYEiq/jXAtljxbkqfF7hxYDFAcrQASnpLiEInf9TDjNIl/0UTCGJGxU3H2KTwfubL\ngaVmxxHl98I48AaMbzL9\n=5K+N\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree ab4bd3ebbff723dd970d0a1a1d256d676ac1af5b\nparent 601a19c5fb51c170a819ebfd1117fa3a04388706\nparent b95d09f64e3b6b1ecd79bff9bebb39d32e6dadb1\nauthor Squirrel <gilescope@gmail.com> 1787302261 +0100\ncommitter GitHub <noreply@github.com> 1787302261 +0100\n\nMerge pull request #76 from midnightntwrk/dependabot/npm_and_yarn/markdown-it-14.3.0\n\nbuild(deps): bump markdown-it from 14.1.0 to 14.3.0",
+        "verified_at": "2026-08-21T08:51:01Z"
+      }
+    },
+    "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/4392de7cd0f147659456e0830adcfad377adbdbb",
+    "html_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/commit/4392de7cd0f147659456e0830adcfad377adbdbb",
+    "comments_url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/4392de7cd0f147659456e0830adcfad377adbdbb/comments",
+    "author": {
+      "login": "gilescope",
+      "id": 803976,
+      "node_id": "MDQ6VXNlcjgwMzk3Ng==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/803976?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/gilescope",
+      "html_url": "https://github.com/gilescope",
+      "followers_url": "https://api.github.com/users/gilescope/followers",
+      "following_url": "https://api.github.com/users/gilescope/following{/other_user}",
+      "gists_url": "https://api.github.com/users/gilescope/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/gilescope/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/gilescope/subscriptions",
+      "organizations_url": "https://api.github.com/users/gilescope/orgs",
+      "repos_url": "https://api.github.com/users/gilescope/repos",
+      "events_url": "https://api.github.com/users/gilescope/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/gilescope/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "601a19c5fb51c170a819ebfd1117fa3a04388706",
+        "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/601a19c5fb51c170a819ebfd1117fa3a04388706",
+        "html_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/commit/601a19c5fb51c170a819ebfd1117fa3a04388706"
+      },
+      {
+        "sha": "b95d09f64e3b6b1ecd79bff9bebb39d32e6dadb1",
+        "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/b95d09f64e3b6b1ecd79bff9bebb39d32e6dadb1",
+        "html_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/commit/b95d09f64e3b6b1ecd79bff9bebb39d32e6dadb1"
+      }
+    ]
+  },
+  {
+    "sha": "b95d09f64e3b6b1ecd79bff9bebb39d32e6dadb1",
+    "node_id": "C_kwDOQVRIw9oAKGI5NWQwOWY2NGUzYjZiMWVjZDc5YmZmOWJlYmIzOWQzMmU2ZGFkYjE",
+    "commit": {
+      "author": {
+        "name": "Squirrel",
+        "email": "gilescope@gmail.com",
+        "date": "2026-08-21T08:48:04Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-08-21T08:48:04Z"
+      },
+      "message": "Merge branch 'main' into dependabot/npm_and_yarn/markdown-it-14.3.0\n\nSigned-off-by: Squirrel <gilescope@gmail.com>",
+      "tree": {
+        "sha": "ab4bd3ebbff723dd970d0a1a1d256d676ac1af5b",
+        "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/trees/ab4bd3ebbff723dd970d0a1a1d256d676ac1af5b"
+      },
+      "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/git/commits/b95d09f64e3b6b1ecd79bff9bebb39d32e6dadb1",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqiBDECRC1aQ7uu5UhlAAA3uwQADJvSg3bQOL4SDQ8MuR79JcB\nLleMPz7BywPQ4AP1Ik8UKzFtqAzkMQ83DyYVwtFFJIbG1P7wIjjFatp1Nz1Sp9Jg\new2y7W0/9UveBkepplrkDOG2SZplCcevisyQDF+YyQoWGBbHEmwmA+kN0XKnNiPQ\n+a55ILXXkLaTuDt+HQuFP2I/rl6+UHyjLWdXUoCqJrE/fxJ2CxDFgX6HWOXT7YZ1\nMW6t+4d0HOxZ3dSdC2P0/mxBYVUrOX202diefv/ZzmEfCKIrR3pYFmvkVF11ay5y\n5NRhkbz2yTF9WBWa5XFVadSVWzNnMGsI5JyrxqReiOZ6ho8GD9nhgoN59Ti9+0OQ\njaHdiuYlJ6rlmztv6eDFPjhuYHjDwshU36tPGPRHNxjPtnppmomcIuZuoAuwNwpp\n40vipH2Kcdkx2N7uAU5VWgzOW+zDZwLQFgbz9awsGQoDVOoe6Iq8wNOudMqc+1lG\nbcCL5lyhJcwtLh97IejxZ2bSyjH7flBueiQ+JHDXP04f1gX3Vvbgft9vLDp0OKxk\nLhlkrmeKFyGFTgDQ5/FeNVw/kn+Uaz9pD2UTZgexF3P16VF95oErZcf21CQVzU5l\nYkjasfU4RSDMPgM6S8vTyotUA/dWmk8vlDfrsvUmFv6slu4fooDZRSb/mku13xZq\njKVwxBrJH6OM9xKS/RmZ\n=Y1la\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree ab4bd3ebbff723dd970d0a1a1d256d676ac1af5b\nparent ea1e83e0eb04e5dd3493d3c18a4708f2502f5bb3\nparent 601a19c5fb51c170a819ebfd1117fa3a04388706\nauthor Squirrel <gilescope@gmail.com> 1787302084 +0100\ncommitter GitHub <noreply@github.com> 1787302084 +0100\n\nMerge branch 'main' into dependabot/npm_and_yarn/markdown-it-14.3.0\n\nSigned-off-by: Squirrel <gilescope@gmail.com>",
+        "verified_at": "2026-08-21T08:48:05Z"
+      }
+    },
+    "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/b95d09f64e3b6b1ecd79bff9bebb39d32e6dadb1",
+    "html_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/commit/b95d09f64e3b6b1ecd79bff9bebb39d32e6dadb1",
+    "comments_url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/b95d09f64e3b6b1ecd79bff9bebb39d32e6dadb1/comments",
+    "author": {
+      "login": "gilescope",
+      "id": 803976,
+      "node_id": "MDQ6VXNlcjgwMzk3Ng==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/803976?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/gilescope",
+      "html_url": "https://github.com/gilescope",
+      "followers_url": "https://api.github.com/users/gilescope/followers",
+      "following_url": "https://api.github.com/users/gilescope/following{/other_user}",
+      "gists_url": "https://api.github.com/users/gilescope/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/gilescope/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/gilescope/subscriptions",
+      "organizations_url": "https://api.github.com/users/gilescope/orgs",
+      "repos_url": "https://api.github.com/users/gilescope/repos",
+      "events_url": "https://api.github.com/users/gilescope/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/gilescope/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "ea1e83e0eb04e5dd3493d3c18a4708f2502f5bb3",
+        "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/ea1e83e0eb04e5dd3493d3c18a4708f2502f5bb3",
+        "html_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/commit/ea1e83e0eb04e5dd3493d3c18a4708f2502f5bb3"
+      },
+      {
+        "sha": "601a19c5fb51c170a819ebfd1117fa3a04388706",
+        "url": "https://api.github.com/repos/midnightntwrk/midnight-dapp-connector-api/commits/601a19c5fb51c170a819ebfd1117fa3a04388706",
+        "html_url": "https://github.com/midnightntwrk/midnight-dapp-connector-api/commit/601a19c5fb51c170a819ebfd1117fa3a04388706"
+      }
+    ]
+  }
+]

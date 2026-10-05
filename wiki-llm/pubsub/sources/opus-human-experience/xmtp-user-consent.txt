@@ -1,0 +1,215 @@
+Understand how user consent preferences support spam-free chats – Build with XMTP
+Skip to content
+Intro to XMTP
+Chevron Right
+What is XMTP?
+Why XMTP?
+Build a quickstart app
+Get started
+Build with LLMs
+FAQ
+Dev support
+Roadmap
+Join the XMTP Dev Community
+SDKs
+Chevron Right
+Browser SDK
+Node SDK
+React Native SDK
+Android SDK
+iOS SDK
+Build core messaging
+Chevron Right
+Create a signer
+Create a client
+Create conversations
+Send messages
+Delete messages
+Support disappearing messages
+Manage group permissions
+Manage group metadata
+Support group invite links
+Manage inboxes, IDs, and installations
+Extend the identity model
+Observe rate limits
+Fund an app
+Chevron Right
+Get started
+Calculate fees
+Fund an app
+Run your XMTP Gateway Service
+Update your SDK
+Glossary
+List, stream, sync, & back up
+Chevron Right
+List conversations
+List messages
+Stream conversations and messages
+Sync conversations and messages
+Sync preferences
+Support backups
+History sync
+Support rich content types
+Chevron Right
+Understand content types
+Attachments
+Onchain transactions
+Onchain transaction references
+Reactions
+Replies
+Read receipts
+Actions
+Intents
+Custom content
+Fallback text for compatibility
+Support spam-free chat apps
+Chevron Right
+Understand user consent
+Support user consent
+Support push notifications
+Chevron Right
+Understand push notifications
+Support push notifications
+Run a push notifications server
+Try Android push notifications
+Try iOS push notifications
+Debug
+Chevron Right
+Debug your app
+Troubleshoot errors
+Sign and verify payloads
+GitHub
+Search...
+Build agents
+Build chat apps
+Protocol
+Network
+🚀 Try docs MCP server
+Join XMTP Switchboard Community
+Build agents
+Build chat apps
+Protocol
+Network
+🚀 Try docs MCP server
+Join XMTP Switchboard Community
+Build chat apps
+Chevron Down
+Menu
+Understand user consent
+On this page
+Chevron Right
+Understand how user consent preferences support spam-free chats
+Copy
+Copy page
+OpenAI
+Ask in ChatGPT
+Claude
+Ask in Claude
+In any open and permissionless messaging ecosystem, spam is an inevitable reality, and XMTP is no exception.
+However, with XMTP, you can give your users chats that are 
+spam-free spaces for chosen contacts only
+ by supporting user consent preferences.
+🎥 walkthrough: Consent
+This video provides a walkthrough of consent, covering the key ideas discussed in this doc. After watching, feel free to continue reading for more details.
+How user consent preferences work
+With user consent preferences, an identity registered on the XMTP network can have one of three user consent preference values in relation to another user's identity:
+Unknown
+Allowed
+Denied
+For example:
+alix.id
+ starts a conversation with 
+bo.id
+. At this time, 
+alix.id
+ is unknown to 
+bo.id
+ and the conversation displays in a message requests UI.
+When 
+bo.id
+ views the message request, they express their user consent preference to 
+Block
+ or 
+Accept
+alix.id
+ as a contact.
+If 
+bo.id
+ accepts 
+alix.id
+ as a contact, their conversation displays in 
+bo.id
+'s main inbox. Because only contacts 
+bo.id
+ accepts display in their main inbox, their inbox remains spam-free.
+If 
+bo.id
+ blocks contact with 
+alix.id
+, remove the conversation from 
+bo.id
+'s view. In an appropriate location in your app, give the user the option to unblock the contact.
+Your app should aim to handle consent preferences appropriately because they are an expression of user intent.
+For example, if a user blocked a contact, your app should respect the user's intent to not see messages from the blocked contact. Handling the consent preference incorrectly and showing the user messages from the blocked contact may cause the user to lose trust in your app.
+These user consent preferences are stored privately in an encrypted consent list on the XMTP network. The consent list is accessible by all apps that a user has authorized. This means a user can accept, or block, a contact once and have that consent respected across all other XMTP apps they use.
+Be sure to load the latest consent list from the network at appropriate steps in your app flow to ensure that your app can operate using the latest data.
+How user consent preferences are set
+Here are some of the ways user consent preferences are set:
+Unknown
+Conversation created in an app on an SDK version 
+with
+ user consent support:
+For a new conversation that a peer contact wants to start with a user, the consent preference is set to 
+unknown
+.
+Conversation created in an app on an SDK version 
+without
+ user consent support:
+For all conversations with any peer contact, the consent preference is set to 
+unknown
+.
+Allowed
+Conversation created in an app on an SDK version 
+with
+ user consent support:
+For a new conversation that a user created with a peer contact, the SDK sets the consent preference to 
+allowed
+.
+The user's creation of the conversation with the contact is considered consent.
+For an existing conversation created by a peer contact that hasn't had its consent preference updated on the network (
+unknown
+) and that the user responds to, the SDK will update the consent preference to 
+allowed
+.
+The user's response to the conversation is considered consent.
+For a peer contact that a user has taken the action to allow, subscribe to, or enable notifications from, for example, the app must update the consent preference to 
+allowed
+.
+Conversation created in an app on an SDK version 
+without
+ user consent support:
+There are no scenarios in which a user consent preference will be set to 
+allowed
+.
+Denied
+Conversation created in an app on an SDK version 
+with
+ user consent support:
+For a peer contact that a user has taken the action to block, unsubscribe from, or disable notifications from, for example, the app must update the consent preference to 
+denied
+.
+Conversation created in an app on an SDK version 
+without
+ user consent support:
+There are no scenarios in which a user consent preference will be set to 
+denied
+.
+Edit this page on GitHub
+Building with XMTP and have a question about this documentation? Leave a comment.
+XMTP.org
+XMTP status
+XMTP.chat
+Privacy policy
+Terms of service
+CC BY 4.0
+  Copyright © 2024-present XMTP.

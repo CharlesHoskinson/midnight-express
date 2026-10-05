@@ -1,0 +1,23 @@
+{
+  "id": "opus-stack-feasibility",
+  "exit_code": 0,
+  "modelUsage": {
+    "claude-opus-5-5": {
+      "inputTokens": 38,
+      "outputTokens": 20463,
+      "cacheReadInputTokens": 1236777,
+      "cacheCreationInputTokens": 92648,
+      "webSearchRequests": 0,
+      "costUSD": 1.3979514000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 5101,
+      "canonicalModel": "claude-opus-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "is_error": false,
+  "report_exists": true,
+  "errors": null
+}

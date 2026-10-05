@@ -1,0 +1,691 @@
+{
+  "sha": "5f5440bb26a62e2cf3440b92da5a667efa03b267",
+  "node_id": "C_kwDOM2nIG9oAKDVmNTQ0MGJiMjZhNjJlMmNmMzQ0MGI5MmRhNWE2NjdlZmEwM2IyNjc",
+  "commit": {
+    "author": {
+      "name": "Den Delimarsky",
+      "email": "53200638+localden@users.noreply.github.com",
+      "date": "2026-07-28T16:44:35Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-07-28T16:44:35Z"
+    },
+    "message": "Merge pull request #3158 from modelcontextprotocol/claude/subscriptions-listen-envelope\n\nAlign subscriptions/listen result naming and add response envelope",
+    "tree": {
+      "sha": "8957e31e8ecd6fd7f52df82d44b3827cb44cecb1",
+      "url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/git/trees/8957e31e8ecd6fd7f52df82d44b3827cb44cecb1"
+    },
+    "url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/git/commits/5f5440bb26a62e2cf3440b92da5a667efa03b267",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqaNxzCRC1aQ7uu5UhlAAALjMQADKctFS4fyqk3CFLIuM5VVAY\n0grm1HUvjsQtQ6ly6lqv6EPwFslc3n5NLhamnWU0OgbZ5enHrE+DnaXr7yk120BI\nd8tgEqc7AsZaGhUrRS0PJlIDrbai7SNwyxz7nYpAUZ/L3KSw8AnZxUMv7ENIJo1b\nb3cKcWqVr5H7CrIu0wLruDxCSI9RQJc5ABQWlM5gI7vX4k3cgx/uP6liGAMUIJYj\niEdm14lmI2PxoffkW6RGgZTHrivM5pa/7FCQ/50VZCxddpLqP8IuONl8/LSZ/wgF\nXWUkggMcuGJubxoJKHLrLdLj9byEXrjOPWUPFPQvxIMzFNc+UUkmo/QfC9pnoPl3\n+mP52g73wlkIpZu2CuSrdN20TzByNsFVcoqK+bbgiArAh0a61IG7nQEfiDUEWvBH\nRf3blFT8ukWYdMHM5a5Bq0y+VKEAcfx28KRF28HsTxpVAvlv2w0tPKxgGsc9uGRF\nbmlS5su4r6jhyW2DT0GcG/fjt3JpkEt+EDwKUdgB4tBBJc6jJMU47OSPLZa4PUl9\n0Vei6zTKuM8RaE3qF0qmxy8zWMa5pZx65lywXMTsNVCBqHt78bO7p7YjINwH/yq+\n3BHEHHf395/SmFkp45YPg9aDgk4Kfg/XtXFx5qUJ5pilZr0A6aHkc+lfkE2/IxAl\nmLopjVscYLxpe8r6xwTj\n=cIbQ\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 8957e31e8ecd6fd7f52df82d44b3827cb44cecb1\nparent 91c29de3786f0b36699851d835a0cdf60fd3005e\nparent 271ecc9accafdd9b83a3c869fa67c22953b2af80\nauthor Den Delimarsky <53200638+localden@users.noreply.github.com> 1785257075 -0700\ncommitter GitHub 
+ 1785257075 -0700\n\nMerge pull request #3158 from modelcontextprotocol/claude/subscriptions-listen-envelope\n\nAlign subscriptions/listen result naming and add response envelope",
+      "verified_at": "2026-07-28T16:44:35Z"
+    }
+  },
+  "url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/commits/5f5440bb26a62e2cf3440b92da5a667efa03b267",
+  "html_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/commit/5f5440bb26a62e2cf3440b92da5a667efa03b267",
+  "comments_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/commits/5f5440bb26a62e2cf3440b92da5a667efa03b267/comments",
+  "author": {
+    "login": "localden",
+    "id": 53200638,
+    "node_id": "MDQ6VXNlcjUzMjAwNjM4",
+    "avatar_url": "https://avatars.githubusercontent.com/u/53200638?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/localden",
+    "html_url": "https://github.com/localden",
+    "followers_url": "https://api.github.com/users/localden/followers",
+    "following_url": "https://api.github.com/users/localden/following{/other_user}",
+    "gists_url": "https://api.github.com/users/localden/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/localden/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/localden/subscriptions",
+    "organizations_url": "https://api.github.com/users/localden/orgs",
+    "repos_url": "https://api.github.com/users/localden/repos",
+    "events_url": "https://api.github.com/users/localden/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/localden/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "91c29de3786f0b36699851d835a0cdf60fd3005e",
+      "url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/commits/91c29de3786f0b36699851d835a0cdf60fd3005e",
+      "html_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/commit/91c29de3786f0b36699851d835a0cdf60fd3005e"
+    },
+    {
+      "sha": "271ecc9accafdd9b83a3c869fa67c22953b2af80",
+      "url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/commits/271ecc9accafdd9b83a3c869fa67c22953b2af80",
+      "html_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/commit/271ecc9accafdd9b83a3c869fa67c22953b2af80"
+    }
+  ],
+  "stats": {
+    "total": 144,
+    "additions": 125,
+    "deletions": 19
+  },
+  "files": [
+    {
+      "sha": "706453adc8a2aba93e2dd6bfc15c7cd3edc65b19",
+      "filename": "docs/specification/2026-07-28/schema.mdx",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 5,
+      "changes": 19,
+      "blob_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/5f5440bb26a62e2cf3440b92da5a667efa03b267/docs%2Fspecification%2F2026-07-28%2Fschema.mdx",
+      "raw_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/raw/5f5440bb26a62e2cf3440b92da5a667efa03b267/docs%2Fspecification%2F2026-07-28%2Fschema.mdx",
+      "contents_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/contents/docs%2Fspecification%2F2026-07-28%2Fschema.mdx?ref=5f5440bb26a62e2cf3440b92da5a667efa03b267",
+      "patch": "@@ -1367,18 +1367,27 @@ requested. \n \n \n \n+
+\n+\n+### `SubscriptionsListenResultResponse`\n+\n+
+interface
+SubscriptionsListenResultResponse
+{
+jsonrpc
+:
+"2.0"
+;
+id
+:
+RequestId
+;
+result
+:
+SubscriptionsListenResult
+;
+}
+A successful response from the server for a 
+subscriptions/listen
+\n+request, sent when the server tears the subscription down gracefully.
+Example: Subscription closed gracefully response
+{
+"jsonrpc"
+: 
+"2.0"
+,
+"id"
+: 
+"listen-1"
+,
+"result"
+: {
+"resultType"
+: 
+"complete"
+,
+"_meta"
+: {
+"io.modelcontextprotocol/subscriptionId"
+: 
+"listen-1"
+    }
+  }
+}
+Copy
+jsonrpc: "2.0"
+Inherited from 
+JSONRPCResultResponse
+.
+jsonrpc
+id: RequestId
+Inherited from 
+JSONRPCResultResponse
+.
+id
+result: SubscriptionsListenResult
+Overrides 
+JSONRPCResultResponse
+.
+result
+\n+
+\n+\n+\n 
+\n \n ### `SubscriptionsListenResult`\n \n-
+interface
+SubscriptionsListenResult
+{
+resultType
+:
+string
+;
+_meta
+:
+SubscriptionsListenResultMeta
+;
+[
+key
+:
+string
+]:
+unknown
+;
+}
+The response to a 
+subscriptions/listen
+\n+
+interface
+SubscriptionsListenResult
+{
+resultType
+:
+string
+;
+_meta
+:
+SubscriptionsListenResultMetaObject
+;
+[
+key
+:
+string
+]:
+unknown
+;
+}
+The response to a 
+subscriptions/listen
+\n request, signalling that the subscription has ended gracefully (for example,\n during server shutdown). Because the listen stream is long-lived, this result\n is sent only when the server tears the subscription down; an abrupt transport\n close carries no response. The result body is otherwise empty.
+Example: Subscription closed gracefully
+{
+"resultType"
+: 
+"complete"
+,
+"_meta"
+: {
+"io.modelcontextprotocol/subscriptionId"
+: 
+"listen-1"
+  }
+}
+Copy
+resultType: string
+Indicates the type of the result, which allows the client to determine\n how to parse the result object.
+Servers implementing this protocol version MUST include this field.\n For backward compatibility, when a client receives a result from a\n-server implementing an earlier protocol version (which does not include 
+resultType
+), the client MUST treat the absent field as 
+"complete"
+.
+Inherited from 
+Result
+.
+resultType
+_meta: SubscriptionsListenResultMeta
+Overrides 
+Result
+.
+_meta
+\n+server implementing an earlier protocol version (which does not include 
+resultType
+), the client MUST treat the absent field as 
+"complete"
+. 
+Inherited from 
+Result
+.
+resultType
+_meta: SubscriptionsListenResultMetaObject
+Overrides 
+Result
+.
+_meta
+\n 
+\n \n \n@@ -1394,15 +1403,15 @@ Replaces the former 
+resources/subscribe
+ RPC. \n \n 
+\n \n-### `SubscriptionsListenResultMeta`\n+### `SubscriptionsListenResultMetaObject`\n \n-
+interface
+SubscriptionsListenResultMeta
+{
+"io.modelcontextprotocol/serverInfo"
+?:
+Implementation
+;
+"io.modelcontextprotocol/subscriptionId"
+:
+RequestId
+;
+[
+key
+:
+string
+]:
+unknown
+;
+}
+Extends 
+ResultMetaObject
+ with the subscription-stream identifier carried by a 
+SubscriptionsListenResult
+. All key naming rules from 
+MetaObject
+ apply.
+See
+MetaObject
+ for key naming rules and reserved prefixes.
+"io.modelcontextprotocol/serverInfo"?: Implementation
+Identifies the server software producing the response. Servers SHOULD\n+
+interface
+SubscriptionsListenResultMetaObject
+{
+"io.modelcontextprotocol/serverInfo"
+?:
+Implementation
+;
+"io.modelcontextprotocol/subscriptionId"
+:
+RequestId
+;
+[
+key
+:
+string
+]:
+unknown
+;
+}
+Extends 
+ResultMetaObject
+ with the subscription-stream identifier carried by a 
+SubscriptionsListenResult
+. All key naming rules from 
+MetaObject
+ apply.
+See
+MetaObject
+ for key naming rules and reserved prefixes.
+"io.modelcontextprotocol/serverInfo"?: Implementation
+Identifies the server software producing the response. Servers SHOULD\n include this field on every response unless specifically configured not\n to do so.
+The 
+Implementation
+ schema requires 
+name
+ and 
+version
+; other\n fields are optional.
+The value is self-reported by the server and is not verified by the\n protocol. It is intended for display, logging, and debugging. Clients\n SHOULD NOT use it to change their behavior, and SHOULD NOT rely on it for\n-security decisions.
+Inherited from 
+ResultMetaObject
+.
+io.modelcontextprotocol/serverInfo
+"io.modelcontextprotocol/subscriptionId": RequestId
+Identifies the subscription stream this response closes, so the client can\n+security decisions.
+Inherited from 
+ResultMetaObject
+.
+io.modelcontextprotocol/serverInfo
+"io.modelcontextprotocol/subscriptionId": RequestId
+Identifies the subscription stream this response closes, so the client can\n correlate it with the originating subscription — mirroring the same key on\n the stream's notifications. The value is the JSON-RPC ID of the 
+subscriptions/listen
+ request that opened the stream (and equals this\n response's 
+id
+).
+"
+    },
+    {
+      "sha": "159c7be5e8e1a56d21860c99a594755c804994ca",
+      "filename": "docs/specification/draft/schema.mdx",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 5,
+      "changes": 19,
+      "blob_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/5f5440bb26a62e2cf3440b92da5a667efa03b267/docs%2Fspecification%2Fdraft%2Fschema.mdx",
+      "raw_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/raw/5f5440bb26a62e2cf3440b92da5a667efa03b267/docs%2Fspecification%2Fdraft%2Fschema.mdx",
+      "contents_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/contents/docs%2Fspecification%2Fdraft%2Fschema.mdx?ref=5f5440bb26a62e2cf3440b92da5a667efa03b267",
+      "patch": "@@ -1367,18 +1367,27 @@ requested. 
+\n 
+\n \n \n+
+\n+\n+### `SubscriptionsListenResultResponse`\n+\n+
+interface
+SubscriptionsListenResultResponse
+{
+jsonrpc
+:
+"2.0"
+;
+id
+:
+RequestId
+;
+result
+:
+SubscriptionsListenResult
+;
+}
+A successful response from the server for a 
+subscriptions/listen
+\n+request, sent when the server tears the subscription down gracefully.
+Example: Subscription closed gracefully response
+{
+"jsonrpc"
+: 
+"2.0"
+,
+"id"
+: 
+"listen-1"
+,
+"result"
+: {
+"resultType"
+: 
+"complete"
+,
+"_meta"
+: {
+"io.modelcontextprotocol/subscriptionId"
+: 
+"listen-1"
+    }
+  }
+}
+Copy
+jsonrpc: "2.0"
+Inherited from 
+JSONRPCResultResponse
+.
+jsonrpc
+id: RequestId
+Inherited from 
+JSONRPCResultResponse
+.
+id
+result: SubscriptionsListenResult
+Overrides 
+JSONRPCResultResponse
+.
+result
+\n+
+\n+\n+\n 
+\n \n ### `SubscriptionsListenResult`\n \n-
+interface
+SubscriptionsListenResult
+{
+resultType
+:
+string
+;
+_meta
+:
+SubscriptionsListenResultMeta
+;
+[
+key
+:
+string
+]:
+unknown
+;
+}
+The response to a 
+subscriptions/listen
+\n+
+interface
+SubscriptionsListenResult
+{
+resultType
+:
+string
+;
+_meta
+:
+SubscriptionsListenResultMetaObject
+;
+[
+key
+:
+string
+]:
+unknown
+;
+}
+The response to a 
+subscriptions/listen
+\n request, signalling that the subscription has ended gracefully (for example,\n during server shutdown). Because the listen stream is long-lived, this result\n is sent only when the server tears the subscription down; an abrupt transport\n close carries no response. The result body is otherwise empty.
+Example: Subscription closed gracefully
+{
+"resultType"
+: 
+"complete"
+,
+"_meta"
+: {
+"io.modelcontextprotocol/subscriptionId"
+: 
+"listen-1"
+  }
+}
+Copy
+resultType: string
+Indicates the type of the result, which allows the client to determine\n how to parse the result object.
+Servers implementing this protocol version MUST include this field.\n For backward compatibility, when a client receives a result from a\n-server implementing an earlier protocol version (which does not include 
+resultType
+), the client MUST treat the absent field as 
+"complete"
+.
+Inherited from 
+Result
+.
+resultType
+_meta: SubscriptionsListenResultMeta
+Overrides 
+Result
+.
+_meta
+\n+server implementing an earlier protocol version (which does not include 
+resultType
+), the client MUST treat the absent field as 
+"complete"
+. 
+Inherited from 
+Result
+.
+resultType
+_meta: SubscriptionsListenResultMetaObject
+Overrides 
+Result
+.
+_meta
+\n 
+\n \n \n@@ -1394,15 +1403,15 @@ Replaces the former 
+resources/subscribe
+ RPC. \n \n 
+\n \n-### `SubscriptionsListenResultMeta`\n+### `SubscriptionsListenResultMetaObject`\n \n-
+interface
+SubscriptionsListenResultMeta
+{
+"io.modelcontextprotocol/serverInfo"
+?:
+Implementation
+;
+"io.modelcontextprotocol/subscriptionId"
+:
+RequestId
+;
+[
+key
+:
+string
+]:
+unknown
+;
+}
+Extends 
+ResultMetaObject
+ with the subscription-stream identifier carried by a 
+SubscriptionsListenResult
+. All key naming rules from 
+MetaObject
+ apply.
+See
+MetaObject
+ for key naming rules and reserved prefixes.
+"io.modelcontextprotocol/serverInfo"?: Implementation
+Identifies the server software producing the response. Servers SHOULD\n+
+interface
+SubscriptionsListenResultMetaObject
+{
+"io.modelcontextprotocol/serverInfo"
+?:
+Implementation
+;
+"io.modelcontextprotocol/subscriptionId"
+:
+RequestId
+;
+[
+key
+:
+string
+]:
+unknown
+;
+}
+Extends 
+ResultMetaObject
+ with the subscription-stream identifier carried by a 
+SubscriptionsListenResult
+. All key naming rules from 
+MetaObject
+ apply.
+See
+MetaObject
+ for key naming rules and reserved prefixes.
+"io.modelcontextprotocol/serverInfo"?: Implementation
+Identifies the server software producing the response. Servers SHOULD\n include this field on every response unless specifically configured not\n to do so.
+The 
+Implementation
+ schema requires 
+name
+ and 
+version
+; other\n fields are optional.
+The value is self-reported by the server and is not verified by the\n protocol. It is intended for display, logging, and debugging. Clients\n SHOULD NOT use it to change their behavior, and SHOULD NOT rely on it for\n-security decisions.
+Inherited from 
+ResultMetaObject
+.
+io.modelcontextprotocol/serverInfo
+"io.modelcontextprotocol/subscriptionId": RequestId
+Identifies the subscription stream this response closes, so the client can\n+security decisions.
+Inherited from 
+ResultMetaObject
+.
+io.modelcontextprotocol/serverInfo
+"io.modelcontextprotocol/subscriptionId": RequestId
+Identifies the subscription stream this response closes, so the client can\n correlate it with the originating subscription — mirroring the same key on\n the stream's notifications. The value is the JSON-RPC ID of the 
+subscriptions/listen
+ request that opened the stream (and equals this\n response's 
+id
+).
+"
+    },
+    {
+      "sha": "9441979a42c2403e6bc8e8525469ed0cb63384ec",
+      "filename": "schema/2026-07-28/examples/SubscriptionsListenResultResponse/listen-closed-response.json",
+      "status": "added",
+      "additions": 10,
+      "deletions": 0,
+      "changes": 10,
+      "blob_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/5f5440bb26a62e2cf3440b92da5a667efa03b267/schema%2F2026-07-28%2Fexamples%2FSubscriptionsListenResultResponse%2Flisten-closed-response.json",
+      "raw_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/raw/5f5440bb26a62e2cf3440b92da5a667efa03b267/schema%2F2026-07-28%2Fexamples%2FSubscriptionsListenResultResponse%2Flisten-closed-response.json",
+      "contents_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/contents/schema%2F2026-07-28%2Fexamples%2FSubscriptionsListenResultResponse%2Flisten-closed-response.json?ref=5f5440bb26a62e2cf3440b92da5a667efa03b267",
+      "patch": "@@ -0,0 +1,10 @@\n+{\n+  \"jsonrpc\": \"2.0\",\n+  \"id\": \"listen-1\",\n+  \"result\": {\n+    \"resultType\": \"complete\",\n+    \"_meta\": {\n+      \"io.modelcontextprotocol/subscriptionId\": \"listen-1\"\n+    }\n+  }\n+}"
+    },
+    {
+      "sha": "213c58f6d9a1c2ce6ad055afe90bbdb095a29ee8",
+      "filename": "schema/2026-07-28/schema.json",
+      "status": "modified",
+      "additions": 23,
+      "deletions": 2,
+      "changes": 25,
+      "blob_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/5f5440bb26a62e2cf3440b92da5a667efa03b267/schema%2F2026-07-28%2Fschema.json",
+      "raw_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/raw/5f5440bb26a62e2cf3440b92da5a667efa03b267/schema%2F2026-07-28%2Fschema.json",
+      "contents_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/contents/schema%2F2026-07-28%2Fschema.json?ref=5f5440bb26a62e2cf3440b92da5a667efa03b267",
+      "patch": "@@ -3400,7 +3400,7 @@\n             \"description\": \"The response to a {@link SubscriptionsListenRequestsubscriptions/listen}\\nrequest, signalling that the subscription has ended gracefully (for example,\\nduring server shutdown). Because the listen stream is long-lived, this result\\nis sent only when the server tears the subscription down; an abrupt transport\\nclose carries no response. The result body is otherwise empty.\",\n             \"properties\": {\n                 \"_meta\": {\n-                    \"$ref\": \"#/$defs/SubscriptionsListenResultMeta\"\n+                    \"$ref\": \"#/$defs/SubscriptionsListenResultMetaObject\"\n                 },\n                 \"resultType\": {\n                     \"description\": \"Indicates the type of the result, which allows the client to determine\\nhow to parse the result object.\\n\\nServers implementing this protocol version MUST include this field.\\nFor backward compatibility, when a client receives a result from a\\nserver implementing an earlier protocol version (which does not include\\n`resultType`), the client MUST treat the absent field as `\\\"complete\\\"`.\",\n@@ -3413,7 +3413,7 @@\n             ],\n             \"type\": \"object\"\n         },\n-        \"SubscriptionsListenResultMeta\": {\n+        \"SubscriptionsListenResultMetaObject\": {\n             \"description\": \"Extends {@link ResultMetaObject} with the subscription-stream identifier carried by a\\n{@link SubscriptionsListenResult}. All key naming rules from `MetaObject` apply.\",\n             \"properties\": {\n                 \"io.modelcontextprotocol/serverInfo\": {\n@@ -3430,6 +3430,27 @@\n             ],\n             \"type\": \"object\"\n         },\n+        \"SubscriptionsListenResultResponse\": {\n+            \"description\": \"A successful response from the server for a {@link SubscriptionsListenRequestsubscriptions/listen}\\nrequest, sent when the server tears the subscription down gracefully.\",\n+            \"properties\": {\n+                \"id\": {\n+                    \"$ref\": \"#/$defs/RequestId\"\n+                },\n+                \"jsonrpc\": {\n+                    \"const\": \"2.0\",\n+                    \"type\": \"string\"\n+                },\n+                \"result\": {\n+                    \"$ref\": \"#/$defs/SubscriptionsListenResult\"\n+                }\n+            },\n+            \"required\": [\n+                \"id\",\n+                \"jsonrpc\",\n+                \"result\"\n+            ],\n+            \"type\": \"object\"\n+        },\n         \"TextContent\": {\n             \"description\": \"Text provided to or from an LLM.\",\n             \"properties\": {"
+    },
+    {
+      "sha": "9b55feeb412bc3ae877f2eac10b5c01ba29a2eed",
+      "filename": "schema/2026-07-28/schema.ts",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 2,
+      "changes": 17,
+      "blob_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/5f5440bb26a62e2cf3440b92da5a667efa03b267/schema%2F2026-07-28%2Fschema.ts",
+      "raw_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/raw/5f5440bb26a62e2cf3440b92da5a667efa03b267/schema%2F2026-07-28%2Fschema.ts",
+      "contents_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/contents/schema%2F2026-07-28%2Fschema.ts?ref=5f5440bb26a62e2cf3440b92da5a667efa03b267",
+      "patch": "@@ -1323,7 +1323,7 @@ export interface SubscriptionsListenRequest extends JSONRPCRequest {\n  * @see {@link MetaObject} for key naming rules and reserved prefixes.\n  * @category `subscriptions/listen`\n  */\n-export interface SubscriptionsListenResultMeta extends ResultMetaObject {\n+export interface SubscriptionsListenResultMetaObject extends ResultMetaObject {\n   /**\n    * Identifies the subscription stream this response closes, so the client can\n    * correlate it with the originating subscription — mirroring the same key on\n@@ -1347,7 +1347,20 @@ export interface SubscriptionsListenResultMeta extends ResultMetaObject {\n  * @category `subscriptions/listen`\n  */\n export interface SubscriptionsListenResult extends Result {\n-  _meta: SubscriptionsListenResultMeta;\n+  _meta: SubscriptionsListenResultMetaObject;\n+}\n+\n+/**\n+ * A successful response from the server for a {@link SubscriptionsListenRequest | subscriptions/listen}\n+ * request, sent when the server tears the subscription down gracefully.\n+ *\n+ * @example Subscription closed gracefully response\n+ * {@includeCode ./examples/SubscriptionsListenResultResponse/listen-closed-response.json}\n+ *\n+ * @category `subscriptions/listen`\n+ */\n+export interface SubscriptionsListenResultResponse extends JSONRPCResultResponse {\n+  result: SubscriptionsListenResult;\n }\n \n /**"
+    },
+    {
+      "sha": "9441979a42c2403e6bc8e8525469ed0cb63384ec",
+      "filename": "schema/draft/examples/SubscriptionsListenResultResponse/listen-closed-response.json",
+      "status": "added",
+      "additions": 10,
+      "deletions": 0,
+      "changes": 10,
+      "blob_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/5f5440bb26a62e2cf3440b92da5a667efa03b267/schema%2Fdraft%2Fexamples%2FSubscriptionsListenResultResponse%2Flisten-closed-response.json",
+      "raw_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/raw/5f5440bb26a62e2cf3440b92da5a667efa03b267/schema%2Fdraft%2Fexamples%2FSubscriptionsListenResultResponse%2Flisten-closed-response.json",
+      "contents_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/contents/schema%2Fdraft%2Fexamples%2FSubscriptionsListenResultResponse%2Flisten-closed-response.json?ref=5f5440bb26a62e2cf3440b92da5a667efa03b267",
+      "patch": "@@ -0,0 +1,10 @@\n+{\n+  \"jsonrpc\": \"2.0\",\n+  \"id\": \"listen-1\",\n+  \"result\": {\n+    \"resultType\": \"complete\",\n+    \"_meta\": {\n+      \"io.modelcontextprotocol/subscriptionId\": \"listen-1\"\n+    }\n+  }\n+}"
+    },
+    {
+      "sha": "213c58f6d9a1c2ce6ad055afe90bbdb095a29ee8",
+      "filename": "schema/draft/schema.json",
+      "status": "modified",
+      "additions": 23,
+      "deletions": 2,
+      "changes": 25,
+      "blob_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/5f5440bb26a62e2cf3440b92da5a667efa03b267/schema%2Fdraft%2Fschema.json",
+      "raw_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/raw/5f5440bb26a62e2cf3440b92da5a667efa03b267/schema%2Fdraft%2Fschema.json",
+      "contents_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/contents/schema%2Fdraft%2Fschema.json?ref=5f5440bb26a62e2cf3440b92da5a667efa03b267",
+      "patch": "@@ -3400,7 +3400,7 @@\n             \"description\": \"The response to a {@link SubscriptionsListenRequestsubscriptions/listen}\\nrequest, signalling that the subscription has ended gracefully (for example,\\nduring server shutdown). Because the listen stream is long-lived, this result\\nis sent only when the server tears the subscription down; an abrupt transport\\nclose carries no response. The result body is otherwise empty.\",\n             \"properties\": {\n                 \"_meta\": {\n-                    \"$ref\": \"#/$defs/SubscriptionsListenResultMeta\"\n+                    \"$ref\": \"#/$defs/SubscriptionsListenResultMetaObject\"\n                 },\n                 \"resultType\": {\n                     \"description\": \"Indicates the type of the result, which allows the client to determine\\nhow to parse the result object.\\n\\nServers implementing this protocol version MUST include this field.\\nFor backward compatibility, when a client receives a result from a\\nserver implementing an earlier protocol version (which does not include\\n`resultType`), the client MUST treat the absent field as `\\\"complete\\\"`.\",\n@@ -3413,7 +3413,7 @@\n             ],\n             \"type\": \"object\"\n         },\n-        \"SubscriptionsListenResultMeta\": {\n+        \"SubscriptionsListenResultMetaObject\": {\n             \"description\": \"Extends {@link ResultMetaObject} with the subscription-stream identifier carried by a\\n{@link SubscriptionsListenResult}. All key naming rules from `MetaObject` apply.\",\n             \"properties\": {\n                 \"io.modelcontextprotocol/serverInfo\": {\n@@ -3430,6 +3430,27 @@\n             ],\n             \"type\": \"object\"\n         },\n+        \"SubscriptionsListenResultResponse\": {\n+            \"description\": \"A successful response from the server for a {@link SubscriptionsListenRequestsubscriptions/listen}\\nrequest, sent when the server tears the subscription down gracefully.\",\n+            \"properties\": {\n+                \"id\": {\n+                    \"$ref\": \"#/$defs/RequestId\"\n+                },\n+                \"jsonrpc\": {\n+                    \"const\": \"2.0\",\n+                    \"type\": \"string\"\n+                },\n+                \"result\": {\n+                    \"$ref\": \"#/$defs/SubscriptionsListenResult\"\n+                }\n+            },\n+            \"required\": [\n+                \"id\",\n+                \"jsonrpc\",\n+                \"result\"\n+            ],\n+            \"type\": \"object\"\n+        },\n         \"TextContent\": {\n             \"description\": \"Text provided to or from an LLM.\",\n             \"properties\": {"
+    },
+    {
+      "sha": "b2119e1484be7f94238c3cc00d63937998d95bb1",
+      "filename": "schema/draft/schema.ts",
+      "status": "modified",
+      "additions": 15,
+      "deletions": 2,
+      "changes": 17,
+      "blob_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/5f5440bb26a62e2cf3440b92da5a667efa03b267/schema%2Fdraft%2Fschema.ts",
+      "raw_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/raw/5f5440bb26a62e2cf3440b92da5a667efa03b267/schema%2Fdraft%2Fschema.ts",
+      "contents_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/contents/schema%2Fdraft%2Fschema.ts?ref=5f5440bb26a62e2cf3440b92da5a667efa03b267",
+      "patch": "@@ -1323,7 +1323,7 @@ export interface SubscriptionsListenRequest extends JSONRPCRequest {\n  * @see {@link MetaObject} for key naming rules and reserved prefixes.\n  * @category `subscriptions/listen`\n  */\n-export interface SubscriptionsListenResultMeta extends ResultMetaObject {\n+export interface SubscriptionsListenResultMetaObject extends ResultMetaObject {\n   /**\n    * Identifies the subscription stream this response closes, so the client can\n    * correlate it with the originating subscription — mirroring the same key on\n@@ -1347,7 +1347,20 @@ export interface SubscriptionsListenResultMeta extends ResultMetaObject {\n  * @category `subscriptions/listen`\n  */\n export interface SubscriptionsListenResult extends Result {\n-  _meta: SubscriptionsListenResultMeta;\n+  _meta: SubscriptionsListenResultMetaObject;\n+}\n+\n+/**\n+ * A successful response from the server for a {@link SubscriptionsListenRequest | subscriptions/listen}\n+ * request, sent when the server tears the subscription down gracefully.\n+ *\n+ * @example Subscription closed gracefully response\n+ * {@includeCode ./examples/SubscriptionsListenResultResponse/listen-closed-response.json}\n+ *\n+ * @category `subscriptions/listen`\n+ */\n+export interface SubscriptionsListenResultResponse extends JSONRPCResultResponse {\n+  result: SubscriptionsListenResult;\n }\n \n /**"
+    },
+    {
+      "sha": "6b27cd3cdabeebd87e2e93e46e8137d35f3c9732",
+      "filename": "scripts/generate-schemas.ts",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/blob/5f5440bb26a62e2cf3440b92da5a667efa03b267/scripts%2Fgenerate-schemas.ts",
+      "raw_url": "https://github.com/modelcontextprotocol/modelcontextprotocol/raw/5f5440bb26a62e2cf3440b92da5a667efa03b267/scripts%2Fgenerate-schemas.ts",
+      "contents_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/contents/scripts%2Fgenerate-schemas.ts?ref=5f5440bb26a62e2cf3440b92da5a667efa03b267",
+      "patch": "@@ -11,7 +11,7 @@ const execAsync = promisify(exec);\n const LEGACY_SCHEMAS = ['2024-11-05', '2025-03-26', '2025-06-18'];\n \n // Modern schema versions that use JSON Schema 2020-12\n-const MODERN_SCHEMAS = ['2025-11-25', 'draft'];\n+const MODERN_SCHEMAS = ['2025-11-25', '2026-07-28', 'draft'];\n \n // All schema versions to generate\n const ALL_SCHEMAS = [...LEGACY_SCHEMAS, ...MODERN_SCHEMAS];"
+    }
+  ]
+}

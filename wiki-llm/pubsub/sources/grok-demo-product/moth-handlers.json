@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/shieldedtech/moth-wallet/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/lib/background/connector-handlers.ts",
+  "retrieved_utc": "2026-10-05T18:17:05.406917+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "7726712a87ab1d7f79a82b41f25b661dc030fb8f675d7c2f28ab9db5abb1b545",
+  "text_sha256": "7a7130ac6d4d2cfd8d8c22d4a8cc77898ca076e5f72261c8f14e167836a6fe79",
+  "bytes": 24485,
+  "text_bytes": 24330,
+  "final_url": "https://raw.githubusercontent.com/shieldedtech/moth-wallet/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/lib/background/connector-handlers.ts",
+  "accepted_source": true
+}

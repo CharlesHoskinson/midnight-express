@@ -1,0 +1,9 @@
+{
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/resources",
+  "fetched_at": "2026-10-05T18:05:21.459765+00:00",
+  "method": "Scrapling Fetcher.get",
+  "status": 200,
+  "sha256": "f280692445d94103cea92e734819b51c20057dd5d2f6124e4ee96e9fb1c71b97",
+  "text_sha256": "56f6513b9e3247cdaffcbef59466be9a66ccf018c0b1d797ee9cc7063151dddc",
+  "bytes": 533192
+}

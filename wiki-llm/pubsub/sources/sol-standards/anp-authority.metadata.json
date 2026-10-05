@@ -1,0 +1,9 @@
+{
+  "url": "https://raw.githubusercontent.com/agent-network-protocol/AgentNetworkProtocol/main/README.md",
+  "fetched_at": "2026-10-05T18:05:58.132823+00:00",
+  "method": "Scrapling Fetcher.get",
+  "status": 200,
+  "sha256": "978cfdf1e7baaf5bcc3fbba8b5a8e439104ba918337d19f461ef5c0fe318bea9",
+  "text_sha256": "8f8e2333a23e376a3a8dfc326fb3c931652be8ada0565b8c25c5ffe946f0fc19",
+  "bytes": 19950
+}

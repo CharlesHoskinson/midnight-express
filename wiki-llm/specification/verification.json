@@ -1,0 +1,40 @@
+{
+  "toolchain": "Lean 4.34.1",
+  "compilerCommit": "5045d0056413266e57c625dcd7c365b10e377c52",
+  "agents": [
+    {
+      "id": "astra-model",
+      "model": "gpt-6-astra",
+      "invocation": "collaboration.spawn_agent explicit model override",
+      "report": "astra-model.md",
+      "reportSha256": "532580a2411372a5d3ddca75c4e2f7fce63b412e5ac77741ce3646f02f2fc5df"
+    },
+    {
+      "id": "astra-validation",
+      "model": "gpt-6-astra",
+      "invocation": "collaboration.spawn_agent explicit model override",
+      "report": "astra-validation.md",
+      "reportSha256": "1ead6465badf13ea862e0c556812044a7220d9a8236363ee142292712c9d9280"
+    },
+    {
+      "id": "astra-reader-guide",
+      "model": "gpt-6-astra",
+      "invocation": "collaboration.spawn_agent explicit model override",
+      "report": "astra-reader-guide.md",
+      "reportSha256": "3928d7726e71181d05233355a887340ca8cf0e34a0081a85aafbae2b3eb1abca"
+    }
+  ],
+  "verifiedCommands": [
+    "python formal/lean/check.py",
+    "lake env lean Audit.lean",
+    "node website/tests/specification.cjs"
+  ],
+  "proofBoundary": "typed Lean definitions; no verified JSON decoder, JCS/hash primitives, external authority provenance, runtime refinement or durable protocol proof",
+  "finiteCases": 36,
+  "replayExamples": 4,
+  "auditedDependencies": [
+    "propext",
+    "Quot.sound"
+  ],
+  "recordedUtc": "2026-10-05T18:51:24.503853+00:00"
+}

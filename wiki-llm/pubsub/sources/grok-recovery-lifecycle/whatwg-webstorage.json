@@ -1,0 +1,13 @@
+{
+  "url": "https://html.spec.whatwg.org/multipage/webstorage.html",
+  "retrieved_utc": "2026-10-05T18:19:39.799417+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "5bb4b2717d0159ad837922f2c8d56be33b7f1950fcf5e21e207891b7f8bd08cd",
+  "text_sha256": "b2a400556925e7dee7f4fccc3d1c3aec6134bb2cf73a7e2667e4980ad1e5e86f",
+  "bytes": 70484,
+  "text_bytes": 22260,
+  "final_url": "https://html.spec.whatwg.org/multipage/webstorage.html",
+  "accepted_source": true
+}

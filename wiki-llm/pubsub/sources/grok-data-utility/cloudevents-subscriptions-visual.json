@@ -1,0 +1,80 @@
+{
+  "url": "https://github.com/cloudevents/spec/blob/2ed3806b4ad8fda35813263cfefb2d73098b7655/subscriptions/spec.md",
+  "retrieved_utc": "2026-10-05T18:26:57.059264+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "c33de040d21c77175fdefd9cf685aaac4a20615bddaaecc5b9a7bd05441cceed",
+  "text_sha256": "9b884c06cd18af2e579872fe9236253beba4490ec6279f1ba2743c426fdaca3e",
+  "bytes": 583087,
+  "text_bytes": 37778,
+  "final_url": "https://github.com/cloudevents/spec/blob/2ed3806b4ad8fda35813263cfefb2d73098b7655/subscriptions/spec.md",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/grok-data-utility/cloudevents-subscriptions-visual-tiles/github.com_cloudevents_spec_blob_2ed3806b4ad8fda35813263cfefb2d73098b7655_subscriptions_spec.md.png.tiles/tile_0000.jpg",
+        "sha256": "87ccca74b69c15a3a642f34d108c9bc9013952075507beaf92e469c98d4b8b40"
+      },
+      {
+        "path": "sources/grok-data-utility/cloudevents-subscriptions-visual-tiles/github.com_cloudevents_spec_blob_2ed3806b4ad8fda35813263cfefb2d73098b7655_subscriptions_spec.md.png.tiles/tile_0001.jpg",
+        "sha256": "6b7c39ebb4b5d8bb3c6930b5d62dd9a3aee5d8a0e2ea828e2134bf10fe1d963e"
+      },
+      {
+        "path": "sources/grok-data-utility/cloudevents-subscriptions-visual-tiles/github.com_cloudevents_spec_blob_2ed3806b4ad8fda35813263cfefb2d73098b7655_subscriptions_spec.md.png.tiles/tile_0002.jpg",
+        "sha256": "fa94c8619721b6c48392f7ba31e49dfd6f4ff768f171860ca5ca4e0e202efd8a"
+      },
+      {
+        "path": "sources/grok-data-utility/cloudevents-subscriptions-visual-tiles/github.com_cloudevents_spec_blob_2ed3806b4ad8fda35813263cfefb2d73098b7655_subscriptions_spec.md.png.tiles/tile_0003.jpg",
+        "sha256": "d880ed7b489696cd08f2e819ca5f549bc811f9001405573049f514b5429924a1"
+      },
+      {
+        "path": "sources/grok-data-utility/cloudevents-subscriptions-visual-tiles/github.com_cloudevents_spec_blob_2ed3806b4ad8fda35813263cfefb2d73098b7655_subscriptions_spec.md.png.tiles/tile_0004.jpg",
+        "sha256": "1fcc91022bc099b61bfc6c9c522b088b0334c76914257fac79fa315132393ae0"
+      },
+      {
+        "path": "sources/grok-data-utility/cloudevents-subscriptions-visual-tiles/github.com_cloudevents_spec_blob_2ed3806b4ad8fda35813263cfefb2d73098b7655_subscriptions_spec.md.png.tiles/tile_0005.jpg",
+        "sha256": "586d44785e5dee0a86d620fee5955be6e8ec360e21768cdf3b7430d4433ebcd1"
+      },
+      {
+        "path": "sources/grok-data-utility/cloudevents-subscriptions-visual-tiles/github.com_cloudevents_spec_blob_2ed3806b4ad8fda35813263cfefb2d73098b7655_subscriptions_spec.md.png.tiles/tile_0006.jpg",
+        "sha256": "76d027ca1b8408fca090ebc7d4b28ff0e15a00ca8d741f15f351abeaa9647e59"
+      },
+      {
+        "path": "sources/grok-data-utility/cloudevents-subscriptions-visual-tiles/github.com_cloudevents_spec_blob_2ed3806b4ad8fda35813263cfefb2d73098b7655_subscriptions_spec.md.png.tiles/tile_0007.jpg",
+        "sha256": "2d446cb90bd31fca4d48472f73aa09a303f055830c893f00648c2f36e5719f3f"
+      },
+      {
+        "path": "sources/grok-data-utility/cloudevents-subscriptions-visual-tiles/github.com_cloudevents_spec_blob_2ed3806b4ad8fda35813263cfefb2d73098b7655_subscriptions_spec.md.png.tiles/tile_0008.jpg",
+        "sha256": "7c339b574ffb3a08efbf390976b22846e37c36a8e8037897ed72ea2a923e7de2"
+      },
+      {
+        "path": "sources/grok-data-utility/cloudevents-subscriptions-visual-tiles/github.com_cloudevents_spec_blob_2ed3806b4ad8fda35813263cfefb2d73098b7655_subscriptions_spec.md.png.tiles/tile_0009.jpg",
+        "sha256": "a30bd91526239ba1158feb25493f9892f0f4fdc933c137fbd6d89808e34ce5f3"
+      },
+      {
+        "path": "sources/grok-data-utility/cloudevents-subscriptions-visual-tiles/github.com_cloudevents_spec_blob_2ed3806b4ad8fda35813263cfefb2d73098b7655_subscriptions_spec.md.png.tiles/tile_0010.jpg",
+        "sha256": "2c274bf9f8893bd0d637e14755af6f222b0799507dc02bdd7e7fed567268ce97"
+      },
+      {
+        "path": "sources/grok-data-utility/cloudevents-subscriptions-visual-tiles/github.com_cloudevents_spec_blob_2ed3806b4ad8fda35813263cfefb2d73098b7655_subscriptions_spec.md.png.tiles/tile_0011.jpg",
+        "sha256": "e8b218958c7919f082d5bba92797fff657ce0e24df48db58fa8e39806434a947"
+      },
+      {
+        "path": "sources/grok-data-utility/cloudevents-subscriptions-visual-tiles/github.com_cloudevents_spec_blob_2ed3806b4ad8fda35813263cfefb2d73098b7655_subscriptions_spec.md.png.tiles/tile_0012.jpg",
+        "sha256": "7c971c921276af90773f650d16ad3e69d19df69729fee49233363e51353fa284"
+      },
+      {
+        "path": "sources/grok-data-utility/cloudevents-subscriptions-visual-tiles/github.com_cloudevents_spec_blob_2ed3806b4ad8fda35813263cfefb2d73098b7655_subscriptions_spec.md.png.tiles/tile_0013.jpg",
+        "sha256": "c4828c0b346170ae70b91d5ca737d3b2be02c094fff580f0562b1c23cbc1d8ab"
+      },
+      {
+        "path": "sources/grok-data-utility/cloudevents-subscriptions-visual-tiles/github.com_cloudevents_spec_blob_2ed3806b4ad8fda35813263cfefb2d73098b7655_subscriptions_spec.md.png.tiles/tile_0014.jpg",
+        "sha256": "6f7acafb1054da21a458eee557cc2cd30ee221c3b8940a7fe5566382f45ec31e"
+      }
+    ],
+    "stderr": "2026-10-05 12:26:59,114 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 12:27:09,116 INFO pixelrag_render.backends.cdp: [w0] https://github.com/cloudevents/spec/blob/2ed3806b4ad8fda35813263cfefb2d73098b7655/subscriptions/spec.md \u2192 15 tiles (6.9s)\n2026-10-05 12:27:09,133 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 12:27:09,134 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

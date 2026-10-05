@@ -1,0 +1,13 @@
+{
+  "url": "https://a2a-protocol.org/latest/topics/streaming-and-async/",
+  "retrieved_utc": "2026-10-05T18:13:33.634555+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "0333fb7c86eadd2fce8f2776526ee4bcdb12dc73f1c6829ca6195821dad5cd02",
+  "text_sha256": "2a43f84cd6d6b9b06206b2c1f53332b4863916ec42aa710aad0f546302d18d16",
+  "bytes": 83544,
+  "text_bytes": 14399,
+  "final_url": "https://a2a-protocol.org/latest/topics/streaming-and-async/",
+  "accepted_source": true
+}

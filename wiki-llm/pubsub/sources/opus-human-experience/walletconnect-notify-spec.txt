@@ -1,0 +1,58 @@
+Notify API Overview | WalletConnect Specs
+Skip to main content
+WalletConnect
+Specs
+v2.x
+Search
+WalletConnect
+Specs
+Specs
+Overview
+Client APIs
+Sign API
+Chat API
+Notify API
+Notify API Overview
+Authentication
+Client SDK API
+Dapp Authentication
+Data Structures
+Decrypted Notifications
+Notify Configuration
+Notify Server Authentication
+Notify Subscription
+RPC Methods
+Notify Spam Protection
+Core API
+Server APIs
+Relay Server
+Keys Server
+Push Server
+Notify Server
+Verify Server
+Blockchain API
+Meta-Clients API
+Glossary
+On this page
+Notify API Overview
+Description
+​
+Notify API allows wallet users to register subscriptions for different blockchain, application or off-chain events that are relevant to the user and can be notified from their wallet.
+Edit this page
+Last updated on 
+Sep 22, 2024
+Previous
+Usage of Sync API
+Next
+Authentication
+Description
+Docs
+Main Docs
+Community
+GitHub Discussions
+Discord
+Twitter
+More
+Blog
+GitHub
+Copyright © 2026 Reown, Inc.

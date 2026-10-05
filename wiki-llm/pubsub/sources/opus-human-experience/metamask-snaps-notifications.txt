@@ -1,0 +1,303 @@
+Notifications | MetaMask developer documentation
+For AI agents: a documentation index is available at 
+/llms.txt
+. A markdown version of this page is available at the same URL with .md appended (or via Accept: text/markdown).
+Skip to main content
+Infura
+ docs have shifted to 
+docs.infura.io
+.
+Products
+Connect to MetaMask
+Create embedded wallets
+Create smart accounts
+Create agent wallets
+Extend and scale
+Multichain
+Connect your dapp to multiple ecosystems.
+EVM
+Connect your dapp to EVM networks.
+Solana
+Connect your dapp to Solana.
+React SDK
+Vue SDK
+JavaScript SDK
+Node SDK
+Unity SDK
+Android SDK
+iOS SDK
+React Native SDK
+Flutter SDK
+Unreal SDK
+Smart Accounts Kit
+
+              Create embedded smart accounts or request Advanced Permissions from MetaMask users.
+            
+Quickstart
+Install the CLI and send your first transfer.
+Architecture
+Wallet modes, security stack, and async signing.
+Trade perpetuals
+Open and manage Hyperliquid positions.
+Commands reference
+All `mm` commands and flags.
+Snaps
+Extend MetaMask functionality with custom features.
+Infura
+Use high performance APIs provided by Infura to build and scale your dapp.
+Quickstart
+Tutorials
+Help ↗
+Search or Ask AI
+Snaps
+Introduction
+Get started
+Install MetaMask Flask
+Snaps quickstart
+Learn
+About Snaps
+Tutorials
+Best practices
+Resources
+Features
+Cron jobs
+Custom EVM accounts
+Custom name resolution
+Custom UI
+Data storage
+Lifecycle hooks
+Localization
+Network access
+Non-EVM networks
+Notifications
+Signature insights
+Static files
+Transaction insights
+How to
+Request permissions
+Communicate errors
+Use environment variables
+Restrict RPC API methods
+Allow automatic connections
+Test a Snap
+Debug a Snap
+Publish a Snap
+Get allowlisted
+Connect to a Snap
+Reference
+Snaps API
+Snaps CLI
+Configuration options
+Snaps entry points
+Snaps permissions
+Snaps known errors
+Keyring API
+Jest API and options
+JSON-RPC API
+On this page
+Open in Claude
+Notifications
+You can display notifications directly in MetaMask or natively in a user's operating system (OS)
+using the 
+snap_notify
+ API method.
+Steps
+​
+1. Request permission to notify users
+​
+Request the 
+snap_notify
+ permission.
+Add the following to your Snap's manifest file:
+snap.manifest.json
+"initialPermissions"
+:
+{
+"snap_notify"
+:
+{
+}
+}
+2. Create a notification
+​
+Create a notification by calling 
+snap_notify
+, which takes
+a notification 
+type
+ and 
+message
+.
+Specify 
+type: "inApp"
+ to display the notification in the MetaMask UI, or 
+type: "native"
+ to
+display the notification in the user's OS.
+note
+We recommend using 
+type: "inApp"
+ because there's no guarantee that native notifications are
+displayed to the user.
+You can also call 
+snap_notify
+ twice, with each notification type, to trigger both an in-app and
+native notification.
+The following example displays a notification in MetaMask, with the message "Hello, world!":
+index.js
+await
+ snap
+.
+request
+(
+{
+method
+:
+'snap_notify'
+,
+params
+:
+{
+type
+:
+'inApp'
+,
+message
+:
+'Hello, world!'
+,
+}
+,
+}
+)
+Notification rate limits
+Each Snap can trigger up to:
+Five in-app notifications per minute.
+Two native notifications per five minutes.
+Expanded view
+​
+In-app notifications can include an optional expanded view that displays when selected.
+The expanded view includes a title, 
+custom UI
+ content, and an optional footer link.
+The following example displays a notification in MetaMask, with the message "Hello, world!"
+When the user selects the notification, the expanded view displays a page with a title, a paragraph, and a link to the MetaMask Snaps directory:
+index.js
+await
+ snap
+.
+request
+(
+{
+method
+:
+'snap_notify'
+,
+params
+:
+{
+type
+:
+'inApp'
+,
+message
+:
+'Hello, world!'
+,
+title
+:
+'Hello'
+,
+content
+:
+(
+<
+Box
+>
+<
+Text
+>
+Did
+ you know you can find more 
+Snaps
+in
+ the 
+MetaMask
+Snaps
+Directory
+?
+<
+/
+Text
+>
+<
+/
+Box
+>
+)
+,
+footerLink
+:
+{
+text
+:
+'Visit the directory'
+,
+href
+:
+'https://snaps.metamask.io'
+,
+}
+,
+}
+,
+}
+)
+Example
+​
+See the
+
+@metamask/notifications-example-snap
+
+package for a full example of implementing notifications using
+
+snap_notify
+.
+This example exposes a 
+custom JSON-RPC API
+ for
+dapps to display in-app and native notifications.
+Edit this page
+On this page
+Steps
+1. Request permission to notify users
+2. Create a notification
+Expanded view
+Example
+Documentation
+MetaMask Connect
+Embedded Wallets
+Smart Accounts Kit
+Agent Wallet
+Snaps
+Infura
+GitHub
+Documentation GitHub
+MetaMask extension GitHub
+MetaMask Connect GitHub
+Smart Accounts Kit GitHub
+MetaMask mobile GitHub
+Snaps GitHub
+Community
+MetaMask Developer
+Consensys Discord
+Contribute to MetaMask
+Contribute to the docs
+MetaMask user support
+Legal
+Privacy Policy
+Terms of Use
+Contributor License Agreement
+Accessibility
+Manage cookies
+© 2026 MetaMask • A Consensys Formation

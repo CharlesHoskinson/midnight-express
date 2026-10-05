@@ -2,3 +2,10 @@
 catalog/data-model/**/*.raw -diff -whitespace
 catalog/data-model/**/*.html -diff -whitespace
 catalog/data-model/**/*.txt -diff -whitespace
+
+# Preserve public research snapshots byte-for-byte; manifests expose provenance.
+wiki-llm/pubsub/sources/**/*.raw -diff -whitespace
+wiki-llm/pubsub/sources/**/*.txt -diff -whitespace
+wiki-llm/pubsub/sources/**/*.html -diff -whitespace
+wiki-llm/pubsub/sources/** -text
+website/dist/assets/fonts/*-OFL.txt -text -whitespace

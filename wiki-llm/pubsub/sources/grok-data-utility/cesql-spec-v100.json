@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/cloudevents/spec/a89841854a6e070f28316e82e151da159bb87b1a/cesql/spec.md",
+  "retrieved_utc": "2026-10-05T18:17:55.281149+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "c799d84fe5e31665edd4506652421a5da91d621f4a5f79979707f960a315e03a",
+  "text_sha256": "c799d84fe5e31665edd4506652421a5da91d621f4a5f79979707f960a315e03a",
+  "bytes": 37933,
+  "text_bytes": 37933,
+  "final_url": "https://raw.githubusercontent.com/cloudevents/spec/a89841854a6e070f28316e82e151da159bb87b1a/cesql/spec.md",
+  "accepted_source": true
+}

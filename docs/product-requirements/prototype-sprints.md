@@ -81,3 +81,7 @@ After these sprints: authoritative finalized Midnight Registry integration, exac
 ## Design reviews
 
 The [design reviews](../../reviews/prototype-sprints/README.md) explain the sequencing, transport, admission, recovery, SDK/model, privacy, RFQ value, workflow reuse and evidence decisions behind this plan. Proposed sprint tasks and gates are recorded in the [machine-readable plan](prototype-sprints.json).
+
+## Consumer validation within the prototypes
+
+Include the [subscription acceptance gates](pubsub-subscription-experience.md) in the existing quote, recovery and workflow-reuse prototypes. Validate private local selectors and wallet consent in the quote path, durable watch checkpoints and bounded gap recovery in the recovery path, and current versioned agent adapters with separate action authority in workflow reuse. The browser dashboard is an interaction reference; it supplies no production transport or durability evidence.

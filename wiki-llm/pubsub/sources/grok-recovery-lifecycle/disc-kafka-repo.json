@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/apache/kafka",
+  "retrieved_utc": "2026-10-05T18:18:01.430574+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "62307dc468d98774f6c39d4344dfb5a2fa741001061cb599483f7988555ba66d",
+  "text_sha256": "62307dc468d98774f6c39d4344dfb5a2fa741001061cb599483f7988555ba66d",
+  "bytes": 6641,
+  "text_bytes": 6641,
+  "final_url": "https://api.github.com/repos/apache/kafka",
+  "accepted_source": true
+}

@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/a2aproject/A2A/v1.0.1/docs/specification.md",
+  "retrieved_utc": "2026-10-05T18:13:30.503850+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "627ccfe6ffb1be2c56811c3dcc18780deb419f41cdc98248095c939b2d9dc9cb",
+  "text_sha256": "422a82ca2c22671eb9bc1bd7ff68d6224640d9f4e4c84cbbdc8d725ceb6b7882",
+  "bytes": 155498,
+  "text_bytes": 151991,
+  "final_url": "https://raw.githubusercontent.com/a2aproject/A2A/v1.0.1/docs/specification.md",
+  "accepted_source": true
+}

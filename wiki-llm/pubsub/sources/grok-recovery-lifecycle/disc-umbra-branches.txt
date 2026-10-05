@@ -1,0 +1,218 @@
+[
+  {
+    "name": "chore/prune-dead-tier2-plan",
+    "commit": {
+      "sha": "7bfd92992b6dd3ac0fc7a0d237dc69f6963d4e9b",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/7bfd92992b6dd3ac0fc7a0d237dc69f6963d4e9b"
+    },
+    "protected": false
+  },
+  {
+    "name": "design/midnight-express-recovery",
+    "commit": {
+      "sha": "f662822765247f0da553347c9819f958a1992d28",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/f662822765247f0da553347c9819f958a1992d28"
+    },
+    "protected": false
+  },
+  {
+    "name": "docs/full-chain-storage-feature",
+    "commit": {
+      "sha": "e47d090794c28258caab223d615d153f0373b69f",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/e47d090794c28258caab223d615d153f0373b69f"
+    },
+    "protected": false
+  },
+  {
+    "name": "docs/plan-updates",
+    "commit": {
+      "sha": "38afc92d99cc9d4a0cd167d6ec0417dd8836fd07",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/38afc92d99cc9d4a0cd167d6ec0417dd8836fd07"
+    },
+    "protected": false
+  },
+  {
+    "name": "docs/readme-editorial-gottlieb",
+    "commit": {
+      "sha": "4e3edbc56f31ab97de9f3cb0f9eea5995a09d47e",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/4e3edbc56f31ab97de9f3cb0f9eea5995a09d47e"
+    },
+    "protected": false
+  },
+  {
+    "name": "docs/schema-reference",
+    "commit": {
+      "sha": "8c237459af5bfe1dbf86ed7fae0c6389278c5989",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/8c237459af5bfe1dbf86ed7fae0c6389278c5989"
+    },
+    "protected": false
+  },
+  {
+    "name": "feature/db-sync-tls",
+    "commit": {
+      "sha": "b684e60226d10d30c53988cebe72447efb2ababe",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/b684e60226d10d30c53988cebe72447efb2ababe"
+    },
+    "protected": false
+  },
+  {
+    "name": "feature/full-chain-storage",
+    "commit": {
+      "sha": "cb80f96ef2f3c9871c52b46c18500d6cdf358083",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/cb80f96ef2f3c9871c52b46c18500d6cdf358083"
+    },
+    "protected": false
+  },
+  {
+    "name": "feature/full-chain-storage-implementation",
+    "commit": {
+      "sha": "5bcbebe979caa74383f23eefa67e26c6d5a4e40f",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/5bcbebe979caa74383f23eefa67e26c6d5a4e40f"
+    },
+    "protected": false
+  },
+  {
+    "name": "feature/network-torrent",
+    "commit": {
+      "sha": "911b4eb16995d02b68c5d2e8da80c8e10faa5125",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/911b4eb16995d02b68c5d2e8da80c8e10faa5125"
+    },
+    "protected": false
+  },
+  {
+    "name": "feature/nix-midnight-env",
+    "commit": {
+      "sha": "be646fcff58052a77e848914a79ccef2279cf78f",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/be646fcff58052a77e848914a79ccef2279cf78f"
+    },
+    "protected": false
+  },
+  {
+    "name": "feature/verifiable-snapshot",
+    "commit": {
+      "sha": "8e1c36e48bbb6f11c7af41aa181671b62d6fd0b5",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/8e1c36e48bbb6f11c7af41aa181671b62d6fd0b5"
+    },
+    "protected": false
+  },
+  {
+    "name": "fix/full-chain-storage-schema-v2",
+    "commit": {
+      "sha": "a2b44c8a6b24728d020294c27333ffaa1cf68046",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/a2b44c8a6b24728d020294c27333ffaa1cf68046"
+    },
+    "protected": false
+  },
+  {
+    "name": "fix/sprint-1-codex-findings",
+    "commit": {
+      "sha": "c6e95663c69543ffff2cd5474bb02116bfa52831",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/c6e95663c69543ffff2cd5474bb02116bfa52831"
+    },
+    "protected": false
+  },
+  {
+    "name": "fix/verifiable-snapshot-v2",
+    "commit": {
+      "sha": "b3fe6efdaad362d058238b74a8348618acabf053",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/b3fe6efdaad362d058238b74a8348618acabf053"
+    },
+    "protected": false
+  },
+  {
+    "name": "formal/storage-algebra-lean",
+    "commit": {
+      "sha": "3d9b63479166652ee3b3805904acbfceacb04736",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/3d9b63479166652ee3b3805904acbfceacb04736"
+    },
+    "protected": false
+  },
+  {
+    "name": "formal/storage-algebra-lean-m3a-watermarks",
+    "commit": {
+      "sha": "a9096548a0ad1dba5a771a8ae5256911f480dd22",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/a9096548a0ad1dba5a771a8ae5256911f480dd22"
+    },
+    "protected": false
+  },
+  {
+    "name": "formal/storage-algebra-lean-m3b-checkpoint-c1",
+    "commit": {
+      "sha": "9f48eacc6bdef9b2130a6b3bfdc2736be3db4bbc",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/9f48eacc6bdef9b2130a6b3bfdc2736be3db4bbc"
+    },
+    "protected": false
+  },
+  {
+    "name": "formal/storage-algebra-lean-m3c-checkpoint-c2a",
+    "commit": {
+      "sha": "99aff6849015f3627ae1b143353d531ac24dea1b",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/99aff6849015f3627ae1b143353d531ac24dea1b"
+    },
+    "protected": false
+  },
+  {
+    "name": "formal/v1.0.0-formal-completion",
+    "commit": {
+      "sha": "baf476a91dbfb192f91485106ccb3adc79ef94fe",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/baf476a91dbfb192f91485106ccb3adc79ef94fe"
+    },
+    "protected": false
+  },
+  {
+    "name": "main",
+    "commit": {
+      "sha": "3c0c68b3d0397ee2e8344b77e9ed715132fef6ca",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/3c0c68b3d0397ee2e8344b77e9ed715132fef6ca"
+    },
+    "protected": false
+  },
+  {
+    "name": "release/1.0.0",
+    "commit": {
+      "sha": "3c0c68b3d0397ee2e8344b77e9ed715132fef6ca",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/3c0c68b3d0397ee2e8344b77e9ed715132fef6ca"
+    },
+    "protected": false
+  },
+  {
+    "name": "research/mithril-committee-certification",
+    "commit": {
+      "sha": "2db2a7931ca201a6695e80275ee3251a3cefba2e",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/2db2a7931ca201a6695e80275ee3251a3cefba2e"
+    },
+    "protected": false
+  },
+  {
+    "name": "spec/full-chain-storage-acceptance-criteria",
+    "commit": {
+      "sha": "1af5b625e22b8c83b7c8b3cfccd8a6c6f07a7f9e",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/1af5b625e22b8c83b7c8b3cfccd8a6c6f07a7f9e"
+    },
+    "protected": false
+  },
+  {
+    "name": "sprint/sqlite-migration",
+    "commit": {
+      "sha": "f8e1aed9cc91ac0f416a6ef5749b59617a1472df",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/f8e1aed9cc91ac0f416a6ef5749b59617a1472df"
+    },
+    "protected": false
+  },
+  {
+    "name": "sprint-2-transaction-lease",
+    "commit": {
+      "sha": "cfeb26f28a60ea43de9362a596b4fd1b0d0532a7",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/cfeb26f28a60ea43de9362a596b4fd1b0d0532a7"
+    },
+    "protected": false
+  },
+  {
+    "name": "sprint-9-cleanup-perf-connection",
+    "commit": {
+      "sha": "28123bde5f37ee4762d067c09e48af8fd18d8f13",
+      "url": "https://api.github.com/repos/CharlesHoskinson/UmbraDB/commits/28123bde5f37ee4762d067c09e48af8fd18d8f13"
+    },
+    "protected": false
+  }
+]

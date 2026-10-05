@@ -89,3 +89,11 @@ The original [five-role review](data-format-review.md) found parsing and occurre
 ## Implementation v0.2
 
 The [implementation status](data-format-implementation.md) records strict parsing/replay corrections, independent Python/Rust/TypeScript RFQ agreement, immutable offline bundles, corrected vocabulary, read-only chain projections and actual Umbra/PostgreSQL fault tests. The original model is preserved as a historical read-only release. The current semantic manifests commit per-profile schema/rules and common primitives; implementation bytes and dependency locks are separate release evidence. Authentication, live consensus evidence, protocol integration and partner ROI remain explicit gates.
+
+## Subscription fit
+
+Exact v0.2 profiles and contract commitments support local quote, payment and approval selectors. [Subscription requirements](pubsub-subscription-experience.md) keep watch intent and delivery state in a separate control plane. The [model-fit study](../../wiki-llm/pubsub/data-model-fit.json) records genuine fixed-context fixture validation and refusals; none authorizes execution. Contract and credential streams in the demo remain mock-only until separate payload contracts and evidence policies pass review.
+
+## Formal semantic specification
+
+The [Lean project](../../formal/lean/README.md) defines the installed v0.2 quote, payment-observation and sandbox-approval semantics as typed values and acceptance predicates. Its kernel-checked properties address exact economics, current context and replay identity. The [Specification page](../../website/dist/specification.html) explains their scope. JSON parsing, canonical serialization, hashes, signatures, live authority, chain observations, local watches and database recovery remain separate implementation boundaries. Finite fixture agreement does not establish a general proof of the Python validator.

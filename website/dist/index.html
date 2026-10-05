@@ -26,6 +26,8 @@
 <a href="#architecture">Architecture</a>
 <a href="#roadmap">Delivery</a>
 <a href="data-model.html">Data model</a>
+<a href="subscriptions.html">Subscriptions</a>
+<a href="specification.html">Specification</a>
 <a href="implementation.html">Implementation</a>
 </nav>
 <span class="edition">PRODUCT &amp; ARCHITECTURE</span>
@@ -255,8 +257,8 @@
 <p>Event semantics stay encrypted. Receivers recognize relevant events using local keys, so relays do not need their business subscription filters.</p>
 </div>
 <div>
-<h3>Recovery before action</h3>
-<p>The receiving application would store its progress and replay retained updates after an interruption. An external system must also prevent a retry from creating a second effect.</p>
+<h3>A private consumer journal</h3>
+<p>A local watch service would bind subscriptions to each consumer, store review checkpoints and make missing history visible. Wallets, DApps and agents use the same journal. Try the <a href="subscriptions.html">subscription dashboard</a>; durable recovery and complete protocol integration remain work to validate.</p>
 </div>
 <div>
 <h3>Authority is explicit</h3>
@@ -360,7 +362,7 @@ Semaphore supplies membership lifecycle patterns; publication uses one combined 
 </details>
 <details>
 <summary>What is available now?</summary>
-<p>The project has a v0.2 conformance reference and bounded local prototypes: strict data contracts, independent RFQ interpretation, read-only chain projections and tested Umbra/PostgreSQL report-row recovery. Explore the <a href="data-model.html">Data Model guide</a> for shared meaning and scope. Complete Express integration, production authentication/admission, live finality and authorized contract effects still require acceptance evidence.</p>
+<p>The project has a v0.2 conformance reference and bounded local prototypes: strict data contracts, independent RFQ interpretation, read-only chain projections and tested Umbra/PostgreSQL report-row recovery. Explore the <a href="data-model.html">Data Model guide</a> for shared meaning and scope, or <a href="subscriptions.html">try local subscriptions</a> with wallet, DApp and agent examples. Complete Express integration, production authentication/admission, live finality and authorized contract effects still require acceptance evidence.</p>
 </details>
 <details>
 <summary>How would we judge a pilot?</summary>

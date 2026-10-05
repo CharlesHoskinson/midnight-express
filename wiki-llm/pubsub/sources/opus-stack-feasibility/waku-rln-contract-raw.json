@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/waku-org/specs/master/standards/core/rln-contract.md",
+  "retrieved_utc": "2026-10-05T18:11:57.538694+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "e68b9a3ad0ec4bfb673bda4cf9d711cf03a72c481c8e3311c7bfbc11bc5a76a6",
+  "text_sha256": "9321bde69a20b432b704e29203bcd119d2d39aea84da90d4168d6f96d903b9ce",
+  "bytes": 20865,
+  "text_bytes": 20848,
+  "final_url": "https://raw.githubusercontent.com/waku-org/specs/master/standards/core/rln-contract.md",
+  "accepted_source": true
+}

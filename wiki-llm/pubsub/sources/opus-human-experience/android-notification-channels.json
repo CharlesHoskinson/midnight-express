@@ -1,0 +1,13 @@
+{
+  "url": "https://developer.android.com/develop/ui/views/notifications/channels",
+  "retrieved_utc": "2026-10-05T18:12:34.665746+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "0eeed1bf2e09a3c8d61495693bda21a089ccdf4fb72160c90ac969864594908f",
+  "text_sha256": "a9875529862c151a7778924453a680f39abe36b71132b077b923bee7abe8a784",
+  "bytes": 376290,
+  "text_bytes": 36441,
+  "final_url": "https://developer.android.com/develop/ui/compose/notifications/channels",
+  "accepted_source": true
+}

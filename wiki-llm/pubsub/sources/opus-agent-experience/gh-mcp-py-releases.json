@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/modelcontextprotocol/python-sdk/releases?per_page=6",
+  "retrieved_utc": "2026-10-05T18:12:49.182029+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "ca8e11ea806638feb7075d5a8634643fe79b8c8c0216b905e9a9739acac069c1",
+  "text_sha256": "fd52a15cf60bd399c6f7dd3f9cab9d0ffc1ffa0d9704c521c4e73283943f2853",
+  "bytes": 38880,
+  "text_bytes": 38875,
+  "final_url": "https://api.github.com/repos/modelcontextprotocol/python-sdk/releases?per_page=6",
+  "accepted_source": true
+}

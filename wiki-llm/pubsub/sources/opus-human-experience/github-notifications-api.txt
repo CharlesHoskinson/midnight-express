@@ -1,0 +1,1354 @@
+REST API endpoints for notifications - GitHub Docs
+Skip to main content
+Skip to content
+GitHub
+Docs
+Search or ask Copilot
+/
+Menu
+Collapse sidebar
+Expand sidebar
+Scroll breadcrumbs left
+Home
+REST API
+Activity
+Notifications
+Scroll breadcrumbs right
+REST API
+API Version: 
+2026-03-10 (latest)
+Quickstart
+About the REST API
+About the REST API
+Comparing GitHub's APIs
+API Versions
+Breaking changes
+OpenAPI description
+Using the REST API
+Getting started
+Rate limits
+Pagination
+Libraries
+Best practices
+Troubleshooting
+Timezones
+CORS and JSONP
+Issue event types
+GitHub event types
+Authentication
+Authenticating
+Keeping API credentials secure
+Endpoints for GitHub App installation tokens
+Endpoints for GitHub App user tokens
+Endpoints for fine-grained PATs
+Permissions for GitHub Apps
+Permissions for fine-grained PATs
+Guides
+Script with JavaScript
+Script with Ruby
+Discover resources for a user
+Delivering deployments
+Rendering data as graphs
+Working with comments
+Building a CI server
+Get started - Git database
+Get started - Checks
+Encrypt secrets
+Actions
+Artifacts
+Cache
+Actions concurrency groups
+GitHub-hosted runners
+OIDC
+Permissions
+Actions policies
+Secrets
+Self-hosted runner groups
+Self-hosted runners
+Variables
+Workflow jobs
+Workflow runs
+Workflows
+Activity
+Events
+Feeds
+Notifications
+About GitHub notifications
+List notifications for the authenticated user
+Mark notifications as read
+Get a thread
+Mark a thread as read
+Mark a thread as done
+Get a thread subscription for the authenticated user
+Set a thread subscription
+Delete a thread subscription
+List repository notifications for the authenticated user
+Mark repository notifications as read
+Starring
+Watching
+Agent tasks
+Agent tasks
+Agents
+Secrets
+Variables
+Apps
+GitHub Apps
+Installations
+Marketplace
+OAuth authorizations
+Webhooks
+Billing
+Budgets
+Billing usage
+Branches
+Branches
+Protected branches
+Campaigns
+Security campaigns
+Checks
+Check runs
+Check suites
+Classroom
+Classroom
+Code quality
+Code quality
+Code scanning
+Code scanning
+Code security settings
+Configurations
+Codes of conduct
+Codes of conduct
+Codespaces
+Codespaces
+Organizations
+Organization secrets
+Machines
+Repository secrets
+User secrets
+Collaborators
+Collaborators
+Invitations
+Commits
+Commits
+Commit comments
+Commit statuses
+Copilot
+Cloud agent repository management
+Copilot cloud agent management
+Copilot content exclusion management
+Copilot usage metrics
+Copilot user management
+Copilot Spaces
+Collaborators
+Copilot Spaces
+Resources
+Credentials
+Revocation
+Dependabot
+Alerts
+Repository access
+Secrets
+Dependency graph
+Dependency review
+Dependency submission
+Software bill of materials (SBOM)
+Deploy keys
+Deploy keys
+Deployments
+Deployment branch policies
+Deployments
+Environments
+Protection rules
+Deployment statuses
+Emojis
+Emojis
+Gists
+Gists
+Comments
+Git database
+Blobs
+Commits
+References
+Tags
+Trees
+Gitignore
+Gitignore
+Interactions
+Organization
+Repository
+User
+Issues
+Assignees
+Comments
+Events
+Issue dependencies
+Issue field values
+Issues
+Labels
+Milestones
+Sub-issues
+Timeline
+Licenses
+Licenses
+Markdown
+Markdown
+Meta
+Meta
+Metrics
+Community
+Statistics
+Traffic
+Migrations
+Organizations
+Source endpoints
+Users
+Organizations
+API Insights
+Artifact metadata
+Artifact attestations
+Blocking users
+Custom properties
+Issue fields
+Issue types
+Members
+Network configurations
+Organization roles
+Organizations
+Outside collaborators
+Personal access tokens
+Rule suites
+Rules
+Security managers
+Webhooks
+Packages
+Packages
+Pages
+Pages
+Private registries
+Organization configurations
+Projects
+Draft Project items
+Project fields
+Project items
+Projects
+Project views
+Pull requests
+Review comments
+Pull requests
+Review requests
+Reviews
+Stacked pull requests
+Rate limit
+Rate limit
+Reactions
+Reactions
+Releases
+Releases
+Release assets
+Repositories
+Attestations
+Autolinks
+Contents
+Custom properties
+Forks
+Issue types
+Repositories
+Rule suites
+Rules
+Webhooks
+Search
+Search
+Secret scanning
+Custom patterns
+Push protection
+Secret scanning
+Security advisories
+Global security advisories
+Repository security advisories
+Teams
+Members
+Teams
+Users
+Attestations
+Blocking users
+Emails
+Followers
+GPG keys
+Git SSH keys
+Social accounts
+SSH signing keys
+Users
+In this article
+The REST API is now versioned.
+For more information, see "
+About API versioning
+."
+REST API endpoints for notifications
+Use the REST API to manage GitHub notifications.
+About GitHub notifications
+Note
+
+These endpoints only support authentication using a personal access token (classic). For more information, see 
+Managing your personal access tokens
+.
+You can use the REST API to manage GitHub notifications. For more information about notifications, see 
+About notifications
+.
+All calls to these endpoints require the 
+notifications
+ or 
+repo
+ scopes. You will need the 
+repo
+ scope to access issues and commits from their respective endpoints.
+Notifications are returned as "threads". A thread contains information about the current discussion of an issue, pull request, or commit.
+Notifications are optimized for polling with the 
+Last-Modified
+ header. If there are no new notifications, you will see a 
+304 Not Modified
+ response, leaving your current rate limit untouched. There is an 
+X-Poll-Interval
+ header that specifies how often (in seconds) you are allowed to poll. In times of high server load, the time may increase. Please obey the header.
+# 
+Add authentication to your requests
+$ 
+curl -I https://api.github.com/notifications
+
+HTTP/2 200
+Last-Modified: Thu, 25 Oct 2012 15:16:27 GMT
+X-Poll-Interval: 60
+
+
+# 
+Pass the Last-Modified header exactly
+$ 
+curl -I https://api.github.com/notifications
+$ 
+   -H 
+"If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
+> 
+HTTP/2 304
+> 
+X-Poll-Interval: 60
+About notification reasons
+These GET endpoints return a 
+reason
+ key. These 
+reason
+s correspond to events that trigger a notification.
+There are a few potential 
+reason
+s for receiving a notification.
+Reason Name
+Description
+approval_requested
+You were requested to review and approve a deployment. For more information, see 
+Reviewing deployments
+.
+assign
+You were assigned to the issue.
+author
+You created the thread.
+ci_activity
+A GitHub Actions workflow run that you triggered was completed.
+comment
+You commented on the thread.
+invitation
+You accepted an invitation to contribute to the repository.
+manual
+You subscribed to the thread (via an issue or pull request).
+member_feature_
+requested
+Organization members have requested to enable a feature such as Copilot.
+mention
+You were specifically 
+@mentioned
+ in the content.
+review_requested
+You, or a team you're a member of, were requested to review a pull request.
+security_advisory_
+credit
+You were credited for contributing to a security advisory.
+security_alert
+GitHub discovered a 
+security vulnerability
+ in your repository.
+state_change
+You changed the thread state (for example, closing an issue or merging a pull request).
+subscribed
+You're watching the repository.
+team_mention
+You were on a team that was mentioned.
+Note that the 
+reason
+ is modified on a per-thread basis, and can change, if the 
+reason
+ on a later notification is different.
+For example, if you are the author of an issue, subsequent notifications on that issue will have a 
+reason
+ of 
+author
+. If you're then 
+@mentioned
+ on the same issue, the notifications you fetch thereafter will have a 
+reason
+ of 
+mention
+. The 
+reason
+ remains as 
+mention
+, regardless of whether you're ever mentioned again.
+List notifications for the authenticated user
+List all notifications for the current user, sorted by most recently updated.
+Fine-grained access tokens for "List notifications for the authenticated user"
+This endpoint does not work with GitHub App user access tokens, GitHub App installation access tokens, or fine-grained personal access tokens.
+Parameters for "List notifications for the authenticated user"
+Headers
+Name, Type, Description
+accept
+string
+Setting to 
+application/vnd.github+json
+ is recommended.
+Query parameters
+Name, Type, Description
+all
+boolean
+If 
+true
+, show notifications marked as read.
+Default: 
+false
+participating
+boolean
+If 
+true
+, only shows notifications in which the user is directly participating or mentioned.
+Default: 
+false
+since
+string
+Only show results that were last updated after the given time. This is a timestamp in 
+ISO 8601
+ format: 
+YYYY-MM-DDTHH:MM:SSZ
+.
+before
+string
+Only show notifications updated before the given time. This is a timestamp in 
+ISO 8601
+ format: 
+YYYY-MM-DDTHH:MM:SSZ
+.
+page
+integer
+The page number of the results to fetch. For more information, see "
+Using pagination in the REST API
+."
+Default: 
+1
+per_page
+integer
+The number of results per page (max 50). For more information, see "
+Using pagination in the REST API
+."
+Default: 
+50
+HTTP response status codes for "List notifications for the authenticated user"
+Status code
+Description
+200
+OK
+304
+Not modified
+401
+Requires authentication
+403
+Forbidden
+422
+Validation failed, or the endpoint has been spammed.
+Code samples for "List notifications for the authenticated user"
+Request example
+get
+/notifications
+cURL
+JavaScript
+GitHub CLI
+Copy to clipboard curl request example
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2026-03-10" \
+  https://api.github.com/notifications
+Response
+Example response
+Response schema
+Status: 200
+[
+  {
+    "id": "1",
+    "repository": {
+      "id": 1296269,
+      "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
+      "name": "Hello-World",
+      "full_name": "octocat/Hello-World",
+      "owner": {
+        "login": "octocat",
+        "id": 1,
+        "node_id": "MDQ6VXNlcjE=",
+        "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/octocat",
+        "html_url": "https://github.com/octocat",
+        "followers_url": "https://api.github.com/users/octocat/followers",
+        "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+        "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+        "organizations_url": "https://api.github.com/users/octocat/orgs",
+        "repos_url": "https://api.github.com/users/octocat/repos",
+        "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/octocat/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "private": false,
+      "html_url": "https://github.com/octocat/Hello-World",
+      "description": "This your first repo!",
+      "fork": false,
+      "url": "https://api.github.com/repos/octocat/Hello-World",
+      "archive_url": "https://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
+      "assignees_url": "https://api.github.com/repos/octocat/Hello-World/assignees{/user}",
+      "blobs_url": "https://api.github.com/repos/octocat/Hello-World/git/blobs{/sha}",
+      "branches_url": "https://api.github.com/repos/octocat/Hello-World/branches{/branch}",
+      "collaborators_url": "https://api.github.com/repos/octocat/Hello-World/collaborators{/collaborator}",
+      "comments_url": "https://api.github.com/repos/octocat/Hello-World/comments{/number}",
+      "commits_url": "https://api.github.com/repos/octocat/Hello-World/commits{/sha}",
+      "compare_url": "https://api.github.com/repos/octocat/Hello-World/compare/{base}...{head}",
+      "contents_url": "https://api.github.com/repos/octocat/Hello-World/contents/{+path}",
+      "contributors_url": "https://api.github.com/repos/octocat/Hello-World/contributors",
+      "deployments_url": "https://api.github.com/repos/octocat/Hello-World/deployments",
+      "downloads_url": "https://api.github.com/repos/octocat/Hello-World/downloads",
+      "events_url": "https://api.github.com/repos/octocat/Hello-World/events",
+      "forks_url": "https://api.github.com/repos/octocat/Hello-World/forks",
+      "git_commits_url": "https://api.github.com/repos/octocat/Hello-World/git/commits{/sha}",
+      "git_refs_url": "https://api.github.com/repos/octocat/Hello-World/git/refs{/sha}",
+      "git_tags_url": "https://api.github.com/repos/octocat/Hello-World/git/tags{/sha}",
+      "git_url": "git:github.com/octocat/Hello-World.git",
+      "issue_comment_url": "https://api.github.com/repos/octocat/Hello-World/issues/comments{/number}",
+      "issue_events_url": "https://api.github.com/repos/octocat/Hello-World/issues/events{/number}",
+      "issues_url": "https://api.github.com/repos/octocat/Hello-World/issues{/number}",
+      "keys_url": "https://api.github.com/repos/octocat/Hello-World/keys{/key_id}",
+      "labels_url": "https://api.github.com/repos/octocat/Hello-World/labels{/name}",
+      "languages_url": "https://api.github.com/repos/octocat/Hello-World/languages",
+      "merges_url": "https://api.github.com/repos/octocat/Hello-World/merges",
+      "milestones_url": "https://api.github.com/repos/octocat/Hello-World/milestones{/number}",
+      "notifications_url": "https://api.github.com/repos/octocat/Hello-World/notifications{?since,all,participating}",
+      "pulls_url": "https://api.github.com/repos/octocat/Hello-World/pulls{/number}",
+      "releases_url": "https://api.github.com/repos/octocat/Hello-World/releases{/id}",
+      "ssh_url": "git@github.com:octocat/Hello-World.git",
+      "stargazers_url": "https://api.github.com/repos/octocat/Hello-World/stargazers",
+      "statuses_url": "https://api.github.com/repos/octocat/Hello-World/statuses/{sha}",
+      "subscribers_url": "https://api.github.com/repos/octocat/Hello-World/subscribers",
+      "subscription_url": "https://api.github.com/repos/octocat/Hello-World/subscription",
+      "tags_url": "https://api.github.com/repos/octocat/Hello-World/tags",
+      "teams_url": "https://api.github.com/repos/octocat/Hello-World/teams",
+      "trees_url": "https://api.github.com/repos/octocat/Hello-World/git/trees{/sha}",
+      "hooks_url": "http://api.github.com/repos/octocat/Hello-World/hooks"
+    },
+    "subject": {
+      "title": "Greetings",
+      "url": "https://api.github.com/repos/octokit/octokit.rb/issues/123",
+      "latest_comment_url": "https://api.github.com/repos/octokit/octokit.rb/issues/comments/123",
+      "type": "Issue"
+    },
+    "reason": "subscribed",
+    "unread": true,
+    "updated_at": "2014-11-07T22:01:45Z",
+    "last_read_at": "2014-11-07T22:01:45Z",
+    "url": "https://api.github.com/notifications/threads/1",
+    "subscription_url": "https://api.github.com/notifications/threads/1/subscription"
+  }
+]
+Mark notifications as read
+Marks all notifications as "read" for the current user. If the number of notifications is too large to complete in one request, you will receive a 
+202 Accepted
+ status and GitHub will run an asynchronous process to mark notifications as "read." To check whether any "unread" notifications remain, you can use the 
+List notifications for the authenticated user
+ endpoint and pass the query parameter 
+all=false
+.
+Fine-grained access tokens for "Mark notifications as read"
+This endpoint does not work with GitHub App user access tokens, GitHub App installation access tokens, or fine-grained personal access tokens.
+Parameters for "Mark notifications as read"
+Headers
+Name, Type, Description
+accept
+string
+Setting to 
+application/vnd.github+json
+ is recommended.
+Body parameters
+Name, Type, Description
+last_read_at
+string
+Describes the last point that notifications were checked. Anything updated since this time will not be marked as read. If you omit this parameter, all notifications are marked as read. This is a timestamp in 
+ISO 8601
+ format: 
+YYYY-MM-DDTHH:MM:SSZ
+. Default: The current timestamp.
+read
+boolean
+Whether the notification has been read.
+HTTP response status codes for "Mark notifications as read"
+Status code
+Description
+202
+Accepted
+205
+Reset Content
+304
+Not modified
+401
+Requires authentication
+403
+Forbidden
+Code samples for "Mark notifications as read"
+Request example
+put
+/notifications
+cURL
+JavaScript
+GitHub CLI
+Copy to clipboard curl request example
+curl -L \
+  -X PUT \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2026-03-10" \
+  https://api.github.com/notifications \
+  -d '{"last_read_at":"2022-06-10T00:00:00Z","read":true}'
+Response
+Example response
+Response schema
+Status: 202
+{
+  "message": "Unread notifications couldn't be marked in a single request. Notifications are being marked as read in the background."
+}
+Get a thread
+Gets information about a notification thread.
+Fine-grained access tokens for "Get a thread"
+This endpoint does not work with GitHub App user access tokens, GitHub App installation access tokens, or fine-grained personal access tokens.
+Parameters for "Get a thread"
+Headers
+Name, Type, Description
+accept
+string
+Setting to 
+application/vnd.github+json
+ is recommended.
+Path parameters
+Name, Type, Description
+thread_id
+integer
+Required
+The unique identifier of the notification thread. This corresponds to the value returned in the 
+id
+ field when you retrieve notifications (for example with the 
+GET /notifications
+ operation
+).
+HTTP response status codes for "Get a thread"
+Status code
+Description
+200
+OK
+304
+Not modified
+401
+Requires authentication
+403
+Forbidden
+Code samples for "Get a thread"
+Request example
+get
+/notifications
+/threads
+/{thread_
+id}
+cURL
+JavaScript
+GitHub CLI
+Copy to clipboard curl request example
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2026-03-10" \
+  https://api.github.com/notifications/threads/THREAD_ID
+Response
+Example response
+Response schema
+Status: 200
+{
+  "id": "1",
+  "repository": {
+    "id": 1296269,
+    "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
+    "name": "Hello-World",
+    "full_name": "octocat/Hello-World",
+    "owner": {
+      "login": "octocat",
+      "id": 1,
+      "node_id": "MDQ6VXNlcjE=",
+      "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/octocat",
+      "html_url": "https://github.com/octocat",
+      "followers_url": "https://api.github.com/users/octocat/followers",
+      "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+      "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+      "organizations_url": "https://api.github.com/users/octocat/orgs",
+      "repos_url": "https://api.github.com/users/octocat/repos",
+      "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/octocat/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "private": false,
+    "html_url": "https://github.com/octocat/Hello-World",
+    "description": "This your first repo!",
+    "fork": false,
+    "url": "https://api.github.com/repos/octocat/Hello-World",
+    "archive_url": "https://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
+    "assignees_url": "https://api.github.com/repos/octocat/Hello-World/assignees{/user}",
+    "blobs_url": "https://api.github.com/repos/octocat/Hello-World/git/blobs{/sha}",
+    "branches_url": "https://api.github.com/repos/octocat/Hello-World/branches{/branch}",
+    "collaborators_url": "https://api.github.com/repos/octocat/Hello-World/collaborators{/collaborator}",
+    "comments_url": "https://api.github.com/repos/octocat/Hello-World/comments{/number}",
+    "commits_url": "https://api.github.com/repos/octocat/Hello-World/commits{/sha}",
+    "compare_url": "https://api.github.com/repos/octocat/Hello-World/compare/{base}...{head}",
+    "contents_url": "https://api.github.com/repos/octocat/Hello-World/contents/{+path}",
+    "contributors_url": "https://api.github.com/repos/octocat/Hello-World/contributors",
+    "deployments_url": "https://api.github.com/repos/octocat/Hello-World/deployments",
+    "downloads_url": "https://api.github.com/repos/octocat/Hello-World/downloads",
+    "events_url": "https://api.github.com/repos/octocat/Hello-World/events",
+    "forks_url": "https://api.github.com/repos/octocat/Hello-World/forks",
+    "git_commits_url": "https://api.github.com/repos/octocat/Hello-World/git/commits{/sha}",
+    "git_refs_url": "https://api.github.com/repos/octocat/Hello-World/git/refs{/sha}",
+    "git_tags_url": "https://api.github.com/repos/octocat/Hello-World/git/tags{/sha}",
+    "git_url": "git:github.com/octocat/Hello-World.git",
+    "issue_comment_url": "https://api.github.com/repos/octocat/Hello-World/issues/comments{/number}",
+    "issue_events_url": "https://api.github.com/repos/octocat/Hello-World/issues/events{/number}",
+    "issues_url": "https://api.github.com/repos/octocat/Hello-World/issues{/number}",
+    "keys_url": "https://api.github.com/repos/octocat/Hello-World/keys{/key_id}",
+    "labels_url": "https://api.github.com/repos/octocat/Hello-World/labels{/name}",
+    "languages_url": "https://api.github.com/repos/octocat/Hello-World/languages",
+    "merges_url": "https://api.github.com/repos/octocat/Hello-World/merges",
+    "milestones_url": "https://api.github.com/repos/octocat/Hello-World/milestones{/number}",
+    "notifications_url": "https://api.github.com/repos/octocat/Hello-World/notifications{?since,all,participating}",
+    "pulls_url": "https://api.github.com/repos/octocat/Hello-World/pulls{/number}",
+    "releases_url": "https://api.github.com/repos/octocat/Hello-World/releases{/id}",
+    "ssh_url": "git@github.com:octocat/Hello-World.git",
+    "stargazers_url": "https://api.github.com/repos/octocat/Hello-World/stargazers",
+    "statuses_url": "https://api.github.com/repos/octocat/Hello-World/statuses/{sha}",
+    "subscribers_url": "https://api.github.com/repos/octocat/Hello-World/subscribers",
+    "subscription_url": "https://api.github.com/repos/octocat/Hello-World/subscription",
+    "tags_url": "https://api.github.com/repos/octocat/Hello-World/tags",
+    "teams_url": "https://api.github.com/repos/octocat/Hello-World/teams",
+    "trees_url": "https://api.github.com/repos/octocat/Hello-World/git/trees{/sha}",
+    "hooks_url": "http://api.github.com/repos/octocat/Hello-World/hooks"
+  },
+  "subject": {
+    "title": "Greetings",
+    "url": "https://api.github.com/repos/octokit/octokit.rb/issues/123",
+    "latest_comment_url": "https://api.github.com/repos/octokit/octokit.rb/issues/comments/123",
+    "type": "Issue"
+  },
+  "reason": "subscribed",
+  "unread": true,
+  "updated_at": "2014-11-07T22:01:45Z",
+  "last_read_at": "2014-11-07T22:01:45Z",
+  "url": "https://api.github.com/notifications/threads/1",
+  "subscription_url": "https://api.github.com/notifications/threads/1/subscription"
+}
+Mark a thread as read
+Marks a thread as "read." Marking a thread as "read" is equivalent to clicking a notification in your notification inbox on GitHub: 
+https://github.com/notifications
+.
+Fine-grained access tokens for "Mark a thread as read"
+This endpoint does not work with GitHub App user access tokens, GitHub App installation access tokens, or fine-grained personal access tokens.
+Parameters for "Mark a thread as read"
+Headers
+Name, Type, Description
+accept
+string
+Setting to 
+application/vnd.github+json
+ is recommended.
+Path parameters
+Name, Type, Description
+thread_id
+integer
+Required
+The unique identifier of the notification thread. This corresponds to the value returned in the 
+id
+ field when you retrieve notifications (for example with the 
+GET /notifications
+ operation
+).
+HTTP response status codes for "Mark a thread as read"
+Status code
+Description
+205
+Reset Content
+304
+Not modified
+403
+Forbidden
+Code samples for "Mark a thread as read"
+Request example
+patch
+/notifications
+/threads
+/{thread_
+id}
+cURL
+JavaScript
+GitHub CLI
+Copy to clipboard curl request example
+curl -L \
+  -X PATCH \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2026-03-10" \
+  https://api.github.com/notifications/threads/THREAD_ID
+Reset Content
+Status: 205
+Mark a thread as done
+Marks a thread as "done." Marking a thread as "done" is equivalent to marking a notification in your notification inbox on GitHub as done: 
+https://github.com/notifications
+.
+Fine-grained access tokens for "Mark a thread as done"
+This endpoint does not work with GitHub App user access tokens, GitHub App installation access tokens, or fine-grained personal access tokens.
+Parameters for "Mark a thread as done"
+Headers
+Name, Type, Description
+accept
+string
+Setting to 
+application/vnd.github+json
+ is recommended.
+Path parameters
+Name, Type, Description
+thread_id
+integer
+Required
+The unique identifier of the notification thread. This corresponds to the value returned in the 
+id
+ field when you retrieve notifications (for example with the 
+GET /notifications
+ operation
+).
+HTTP response status codes for "Mark a thread as done"
+Status code
+Description
+204
+No content
+Code samples for "Mark a thread as done"
+Request example
+delete
+/notifications
+/threads
+/{thread_
+id}
+cURL
+JavaScript
+GitHub CLI
+Copy to clipboard curl request example
+curl -L \
+  -X DELETE \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2026-03-10" \
+  https://api.github.com/notifications/threads/THREAD_ID
+No content
+Status: 204
+Get a thread subscription for the authenticated user
+This checks to see if the current user is subscribed to a thread. You can also 
+get a repository subscription
+.
+Note that subscriptions are only generated if a user is participating in a conversation--for example, they've replied to the thread, were 
+@mentioned
+, or manually subscribe to a thread.
+Fine-grained access tokens for "Get a thread subscription for the authenticated user"
+This endpoint does not work with GitHub App user access tokens, GitHub App installation access tokens, or fine-grained personal access tokens.
+Parameters for "Get a thread subscription for the authenticated user"
+Headers
+Name, Type, Description
+accept
+string
+Setting to 
+application/vnd.github+json
+ is recommended.
+Path parameters
+Name, Type, Description
+thread_id
+integer
+Required
+The unique identifier of the notification thread. This corresponds to the value returned in the 
+id
+ field when you retrieve notifications (for example with the 
+GET /notifications
+ operation
+).
+HTTP response status codes for "Get a thread subscription for the authenticated user"
+Status code
+Description
+200
+OK
+304
+Not modified
+401
+Requires authentication
+403
+Forbidden
+Code samples for "Get a thread subscription for the authenticated user"
+Request example
+get
+/notifications
+/threads
+/{thread_
+id}
+/subscription
+cURL
+JavaScript
+GitHub CLI
+Copy to clipboard curl request example
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2026-03-10" \
+  https://api.github.com/notifications/threads/THREAD_ID/subscription
+Response
+Example response
+Response schema
+Status: 200
+{
+  "subscribed": true,
+  "ignored": false,
+  "reason": null,
+  "created_at": "2012-10-06T21:34:12Z",
+  "url": "https://api.github.com/notifications/threads/1/subscription",
+  "thread_url": "https://api.github.com/notifications/threads/1"
+}
+Set a thread subscription
+If you are watching a repository, you receive notifications for all threads by default. Use this endpoint to ignore future notifications for threads until you comment on the thread or get an 
+@mention
+.
+You can also use this endpoint to subscribe to threads that you are currently not receiving notifications for or to subscribed to threads that you have previously ignored.
+Unsubscribing from a conversation in a repository that you are not watching is functionally equivalent to the 
+Delete a thread subscription
+ endpoint.
+Fine-grained access tokens for "Set a thread subscription"
+This endpoint does not work with GitHub App user access tokens, GitHub App installation access tokens, or fine-grained personal access tokens.
+Parameters for "Set a thread subscription"
+Headers
+Name, Type, Description
+accept
+string
+Setting to 
+application/vnd.github+json
+ is recommended.
+Path parameters
+Name, Type, Description
+thread_id
+integer
+Required
+The unique identifier of the notification thread. This corresponds to the value returned in the 
+id
+ field when you retrieve notifications (for example with the 
+GET /notifications
+ operation
+).
+Body parameters
+Name, Type, Description
+ignored
+boolean
+Whether to block all notifications from a thread.
+Default: 
+false
+HTTP response status codes for "Set a thread subscription"
+Status code
+Description
+200
+OK
+304
+Not modified
+401
+Requires authentication
+403
+Forbidden
+Code samples for "Set a thread subscription"
+Request example
+put
+/notifications
+/threads
+/{thread_
+id}
+/subscription
+cURL
+JavaScript
+GitHub CLI
+Copy to clipboard curl request example
+curl -L \
+  -X PUT \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2026-03-10" \
+  https://api.github.com/notifications/threads/THREAD_ID/subscription \
+  -d '{"ignored":false}'
+Response
+Example response
+Response schema
+Status: 200
+{
+  "subscribed": true,
+  "ignored": false,
+  "reason": null,
+  "created_at": "2012-10-06T21:34:12Z",
+  "url": "https://api.github.com/notifications/threads/1/subscription",
+  "thread_url": "https://api.github.com/notifications/threads/1"
+}
+Delete a thread subscription
+Mutes all future notifications for a conversation until you comment on the thread or get an 
+@mention
+. If you are watching the repository of the thread, you will still receive notifications. To ignore future notifications for a repository you are watching, use the 
+Set a thread subscription
+ endpoint and set 
+ignore
+ to 
+true
+.
+Fine-grained access tokens for "Delete a thread subscription"
+This endpoint does not work with GitHub App user access tokens, GitHub App installation access tokens, or fine-grained personal access tokens.
+Parameters for "Delete a thread subscription"
+Headers
+Name, Type, Description
+accept
+string
+Setting to 
+application/vnd.github+json
+ is recommended.
+Path parameters
+Name, Type, Description
+thread_id
+integer
+Required
+The unique identifier of the notification thread. This corresponds to the value returned in the 
+id
+ field when you retrieve notifications (for example with the 
+GET /notifications
+ operation
+).
+HTTP response status codes for "Delete a thread subscription"
+Status code
+Description
+204
+No Content
+304
+Not modified
+401
+Requires authentication
+403
+Forbidden
+Code samples for "Delete a thread subscription"
+Request example
+delete
+/notifications
+/threads
+/{thread_
+id}
+/subscription
+cURL
+JavaScript
+GitHub CLI
+Copy to clipboard curl request example
+curl -L \
+  -X DELETE \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2026-03-10" \
+  https://api.github.com/notifications/threads/THREAD_ID/subscription
+Response
+Status: 204
+List repository notifications for the authenticated user
+Lists all notifications for the current user in the specified repository.
+Fine-grained access tokens for "List repository notifications for the authenticated user"
+This endpoint does not work with GitHub App user access tokens, GitHub App installation access tokens, or fine-grained personal access tokens.
+Parameters for "List repository notifications for the authenticated user"
+Headers
+Name, Type, Description
+accept
+string
+Setting to 
+application/vnd.github+json
+ is recommended.
+Path parameters
+Name, Type, Description
+owner
+string
+Required
+The account owner of the repository. The name is not case sensitive.
+repo
+string
+Required
+The name of the repository without the 
+.git
+ extension. The name is not case sensitive.
+Query parameters
+Name, Type, Description
+all
+boolean
+If 
+true
+, show notifications marked as read.
+Default: 
+false
+participating
+boolean
+If 
+true
+, only shows notifications in which the user is directly participating or mentioned.
+Default: 
+false
+since
+string
+Only show results that were last updated after the given time. This is a timestamp in 
+ISO 8601
+ format: 
+YYYY-MM-DDTHH:MM:SSZ
+.
+before
+string
+Only show notifications updated before the given time. This is a timestamp in 
+ISO 8601
+ format: 
+YYYY-MM-DDTHH:MM:SSZ
+.
+per_page
+integer
+The number of results per page (max 100). For more information, see "
+Using pagination in the REST API
+."
+Default: 
+30
+page
+integer
+The page number of the results to fetch. For more information, see "
+Using pagination in the REST API
+."
+Default: 
+1
+HTTP response status codes for "List repository notifications for the authenticated user"
+Status code
+Description
+200
+OK
+Code samples for "List repository notifications for the authenticated user"
+Request example
+get
+/repos
+/{owner}
+/{repo}
+/notifications
+cURL
+JavaScript
+GitHub CLI
+Copy to clipboard curl request example
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2026-03-10" \
+  https://api.github.com/repos/OWNER/REPO/notifications
+Response
+Example response
+Response schema
+Status: 200
+[
+  {
+    "id": "1",
+    "repository": {
+      "id": 1296269,
+      "node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5",
+      "name": "Hello-World",
+      "full_name": "octocat/Hello-World",
+      "owner": {
+        "login": "octocat",
+        "id": 1,
+        "node_id": "MDQ6VXNlcjE=",
+        "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/octocat",
+        "html_url": "https://github.com/octocat",
+        "followers_url": "https://api.github.com/users/octocat/followers",
+        "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+        "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+        "organizations_url": "https://api.github.com/users/octocat/orgs",
+        "repos_url": "https://api.github.com/users/octocat/repos",
+        "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/octocat/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "private": false,
+      "html_url": "https://github.com/octocat/Hello-World",
+      "description": "This your first repo!",
+      "fork": false,
+      "url": "https://api.github.com/repos/octocat/Hello-World",
+      "archive_url": "https://api.github.com/repos/octocat/Hello-World/{archive_format}{/ref}",
+      "assignees_url": "https://api.github.com/repos/octocat/Hello-World/assignees{/user}",
+      "blobs_url": "https://api.github.com/repos/octocat/Hello-World/git/blobs{/sha}",
+      "branches_url": "https://api.github.com/repos/octocat/Hello-World/branches{/branch}",
+      "collaborators_url": "https://api.github.com/repos/octocat/Hello-World/collaborators{/collaborator}",
+      "comments_url": "https://api.github.com/repos/octocat/Hello-World/comments{/number}",
+      "commits_url": "https://api.github.com/repos/octocat/Hello-World/commits{/sha}",
+      "compare_url": "https://api.github.com/repos/octocat/Hello-World/compare/{base}...{head}",
+      "contents_url": "https://api.github.com/repos/octocat/Hello-World/contents/{+path}",
+      "contributors_url": "https://api.github.com/repos/octocat/Hello-World/contributors",
+      "deployments_url": "https://api.github.com/repos/octocat/Hello-World/deployments",
+      "downloads_url": "https://api.github.com/repos/octocat/Hello-World/downloads",
+      "events_url": "https://api.github.com/repos/octocat/Hello-World/events",
+      "forks_url": "https://api.github.com/repos/octocat/Hello-World/forks",
+      "git_commits_url": "https://api.github.com/repos/octocat/Hello-World/git/commits{/sha}",
+      "git_refs_url": "https://api.github.com/repos/octocat/Hello-World/git/refs{/sha}",
+      "git_tags_url": "https://api.github.com/repos/octocat/Hello-World/git/tags{/sha}",
+      "git_url": "git:github.com/octocat/Hello-World.git",
+      "issue_comment_url": "https://api.github.com/repos/octocat/Hello-World/issues/comments{/number}",
+      "issue_events_url": "https://api.github.com/repos/octocat/Hello-World/issues/events{/number}",
+      "issues_url": "https://api.github.com/repos/octocat/Hello-World/issues{/number}",
+      "keys_url": "https://api.github.com/repos/octocat/Hello-World/keys{/key_id}",
+      "labels_url": "https://api.github.com/repos/octocat/Hello-World/labels{/name}",
+      "languages_url": "https://api.github.com/repos/octocat/Hello-World/languages",
+      "merges_url": "https://api.github.com/repos/octocat/Hello-World/merges",
+      "milestones_url": "https://api.github.com/repos/octocat/Hello-World/milestones{/number}",
+      "notifications_url": "https://api.github.com/repos/octocat/Hello-World/notifications{?since,all,participating}",
+      "pulls_url": "https://api.github.com/repos/octocat/Hello-World/pulls{/number}",
+      "releases_url": "https://api.github.com/repos/octocat/Hello-World/releases{/id}",
+      "ssh_url": "git@github.com:octocat/Hello-World.git",
+      "stargazers_url": "https://api.github.com/repos/octocat/Hello-World/stargazers",
+      "statuses_url": "https://api.github.com/repos/octocat/Hello-World/statuses/{sha}",
+      "subscribers_url": "https://api.github.com/repos/octocat/Hello-World/subscribers",
+      "subscription_url": "https://api.github.com/repos/octocat/Hello-World/subscription",
+      "tags_url": "https://api.github.com/repos/octocat/Hello-World/tags",
+      "teams_url": "https://api.github.com/repos/octocat/Hello-World/teams",
+      "trees_url": "https://api.github.com/repos/octocat/Hello-World/git/trees{/sha}",
+      "hooks_url": "http://api.github.com/repos/octocat/Hello-World/hooks"
+    },
+    "subject": {
+      "title": "Greetings",
+      "url": "https://api.github.com/repos/octokit/octokit.rb/issues/123",
+      "latest_comment_url": "https://api.github.com/repos/octokit/octokit.rb/issues/comments/123",
+      "type": "Issue"
+    },
+    "reason": "subscribed",
+    "unread": true,
+    "updated_at": "2014-11-07T22:01:45Z",
+    "last_read_at": "2014-11-07T22:01:45Z",
+    "url": "https://api.github.com/notifications/threads/1",
+    "subscription_url": "https://api.github.com/notifications/threads/1/subscription"
+  }
+]
+Mark repository notifications as read
+Marks all notifications in a repository as "read" for the current user. If the number of notifications is too large to complete in one request, you will receive a 
+202 Accepted
+ status and GitHub will run an asynchronous process to mark notifications as "read." To check whether any "unread" notifications remain, you can use the 
+List repository notifications for the authenticated user
+ endpoint and pass the query parameter 
+all=false
+.
+Fine-grained access tokens for "Mark repository notifications as read"
+This endpoint does not work with GitHub App user access tokens, GitHub App installation access tokens, or fine-grained personal access tokens.
+Parameters for "Mark repository notifications as read"
+Headers
+Name, Type, Description
+accept
+string
+Setting to 
+application/vnd.github+json
+ is recommended.
+Path parameters
+Name, Type, Description
+owner
+string
+Required
+The account owner of the repository. The name is not case sensitive.
+repo
+string
+Required
+The name of the repository without the 
+.git
+ extension. The name is not case sensitive.
+Body parameters
+Name, Type, Description
+last_read_at
+string
+Describes the last point that notifications were checked. Anything updated since this time will not be marked as read. If you omit this parameter, all notifications are marked as read. This is a timestamp in 
+ISO 8601
+ format: 
+YYYY-MM-DDTHH:MM:SSZ
+. Default: The current timestamp.
+HTTP response status codes for "Mark repository notifications as read"
+Status code
+Description
+202
+Accepted
+205
+Reset Content
+Code samples for "Mark repository notifications as read"
+Request example
+put
+/repos
+/{owner}
+/{repo}
+/notifications
+cURL
+JavaScript
+GitHub CLI
+Copy to clipboard curl request example
+curl -L \
+  -X PUT \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2026-03-10" \
+  https://api.github.com/repos/OWNER/REPO/notifications \
+  -d '{"last_read_at":"2019-01-01T00:00:00Z"}'
+Response
+Example response
+Response schema
+Status: 202
+{
+  "message": "Unread notifications couldn't be marked in a single request. Notifications are being marked as read in the background."
+}
+Back to top
+Help and support
+Was this Doc helpful?
+Yes
+No
+Help us make GitHub Docs great!
+All Docs are open source. See something that's wrong or unclear? Submit a pull request.
+Make a contribution
+Still need help?
+Ask the GitHub community
+Contact support
+Expert services
+Blog
+GitHub Inc. © 2026
+Terms
+Privacy
+Status
+Pricing

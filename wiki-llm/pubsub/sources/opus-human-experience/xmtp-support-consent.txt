@@ -1,0 +1,414 @@
+Support user consent preferences to provide spam-free chats – Build with XMTP
+Skip to content
+Intro to XMTP
+Chevron Right
+What is XMTP?
+Why XMTP?
+Build a quickstart app
+Get started
+Build with LLMs
+FAQ
+Dev support
+Roadmap
+Join the XMTP Dev Community
+SDKs
+Chevron Right
+Browser SDK
+Node SDK
+React Native SDK
+Android SDK
+iOS SDK
+Build core messaging
+Chevron Right
+Create a signer
+Create a client
+Create conversations
+Send messages
+Delete messages
+Support disappearing messages
+Manage group permissions
+Manage group metadata
+Support group invite links
+Manage inboxes, IDs, and installations
+Extend the identity model
+Observe rate limits
+Fund an app
+Chevron Right
+Get started
+Calculate fees
+Fund an app
+Run your XMTP Gateway Service
+Update your SDK
+Glossary
+List, stream, sync, & back up
+Chevron Right
+List conversations
+List messages
+Stream conversations and messages
+Sync conversations and messages
+Sync preferences
+Support backups
+History sync
+Support rich content types
+Chevron Right
+Understand content types
+Attachments
+Onchain transactions
+Onchain transaction references
+Reactions
+Replies
+Read receipts
+Actions
+Intents
+Custom content
+Fallback text for compatibility
+Support spam-free chat apps
+Chevron Right
+Understand user consent
+Support user consent
+Support push notifications
+Chevron Right
+Understand push notifications
+Support push notifications
+Run a push notifications server
+Try Android push notifications
+Try iOS push notifications
+Debug
+Chevron Right
+Debug your app
+Troubleshoot errors
+Sign and verify payloads
+GitHub
+Search...
+Build agents
+Build chat apps
+Protocol
+Network
+🚀 Try docs MCP server
+Join XMTP Switchboard Community
+Build agents
+Build chat apps
+Protocol
+Network
+🚀 Try docs MCP server
+Join XMTP Switchboard Community
+Build chat apps
+Chevron Down
+Menu
+Support user consent
+On this page
+Chevron Right
+Support user consent preferences to provide spam-free chats
+Copy
+Copy page
+OpenAI
+Ask in ChatGPT
+Claude
+Ask in Claude
+Use the following methods to provide users with control over their messaging experience, ensuring their chats are tailored to their preferences and spam-free.
+Sync new consent preferences from the network
+You can sync new consent preferences (and HMAC keys) from the network using any of these calls:
+Sync preferences only
+Sync all new conversations, messages, and preferences
+Stream all group chat and DM messages and preferences
+Get the consent state of a conversation
+Check the current consent state of a specific conversation:
+Browser
+Node
+React Native
+Kotlin
+Swift
+Browser
+Copy
+import
+ { ConsentEntityType } 
+from
+ '@xmtp/browser-sdk'
+;
+// get consent state from the client
+const
+ conversationConsentState
+ =
+ await
+ client.
+getConsentState
+(
+  ConsentEntityType.GroupId,
+  groupId
+);
+// or get consent state directly from a conversation
+const
+ groupConversation
+ =
+  await
+ client.conversations.
+findConversationById
+(groupId);
+const
+ groupConversationConsentState
+ =
+ await
+ groupConversation.
+consentState
+();
+Update the conversation consent state
+Update the consent state of a conversation to allow or deny messages:
+Browser
+Node
+React Native
+Kotlin
+Swift
+Browser
+Copy
+import
+ { ConsentEntityType, ConsentState } 
+from
+ '@xmtp/browser-sdk'
+;
+// set consent state from the client (can set multiple states at once)
+await
+ client.
+setConsentStates
+([
+  {
+    entityId: groupId,
+    entityType: ConsentEntityType.GroupId,
+    state: ConsentState.Allowed,
+  },
+]);
+// set consent state directly on a conversation
+const
+ groupConversation
+ =
+  await
+ client.conversations.
+findConversationById
+(groupId);
+await
+ groupConversation.
+updateConsentState
+(ConsentState.Allowed);
+Stream consent preferences in real-time
+Listen for real-time updates to consent preferences:
+Browser
+Node
+React Native
+Kotlin
+Swift
+Browser
+Copy
+// Stream consent records in real-time
+const
+ stream
+ =
+ await
+ client.preferences.
+streamConsent
+({
+  onValue
+: (
+updates
+) 
+=>
+ {
+    // Received consent updates
+    console.
+log
+(
+'Consent updates:'
+, updates);
+  },
+  onError
+: (
+error
+) 
+=>
+ {
+    // Log any stream errors
+    console.
+error
+(error);
+  },
+  onFail
+: () 
+=>
+ {
+    console.
+log
+(
+'Consent stream failed'
+);
+  },
+});
+// Or use for-await loop
+for
+ await
+ (
+const
+ updates
+ of
+ stream) {
+  // Received consent updates
+  console.
+log
+(
+'Consent updates:'
+, updates);
+}
+Update consent for an individual in a group chat
+Update the consent state for an individual in a group chat:
+Lightning Bolt
+Note
+You may want to enable users to deny or allow a users on an individual basis. You can then update the group chat UI to hide messages from denied individuals.
+Browser
+Node
+React Native
+Kotlin
+Swift
+Browser
+Copy
+import
+ { ConsentEntityType, ConsentState } 
+from
+ '@xmtp/browser-sdk'
+;
+await
+ client.
+setConsentStates
+([
+  {
+    entityId: inboxId,
+    entityType: ConsentEntityType.InboxId,
+    state: ConsentState.Denied,
+  },
+]);
+Get the consent state of an individual in a group chat
+Get the consent state of an individual in a group chat:
+Lightning Bolt
+Note
+You may want to enable users to deny or allow a users on an individual basis. You can then update the group chat UI to hide messages from denied individuals.
+Browser
+Node
+React Native
+Kotlin
+Swift
+Browser
+Copy
+import
+ { ConsentEntityType } 
+from
+ '@xmtp/browser-sdk'
+;
+const
+ inboxConsentState
+ =
+ await
+ client.
+getConsentState
+(
+  ConsentEntityType.InboxId,
+  inboxId
+);
+See who created and added you to a group
+Get the inbox ID of the individual who added you to a group or created the group to check the consent state for it:
+React Native
+Copy
+group.addedByInboxId;
+await
+ group.
+creatorInboxId
+();
+Kotlin
+Copy
+group.
+addedByInboxId
+()
+group.
+creatorInboxId
+()
+Swift
+Copy
+try
+ await
+ group.
+addedByInboxId
+()
+try
+ await
+ group.
+creatorInboxId
+()
+Handle unknown contacts
+With user consent preferences, an inbox ID or conversation ID can have one of three user consent preference values in relation to another user's inbox ID:
+Unknown
+Allowed
+Denied
+You can implement user consent preferences to give your users inboxes that are 
+spam-free spaces for allowed conversations and contacts only
+.
+You can then handle message requests from unknown contacts in a separate UI.
+These message requests from unknown contacts could be from:
+Contacts the user might know
+Contacts the user might not know
+Spammy or scammy contacts
+You can filter these unknown contacts to:
+Identify contacts the user might know or want to know and display them on a 
+You might know
+ tab, for example.
+Identify contacts the user might not know and not want to know, which might include spam, and display them on a 
+Hidden requests
+ tab, for example.
+Identify contacts the user might know
+To identify contacts the user might know or want to know, you can look for signals in onchain data that imply an affinity between addresses.
+Copy
+val
+ inboxState 
+=
+ inboxStateForInboxId
+(inboxId)
+val
+ identities 
+=
+ inboxState.identities
+val
+ ethAddresses 
+=
+ identities
+    .
+filter
+ { it.kind 
+==
+ ETHEREUM }
+    .
+map
+ { it.identifier }
+You can then display appropriate messages on a 
+You might know
+ tab, for example.
+Identify contacts the user might not know, including spammy or scammy requests
+To identify contacts the user might not know or not want to know, which might include spam, you can consciously decide to scan messages in an unencrypted state to find messages that might contain spammy or scammy content. You can also look for an absence of onchain interaction data between the addresses, which might indicate that there is no affinity between addresses. You can then filter the appropriate messages to display on a 
+Hidden requests
+ tab, for example.
+The decision to scan unencrypted messages is yours as the app developer. If you take this approach:
+Handle unencrypted messages with extreme care, and don't store unencrypted messages beyond the time necessary to scan them.
+Consider telling users that your app scans unencrypted messages for spammy or scammy content.
+Consider making spam and scam message detection optional for users who prefer not to have their messages scanned.
+Why is content moderation handled by apps and not XMTP?
+XMTP is a decentralized, open protocol built to ensure private, secure, and censorship-resistant communication. As such, XMTP can't read unencrypted messages, and therefore, it also can't scan or filter message contents for spammy or scammy material.
+The protocol can analyze onchain data signals, such as shared activity between wallet addresses, to infer potential affinities between addresses. However, because all XMTP repositories are open source, malicious actors could inspect these methods and develop workarounds to bypass them.
+Additionally, applying spam filtering or content moderation directly at the protocol level would introduce centralization, which goes against the decentralized, permissionless, and open ethos of XMTP and web3. A protocol-driven approach could limit interoperability and trust by imposing subjective rules about content across all apps.
+Instead, content filtering and moderation should be implemented at the app layer. Apps can decide how opinionated or lenient they want to be, tailoring their filtering approach to the needs of their users. For example, one app may choose to aggressively scan and block spam to provide a highly curated experience, attracting users who value more protection. Another app may opt for minimal or no filtering, appealing to users who prioritize full control and unfiltered communication.
+This flexibility enables different apps to serve different user preferences, fostering an ecosystem where users can choose the experience that best suits them. Whether an app scans messages or not, XMTP ensures that developers remain free to build in line with their own values, without imposing restrictions at the infrastructure level. This separation between the protocol and app layers is crucial to maintaining XMTP's commitment to openness, interoperability, and user choice.
+Lightning Bolt
+Is your app using a great third-party or public good tool to help with spam and keep chats safe? Open an 
+issue
+ to share information about it.
+Edit this page on GitHub
+Building with XMTP and have a question about this documentation? Leave a comment.
+XMTP.org
+XMTP status
+XMTP.chat
+Privacy policy
+Terms of service
+CC BY 4.0
+  Copyright © 2024-present XMTP.

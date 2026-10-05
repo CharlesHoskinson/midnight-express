@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/nats-io/nats-server/releases/latest",
+  "retrieved_utc": "2026-10-05T18:16:22.801014+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "40da0c91ca915faddc8e630b04df5df7a64cd28f8ce457099b77e670d8ac652c",
+  "text_sha256": "40da0c91ca915faddc8e630b04df5df7a64cd28f8ce457099b77e670d8ac652c",
+  "bytes": 113620,
+  "text_bytes": 113620,
+  "final_url": "https://api.github.com/repos/nats-io/nats-server/releases/latest",
+  "accepted_source": true
+}

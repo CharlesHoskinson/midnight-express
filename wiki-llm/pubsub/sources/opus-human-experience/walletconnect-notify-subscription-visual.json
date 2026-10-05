@@ -1,0 +1,24 @@
+{
+  "url": "https://specs.walletconnect.com/2.0/specs/clients/notify/notify-subscription",
+  "retrieved_utc": "2026-10-05T18:17:37.265092+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "0c4ab15cb0bbbd901575875730b6a8cc2623cc9ff751894d886c506dfab79259",
+  "text_sha256": "f3ccdf10786bb3fc9344084c20170d99ca909dc487ce443adf6e75b37bc9b67e",
+  "bytes": 27364,
+  "text_bytes": 3453,
+  "final_url": "https://specs.walletconnect.com/2.0/specs/clients/notify/notify-subscription",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/opus-human-experience/walletconnect-notify-subscription-visual-tiles/specs.walletconnect.com_2.0_specs_clients_notify_notify-subscription.png.tiles/tile_0000.jpg",
+        "sha256": "a1eefa46db2a981826173f37ea7c36be3d104b86beec680ed5f7447e07c4ae76"
+      }
+    ],
+    "stderr": "2026-10-05 12:17:38,826 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 12:17:47,005 INFO pixelrag_render.backends.cdp: [w0] https://specs.walletconnect.com/2.0/specs/clients/notify/notify-subscription \u2192 1 tiles (5.1s)\n2026-10-05 12:17:47,023 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 12:17:47,024 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

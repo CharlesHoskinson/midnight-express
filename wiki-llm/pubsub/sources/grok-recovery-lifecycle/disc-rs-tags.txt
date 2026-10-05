@@ -1,0 +1,52 @@
+[
+  {
+    "name": "v1.0.4",
+    "zipball_url": "https://api.github.com/repos/reactive-streams/reactive-streams-jvm/zipball/refs/tags/v1.0.4",
+    "tarball_url": "https://api.github.com/repos/reactive-streams/reactive-streams-jvm/tarball/refs/tags/v1.0.4",
+    "commit": {
+      "sha": "944163a4b2477a2bebaaada86b0ba910b6302f2f",
+      "url": "https://api.github.com/repos/reactive-streams/reactive-streams-jvm/commits/944163a4b2477a2bebaaada86b0ba910b6302f2f"
+    },
+    "node_id": "MDM6UmVmMTcyODY1ODc6cmVmcy90YWdzL3YxLjAuNA=="
+  },
+  {
+    "name": "v1.0.3",
+    "zipball_url": "https://api.github.com/repos/reactive-streams/reactive-streams-jvm/zipball/refs/tags/v1.0.3",
+    "tarball_url": "https://api.github.com/repos/reactive-streams/reactive-streams-jvm/tarball/refs/tags/v1.0.3",
+    "commit": {
+      "sha": "7207b1b4fb618c0cf17f3391a5e551648c75769d",
+      "url": "https://api.github.com/repos/reactive-streams/reactive-streams-jvm/commits/7207b1b4fb618c0cf17f3391a5e551648c75769d"
+    },
+    "node_id": "MDM6UmVmMTcyODY1ODc6cmVmcy90YWdzL3YxLjAuMw=="
+  },
+  {
+    "name": "v1.0.3-RC1",
+    "zipball_url": "https://api.github.com/repos/reactive-streams/reactive-streams-jvm/zipball/refs/tags/v1.0.3-RC1",
+    "tarball_url": "https://api.github.com/repos/reactive-streams/reactive-streams-jvm/tarball/refs/tags/v1.0.3-RC1",
+    "commit": {
+      "sha": "aa3749e85247435689ffae239ad4c19e0c8cafe9",
+      "url": "https://api.github.com/repos/reactive-streams/reactive-streams-jvm/commits/aa3749e85247435689ffae239ad4c19e0c8cafe9"
+    },
+    "node_id": "MDM6UmVmMTcyODY1ODc6cmVmcy90YWdzL3YxLjAuMy1SQzE="
+  },
+  {
+    "name": "v1.0.2",
+    "zipball_url": "https://api.github.com/repos/reactive-streams/reactive-streams-jvm/zipball/refs/tags/v1.0.2",
+    "tarball_url": "https://api.github.com/repos/reactive-streams/reactive-streams-jvm/tarball/refs/tags/v1.0.2",
+    "commit": {
+      "sha": "3716ba57f17e55ec414aed7ccb1530251e193b61",
+      "url": "https://api.github.com/repos/reactive-streams/reactive-streams-jvm/commits/3716ba57f17e55ec414aed7ccb1530251e193b61"
+    },
+    "node_id": "MDM6UmVmMTcyODY1ODc6cmVmcy90YWdzL3YxLjAuMg=="
+  },
+  {
+    "name": "v1.0.2-RC2",
+    "zipball_url": "https://api.github.com/repos/reactive-streams/reactive-streams-jvm/zipball/refs/tags/v1.0.2-RC2",
+    "tarball_url": "https://api.github.com/repos/reactive-streams/reactive-streams-jvm/tarball/refs/tags/v1.0.2-RC2",
+    "commit": {
+      "sha": "a894aacf6612323af504d91b482fecb5ccea680a",
+      "url": "https://api.github.com/repos/reactive-streams/reactive-streams-jvm/commits/a894aacf6612323af504d91b482fecb5ccea680a"
+    },
+    "node_id": "MDM6UmVmMTcyODY1ODc6cmVmcy90YWdzL3YxLjAuMi1SQzI="
+  }
+]

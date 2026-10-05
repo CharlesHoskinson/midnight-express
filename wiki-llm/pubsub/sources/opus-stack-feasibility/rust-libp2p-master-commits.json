@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/libp2p/rust-libp2p/commits?per_page=3",
+  "retrieved_utc": "2026-10-05T18:12:22.066770+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "22bc886df89951ba5554e149143fc222553db63046162247314859d97c8e5021",
+  "text_sha256": "2799993094eb553d367b91930ac63e1ac9d6c2edc2f6d97646ce95046cb3d24c",
+  "bytes": 39003,
+  "text_bytes": 27093,
+  "final_url": "https://api.github.com/repos/libp2p/rust-libp2p/commits?per_page=3",
+  "accepted_source": true
+}

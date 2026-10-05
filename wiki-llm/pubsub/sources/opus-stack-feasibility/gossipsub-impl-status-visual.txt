@@ -1,0 +1,292 @@
+specs/pubsub/gossipsub/implementation-status.md at 9e9628a4f9a2be2ac79f40a162cd978c5b200b03 · libp2p/specs · GitHub
+Skip to content
+Navigation Menu
+Sign in
+Appearance settings
+Platform
+AI CODE CREATION
+GitHub Copilot
+Write better code with AI
+GitHub Copilot app
+Direct agents from issue to merge
+MCP Registry
+Integrate external tools
+DEVELOPER WORKFLOWS
+Actions
+Automate any workflow
+Codespaces
+Instant dev environments
+Issues
+Plan and track work
+Code Review
+Manage code changes
+Code Quality
+Enforce quality at merge
+APPLICATION SECURITY
+GitHub Advanced Security
+Find and fix vulnerabilities
+Code security
+Secure your code as you build
+Secret protection
+Stop leaks before they start
+EXPLORE
+Why GitHub
+Documentation
+Blog
+Changelog
+Marketplace
+View all features
+Solutions
+BY COMPANY SIZE
+Enterprises
+Small and medium teams
+Startups
+Nonprofits
+BY USE CASE
+App Modernization
+DevSecOps
+DevOps
+CI/CD
+View all use cases
+BY INDUSTRY
+Healthcare
+Financial services
+Manufacturing
+Government
+View all industries
+View all solutions
+Resources
+EXPLORE BY TOPIC
+AI
+Software Development
+DevOps
+Security
+View all topics
+EXPLORE BY TYPE
+Customer stories
+Events & webinars
+Ebooks & reports
+Business insights
+GitHub Skills
+SUPPORT & SERVICES
+Documentation
+Customer support
+Community forum
+Trust center
+Partners
+View all resources
+Open Source
+COMMUNITY
+GitHub Sponsors
+Fund open source developers
+PROGRAMS
+Security Lab
+Maintainer Community
+GitHub Stars
+Archive Program
+REPOSITORIES
+Topics
+Trending
+Collections
+Enterprise
+ENTERPRISE SOLUTIONS
+Enterprise platform
+AI-powered developer platform
+AVAILABLE ADD-ONS
+GitHub Advanced Security
+Enterprise-grade security features
+Copilot for Business
+Enterprise-grade AI features
+Premium Support
+Enterprise-grade 24/7 support
+Pricing
+Search
+/
+Sign in
+Sign up
+Appearance settings
+You signed in with another tab or window. 
+Reload
+ to refresh your session.
+You signed out in another tab or window. 
+Reload
+ to refresh your session.
+You switched accounts on another tab or window. 
+Reload
+ to refresh your session.
+Dismiss alert
+{{ message }}
+
+        libp2p
+
+/
+specs
+Public
+Notifications
+
+You must be signed in to change notification settings
+Fork
+    
+320
+
+          Star
+
+1.8k
+Code
+Issues
+129
+Pull requests
+65
+Discussions
+Actions
+Security and quality
+0
+Insights
+Additional navigation options
+
+          Code
+
+
+          Issues
+
+
+          Pull requests
+
+
+          Discussions
+
+
+          Actions
+
+
+          Security and quality
+
+
+          Insights
+
+Files
+Expand file tree
+9e9628a4f9a2be2ac79f40a162cd978c5b200b03
+Breadcrumbs
+specs
+/
+pubsub
+/
+gossipsub
+/
+implementation-status.md
+Copy path
+Blame
+More file actions
+Blame
+More file actions
+Latest commit
+History
+History
+History
+47 lines (39 loc) · 3.96 KB
+9e9628a
+Breadcrumbs
+specs
+/
+pubsub
+/
+gossipsub
+/
+implementation-status.md
+Copy path
+Top
+File metadata and controls
+Preview
+Code
+Blame
+47 lines (39 loc) · 3.96 KB
+Raw
+Copy raw file
+Download raw file
+Outline
+Edit and raw actions
+Implementation status of Gossipsub versions and Extensions
+This doc is meant to provide an overview of the implementation status of
+Gossipsub versions and Extensions.
+Gossipsub Versions
+1.2
+1.3-alpha
+Go libp2p
+✅
+Open PR
+Rust libp2p
+✅
+In Progress
+JS libp2p
+✅
+Not started
+Nim libp2p
+✅
+Not started
+Java libp2p
+✅
+Not started
+Gossipsub Extensions
+Choke Extensions
+Partial Messages
+Go libp2p
+Not Implemented
+PR
+Rust libp2p
+Not Implemented
+Not Implemented
+JS libp2p
+Not Implemented
+Not Implemented
+Nim libp2p
+Not Implemented
+Not Implemented
+Java libp2p
+Not Implemented
+Not Implemented
+Gossipsub Implementation Improvements
+Batch Publishing
+IDONTWANT on First Publish
+WFR Gossip
+Go libp2p
+✅
+✅
+PR
+Rust libp2p
+Not Implemented
+✅
+Not Implemented
+JS libp2p
+Not Implemented
+Not Implemented
+Not Implemented
+Nim libp2p
+Not Implemented
+Not Implemented
+Not Implemented
+Java libp2p
+Not Implemented
+Not Implemented
+Not Implemented
+Footer
+
+        © 2026 GitHub, Inc.
+      
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+
+      Manage cookies
+    
+
+        Do not share my personal information
+      
+
+    You can’t perform that action at this time.
+  

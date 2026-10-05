@@ -1,0 +1,28 @@
+{
+  "url": "https://github.com/shieldedtech/moth-wallet/blob/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/lib/connector/constants.ts",
+  "retrieved_utc": "2026-10-05T18:22:24.424220+00:00",
+  "tool": "Scrapling",
+  "visual_tool": "PixelRAG pixelshot 0.4.0",
+  "status": 200,
+  "raw_sha256": "e249b4ee4da2bca7e4d8751e57bd025080d27664540160c8a82467476320ade9",
+  "text_sha256": "d0b6935e1b7d6c382e282c9905830d806b4abba2cf3d5476006e31b4853807fe",
+  "bytes": 272559,
+  "text_bytes": 6058,
+  "final_url": "https://github.com/shieldedtech/moth-wallet/blob/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/lib/connector/constants.ts",
+  "accepted_source": true,
+  "visual": {
+    "exit_code": 0,
+    "tiles": [
+      {
+        "path": "sources/grok-adversarial-consensus/moth-constants-visual-tiles/github.com_shieldedtech_moth-wallet_blob_d48206a1957af09bf17bf5e941c2b5bccb12db63_packages_extension_lib_connector_constants.ts.png.tiles/tile_0000.jpg",
+        "sha256": "7b458234edb4d295dd4ac6fd39ed54bad32c5df955a2c20546a37df598eed3fa"
+      },
+      {
+        "path": "sources/grok-adversarial-consensus/moth-constants-visual-tiles/github.com_shieldedtech_moth-wallet_blob_d48206a1957af09bf17bf5e941c2b5bccb12db63_packages_extension_lib_connector_constants.ts.png.tiles/tile_0001.jpg",
+        "sha256": "49917f8645724e95edbbbde188623cd74bc12c2be4fbb7b5d95ae5ce7eed2893"
+      }
+    ],
+    "stderr": "2026-10-05 12:22:26,344 INFO pixelrag_render.render: Rendering 1 URL(s) with backend=cdp workers=1\n2026-10-05 12:22:36,410 INFO pixelrag_render.backends.cdp: [w0] https://github.com/shieldedtech/moth-wallet/blob/d48206a1957af09bf17bf5e941c2b5bccb12db63/packages/extension/lib/connector/constants.ts \u2192 2 tiles (7.0s)\n2026-10-05 12:22:36,427 INFO pixelrag_render.backends.cdp: Batch complete: done=1 failed=0\n2026-10-05 12:22:36,428 INFO pixelrag_render.render: Done. 1 output(s):\n",
+    "verified_capture": true
+  }
+}

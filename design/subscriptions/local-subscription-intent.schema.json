@@ -1,0 +1,363 @@
+{
+  "type": "object",
+  "properties": {
+    "kind": {
+      "const": "LocalSubscriptionIntent"
+    },
+    "version": {
+      "const": 1
+    },
+    "subscriptionId": {
+      "type": "string",
+      "pattern": "^subscription:[a-z0-9][a-z0-9._/-]*(?![\\s\\S])",
+      "maxLength": 80
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "owner": {
+      "type": "string",
+      "pattern": "^principal:[a-z0-9][a-z0-9._/-]*(?![\\s\\S])",
+      "maxLength": 80
+    },
+    "shardHandle": {
+      "type": "string",
+      "pattern": "^shard:[a-z0-9][a-z0-9._/-]*(?![\\s\\S])",
+      "maxLength": 80
+    },
+    "selector": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "category": {
+              "const": "quotes"
+            },
+            "profile": {
+              "const": "rfq.v0.2"
+            },
+            "contract": {
+              "const": "sha256:8b5c6b89f6019fcb06b479e92f1b3bea340ac500cc218341e368e1ed2093071c"
+            },
+            "sourceEquals": {
+              "type": "array",
+              "maxItems": 16,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "pattern": "^urn:mpe:source:[a-z0-9][a-z0-9-]{0,31}(?![\\s\\S])"
+              }
+            },
+            "predicate": {
+              "enum": [
+                "all"
+              ]
+            }
+          },
+          "required": [
+            "category",
+            "profile",
+            "contract",
+            "sourceEquals",
+            "predicate"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "category": {
+              "const": "payments"
+            },
+            "profile": {
+              "const": "invoice.v0.2"
+            },
+            "contract": {
+              "const": "sha256:dd3b68c4f25c4ca87a57e5e5dda88cb8a1630fa9a1b0ab394744fdf984eb047a"
+            },
+            "sourceEquals": {
+              "type": "array",
+              "maxItems": 16,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "pattern": "^urn:mpe:source:[a-z0-9][a-z0-9-]{0,31}(?![\\s\\S])"
+              }
+            },
+            "predicate": {
+              "enum": [
+                "all",
+                "payment-final"
+              ]
+            }
+          },
+          "required": [
+            "category",
+            "profile",
+            "contract",
+            "sourceEquals",
+            "predicate"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "category": {
+              "const": "approvals"
+            },
+            "profile": {
+              "const": "agent.v0.2"
+            },
+            "contract": {
+              "const": "sha256:beaf501a8fdeefe757c340b1945dcd3e9c7c6e3fb4e00612f724afab7605b330"
+            },
+            "sourceEquals": {
+              "type": "array",
+              "maxItems": 16,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "pattern": "^urn:mpe:source:[a-z0-9][a-z0-9-]{0,31}(?![\\s\\S])"
+              }
+            },
+            "predicate": {
+              "enum": [
+                "all",
+                "approval-report"
+              ]
+            }
+          },
+          "required": [
+            "category",
+            "profile",
+            "contract",
+            "sourceEquals",
+            "predicate"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "category": {
+              "const": "contracts"
+            },
+            "profile": {
+              "const": "mock.local.v1"
+            },
+            "contract": {
+              "const": "mock-only"
+            },
+            "sourceEquals": {
+              "type": "array",
+              "maxItems": 16,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "pattern": "^urn:mpe:source:[a-z0-9][a-z0-9-]{0,31}(?![\\s\\S])"
+              }
+            },
+            "predicate": {
+              "enum": [
+                "all"
+              ]
+            }
+          },
+          "required": [
+            "category",
+            "profile",
+            "contract",
+            "sourceEquals",
+            "predicate"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "category": {
+              "const": "credentials"
+            },
+            "profile": {
+              "const": "mock.local.v1"
+            },
+            "contract": {
+              "const": "mock-only"
+            },
+            "sourceEquals": {
+              "type": "array",
+              "maxItems": 16,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "pattern": "^urn:mpe:source:[a-z0-9][a-z0-9-]{0,31}(?![\\s\\S])"
+              }
+            },
+            "predicate": {
+              "enum": [
+                "all"
+              ]
+            }
+          },
+          "required": [
+            "category",
+            "profile",
+            "contract",
+            "sourceEquals",
+            "predicate"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "category": {
+              "const": "ops"
+            },
+            "profile": {
+              "const": "mock.local.v1"
+            },
+            "contract": {
+              "const": "mock-only"
+            },
+            "sourceEquals": {
+              "type": "array",
+              "maxItems": 16,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "pattern": "^urn:mpe:source:[a-z0-9][a-z0-9-]{0,31}(?![\\s\\S])"
+              }
+            },
+            "predicate": {
+              "enum": [
+                "all"
+              ]
+            }
+          },
+          "required": [
+            "category",
+            "profile",
+            "contract",
+            "sourceEquals",
+            "predicate"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "start": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "enum": [
+            "after",
+            "earliest",
+            "latest"
+          ]
+        },
+        "cursor": {
+          "type": "string",
+          "maxLength": 80
+        }
+      },
+      "required": [
+        "mode",
+        "cursor"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "after"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "cursor": {
+                "type": "string",
+                "pattern": "^cursor:[a-z0-9][a-z0-9._/-]*(?![\\s\\S])",
+                "maxLength": 80
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "cursor": {
+                "const": ""
+              }
+            }
+          }
+        }
+      ]
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(?!0000)[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.000Z(?![\\s\\S])"
+    },
+    "sink": {
+      "type": "object",
+      "properties": {
+        "handle": {
+          "type": "string",
+          "pattern": "^sink:[a-z0-9][a-z0-9._/-]*(?![\\s\\S])",
+          "maxLength": 80
+        },
+        "maxInFlight": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 64
+        },
+        "maxQueuedEvents": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1024
+        },
+        "maxQueuedBytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4194304
+        }
+      },
+      "required": [
+        "handle",
+        "maxInFlight",
+        "maxQueuedEvents",
+        "maxQueuedBytes"
+      ],
+      "additionalProperties": false
+    },
+    "requestedState": {
+      "enum": [
+        "active",
+        "paused",
+        "unsubscribed"
+      ]
+    }
+  },
+  "required": [
+    "kind",
+    "version",
+    "subscriptionId",
+    "revision",
+    "owner",
+    "shardHandle",
+    "selector",
+    "start",
+    "expiresAt",
+    "sink",
+    "requestedState"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mpe:design:local-subscription-intent:v1",
+  "title": "Proposed local SubscriptionIntent; no wire or authority grant",
+  "description": "Closed local control-plane configuration. Resolve handles and authorize whole-shard intake locally; never serialize selectors as relay topics."
+}

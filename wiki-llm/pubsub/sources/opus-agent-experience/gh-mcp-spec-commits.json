@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/commits?per_page=3",
+  "retrieved_utc": "2026-10-05T18:12:46.284418+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "31a3476008450ab09a5384f6688ffaecde7ed9bf7e91b7f8e8bb74490ee50ed0",
+  "text_sha256": "b8378ab795c1f9e92775fce042c4f32de193061cc7b6ba6c64aaa753166db5ff",
+  "bytes": 19768,
+  "text_bytes": 19615,
+  "final_url": "https://api.github.com/repos/modelcontextprotocol/modelcontextprotocol/commits?per_page=3",
+  "accepted_source": true
+}

@@ -1,0 +1,101 @@
+{
+  "sha": "3303592588e388e62e0f69f701af531d2f4e3991",
+  "node_id": "C_kwDOOOo1wNoAKDMzMDM1OTI1ODhlMzg4ZTYyZTBmNjlmNzAxYWY1MzFkMmY0ZTM5OTE",
+  "commit": {
+    "author": {
+      "name": "Agent2Agent (A2A) Bot",
+      "email": "a2a-bot@google.com",
+      "date": "2026-05-28T11:34:16Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-05-28T11:34:16Z"
+    },
+    "message": "chore(main): release 1.0.1 (#1749)\n\nAdd release notes for A2A - Python SDK v1.0.1\n---\n## [1.0.1](https://github.com/a2aproject/A2A/compare/v1.0.0...v1.0.1)\n(2026-04-23)\n\n### Bug Fixes\n* **spec:** prefer application/a2a+json in HTTP binding\n([#1753](https://github.com/a2aproject/A2A/issues/1753))\n([7ff1004](https://github.com/a2aproject/A2A/commit/7ff10041597b9c8a736a477e1890d2c79173bbcf))\n* **spec:** recent transcoding-related error changes\n([#1627](https://github.com/a2aproject/A2A/issues/1627))\n([757f0ec](https://github.com/a2aproject/A2A/commit/757f0ec6d067ec071ff915f21ab420200ba1baa3))\n\n---\nThis PR was generated with [Release\nPlease](https://github.com/googleapis/release-please). See\n[documentation](https://github.com/googleapis/release-please#release-please).\n\nCo-authored-by: Sampath Kumar <sam1990kumar@gmail.com>",
+    "tree": {
+      "sha": "4f4555ea6ae1cfe8e44f20a82b04dd1d1800da61",
+      "url": "https://api.github.com/repos/a2aproject/A2A/git/trees/4f4555ea6ae1cfe8e44f20a82b04dd1d1800da61"
+    },
+    "url": "https://api.github.com/repos/a2aproject/A2A/git/commits/3303592588e388e62e0f69f701af531d2f4e3991",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqGCg4CRC1aQ7uu5UhlAAACjoQAGO4UtGExE3SrvghWkTWIUVw\ntXVEbjSSnvVcVZC/w0H9877pLiuFPYBDnAFXdC1EwBRlwjWkSBPUNCxtn/Phkfev\nueI6JX+lNiEDAJJms6g4s4t0cZLox9FOqELUU+V1nnSyiDmvRWxhZtcibjN9Qlt8\n4yIOCMZOygk/wyCYSwrmfphM9khRfLtHUjTEWI2BzoNgImsVpbTSRTgarmjBQSQ0\na2W1HO772K41qERRQXUMno4cpk3xTqUToHOF0w/peQFURPgLm7YeOw/IMLJ4VtCS\n0FyFMZTjozcvx/GltyeLd2+OXydEzLilXsaGe8/vxBICNhvmo0OwbNv53Fvf6nlZ\nQNEkWL7L5/JrOaxyOYmdXhg9c93lUeQlydi/pQyDuUhsutLLu6Ts5p7jCZA2eQfq\nc+jGG+hZm3gatSY1lEqw0AO50t8B8R0ZxNabj1PegGshc1pxdT3rVDDzrg6xbvaK\nQK3Fvuj+Stsjh+pTBI9D0a702LcwHTTQq5DzFMgnNZUeDRsIFVWrc5oe8NQUJoY2\n3GN2XclCCzwGNY7hEzU9IqIwXx+ao+UATiR0LSX0gPh27uGVBHOSTvS0nPtye/Qz\nHBkGuNmDPH59XTgaEy7bqmS+bxwwgcq0ZyeJpsNER14MXiWEv3LBZ//+sW6gJfwp\nxQRF4hKN7uu/Actx72Jh\n=cS2Z\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 4f4555ea6ae1cfe8e44f20a82b04dd1d1800da61\nparent cd87b9341bc0e4982d46550aaab2319b903271e4\nauthor Agent2Agent (A2A) Bot <a2a-bot@google.com> 1779968056 -0500\ncommitter GitHub <noreply@github.com> 1779968056 +0200\n\nchore(main): release 1.0.1 (#1749)\n\nAdd release notes for A2A - Python SDK v1.0.1\n---\n## [1.0.1](https://github.com/a2aproject/A2A/compare/v1.0.0...v1.0.1)\n(2026-04-23)\n\n### Bug Fixes\n* **spec:** prefer application/a2a+json in HTTP binding\n([#1753](https://github.com/a2aproject/A2A/issues/1753))\n([7ff1004](https://github.com/a2aproject/A2A/commit/7ff10041597b9c8a736a477e1890d2c79173bbcf))\n* **spec:** recent transcoding-related error changes\n([#1627](https://github.com/a2aproject/A2A/issues/1627))\n([757f0ec](https://github.com/a2aproject/A2A/commit/757f0ec6d067ec071ff915f21ab420200ba1baa3))\n\n---\nThis PR was generated with [Release\nPlease](https://github.com/googleapis/release-please). See\n[documentation](https://github.com/googleapis/release-please#release-please).\n\nCo-authored-by: Sampath Kumar <sam1990kumar@gmail.com>",
+      "verified_at": "2026-05-28T11:34:17Z"
+    }
+  },
+  "url": "https://api.github.com/repos/a2aproject/A2A/commits/3303592588e388e62e0f69f701af531d2f4e3991",
+  "html_url": "https://github.com/a2aproject/A2A/commit/3303592588e388e62e0f69f701af531d2f4e3991",
+  "comments_url": "https://api.github.com/repos/a2aproject/A2A/commits/3303592588e388e62e0f69f701af531d2f4e3991/comments",
+  "author": {
+    "login": "a2a-bot",
+    "id": 212771093,
+    "node_id": "U_kgDODK6hFQ",
+    "avatar_url": "https://avatars.githubusercontent.com/u/212771093?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/a2a-bot",
+    "html_url": "https://github.com/a2a-bot",
+    "followers_url": "https://api.github.com/users/a2a-bot/followers",
+    "following_url": "https://api.github.com/users/a2a-bot/following{/other_user}",
+    "gists_url": "https://api.github.com/users/a2a-bot/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/a2a-bot/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/a2a-bot/subscriptions",
+    "organizations_url": "https://api.github.com/users/a2a-bot/orgs",
+    "repos_url": "https://api.github.com/users/a2a-bot/repos",
+    "events_url": "https://api.github.com/users/a2a-bot/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/a2a-bot/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "cd87b9341bc0e4982d46550aaab2319b903271e4",
+      "url": "https://api.github.com/repos/a2aproject/A2A/commits/cd87b9341bc0e4982d46550aaab2319b903271e4",
+      "html_url": "https://github.com/a2aproject/A2A/commit/cd87b9341bc0e4982d46550aaab2319b903271e4"
+    }
+  ],
+  "stats": {
+    "total": 9,
+    "additions": 9,
+    "deletions": 0
+  },
+  "files": [
+    {
+      "sha": "bfc2c8667818cb5ef43470c1384829020cee619b",
+      "filename": "CHANGELOG.md",
+      "status": "modified",
+      "additions": 9,
+      "deletions": 0,
+      "changes": 9,
+      "blob_url": "https://github.com/a2aproject/A2A/blob/3303592588e388e62e0f69f701af531d2f4e3991/CHANGELOG.md",
+      "raw_url": "https://github.com/a2aproject/A2A/raw/3303592588e388e62e0f69f701af531d2f4e3991/CHANGELOG.md",
+      "contents_url": "https://api.github.com/repos/a2aproject/A2A/contents/CHANGELOG.md?ref=3303592588e388e62e0f69f701af531d2f4e3991",
+      "patch": "@@ -1,5 +1,14 @@\n # Changelog\n \n+## [1.0.1](https://github.com/a2aproject/A2A/compare/v1.0.0...v1.0.1) (2026-05-26)\n+\n+\n+### Bug Fixes\n+\n+* **spec:** prefer application/a2a+json in HTTP binding ([#1753](https://github.com/a2aproject/A2A/issues/1753)) ([7ff1004](https://github.com/a2aproject/A2A/commit/7ff10041597b9c8a736a477e1890d2c79173bbcf))\n+* **spec:** recent transcoding-related error changes ([#1627](https://github.com/a2aproject/A2A/issues/1627)) ([757f0ec](https://github.com/a2aproject/A2A/commit/757f0ec6d067ec071ff915f21ab420200ba1baa3))\n+* TaskStatus values in the specification ([#1801](https://github.com/a2aproject/A2A/issues/1801)) ([e997516](https://github.com/a2aproject/A2A/commit/e997516542bd6e3a12ecb6b4939aa0bae3b13a21))\n+\n ## [1.0.0](https://github.com/a2aproject/A2A/compare/v0.3.0...v1.0.0) (2026-03-12)\n \n "
+    }
+  ]
+}

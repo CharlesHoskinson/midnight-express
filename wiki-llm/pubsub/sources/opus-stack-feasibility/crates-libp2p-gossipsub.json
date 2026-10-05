@@ -1,0 +1,13 @@
+{
+  "url": "https://crates.io/api/v1/crates/libp2p-gossipsub",
+  "retrieved_utc": "2026-10-05T18:11:30.311777+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "cbf73c19fdd9e20bb257b9aea57c981f0ba529bee715d5bb7e980815ceba271b",
+  "text_sha256": "cbf73c19fdd9e20bb257b9aea57c981f0ba529bee715d5bb7e980815ceba271b",
+  "bytes": 87848,
+  "text_bytes": 87848,
+  "final_url": "https://crates.io/api/v1/crates/libp2p-gossipsub",
+  "accepted_source": true
+}

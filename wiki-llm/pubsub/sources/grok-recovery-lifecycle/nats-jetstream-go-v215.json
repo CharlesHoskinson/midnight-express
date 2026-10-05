@@ -1,0 +1,13 @@
+{
+  "url": "https://raw.githubusercontent.com/nats-io/nats-server/v2.15.0/server/jetstream.go",
+  "retrieved_utc": "2026-10-05T18:19:39.751584+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "4b526ea3e971a4f1b19abcb5e4c187c8f32daf4b6142ed4c794c63aa04b2960b",
+  "text_sha256": "4b526ea3e971a4f1b19abcb5e4c187c8f32daf4b6142ed4c794c63aa04b2960b",
+  "bytes": 90401,
+  "text_bytes": 90401,
+  "final_url": "https://raw.githubusercontent.com/nats-io/nats-server/v2.15.0/server/jetstream.go",
+  "accepted_source": true
+}

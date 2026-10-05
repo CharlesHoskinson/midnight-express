@@ -1,0 +1,13 @@
+{
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http.md",
+  "retrieved_utc": "2026-10-05T18:11:22.102261+00:00",
+  "tool": "Scrapling",
+  "visual_tool": null,
+  "status": 200,
+  "raw_sha256": "93daa4bb4e189f0bd51d866950b3b8a3b4e7d0b1e0e6eede5ba1998641d0b955",
+  "text_sha256": "be78f6a1d56dc69b4bbbe6f8066af2768516e8f753f8c6f740385b0f5df06206",
+  "bytes": 30407,
+  "text_bytes": 30228,
+  "final_url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http.md",
+  "accepted_source": true
+}

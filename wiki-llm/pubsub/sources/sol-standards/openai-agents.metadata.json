@@ -1,0 +1,9 @@
+{
+  "url": "https://openai.github.io/openai-agents-python/",
+  "fetched_at": "2026-10-05T18:04:24.138389+00:00",
+  "method": "Scrapling Fetcher.get",
+  "status": 200,
+  "sha256": "bcb759d8806f8f6d361c8b034394fb9de0781d0dcd995e77b89f25df014e3f0f",
+  "text_sha256": "78be01ccd5ff78def5feba54dc133c2472d8660ac2bc881c8df84ee11fe60703",
+  "bytes": 76263
+}
