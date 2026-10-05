@@ -255,6 +255,12 @@ structure ActionKey where
 def Approval.actionKey (a : Approval) : ActionKey :=
   ⟨a.authorityDomain, a.executionScope, a.actionId⟩
 
+/-- Only approvals have logical action identity; observations use occurrence identity. -/
+def Event.actionKey? (e : Event) : Option ActionKey :=
+  match e.payload with
+  | .agent a => some a.actionKey
+  | _ => none
+
 -- Full, unhashed intent. Digest implementations are an explicit boundary.
 -- Equality here neither assumes hash injectivity nor proves SHA-256 security.
 structure BusinessIntent where

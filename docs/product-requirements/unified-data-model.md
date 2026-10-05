@@ -97,3 +97,12 @@ Exact v0.2 profiles and contract commitments support local quote, payment and ap
 ## Formal semantic specification
 
 The [Lean project](../../formal/lean/README.md) defines the installed v0.2 quote, payment-observation and sandbox-approval semantics as typed values and acceptance predicates. Its kernel-checked properties address exact economics, current context and replay identity. The [Specification page](../../website/dist/specification.html) explains their scope. JSON parsing, canonical serialization, hashes, signatures, live authority, chain observations, local watches and database recovery remain separate implementation boundaries. Finite fixture agreement does not establish a general proof of the Python validator.
+
+
+## Structural journal assurance and remaining workflow decisions
+
+The checked Lean journal binds an occurrence identity to the complete typed event and an action identity to its typed business intent. It validates against the current context before checking replay. From an empty journal, successful transitions preserve coherent bindings and unique keys; an arbitrary sequential run can produce at most one fresh approval candidate for an action identity. A candidate does not execute an effect. Durable admission, concurrency and recovery still require the implementation evidence described in the subscription and sandbox requirements.
+
+Installed v0.2 schema constants generate checked release pins. A finite bridge compares typed interpretations with the Python reference and isolates acceptance conditions; it does not prove the raw JSON decoder, canonical serialization or hash function. Publication checks keep downloaded sources and cited declarations synchronized with the checked project.
+
+Workflow extensions need explicit identity decisions before admission. Quote revisions must define whether a revised offer replaces an earlier offer or creates a new business action. Payment observations must distinguish observation identity from payment identity and allocation identity, including reversal and partial allocation. Approval consumption must define durable effect identity, retry semantics and budget accounting. These decisions require separately versioned contracts and state machines; the existing conformance profiles do not settle them.

@@ -7,10 +7,8 @@ Run with the Python environment containing model/requirements.lock.txt packages.
 """
 import argparse
 import copy
-import datetime
 import json
 from pathlib import Path
-import shutil
 import subprocess
 import sys
 
@@ -20,103 +18,31 @@ sys.path.insert(0, str(ROOT / 'model'))
 from validator import Harness, Invalid, raw_json, proposal_digest
 
 
-def string(value):
-    return json.dumps(value, ensure_ascii=False)
+from bridge import text, proposal, event, context as render_context
+from mutations import MUT, decimal_probes
+from conditions import conditions
+from sequences import collect_sequences
+import time
 
+VERDICTS = {"offchain-quote-valid": ".quote", "sandbox-candidate-only": ".candidate",
+    "final-payment-evidence-only": ".paymentFinal", "payment-evidence-pending-or-reversed": ".paymentOther",
+    "duplicate-event": ".duplicateEvent", "duplicate-action": ".duplicateAction"}
+EXEMPTIONS = {"c.sourceKnown": "Absent source necessarily also fails sourceRole and sourcePrincipal.",
+    "q.priceCurrency": "Currency has only the usd constructor; unequal currencies are unrepresentable."}
 
-def record(fields):
-    return '{ ' + ', '.join(f'{key} := {value}' for key, value in fields.items()) + ' }'
+def python_outcome(e, ctx, harness=None):
+    h = harness or Harness(copy.deepcopy(ctx))
+    h.context = copy.deepcopy(ctx)
+    try:
+        return h.check(json.dumps(e, separators=(",", ":")))["status"], None
+    except Invalid as error:
+        return "reject", str(error)
 
+def python_verdict(e, ctx, harness=None):
+    return python_outcome(e, ctx, harness)[0]
 
-def instant(value):
-    return str(int(datetime.datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.000Z').replace(
-        tzinfo=datetime.timezone.utc).timestamp()))
-
-
-def decimal(d):
-    return record({'coefficient': str(int(d['coefficient'])), 'scale': str(d['scale'])})
-
-
-def quantity(d):
-    return record({'value': decimal(d), 'unit': {'Share': '.share', 'Step': '.step'}[d['unit']]})
-
-
-def proposal(d):
-    assert d['environment'] == 'Sandbox' and d['operation'] == 'WriteReport'
-    return record({'environment': '.sandbox', 'operation': '.writeReport',
-        'target': string(d['target']), 'inputDigest': string(d['inputDigest']),
-        'budget': quantity(d['budget']), 'expires': instant(d['expires'])})
-
-
-def rfq_terms(d):
-    assert d['currency'] == 'iso4217:USD'
-    return record({'requester': string(d['requester']), 'dealer': string(d['dealer']),
-        'requesterSide': {'BuyAsset': '.buy', 'SellAsset': '.sell'}[d['requesterSide']],
-        'asset': string(d['asset']), 'quantity': quantity(d['quantity']), 'currency': '.usd'})
-
-
-def invoice_terms(d):
-    assert d['currency'] == 'iso4217:USD'
-    return record({**{k: string(d[k]) for k in ('supplier', 'customer', 'documentDigest')},
-        'currency': '.usd', 'payable': decimal(d['payable'])})
-
-
-def invoice(d):
-    return record({'invoiceId': string(d['invoiceId']), 'terms': invoice_terms(d),
-        'paymentId': string(d['paymentId']), 'amount': decimal(d['amount']),
-        'status': {'Final': '.final', 'Pending': '.pending', 'Reversed': '.reversed'}[d['status']],
-        'observedAt': instant(d['observedAt']), 'effectiveAt': instant(d['effectiveAt']),
-        'rail': string(d['rail'])})
-
-
-def event(e):
-    env = record({**{k: string(e[k]) for k in ('specversion', 'id', 'source')},
-        'eventType': string(e['type']), 'occurred': instant(e['time']),
-        'contentType': string(e['datacontenttype']), 'dataSchema': string(e['dataschema']),
-        'profile': string(e['mpeprofile']), 'contract': string(e['mpecontract'])})
-    d = e['data']
-    if 'rfqId' in d:
-        p = d['price']
-        assert p['currency'] == 'iso4217:USD' and p['kind'] == 'AbsolutePerUnit' and p['fees'] == 'None'
-        assert d['quoteKind'] == 'Firm' and d['settlement'] == 'OffchainCoordinationOnly'
-        payload = '.rfq ' + record({'rfqId': string(d['rfqId']), 'quoteId': string(d['quoteId']),
-            'terms': rfq_terms(d), 'buyer': string(d['buyer']), 'seller': string(d['seller']),
-            'price': record({'value': decimal(p['value']), 'currency': '.usd',
-                'assetRef': string(p['assetRef']), 'unit': {'Share': '.share', 'Step': '.step'}[p['unit']],
-                'baseQuantity': str(int(p['baseQuantity'])), 'fees': '.none'}),
-            'cash': decimal(d['cash']), 'validFrom': instant(d['validFrom']),
-            'validUntil': instant(d['validUntil'])})
-    elif 'invoiceId' in d:
-        payload = '.invoice ' + invoice(d)
-    else:
-        payload = '.agent ' + record({**{k: string(d[k]) for k in ('authorityDomain',
-            'executionScope', 'budgetWindow', 'actionId', 'proposalDigest', 'policyDigest', 'human')},
-            'proposal': proposal(d['proposal']), 'validFrom': instant(d['validFrom']),
-            'validUntil': instant(d['validUntil']), 'maxEffects': str(d['maxEffects'])})
-    return record({'envelope': env, 'payload': payload})
-
-
-def table(items, convert):
-    return '[' + ', '.join(f'({string(k)}, {convert(v)})' for k, v in items.items()) + ']'
-
-
-def context(c, e):
-    roles = {'dealer': '.dealer', 'payment-adapter': '.paymentAdapter', 'human-approver': '.humanApprover'}
-    def authority(a):
-        return record({'role': roles[a['role']], 'principal': string(a['principal'])})
-    commitments = 'fun _ _ => ""'
-    if 'proposal' in e['data']:
-        p = e['data']['proposal']
-        commitments = ('fun p contract => if p = ' + proposal(p) + ' ∧ contract = ' +
-            string(e['mpecontract']) + ' then ' + string(proposal_digest(p, e['mpecontract'])) + ' else ""')
-    return record({'trusted': str(c.get('fixtureTrust') == 'trusted-test-fixture-only').lower(),
-        'now': instant(c['now']), 'sources': table(c['sources'], authority),
-        'rfqs': table(c['rfqs'], lambda q: '(' + str(q['state'] == 'open').lower() + ', ' + rfq_terms(q) + ')'),
-        'invoices': table(c['invoices'], invoice_terms), 'paymentEvidence': table(c['paymentEvidence'], invoice),
-        **{k: string(c.get(k, '')) for k in ('authorityDomain', 'executionScope', 'budgetWindow', 'policyDigest')},
-        'proposals': table(c['proposals'], proposal),
-        **{k: '[' + ', '.join(map(string, c[k])) + ']' for k in ('humans', 'revokedActions', 'sandboxTargets')},
-        'maxSteps': str(c['maxSteps']), 'proposalDigest': commitments})
+def lean_result(status):
+    return "none" if status == "reject" else "some (observation " + VERDICTS[status] + ")"
 
 
 def collect():
@@ -158,7 +84,7 @@ def collect():
     add('sell_side', changed, 'offchain-quote-valid', ctx)
     changed = copy.deepcopy(q); changed['data']['quantity']['coefficient'] = '999999999999999999'
     ctx = copy.deepcopy(c); ctx['rfqs'][q['data']['rfqId']]['quantity'] = changed['data']['quantity']
-    add('cash_overflow', changed, 'reject', ctx)
+    add('cash_product_mismatch_at_max_quantity', changed, 'reject', ctx)
     changed = copy.deepcopy(a); changed['data']['proposal']['target'] = 'sandbox:reports/other'
     changed['data']['proposalDigest'] = proposal_digest(changed['data']['proposal'], changed['mpecontract'])
     add('rehashed_changed_proposal', changed, 'reject')
@@ -171,59 +97,98 @@ def collect():
     add('future_occurrence', changed, 'reject')
     ctx = copy.deepcopy(c); ctx['rfqs'][q['data']['rfqId']]['state'] = 'closed'
     add('closed_rfq', q, 'reject', ctx)
+    for label, profile, mutation in MUT:
+        e = copy.deepcopy(examples['invoice-final' if profile == 'invoice' else profile])
+        ctx = copy.deepcopy(c)
+        mutation(e, ctx)
+        add('isolating_' + label, e, 'reject', ctx)
+    cases.extend(decimal_probes(examples, c))
     return cases
 
 
+def commitment_table(cases, sequences):
+    entries = {}
+    pairs = [(e, c) for _, e, _, c in cases] + [(step['event'], step['context']) for seq in sequences for step in seq['steps']]
+    for e, c in pairs:
+        for p in list(c['proposals'].values()) + ([e['data']['proposal']] if 'proposal' in e['data'] else []):
+            key = (json.dumps(p, sort_keys=True), e['mpecontract'])
+            entries[key] = (p, e['mpecontract'], proposal_digest(p, e['mpecontract']))
+    return list(entries.values())
+
+
 def generate(cases):
-    verdicts = {'offchain-quote-valid': '.quote', 'sandbox-candidate-only': '.candidate',
-        'final-payment-evidence-only': '.paymentFinal', 'payment-evidence-pending-or-reversed': '.paymentOther'}
-    lines = ['import MidnightExpress.Validation', '', '/- Generated by check.py from actual JSON fixtures and semantic mutations.',
-        '   Kernel-checked finite examples, not a verified JSON decoder or Python refinement. -/',
-        'set_option maxRecDepth 100000', 'set_option maxHeartbeats 0', '', 'namespace MidnightExpress.Examples', '']
+    sequences = collect_sequences(cases)
+    commitments = commitment_table(cases, sequences)
+    lines = ['import MidnightExpress.Replay', 'import MidnightExpress.Bridge', '',
+        '/- Generated finite evidence: trusted strict translator and external SHA-256; no refinement theorem. -/',
+        'set_option maxRecDepth 10000', 'set_option maxHeartbeats 2000000', '', 'namespace MidnightExpress.Examples', '',
+        'def fixtureCommitments : List ((Proposal × String) × String) := [' + ', '.join(
+            '((' + proposal(p).code + ', ' + text(contract).code + '), ' + text(digest).code + ')' for p, contract, digest in commitments) + ']',
+        'def fixtureCommitment (p : Proposal) (contract : String) : String :=',
+        '  (lookup (p, contract) fixtureCommitments).getD ""', '']
+    escape_probe = ''.join(chr(n) for n in range(32)) + chr(127) + '\\' + '"' + '😀'
+    lines += ['example : (' + text(escape_probe).code + '.toList.map Char.toNat) = [' + ', '.join(str(ord(ch)) for ch in escape_probe) + '] := by decide', '']
+    vectors, isolation, names = [], {}, set()
     for index, (label, e, expected, ctx) in enumerate(cases):
-        try:
-            actual = Harness(copy.deepcopy(ctx)).check(json.dumps(e, separators=(',', ':')))['status']
-        except Invalid:
-            actual = 'reject'
+        actual, reason = python_outcome(e, ctx)
         assert actual == expected, (label, expected, actual)
+        checks = conditions(ctx, e); names.update(checks)
+        failures = [name for name, passes in checks.items() if not passes]
+        if len(failures) == 1: isolation.setdefault(failures[0], []).append(label)
+        vectors.append({'label': label, 'event': e, 'context': ctx, 'expectedVerdict': expected, 'pythonReason': reason, 'failingConditions': failures})
         lines += [f'-- {label}: {expected}', f'def event{index} : Event := {event(e)}',
-            f'def context{index} : Context := {context(ctx, e)}']
-        result = 'none' if expected == 'reject' else 'some (observation ' + verdicts[expected] + ')'
-        lines += [f'example : validate context{index} event{index} = {result} := by decide', '']
-    lines += ['-- Occurrence and action identities are independent. Digests below are abstract tokens.',
-        'def remembered : ReplayState := { events := [(("source", "event1"), "whole1")], actions := [(("domain", "scope", "action"), "intent")] }',
-        'example : replay remembered ("source", "event1") "whole1" none "intent" .candidate =',
-        '  some (observation .duplicateEvent, remembered) := by decide',
-        'example : replay remembered ("source", "event1") "changed" none "intent" .candidate = none := by decide',
-        'example : (replay remembered ("source", "event2") "whole2"',
-        '  (some ("domain", "scope", "action")) "intent" .candidate).map (fun x => x.1.verdict) =',
-        '  some .duplicateAction := by decide',
-        'example : replay remembered ("source", "event2") "whole2"',
-        '  (some ("domain", "scope", "action")) "changed" .candidate = none := by decide',
-        '', 'end MidnightExpress.Examples', '']
-    return '\n'.join(lines)
+            f'def context{index} : Context := {render_context(ctx, "fixtureCommitment")}',
+            f'example : validate context{index} event{index} = {lean_result(expected)} := by decide',
+            f'example : Bridge.failingConditions context{index} event{index} = [' + ', '.join(text(x).code for x in failures) + '] := by decide', '']
+    assert names - isolation.keys() == EXEMPTIONS.keys(), ('uncovered gates', names - isolation.keys())
+    for seq_index, seq in enumerate(sequences):
+        h = Harness(copy.deepcopy(seq['steps'][0]['context']))
+        refs = []
+        for i, step in enumerate(seq['steps']):
+            if 'freshExpectedVerdict' in step:
+                fresh = python_verdict(step['event'], step['context'])
+                assert fresh == step['freshExpectedVerdict'], (step['label'], 'fresh classification', fresh)
+            expected, reason = python_outcome(step['event'], step['context'], h)
+            step['pythonReason'] = reason
+            assert step['expectedVerdict'] == expected, (seq['label'], step['label'], step['expectedVerdict'], expected)
+            ref = f'seq{seq_index}step{i}'
+            lines += [f'-- {seq["label"]}/{step["label"]}: {expected}',
+                f'def {ref}event : Event := {event(step["event"])}',
+                f'def {ref}context : Context := {render_context(step["context"], "fixtureCommitment")}']
+            refs.append(f'({ref}context, {ref}event)')
+        lines += [f'def seq{seq_index} := run {{}} [' + ', '.join(refs) + ']',
+            f'example : seq{seq_index}.1.map Prod.snd = [' + ', '.join(lean_result(step['expectedVerdict']) for step in seq['steps']) + '] := by decide',
+            f'example : seq{seq_index}.2.events.length = {len(h.events)} := by decide',
+            f'example : seq{seq_index}.2.actions.length = {len(h.actions)} := by decide', '']
+        seq['expectedJournalCounts'] = {'events': len(h.events), 'actions': len(h.actions)}
+    lines += ['end MidnightExpress.Examples', '']
+    coverage = {'decimalFacetCases': [label for label, _, _, _ in cases if label.startswith('decimal_')], 'format': 'mpe.semantic-condition-coverage.v1', 'conditions': sorted(names),
+        'isolatingCases': dict(sorted(isolation.items())), 'exemptions': EXEMPTIONS,
+        'evidence': 'Each listed failingConditions list is independently checked in Lean by decide.'}
+    data = {'format': 'mpe.semantic-vectors.v1', 'boundary': 'Already decoded typed values; bounded trusted fixture context; sequential replay; no execution.',
+        'commitments': [{'proposal': p, 'contract': c, 'digest': d} for p, c, d in commitments],
+        'cases': vectors, 'sequences': sequences}
+    return '\n'.join(lines), json.dumps(data, indent=2, ensure_ascii=False) + '\n', json.dumps(coverage, indent=2, ensure_ascii=False) + '\n'
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--update', action='store_true', help='refresh checked-in Examples.lean before checking')
+    parser.add_argument('--update', action='store_true', help='refresh Examples and vectors before strict proof gate')
     args = parser.parse_args()
+    started = time.monotonic()
     cases = collect()
-    generated = generate(cases)
-    path = HERE / 'MidnightExpress/Examples.lean'
-    if args.update:
-        path.write_text(generated)
-    elif not path.exists() or path.read_text() != generated:
-        raise SystemExit('Examples.lean is stale: inspect fixture changes and run check.py --update')
-    lake = shutil.which('lake')
-    if not lake:
-        version = (HERE / 'lean-toolchain').read_text().strip().replace(':', '---').replace('/', '--')
-        candidate = Path.home() / '.elan/toolchains' / version / 'bin/lake'
-        if candidate.exists(): lake = str(candidate)
-    if not lake: raise SystemExit('lake not found; install the pinned Lean toolchain or add it to PATH')
-    subprocess.run([lake, 'build'], cwd=HERE, check=True)
-    print(f'PASS {len(cases)} Python/Lean semantic cases and 4 kernel-checked replay examples')
-    print('Boundary: trusted Python translator + external commitment calculation; no parser/hash/runtime refinement proof.')
+    artifacts = zip((HERE / 'MidnightExpress/Examples.lean', HERE / 'vectors.json', HERE / 'coverage.json'), generate(cases))
+    for path, generated in artifacts:
+        if args.update: path.write_text(generated)
+        elif not path.exists() or path.read_text() != generated:
+            raise SystemExit(f'{path.name} is stale: inspect fixture changes and run check.py --update')
+    subprocess.run([sys.executable, '-m', 'unittest', 'test_bridge'], cwd=HERE, check=True, timeout=30)
+    # Toolchain verification, --wfail compilation, whole-namespace audit, timeout.
+    from proof_gate import run_proof_gate
+    metadata = run_proof_gate(HERE)
+    print(f'PASS {len(cases)} Python/Lean typed cases; 54 gate atoms, 52 isolated, 2 justified exemptions; 3 structural sequences')
+    print(f'Proof gate: {metadata}; total wall seconds: {time.monotonic() - started:.2f}; heartbeat bound per declaration: 2000000')
+    print('Evidence: by decide is kernel-checked. Translator, wire parsing and SHA-256 remain outside the proof boundary.')
 
 
 if __name__ == '__main__':

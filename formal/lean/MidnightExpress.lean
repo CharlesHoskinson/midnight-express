@@ -1,3 +1,5 @@
 import MidnightExpress.Model
 import MidnightExpress.Validation
+import MidnightExpress.Replay
+import MidnightExpress.ProfilePins
 import MidnightExpress.Examples

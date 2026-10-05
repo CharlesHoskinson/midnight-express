@@ -58,6 +58,6 @@ Revalidate the public receipt bindings with `/tmp/mpe-data-model-validation-env/
 
 ## Formal specification sources
 
-The canonical Lean project is `formal/lean` at the repository root. Copy its verified source modules, build definition, pinned toolchain and README into `dist/formal/lean` for public reading after the integrated build passes. Exclude `.lake` and generated build outputs. The public source set is a copy of the canonical project; verify byte equality before publishing. Browser QA lives in `website/tests/specification.cjs`.
+The canonical Lean project is `formal/lean` at the repository root. After the integrated gate passes, run `python formal/lean/publish.py --update` in the model dependency environment to refresh the public sources and hash manifest. Run `python formal/lean/publish.py --check` before publishing. The checker rejects drift in installed profile pins, cited declaration names and source bytes; it does not certify a build. Build outputs remain excluded. Browser QA lives in `website/tests/specification.cjs`.
 
 The site serves DM Sans and Space Grotesk locally, including their SIL Open Font Licenses and retrieval hashes under `dist/assets/fonts`. This avoids an external stylesheet dependency and keeps the subscription page compatible with its same-origin content policy.
