@@ -77,3 +77,7 @@ Wire acceptance, source authentication, fresh policy distribution, durable repla
 Preserve the dependency direction: typed definitions, validity rules, then the structural journal. Use named predicate fields for derived business properties and keep context assumptions explicit. A new operation, payment status or unit needs a semantic branch and corresponding acceptance and rejection checks. A meaning-changing contract edit belongs in a reviewed immutable release, with new pins and vectors.
 
 Quote revisions, payment-observation identity and cumulative accounting are product decisions for later profiles or separate projections. The current per-observation checker provides no invoice ledger or aggregate budget guarantee. Candidate binding and effect commitment must remain explicit in any later effect model.
+
+## CI template
+
+[lean-specification.yml](ci/lean-specification.yml) contains the checked pipeline commands. GitHub rejected creation of an active Actions workflow because the configured OAuth login lacks `workflow` scope. The template is retained here for installation after that permission is available. The same pipeline passed locally; CI is not enabled by the template alone.
