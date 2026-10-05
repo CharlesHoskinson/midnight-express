@@ -1,0 +1,259 @@
+{
+  "decimalFacetCases": [
+    "decimal_quantity_zero",
+    "decimal_quantity_above-bound",
+    "decimal_quantity_wrong-scale",
+    "decimal_price_zero",
+    "decimal_price_above-bound",
+    "decimal_price_wrong-scale",
+    "decimal_cash_zero",
+    "decimal_cash_above-bound",
+    "decimal_cash_wrong-scale",
+    "decimal_amount_zero",
+    "decimal_amount_above-bound",
+    "decimal_amount_wrong-scale",
+    "decimal_payable_zero",
+    "decimal_payable_above-bound",
+    "decimal_payable_wrong-scale",
+    "decimal_budget_zero",
+    "decimal_budget_above-bound",
+    "decimal_budget_wrong-scale",
+    "decimal_rfq_at-bound",
+    "decimal_invoice-final_at-bound",
+    "decimal_agent_at-bound"
+  ],
+  "format": "mpe.semantic-condition-coverage.v1",
+  "conditions": [
+    "a.budgetValid",
+    "a.budget≤max",
+    "a.digest",
+    "a.domain",
+    "a.domainLit",
+    "a.from≤now",
+    "a.human",
+    "a.maxEffects",
+    "a.notRevoked",
+    "a.now<until",
+    "a.occ≤from",
+    "a.policy",
+    "a.proposal",
+    "a.scope",
+    "a.stepUnit",
+    "a.target",
+    "a.until≤expires",
+    "a.window",
+    "a.windowLit",
+    "c.contentType",
+    "c.contract",
+    "c.dataSchema",
+    "c.eventType",
+    "c.notFuture",
+    "c.profileDecodes",
+    "c.sourceKnown",
+    "c.sourcePrincipal",
+    "c.sourceRole",
+    "c.specversion",
+    "c.trusted",
+    "i.amountValid",
+    "i.eff≤obs",
+    "i.evidence",
+    "i.notOver",
+    "i.obs≤occ",
+    "i.payableValid",
+    "i.rail",
+    "i.terms",
+    "q.assetRef",
+    "q.baseQuantity",
+    "q.buyer",
+    "q.cashProduct",
+    "q.cashValid",
+    "q.distinct",
+    "q.from≤now",
+    "q.now<until",
+    "q.occ≤from",
+    "q.openTerms",
+    "q.priceCurrency",
+    "q.priceUnit",
+    "q.priceValid",
+    "q.qtyValid",
+    "q.seller",
+    "q.shareUnit"
+  ],
+  "isolatingCases": {
+    "a.budgetValid": [
+      "isolating_a_budget_zero",
+      "decimal_budget_zero",
+      "decimal_budget_above-bound",
+      "decimal_budget_wrong-scale"
+    ],
+    "a.budget≤max": [
+      "context_low-budget"
+    ],
+    "a.digest": [
+      "isolating_a_wrong_digest_same_proposal"
+    ],
+    "a.domain": [
+      "isolating_a_ctx_domain"
+    ],
+    "a.domainLit": [
+      "isolating_a_domain_literal_both"
+    ],
+    "a.from≤now": [
+      "isolating_a_not_yet_valid"
+    ],
+    "a.human": [
+      "isolating_a_human_not_listed"
+    ],
+    "a.maxEffects": [
+      "isolating_a_max_effects_2"
+    ],
+    "a.notRevoked": [
+      "context_revoked"
+    ],
+    "a.now<until": [
+      "corpus_expired-approval",
+      "approval_at_validUntil"
+    ],
+    "a.occ≤from": [
+      "isolating_a_occurred_after_validFrom"
+    ],
+    "a.policy": [
+      "context_wrong-policy"
+    ],
+    "a.proposal": [
+      "context_no-proposal"
+    ],
+    "a.scope": [
+      "isolating_a_execution_scope"
+    ],
+    "a.stepUnit": [
+      "isolating_a_budget_unit_share"
+    ],
+    "a.target": [
+      "context_unknown-target"
+    ],
+    "a.until≤expires": [
+      "isolating_a_validUntil_after_expires"
+    ],
+    "a.window": [
+      "isolating_a_ctx_window"
+    ],
+    "a.windowLit": [
+      "isolating_a_window_literal_both"
+    ],
+    "c.contentType": [
+      "isolating_env_contenttype"
+    ],
+    "c.contract": [
+      "isolating_env_contract_alone"
+    ],
+    "c.dataSchema": [
+      "isolating_env_dataschema"
+    ],
+    "c.eventType": [
+      "isolating_env_type"
+    ],
+    "c.notFuture": [
+      "isolating_i_future_occurrence"
+    ],
+    "c.profileDecodes": [
+      "corpus_unknown-profile"
+    ],
+    "c.sourcePrincipal": [
+      "context_wrong-principal"
+    ],
+    "c.sourceRole": [
+      "isolating_src_wrong_role_right_principal"
+    ],
+    "c.specversion": [
+      "isolating_env_specversion"
+    ],
+    "c.trusted": [
+      "context_no-trust"
+    ],
+    "i.amountValid": [
+      "isolating_i_amount_zero",
+      "decimal_amount_zero",
+      "decimal_amount_wrong-scale"
+    ],
+    "i.eff≤obs": [
+      "isolating_i_effective_after_observed"
+    ],
+    "i.evidence": [
+      "corpus_payment-final-invention",
+      "corpus_missing-payment-evidence"
+    ],
+    "i.notOver": [
+      "complete_evidence_overpayment"
+    ],
+    "i.obs≤occ": [
+      "observation_after_occurrence"
+    ],
+    "i.payableValid": [
+      "isolating_i_payable_scale_3",
+      "decimal_payable_above-bound",
+      "decimal_payable_wrong-scale"
+    ],
+    "i.rail": [
+      "isolating_i_other_rail"
+    ],
+    "i.terms": [
+      "isolating_i_terms_mismatch"
+    ],
+    "q.assetRef": [
+      "corpus_price-asset"
+    ],
+    "q.baseQuantity": [
+      "isolating_q_base_quantity_2"
+    ],
+    "q.buyer": [
+      "isolating_q_buyer_only_wrong"
+    ],
+    "q.cashProduct": [
+      "corpus_cash",
+      "cash_product_mismatch_at_max_quantity"
+    ],
+    "q.cashValid": [
+      "isolating_q_cash_product_above_bound",
+      "decimal_cash_wrong-scale"
+    ],
+    "q.distinct": [
+      "isolating_q_buyer_equals_seller"
+    ],
+    "q.from≤now": [
+      "isolating_q_not_yet_valid"
+    ],
+    "q.now<until": [
+      "corpus_expired",
+      "quote_at_validUntil"
+    ],
+    "q.occ≤from": [
+      "isolating_q_occurred_after_validFrom"
+    ],
+    "q.openTerms": [
+      "closed_rfq"
+    ],
+    "q.priceUnit": [
+      "isolating_q_price_unit_step"
+    ],
+    "q.priceValid": [
+      "isolating_q_price_scale_3",
+      "decimal_price_wrong-scale"
+    ],
+    "q.qtyValid": [
+      "isolating_q_quantity_scale_1",
+      "decimal_quantity_wrong-scale"
+    ],
+    "q.seller": [
+      "isolating_q_seller_only_wrong"
+    ],
+    "q.shareUnit": [
+      "isolating_q_quantity_unit_step"
+    ]
+  },
+  "exemptions": {
+    "c.sourceKnown": "Absent source necessarily also fails sourceRole and sourcePrincipal.",
+    "q.priceCurrency": "Currency has only the usd constructor; unequal currencies are unrepresentable."
+  },
+  "evidence": "Each listed failingConditions list is independently checked in Lean by decide."
+}

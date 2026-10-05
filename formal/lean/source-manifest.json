@@ -1,35 +1,58 @@
 {
   "toolchain": "leanprover/lean4:v4.34.1",
-  "verified": "lake build and read-only finite Python/Lean fixture comparison passed",
-  "boundary": "Lean typed semantic model; parsing, cryptographic primitives, external provenance, implementation refinement and durable protocol behavior are outside these proofs",
+  "boundary": "Typed validation and structural sequential journal; wire parsing, cryptography, external provenance, runtime refinement and durable effects need separate evidence",
   "files": [
     {
       "path": "Audit.lean",
-      "sha256": "ce9f8428d4baac308fa2e0c951160e7c498d7733464d3b3fb58fbf8460df5bdd"
+      "sha256": "44cd080f1ccd737e61cb3b6b1cd1fa754c962ca2469692c0d610594e26c34ee4"
+    },
+    {
+      "path": "MidnightExpress/Bridge.lean",
+      "sha256": "85848c701604e49332d6db86195da2af0b58ee045790994a4872f95c1a473e48"
     },
     {
       "path": "MidnightExpress/Examples.lean",
-      "sha256": "1f34d56801d8765eff475767673e913edd0034dcb289d6469942c85c13b2d9a5"
+      "sha256": "5ce661b322ba70f6aec7db5ff991b6df11069d3cb8fc3f27d02487a6ae920a5c"
     },
     {
       "path": "MidnightExpress/Model.lean",
-      "sha256": "23ff61b88c0ccfd5bd02011952bcaf486c7bffe8510aa73dab53e443abe240ba"
+      "sha256": "ce61478c366a8dbfcd8215ae5bd49d9953dc9683c2c88ec579a43962a329dc1d"
+    },
+    {
+      "path": "MidnightExpress/ProfilePins.lean",
+      "sha256": "468c05ad9b14625d5f97616937f7e9c88962b511088ed31c5f7b279aba8f5b84"
+    },
+    {
+      "path": "MidnightExpress/Replay.lean",
+      "sha256": "38f447f2affe8da79993bf928a421d6e5925508da1124d53cf5a042d757baf58"
     },
     {
       "path": "MidnightExpress/Validation.lean",
-      "sha256": "626afeddff93e4f5f0eb588b6282adf38b3367031e6cf240ee402542f9ee62ca"
+      "sha256": "74e7abaf3a10d8e5b1554b27d3fa4c8e119df357a8ba565ba62cdd5f1b0ab038"
     },
     {
       "path": "MidnightExpress.lean",
-      "sha256": "3101c62f223206c70d41f16d0295a8563d1d0cf0b8f6196c4cdda3d3c99ca524"
+      "sha256": "19a466f67207ab04db327850d302b7bb2863d8d50b5bb68499e6f0d8d5469716"
     },
     {
       "path": "README.md",
-      "sha256": "3c6e1509faff40f4b8e60ae220fc16bffc9a9a2ca44320632a9710f54f32ac3c"
+      "sha256": "fecc4428e59e87a6b332317424250f6f96eed93e2a01757a7d2afa8cb1c65447"
+    },
+    {
+      "path": "bridge.py",
+      "sha256": "baa2a5743db5deb1fe42f4dad79e7f05b38f661567d861e6c22f21e158e0207d"
     },
     {
       "path": "check.py",
-      "sha256": "6c04584744dab2521389c0f87d547fe2810244611b816023d84ffb28482fdf7c"
+      "sha256": "4cc663ed4d11549336ca5af8e8be90e7be5911dc957816baa29fcd48aa709e5d"
+    },
+    {
+      "path": "conditions.py",
+      "sha256": "1a0b728c840763ac97bead49a875a211cc0d50a84afc6764045cbc1637ce481a"
+    },
+    {
+      "path": "coverage.json",
+      "sha256": "f271b2c8d634c87154b3574120558e97a53c688709c3e3a74e54d4616a0d9ed1"
     },
     {
       "path": "lake-manifest.json",
@@ -42,6 +65,38 @@
     {
       "path": "lean-toolchain",
       "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    },
+    {
+      "path": "mutations.py",
+      "sha256": "c283710fd9feba74f4824a94ae6820e0f071908bfd1574d1e0808bbc8103c9dc"
+    },
+    {
+      "path": "proof_gate.py",
+      "sha256": "4202578256aff232501f011be979c726c67682ad2165d1e0a1f89c58874b1fd1"
+    },
+    {
+      "path": "publish.py",
+      "sha256": "cab8349d1f7d8e0e0f165d7f9be9e886502422286b493e19a8b2c27818e90d13"
+    },
+    {
+      "path": "sequences.py",
+      "sha256": "ebb7861a6b4518517f1a8573989f30bec5eabc1c1aacf5fb91a0634d615f141d"
+    },
+    {
+      "path": "test_bridge.py",
+      "sha256": "14a946a98a72efc5e36914b7eca76b0a9da13f80997100b1d287755f7d47aaa4"
+    },
+    {
+      "path": "test_proof_gate.py",
+      "sha256": "e16d6cc7c96dd1c69dd49c111236b577b17f83dfda6d64593821067de3145639"
+    },
+    {
+      "path": "test_publish.py",
+      "sha256": "caa4aeac7ccecc96dd42b2c3d800e387c8f5990de4ae11ec7d63bce2bbf1d231"
+    },
+    {
+      "path": "vectors.json",
+      "sha256": "0652c08c5c74c74d96dc4986af175b9ceb6d981b8f15b83612bf99ad7c5f1a1c"
     }
   ]
 }

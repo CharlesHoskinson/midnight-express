@@ -1,56 +1,79 @@
 # Midnight Express semantic specification
 
-This Lean 4 project gives executable definitions and machine-checked theorems for the three installed v0.2 data profiles. It models quotes, payment observations, sandbox approval candidates and replay decisions. Its inputs are decoded semantic values and an explicitly supplied trusted fixture context. Passing validation supplies evidence about those values; it does not execute a trade, payment or report write.
+This Lean project describes the installed v0.2 quote, payment-observation and sandbox-approval profiles. It checks decoded typed values against supplied context and models a sequential journal of accepted occurrences and action intents. Its results are observations and candidates; they carry `executes:false` by construction, and the model has no effect operation.
 
-The pinned toolchain is `leanprover/lean4:v4.34.1`. Only Lean's bundled `Std` library is used; no external theorem library is downloaded.
+The pinned toolchain is `leanprover/lean4:v4.34.1`. Semantic modules use bundled `Std`. The audit imports Lean's bundled inspection library to examine proof dependencies; no external theorem library is downloaded.
 
 ```bash
 cd formal/lean
-lake build
+lake --wfail build
 ```
 
-The build imports all three source modules through [MidnightExpress.lean](MidnightExpress.lean):
+For the integrated checks, run these from the repository root in a Python environment containing `model/requirements.lock.txt` dependencies:
 
-| Source | Purpose |
+```bash
+python formal/lean/check.py
+python formal/lean/publish.py --check
+```
+
+The Python bridge needs the full repository. The source downloads on the website form an independently buildable Lean project; they do not include the model's Python fixtures and dependencies.
+
+## Reading the source
+
+| Source | Responsibility |
 | --- | --- |
-| [Model.lean](MidnightExpress/Model.lean) | Profile commitments, envelope, typed payloads, exact decimal arithmetic, occurrence/action identities and structural business intent |
-| [Validation.lean](MidnightExpress/Validation.lean) | Trusted-context acceptance rules and their safety properties |
-| [Examples.lean](MidnightExpress/Examples.lean) | Executable examples and adversarial boundary checks |
+| [Model.lean](MidnightExpress/Model.lean) | Profile commitments, typed values, exact decimals, occurrence identity, action keys and structural intent |
+| [Validation.lean](MidnightExpress/Validation.lean) | Named validity predicates, executable gates and acceptance/rejection properties |
+| [Replay.lean](MidnightExpress/Replay.lean) | Structural journal, content conflicts, current validation, reachable states and trace invariants |
+| [ProfilePins.lean](MidnightExpress/ProfilePins.lean) | Generated kernel checks against the verified installed bundle constants |
+| [Bridge.lean](MidnightExpress/Bridge.lean) | Condition diagnostics used to check isolation coverage |
+| [Examples.lean](MidnightExpress/Examples.lean) | Generated kernel-checked fixture and stateful sequence comparisons |
+| [Audit.lean](Audit.lean) | Asserting dependency inspection for project-owned declarations |
 
-The contracts in `Profile.contract` are copied exactly from [the installed profile lock](../../model/profiles/lock.json). Dispatch requires the profile, contract, event type, data schema, spec version and content type to agree. An unknown profile has no dispatch branch. `Operation` has only `writeReport`; its small wire-tag decoder returns `none` for every other string. Extension requires an explicit source change and new verification.
+The contracts are exact release pins. Python supports its reviewed installed-contract allowlist, which can grow beyond this release. A newly installed contract requires an explicit semantic model and checks before these proofs can describe it. Unknown commitments have no branch in this modeled release. Tag decoders are small reference functions; they are not a verified JSON decoder.
 
 ## Economic meaning
 
-`Decimal` stores a natural-number coefficient and a scale. Its exact interpretation is coefficient divided by `10 ^ scale`. A field's acceptance rule requires a positive coefficient no greater than `999999999999999999` and the prescribed scale. Whole Share quantities have scale zero; USD amounts have scale two; Step budgets have scale zero. Scale and unit remain separate values so invalid combinations can be rejected.
+A `Decimal` records a natural coefficient and a scale, interpreted as coefficient divided by `10 ^ scale`. Accepted fields require positive coefficients bounded by `999999999999999999` and the declared scale. Whole Shares and Step budgets use scale zero; USD values use scale two. Unit and scale remain separate so invalid combinations can be tested and rejected.
 
-`product_denominator` proves that coefficient multiplication and scale addition preserve the exact denominator. `whole_shares_times_cents` proves the result remains cents. `product_valid_iff_within_bound` proves that, once quantity and price are individually admitted, the precise product bound is the remaining condition for an admitted cash amount. No approximation or rounding is introduced. `requester_side_determines_distinct_roles` checks both BuyAsset and SellAsset perspectives.
+Quote cash equals quantity multiplied by price, with no rounding. The arithmetic proofs connect coefficient multiplication to exact decimal values and isolate the product bound. Requester perspective determines buyer and seller. Validation also requires an open RFQ with matching complete terms and the half-open interval `occurred ≤ validFrom ≤ now < validUntil`.
 
-An invoice observation carries all invoice terms, payment ID, amount, status, evidence clocks and rail. Pending, Final and Reversed are separate constructors. Matching trusted evidence concerns the complete observation, including status and amount. Even a Final result describes fixture evidence; it establishes no banking finality, accounting allocation or payment execution.
+An invoice payload contains complete invoice terms, payment identity, amount, status, clocks and rail. It must equal the supplied payment evidence and obey `effectiveAt ≤ observedAt ≤ occurred ≤ now`. Pending, Final and Reversed remain distinct source observations. A Final result establishes neither bank settlement nor allocation to an accounting ledger.
 
-An approval carries the complete proposal, target, input digest, Step budget and expiry, plus the human, policy, authority domain, execution scope and budget window. Its stable action key is `(authorityDomain, executionScope, actionId)`. The business intent contains the source, event type, profile, contract and complete payload. Changing an occurrence ID/time leaves this intent unchanged. Changing a target preserves the action key while changing intent; changing a contract changes intent. These properties explain why a delivery retry cannot renew an action and why altered terms must conflict under its old key.
+An approval records the complete proposal, target, input digest, Step budget and expiry, together with the human, policy, authority domain, execution scope and budget window. Its action key is `(authorityDomain, executionScope, actionId)`. Acceptance checks current context and permitted scope. Narrowing authority cannot reauthorize an event; changing the current policy or reaching expiry rejects the approval.
+
+## Replay and journal behavior
+
+Use `structuralCheck context journal event`. `Journal.events` stores complete typed events by `(source,id)`; `Journal.actions` stores complete `BusinessIntent` values by `ActionKey`. The function derives identity and intent from the event itself. It accepts no independent digest arguments.
+
+An unchanged occurrence is a duplicate. Changed content under the same occurrence key conflicts. A new occurrence for the same action and intent is a duplicate action. Changed terms under a bound action key conflict in a well-formed or reachable journal. Occurrence ID and record time are excluded from intent, while source, event type, profile, contract and the complete payload remain included.
+
+Current validation runs before replay classification. A remembered occurrence cannot restore an expired or revoked approval. `Reachable` starts with an empty journal and follows successful checks. Reachable journals have unique keys and coherent occurrence/action bindings; successful steps and runs preserve those bindings. `run_at_most_one_fresh_candidate` limits an action key to one fresh candidate across a sequential trace with varying contexts and rejected steps.
+
+That property describes candidate classification. Effect commitment, budget reservation and crash-safe atomicity require their own transition model. The older `ReplayState` and token-based `check` remain as explicitly limited historical reference definitions in `Validation.lean`; the new journal and fixture sequences use structural replay.
+
+## Verification and release checks
+
+The fixture bridge compares the actual Python validator with generated Lean `by decide` examples. It includes isolated negative conditions, exact bound cases and stateful sequences. [vectors.json](vectors.json) exports the event/context cases for other implementations; [coverage.json](coverage.json) records condition isolation and explicit exemptions. Unknown source necessarily also fails role and principal checks. Currency disagreement is impossible within the singleton USD type. Lexical failures that cannot enter the typed model remain wire-decoder evidence.
+
+The translator checks consumed fields, canonical representations, fixed tags and reconstruction. It preserves deliberately invalid numeric bounds and scales so Lean can reject those values rather than removing them from the test slice. These checks are finite evidence. The translator, proposal commitment calculation and parsing pipeline remain trusted test components.
+
+The proof gate checks the actual pinned compiler, builds with warnings as errors and audits project-owned declarations, including declarations outside the public namespace. It rejects proof placeholders and unexpected axiom dependencies. Standard Lean principles such as `propext` and `Quot.sound` arise through library lemmas and proof automation. Isolated negative tests verify that unsafe proof additions make the gate fail.
+
+`publish.py --check` verifies generated profile pins, theorem references on the Specification page, public source bytes and their hash manifest. After intentional reviewed source or fixture changes, regenerate the bridge with `check.py --update` and the public source copy with `publish.py --update`, then run both read-only checks. The CI workflow enforces these checks on repository changes.
 
 ## Proof boundary
 
-The model starts after JSON decoding. It does not implement or prove UTF-8 handling, duplicate-key rejection, exact coefficient-string grammar, identifier grammar, closed-object validation, calendar parsing, raw byte/depth/array/string limits, JCS serialization or SHA-256. The corresponding Python parser and JSON schemas remain necessary at the wire boundary. Integers model already checked UTC instants; they do not prove that any timestamp string denotes a valid calendar date.
+The model starts after JSON decoding. It does not prove UTF-8 handling, duplicate-key rejection, identifier grammar, closed-object parsing, calendar conversion, raw byte/depth/array/string limits, JCS or SHA-256. Integer instants represent already interpreted UTC seconds. Fixed tags and singleton constructors require a real decoder to reject unsupported wire values.
 
-Fixed wire tags such as Firm, AbsolutePerUnit, OffchainCoordinationOnly, Sandbox, USD and WriteReport are represented by restricted constructors or the type itself. The real decoder must reject every unsupported tag before constructing these values. Only the explicitly supplied small tag decoders are implemented here; a complete verified JSON-to-Lean decoder is future work.
+Proposal digest equality uses a supplied commitment function. Structural proposal lookup and structural replay bind the actual modeled terms, without assuming a hash is injective. The digest-based Python journal remains a separate representation boundary; these proofs do not establish hash collision resistance or a general refinement of that implementation.
 
-The Lean intent is a complete structural value. The Python implementation uses JCS/SHA-256 fingerprints. No theorem assumes a collision-free hash or equates those implementations. Proposal digest comparisons rely on a supplied computation/evidence boundary; this project does not verify a cryptographic hash implementation, signatures, source authentication or trusted-context provenance.
+The clock, source roles and principals, RFQ records, invoice/payment evidence, proposals, policy, allowed humans and targets, and revocations come from supplied context. `Context.WellFormed` describes unique map keys. Neither it nor the trusted flag establishes authenticity, freshness or provenance in the outside world.
 
-The trusted fixture assumptions also include the clock, source roles/principals, RFQ state and terms, invoice/payment evidence, proposal and policy records, permitted humans/targets and revocations. Lean can prove consequences of the checked predicates; it cannot establish that these records describe the outside world. Authentication, fresh policy distribution, durable atomic replay, database recovery, remote effects and blockchain consensus require separate implementation and evidence.
-
-Kernel-checked theorems apply to these Lean definitions. Concrete cross-language examples, where provided, are finite regression evidence. They do not constitute a general refinement proof of [the Python validator](../../model/validator.py), the Rust/TypeScript interpreters, subscriptions, chain observations or the Umbra recovery host. The 291-entry chain vocabulary is outside this three-profile model.
-
-There are no project declarations using `sorry`, `admit`, `axiom`, `unsafe`, or an external proof oracle. Ordinary Lean kernel checking and the pinned compiler/standard library remain the trusted computing base.
-
-## Recheck fixtures and proof assumptions
-
-Run `python formal/lean/check.py` from the repository root in an environment with the model dependencies installed. It compares actual JSON examples and semantic mutations with the Python validator, checks that the generated Lean examples are current, then builds the full project. The translator and its external commitment computation are trusted test components; agreement covers this finite slice.
-
-From this directory, `lake env lean Audit.lean` prints the kernel dependencies of the principal properties. The audit uses the standard Lean principles `propext` and, for rational arithmetic, `Quot.sound`. It introduces no project axioms.
+Wire acceptance, source authentication, fresh policy distribution, durable replay, concurrent workers, database recovery, remote effects and blockchain finality require separate evidence. Subscription selectors, cursors, retention and permission transitions are outside this event-profile journal. The Ethereum/Solana vocabulary is also outside the installed profile model.
 
 ## Extending the specification
 
-The module interface is `namespace MidnightExpress`. `Model` owns data types and arithmetic/identity laws. `Validation` owns fixture context, executable gates and acceptance theorems. `Examples` exercises the public definitions. Preserve that dependency direction so the type model does not depend on its acceptance implementation.
+Preserve the dependency direction: typed definitions, validity rules, then the structural journal. Use named predicate fields for derived business properties and keep context assumptions explicit. A new operation, payment status or unit needs a semantic branch and corresponding acceptance and rejection checks. A meaning-changing contract edit belongs in a reviewed immutable release, with new pins and vectors.
 
-When a reviewed contract changes, add or update its explicit profile definition and tests, explain the new assumptions, and rerun `lake build`. Keep historical released bundles immutable. A new operation, asset unit or payment status needs a defined semantic branch and corresponding rejection/acceptance properties; widening a decoder alone is insufficient. Supply synthetic contexts for checks. The build needs no credentials, secret imports, network service or external account.
+Quote revisions, payment-observation identity and cumulative accounting are product decisions for later profiles or separate projections. The current per-observation checker provides no invoice ledger or aggregate budget guarantee. Candidate binding and effect commitment must remain explicit in any later effect model.
