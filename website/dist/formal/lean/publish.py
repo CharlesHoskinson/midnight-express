@@ -125,7 +125,7 @@ def sources():
     for path in HERE.rglob('*'):
         if not path.is_file() or any(part in {'.lake','__pycache__'} for part in path.relative_to(HERE).parts):
             continue
-        if path.suffix in {'.lean','.py','.json','.md'} or path.name=='lean-toolchain':
+        if path.suffix in {'.lean','.py','.json','.md','.yml'} or path.name=='lean-toolchain':
             selected.append(path)
     return sorted(selected)
 
