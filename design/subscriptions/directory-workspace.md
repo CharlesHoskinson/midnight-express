@@ -1,6 +1,6 @@
 # Subscription directory workspace
 
-Status: recommended design from the subscription council. The existing website remains the tab-memory demonstration; this plan has not replaced its interface. The user selected discovering and organizing feeds as the default workflow and requires search, hundreds of independently selectable feeds and retained information.
+Status: implemented as a bounded synthetic website workspace. The [implementation audit](../../reviews/subscription-workspace/README.md) records checks and remaining production work. The user selected discovering and organizing feeds as the default workflow and requires search, hundreds of independently selectable feeds and retained information.
 
 The [council record](../../wiki-llm/subscription-design-council/README.md) links the model reviews, primary sources, measurements and disagreements. This design uses Impeccable’s guidance for operational interfaces and preserves Midnight Express’s current product and protocol boundaries.
 

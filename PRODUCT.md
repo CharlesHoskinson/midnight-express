@@ -30,4 +30,4 @@ The repository contains the proposed architecture and requirements, a bounded lo
 
 ## Open Decisions
 
-Independent feed scopes, publisher metadata and production source discovery need explicit contracts. The council recommends the directory workspace in `design/subscriptions/directory-workspace.md`; browser persistence and the replacement interface remain implementation work. No customer validation or production performance result establishes the proposed experience.
+Independent feed scopes, publisher metadata and production source discovery need explicit contracts. The council design in `design/subscriptions/directory-workspace.md` is implemented as a bounded synthetic directory with native browser persistence. Production source discovery, authenticated service reconciliation and durable consumer storage remain implementation work. No customer validation or production performance result establishes the proposed experience.
