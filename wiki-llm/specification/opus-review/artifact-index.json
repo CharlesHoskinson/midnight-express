@@ -1,0 +1,117 @@
+{
+  "baseline": "0dfee26",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "8bb83348d679ff97c24a9494f544c2ece822d35f8074e299ecdb243e1bc53e0d"
+    },
+    {
+      "path": "authority-replay.md",
+      "sha256": "0c6dac33855ea1a358ab41192dc5d4d870e76e3def06b7468980be9b14359000"
+    },
+    {
+      "path": "evidence/README.md",
+      "sha256": "42ea315d525fb88bb7e5967ed83a362d7bc1cc1054740c714a2acd11a9e65f05"
+    },
+    {
+      "path": "evidence/build_gate_negative.py",
+      "sha256": "8853cec4f8ac40d2cf587201ac2c509227cb471b5de3049b8a6a086f50e9ee05"
+    },
+    {
+      "path": "evidence/candidate-invariant.lean",
+      "sha256": "b3afcebac858d41c7bed39feff2268c946581465edd138319156429fe2058af0"
+    },
+    {
+      "path": "evidence/maintainability-reader/AuditAll.lean",
+      "sha256": "60399e1e6d43a9afc89cec40aea60d9e4b416ebc8f03346fcd143c693af603b3"
+    },
+    {
+      "path": "evidence/maintainability-reader/Conjuncts.lean",
+      "sha256": "40b8499150b0482c256e5302b7cd69c8bf038e2d99aba62c5265ad39b863cf58"
+    },
+    {
+      "path": "evidence/maintainability-reader/StructuralReplay.lean",
+      "sha256": "bde5fc39586a4c65c1245e428e05b59f1639101c226e03deb1177370c999b215"
+    },
+    {
+      "path": "evidence/maintainability-reader/conjuncts.out",
+      "sha256": "fecc09b7541116fd8c98bc2d49e7037d624b141e2bea1ae2f9b66f2f4678ec64"
+    },
+    {
+      "path": "evidence/model-fidelity/lockdiv.py",
+      "sha256": "b424667e273423723a3c1baff6aa533002fd0fd3b98cdae3b13b42658a4e313d"
+    },
+    {
+      "path": "evidence/model-fidelity/repro.py",
+      "sha256": "af0e7cb149d24a93612433d04f21ca68b50b6fa12ad93c3712d542482cb06d61"
+    },
+    {
+      "path": "evidence/proposed-invariants.lean",
+      "sha256": "b33b9e9bd4cb2af17346fcaf38ce0bb0e63cf05b6386414043ae8b319a07bffd"
+    },
+    {
+      "path": "evidence/replay-counterexamples.lean",
+      "sha256": "3f1edb1fa05b78f316939e4f787d130d3834fd83fa6fd1c9378b9d6d60b793dc"
+    },
+    {
+      "path": "evidence/replay_tokens.py",
+      "sha256": "dbdbe9f07832a83c2f75e6f7584dc30f9f8cdfe8fcc9c074d7eb6e690a8d07da"
+    },
+    {
+      "path": "evidence/retry-premises.lean",
+      "sha256": "6672e35aec75c8637068d9386c9f2b88cd486f645d3fab21355831df1546a678"
+    },
+    {
+      "path": "evidence/structural-replay-prototype.lean",
+      "sha256": "748320de6ca39b2f319e1e271d0e0781bea44a96092cbe40885457ae96c91bac"
+    },
+    {
+      "path": "evidence/verification-bridge/audit_all.lean",
+      "sha256": "e960c85147e404895ae567bc4f2837c76619691e0990423d3420f97323371588"
+    },
+    {
+      "path": "evidence/verification-bridge/bridge_theorems.lean",
+      "sha256": "4436f55009be9778d9964a06e236885609095a1f5c1bfb71aefcf2cee34a39dd"
+    },
+    {
+      "path": "evidence/verification-bridge/conjuncts.lean",
+      "sha256": "8959cf078ccccdfa243403dc1345839ccc682d8881f1dd4c3730eeb7745eed61"
+    },
+    {
+      "path": "evidence/verification-bridge/diff.py",
+      "sha256": "e8a6496a15ea858c82d0fa7e4f6e71660cf59cbe58c726afbe2499f85ef8ae74"
+    },
+    {
+      "path": "evidence/verification-bridge/stateful.py",
+      "sha256": "b356c0fd1b4dfd7890fa149e3076c92e5fdba4ac2cd4a261328870a8b6b35e30"
+    },
+    {
+      "path": "maintainability-reader.md",
+      "sha256": "68843214283423893ce73dd753621aa91d76972986b0bef390dbfae81b964af9"
+    },
+    {
+      "path": "model-fidelity.md",
+      "sha256": "590f4fc6e87f7dda3a49dd68471fee2522cfc925e118c4e779678bc516a368b0"
+    },
+    {
+      "path": "proof-strength.md",
+      "sha256": "cc1adb38cab0a7c7550d3c66f464327862f063a66cfdd224453e2f3f2dfc43d8"
+    },
+    {
+      "path": "provenance.json",
+      "sha256": "5943cc891b1219cf8ab6c199b9b1f1c7c99c1112af2cd1fcc2817153a24ad3ec"
+    },
+    {
+      "path": "synthesis.md",
+      "sha256": "e72500380595d94958c7784cd469a1445bbf5ab2c4a9f4b095676e7dfa15a07c"
+    },
+    {
+      "path": "verification-bridge.md",
+      "sha256": "707303a2834c06ca009034f3a239499392e6cf1c8d86e77687bfb26055f18ab8"
+    },
+    {
+      "path": "verification.json",
+      "sha256": "d022431c6b7bc8a261810c3d35276b9da3cfb16ee7dd0555094ad4d7e7d5b8ab"
+    }
+  ]
+}

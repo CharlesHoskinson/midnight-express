@@ -1,0 +1,111 @@
+{
+  "baseline": "0dfee26",
+  "recorded_utc": "2026-10-05T19:35:19.995467+00:00",
+  "canonical_source_unchanged": true,
+  "public_source_bytes_match_canonical": true,
+  "canonical_snapshot": [
+    {
+      "path": "formal/lean/Audit.lean",
+      "sha256": "ce9f8428d4baac308fa2e0c951160e7c498d7733464d3b3fb58fbf8460df5bdd"
+    },
+    {
+      "path": "formal/lean/MidnightExpress.lean",
+      "sha256": "3101c62f223206c70d41f16d0295a8563d1d0cf0b8f6196c4cdda3d3c99ca524"
+    },
+    {
+      "path": "formal/lean/MidnightExpress/Examples.lean",
+      "sha256": "1f34d56801d8765eff475767673e913edd0034dcb289d6469942c85c13b2d9a5"
+    },
+    {
+      "path": "formal/lean/MidnightExpress/Model.lean",
+      "sha256": "23ff61b88c0ccfd5bd02011952bcaf486c7bffe8510aa73dab53e443abe240ba"
+    },
+    {
+      "path": "formal/lean/MidnightExpress/Validation.lean",
+      "sha256": "626afeddff93e4f5f0eb588b6282adf38b3367031e6cf240ee402542f9ee62ca"
+    },
+    {
+      "path": "formal/lean/README.md",
+      "sha256": "3c6e1509faff40f4b8e60ae220fc16bffc9a9a2ca44320632a9710f54f32ac3c"
+    },
+    {
+      "path": "formal/lean/check.py",
+      "sha256": "6c04584744dab2521389c0f87d547fe2810244611b816023d84ffb28482fdf7c"
+    },
+    {
+      "path": "formal/lean/lake-manifest.json",
+      "sha256": "23f6f509935c8b7016e9528278cd0263349bbe010f9fedda8cd9e87f015f819c"
+    },
+    {
+      "path": "formal/lean/lakefile.lean",
+      "sha256": "63ae74bed799216832ac597b1463a3a7447ed867c2ecf84e27cdb671c379e8f5"
+    },
+    {
+      "path": "formal/lean/lean-toolchain",
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    }
+  ],
+  "parent_checks": [
+    {
+      "case": "replay_counterexample",
+      "evidence": "evidence/replay-counterexamples.lean",
+      "command": "lake env lean /tmp/mpe-lean-opus-review/proof-strength/Probe1.lean",
+      "exit_code": 0
+    },
+    {
+      "case": "python_changed_intent_conflict",
+      "evidence": "evidence/replay_tokens.py",
+      "command": "python wiki-llm/specification/opus-review/evidence/replay_tokens.py",
+      "exit_code": 0
+    },
+    {
+      "case": "proposed_invariants",
+      "evidence": "evidence/proposed-invariants.lean",
+      "command": "lake env lean /tmp/mpe-lean-opus-review/proof-strength/Probe2.lean",
+      "exit_code": 0
+    },
+    {
+      "case": "structural_replay_prototype",
+      "evidence": "evidence/structural-replay-prototype.lean",
+      "command": "lake env lean /tmp/mpe-lean-opus-review/model-fidelity/Scratch.lean",
+      "exit_code": 0
+    },
+    {
+      "case": "two_step_candidate_invariant",
+      "evidence": "evidence/candidate-invariant.lean",
+      "command": "lake env lean /tmp/mpe-lean-opus-review/authority-replay/Probe2.lean",
+      "exit_code": 0
+    },
+    {
+      "case": "retry_theorem_requires_coherent_state_or_fresh_candidate",
+      "evidence": "evidence/retry-premises.lean",
+      "command": "lake env lean /tmp/mpe-lean-opus-review/root/retry-premises.lean",
+      "exit_code": 0
+    },
+    {
+      "case": "isolated_negative_proof_gates",
+      "evidence": "evidence/build_gate_negative.py",
+      "command": "python wiki-llm/specification/opus-review/evidence/build_gate_negative.py",
+      "exit_code": 0,
+      "observed_cases": [
+        {
+          "case": "placeholder_ordinary_build",
+          "exit_code": 0
+        },
+        {
+          "case": "placeholder_warnings_fail",
+          "exit_code": 1
+        },
+        {
+          "case": "unaudited_axiom_warnings_fail",
+          "exit_code": 0
+        },
+        {
+          "case": "unaudited_axiom_selective_print_audit",
+          "exit_code": 0
+        }
+      ]
+    }
+  ],
+  "boundary": "Review evidence and proposed proofs only. No canonical Lean, runtime or published source change; no general Python refinement or durable effect guarantee."
+}

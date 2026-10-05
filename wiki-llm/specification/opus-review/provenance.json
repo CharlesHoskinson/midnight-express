@@ -1,0 +1,164 @@
+{
+  "baseline": "0dfee26",
+  "requested_model": "claude-opus-5-5",
+  "started_utc": "2026-10-05T19:12:56.431208+00:00",
+  "max_concurrent_reviewers": 3,
+  "reviews": [
+    {
+      "id": "model-fidelity",
+      "role": "Data model and economics principal engineer",
+      "focus": "Compare Model.lean and Validation.lean carefully against actual model/validator.py, installed profile schemas/lock, model examples, product unified-model documentation. Seek semantic omissions or mismatches, invalid semantic values admitted, arithmetic/unit/expiry edge cases, accepted payload meaning. Distinguish deliberately omitted JSON grammar from substantive decoded-semantic gaps. Give counterexamples or exact theorem obligations.",
+      "status": "completed",
+      "started_utc": "2026-10-05T19:12:56.432796+00:00",
+      "model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 40,
+          "outputTokens": 35030,
+          "cacheReadInputTokens": 1625815,
+          "cacheCreationInputTokens": 104335,
+          "webSearchRequests": 0,
+          "costUSD": 1.860603,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 16889,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "is_error": false,
+      "errors": [],
+      "cli_result_subtype": "success",
+      "exit_code": null,
+      "exit_code_note": "Original process exit code unavailable after coordinator interruption; completion established from final CLI result and report.",
+      "report": "wiki-llm/specification/opus-review/model-fidelity.md",
+      "report_sha256": "590f4fc6e87f7dda3a49dd68471fee2522cfc925e118c4e779678bc516a368b0",
+      "completion_observed_utc": "2026-10-05T19:20:23.333501+00:00"
+    },
+    {
+      "id": "proof-strength",
+      "role": "Lean formal methods reviewer",
+      "focus": "Inspect every theorem and Audit.lean. Identify vacuous, circular, overly weak or tautological safety claims; soundness/completeness versus a separately stated business property; computational assumptions, axioms, equality/Bool/Prop bridge. Evaluate generality and useful missing proofs, especially rejection, monotonicity, contextual changes and occurrence/action identities. Run kernel-checkable adversarial examples in your scratch directory if useful.",
+      "status": "completed",
+      "started_utc": "2026-10-05T19:12:56.433149+00:00",
+      "model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 38,
+          "outputTokens": 32626,
+          "cacheReadInputTokens": 1502452,
+          "cacheCreationInputTokens": 104045,
+          "webSearchRequests": 0,
+          "costUSD": 1.7855224,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 13709,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "is_error": false,
+      "errors": [],
+      "cli_result_subtype": "success",
+      "exit_code": null,
+      "exit_code_note": "Original process exit code unavailable after coordinator interruption; completion established from final CLI result and report.",
+      "report": "wiki-llm/specification/opus-review/proof-strength.md",
+      "report_sha256": "cc1adb38cab0a7c7550d3c66f464327862f063a66cfdd224453e2f3f2dfc43d8",
+      "completion_observed_utc": "2026-10-05T19:20:23.333928+00:00"
+    },
+    {
+      "id": "authority-replay",
+      "role": "Security and replay principal engineer",
+      "focus": "Review source principal binding, policy freshness/revocations, human approval, proposalDigest assumptions, occurrence conflict, action retries and effect authority. Seek concrete counterexamples under typed values/trusted contexts rather than speculation. Determine what replay/journal invariants are proved and what demands a transition system. Rank formal data-model issues separately from explicitly deferred production boundaries.",
+      "status": "completed",
+      "started_utc": "2026-10-05T19:12:56.433819+00:00",
+      "model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 52,
+          "outputTokens": 41214,
+          "cacheReadInputTokens": 2076605,
+          "cacheCreationInputTokens": 111970,
+          "webSearchRequests": 0,
+          "costUSD": 2.1355690000000003,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 21820,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "is_error": false,
+      "errors": [],
+      "cli_result_subtype": "success",
+      "exit_code": null,
+      "exit_code_note": "Original process exit code unavailable after coordinator interruption; completion established from final CLI result and report.",
+      "report": "wiki-llm/specification/opus-review/authority-replay.md",
+      "report_sha256": "0c6dac33855ea1a358ab41192dc5d4d870e76e3def06b7468980be9b14359000",
+      "completion_observed_utc": "2026-10-05T19:21:23.349695+00:00"
+    },
+    {
+      "id": "verification-bridge",
+      "role": "Cross-language validation and verification engineer",
+      "focus": "Inspect check.py, generated Examples.lean, validator.py conformance tests, Audit.lean and build. Study translation fidelity, fixed constructors/assertions, test reachability, negative cases, oracle/digest equality and drift. Recommend stronger finite coverage, property-based differential tests, profile fingerprint guards and feasible next verified parsing/refinement boundaries. Actual evidence required; tests in own /tmp scratch only, no production edits.",
+      "status": "completed",
+      "started_utc": "2026-10-05T19:20:23.347272+00:00",
+      "exit_code": 0,
+      "model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 72,
+          "outputTokens": 61042,
+          "cacheReadInputTokens": 3179886,
+          "cacheCreationInputTokens": 125665,
+          "webSearchRequests": 0,
+          "costUSD": 2.8624252,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 26611,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "is_error": false,
+      "errors": [],
+      "report": "wiki-llm/specification/opus-review/verification-bridge.md",
+      "report_sha256": "707303a2834c06ca009034f3a239499392e6cf1c8d86e77687bfb26055f18ab8",
+      "finished_utc": "2026-10-05T19:36:04.128855+00:00",
+      "elapsed_seconds": 940.8
+    },
+    {
+      "id": "maintainability-reader",
+      "role": "Specification architecture and documentation reviewer",
+      "focus": "Review Lean project structure and proof/source reproducibility, modularity, dependencies/versioning and public source copies. Compare website/dist/specification.html claims to exact theorem boundaries. Propose readable stronger documentation and staged formalization roadmap without broadening claims, universal-model bloat or decorative counting. Check if specification guides implementers and what evidence integration/CI needs.",
+      "status": "completed",
+      "started_utc": "2026-10-05T19:20:23.348117+00:00",
+      "exit_code": 0,
+      "model_usage": {
+        "claude-opus-5-5": {
+          "inputTokens": 58,
+          "outputTokens": 41201,
+          "cacheReadInputTokens": 2159295,
+          "cacheCreationInputTokens": 105385,
+          "webSearchRequests": 0,
+          "costUSD": 2.0991910000000003,
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "thinkingTokens": 19851,
+          "canonicalModel": "claude-opus-5-5",
+          "provider": "firstParty",
+          "costBasis": "list"
+        }
+      },
+      "is_error": false,
+      "errors": [],
+      "report": "wiki-llm/specification/opus-review/maintainability-reader.md",
+      "report_sha256": "68843214283423893ce73dd753621aa91d76972986b0bef390dbfae81b964af9",
+      "finished_utc": "2026-10-05T19:27:57.332601+00:00",
+      "elapsed_seconds": 454.0
+    }
+  ],
+  "coordinator_note": "Original coordinator ended during user resume; final CLI JSON recovered for completed original reviewers. Remaining reviewers launched by durable user service; no model substitution.",
+  "invocation": "Claude CLI -p --model claude-opus-5-5 --effort high --max-turns 60 --output-format json",
+  "completed_utc": "2026-10-05T19:37:47.362585+00:00"
+}
