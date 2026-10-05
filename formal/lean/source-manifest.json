@@ -1,0 +1,47 @@
+{
+  "toolchain": "leanprover/lean4:v4.34.1",
+  "verified": "lake build and read-only finite Python/Lean fixture comparison passed",
+  "boundary": "Lean typed semantic model; parsing, cryptographic primitives, external provenance, implementation refinement and durable protocol behavior are outside these proofs",
+  "files": [
+    {
+      "path": "Audit.lean",
+      "sha256": "ce9f8428d4baac308fa2e0c951160e7c498d7733464d3b3fb58fbf8460df5bdd"
+    },
+    {
+      "path": "MidnightExpress/Examples.lean",
+      "sha256": "1f34d56801d8765eff475767673e913edd0034dcb289d6469942c85c13b2d9a5"
+    },
+    {
+      "path": "MidnightExpress/Model.lean",
+      "sha256": "23ff61b88c0ccfd5bd02011952bcaf486c7bffe8510aa73dab53e443abe240ba"
+    },
+    {
+      "path": "MidnightExpress/Validation.lean",
+      "sha256": "626afeddff93e4f5f0eb588b6282adf38b3367031e6cf240ee402542f9ee62ca"
+    },
+    {
+      "path": "MidnightExpress.lean",
+      "sha256": "3101c62f223206c70d41f16d0295a8563d1d0cf0b8f6196c4cdda3d3c99ca524"
+    },
+    {
+      "path": "README.md",
+      "sha256": "3c6e1509faff40f4b8e60ae220fc16bffc9a9a2ca44320632a9710f54f32ac3c"
+    },
+    {
+      "path": "check.py",
+      "sha256": "6c04584744dab2521389c0f87d547fe2810244611b816023d84ffb28482fdf7c"
+    },
+    {
+      "path": "lake-manifest.json",
+      "sha256": "23f6f509935c8b7016e9528278cd0263349bbe010f9fedda8cd9e87f015f819c"
+    },
+    {
+      "path": "lakefile.lean",
+      "sha256": "63ae74bed799216832ac597b1463a3a7447ed867c2ecf84e27cdb671c379e8f5"
+    },
+    {
+      "path": "lean-toolchain",
+      "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+    }
+  ]
+}

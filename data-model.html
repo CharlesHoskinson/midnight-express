@@ -16,6 +16,8 @@
 <a href="index.html#example">Workflows</a>
 <a href="index.html#architecture">Architecture</a>
 <a href="data-model.html" aria-current="page">Data model</a>
+<a href="subscriptions.html">Subscriptions</a>
+<a href="specification.html">Specification</a>
 <a href="implementation.html">Implementation</a>
 </nav>
 <span class="edition">SHARED MEANING</span>
@@ -27,7 +29,7 @@
 <p class="lead">A buyer and a dealer need to agree on what a quote means before either application can use it. Midnight Express proposes shared rules for that exchange, with reviewed translators, called adapters, connecting each participant’s existing format.</p>
 <p>A quote needs a shared price basis; an approval needs a specific scope. The model provides common event fields and lets each workflow define the terms it needs.</p>
 <div class="intro-meta"><span>v0.2 local reference implementation</span><span>Quote, payment and approval rules</span></div>
-<div class="intro-links"><a href="#example">See a quote conversion</a><a href="#evidence">See what is implemented</a></div>
+<div class="intro-links"><a href="specification.html">Read the formal specification</a><a href="subscriptions.html">Try local subscriptions</a><a href="#example">See a quote conversion</a><a href="#evidence">See what is implemented</a></div>
 <p class="model-reading-guide">The <a href="#example">quote example</a> shows the conversion; the <a href="#workflows">workflow stories</a> explain the other pilots. Integration details cover <a href="#contracts">the model</a>, <a href="#start">getting started</a>, <a href="#replay">recovery</a> and <a href="#evidence">tested behavior</a>.</p>
 <nav class="impl-jumps" aria-label="Data model sections">
 <a href="#problem">Why it matters</a><a href="#example">Quote example</a><a href="#contracts">The model</a><a href="#workflows">Pilot workflows</a><a href="#replay">Replay &amp; versions</a><a href="#chains">Chain events</a><a href="#evidence">Evidence</a><a href="#start">Getting started</a>
@@ -122,7 +124,7 @@
 <article><span class="problem-index">DURABLE PROGRESS</span><h3>A retry does not repeat the effect.</h3><p>Workers were terminated at effect, commit and acknowledgement boundaries in the PostgreSQL sandbox. Recovery preserved the committed report-row effect without repeating it. Authority came from a supplied fixture.</p></article>
 </div>
 <p class="section-note">These finite synthetic cases establish reference behavior for the tested inputs. Live error rates and customer savings remain unmeasured. Production authentication, consensus verification, private wire integration and partner baselines remain required.</p>
-<div class="intro-links"><a href="implementation.html#reference">Review implementation &amp; next sprints</a><a href="index.html#architecture">Explore the stack</a><a href="index.html#use-cases">See the wider use cases</a></div>
+<div class="intro-links"><a href="specification.html">Read the formal specification</a><a href="subscriptions.html">Try local subscriptions</a><a href="implementation.html#reference">Review implementation &amp; next sprints</a><a href="index.html#architecture">Explore the stack</a><a href="index.html#use-cases">See the wider use cases</a></div>
 </section>
 <section id="start">
 <p class="eyebrow">FROM A PARTNER FORMAT TO AN AGREED CONTRACT</p>
