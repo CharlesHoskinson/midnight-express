@@ -47,6 +47,10 @@
       "sha256": "4cc663ed4d11549336ca5af8e8be90e7be5911dc957816baa29fcd48aa709e5d"
     },
     {
+      "path": "ci/lean-specification.yml",
+      "sha256": "e58cc9819734a90b909cb8278710ca277e4c9c9542454c09c34cf0da3974f05c"
+    },
+    {
       "path": "conditions.py",
       "sha256": "1a0b728c840763ac97bead49a875a211cc0d50a84afc6764045cbc1637ce481a"
     },
@@ -76,7 +80,7 @@
     },
     {
       "path": "publish.py",
-      "sha256": "cab8349d1f7d8e0e0f165d7f9be9e886502422286b493e19a8b2c27818e90d13"
+      "sha256": "153fb485a30c860d50ceaa63ffac30b9ab74c9909e991830db7b718fe69e694e"
     },
     {
       "path": "sequences.py",
