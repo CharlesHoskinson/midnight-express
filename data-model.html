@@ -6,11 +6,13 @@
 <title>Data Model: Midnight Express</title>
 <meta name="description" content="How Midnight Express applications agree on meaning: a small shared core, precise workflow contracts and explicit adapters for quotes, payment observations and approved actions.">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="brand.css">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
 <body class="model-page">
 <a class="skip" href="#main-content">Skip to main content</a>
 <header>
-<a class="brand" href="index.html"><span class="mark">M∕E</span> MIDNIGHT EXPRESS</a>
+<a class="brand" href="index.html"><span class="mark" aria-hidden="true">M/E</span><span class="brand-name">Midnight <strong>Express</strong></span></a>
 <nav aria-label="Main navigation">
 <a href="index.html#overview">Overview</a>
 <a href="index.html#example">Workflows</a>
@@ -20,11 +22,11 @@
 <a href="specification.html">Specification</a>
 <a href="implementation.html">Implementation</a>
 </nav>
-<span class="edition">SHARED MEANING</span>
+
 </header>
 <main id="main-content" tabindex="-1">
 <section class="impl-intro">
-<p class="eyebrow">DATA MODEL / AN AGREEMENT BETWEEN APPLICATIONS</p>
+
 <h1>Agree on what<br>a message means<span>.</span></h1>
 <p class="lead">A buyer and a dealer need to agree on what a quote means before either application can use it. Midnight Express proposes shared rules for that exchange, with reviewed translators, called adapters, connecting each participant’s existing format.</p>
 <p>A quote needs a shared price basis; an approval needs a specific scope. The model provides common event fields and lets each workflow define the terms it needs.</p>
@@ -36,52 +38,52 @@
 </nav>
 </section>
 <section id="problem">
-<p class="eyebrow">THE PROBLEM</p>
+
 <h2>A message can arrive perfectly<br>and still be misunderstood.</h2>
 <p class="model-lead">Two applications can accept the same structured message while disagreeing about the business it describes. A number such as “100” needs context: dollars, cents or shares? A status such as “approved” needs an exact action and scope.</p>
 <div class="model-prose"><p>Integration teams resolve these assumptions in documents, custom connectors and conversations with partners. Flexible formats can leave conventions implicit; a universal format can require agreement on terms the workflow never uses.</p><p>Midnight Express proposes a separate agreement for each supported workflow. A quote needs a price basis; an invoice observation needs payment evidence; an approval needs its own limits. Partners still negotiate those meanings. They can then review and test the resulting rules instead of leaving them implicit in a connector.</p></div>
 <div class="problem-grid">
-<article><span class="problem-index">INTEGRATION</span><h3>Make assumptions visible.</h3><p>A partner can review supported terms, units and refusal conditions before connecting. A missing price basis becomes an explicit mapping issue.</p></article>
-<article><span class="problem-index">AUTOMATION</span><h3>Check meaning before acting.</h3><p>Deterministic rules check the interpretation. Authentication and current business permission then govern whether an application may act on it.</p></article>
-<article><span class="problem-index">GROWTH</span><h3>Reuse the mechanism.</h3><p>A new workflow can use the shared core while owning its own business terms. Adding an invoice contract does not require expanding every quote.</p></article>
+<article><h3>Make assumptions visible.</h3><p>A partner can review supported terms, units and refusal conditions before connecting. A missing price basis becomes an explicit mapping issue.</p></article>
+<article><h3>Check meaning before acting.</h3><p>Deterministic rules check the interpretation. Authentication and current business permission then govern whether an application may act on it.</p></article>
+<article><h3>Reuse the mechanism.</h3><p>A new workflow can use the shared core while owning its own business terms. Adding an invoice contract does not require expanding every quote.</p></article>
 </div>
 <p class="section-note">These are benefits to test with partners. Integration hours, manual corrections and turnaround baselines have not yet been collected.</p>
 </section>
 <section id="example">
-<p class="eyebrow">QUOTE CONVERSION</p>
+
 <h2>Different formats,<br>the same quote.</h2>
 <p class="model-lead">A request for quote (RFQ) asks a dealer to state terms for a possible trade. Consider the same dealer’s quote for a buyer purchasing 100 shares, represented in two source formats. Currency, quantity, perspective and the no-fee convention are declared in both.</p>
 <div class="model-quote-grid">
-<article><span class="problem-index">FORMAT A</span><h3>$123.45</h3><p>US dollars per one share.<br>Buyer purchases 100 shares.</p></article>
-<article><span class="problem-index">FORMAT B</span><h3>1,234,500 cents</h3><p>US cents per 100 shares.<br>Dealer sells those 100 shares.</p></article>
+<article><h3>$123.45</h3><p>US dollars per one share.<br>Buyer purchases 100 shares.</p></article>
+<article><h3>1,234,500 cents</h3><p>US cents per 100 shares.<br>Dealer sells those 100 shares.</p></article>
 </div>
-<div class="model-result"><span class="problem-index">AGREED RFQ MEANING</span><p><strong>100 shares × $123.45 = $12,345</strong></p><p>The adapters apply the declared unit and perspective conversions, then check the price and cash total exactly. Missing price basis, a contradictory total or an unsupported fee convention is refused.</p></div>
+<div class="model-result"><p><strong>100 shares × $123.45 = $12,345</strong></p><p>The adapters apply the declared unit and perspective conversions, then check the price and cash total exactly. Missing price basis, a contradictory total or an unsupported fee convention is refused.</p></div>
 <div class="model-prose"><h3>Follow the conversion.</h3><p>Format B prices a block of 100 shares. Its adapter divides 1,234,500 cents by 100 to obtain 12,345 cents per share, or $123.45. It also translates the dealer’s selling perspective into the buyer’s purchasing perspective. These are declared conventions, so the receiver can check both the arithmetic and direction.</p><p>If Format B omits “per 100 shares”, the number still looks valid, but the adapter cannot know what quantity it covers. It refuses that mapping. The source owner must supply the missing convention before the quote can proceed; the adapter cannot infer it.</p></div>
 <p class="section-note">Two encodings have the same intent fingerprint only when the complete source-bound intent matches. Quotes from different dealers keep different source identities even when their prices agree. The checked quote is an off-chain observation. The application must check source authentication and current policy before deciding a next step; trade execution and settlement need their own authority.</p>
 <details class="model-detail"><summary>How the reference keeps numbers exact</summary><p>The USD price is represented as the integer coefficient <code>12345</code> with scale <code>2</code>, giving <code>12345 × 10⁻² = 123.45</code>. Quantity is 100 whole shares; cash is 1,234,500 cents. Money and quantities use bounded decimal strings, and ambiguous numeric forms reject.</p><p>Independent Python, Rust and TypeScript interpreters check the same RFQ cases. Canonicalization gives an agreed interpretation deterministic bytes; it cannot supply a missing currency, prove identity or turn a quote into an authorized trade.</p></details>
 </section>
 <section id="contracts">
-<p class="eyebrow">THE DESIGN CHOICE</p>
+
 <h2>How workflow contracts<br>define shared meaning.</h2>
 <p class="model-lead">Participants agree on the common event mechanism and choose a workflow contract with explicit terms. The reference refuses meanings that contract cannot represent. New terms require a reviewed contract.</p><p class="section-note">This choice trades some flexibility for a reviewable integration agreement. Domain design and partner negotiation still matter. A pilot must show that the supported terms cover useful work and that adding a partner requires acceptable effort.</p>
 <div class="model-prose"><h3>Model, schema and protocol answer different questions.</h3><p>The data model describes what information means: which party is buying, how a quantity is measured and what a status claims. A schema defines the permitted fields, types and values. The workflow contract combines that structure with business rules, such as requiring cash to equal quantity multiplied by price.</p><p>A workflow contract here is a data agreement. The delivery protocol carries the message and has its own membership and security mechanisms; it cannot determine whether an unstated price basis is correct. The reference calls each bounded workflow variant a <em>profile</em>.</p></div>
 <div class="model-layers">
-<article><span class="problem-index">SHARED CORE</span><h3>Identify the event.</h3><p>Who the event names as its source, its identity, time, exact type and the contract it uses. These common fields stay inside the proposed encrypted message body.</p></article>
-<article><span class="problem-index">WORKFLOW CONTRACT</span><h3>Define its meaning.</h3><p>Required terms, units, roles and rules. A quote declares price basis and expiry; a payment observation declares amount, evidence and status; an approval binds a specific proposal.</p></article>
-<article><span class="problem-index">PARTICIPANT ADAPTER</span><h3>Map the source format.</h3><p>A reviewed translator for one declared convention. It preserves source meaning and refuses missing terms, unsupported fees or a mapping that loses required information.</p></article>
+<article><h3>Identify the event.</h3><p>Who the event names as its source, its identity, time, exact type and the contract it uses. These common fields stay inside the proposed encrypted message body.</p></article>
+<article><h3>Define its meaning.</h3><p>Required terms, units, roles and rules. A quote declares price basis and expiry; a payment observation declares amount, evidence and status; an approval binds a specific proposal.</p></article>
+<article><h3>Map the source format.</h3><p>A reviewed translator for one declared convention. It preserves source meaning and refuses missing terms, unsupported fees or a mapping that loses required information.</p></article>
 </div>
 <div class="model-prose"><p>Applications install a reviewed bundle containing the contract’s definitions and rules. The adapter translates source data into those terms, and the resulting event belongs inside the proposed encrypted message body. Adapters and bundles stay in the application. An invoice contract can therefore add evidence rules without making every quote carry invoice fields.</p></div>
 <div class="midnight-role"><h3>An exact agreement</h3><p>A contract commitment is a fingerprint of the agreed definitions and rules. It identifies which meaning to use. The contract must be locally reviewed and installed; its fingerprint alone does not authenticate a sender or grant permission.</p></div>
 <details class="model-detail"><summary>What is deliberately bounded?</summary><p>The pilot quote contract uses whole shares, USD cents, an explicit buyer/seller perspective and no fees. Fractional shares, other currencies and fee structures need separately reviewed contracts. Each current contract admits only its declared fields; unknown terms cause refusal.</p><p>Domain owners can propose new profiles independently. The proposed governance rule promotes a term into the common core only after it proves useful in at least two independent profiles and its maintenance cost is understood.</p></details>
 </section>
 <section id="workflows">
-<p class="eyebrow">PILOT WORKFLOWS</p>
+
 <h2>What each pilot<br>message can establish.</h2>
 <p class="model-lead">Each contract checks a different business claim. Quote interpretation is compared independently in Python, Rust and TypeScript. Payment observation and sandbox approval have their own reference conformance checks; their interpretation has not been compared across those languages.</p>
 <div class="model-layers">
-<article><span class="problem-index">QUOTE OBSERVATION</span><h3>Compare an explicit offer.</h3><p>A buyer sees quantity, currency, price per share, direction, fees and expiry. The reference refuses an inconsistent total or expired quote.</p><p class="model-benefit"><strong>Value to test:</strong> fewer convention mismatches during quote review and integration.</p><p>Current scope: whole-share USD quotes for off-chain coordination.</p></article>
-<article><span class="problem-index">PAYMENT OBSERVATION</span><h3>Explain what was reported.</h3><p>A $500 invoice receives an observation of a $250 payment. Amount, payment identity, source status and clocks remain explicit. Pending, Final and Reversed have distinct meanings.</p><p class="model-benefit"><strong>Value to test:</strong> clearer reconciliation of partial payments and status changes.</p><p>Final remains a source assertion. This contract neither marks an invoice paid nor executes a payment.</p></article>
-<article><span class="problem-index">SANDBOX APPROVAL</span><h3>Keep approval tied to its action.</h3><p>A human approval fixture binds one report-writing proposal to its target, input, execution scope, budget and expiry. Changing the target or replaying a consumed action cannot renew it.</p><p class="model-benefit"><strong>Value to test:</strong> reviewable limits and recoverable progress for agent workflows.</p><p>Validation produces a candidate. A separately authorized test host writes one database report row.</p></article>
+<article><h3>Compare an explicit offer.</h3><p>A buyer sees quantity, currency, price per share, direction, fees and expiry. The reference refuses an inconsistent total or expired quote.</p><p class="model-benefit"><strong>Value to test:</strong> fewer convention mismatches during quote review and integration.</p><p>Current scope: whole-share USD quotes for off-chain coordination.</p></article>
+<article><h3>Explain what was reported.</h3><p>A $500 invoice receives an observation of a $250 payment. Amount, payment identity, source status and clocks remain explicit. Pending, Final and Reversed have distinct meanings.</p><p class="model-benefit"><strong>Value to test:</strong> clearer reconciliation of partial payments and status changes.</p><p>Final remains a source assertion. This contract neither marks an invoice paid nor executes a payment.</p></article>
+<article><h3>Keep approval tied to its action.</h3><p>A human approval fixture binds one report-writing proposal to its target, input, execution scope, budget and expiry. Changing the target or replaying a consumed action cannot renew it.</p><p class="model-benefit"><strong>Value to test:</strong> reviewable limits and recoverable progress for agent workflows.</p><p>Validation produces a candidate. A separately authorized test host writes one database report row.</p></article>
 </div>
 <p class="section-note">The validator returns <code>executes:false</code>. Production human identity, source authentication and current permission require their own checks. Cross-language agreement currently covers RFQ; it does not establish independent interpretation of every workflow.</p>
 <div class="model-prose" id="message-decisions"><h3>From a message to permitted work.</h3><p>Before performing work, a receiving application needs to interpret the message, establish trust in its source, check current permission and preserve the outcome. Each decision answers a different question.</p>
@@ -90,7 +92,7 @@
 <details class="model-detail"><summary>Follow a payment observation’s timeline</summary><p><strong>Effective time:</strong> when the source says the payment took effect. <strong>Observed time:</strong> when it was seen. <strong>Record time:</strong> when this observation event was created.</p><p>For example, a source says a payment took effect at 10:00, an observer sees it at 10:05 and records the observation at 10:06. If the record instead claimed to precede the observation, the reference would refuse the inconsistent timeline.</p><p>The reference requires effective time ≤ observed time ≤ record time ≤ trusted current time, and a positive amount no greater than the invoice payable for every status. Matching fixture evidence supports the observation; accounting allocation and bank-finality verification remain separate.</p><p>Pending, Final and Reversed record different source claims. Reversed is a reported status, not an instruction to send money back. The supplied status fixtures use separate payment identities; they do not demonstrate one payment progressing through a complete lifecycle.</p></details>
 </section>
 <section id="replay">
-<p class="eyebrow">RECOVERY &amp; CHANGE</p>
+
 <h2>Retries must preserve<br>the original outcome.</h2>
 <p class="model-lead">Delivery can repeat. Applications still need to know which occurrence they saw, which work was already consumed and which version of meaning governed the decision.</p>
 <div class="impl-columns">
@@ -103,7 +105,7 @@
 <details class="model-detail"><summary>How this fits the Midnight Express stack</summary><ol class="model-flow"><li><strong>Participant adapter</strong><span>Translate a declared source convention.</span></li><li><strong>Workflow contract</strong><span>Check exact shape and business meaning.</span></li><li><strong>Private delivery</strong><span>Carry the agreed event inside the proposed encrypted MPE body.</span></li><li><strong>Application policy &amp; recovery</strong><span>Authenticate, authorize and preserve progress at the effect boundary.</span></li></ol><p>GossipSub supplies the proposed transport; membership/admission and group security have separate protocol roles. They cannot decide a price basis or payment meaning. The data model handles interpretation; the application retains business authority. Live signing, sealing, admission and transport integration remain protocol work.</p></details>
 </section>
 <section id="chains">
-<p class="eyebrow">ETHEREUM &amp; SOLANA APPLICATIONS</p>
+
 <h2>Chain evidence keeps<br>its own meaning.</h2>
 <p class="model-lead">The proposed vocabulary covers common messages and events: queries, subscriptions, transaction outcomes, state, tokens, wallet permissions and application-specific activity. It guides future contracts; each chain keeps its native units and evidence rules.</p><div class="model-prose"><p>An RPC request asks a chain node for information or a service. A projection extracts a bounded record from supplied evidence instead of treating an entire response as one business fact. The current transfer projections record amounts, source context and physical locations. The broader vocabulary maps work still to define and validate.</p></div>
 <div class="impl-columns">
@@ -115,19 +117,19 @@
 <details class="model-detail"><summary>Why a token transfer has a different quantity contract</summary><p>Chain amounts preserve zero-inclusive uint256/u64 raw units and token-specific decimals. They do not reuse the quote pilot’s positive-only whole-share and USD primitives. Large RPC responses need bounded projections and explicitly authorized evidence retrieval.</p><p>Raw observations, decoded program claims and derived business conclusions retain separate provenance. A bridge initiation is not destination completion; a source’s “final” label is not a consensus proof or permission to execute.</p></details>
 </section>
 <section id="evidence">
-<p class="eyebrow">AVAILABLE NOW</p>
+
 <h2>What the local reference<br>has demonstrated.</h2>
 <p class="model-lead">The v0.2 release lets developers check quotes, payment observations and approvals locally, compare declared price formats and exercise transfer history and report-writing recovery. It supplies reviewed offline rule bundles and synthetic source and permission fixtures.</p>
 <div class="model-layers model-evidence">
-<article><span class="problem-index">SHARED INTERPRETATION</span><h3>Quote formats agree or refuse.</h3><p>Independent Python, Rust and TypeScript implementations agree on accepted quote interpretations in the supplied corpus and refuse the invalid cases. Adapter checks compare the declared source formats.</p></article>
-<article><span class="problem-index">CHAIN HISTORY</span><h3>Transfer history survives replay.</h3><p>Read-only fixture checks cover exact zero/max amounts, failed execution, repeated inner calls, rollback, re-inclusion and replay. Finality is a supplied source assertion.</p></article>
-<article><span class="problem-index">DURABLE PROGRESS</span><h3>A retry does not repeat the effect.</h3><p>Workers were terminated at effect, commit and acknowledgement boundaries in the PostgreSQL sandbox. Recovery preserved the committed report-row effect without repeating it. Authority came from a supplied fixture.</p></article>
+<article><h3>Quote formats agree or refuse.</h3><p>Independent Python, Rust and TypeScript implementations agree on accepted quote interpretations in the supplied corpus and refuse the invalid cases. Adapter checks compare the declared source formats.</p></article>
+<article><h3>Transfer history survives replay.</h3><p>Read-only fixture checks cover exact zero/max amounts, failed execution, repeated inner calls, rollback, re-inclusion and replay. Finality is a supplied source assertion.</p></article>
+<article><h3>A retry does not repeat the effect.</h3><p>Workers were terminated at effect, commit and acknowledgement boundaries in the PostgreSQL sandbox. Recovery preserved the committed report-row effect without repeating it. Authority came from a supplied fixture.</p></article>
 </div>
 <p class="section-note">These finite synthetic cases establish reference behavior for the tested inputs. Live error rates and customer savings remain unmeasured. Production authentication, consensus verification, private wire integration and partner baselines remain required.</p>
 <div class="intro-links"><a href="specification.html">Read the formal specification</a><a href="subscriptions.html">Try local subscriptions</a><a href="implementation.html#reference">Review implementation &amp; next sprints</a><a href="index.html#architecture">Explore the stack</a><a href="index.html#use-cases">See the wider use cases</a></div>
 </section>
 <section id="start">
-<p class="eyebrow">FROM A PARTNER FORMAT TO AN AGREED CONTRACT</p>
+
 <h2>Prepare a partner workflow<br>for a contract review.</h2>
 <div class="model-prose"><p>Begin with representative messages from one useful partner workflow, including examples that should be refused. Ask the source owner to declare units, buyer/seller perspective, status meanings, identifiers and timing. Compare those conventions with the contract before building an adapter; a missing term is a question to resolve together.</p><p>The pilot should answer practical questions: which cases map without losing meaning, which need a new contract, and how much effort a second participant requires. Refusal rates can expose a contract that is too narrow or source data that needs clarification. Measure that tradeoff alongside manual corrections and review time.</p></div>
 <ol class="model-onboarding"><li><strong>Choose a bounded contract.</strong> Identify the terms, roles, units and status transitions your workflow needs.</li><li><strong>Declare the source conventions.</strong> Build and review a deterministic adapter. Keep source evidence and record transformations.</li><li><strong>Test agreement and refusal.</strong> Check valid cases, missing terms, replay and unsupported versions against the exact installed contract.</li><li><strong>Integrate authority and recovery.</strong> Add authenticated sources, current permission and the destination’s effect/reconciliation rules. Measure real integration effort.</li></ol>

@@ -16,7 +16,7 @@ header,header nav {
 .notice,#storage-status {
   font-size:.9rem;
   margin:.5rem 0;
-  color:#c8d5df}
+  color:#d2d2d2}
 .workspace {
   display:grid;
   grid-template-columns:10rem minmax(0,1fr) minmax(16rem,22rem);
@@ -30,9 +30,9 @@ header,header nav {
 .workspace-nav button {
   text-align:left}
 .workspace-nav button[aria-current=page] {
-  border-color:#64efcf;
-  color:#64efcf;
-  background:#183137}
+  border-color:#99aaff;
+  color:#99aaff;
+  background:#0000fe}
 h2 {
   font-size:1.4rem;
   margin:0 0 1rem}
@@ -45,9 +45,9 @@ h3 {
   gap:.5rem}
 button,input,select {
   font:inherit;
-  color:#edf8fa;
-  background:#101c2a;
-  border:1px solid #526c80;
+  color:#ffffff;
+  background:#141414;
+  border:1px solid #5e5e5e;
   border-radius:.2rem;
   padding:.55rem .7rem;
   max-width:100%;
@@ -60,13 +60,13 @@ input[type=checkbox] {
   height:1.15rem;
   flex:none}
 button:disabled {
-  color:#9aa9b7;
-  border-color:#374c60;
+  color:#ababab;
+  border-color:#434343;
   cursor:default}
 button:hover:not(:disabled) {
-  background:#1a3340}
+  background:#242424}
 button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible {
-  outline:2px solid #64efcf;
+  outline:2px solid #99aaff;
   outline-offset:3px}
 .controls {
   display:flex;
@@ -98,16 +98,16 @@ button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visi
   grid-template-columns:auto minmax(0,1fr) auto;
   gap:.7rem;
   padding:.85rem 0;
-  border-top:1px solid #334559;
+  border-top:1px solid #333333;
   align-items:start}
 .feed-row p {
   font-size:.88rem;
   margin:.25rem 0;
-  color:#c8d5df}
+  color:#d2d2d2}
 .feed-row .feed-open {
   background:none;
   border:0;
-  color:#edf8fa;
+  color:#ffffff;
   padding:0;
   text-align:left;
   font-weight:600;
@@ -123,7 +123,7 @@ button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visi
   gap:.7rem;
   margin-top:1rem}
 #preview {
-  border-left:1px solid #334559;
+  border-left:1px solid #333333;
   padding-left:1.2rem;
   overflow-wrap:anywhere}
 #preview p {
@@ -139,14 +139,14 @@ button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visi
 #inbox-pane,#tools-pane {
   grid-column:2 / -1}
 .receipt,.delivery-row {
-  border-top:1px solid #334559;
+  border-top:1px solid #333333;
   padding:1rem 0}
 .receipt p,.delivery-row p {
   margin:.4rem 0}
 .receipt h3 {
   font-size:1.05rem}
 details {
-  border-top:1px solid #334559;
+  border-top:1px solid #333333;
   margin-top:1rem;
   padding:.5rem 0}
 summary {
@@ -156,7 +156,7 @@ summary {
 pre {
   white-space:pre-wrap;
   overflow-wrap:anywhere;
-  background:#0b1520;
+  background:#101010;
   padding:.8rem;
   font-size:.8rem;
   max-height:28rem;
@@ -173,7 +173,7 @@ p,span {
   display:none}
 #announcement {
   padding:.75rem;
-  border-top:1px solid #334559}
+  border-top:1px solid #333333}
 #batch {
   font-size:.86rem}
 #batch label:first-child {
@@ -193,7 +193,7 @@ p,span {
   content:'No feeds match. Clear the search or change a filter.';
   display:block;
   padding:2rem 0;
-  color:#c8d5df}
+  color:#d2d2d2}
 @media(max-width:1000px) {
   .workspace {
   grid-template-columns:8rem minmax(0,1fr)}
@@ -253,22 +253,22 @@ p,span {
   padding-left:1.2rem}
 #announcement {
   border-left:0;
-  border-top:1px solid #334559}
+  border-top:1px solid #333333}
 input::placeholder {
-  color:#a7bac7;
+  color:#bcbcbc;
   opacity:1}
 input {
-  caret-color:#64efcf}
+  caret-color:#99aaff}
 ::selection {
-  background:#64efcf;
-  color:#091019}
+  background:#99aaff;
+  color:#0a0a0a}
 .pagination {
   font-variant-numeric:tabular-nums}
 a:hover {
-  color:#64efcf;
+  color:#99aaff;
   background:transparent}
 html {
-  scrollbar-color:#526c80 #091019}
+  scrollbar-color:#5e5e5e #0a0a0a}
 #preview h2 {
   line-height:1.35}
 #preview h3 {

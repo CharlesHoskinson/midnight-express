@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Midnight Express: private workflow coordination</title>
 <meta name="description" content="What Midnight Express is, the coordination problems it addresses, candidate use cases and the proposed private event stack.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23091019'/%3E%3Cpath d='M6 23V9l10 10L26 9v14' fill='none' stroke='%2364efcf' stroke-width='3'/%3E%3C/svg%3E">
+
 <link rel="stylesheet" href="styles.css">
 <script src="use-cases.js" defer>
 </script>
@@ -13,12 +13,13 @@
 </script>
 <script src="app.js" defer>
 </script>
+<link rel="stylesheet" href="brand.css">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
 <body>
 <a class="skip" href="#main-content">Skip to main content</a>
 <header>
-<a class="brand" href="#">
-<span class="mark">M∕E</span> MIDNIGHT EXPRESS</a>
+<a class="brand" href="#"><span class="mark" aria-hidden="true">M/E</span><span class="brand-name">Midnight <strong>Express</strong></span></a>
 <nav aria-label="Main navigation">
 <a href="#overview">Overview</a>
 <a href="#example">Workflows</a>
@@ -30,12 +31,12 @@
 <a href="specification.html">Specification</a>
 <a href="implementation.html">Implementation</a>
 </nav>
-<span class="edition">PRODUCT &amp; ARCHITECTURE</span>
+
 </header>
 <main id="main-content" tabindex="-1">
 <section class="intro" id="overview">
 <div>
-<p class="eyebrow">MIDNIGHT EXPRESS / PRIVATE WORKFLOW COORDINATION</p>
+
 <h1>Private workflow<br>coordination<span>.</span>
 </h1>
 <p class="lead">Midnight Express is a proposed network and software toolkit for exchanging confidential business updates between applications, organizations and software agents.</p>
@@ -45,19 +46,20 @@
 <span>Local prototypes · production integration pending</span>
 </div>
 <div class="intro-links">
+<a class="brand-action" href="subscriptions.html">Explore the feed directory</a>
 <a href="#example">See a business workflow</a>
 <a href="#architecture">Explore the architecture</a>
 </div>
 </div>
 <figure class="hero-art">
-<img src="assets/transport.webp" alt="Conceptual model of sealed event capsules moving through a distributed network">
+<img width="1672" height="941" fetchpriority="high" src="assets/midnight-express-network-v2.webp" alt="Generated conceptual illustration of sealed event capsules moving through an electric-blue network on black">
 <figcaption>Conceptual illustration · encrypted updates between applications</figcaption>
 </figure>
 </section>
 <section class="meaning">
 <div class="section-heading">
 <div>
-<p class="eyebrow">WHAT IT IS</p>
+
 <h2>A delivery layer for<br>confidential business updates.</h2>
 </div>
 <p>Starting with teams connecting backend and desktop quote systems, finance software and human-approved agents.</p>
@@ -81,28 +83,28 @@
 <section id="problem">
 <div class="section-heading">
 <div>
-<p class="eyebrow">THE PROBLEM</p>
+
 <h2>Keep track of work<br>across applications.</h2>
 </div>
 <p>Teams need an agreed record of current terms, completed work and valid approvals when their applications exchange updates.</p>
 </div>
 <div class="problem-grid">
 <article>
-<span class="problem-index">CONFIDENTIALITY</span>
+
 <h3>Share the update with the right participants.</h3>
 <p>Quotes, invoice amounts and approval instructions can reveal sensitive relationships. Topic names and subscription filters can also reveal what a participant is watching.</p>
 <p class="intended-response">
 <strong>Design response:</strong> encrypt business details and let receivers recognize relevant events locally.</p>
 </article>
 <article>
-<span class="problem-index">CONTINUITY</span>
+
 <h3>Recover the last valid workflow state.</h3>
 <p>Disconnects, retries and updates from several systems can leave teams comparing records or chasing status. The latest received message may not be the latest valid state.</p>
 <p class="intended-response">
 <strong>Design response:</strong> retained history, explicit gaps and durable endpoint progress, with duplicate and expiry checks.</p>
 </article>
 <article>
-<span class="problem-index">PERMISSION</span>
+
 <h3>Know what an approval permits.</h3>
 <p>A delivered or authentic message may still request an unauthorized action. An approval needs a specific signer, target, budget and deadline.</p>
 <p class="intended-response">
@@ -114,7 +116,7 @@
 <section id="example" class="business-workflow">
 <div class="section-heading">
 <div>
-<p class="eyebrow">SEE THE WORK</p>
+
 <h2>How the proposed pilots<br>would work.</h2>
 </div>
 <p>Quote coordination would establish the foundation. Invoice matching and agent approvals would test whether other workflows can reuse it.</p>
@@ -148,7 +150,7 @@
 <section id="use-cases">
 <div class="section-heading">
 <div>
-<p class="eyebrow">WHERE IT COULD HELP</p>
+
 <h2>Workflows to try<br>and opportunities to explore.</h2>
 </div>
 <p>These candidates are recommendations. Customer results and launch commitments have not been established. Ranking considers confidentiality, shared stack reuse, measurable outcomes and additional dependencies.</p>
@@ -177,14 +179,15 @@
 <section id="architecture" class="architecture">
 <div class="section-heading">
 <div>
-<p class="eyebrow">HOW THE STACK SUPPORTS THE WORK</p>
+
 <h2>What each component<br>is responsible for.</h2>
 </div>
 <p>The overlay distributes sealed events. Endpoints recognize relevant updates and apply their own rules. Select a component to see its role and remaining integration work.</p>
 </div>
+<figure class="architecture-art"><a href="assets/midnight-express-stack-v2.webp" aria-label="Open the proposed stack diagram at full size"><img src="assets/midnight-express-stack-v2.webp" width="1672" height="941" loading="lazy" alt="Proposed stack: SDK and OpenMLS seal events; membership admission gates GossipSub; opaque stores, whole-shard receivers and the Midnight anchor are parallel branches. Receivers recognize locally, check business authority and commit consumer progress in UmbraDB."></a><figcaption>Proposed integrations. GossipSub distributes opaque envelopes; source checks, private selectors and processing stay at endpoints. Explore each component below.</figcaption></figure>
 <div class="system-layout">
 <div class="map">
-<div class="lane-label">APPLICATION ENDPOINT <span>Private business context</span>
+<div class="lane-label">Application endpoint <span>Private business context</span>
 </div>
 <div class="node-row two">
 <button class="node" aria-controls="component-detail" data-component="sdk">
@@ -199,7 +202,7 @@
 <div class="connector">
 <span>Sealed event + one admission proof</span>
 </div>
-<div class="lane-label">DISTRIBUTION OVERLAY <span>Opaque envelopes</span>
+<div class="lane-label">Distribution overlay <span>Opaque envelopes</span>
 </div>
 <div class="node-row three">
 <button class="node" aria-controls="component-detail" data-component="membership">
@@ -219,7 +222,7 @@
 <div class="connector">
 <span>Whole-shard reception → recognize locally</span>
 </div>
-<div class="lane-label">RECEIVING ENDPOINT <span>Authorized processing</span>
+<div class="lane-label">Receiving endpoint <span>Authorized processing</span>
 </div>
 <div class="node-row two">
 <button class="node" aria-controls="component-detail" data-component="recovery">
@@ -234,7 +237,7 @@
 <div class="connector">
 <span>Optional effect: workflow authority + anchor evidence</span>
 </div>
-<div class="lane-label">PARALLEL LEDGER BRANCH <span>Independent inclusion evidence</span>
+<div class="lane-label">Parallel ledger branch <span>Independent inclusion evidence</span>
 </div>
 <div class="node-row two">
 <button class="node" aria-controls="component-detail" data-component="anchor">
@@ -269,7 +272,7 @@
 <section id="journey" class="journey">
 <div class="section-heading">
 <div>
-<p class="eyebrow">THE PROTOCOL JOURNEY</p>
+
 <h2>What happens beneath<br>the business workflow.</h2>
 </div>
 <p>A technical walkthrough of publication, local reception and recovery. Retention and anchoring proceed independently; contract effects add a separate proof path.</p>
@@ -288,10 +291,10 @@
 </section>
 <section class="recovery-section">
 <figure>
-<img src="assets/recovery.webp" alt="Conceptual layered archive with sealed data modules and a highlighted checkpoint" loading="lazy">
+<a href="assets/midnight-express-recovery-v2.webp" aria-label="Open the recovery diagram at full size"><img width="1672" height="941" src="assets/midnight-express-recovery-v2.webp" alt="Proposed recovery diagram: retained history feeds a local journal, receipt decisions and a contiguous checkpoint; reading is separate" loading="lazy"></a><figcaption>Reading and saving change presentation. Review or quarantine records a disposition; progress advances across contiguous decided work. Resume rechecks authority and preserves pause. <a href="assets/midnight-express-recovery-v2.webp">Open the diagram at full size</a>.</figcaption>
 </figure>
 <div>
-<p class="eyebrow">RECOVERY FOUNDATION</p>
+
 <h2>Resume the workflow<br>after an interruption.</h2>
 <p>A receiving application needs a durable record of what it processed and what remains to do. UmbraDB, which understands Midnight data, and PostgreSQL are the proposed foundation for trusted Node backend hosts. UmbraDB supplies temporal records, checkpoints and cursors for that work.</p>
 <p>A local Umbra/PostgreSQL prototype now commits one report-row effect, deduplication, outbox, checkpoint and cursor through the public transaction API. Full MPE recovery still needs authenticated processing, protected restore and writer ownership enforced at commit, alongside the proposed future-release requirements.</p>
@@ -305,7 +308,7 @@
 <section id="roadmap" class="roadmap">
 <div class="section-heading">
 <div>
-<p class="eyebrow">FROM PROPOSAL TO PRODUCT</p>
+
 <h2>From a workflow demo<br>to production evidence.</h2>
 </div>
 </div>
@@ -339,7 +342,7 @@ Semaphore supplies membership lifecycle patterns; publication uses one combined 
 <section class="questions" id="questions">
 <div class="section-heading">
 <div>
-<p class="eyebrow">QUESTIONS / IN PLAIN LANGUAGE</p>
+
 <h2>What a design partner<br>should know.</h2>
 </div>
 </div>
@@ -392,7 +395,7 @@ Semaphore supplies membership lifecycle patterns; publication uses one combined 
 </details>
 </section>
 <section class="sources">
-<p class="eyebrow">DESIGN &amp; EVIDENCE</p>
+
 <h2>Design documents<br>and implementation evidence.</h2>
 <p>The stack is a recommendation with tested local components. Production deployment and protocol performance remain to be demonstrated; the selected libraries need integration.</p>
 <div class="source-links">
